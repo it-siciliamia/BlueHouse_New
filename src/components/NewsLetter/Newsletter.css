@@ -1,17 +1,11 @@
-
-
-
-.wrapper{
+.wrapper {
   display: flex;
-  
 }
-.inputWrapper{
+.inputWrapper {
   width: 30%;
 }
 
-
 .newsletter_container {
-  
   width: 100%;
   height: auto;
   display: flex;
@@ -36,7 +30,7 @@
   color: #455c80;
   text-transform: uppercase;
   text-align: center;
-  font-family: 'Oblik', sans-serif;
+  font-family: "Oblik", sans-serif;
   font-size: 24px;
 }
 
@@ -62,25 +56,22 @@
 }
 
 @media only screen and (max-width: 860px) {
-  .newsletter_heading  {
+  .newsletter_heading {
     width: 100%;
     font-size: 5vw;
   }
 
-  .inputWrapper{
+  .inputWrapper {
     width: 100%;
-   
   }
 
-  .wrapper{
+  .wrapper {
     width: 80vw;
- 
+
     flex-direction: column;
-   
-    
   }
 
-  .newsletter_button{
+  .newsletter_button {
     margin-top: 20px;
     width: 100%;
   }
@@ -94,10 +85,5 @@
     gap: 10px;
     flex-direction: column-reverse;
     margin-right: 0;
-   
   }
-
-  
-
-
 }
