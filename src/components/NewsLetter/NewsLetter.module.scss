@@ -1,0 +1,206 @@
+.newsletterContainer {
+  margin-left: auto;
+  margin-right: auto;
+  width: 1280px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 15px;
+  gap: 20px;
+  //   border: 1px solid #243864;
+  border: 1px solid #d8dfe7;
+
+  @media (max-width: 768px) {
+    width: 90%;
+    padding: 15px;
+    margin-bottom: 50px;
+  }
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    width: 90%;
+    padding: 20px 15px;
+    margin-bottom: 50px;
+  }
+}
+
+.newsletterHeading {
+  width: 58%;
+  letter-spacing: 1px;
+  color: #455c80;
+  text-transform: uppercase;
+  text-align: center;
+  font-family: "Oblik", sans-serif;
+  font-size: 24px;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    font-size: 18px;
+  }
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    width: 70%;
+    font-size: 20px;
+  }
+}
+
+.partContent {
+  width: 750px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: -5px;
+  }
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    width: 650px;
+  }
+}
+
+.partTitle {
+  color: #455c80;
+  //   text-transform: uppercase;
+  text-align: center;
+  font-family: "Oblik", sans-serif;
+  font-size: 18px;
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    font-size: 16px;
+  }
+}
+
+.formGroup {
+  margin-right: 200px;
+  margin-bottom: 15px;
+  width: 350px;
+
+  @media (max-width: 768px) {
+    margin-right: 0px;
+    width: 100%;
+  }
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    margin-right: 150px;
+    width: 350px;
+  }
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+input.error {
+  border-color: red;
+}
+
+.errorMessage {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.customCheckbox {
+  width: 750px;
+  display: flex;
+  align-items: flex-start;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    width: 650px;
+  }
+}
+
+.customCheckbox input[type="checkbox"] {
+  display: none;
+}
+
+.customCheckbox label {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  margin-right: 10px;
+  flex-shrink: 0;
+}
+
+.customCheckbox input[type="checkbox"]:checked + label {
+  background-color: white;
+  border: 2px solid black;
+}
+
+.customCheckbox input[type="checkbox"]:checked + label::after {
+  content: "✔";
+  display: block;
+  font-size: 16px;
+  color: black;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.warningText {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.5;
+  color: black;
+  white-space: normal;
+  text-align: left;
+}
+
+.policyText {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #8969af;
+}
+
+.humanVerification {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn {
+  margin-top: 15px;
+  background-color: #3b5998;
+  font-size: 15px;
+  color: #fff;
+  font-size: 16px;
+  padding-top: 11px;
+  padding-bottom: 9px;
+  width: 280px;
+  text-transform: uppercase;
+  transition: border-color 0.3s ease;
+  border: 1px solid #3b5998;
+  cursor: pointer;
+
+  @media (max-width: 768px) {
+    width: 220px;
+  }
+}
+
+.btn:hover {
+  color: #073762;
+  background-color: #fff;
+}
