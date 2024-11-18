@@ -30,7 +30,7 @@
 .pagination {
   margin-bottom: 30px;
   position: absolute;
-  z-index: 100;
+  z-index: 2;
 }
 
 .paginationBox {
@@ -85,7 +85,7 @@
   margin-left: 20px;
   top: 47%;
   left: 0;
-  z-index: 10;
+  z-index: 2;
 }
 
 .arrowButtonRight {
@@ -93,5 +93,5 @@
   margin-right: 20px;
   top: 47%;
   right: 0;
-  z-index: 10;
+  z-index: 2;
 }
