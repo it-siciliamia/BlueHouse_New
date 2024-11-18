@@ -1,0 +1,103 @@
+.blogPart {
+  display: flex;
+  // flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 0 10px 0 50px;
+  gap: 70px;
+  width: 100%;
+  margin: 100px 0;
+}
+
+.tripAdvisor_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+}
+
+.tripAdvisor_container > h5 {
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+.tripAdvisor_container > img {
+  width: 20vw;
+  transition: transform 0.3s ease;
+}
+
+.tripAdvisor_container > img:hover {
+  transform: scale(1.1);
+}
+
+.blogPart__blog {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  width: 100%;
+  border: 1px solid #dbe2e9;
+  padding: 30px;
+  min-width: 300px;
+}
+
+.blogPart__blog_image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+}
+
+.blogPart__blog_image > img {
+  width: 100%;
+  height: 100%;
+}
+
+.blogPart__blog_content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+.blogPart__blog_content_text > h3 {
+  font-size: 20px;
+  font-weight: 300;
+  text-align: center;
+}
+
+.blogPart__blog_content > button {
+  width: 160px;
+  height: 42px;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: Josefin Sans;
+  padding: 11px;
+  text-transform: uppercase;
+  background-color: white;
+  color: #1D3967;
+  border: 1px solid #1D3967;
+}
+
+.blogPart__blog_content > button:hover {
+  color: white;
+  background: linear-gradient(
+      180deg,
+      #04376f 99.99%,
+      rgba(255, 255, 255, 0) 100%
+    ),
+    #ffffff;
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+  .blogPart {
+    display: none;
+  }
+}
+@media (max-width: 1000px) {
+  .blogPart {
+    flex-wrap: wrap;
+  }
+}

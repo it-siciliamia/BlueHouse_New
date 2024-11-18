@@ -1,0 +1,101 @@
+.review {
+  padding: 58px 15px 14px;
+  display: flex;
+  flex-direction: column;
+}
+
+.review__section {
+  padding: 0;
+  width: 100%;
+  position: relative;
+}
+
+.review__title {
+  margin: 0 0 0 5px;
+  font-family: Oblik;
+  font-weight: 900;
+  font-size: 18px;
+  line-height: 50px;
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+}
+
+.review__buttons {
+  display: none;
+}
+
+.custom-slider {
+  padding: 10px 0;
+}
+
+.custom-slide {
+  padding: 10px 6px;
+}
+
+.swiper-pagination {
+  height: 40px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+}
+
+.bulletClass {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #c4c4c4;
+}
+
+.bulletActiveClass {
+  background-color: #073762;
+}
+
+@media (min-width: 1024px) {
+  .review {
+    margin-bottom: 64px;
+  }
+
+  .review__section {
+    display: flex;
+    gap: 7%;
+  }
+
+  .review__title {
+    margin: 6.5rem 0 0 -15px;
+    width: 36px;
+    height: fit-content;
+    font-size: 24px;
+    line-height: 1.2;
+    transform: rotate(-90deg);
+  }
+
+  .custom-slider {
+    padding: 10px 1.9% 10px 0;
+  }
+
+  .review__buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1px;
+  }
+
+  .review__button {
+    width: 34px;
+    height: 24px;
+    cursor: pointer;
+    border: none;
+    padding: 0 12.5px;
+    background: none;
+    background: url("../../images/ReviewSlider/shevron-right.svg") center / auto
+      no-repeat;
+  }
+
+  .button-prev {
+    transform: rotate(180deg);
+  }
+
+  .swiper-pagination {
+    display: none;
+  }
+}

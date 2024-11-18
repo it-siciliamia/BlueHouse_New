@@ -1,0 +1,50 @@
+
+.slick-prev,
+.slick-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  color: #073762;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+}
+
+.slick-prev:hover, .slick-next:hover {
+    opacity: 1; /* Prevents fading out */
+    background-color: white; /* Ensure the color stays white */
+    color: #073762;
+
+  }
+  
+  .slick-prev, .slick-next {
+    opacity: 1; /* Ensures the arrows are fully visible */
+    transition: none; /* Disable any transition effects if not needed */
+  }
+.slick-prev {
+  left: 20px;
+}
+
+.slick-next {
+  right: 20px;
+}
+
+.custom-dots {
+  position: absolute;
+  bottom: 50px;
+  width: 100%;
+  display: flex !important;
+  justify-content: center;
+  z-index: 2;
+}
+
+.custom-dots li button:before {
+  font-size: 9px;
+  color: #073762;
+  opacity: 0.2; /* Customize the color of the dots */
+}
+
+.custom-dots li.slick-active button:before {
+  color: #073762;
+}

@@ -1,0 +1,104 @@
+.card {
+  position: relative;
+  width: 200px;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 10px;
+  border-radius: 10px;
+  backdrop-filter: blur(30px);
+  background: rgba(0, 0, 0, 0.28);
+  box-shadow: 20px 20px 40px #8b8b8b;
+  border-radius: 16px;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid white;
+  cursor: pointer;
+  margin: 10px;
+}
+
+.weather {
+  font-weight: 700;
+  font-size: 0.9em;
+  letter-spacing: 1.2px;
+  color: white;
+}
+
+.city {
+  font-weight: 500;
+  font-size: 0.7em;
+  letter-spacing: 1.2px;
+  color: white;
+}
+
+.temp {
+  font-size: 1.8em;
+  color: white;
+}
+
+@media (max-width: 968px) {
+  .card {
+    width: 150px;
+    height: 130px;
+    left: 0;
+    padding: 8px 8px;
+  }
+
+  .weather {
+    font-size: 0.8em;
+    text-align: center;
+  }
+
+  .city {
+    font-size: 0.6em;
+  }
+
+  .temp {
+    font-size: 1.5em;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    display: none;
+  }
+  .card {
+    width: 120px;
+    height: 120px;
+    padding: 10px 6px;
+  }
+
+  .weather {
+    font-size: 0.7em;
+  }
+
+  .city {
+    font-size: 0.5em;
+  }
+
+  .temp {
+    font-size: 1.2em;
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    width: 100px;
+    height: 100px;
+    padding: 4px 4px;
+  }
+
+  .weather {
+    font-size: 0.6em;
+  }
+
+  .city {
+    font-size: 0.5em;
+  }
+
+  .temp {
+    font-size: 1em;
+  }
+}
