@@ -47,11 +47,11 @@ const headerStyles = makeStyles((theme) => ({
     justifyContent: "center",
     alignItems: "Center",
     width: "700px",
+    gap:"20px !important",
   },
 
   column3: {
     gap: "10px",
-
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
@@ -77,8 +77,8 @@ const headerStyles = makeStyles((theme) => ({
     lineHeight: "20px",
     textAlign: "center",
     display: "block",
-    height: "46px",
-    padding: "14px",
+    height: "36px",
+    alignContent: "center",
     "&:hover": {
       background: "#04376F",
     },
@@ -97,7 +97,6 @@ const headerStyles = makeStyles((theme) => ({
 
   bookingRoom: {
     backgroundColor: "#3B5998",
-    marginRight: "52px",
     color: "#fff",
     "&:hover": {
       color: "#073762",
@@ -113,7 +112,7 @@ const headerStyles = makeStyles((theme) => ({
     color: "#073762",
     "&:hover": {
       color: "#fff",
-      backgroundColor:'#3B5598'
+    backgroundColor:'#3B5998'
     },
     [theme.breakpoints.down("md")]: {
       marginRight: "-82px",

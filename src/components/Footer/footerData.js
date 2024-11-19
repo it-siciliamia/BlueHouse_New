@@ -13,14 +13,14 @@ export const items = [
     links: [
       { name: "+354 775 6480", icon: Phone, href: "tel:+3547756480" },
       {
-        name: "info@bluehouse.is",
-        icon: Mail,
-        href: "mailto:info@bluehouse.is",
-      },
-      {
         name: "Whatsapp",
         icon: Whatsapp,
         href: "https://api.whatsapp.com/send?phone=3547756480&text=&source=&data=",
+      },
+      {
+        name: "info@bluehouse.is",
+        icon: Mail,
+        href: "mailto:info@bluehouse.is",
       },
       {
         name: "Valhúsabraut 19, Seltjarnarnes, 170, Iceland",
@@ -30,7 +30,7 @@ export const items = [
     ],
   },
   {
-    title: "BLUE HOUSE",
+    title: "ABOUT US",
     links: [
       {
         name: "House Rules & Cancellation Policy",
@@ -60,7 +60,7 @@ export const items = [
   },
 
   {
-    title: "SOCIAL MEDIA",
+    title: "FOLLOW US",
     links: [
       {
         name: "Instagram",
@@ -72,8 +72,16 @@ export const items = [
         icon: Facebook,
         href: "https://www.facebook.com/bluehouseiceland",
       },
-      { name: "X(Twitter)", icon: X, href: "https://x.com/icelandbed" },
-      { name: "YouTube", icon: Youtube, href: "https://youtube.com/@bluehousebbiceland1339?si=OCqKpXhElbK9J-SZ" },
+      { 
+        name: "X(Twitter)",       // needs to be changed to Pinterest icon and link.
+        icon: X, 
+        href: "https://x.com/icelandbed"  
+      },
+      { 
+        name: "YouTube", 
+        icon: Youtube, 
+        href: "https://youtube.com/@bluehousebbiceland1339?si=OCqKpXhElbK9J-SZ" 
+      },
     ],
   },
 ];

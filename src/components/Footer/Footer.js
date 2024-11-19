@@ -3,10 +3,11 @@ import { makeStyles } from "@material-ui/core";
 import Logo from "../images/footer/logo-blue.svg";
 import { FaLongArrowAltUp } from "react-icons/fa";
 import { WithTransLate } from "../../translating";
+import Newsletter from "../NewsLetter/NewsLetter";
 
 const useStyles = makeStyles((theme) => ({
   container: {
-    maxWidth: "91%",
+    maxWidth: "80%",
     margin: "0 auto",
     padding: theme.spacing(2),
     display: "grid",
@@ -33,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
     gridGap: theme.spacing(2),
     [theme.breakpoints.up("sm")]: {
       display: "flex",
-      flexDirection: "row-reverse",
+      flexDirection: "row",
       flex: 1,
       justifyContent: "space-around",
       alignItems: "flex-start",
@@ -42,14 +43,18 @@ const useStyles = makeStyles((theme) => ({
       gridTemplateColumns: "repeat(2, 1fr)",
       gap: theme.spacing(2), 
       gridTemplateAreas: `
+      "item1 item2"
       "item3 item2"
-      "item1 item4"
     `,
     },
   },
+  socials: {
+    display : "flex",
+    flexDirection: "column !important",
+    gap: "10px !important"
+  },
   titleContainer: {
-    display: "flex",
-    alignItems: "flex-start",
+    display: "column",
     marginBottom: theme.spacing(2),
     [theme.breakpoints.up("sm")]: {
       marginBottom: 0,
@@ -60,12 +65,10 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   title: {
-    fontSize: "14px",
+    fontSize: "18px",
     fontWeight: "bold",
-    color: "#073762",
+    color: "#14202B",
     textAlign: "left",
-    writingMode: "vertical-rl",
-    transform: "rotate(180deg)",
     marginBottom: "10px",
     marginRight: theme.spacing(2),
     [theme.breakpoints.down("sm")]: {
@@ -106,12 +109,12 @@ const useStyles = makeStyles((theme) => ({
   lineSeparator: {
     margin: "auto",
     borderBottom: "1px solid #3B5998",
-    width: "90%",
+    width: "80%",
     opacity: '30%',
 
   },
   blueHouseContainer: {
-    maxWidth: "90%",
+    maxWidth: "80%",
     margin: "0 auto",
     paddingBottom: theme.spacing(2),
     paddingTop: theme.spacing(2),
@@ -141,9 +144,8 @@ const useStyles = makeStyles((theme) => ({
     height: "30px",
     width: "30px",
     cursor: "pointer",
-    backgroundColor: '#073762',
-    border: "1px solid #073762",
-
+    backgroundColor: 'transparent',
+    border: "none",
   },
 }));
 
@@ -157,15 +159,15 @@ function Footer() {
       <div style={{ marginBottom: "2rem" }} />
       <div className={classes.container}>
         <div className={classes.logo}>
-          <img src={Logo} alt="Bluehouse_logo" />
+          {/* <img src={Logo} alt="Bluehouse_logo" />  */}
         </div>
         <div className={classes.linkContainer}>
           {items.map((item, index) => (
-            <div className={classes.titleContainer} key={index} style={{ gridArea: `item${index + 1}` }}>
+            <div className={classes.titleContainer} key={index} style={{ gridArea: `item${index + 1}`}}>
               <h3 className={classes.title}>
                 <WithTransLate text={item.title} />
               </h3>
-              <div className={classes.itemLinks}>
+              <div className={`${classes.itemLinks} ${index === 2 ? classes.socials : ""}`}>
                 {item.links.map((link, idx) => (
                   <a
                     key={idx}
@@ -197,7 +199,7 @@ function Footer() {
             <WithTransLate text="Back To Top" />
           </div>
           <button className={classes.scrollToTopBtn}>
-            <FaLongArrowAltUp color="white" />
+            <FaLongArrowAltUp color="#16366B" />
           </button>
         </div>
       </div>
