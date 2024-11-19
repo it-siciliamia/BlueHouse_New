@@ -156,7 +156,7 @@ export default function Support({ removeInPhoneSize }) {
         target="_blank"
       >
         <SupportCard
-          description={"Check previous guest requests."}
+          description={"Guest Information Portal."}
           title={"FAQ"}
           image={faqImage}
         />
