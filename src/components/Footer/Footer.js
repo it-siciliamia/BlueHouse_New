@@ -1,9 +1,8 @@
 import { items } from "./footerData";
 import { makeStyles } from "@material-ui/core";
-import Logo from "../images/footer/logo-blue.svg";
+// import Logo from "../images/footer/logo-blue.svg";
 import { FaLongArrowAltUp } from "react-icons/fa";
 import { WithTransLate } from "../../translating";
-import Newsletter from "../NewsLetter/NewsLetter";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -41,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
     },
     [theme.breakpoints.down("xs")]: {
       gridTemplateColumns: "repeat(2, 1fr)",
-      gap: theme.spacing(2), 
+      gap: theme.spacing(2),
       gridTemplateAreas: `
       "item1 item2"
       "item3 item2"
@@ -49,9 +48,9 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   socials: {
-    display : "flex",
+    display: "flex",
     flexDirection: "column !important",
-    gap: "10px !important"
+    gap: "10px !important",
   },
   titleContainer: {
     display: "column",
@@ -110,8 +109,7 @@ const useStyles = makeStyles((theme) => ({
     margin: "auto",
     borderBottom: "1px solid #3B5998",
     width: "80%",
-    opacity: '30%',
-
+    opacity: "30%",
   },
   blueHouseContainer: {
     maxWidth: "80%",
@@ -135,7 +133,7 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 300,
     marginRight: "10px",
     flexShrink: 0,
-    cursor: 'pointer'
+    cursor: "pointer",
   },
   scrollToTopBtn: {
     borderRadius: "100%",
@@ -144,7 +142,7 @@ const useStyles = makeStyles((theme) => ({
     height: "30px",
     width: "30px",
     cursor: "pointer",
-    backgroundColor: 'transparent',
+    backgroundColor: "transparent",
     border: "none",
   },
 }));
@@ -163,11 +161,19 @@ function Footer() {
         </div>
         <div className={classes.linkContainer}>
           {items.map((item, index) => (
-            <div className={classes.titleContainer} key={index} style={{ gridArea: `item${index + 1}`}}>
+            <div
+              className={classes.titleContainer}
+              key={index}
+              style={{ gridArea: `item${index + 1}` }}
+            >
               <h3 className={classes.title}>
                 <WithTransLate text={item.title} />
               </h3>
-              <div className={`${classes.itemLinks} ${index === 2 ? classes.socials : ""}`}>
+              <div
+                className={`${classes.itemLinks} ${
+                  index === 2 ? classes.socials : ""
+                }`}
+              >
                 {item.links.map((link, idx) => (
                   <a
                     key={idx}

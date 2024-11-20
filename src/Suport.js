@@ -1,8 +1,8 @@
 import React from "react";
-import "./css/Suport.css";
 import SuportCard from "./SuportCard.js";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import "./css/Suport.css";
 AOS.init({
   // Global settings:
   duration: 2000, // values from 0 to 3000, with step 50ms
@@ -10,7 +10,12 @@ AOS.init({
 });
 function Suport() {
   return (
-    <div data-aos="fade-up" className="support" id="faq">
+    <div
+      data-aos="fade-up"
+      className="support"
+      id="faq"
+      style={{ border: "1px solid red" }}
+    >
       <SuportCard
         Icon="./Group.svg"
         title="Support"
@@ -21,7 +26,6 @@ function Suport() {
         title="FAQ"
         text="Check previous guest requests."
       />
-
       <SuportCard
         Icon="./Group-3.svg"
         title="FEEDBACK"
