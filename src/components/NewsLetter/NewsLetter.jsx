@@ -249,11 +249,9 @@ const NewsletterComponent = () => {
                   // placeholder="First Name"
                   className={fieldState.invalid ? s.error : ""}
                 />
-                {fieldState.error && (
-                  <span className={s.errorMessage}>
-                    {fieldState.error.message}
-                  </span>
-                )}
+                <span className={s.errorMessage}>
+                  {fieldState.error ? fieldState.error.message : ""}
+                </span>
               </div>
             )}
           />
@@ -284,11 +282,9 @@ const NewsletterComponent = () => {
                   // placeholder="Last Name"
                   className={fieldState.invalid ? s.error : ""}
                 />
-                {fieldState.error && (
-                  <span className={s.errorMessage}>
-                    {fieldState.error.message}
-                  </span>
-                )}
+                <span className={s.errorMessage}>
+                  {fieldState.error ? fieldState.error.message : ""}
+                </span>
               </div>
             )}
           />
@@ -318,11 +314,9 @@ const NewsletterComponent = () => {
                   // placeholder="Contact Email"
                   className={fieldState.invalid ? s.error : ""}
                 />
-                {fieldState.error && (
-                  <span className={s.errorMessage}>
-                    {fieldState.error.message}
-                  </span>
-                )}
+                <span className={s.errorMessage}>
+                  {fieldState.error ? fieldState.error.message : ""}
+                </span>
               </div>
             )}
           />
