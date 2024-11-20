@@ -1,8 +1,4 @@
-import React from 'react';
-import { Helmet } from 'react-helmet';
-
-const SchemaOrg = () => {
-  const schema = `{
+const schema = `{
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "Blue House B&B",
@@ -124,11 +120,4 @@ const SchemaOrg = () => {
   ]
 }`;
 
-  return (
-    <Helmet>
-      <script type="application/ld+json">{schema}</script>
-    </Helmet>
-  );
-};
-
-export default SchemaOrg;
+export default schema;
