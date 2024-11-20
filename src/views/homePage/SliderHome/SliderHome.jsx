@@ -110,7 +110,6 @@ const SliderHome = ({ viewportWidth }) => {
               style={{ display: index === currentIndex ? "block" : "none" }}
               src={image}
               muted
-              controls
             />
           ) : (
             <img
