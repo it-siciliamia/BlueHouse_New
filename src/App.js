@@ -33,7 +33,7 @@ import RoomBooking from "./views/roombooking/RoomBooking.jsx";
 
 export const UserContext = createContext();
 
-function App() {
+function App({ basename }) {
   const [modalState, setModal] = useState({
     state: false,
     index: 0,
@@ -65,7 +65,7 @@ function App() {
           <script type="application/ld+json">{schema}</script>
         </Helmet>
         <UserContext.Provider value={[modalState, setModal, room, setRoom]}>
-          <Router>
+          <Router basename={basename}>
             <Switch>
               {/*  <Route exact path="/beds24">
               <Home />

@@ -15,6 +15,10 @@ jobs:
         run: |
           sed -i '/"name":/a \  "homepage": "https://it-siciliamia.github.io/BlueHouse_New/",' package.json
 
+      - name: Show package.json 🛠️
+        run: |
+          cat package.json
+
       - name: Set Node Options and Install Dependencies 📦
         run: |
           npm ci --legacy-peer-deps
