@@ -23,7 +23,7 @@ ReactDOM.render(
   <Router>
     <Provider store={store}>
       <PersistGate persistor={persistor}>
-        <App />
+        <App basename={basename} />
       </PersistGate>
     </Provider>
   </Router>,
