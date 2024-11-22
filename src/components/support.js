@@ -34,7 +34,6 @@ const useStyles = makeStyles((theme) => ({
         flexDirection: "column",
         justifyContent: "space-evenly",
         "&:hover": {
-          boxShadow: "0px 4px 4px rgba(7, 55, 98, 0.48)",
           background: "#fff",
         },
       },
@@ -47,8 +46,8 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     justifyContent: "space-evenly",
     "&:hover": {
-      boxShadow: "0px 4px 4px rgba(7, 55, 98, 0.48)",
       background: "#fff",
+      transform: "scale(1.1)",
     },
   },
   LinksColor: {
@@ -57,6 +56,7 @@ const useStyles = makeStyles((theme) => ({
     "&:hover": {
       background: "#00000",
       textDecoration: "none",
+      transform: "scale(1.1)",
     },
   },
   titleStyle: {
