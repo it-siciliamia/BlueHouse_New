@@ -1,10 +1,20 @@
+import { useEffect, useState } from "react"
 import "../../Styles/Calendar.css"
 import CheckDatesButton from "./Date/CheckDatesButton"
 import DateCheckIn from "./Date/DateCheckIn"
 import DateCheckOut from "./Date/DateCheckOut"
+import useCalendarStore from "../../stores/calendar"
 
 
 const NewSearchContainer = () => {
+    const {selectedStart, selectedEnd} = useCalendarStore();
+    const [verif,setVerif]=useState(false);
+    useEffect(()=>{
+        if(selectedStart&&selectedEnd){
+          setVerif(true);
+        }else{
+          setVerif(false);}
+      },[selectedStart,selectedEnd])
     return (
         <div className="relative w-full h-[510px] flex items-end">
             <div className="absolute w-full h-full overflow-hidden">
@@ -15,7 +25,7 @@ const NewSearchContainer = () => {
                 <div className="w-full flex items-center blur-effect">
                     <DateCheckIn />
                     <DateCheckOut />
-                    <CheckDatesButton text={'SEARCH'} className={'whitespace-nowrap'} /> 
+                    <CheckDatesButton text={'SEARCH'} className={'whitespace-nowrap'} verif={verif} /> 
                 </div>
             </div>
         </div>
