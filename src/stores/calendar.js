@@ -83,6 +83,10 @@ const useCalendarStore = create((set, get) => {
         set({ yTop: value })
     }
 
+    const setCapacity = (adults,children,rooms)=> {
+        set({capacity:{adults,children,rooms}})
+    }
+
     return {
         year: parseInt(format(startOfToday(), 'dd MM yyyy').split(' ')[2]), // get the actuel year, 2024
         daysOfMonthsOfTheYear: {}, // get all month & their days, { [junuary]: [1, 2, ..., 31], ... }
@@ -99,7 +103,9 @@ const useCalendarStore = create((set, get) => {
         xLeft: 0, // position from left in px
         yTop: 0, //position from the top of the viewport in px
         setNewXLeft,
-        setNewYTop
+        setNewYTop,
+        setCapacity,
+        selectedCapacity:null
     }
 })
 

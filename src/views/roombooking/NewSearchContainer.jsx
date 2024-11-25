@@ -4,6 +4,7 @@ import CheckDatesButton from "./Date/CheckDatesButton"
 import DateCheckIn from "./Date/DateCheckIn"
 import DateCheckOut from "./Date/DateCheckOut"
 import useCalendarStore from "../../stores/calendar"
+import Capacity from "./Date/Capacity"
 
 
 const NewSearchContainer = () => {
@@ -25,6 +26,7 @@ const NewSearchContainer = () => {
                 <div className="w-full flex items-center blur-effect">
                     <DateCheckIn />
                     <DateCheckOut />
+                    <Capacity/>
                     <CheckDatesButton text={'SEARCH'} className={'whitespace-nowrap'} verif={verif} /> 
                 </div>
             </div>
