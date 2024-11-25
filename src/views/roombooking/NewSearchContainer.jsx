@@ -15,7 +15,7 @@ const NewSearchContainer = () => {
                 <div className="w-full flex items-center blur-effect">
                     <DateCheckIn />
                     <DateCheckOut />
-                    <CheckDatesButton text={'SEARCH'} className={'whitespace-nowrap'} /> 
+                    <CheckDatesButton text={'VALIDATE'} className={'whitespace-nowrap'} /> 
                 </div>
             </div>
         </div>
