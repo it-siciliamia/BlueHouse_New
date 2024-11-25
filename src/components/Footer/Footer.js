@@ -1,12 +1,12 @@
 import { items } from "./footerData";
 import { makeStyles } from "@material-ui/core";
-// import Logo from "../images/footer/logo-blue.svg";
-import { FaLongArrowAltUp } from "react-icons/fa";
+import Logo from "../images/footer/logo-blue.svg";
+import { FiArrowUp } from "react-icons/fi";
 import { WithTransLate } from "../../translating";
-
+import NewsletterComponent from "../NewsLetter/NewsLetter";
 const useStyles = makeStyles((theme) => ({
   container: {
-    maxWidth: "80%",
+    maxWidth: "91%",
     margin: "0 auto",
     padding: theme.spacing(2),
     display: "grid",
@@ -19,41 +19,32 @@ const useStyles = makeStyles((theme) => ({
       flexDirection: "row",
     },
   },
-  logo: {
-    marginBottom: theme.spacing(2),
-    marginTop: theme.spacing(-4),
-    [theme.breakpoints.up("md")]: {
-      marginBottom: "3rem",
-      marginTop: theme.spacing(-18),
-    },
-  },
+
   linkContainer: {
     display: "grid",
     gridTemplateColumns: "1fr",
     gridGap: theme.spacing(2),
     [theme.breakpoints.up("sm")]: {
       display: "flex",
-      flexDirection: "row",
+      // flexDirection: "row-reverse",
       flex: 1,
       justifyContent: "space-around",
       alignItems: "flex-start",
     },
     [theme.breakpoints.down("xs")]: {
       gridTemplateColumns: "repeat(2, 1fr)",
-      gap: theme.spacing(2),
+      gap: theme.spacing(2), 
       gridTemplateAreas: `
-      "item1 item2"
       "item3 item2"
+      "item1 item4"
     `,
     },
   },
-  socials: {
-    display: "flex",
-    flexDirection: "column !important",
-    gap: "10px !important",
-  },
   titleContainer: {
-    display: "column",
+    display: "flex",
+    alignItems: "flex-start",
+    flexDirection:"column",
+
     marginBottom: theme.spacing(2),
     [theme.breakpoints.up("sm")]: {
       marginBottom: 0,
@@ -64,7 +55,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   title: {
-    fontSize: "18px",
+    fontSize: "14px",
     fontWeight: "bold",
     color: "#14202B",
     textAlign: "left",
@@ -85,6 +76,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     alignItems: "flex-start",
     color: "#14202B",
+    
     textDecoration: "none",
     marginBottom: theme.spacing(0.5),
     "&:hover": {
@@ -92,6 +84,7 @@ const useStyles = makeStyles((theme) => ({
     },
     [theme.breakpoints.down("xs")]: {
       justifyContent: "flex-start",
+
     },
   },
   itemLinks: {
@@ -108,11 +101,12 @@ const useStyles = makeStyles((theme) => ({
   lineSeparator: {
     margin: "auto",
     borderBottom: "1px solid #3B5998",
-    width: "80%",
-    opacity: "30%",
+    width: "90%",
+    opacity: '30%',
+
   },
   blueHouseContainer: {
-    maxWidth: "80%",
+    maxWidth: "90%",
     margin: "0 auto",
     paddingBottom: theme.spacing(2),
     paddingTop: theme.spacing(2),
@@ -133,7 +127,7 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 300,
     marginRight: "10px",
     flexShrink: 0,
-    cursor: "pointer",
+    cursor: 'pointer'
   },
   scrollToTopBtn: {
     borderRadius: "100%",
@@ -142,8 +136,8 @@ const useStyles = makeStyles((theme) => ({
     height: "30px",
     width: "30px",
     cursor: "pointer",
-    backgroundColor: "transparent",
-    border: "none",
+    backgroundColor: 'white',
+    border:"none"
   },
 }));
 
@@ -156,24 +150,14 @@ function Footer() {
     <>
       <div style={{ marginBottom: "2rem" }} />
       <div className={classes.container}>
-        <div className={classes.logo}>
-          {/* <img src={Logo} alt="Bluehouse_logo" />  */}
-        </div>
+    
         <div className={classes.linkContainer}>
           {items.map((item, index) => (
-            <div
-              className={classes.titleContainer}
-              key={index}
-              style={{ gridArea: `item${index + 1}` }}
-            >
+            <div className={classes.titleContainer} key={index} style={{ gridArea: `item${index + 1}` }}>
               <h3 className={classes.title}>
                 <WithTransLate text={item.title} />
               </h3>
-              <div
-                className={`${classes.itemLinks} ${
-                  index === 2 ? classes.socials : ""
-                }`}
-              >
+              <div className={classes.itemLinks}>
                 {item.links.map((link, idx) => (
                   <a
                     key={idx}
@@ -205,10 +189,11 @@ function Footer() {
             <WithTransLate text="Back To Top" />
           </div>
           <button className={classes.scrollToTopBtn}>
-            <FaLongArrowAltUp color="#16366B" />
+            <FiArrowUp color="#16366B"/>
           </button>
         </div>
       </div>
+     
     </>
   );
 }
