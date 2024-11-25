@@ -32,7 +32,6 @@
   }
   .ordial hr {
     width: 100%;
-    
     border: 1px solid #dbdbdb;
   }
   .ordial p {
@@ -42,7 +41,6 @@
     text-transform: uppercase;
   }
   .buttons {
-    box-sizing: border-box;
     margin-top: 10px;
     display: flex;
     gap: 5px;
@@ -51,7 +49,6 @@
     align-items: center;
     width: 220px;
     overflow: hidden;
-   
   }
   .buttons button,
   .buttons a {

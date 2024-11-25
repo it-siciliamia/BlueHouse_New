@@ -1,13 +1,36 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import indexCircle from "../../images/index-circle.svg";
 import { Box, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
+import ImageList from "@material-ui/core/ImageList";
+import ImageListItem from "@material-ui/core/ImageListItem";
 import Facebook from "../../images/Header_icons/headerSocialIcons/facebook.svg";
+import Tripadvisor from "../../images/Header_icons/headerSocialIcons/tripadvisor_icon2.svg";
 import instaIcon from "../../images/Header_icons/headerSocialIcons/insta.svg";
 import houserules_mobile from "../../images/houserules_mobile.png";
+import image2 from "../../images/instagram/insta1.jpg";
+import image1 from "../../images/mobile_images/picture.jpeg";
+import image3 from "../../images/mobile_images/grotta.jpg";
+// import image4 from "../../images/instagram/insta1.jpg";
+import Slide from "@mui/material/Slide";
+import headerLogoMobileSize from "../../images/headerLogoMobileSize.svg";
 import Email from "../../images/Header_icons/headerSocialIcons/email.svg";
 import Whatsapp from "../../images/Header_icons/headerSocialIcons/whats.svg";
+import clsx from "clsx";
+import intro from "../../videos/intro.mp4";
 import { WithTransLate } from "../../translating/index";
-import SliderHome from "./SliderHome/SliderHome";
+//#region slider images
+
+import slide1 from "../../images/homePageSlider/slide1.jpg";
+import slide2 from "../../images/homePageSlider/slide2.jpg";
+import slide3 from "../../images/homePageSlider/slide3.jpg";
+import slide4 from "../../images/homePageSlider/slide4.jpg";
+import slide5 from "../../images/homePageSlider/slide5.jpg";
+import slide6 from "../../images/homePageSlider/slide6.jpg";
+
+import { MdArrowForwardIos, MdArrowBackIos } from "react-icons/md";
+
+//#endregion
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -239,21 +262,231 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Header({ title, titleMargins }) {
-  const classes = useStyles({ titleMargins });
-  const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
+const sliderData = [
+  {
+    img: slide1,
+    title: "Image",
+    author: "author",
+  },
+  {
+    img: slide2,
+    title: "Image",
+    author: "author",
+  },
+  {
+    img: slide3,
+    title: "Image",
+    author: "author",
+  },
+  // {
+  //   img: slide4,
+  //   title: "Image",
+  //   author: "author",
+  // },
+  // {
+  //   img: slide5,
+  //   title: "Image",
+  //   author: "author",
+  // },
+  // {
+  //   img: slide6,
+  //   title: "Image",
+  //   author: "author",
+  // },
+];
+
+function Slider({ classes, title }) {
+  const ref = useRef(null);
+  const screenWidth = window.innerWidth;
+  const offset =
+    screenWidth > 1024
+      ? screenWidth * 0.75
+      : screenWidth > 600
+      ? screenWidth * 0.6
+      : screenWidth - 20;
+  const videoDuration = 43000,
+    imageDuration = 2500;
+
+  const [indexValue, setIndexValue] = useState(0);
+  const [duration, setDuration] = useState(videoDuration);
+  const imagesLength = sliderData.length + 1;
+  const timeoutRef = React.useRef(null);
+  const videoRef = React.useRef();
+
+  try {
+    ref.current.scrollLeft = indexValue * offset;
+  } catch (error) {
+    // console.log(error);
+  }
+
+  const scroll = (isBack) => {
+    if (isBack) {
+      setIndexValue((prevIndex) => (prevIndex - 1 + imagesLength) % imagesLength);
+    } else {
+      setIndexValue((prevIndex) => (prevIndex + 1) % imagesLength);
+    }
+  };
+
+  if (indexValue > imagesLength) {
+    setIndexValue(indexValue === 0);
+  } else if (indexValue < 0) {
+    setIndexValue(imagesLength - 1);
+  }
+  if (videoDuration > 43000) {
+    setDuration(videoRef === 0);
+  }
+
+  const getStyle = (index) =>
+    index === indexValue
+      ? {
+          border: "5px solid #04376F",
+          borderRadius: "50%",
+          width: 0,
+          backgroundColor: "#04376f",
+        }
+      : {};
 
   useEffect(() => {
-    const handleResize = () => {
-      setViewportWidth(window.innerWidth);
+    const resetTimeout = () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
     };
+    resetTimeout();
+    timeoutRef.current = setTimeout(async () => {
+      if (imagesLength <= indexValue + 1) {
+        const video = await videoRef.current;
+        setIndexValue(0);
+        setDuration(videoDuration);
+        for (var i = 0; i < videoDuration; i++) {
+          if (!video) return;
+          video.currentTime = "0";
+          video.play();
+        }
+      } else {
+        setIndexValue(indexValue + 1);
+        setDuration(imageDuration);
+      }
+    }, duration);
 
-    window.addEventListener("resize", handleResize);
     return () => {
-      window.removeEventListener("resize", handleResize);
+      resetTimeout();
     };
-  }, []);
+  }, [setIndexValue, indexValue, imagesLength, duration]);
 
+  return (
+    <div className={classes.sliderRoot}>
+      <ImageList ref={ref} className={classes.gridList} cols={1}>
+        <ImageListItem key={"video"} className={classes.gridListTile}>
+          <button
+            key={"back"}
+            className={`${classes.button} ${classes.buttonBackVideo}`}
+            onClick={() => scroll(true)}
+          >
+            <MdArrowBackIos />
+          </button>
+          <video
+            style={{ height: "111%" }}
+            loop
+            className={classes.video}
+            autoPlay
+            muted
+          >
+            <source src={intro} type="video/mp4" />
+          </video>
+          <button
+            key={"next"}
+            className={`${classes.button} ${classes.buttonNextVideo}`}
+            onClick={() => scroll(false)}
+          >
+            <MdArrowForwardIos />
+          </button>
+        </ImageListItem>
+        {sliderData.map((tile, index) => (
+          <ImageListItem key={index} className={classes.gridListTile}>
+            <button
+              key={"back"}
+              className={`${classes.button} ${classes.buttonBack}`}
+              onClick={() => scroll(true)}
+            >
+              <MdArrowBackIos />
+            </button>
+            <img className={classes.image} src={tile.img} alt={tile.title} />
+            <button
+              key={"next"}
+              className={`${classes.button} ${classes.buttonNext}`}
+              onClick={() => scroll(false)}
+            >
+              <MdArrowForwardIos />
+            </button>
+          </ImageListItem>
+        ))}
+      </ImageList>
+      {!title && (
+        <Box
+          style={{
+            gridTemplateColumns: `repeat(${sliderData.length + 1} ,1fr)`,
+          }}
+          className={classes.indexCircle}
+        >
+          <button
+            key={0}
+            className={clsx(classes.indexCircleButton, "clickable")}
+            onClick={() => {
+              setIndexValue(0);
+              setDuration(videoDuration);
+            }}
+          >
+            <img alt={"image " + 0} style={getStyle(0)} src={indexCircle} />
+          </button>
+          {sliderData.map((tile, index) => {
+            const style = getStyle(index + 1);
+            return (
+              // <>
+              <button
+                key={index + 1}
+                className={clsx(classes.indexCircleButton, "clickable")}
+                onClick={() => {
+                  setIndexValue(index + 1);
+                  setDuration(2400);
+                }}
+              >
+                <img
+                  alt={"image " + index + 1}
+                  style={style}
+                  src={indexCircle}
+                />
+              </button>
+              // </>
+            );
+          })}
+        </Box>
+      )}
+      {/* <Button
+        key={"next"}
+        onClick={() => scroll(false)}
+        className={classes.nextButton}
+      >
+        <img alt="next icon" className={classes.arrow} src={nextIcon} />
+      </Button> */}
+    </div>
+  );
+}
+
+export default function Header({ title, titleMargins }) {
+  // const divRef = React.useRef();
+  const images = [image1, image2, image3]; // Array of image URLs
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+  const classes = useStyles({ titleMargins });
   return (
     <Box className={classes.root}>
       {title ? (
@@ -301,23 +534,48 @@ export default function Header({ title, titleMargins }) {
               className={classes.iconzImg}
             />
           </a>
+          {/* <a
+            href="https://www.tripadvisor.com/Hotel_Review-g189970-d1915669-Reviews-Blue_House-Reykjavik_Capital_Region.html"
+            target="_blank"
+            rel="noreferrer"
+            className={classes.iconz}
+            >
+            <img
+              className={classes.trip}
+              src={Tripadvisor}
+              alt="trip-advisor"
+              title="Tripadvisor"
+            />
+          </a> */}
           <a
             href="https://bluehouseis.zohodesk.eu/portal/en/newticket?departmentId=135604000000205173&layoutId=135604000000214460"
             target="_blank"
             rel="noreferrer"
             className={classes.iconz}
+            
           >
-            <img
-              src={Email}
-              title="Email"
-              alt=""
-              className={classes.iconzImg}
-            />
+            <img src={Email} title="Email" alt="" className={classes.iconzImg}/>
           </a>
         </Box>
       )}
       <Box>
-        <SliderHome viewportWidth={viewportWidth} />
+        <Slider title={title} classes={classes} />
+
+        <Slide direction="up" in={true} timeout={1000}>
+          <div
+            className={classes.sliderReplacement}
+            style={{ backgroundImage: `url(${images[index]})` }}
+          >
+            <img
+              src={headerLogoMobileSize}
+              alt="logo"
+              className={classes.logo}
+            />
+            <Typography variant="h1" className={classes.slogan}>
+              <WithTransLate text="COLOUR YOUR EXPERIENdsnlfkCE" />
+            </Typography>
+          </div>
+        </Slide>
       </Box>
     </Box>
   );

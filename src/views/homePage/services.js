@@ -19,9 +19,10 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexWrap: "wrap",
 
-    justifyContent: "space-between",
+    justifyContent: "space-evenly",
     margin: "auto",
-    padding: "50px 180px 30px 180px",
+    //POINT 11 - changed the padding from 180px to 100px
+    padding: "50px 100px 30px 100px",
 
     [theme.breakpoints.down("md")]: {
       justifyContent: "space-evenly",

@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
     margin: "20px auto 80px",
     paddingTop: "20px",
     display: "flex",
-    flexWrap: "wrap",
+    flexWrap: "nowrap",
     justifyContent: "space-around",
     gap: "5vw",
   },
@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
       root: {
         // margin: "80px auto 0px 180px",
         display: "flex",
-        flexWrap: "wrap",
+        flexWrap: "nowrap",
         justifyContent: "space-around",
         gap: "0vw",
         zoom: "0.9",
@@ -156,7 +156,7 @@ export default function Support({ removeInPhoneSize }) {
         target="_blank"
       >
         <SupportCard
-          description={"Guest Information Portal."}
+          description={"Check previous guest requests."}
           title={"FAQ"}
           image={faqImage}
         />

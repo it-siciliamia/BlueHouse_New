@@ -28,17 +28,10 @@ const useStyles = makeStyles((theme) => ({
     letterSpacing: "0.1em",
     marginTop: "-13px",
   },
-  outLinedImage: {
-    width: "auto",
-    height: "420px",
-    padding: "2%",
-    border: "1px solid #1D3967",
-    marginLeft: "-2%",
-  },
   selfieStyle: {
     width: "495px",
     height: "462px",
-    marginTop: "-90px",
+    marginTop: "-70px",
     objectFit: "cover",
     [theme.breakpoints.up("lg")]: {
       width: "35vw",
@@ -75,7 +68,6 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   KnowMore: {
-    border: "1px solid #1D3967",
     width: "280px !important" ,
     textTransform: "uppercase",
     cursor: "pointer",
@@ -83,7 +75,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "16px",
     lineHeight: "16px",
     textAlign: "center",
-    color:'#1D3967',
+    color:'#000000', //POINT 12 
     background:'#fff',
     display: "block",
     height: "46px",
