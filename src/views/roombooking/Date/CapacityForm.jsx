@@ -17,22 +17,22 @@ const CapacityForm = () => {
                 <button onClick={()=>{setAdults(adults+1)}} className='btn'>+</button>
             </div>
         </div>
-        {/* <div className={`flex p-2 border-top align-middle`}>
+        <div className={`flex p-2 border-top align-middle`}>
             <div className="w-full p-2">Children</div>
             <div className='flex border justify-content-around w-100'>
-                <button onClick={handleAdults(false)} className='btn'>-</button>
+                <button onClick={()=>{if(children>0) setChildren(children-1)}} className='btn'>-</button>
                 <div className='py-2'>{children}</div>
-                <button onClick={handleChildren(true)} className='btn'>+</button>
+                <button onClick={()=>{setChildren(children+1)}} className='btn'>+</button>
             </div>
         </div>
         <div className={`flex p-2 border-top align-middle`}>
             <div className="w-full p-2">Rooms</div>
             <div className='flex border justify-content-around w-100'>
-                <button onClick={handleRooms(false)} className='btn'>-</button>
+                <button onClick={()=>{if(rooms>0) setRooms(rooms-1)}} className='btn'>-</button>
                 <div className='py-2'>{rooms}</div>
-                <button onClick={handleRooms(true)} className='btn'>+</button>
+                <button onClick={()=>{setRooms(rooms+1)}} className='btn'>+</button>
             </div>
-        </div> */}
+        </div>
         <button className='btn btn-primary text-center w-full py-2 my-4'>Validate</button>
     </div>
   )
