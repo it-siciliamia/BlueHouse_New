@@ -89,6 +89,7 @@ function CustomTabPanel(props) {
                   <Button
                     sx={{
                       width: "90px",
+                      height: "46px",
                       textDecoration: "underline",
                       p: 0,
                       pr: "0",

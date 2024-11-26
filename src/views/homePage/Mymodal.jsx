@@ -62,7 +62,6 @@ const MyModal = ({ index, open, setOpen, setTabIndex }) => {
     }
   }, [index]);
 
-
   const settings = {
     dots: true,
     infinite: true,
@@ -244,7 +243,7 @@ const MyModal = ({ index, open, setOpen, setTabIndex }) => {
                           variant
                           sx={{
                             width: 225,
-                            height: 58,
+                            height: 46,
                             background: "#073762",
                             borderRadius: "0px",
                             fontFamily: "Josefin Sans",
@@ -255,7 +254,9 @@ const MyModal = ({ index, open, setOpen, setTabIndex }) => {
                             mb: 2,
                           }}
                         >
-                          Book Now
+                          <div style={{ marginTop: "5px" }}>
+                            <WithTransLate text={"Book Now"} />
+                          </div>
                         </Button>
                       </Typography>
                     )}
@@ -324,7 +325,7 @@ const MyModal = ({ index, open, setOpen, setTabIndex }) => {
                           variant
                           sx={{
                             width: 225,
-                            height: 58,
+                            height: 46,
                             background: "#073762",
                             borderRadius: "0px",
                             fontFamily: "Josefin Sans",
@@ -335,7 +336,9 @@ const MyModal = ({ index, open, setOpen, setTabIndex }) => {
                             mb: 2,
                           }}
                         >
-                          Book Now
+                          <div style={{ marginTop: "5px" }}>
+                            <WithTransLate text={"Book Now"} />
+                          </div>
                         </Button>
                       </Typography>
                     )}
@@ -407,7 +410,7 @@ const MyModal = ({ index, open, setOpen, setTabIndex }) => {
                           variant
                           sx={{
                             width: 225,
-                            height: 58,
+                            height: 46,
                             background: "#073762",
                             borderRadius: "0px",
                             fontFamily: "Josefin Sans",
@@ -418,7 +421,9 @@ const MyModal = ({ index, open, setOpen, setTabIndex }) => {
                             mb: 2,
                           }}
                         >
-                          See more
+                          <div style={{ marginTop: "5px" }}>
+                            <WithTransLate text="See more" />
+                          </div>
                         </Button>
                       </Typography>
                     )}
