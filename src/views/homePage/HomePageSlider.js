@@ -5,7 +5,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import ImageList from "@material-ui/core/ImageList";
 import ImageListItem from "@material-ui/core/ImageListItem";
 import Facebook from "../../images/Header_icons/headerSocialIcons/facebook.svg";
-import Tripadvisor from "../../images/Header_icons/headerSocialIcons/tripadvisor_icon2.svg";
+// import Tripadvisor from "../../images/Header_icons/headerSocialIcons/tripadvisor_icon2.svg";
 import instaIcon from "../../images/Header_icons/headerSocialIcons/insta.svg";
 import houserules_mobile from "../../images/houserules_mobile.png";
 import image2 from "../../images/instagram/insta1.jpg";
@@ -24,9 +24,9 @@ import { WithTransLate } from "../../translating/index";
 import slide1 from "../../images/homePageSlider/slide1.jpg";
 import slide2 from "../../images/homePageSlider/slide2.jpg";
 import slide3 from "../../images/homePageSlider/slide3.jpg";
-import slide4 from "../../images/homePageSlider/slide4.jpg";
-import slide5 from "../../images/homePageSlider/slide5.jpg";
-import slide6 from "../../images/homePageSlider/slide6.jpg";
+// import slide4 from "../../images/homePageSlider/slide4.jpg";
+// import slide5 from "../../images/homePageSlider/slide5.jpg";
+// import slide6 from "../../images/homePageSlider/slide6.jpg";
 
 import { MdArrowForwardIos, MdArrowBackIos } from "react-icons/md";
 
@@ -321,7 +321,9 @@ function Slider({ classes, title }) {
 
   const scroll = (isBack) => {
     if (isBack) {
-      setIndexValue((prevIndex) => (prevIndex - 1 + imagesLength) % imagesLength);
+      setIndexValue(
+        (prevIndex) => (prevIndex - 1 + imagesLength) % imagesLength
+      );
     } else {
       setIndexValue((prevIndex) => (prevIndex + 1) % imagesLength);
     }
@@ -552,9 +554,13 @@ export default function Header({ title, titleMargins }) {
             target="_blank"
             rel="noreferrer"
             className={classes.iconz}
-            
           >
-            <img src={Email} title="Email" alt="" className={classes.iconzImg}/>
+            <img
+              src={Email}
+              title="Email"
+              alt=""
+              className={classes.iconzImg}
+            />
           </a>
         </Box>
       )}
