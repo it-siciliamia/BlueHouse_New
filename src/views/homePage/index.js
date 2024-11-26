@@ -1,7 +1,7 @@
 import { Box, makeStyles } from "@material-ui/core";
 import HomeHeader from "./HomePageSlider";
 import PhotoGallery from "./photoGallery";
-import Services from "./services";
+import OurServices from "../../components/OurServices/OurServices.jsx";
 import BookingWrapper from "./BookingWrapper";
 import roomsImage from "../../images/gallery/rooms.svg";
 import housesImage from "../../images/gallery/houseBB2.svg";
@@ -155,7 +155,7 @@ export default function HomePage() {
       <HomeHeader />
       <TabletHomeSlider />
       <BookingWrapper />
-      <Services />
+      <OurServices />
       <Galary />
       <PhotoGallery
         id="gallery"
@@ -195,7 +195,6 @@ export default function HomePage() {
         maxWidth={"514px"}
         minWidth={"220px"}
       />
-
       <Support />
     </Box>
   );
