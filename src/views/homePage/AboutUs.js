@@ -125,7 +125,9 @@ export default function AboutUs() {
               <WithTransLate text="Blue House Bed and Breakfast welcomes you to your home away from home in Reykjavik, Iceland. Simply put, we are a small team of globetrotters, passionate about unforgettable travel experiences." />
             </p>
             <Link to="/About-us" className={KnowMore}>
-              <WithTransLate text="DISCOVER MORE" />
+              <div style={{ marginTop: "2px" }}>
+                <WithTransLate text="DISCOVER MORE" />
+              </div>
             </Link>
           </div>
         </div>

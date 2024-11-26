@@ -42,7 +42,9 @@ function BlogPart() {
             </h2>
           </div>
           <button type="button" href="https://blog.bluehouse.is/">
-            <WithTransLate text="Read Blog" />
+            <div style={{ marginTop: "3px" }}>
+              <WithTransLate text="Read Blog" />
+            </div>
           </button>
         </div>
       </div>
