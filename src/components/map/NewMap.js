@@ -85,7 +85,7 @@ const NewMap = () => {
                 color: "white",
                 border: "1px solid white",
                 borderRadius: "10px",
-                right: "10px",
+                left: "10px",
                 zIndex: 1,
               }}
             >
@@ -99,7 +99,7 @@ const NewMap = () => {
           style={{
             position: "absolute",
             bottom: isMobile ? "20px" : "30px",
-            ...(isMobile ? { left: "10px" } : { right: "15px" }),
+            ...(isMobile ? { left: "10px" } : { left: "50px" }),
             zIndex: 1,
           }}
         >
