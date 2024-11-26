@@ -7,13 +7,15 @@ import schema from "./components/helpers/SchemaOrg/schema.js";
 import Cookies from "./components/Cookies";
 import { ThemeProvider } from "@material-ui/styles";
 import theme from "./theme";
+import ZohoChat from "./components/helpers/ZohoChat/ZohoChat.jsx";
+import ScrollToTopButton from "./components/Shared/ScrollToTopButton/ScrollToTopButton.jsx";
+import ScrollToTop from "./ScrollToTop";
 import HouseRules from "./views/houseRules";
 import Footer from "./components/Footer/Footer";
 import Notfound from "./views/Notfound";
 import Aboutus from "./views/AboutUs";
 import ViewGalery from "./views/viewGalery";
 import PrivacyandPolicy from "./views/ImportAndP&P";
-import ScrollToTop from "./ScrollToTop";
 // import Map from "./components/map/Map";
 import SliderPhoto from "./components/SliderPhoto";
 import NewsLetter from "./components/NewsLetter/NewsLetter.jsx";
@@ -66,6 +68,9 @@ function App({ basename }) {
         </Helmet>
         <UserContext.Provider value={[modalState, setModal, room, setRoom]}>
           <Router basename={basename}>
+            <ScrollToTop />
+            <ScrollToTopButton />
+            <ZohoChat />
             <Switch>
               {/*  <Route exact path="/beds24">
               <Home />

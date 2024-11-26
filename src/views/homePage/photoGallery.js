@@ -8,12 +8,12 @@ import CustomModal from "../../components/customModal/CustomModal";
 import { WithTransLate } from "../../translating/index";
 import MyModal from "./Mymodal";
 // import ViewGallery from "../viewGalery";
-import './PhotoGallery.css'
+import "./PhotoGallery.css";
 import { Button } from "@mui/material";
 const useStyles = makeStyles((theme) => ({
   root: (props) => ({
     display: "flex",
-    marginTop: "20px",
+    marginTop: "100px",
     justifyContent: "space-between",
     width: "83vw",
     [theme.breakpoints.down("md")]: {
@@ -137,7 +137,7 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "left",
     gap: "25px",
     paddingLeft: "20%",
-     marginTop: "40%",
+    marginTop: "40%",
     [theme.breakpoints.down("md")]: {
       gap: "35px",
       fontSize: "14px",
@@ -151,7 +151,7 @@ const useStyles = makeStyles((theme) => ({
       marginRight: "unset",
       textAlign: "left",
     },
-  },  
+  },
   hoverPart: {
     position: "absolute",
     width: "100%",
@@ -220,9 +220,8 @@ export default function PhotoGallery({
   // eslint-disable-next-line
   const [modalState, setModal, room, setRoom] = useContext(UserContext);
   const [open, setOpen] = useState(false);
-  const [tabIndex, setTabIndex] = useState(0)
+  const [tabIndex, setTabIndex] = useState(0);
   const rootStyleInPhoneSize = removeInPhoneSize ? { display: "none" } : {};
-
 
   const {
     hoverPart,
@@ -240,7 +239,6 @@ export default function PhotoGallery({
   const clickableParClassNames = isClickable
     ? clsx(photoWrapper, "clickable")
     : photoWrapper;
-
 
   const getDescriptions = (title) => {
     switch (title) {
@@ -260,7 +258,8 @@ export default function PhotoGallery({
 
     return descriptions.map((desc, index) => {
       // Avoid rendering unnecessary list items for "Houses" and "Surroundings"
-      if ((title === "Houses" || title === "Surroundings") && index > 2) return null;
+      if ((title === "Houses" || title === "Surroundings") && index > 2)
+        return null;
 
       return (
         <li key={index}>
@@ -271,7 +270,6 @@ export default function PhotoGallery({
       );
     });
   };
-
 
   return (
     <div id={id} onClick={() => openSliderOnClick && openSliderOnClick(true)}>
@@ -293,67 +291,66 @@ export default function PhotoGallery({
                       title === "Double/Twin"
                         ? setRoom({ double: true })
                         : title === "Triple / Quadruple"
-                          ? setRoom({ triple: true })
-                          : title === "Family Room"
-                            ? setRoom({ family: true })
-                            : title === "Apartments"
-                              ? setRoom({ apartments: true })
-                              : title === "Blue House"
-                                ? setRoom({ blueHouse: true })
-                                : title === "Green House"
-                                  ? setRoom({ greenHouse: true })
-                                  : title === "Grótta Northern Lights"
-                                    ? setRoom({ gNorthernLights: true })
-                                    : title === "Northern Lights"
-                                      ? setRoom({ northernLights: true })
-                                      : title === "Neighborhood"
-                                        ? setRoom({ neighborhood: true })
-                                        : title === "Activities"
-                                          ? setRoom({ activities: true })
-                                          : setRoom(false);
+                        ? setRoom({ triple: true })
+                        : title === "Family Room"
+                        ? setRoom({ family: true })
+                        : title === "Apartments"
+                        ? setRoom({ apartments: true })
+                        : title === "Blue House"
+                        ? setRoom({ blueHouse: true })
+                        : title === "Green House"
+                        ? setRoom({ greenHouse: true })
+                        : title === "Grótta Northern Lights"
+                        ? setRoom({ gNorthernLights: true })
+                        : title === "Northern Lights"
+                        ? setRoom({ northernLights: true })
+                        : title === "Neighborhood"
+                        ? setRoom({ neighborhood: true })
+                        : title === "Activities"
+                        ? setRoom({ activities: true })
+                        : setRoom(false);
                     }}
                   >
                     {(description || action) && (
                       <div className={hoverPart}>
                         <ul className={descriptionOfGallaryStyle}>
-                        {renderListItems(title)}
+                          {renderListItems(title)}
                         </ul>
-                          <Button
-                            variant="outlined"
-                            sx={{
-                              position:"absolute",
-                              bottom:50,
+                        <Button
+                          variant="outlined"
+                          sx={{
+                            position: "absolute",
+                            bottom: 50,
+                            color: "white",
+                            width: "153px",
+                            fontSize: "16px",
+                            fontWeight: "600",
+                            height: "38px",
+                            border: "1px solid white",
+                            borderRadius: "0px",
+                            fontFamily: "Josefin Sans",
+                            textAlign: "center", // Ensures the text is centered horizontally
+                            "&:hover": {
+                              backgroundColor: "#073762",
                               color: "white",
-                              width: "153px",
-                              fontSize: "16px",
-                              fontWeight: "600",
-                              height: "38px",
-                              border: "1px solid white",
-                              borderRadius: "0px",
-                              fontFamily: "Josefin Sans",
-                              textAlign: "center", // Ensures the text is centered horizontally
-                              "&:hover": {
-                                backgroundColor: "#073762",
-                                color: "white",
-                                border: "1px solid #073762",
-                              },
-                            }}
-                            onClick={() => {
-                              setOpen(true);
-                              setTabIndex(index);
-                            }}
-                          >
-                            KNOW MORE
-                          </Button>
+                              border: "1px solid #073762",
+                            },
+                          }}
+                          onClick={() => {
+                            setOpen(true);
+                            setTabIndex(index);
+                          }}
+                        >
+                          KNOW MORE
+                        </Button>
 
-                        <div className={actionStyle}>
-                          </div>
-                          <MyModal
-                            index={tabIndex}
-                            open={open}
-                            setOpen={setOpen}
-                            setTabIndex={setTabIndex}
-                          />
+                        <div className={actionStyle}></div>
+                        <MyModal
+                          index={tabIndex}
+                          open={open}
+                          setOpen={setOpen}
+                          setTabIndex={setTabIndex}
+                        />
                       </div>
                     )}
                     <img alt="ph" src={background} className={hoverImage} />
@@ -365,9 +362,7 @@ export default function PhotoGallery({
               }
             )}
           </Box>
-
         </div>
-
 
         {/* <Box 
       display="flex" 
@@ -398,7 +393,7 @@ export default function PhotoGallery({
         View Gallery
       </Button>
     </Box> */}
-   
+
         {/*actionType && (
           <a href="/view-gallery" className={clsx("outLinedButton", but)}>
             <WithTransLate text={actionType} />

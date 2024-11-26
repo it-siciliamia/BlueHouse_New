@@ -84,7 +84,7 @@ const NewMap = () => {
                 border: "1px solid white",
                 borderRadius: "10px",
                 right: "10px",
-                zIndex: 2,
+                zIndex: 1,
               }}
             >
               <AiOutlineFullscreen style={{ width: "30px", height: "30px" }} />
@@ -98,7 +98,7 @@ const NewMap = () => {
             position: "absolute",
             bottom: isMobile ? "20px" : "30px",
             ...(isMobile ? { left: "10px" } : { right: "15px" }),
-            zIndex: 2,
+            zIndex: 1,
           }}
         >
           <WeatherCard temperature={weather.main.temp} />

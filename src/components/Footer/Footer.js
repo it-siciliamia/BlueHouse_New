@@ -1,7 +1,5 @@
 import { items } from "./footerData";
 import { makeStyles } from "@material-ui/core";
-// import Logo from "../images/footer/logo-blue.svg";
-import { FaLongArrowAltUp } from "react-icons/fa";
 import { WithTransLate } from "../../translating";
 
 const useStyles = makeStyles((theme) => ({
@@ -147,8 +145,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
-
 function Footer() {
   const classes = useStyles();
 
@@ -156,9 +152,7 @@ function Footer() {
     <>
       <div style={{ marginBottom: "2rem" }} />
       <div className={classes.container}>
-        <div className={classes.logo}>
-          {/* <img src={Logo} alt="Bluehouse_logo" />  */}
-        </div>
+        <div className={classes.logo}></div>
         <div className={classes.linkContainer}>
           {items.map((item, index) => (
             <div
@@ -200,14 +194,6 @@ function Footer() {
       <div className={classes.lineSeparator} style={{ marginTop: "2rem" }} />
       <div className={classes.blueHouseContainer}>
         <span className={classes.blueHouse}>© Blue House 2024</span>
-        <div className={classes.right} onClick={scrollToTop}>
-          <div className={classes.backToTop}>
-            <WithTransLate text="Back To Top" />
-          </div>
-          <button className={classes.scrollToTopBtn}>
-            <FaLongArrowAltUp color="#16366B" />
-          </button>
-        </div>
       </div>
     </>
   );
