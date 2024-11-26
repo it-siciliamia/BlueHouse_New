@@ -117,11 +117,11 @@ const HumanVerification = ({ onVerify }) => {
                   cursor: "pointer",
                   border:
                     isVerified && verifiedName === icon.name
-                      ? "1px solid #1d3967"
+                      ? "1px solid #1D3967"
                       : "1px solid #d8dfe7",
                   color:
                     isVerified && verifiedName === icon.name
-                      ? "#1d3967"
+                      ? "#1D3967"
                       : "black",
                 }}
                 className={s.human__iconWrapper}

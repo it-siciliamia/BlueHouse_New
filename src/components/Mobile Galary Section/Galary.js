@@ -29,10 +29,10 @@ function CustomTabPanel(props) {
           <Box
             sx={{
               display: "grid",
-              gridTemplateColumns: 'repeat(2, 1fr)', // Two columns
-              width: '100%',
-              gap: '18px',
-              paddingX:'20px'
+              gridTemplateColumns: "repeat(2, 1fr)", // Two columns
+              width: "100%",
+              gap: "18px",
+              paddingX: "20px",
             }}
           >
             {Rooms.map((room, index) => (
@@ -40,7 +40,7 @@ function CustomTabPanel(props) {
                 key={index}
                 sx={{
                   maxWidth: "100%",
-                  boxShadow:'none',
+                  boxShadow: "none",
                   borderRadius: "0px",
                 }}
               >
@@ -50,15 +50,15 @@ function CustomTabPanel(props) {
                   title={room.title}
                 />
                 <CardContent
-                  sx={{ width: "200px", height: "10px", padding: 0, my:1  }}
+                  sx={{ width: "200px", height: "10px", padding: 0, my: 1 }}
                 >
                   <Typography
                     gutterBottom
                     variant="p"
                     fontSize="16px"
                     fontWeight={"400"}
-                    color='#000000'
-                    fontFamily='Josefin Sans'
+                    color="#000000"
+                    fontFamily="Josefin Sans"
                     component="div"
                   >
                     <WithTransLate text={room.title} />
@@ -67,7 +67,7 @@ function CustomTabPanel(props) {
                     gutterBottom
                     variant="p"
                     fontSize="14px"
-                    fontWeight='300'
+                    fontWeight="300"
                     color="#14202B"
                     component="div"
                   >
@@ -75,18 +75,35 @@ function CustomTabPanel(props) {
                   </Typography>
                 </CardContent>
                 <CardActions
-                  sx={{ height: "10px", pt: 2, pl:0,pr:0, mt:!!room.From? 6:3, width: "100%", ml:0,mr:0 }}
+                  sx={{
+                    height: "10px",
+                    pt: 2,
+                    pl: 0,
+                    pr: 0,
+                    mt: !!room.From ? 6 : 3,
+                    width: "100%",
+                    ml: 0,
+                    mr: 0,
+                  }}
                 >
                   <Button
-                    sx={{ width: "90px", textDecoration: "underline", p: 0, pr:'0', color:'#3B5998', fontFamily:'Josefin Sans', fontWeight:'600' }}
+                    sx={{
+                      width: "90px",
+                      textDecoration: "underline",
+                      p: 0,
+                      pr: "0",
+                      color: "#1D3967",
+                      fontFamily: "Josefin Sans",
+                      fontWeight: "600",
+                    }}
                     href={room.Link}
                     target="_blank"
                   >
-
-                    {
-                      value === 2 ? <WithTransLate text="SEE MORE" /> : <WithTransLate text="BOOK NOW" />
-                    }
-
+                    {value === 2 ? (
+                      <WithTransLate text="SEE MORE" />
+                    ) : (
+                      <WithTransLate text="BOOK NOW" />
+                    )}
                   </Button>
                 </CardActions>
               </Card>
@@ -137,13 +154,13 @@ const Gallery = () => {
         <WithTransLate sx={{}} text="GALLERY" />
       </Typography>
 
-      <Box >
+      <Box>
         <Tabs
           sx={{
-            margin:'20px 20px',
-            marginTop:'0px',
+            margin: "20px 20px",
+            marginTop: "0px",
             "& .MuiTab-root": {
-              borderBottom:'2px solid #8F8F8F',
+              borderBottom: "2px solid #8F8F8F",
               fontFamily: "Josefin Sans",
               textTransform: "none", // Keep text capitalization as in the label
               fontWeight: "400",
@@ -156,13 +173,11 @@ const Gallery = () => {
               // Remove border and focus styling
               "&.Mui-focusVisible": {
                 outline: "none", // Remove the default focus outline
-                borderColor:'#1D3967',
-
+                borderColor: "#1D3967",
               },
               "&:focus": {
                 outline: "none", // Remove the default focus outline
-                borderColor:'#1D3967',
-
+                borderColor: "#1D3967",
               },
             },
           }}
@@ -170,15 +185,27 @@ const Gallery = () => {
           onChange={handleChange}
           aria-label="basic tabs example"
           TabIndicatorProps={{
-            style:{
-              backgroundColor:'#1D3967'
-            }
+            style: {
+              backgroundColor: "#1D3967",
+            },
           }}
           centered
         >
-          <Tab label="Rooms" sx={{ fontStyle: 'inherit', width: '33%' }} {...a11yProps(0)} />
-          <Tab label="Houses" sx={{ fontStyle: 'inherit', width: '33%' }} {...a11yProps(1)} />
-          <Tab label="Surroundings" sx={{ fontStyle: 'inherit', width: '33.9%' }} {...a11yProps(2)} />
+          <Tab
+            label="Rooms"
+            sx={{ fontStyle: "inherit", width: "33%" }}
+            {...a11yProps(0)}
+          />
+          <Tab
+            label="Houses"
+            sx={{ fontStyle: "inherit", width: "33%" }}
+            {...a11yProps(1)}
+          />
+          <Tab
+            label="Surroundings"
+            sx={{ fontStyle: "inherit", width: "33.9%" }}
+            {...a11yProps(2)}
+          />
         </Tabs>
       </Box>
       <CustomTabPanel value={value} Rooms={Rooms} index={0}>
