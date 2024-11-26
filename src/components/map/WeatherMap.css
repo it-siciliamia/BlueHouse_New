@@ -1,12 +1,12 @@
 .card {
   position: relative;
+  padding: 10px 5px;
   width: 200px;
-  height: 150px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding: 20px 10px;
+  gap: 1px;
   border-radius: 10px;
   backdrop-filter: blur(30px);
   background: rgba(0, 0, 0, 0.28);
@@ -18,16 +18,10 @@
   cursor: pointer;
 }
 
-.weather {
-  font-weight: 700;
-  font-size: 0.9em;
-  letter-spacing: 1.2px;
-  color: white;
-}
-
 .city {
+  margin-bottom: -5px;
   font-weight: 500;
-  font-size: 0.7em;
+  font-size: 0.9em;
   letter-spacing: 1.2px;
   color: white;
 }
@@ -40,16 +34,11 @@
 @media (max-width: 968px) {
   .card {
     width: 150px;
-    height: 130px;
-  }
-
-  .weather {
-    font-size: 0.8em;
-    text-align: center;
   }
 
   .city {
-    font-size: 0.6em;
+    margin-bottom: 0px;
+    font-size: 0.9em;
   }
 
   .temp {
@@ -59,17 +48,12 @@
 
 @media (min-width: 768px) and (max-width: 1024px) {
   .card {
-    width: 120px;
-    height: 120px;
-    padding: 10px 6px;
-  }
-
-  .weather {
-    font-size: 0.7em;
+    width: 150px;
+    padding: 5px 5px;
   }
 
   .city {
-    font-size: 0.5em;
+    font-size: 0.8em;
   }
 
   .temp {
@@ -79,20 +63,22 @@
 
 @media (max-width: 480px) {
   .card {
-    width: 120px;
-    height: 120px;
+    width: 140px;
     padding: 10px 6px;
   }
 
-  .weather {
-    font-size: 0.7em;
-  }
-
   .city {
-    font-size: 0.5em;
+    font-size: 0.7em;
   }
 
   .temp {
     font-size: 1.2em;
   }
+}
+
+.city-icon {
+  margin-top: -20px;
+  margin-bottom: 10px;
+  width: 70px;
+  height: 70px;
 }
