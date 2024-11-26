@@ -64,11 +64,18 @@ const useCalendarStore = create((set, get) => {
         set({ selectedEnd: formattedDate })
     }
 
+    // setter to update the selectedCapacity
+    const setSelectedCapacity = (adults,children,rooms) =>{
+        set({selectedCapacity:[adults,children,rooms]})
+    }
+
     //set selectedStart to null
     const voidSelectedStart = () => set({ selectedStart: null })
 
     //set selectedStart to null
     const voidSelectedEnd = () => set({ selectedEnd: null })
+
+    const voidSelectedCapacity = () => set({ selectedCapacity: null })
 
     //set status to a new value
     const setStatus = (newStatus) => set({ status: newStatus })
@@ -81,10 +88,6 @@ const useCalendarStore = create((set, get) => {
     // change the value of xLeft
     const setNewYTop = (value) => {
         set({ yTop: value })
-    }
-
-    const setCapacity = (adults,children,rooms)=> {
-        set({capacity:{adults,children,rooms}})
     }
 
     return {
@@ -104,8 +107,9 @@ const useCalendarStore = create((set, get) => {
         yTop: 0, //position from the top of the viewport in px
         setNewXLeft,
         setNewYTop,
-        setCapacity,
-        selectedCapacity:null
+        setSelectedCapacity,
+        selectedCapacity:null,
+        voidSelectedCapacity
     }
 })
 
