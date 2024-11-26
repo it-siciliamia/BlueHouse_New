@@ -72,18 +72,6 @@ function App({ basename }) {
             <ScrollToTopButton />
             <ZohoChat />
             <Switch>
-              {/*  <Route exact path="/beds24">
-              <Home />
-            </Route> 
-
-            <Route path="/book">
-              <BookingPage />
-            </Route> 
-
-            <Route path="/payment">
-              <Payment /> 
-            </Route>
-            */}
               <Route exact path="/enquire">
                 <EnquirePage />
               </Route>
