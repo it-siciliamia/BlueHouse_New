@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import WeatherCard from "./WeatherCard";
 import { AiOutlineFullscreen } from "react-icons/ai";
 import "./WeatherMap.css";
