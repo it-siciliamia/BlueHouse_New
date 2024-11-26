@@ -105,7 +105,7 @@ const useStyles = makeStyles((theme) => ({
   },
   lineSeparator: {
     margin: "auto",
-    borderBottom: "1px solid #3B5998",
+    borderBottom: "1px solid #1D3967",
     width: "80%",
     opacity: "30%",
   },
