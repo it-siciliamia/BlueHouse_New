@@ -211,7 +211,9 @@ export default function Instructions() {
             target="_blank"
             rel="noreferrer"
           >
-            <WithTransLate text="READ BLOG" />
+            <div style={{ marginTop: "3px" }}>
+              <WithTransLate text="READ BLOG" />
+            </div>
           </a>
         </div>
       </div>
