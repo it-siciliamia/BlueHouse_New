@@ -1,7 +1,6 @@
 import { Box, makeStyles } from "@material-ui/core";
 import selfie from "../../images/selfie.jpg";
 import { Element } from "react-scroll";
-import React from "react";
 import { Link } from "react-router-dom";
 import { WithTransLate } from "../../translating/index";
 
@@ -68,22 +67,23 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   KnowMore: {
-    width: "280px !important" ,
+    width: "280px !important",
     textTransform: "uppercase",
     cursor: "pointer",
     fontFamily: "Josefin Sans",
     fontSize: "16px",
     lineHeight: "16px",
     textAlign: "center",
-    color:'#000000', //POINT 12 
-    background:'#fff',
+    color: "#000000", //POINT 12
+    background: "#fff",
     display: "block",
     height: "46px",
     padding: "16px",
-    fontWeight:'600',
+    fontWeight: "600",
+    border: "1px solid #073865",
     "&:hover": {
       background: "#1D3967",
-      color:'#fff'
+      color: "#fff",
     },
     [theme.breakpoints.down("md")]: {
       width: "270px",
@@ -125,7 +125,7 @@ export default function AboutUs() {
               <WithTransLate text="Blue House Bed and Breakfast welcomes you to your home away from home in Reykjavik, Iceland. Simply put, we are a small team of globetrotters, passionate about unforgettable travel experiences." />
             </p>
             <Link to="/About-us" className={KnowMore}>
-                  <WithTransLate text="DISCOVER MORE" />
+              <WithTransLate text="DISCOVER MORE" />
             </Link>
           </div>
         </div>
