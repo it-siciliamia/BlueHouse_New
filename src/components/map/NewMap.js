@@ -23,13 +23,15 @@ const NewMap = () => {
 
   const fetchWeather = async () => {
     try {
-      const apiKey = "1828ad4fcb19ab8b229ab979593d6cc7"; // Replace with your OpenWeatherMap API key
+      const apiKey = "1828ad4fcb19ab8b229ab979593d6cc7";
       const city = "Reykjavik";
       const response = await fetch(
         `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`
       );
       const data = await response.json();
-      setWeather(data);
+      if (data) {
+        setWeather(data);
+      }
     } catch (error) {
       console.error("Error fetching weather data:", error);
     }
@@ -101,7 +103,10 @@ const NewMap = () => {
             zIndex: 1,
           }}
         >
-          <WeatherCard temperature={weather.main.temp} />
+          <WeatherCard
+            temperature={weather.main.temp}
+            icon={`https://openweathermap.org/img/wn/${weather.weather[0]["icon"]}@2x.png`}
+          />
         </div>
       )}
       <iframe
