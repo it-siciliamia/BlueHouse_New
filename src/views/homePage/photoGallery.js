@@ -1,6 +1,6 @@
+import React, { useContext, useState } from "react";
 import { Box, makeStyles, Typography } from "@material-ui/core";
 import "../../css/Services.css";
-import React, { useContext, useState } from "react";
 import clsx from "clsx";
 import { Element } from "react-scroll";
 import { UserContext } from "../../App";
@@ -325,7 +325,7 @@ export default function PhotoGallery({
                             width: "153px",
                             fontSize: "16px",
                             fontWeight: "600",
-                            height: "38px",
+                            height: "46px",
                             border: "1px solid white",
                             borderRadius: "0px",
                             fontFamily: "Josefin Sans",
@@ -341,7 +341,13 @@ export default function PhotoGallery({
                             setTabIndex(index);
                           }}
                         >
-                          KNOW MORE
+                          <div
+                            style={{
+                              marginTop: "6px",
+                            }}
+                          >
+                            <WithTransLate text="KNOW MORE" />
+                          </div>
                         </Button>
 
                         <div className={actionStyle}></div>

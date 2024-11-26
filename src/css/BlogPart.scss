@@ -36,7 +36,7 @@
   align-items: center;
   gap: 50px;
   width: 100%;
-  border: 1px solid #C6D1DB;
+  border: 1px solid #c6d1db;
   padding: 30px;
   min-width: 300px;
 }
@@ -69,15 +69,15 @@
 
 .blogPart__blog_content > button {
   width: 160px;
-  height: 42px;
+  height: 46px;
   font-size: 16px;
   font-weight: 600;
   font-family: Josefin Sans;
   padding: 11px;
   text-transform: uppercase;
   background-color: white;
-  color: #1D3967;
-  border: 1px solid #1D3967;
+  color: #1d3967;
+  border: 1px solid #1d3967;
 }
 
 .blogPart__blog_content > button:hover {
@@ -88,7 +88,7 @@
       rgba(255, 255, 255, 0) 100%
     ),
     #ffffff;
-  text-decoration: underline;
+  // text-decoration: underline;
 }
 
 @media (max-width: 600px) {

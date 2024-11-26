@@ -61,7 +61,7 @@ const useStyles = makeStyles((theme) => ({
     },
     "& li:last-child": {
       paddingBottom: 0,
-    }
+    },
   },
 
   definition: {
@@ -69,7 +69,7 @@ const useStyles = makeStyles((theme) => ({
   },
 
   link: {
-    color: "#3b5998",
+    color: "#1D3967",
     fontWeight: 600,
     textDecoration: "underline",
   },
@@ -79,7 +79,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "space-between",
     alignItems: "center",
     borderBottom: "1px solid #e5e5e5",
-    color: "#3b5998",
+    color: "#1D3967",
   },
 
   subtitle: {
@@ -98,32 +98,32 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const COOKIES_ADVERTISEMENT = [
-  {id: 1, text: "TAUnique", link: ".tripadvisor.com"},
-  {id: 2, text: "TACds", link: ".tripadvisor.com"},
-  {id: 3, text: "b3e783bb62", link: "salesiq.zoho.eu"},
+  { id: 1, text: "TAUnique", link: ".tripadvisor.com" },
+  { id: 2, text: "TACds", link: ".tripadvisor.com" },
+  { id: 3, text: "b3e783bb62", link: "salesiq.zoho.eu" },
 ];
 
 const COOKIES_ANALITICS = [
-  {id: 1, text: "_ga", link: ".bluehouse.is"},
-  {id: 2, text: "_gid", link: ".bluehouse.is"},
-  {id: 3, text: "_gat_UA-223879896-1", link: ".bluehouse.is"},
-  {id: 4, text: "_ga_6QGX4YP9SF", link: ".bluehouse.is"},
-  {id: 5, text: "LaVisitorNew", link: ".bluehouse.is"},
-  {id: 6, text: "LaSID", link: ".bluehouse.is"},
-  {id: 7, text: "_ga_WYRZ6Q7MDE", link: ".bluehouse.is"},
-  {id: 8, text: "TADCID", link: "www.tripadvisor.com"},
+  { id: 1, text: "_ga", link: ".bluehouse.is" },
+  { id: 2, text: "_gid", link: ".bluehouse.is" },
+  { id: 3, text: "_gat_UA-223879896-1", link: ".bluehouse.is" },
+  { id: 4, text: "_ga_6QGX4YP9SF", link: ".bluehouse.is" },
+  { id: 5, text: "LaVisitorNew", link: ".bluehouse.is" },
+  { id: 6, text: "LaSID", link: ".bluehouse.is" },
+  { id: 7, text: "_ga_WYRZ6Q7MDE", link: ".bluehouse.is" },
+  { id: 8, text: "TADCID", link: "www.tripadvisor.com" },
 ];
 
 const COOKIES_FUNCTIONAL = [
-  {id: 1, text: "TASession", link: ".tripadvisor.com"},
-  {id: 2, text: "ServerPool", link: ".tripadvisor.com"},
-  {id: 3, text: "_zcsr_tmp", link: "salesiq.zoho.eu"},
+  { id: 1, text: "TASession", link: ".tripadvisor.com" },
+  { id: 2, text: "ServerPool", link: ".tripadvisor.com" },
+  { id: 3, text: "_zcsr_tmp", link: "salesiq.zoho.eu" },
 ];
 
 const COOKIES_NECESSARY = [
-  {id: 1, text: "LS_CSRF_TOKEN", link: "salesiq.zoho.eu"},
-  {id: 2, text: "zfccn", link: "pagesense-collect.zoho.eu"},
-  {id: 3, text: "JSESSIONID", link: "maillist-manage.eu"},
+  { id: 1, text: "LS_CSRF_TOKEN", link: "salesiq.zoho.eu" },
+  { id: 2, text: "zfccn", link: "pagesense-collect.zoho.eu" },
+  { id: 3, text: "JSESSIONID", link: "maillist-manage.eu" },
 ];
 
 export default function CookiePolicy() {
@@ -206,11 +206,16 @@ export default function CookiePolicy() {
             <WithTransLate text="Advertisement" />
           </p>
 
-          {COOKIES_ADVERTISEMENT.map(data => (
-            <p key={data.id} className={`${textClass} ${subtitle} ${linkWrapper}`}>
+          {COOKIES_ADVERTISEMENT.map((data) => (
+            <p
+              key={data.id}
+              className={`${textClass} ${subtitle} ${linkWrapper}`}
+            >
               <WithTransLate text={data.text} />
 
-              <a href={data.link} className={link}>{data.link}</a>
+              <a href={data.link} className={link}>
+                {data.link}
+              </a>
             </p>
           ))}
         </div>
@@ -221,10 +226,15 @@ export default function CookiePolicy() {
           </p>
 
           {COOKIES_ANALITICS.map((data) => (
-            <p key={data.id} className={`${textClass} ${subtitle} ${linkWrapper}`}>
+            <p
+              key={data.id}
+              className={`${textClass} ${subtitle} ${linkWrapper}`}
+            >
               <WithTransLate text={data.text} />
 
-              <a href={data.link} className={link}>{data.link}</a>
+              <a href={data.link} className={link}>
+                {data.link}
+              </a>
             </p>
           ))}
         </div>
@@ -235,10 +245,15 @@ export default function CookiePolicy() {
           </p>
 
           {COOKIES_FUNCTIONAL.map((data) => (
-            <p key={data.id} className={`${textClass} ${subtitle} ${linkWrapper}`}>
+            <p
+              key={data.id}
+              className={`${textClass} ${subtitle} ${linkWrapper}`}
+            >
               <WithTransLate text={data.text} />
 
-              <a href={data.link} className={link}>{data.link}</a>
+              <a href={data.link} className={link}>
+                {data.link}
+              </a>
             </p>
           ))}
         </div>
@@ -249,10 +264,15 @@ export default function CookiePolicy() {
           </p>
 
           {COOKIES_NECESSARY.map((data) => (
-            <p key={data.id} className={`${textClass} ${subtitle} ${linkWrapper}`}>
+            <p
+              key={data.id}
+              className={`${textClass} ${subtitle} ${linkWrapper}`}
+            >
               <WithTransLate text={data.text} />
 
-              <a href={data.link} className={link}>{data.link}</a>
+              <a href={data.link} className={link}>
+                {data.link}
+              </a>
             </p>
           ))}
         </div>

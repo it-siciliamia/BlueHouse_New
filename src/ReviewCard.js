@@ -1,4 +1,3 @@
-import React from "react";
 import "./css/ReviewCard.css";
 import { Paper } from "@material-ui/core";
 import FormatQuoteIcon from "@material-ui/icons/FormatQuote";

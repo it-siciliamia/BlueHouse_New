@@ -23,14 +23,13 @@ const headerStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    padding:'20px 115px',
+    padding: "20px 115px",
     position: "fixed",
     top: "0",
     left: "0",
     right: "0",
     zIndex: 3,
     backgroundColor: "white",
-    
   },
 
   atag: {
@@ -69,7 +68,7 @@ const headerStyles = makeStyles((theme) => ({
 
   bookingButtons: {
     border: "1px solid #14202B",
-    width: "280px !important" ,
+    width: "280px !important",
     textTransform: "uppercase",
     cursor: "pointer",
     fontFamily: "Josefin Sans",
@@ -96,12 +95,12 @@ const headerStyles = makeStyles((theme) => ({
   },
 
   bookingRoom: {
-    backgroundColor: "#3B5998",
+    backgroundColor: "#1D3967",
     marginRight: "52px",
     color: "#fff",
     "&:hover": {
       color: "#073762",
-      backgroundColor:'#fff'
+      backgroundColor: "#fff",
     },
     [theme.breakpoints.down("md")]: {
       marginRight: "-22px",
@@ -113,7 +112,7 @@ const headerStyles = makeStyles((theme) => ({
     color: "#073762",
     "&:hover": {
       color: "#fff",
-      backgroundColor:'#3B5598'
+      backgroundColor: "#1D3967",
     },
     [theme.breakpoints.down("md")]: {
       marginRight: "-82px",
@@ -184,8 +183,8 @@ const headerStyles = makeStyles((theme) => ({
   menuIcon: {
     marginRight: "10px",
     backgroundColor: "transparent",
-    border:'none',
-    outline:'none',
+    border: "none",
+    outline: "none",
 
     "&:focus": {
       outline: "none",

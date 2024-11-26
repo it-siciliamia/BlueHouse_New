@@ -34,8 +34,7 @@ function BlogPart() {
         <div data-aos="fade-up" className="blogPart__blog_content">
           <div className="blogPart__blog_content_text">
             <h2>
-              <WithTransLate text="FOR USEFUL RECOMMENDATIONS" /> <br />{" "}
-              &amp;
+              <WithTransLate text="FOR USEFUL RECOMMENDATIONS" /> <br /> &amp;
               <WithTransLate
                 text="ADVENTURES READ AMAZING
               STORIES IN OUR BLOG"
