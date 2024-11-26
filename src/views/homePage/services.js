@@ -6,10 +6,10 @@ import moneyIcon from "../../images/services/money.png";
 import clockIcon from "../../images/services/clock.png";
 import houseIcon from "../../images/services/house3.png";
 
-import DifferentLocations from "../../components/popUpVariations/DifferentLocations";
-import SelfCheckIn from "../../components/popUpVariations/selfCheckIn";
+import DifferentLocations from "../../components/OurServices/ServicesType/DifferentLocations";
+import SelfCheckIn from "../../components/OurServices/ServicesType/selfCheckIn";
 // import BookOnOurWebsite from "../../components/popUpVariations/bookOnOurSite";
-import CheapestPrice from "../../components/popUpVariations/CheapestPrice";
+import CheapestPrice from "../../components/OurServices/ServicesType/CheapestPrice";
 import Cookies from "js-cookie";
 import clsx from "clsx";
 import { WithTransLate } from "../../translating/index";

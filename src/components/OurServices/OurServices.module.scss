@@ -1,0 +1,107 @@
+.ourServices {
+  margin-top: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+
+  @media (max-width: 768px) {
+    width: 90%;
+    padding: 15px;
+    margin-bottom: 50px;
+  }
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    width: 90%;
+    padding: 20px 15px;
+    margin-bottom: 50px;
+  }
+}
+
+.sectionName {
+  width: 4.4%;
+}
+
+.sectionContent {
+  width: 87.6%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.serviceCard {
+  padding: 0px 25px;
+  padding-top: 20px;
+  width: 28.1%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    box-shadow: 0px 4px 4px rgba(7, 55, 98, 0.48);
+    .description {
+      font-weight: 500;
+      line-height: 1.2;
+      color: #243864;
+    }
+  }
+}
+
+.description {
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1.2;
+  text-align: center;
+  text-transform: capitalize;
+  font-family: "Josefin Sans";
+  transition: font-weight 0.3s ease-in-out;
+}
+
+.imageContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 58px;
+  width: 58px;
+  overflow: hidden;
+
+  .icon {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modalContent {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
