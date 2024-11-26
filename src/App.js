@@ -2,6 +2,8 @@ import "./App.css";
 import Header from "./components/header";
 import HomePage from "./views/homePage";
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
+import { HelmetProvider, Helmet } from "react-helmet-async";
+import schema from "./components/helpers/SchemaOrg/schema.js";
 import Cookies from "./components/Cookies";
 import { ThemeProvider } from "@material-ui/styles";
 import theme from "./theme";
@@ -28,13 +30,12 @@ import { RedirectBlog, RedirectTripAdv } from "./redirect/Redirect";
 import FindMore from "./components/FindMore/FindMore.jsx";
 import NewMap from "./components/map/NewMap.js";
 import RoomBooking from "./views/roombooking/RoomBooking.jsx";
-import SchemaOrg from "./components/helpers/SchemaOrg/SchemaOrg.jsx";
 // import Carousel from "./Carousel.js";
 // import Galary from "./components/Mobile Galary Section/Galary.js";
 
 export const UserContext = createContext();
 
-function App() {
+function App({ basename }) {
   const [modalState, setModal] = useState({
     state: false,
     index: 0,
@@ -83,93 +84,94 @@ function App() {
               <Payment /> 
             </Route>
             */}
-            <Route exact path="/enquire">
-              <EnquirePage />
-            </Route>
-            <Route path="/thankyou">
-              <ThankYou />
-            </Route>
-            <Route path="/blog">
-              <RedirectBlog />
-            </Route>
-            <Route path="/tripadvisor">
-              <RedirectTripAdv />
-            </Route>
-            <Route
-              exact
-              path={[
-                "/",
-                "/house-rules",
-                "/view-gallery",
-                "/about-us",
-                "/privacy-and-policy",
-                "/slider-photo",
-                "/book",
-                "/enquire",
-                "/beds24",
-              ]}
-            >
-              <div className="App">
+              <Route exact path="/enquire">
+                <EnquirePage />
+              </Route>
+              <Route path="/thankyou">
+                <ThankYou />
+              </Route>
+              <Route path="/blog">
+                <RedirectBlog />
+              </Route>
+              <Route path="/tripadvisor">
+                <RedirectTripAdv />
+              </Route>
+              <Route
+                exact
+                path={[
+                  "/",
+                  "/house-rules",
+                  "/view-gallery",
+                  "/about-us",
+                  "/privacy-and-policy",
+                  "/slider-photo",
+                  "/book",
+                  "/enquire",
+                  "/beds24",
+                ]}
+              >
+                <div className="App">
+                  <Header
+                    top={top}
+                    setTop={setTop}
+                    right={right}
+                    setRight={setRight}
+                  />
+                  <ScrollToTop />
+                  <Switch>
+                    <Route exact path="/">
+                      <HomePage />
+                    </Route>
+                    <Route exact path="/beds24">
+                      <RoomBooking />
+                    </Route>
+                    <Route exact path="/house-rules">
+                      <HouseRules />
+                    </Route>
+                    <Route exact path="/view-gallery">
+                      <ViewGalery />
+                      {/* <Galary /> */}
+                    </Route>
+                    <Route exact path="/about-us">
+                      <Aboutus />
+                    </Route>
+                    <Route exact path="/privacy-and-policy">
+                      <PrivacyandPolicy />
+                    </Route>
+                    <Route exact path="/slider-photo">
+                      <SliderPhoto />
+                    </Route>
+                  </Switch>
+                </div>
+                <Cookies />
+                <FindMore />
+                {/* <Galary/> */}
+                {isMobile ? (
+                  <>
+                    <NewMap />
+                    <NewsLetter />
+                  </>
+                ) : (
+                  <>
+                    <NewsLetter />
+                    <NewMap />
+                  </>
+                )}
+                <Footer />
+              </Route>
+              <>
                 <Header
                   top={top}
                   setTop={setTop}
                   right={right}
                   setRight={setRight}
                 />
-                <ScrollToTop />
-                <Switch>
-                  <Route exact path="/">
-                    <HomePage />
-                  </Route>
-                  <Route exact path="/beds24">
-                    <RoomBooking />
-                  </Route>
-                  <Route exact path="/house-rules">
-                    <HouseRules />
-                  </Route>
-                  <Route exact path="/view-gallery">
-                    <ViewGalery />
-                    {/* <Galary /> */}
-                  </Route>
-                  <Route exact path="/about-us">
-                    <Aboutus />
-                  </Route>
-                  <Route exact path="/privacy-and-policy">
-                    <PrivacyandPolicy />
-                  </Route>
-                  <Route exact path="/slider-photo">
-                    <SliderPhoto />
-                  </Route>
-                </Switch>
-              </div>
-              <Cookies />
-              <FindMore />
-              {/* <Galary/> */}
-              {isMobile ? (
-                <>
-                  <NewMap />
-                  <NewsLetter />
-                </>
-              ) : (
-                <>
-                  <NewsLetter />
-                  <NewMap />
-                </>
-              )}
-              <Footer />
-            </Route>
-            <>
-              <Header
-                top={top}
-                setTop={setTop}
-                right={right}
-                setRight={setRight}
-              />
-              <Notfound />
-            </>
-          </Switch>
-        </Router>
-      </UserContext.Provider>
+                <Notfound />
+              </>
+            </Switch>
+          </Router>
+        </UserContext.Provider>
+      </HelmetProvider>
     </ThemeProvider>
   );
 }
