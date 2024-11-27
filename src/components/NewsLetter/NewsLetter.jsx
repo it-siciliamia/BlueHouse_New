@@ -3,10 +3,10 @@ import s from "./NewsLetter.module.scss";
 import { useForm, Controller } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { WithTransLate } from "../../translating";
-import HumanVerification from "../HumanVerification/HumanVerification";
+// import HumanVerification from "../HumanVerification/HumanVerification";
 
 const NewsletterComponent = () => {
-  const [isHumanVerified, setIsHumanVerified] = useState(false);
+  // const [isHumanVerified, setIsHumanVerified] = useState(false);
   const [aproveSendData, setAproveSendData] = useState(false);
   const checkboxRef = useRef(null);
 
@@ -69,12 +69,12 @@ const NewsletterComponent = () => {
       checkboxRef.current.checked = false;
     }
     setAproveSendData(false);
-    setIsHumanVerified(false);
+    // setIsHumanVerified(false);
   };
 
-  const handleVerification = (isVerified) => {
-    setIsHumanVerified(isVerified);
-  };
+  // const handleVerification = (isVerified) => {
+  //   setIsHumanVerified(isVerified);
+  // };
 
   const handleAproveSendData = (event) => {
     setAproveSendData(event.target.checked);
@@ -346,16 +346,16 @@ const NewsletterComponent = () => {
           </p>
         </div>
 
-        <div className={s.humanVerification}>
+        {/* <div className={s.humanVerification}>
           <HumanVerification onVerify={handleVerification} />
-        </div>
+        </div> */}
 
         <div className={s.humanVerification}>
           <button
             className={s.btn}
             type="submit"
-            disabled={!isHumanVerified || !isValid || !aproveSendData}
-            // disabled={!isValid || !aproveSendData}
+            // disabled={!isHumanVerified || !isValid || !aproveSendData}
+            disabled={!isValid || !aproveSendData}
           >
             <WithTransLate text={"Sign Up"} />
           </button>

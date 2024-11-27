@@ -7,6 +7,14 @@
   outline: none;
   background-color: transparent;
   cursor: pointer;
+  @media (max-width: 768px) {
+    bottom: 25px;
+    right: 10px;
+  }
+  @media (min-width: 768px) and (max-width: 1024px) {
+    bottom: 25px;
+    right: 20px;
+  }
 }
 
 .scrollToTopButton:focus,
@@ -24,6 +32,14 @@
 .arrowIcon {
   width: 65px;
   height: 65px;
+  @media (max-width: 768px) {
+    width: 55px;
+    height: 55px;
+  }
+  @media (min-width: 768px) and (max-width: 1024px) {
+    width: 55px;
+    height: 55px;
+  }
 }
 
 .arrowUp {
