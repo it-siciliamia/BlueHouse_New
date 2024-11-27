@@ -80,7 +80,6 @@ const NewMap = () => {
             width: "100px",
             height: "38px",
             cursor: "pointer",
-            color: "white",
             border:
               mapType === "roadmap" ? "1px solid white" : "1px solid #314a6f6b",
             borderRadius: "10px",
@@ -102,7 +101,6 @@ const NewMap = () => {
             width: "100px",
             height: "38px",
             cursor: "pointer",
-            color: "white",
             border:
               mapType === "satellite"
                 ? "1px solid white"
