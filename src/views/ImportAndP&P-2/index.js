@@ -1,7 +1,7 @@
 import React from "react";
 import Privacy from "./Privacy.js";
 import Instructions from "../../components/instructions";
-import Support from "../../components/support.js";
+import Support from "../../components/SuportComponent/support.js";
 import { makeStyles } from "@material-ui/core/styles";
 import Imagemobile from "../../images/privacy_mobile.png";
 import Image from "../../images/privacy.jpg";
@@ -108,7 +108,7 @@ function PrivacyPolicySection() {
         <img src={Image} alt="" className={imageStyle} />
       </div>
       <div className={houseRules}>
-        <PrivacyPolicy/>
+        <PrivacyPolicy />
         {/* <Privacy /> */}
         <Instructions />
       </div>
