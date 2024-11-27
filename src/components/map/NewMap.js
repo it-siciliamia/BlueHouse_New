@@ -7,6 +7,7 @@ const NewMap = () => {
   const [weather, setWeather] = useState(null);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   const [mapType, setMapType] = useState("roadmap");
+  const [isMapInteractive, setMapInteractive] = useState(false);
 
   useEffect(() => {
     fetchWeather();
@@ -115,6 +116,7 @@ const NewMap = () => {
           <span style={{ marginTop: "2px" }}>Satellite</span>
         </button>
       </div>
+
       <div
         style={{
           position: "absolute",
@@ -160,6 +162,7 @@ const NewMap = () => {
           )}
         </div>
       </div>
+
       {weather && (
         <div
           style={{
@@ -175,6 +178,21 @@ const NewMap = () => {
           />
         </div>
       )}
+      {!isMapInteractive && (
+        <div
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            zIndex: 10,
+            backgroundColor: "rgba(0, 0, 0, 0)",
+            cursor: "pointer",
+          }}
+          onClick={() => setMapInteractive(true)}
+        ></div>
+      )}
       <iframe
         title="Google Maps"
         src={mapSrc}
@@ -185,12 +203,14 @@ const NewMap = () => {
           top: "-70px",
           left: 0,
           outline: "none",
+          pointerEvents: isMapInteractive ? "auto" : "none",
         }}
         loading="lazy"
         referrerPolicy="no-referrer-when-downgrade"
         allowFullScreen=""
         aria-hidden="false"
         tabIndex="0"
+        onMouseLeave={() => setMapInteractive(false)}
       ></iframe>
     </div>
   );
