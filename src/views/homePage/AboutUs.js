@@ -74,7 +74,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "16px",
     lineHeight: "16px",
     textAlign: "center",
-    color: "#000000", //POINT 12
+    color: "#073865", //POINT 12
     background: "#fff",
     display: "block",
     height: "46px",
@@ -125,7 +125,7 @@ export default function AboutUs() {
               <WithTransLate text="Blue House Bed and Breakfast welcomes you to your home away from home in Reykjavik, Iceland. Simply put, we are a small team of globetrotters, passionate about unforgettable travel experiences." />
             </p>
             <Link to="/About-us" className={KnowMore}>
-              <div style={{ marginTop: "2px" }}>
+              <div style={{ marginTop: "0px" }}>
                 <WithTransLate text="DISCOVER MORE" />
               </div>
             </Link>

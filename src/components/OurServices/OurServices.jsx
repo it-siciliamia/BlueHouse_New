@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { WithTransLate } from "../../translating/index";
+import { useMediaQuery } from "react-responsive";
 import DifferentLocations from "./ServicesType/DifferentLocations";
 import SelfCheckIn from "./ServicesType/selfCheckIn";
 import CheapestPrice from "./ServicesType/CheapestPrice";
@@ -24,6 +25,13 @@ const servicesData = [
 ];
 
 const OurServices = () => {
+  const isMobile = useMediaQuery({ maxDeviceWidth: 767 });
+  const isTablet = useMediaQuery({
+    minDeviceWidth: 768,
+    maxDeviceWidth: 812,
+  });
+  const isDesktop = useMediaQuery({ minDeviceWidth: 813 });
+
   const [activeModal, setActiveModal] = useState(null);
 
   const handleOpenModal = (componentName) => {
@@ -36,7 +44,7 @@ const OurServices = () => {
 
   return (
     <div className={s.ourServices}>
-      <div className={s.sectionName}></div>
+      {isDesktop && <div className={s.sectionName}></div>}
       <div className={s.sectionContent}>
         {servicesData.map(({ icon, text }, index) => (
           <div
@@ -45,14 +53,37 @@ const OurServices = () => {
             onClick={() => handleOpenModal(icon)}
             style={{
               paddingTop: icon === money ? "10px" : "20px",
-              gap: icon === money ? "30px" : "40px",
+              gap:
+                icon === money && isDesktop
+                  ? "30px"
+                  : icon !== money && isDesktop
+                  ? "40px"
+                  : icon === money && isMobile
+                  ? "10px"
+                  : icon !== money && isMobile
+                  ? "20px"
+                  : "40px",
             }}
           >
             <div
               className={s.imageContainer}
               style={{
-                height: icon === money ? "78px" : "58px",
-                width: icon === money ? "78px" : "58px",
+                height:
+                  icon === money && isDesktop
+                    ? "78px"
+                    : icon === money && !isDesktop
+                    ? "58px"
+                    : icon !== money && isDesktop
+                    ? "58px"
+                    : "48px",
+                width:
+                  icon === money && isDesktop
+                    ? "78px"
+                    : icon === money && !isDesktop
+                    ? "58px"
+                    : icon !== money && isDesktop
+                    ? "58px"
+                    : "48px",
               }}
             >
               <img src={icon} alt="Service Icon" className={s.icon} />
@@ -67,7 +98,7 @@ const OurServices = () => {
           <div className={s.modal}>
             <div className={s.modalContent}>
               {activeModal === money && (
-                <div>
+                <div className={s.textContent}>
                   <CheapestPrice handleClose={handleClose} />
                 </div>
               )}
