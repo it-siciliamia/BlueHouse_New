@@ -26,10 +26,10 @@ const servicesData = [
 
 const OurServices = () => {
   const isMobile = useMediaQuery({ maxDeviceWidth: 767 });
-  const isTablet = useMediaQuery({
-    minDeviceWidth: 768,
-    maxDeviceWidth: 812,
-  });
+  // const isTablet = useMediaQuery({
+  //   minDeviceWidth: 768,
+  //   maxDeviceWidth: 812,
+  // });
   const isDesktop = useMediaQuery({ minDeviceWidth: 813 });
 
   const [activeModal, setActiveModal] = useState(null);
