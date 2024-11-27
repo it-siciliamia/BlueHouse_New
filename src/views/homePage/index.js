@@ -16,7 +16,7 @@ import insta3 from "../../images/instagramSVG/insta3.svg";
 import Galary from "../../components/Mobile Galary Section/Galary.js";
 import ReviewSlider from "../../components/ReviewSlider/ReviewSlider";
 
-import Support from "../../components/support";
+import Support from "../../components/SuportComponent/support";
 import Recommendations from "./recommendations";
 import AboutUs from "./AboutUs";
 import BlogPart from "./Blog";

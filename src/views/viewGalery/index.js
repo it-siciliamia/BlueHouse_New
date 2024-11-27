@@ -1,7 +1,7 @@
 import { Box, makeStyles, Modal } from "@material-ui/core";
 import PhotosRoot from "../viewGalery/photosRoot.js";
 import Instructions from "../../components/instructions";
-import Support from "../../components/support.js";
+import Support from "../../components/SuportComponent/support.js";
 import { UserContext } from "../../App";
 import SliderPhoto from "../../components/SliderPhoto.js";
 import house1 from "../../images/view-gallery/houses/1.jpg";

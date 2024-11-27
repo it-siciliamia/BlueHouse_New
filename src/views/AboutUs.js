@@ -7,7 +7,7 @@ import message from "../images/aboutus/message.png";
 import Room from "../images/grotta.jpg";
 import clsx from "clsx";
 import { WithTransLate } from "../translating/index";
-import Support from "../components/support.js";
+import Support from "../components/SuportComponent/support.js";
 
 const useStyles = makeStyles((theme) => ({
   root: {
