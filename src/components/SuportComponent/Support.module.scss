@@ -1,0 +1,52 @@
+.support {
+  margin: 100px auto 50px;
+  padding-top: 20px;
+  width: 78.9%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.description {
+  margin-top: -20px;
+  width: 27.3%;
+  font-size: 17px;
+  font-weight: 300;
+  line-height: 1.2;
+  text-align: center;
+  color: #14202b;
+  font-family: "Josefin Sans";
+  text-transform: uppercase !important;
+  transition: font-weight 0.3s ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: 0px 4px 4px rgba(7, 55, 98, 0.249);
+    font-weight: 500;
+    line-height: 1.2;
+    color: #243864;
+  }
+  @media (max-width: 768px) {
+    text-transform: lowercase !important;
+  }
+  @media (min-width: 768px) and (max-width: 1024px) {
+    font-size: 16px !important;
+  }
+}
+
+.description::first-letter {
+  text-transform: capitalize;
+}
+
+.supportCard {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.icon {
+  width: 70px;
+  height: 70px;
+}
