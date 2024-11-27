@@ -40,7 +40,7 @@ function BlogPart() {
             </h3>
           </div>
           <button type="button" onClick={handleBlogButtonClick}>
-            <div style={{ marginTop: "3px" }}>
+            <div style={{ marginTop: "2px" }}>
               <WithTransLate text="Read Blog" />
             </div>
           </button>
