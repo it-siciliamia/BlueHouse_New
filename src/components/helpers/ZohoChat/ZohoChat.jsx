@@ -12,9 +12,6 @@ function ZohoChat() {
     window.$zoho.salesiq = window.$zoho.salesiq || {
       widgetcode: widgetCode,
       values: {},
-      ready: function () {
-        console.log("Zoho widget is ready.");
-      },
     };
 
     const script = document.createElement("script");
@@ -22,10 +19,6 @@ function ZohoChat() {
     script.id = "zsiqscript";
     script.defer = true;
     script.src = url;
-
-    script.onload = () => {
-      console.log("Zoho SalesIQ script loaded.");
-    };
 
     script.onerror = () => {
       console.error("Error loading Zoho SalesIQ script.");
