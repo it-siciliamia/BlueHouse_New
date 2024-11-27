@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/BlueHouse_New/static/css/main.14c779aa.chunk.css",
-    "main.js": "/BlueHouse_New/static/js/main.c6a0b16b.chunk.js",
-    "main.js.map": "/BlueHouse_New/static/js/main.c6a0b16b.chunk.js.map",
+    "main.js": "/BlueHouse_New/static/js/main.d5e87578.chunk.js",
+    "main.js.map": "/BlueHouse_New/static/js/main.d5e87578.chunk.js.map",
     "runtime-main.js": "/BlueHouse_New/static/js/runtime-main.421ac39a.js",
     "runtime-main.js.map": "/BlueHouse_New/static/js/runtime-main.421ac39a.js.map",
     "static/css/2.52721fbf.chunk.css": "/BlueHouse_New/static/css/2.52721fbf.chunk.css",
@@ -200,6 +200,6 @@
     "static/css/2.52721fbf.chunk.css",
     "static/js/2.2a19d63e.chunk.js",
     "static/css/main.14c779aa.chunk.css",
-    "static/js/main.c6a0b16b.chunk.js"
+    "static/js/main.d5e87578.chunk.js"
   ]
 }
