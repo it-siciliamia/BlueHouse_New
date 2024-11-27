@@ -1,0 +1,87 @@
+.review-card {
+  --cardPadding: 20px 55px;
+
+  padding: var(--cardPadding);
+  height: 172px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  color: #14202b;
+  font-size: 14px;
+  font-weight: 400;
+  box-shadow: 0 4px 7px rgba(7, 55, 98, 0.25);
+  background: url('../../../images/ReviewSlider/quotes-open-icon.svg') 3% 11% / auto auto no-repeat, 
+  url('../../../images/ReviewSlider/quotes-close-icon.svg') 97% 89% / auto auto no-repeat;
+}
+
+.review-card__quote {
+  text-align: left;
+  line-height: 24px;
+}
+
+.review-card__author {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.review-card__hr {
+  display: inline-block;
+  height: 1px;
+  width: 22px;
+  background-color: #14202b;
+  border: none;
+}
+
+.review-card__name {
+  padding-left: 7px;
+}
+
+@media(min-width: 375px) {
+  .review-card {
+    --cardPadding: 29px 79px;
+  }
+}
+
+@media(min-width: 600px) {
+  .review-card {
+    font-weight: 300;
+  }
+}
+
+@media(min-width: 1024px) {
+  .review-card {
+    --cardPadding: 40px 60px 10px;
+    align-items: stretch;
+    box-shadow: none;
+    cursor: pointer;
+    font-size: 18px;
+  }
+
+  .review-card__author {
+    padding-right: 10px;
+    justify-content: right;
+  }
+
+  .review-card__hr {
+    width: 33px;
+  }
+
+  .review-card:hover {
+    box-shadow: 0 4px 7px rgba(7, 55, 98, 0.25);
+  }
+}
+
+@media(min-width: 1440px) {
+  .review-card {
+    --cardPadding: 45px 50px 10px;
+    font-size: 22px;
+  }
+
+  .review-card__author {
+    padding-right: 30px;
+    justify-content: right;
+  }
+}

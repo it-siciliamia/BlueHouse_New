@@ -1,0 +1,22 @@
+.findMoreContainer {
+    display: none;
+}
+
+@media (max-width: 600px) {
+.findMoreContainer {
+        margin: 30px 0;
+        display: flex;
+        flex-direction: column; 
+        justify-content: center;
+        align-items: center;
+    }
+
+    .findMoreContainer>h5 {
+        font-weight: 300;
+        text-transform: uppercase;
+    }
+
+    .findMoreContainer>img {
+        width: 70vw;
+    }
+}
