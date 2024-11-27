@@ -6,6 +6,7 @@ import "./WeatherMap.css";
 const NewMap = () => {
   const [weather, setWeather] = useState(null);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const [mapType, setMapType] = useState("roadmap");
 
   useEffect(() => {
     fetchWeather();
@@ -37,6 +38,15 @@ const NewMap = () => {
     }
   };
 
+  const mapSrc =
+    !isMobile & (mapType === "roadmap")
+      ? "https://www.google.com/maps/d/u/0/embed?mid=1rJb5xtEAOs1UJpXOanRKSOKsj1DWeaA&output=embed&ll=64.15066066039589%2C-21.95341584912111&z=13"
+      : isMobile & (mapType === "roadmap")
+      ? "https://www.google.com/maps/d/u/0/embed?mid=1rJb5xtEAOs1UJpXOanRKSOKsj1DWeaA&output=embed&ll=64.14332483909587%2C-21.983799912841814&z=12"
+      : !isMobile & (mapType === "satellite")
+      ? "https://www.google.com/maps/d/u/0/embed?mid=15LpDDItfBNP1Bo9lK9bPlP8PYblE1nw&ehbc=2E312F&ll=64.15066066039589%2C-21.95341584912111&z=13"
+      : "https://www.google.com/maps/d/u/0/embed?mid=15LpDDItfBNP1Bo9lK9bPlP8PYblE1nw&ehbc=2E312F&ll=64.14332483909587%2C-21.983799912841814&z=12";
+
   return (
     <div
       style={{
@@ -49,6 +59,64 @@ const NewMap = () => {
         overflow: "hidden",
       }}
     >
+      <div
+        style={{
+          position: "absolute",
+          top: !isMobile ? 30 : 20,
+          left: !isMobile ? 55 : 25,
+          display: "flex",
+          flexDirection: !isMobile ? "row" : "column",
+          gap: "5px",
+          zIndex: 1,
+        }}
+      >
+        <button
+          onClick={() => setMapType("roadmap")}
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "center",
+            justifyContent: "center",
+            width: "100px",
+            height: "38px",
+            cursor: "pointer",
+            color: "white",
+            border:
+              mapType === "roadmap" ? "1px solid white" : "1px solid #314a6f6b",
+            borderRadius: "10px",
+            backgroundColor:
+              mapType === "roadmap" ? "rgba(0, 0, 0, 0.28)" : "#fff",
+            color: mapType === "roadmap" ? "#fff" : "#000",
+            outline: "none",
+          }}
+        >
+          <span style={{ marginTop: "2px" }}>Roadmap</span>
+        </button>
+        <button
+          onClick={() => setMapType("satellite")}
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "center",
+            justifyContent: "center",
+            width: "100px",
+            height: "38px",
+            cursor: "pointer",
+            color: "white",
+            border:
+              mapType === "satellite"
+                ? "1px solid white"
+                : "1px solid #314a6f6b",
+            borderRadius: "10px",
+            backgroundColor:
+              mapType === "satellite" ? "rgba(0, 0, 0, 0.28)" : "#fff",
+            color: mapType === "satellite" ? "#fff" : "#000",
+            outline: "none",
+          }}
+        >
+          <span style={{ marginTop: "2px" }}>Satellite</span>
+        </button>
+      </div>
       <div
         style={{
           position: "absolute",
@@ -111,11 +179,7 @@ const NewMap = () => {
       )}
       <iframe
         title="Google Maps"
-        src={
-          !isMobile
-            ? "https://www.google.com/maps/d/u/0/embed?mid=1rJb5xtEAOs1UJpXOanRKSOKsj1DWeaA&output=embed&ll=64.15066066039589%2C-21.95341584912111&z=13"
-            : "https://www.google.com/maps/d/u/0/embed?mid=1rJb5xtEAOs1UJpXOanRKSOKsj1DWeaA&output=embed&ll=64.14332483909587%2C-21.983799912841814&z=12"
-        }
+        src={mapSrc}
         width="100%"
         height="662px"
         style={{
