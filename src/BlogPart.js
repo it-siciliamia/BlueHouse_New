@@ -13,9 +13,9 @@ function BlogPart() {
   return (
     <div className="blogPart">
       <div data-aos="fade-up" className="blogPart__help">
-        <h1>
+        <h2>
           <WithTransLate text="Don’t know which one to choose?" />{" "}
-        </h1>
+        </h2>
         <p>
           <WithTransLate text="Leave a request and we will get back to you as soon as possible" />
         </p>

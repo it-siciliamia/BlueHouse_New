@@ -61,7 +61,7 @@ function Footer() {
   return (
     <div className={footerContainer} id="contact">
       <div className={clsx(columns, column1)}>
-        <h1 className={clsx(title, title1)}>CONTACT US</h1>
+        <h2 className={clsx(title, title1)}>CONTACT US</h2>
         {LinksInfo.map((link, i) => (
           <Links
             key={i}
@@ -73,7 +73,7 @@ function Footer() {
         ))}
       </div>
       <div className={clsx(columns, column2)}>
-        <h1 className={title}>OUR NEWS LETTER</h1>
+        <h2 className={title}>OUR NEWS LETTER</h2>
         <p className={signUp}>Sign up for our newsletter!</p>
         <form onSubmit={formik.handleSubmit} className={form}>
           <TextField
@@ -107,7 +107,7 @@ function Footer() {
         </form>
       </div>
       <div className={clsx(columns, column3)}>
-        <h1 className={title}>ABOUT USss</h1>
+        <h2 className={title}>ABOUT US</h2>
         {LinksInfo2((link, i) => (
           <Links key={i} target={link.target} info={link.info} />
         ))}

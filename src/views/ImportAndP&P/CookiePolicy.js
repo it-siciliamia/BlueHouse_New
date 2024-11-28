@@ -142,9 +142,9 @@ export default function CookiePolicy() {
   } = useStyles();
   return (
     <Box className={root}>
-      <h1 className={title}>
+      <h2 className={title}>
         <WithTransLate text="COOKIE POLICY" />
-      </h1>
+      </h2>
 
       <div className={titleInfo}>
         <p className={textClass}>

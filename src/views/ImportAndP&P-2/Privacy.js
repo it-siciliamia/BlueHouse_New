@@ -47,18 +47,16 @@ const useStyles = makeStyles((theme) => ({
     lineHeight: "25px",
     letterSpacing: "0em",
   },
-  
 }));
-function Subtitle({ title, text ,children }) {
+function Subtitle({ title, text, children }) {
   const { subtitle, textClass, titleContainer } = useStyles();
   return (
     <Box className={titleContainer}>
       <h2 className={subtitle}>
         <WithTransLate text={title} />
       </h2>
-        <WithTransLate text={children} />
-      <p className={textClass}>
-      </p>
+      <WithTransLate text={children} />
+      <p className={textClass}></p>
     </Box>
   );
 }
@@ -66,9 +64,9 @@ export default function Privacy() {
   const { root, title, textClass } = useStyles();
   return (
     <Box className={root}>
-      <h1 className={title}>
+      <h2 className={title}>
         <WithTransLate text="IMPRINT & PRIVACY POLICY" />
-      </h1>
+      </h2>
       <Subtitle title="">
         <p className={textClass}>
           Last updated: June 06, 2022 <br /> <br />

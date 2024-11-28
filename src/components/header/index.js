@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useMediaQuery } from "react-responsive";
 import clsx from "clsx";
-import { WithTransLate } from "../../translating/index";
 import SideNavbar from "../SideNavbar";
 import SideNavbarMobile from "../SideNavbarMobile";
+import Button from "../Shared/Button/Button";
 import Search from "./search";
 
 import { Grid } from "@material-ui/core";
@@ -275,6 +276,7 @@ const headerStyles = makeStyles((theme) => ({
 }));
 
 export default function Header({ right, setRight, top, setTop }) {
+  const isDesktop = useMediaQuery({ minDeviceWidth: 813 });
   const classes = headerStyles();
 
   const [rightSearch, setRightSearch] = useState("-200%");
@@ -357,25 +359,27 @@ export default function Header({ right, setRight, top, setTop }) {
             </Link>
           </div>
 
-          <div className={classes.bookingButtonsWrapper}>
-            <a
-              className={clsx(classes.bookingRoom, classes.bookingButtons)}
-              href="https://beds24.com/booking2.php?propid=3578&layout=1"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <WithTransLate text="BOOK YOUR ROOM" />
-            </a>
+          {isDesktop && (
+            <div className={classes.bookingButtonsWrapper}>
+              <a
+                className={clsx(classes.bookingRoom)}
+                href="https://beds24.com/booking2.php?propid=3578&layout=1"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <Button text="BOOK YOUR ROOM" btnClass="btnDark" />
+              </a>
 
-            <a
-              className={clsx(classes.bookingTour, classes.bookingButtons)}
-              href="https://bluehouse.tourdesk.is/Tour"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <WithTransLate text="book day tour" />
-            </a>
-          </div>
+              <a
+                className={clsx(classes.bookingTour)}
+                href="https://bluehouse.tourdesk.is/Tour"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <Button text="BOOK DAY TOUR" btnClass="btnLight" />
+              </a>
+            </div>
+          )}
 
           <div className={classes.column3}>
             <button

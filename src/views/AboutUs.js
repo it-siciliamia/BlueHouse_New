@@ -205,9 +205,9 @@ function Aboutus() {
   return (
     <div className={root}>
       <div className={row1}>
-        <h1 className={clsx(titles, experienceTitle)}>
+        <h2 className={clsx(titles, experienceTitle)}>
           <WithTransLate text=" COLOUR YOUR EXPERIENCE" />
-        </h1>
+        </h2>
         <div className={imageAndDescriptionWrapper}>
           <img src={Room} alt="Room" className={imageStyle} />
           <img src={Room} className={image1} alt="roomImg" />
@@ -270,9 +270,9 @@ function Aboutus() {
             <img alt="Signature img" className={signature} src={Signature} />
           </div>
         </div>
-        <h1 className={clsx(titles, founderMessageTitle)}>
+        <h2 className={clsx(titles, founderMessageTitle)}>
           <WithTransLate text=" MESSAGE FROM FOUNDER" />
-        </h1>
+        </h2>
       </div>
       <Support />
     </div>

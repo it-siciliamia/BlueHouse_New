@@ -3,6 +3,7 @@ import s from "./NewsLetter.module.scss";
 import { useForm, Controller } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { WithTransLate } from "../../translating";
+import Button from "../Shared/Button/Button";
 // import HumanVerification from "../HumanVerification/HumanVerification";
 
 const NewsletterComponent = () => {
@@ -351,14 +352,12 @@ const NewsletterComponent = () => {
         </div> */}
 
         <div className={s.humanVerification}>
-          <button
-            className={s.btn}
+          <Button
+            text="Sign Up"
             type="submit"
-            // disabled={!isHumanVerified || !isValid || !aproveSendData}
+            btnClass="btnDark"
             disabled={!isValid || !aproveSendData}
-          >
-            <WithTransLate text={"Sign Up"} />
-          </button>
+          />
         </div>
       </form>
     </div>

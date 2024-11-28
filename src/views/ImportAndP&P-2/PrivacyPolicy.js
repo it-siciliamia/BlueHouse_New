@@ -7,9 +7,9 @@ const PrivacyPolicy = () => {
   return (
     <div className="privacy-policy">
       <div className="sections">
-        <h1>
+        <h2>
           <WithTransLate text="IMPRINT & PRIVACY POLICY" />
-        </h1>
+        </h2>
         <p>
           <WithTransLate text="Last updated: June 2022" />
         </p>
@@ -703,9 +703,9 @@ Cookies Policy / Notice Acceptance Cookies
       {/* cookie policy */}
 
       <>
-        <h1>
+        <h2>
           <WithTransLate text="COOKIE POLICY" />
-        </h1>
+        </h2>
         <Subtitle
           heading=""
           subHeading=""
