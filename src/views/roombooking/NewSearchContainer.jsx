@@ -8,14 +8,14 @@ import Capacity from "./Date/Capacity"
 
 
 const NewSearchContainer = () => {
-    const {selectedStart, selectedEnd} = useCalendarStore();
+    const {selectedStart, selectedEnd, selectedCapacity} = useCalendarStore();
     const [verif,setVerif]=useState(false);
     useEffect(()=>{
-        if(selectedStart&&selectedEnd){
+        if(selectedStart&&selectedEnd && selectedCapacity){
           setVerif(true);
         }else{
           setVerif(false);}
-      },[selectedStart,selectedEnd])
+      },[selectedStart,selectedEnd,selectedCapacity])
     return (
         <div className="relative w-full h-[510px] flex items-end">
             <div className="absolute w-full h-full overflow-hidden">
