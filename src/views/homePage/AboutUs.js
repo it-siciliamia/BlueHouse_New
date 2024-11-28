@@ -109,7 +109,6 @@ export default function AboutUs() {
     selfieStyle,
     description,
     descriptionWrapper,
-    KnowMore,
   } = useStyles();
   return (
     <Element id="aboutus">
