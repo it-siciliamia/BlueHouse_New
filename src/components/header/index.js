@@ -364,7 +364,7 @@ export default function Header({ right, setRight, top, setTop }) {
               target="_blank"
               rel="noreferrer"
             >
-              <WithTransLate text="main page" />
+              <WithTransLate text="BOOK YOUR ROOM" />
             </a>
 
             <a
