@@ -275,9 +275,9 @@ export default function PhotoGallery({
     <div id={id} onClick={() => openSliderOnClick && openSliderOnClick(true)}>
       <Element name={id}>
         <div className={root}>
-          <h1 className={titleStyle}>
+          <h2 className={titleStyle}>
             <WithTransLate text={title} />
-          </h1>
+          </h2>
 
           <Box className={imagesRoot}>
             {backgroundImagesUrlAndTitles.map(

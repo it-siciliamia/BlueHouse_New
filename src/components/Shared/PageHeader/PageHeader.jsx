@@ -1,54 +1,45 @@
 import { useLocation } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import { WithTransLate } from "../../translating";
+import { translateMyText } from "../../../translating/index";
 import languagesAndCodes from "../../../translating/languagesAndCodes.json";
 import s from "./PageHeader.module.scss";
+import { useEffect, useState, useMemo } from "react";
 
 const pagesData = {
   "/": {
-    title: "Home Page",
-    description: "Welcome to our home page.",
-    keywords: "home, welcome, main page",
+    title: "Blue House - Your Home Away from Home in Reykjavik",
+    description:
+      "Discover cozy accommodations in Reykjavik, Iceland, across three locations. Enjoy scenic views, Northern Lights, self-check-in, tours, and more.",
+    keywords:
+      "Blue House, Reykjavik accommodation, Northern Lights, self-check-in, Reykjavik tours, Iceland lodging, affordable stays in Reykjavik, drone footage locations, Reykjavik rooms, Iceland bed and breakfast, Grótta Northern Lights Apartment, Green House, Blue Lagoon, Glacier caves, Reykjavik travel recommendations, Reykjavik blog, Northern Lights tours, Reykjavik scenic views, Iceland holiday, Iceland travel tips, Reykjavik vacation spots",
   },
   "/house-rules": {
-    title: "House Rules",
-    description: "Learn about our house rules.",
-    keywords: "house rules, guidelines, regulations",
+    title: "House Rules - Blue House",
+    description:
+      "Discover the essential house rules for a comfortable and pleasant stay at Blue House. Learn about our eco-friendly policies, quiet hours, and kitchen use guidelines.",
+    keywords:
+      "house rules, Blue House guidelines, Icelandic law, quiet hours, kitchen cleanliness, breakfast policies, eco-friendly accommodation, check-out rules, respectful stay, Blue House Reykjavik rules",
   },
   "/view-gallery": {
-    title: "View Gallery",
-    description: "View our gallery.",
-    keywords: "gallery, photos, images",
+    title: "Gallery - Explore Our Apartments and Rooms",
+    description:
+      "Browse our gallery showcasing apartments, rooms, and locations available for your stay. Experience the comfort and beauty of Blue House accommodations.",
+    keywords:
+      "gallery, Blue House photos, Reykjavik apartments, room images, Iceland accommodation gallery, Blue House rooms, Reykjavik lodging, Iceland travel photos, cozy apartments, Blue House gallery",
   },
   "/about-us": {
-    title: "About Us",
-    description: "Learn more about us.",
-    keywords: "about, company, information",
+    title: "About Us - Blue House Bed and Breakfast",
+    description:
+      "Discover the story behind Blue House B&B in Reykjavik, Iceland. Learn about our scenic locations, charming Icelandic houses, and dedication to unforgettable travel experiences.",
+    keywords:
+      "about Blue House, Reykjavik accommodation, Iceland bed and breakfast, Seltjarnarnes peninsula, northern lights, Grótta Lighthouse, Reykjavik downtown, Iceland travel, Esja Mountain, Faxafloi Bay, Snaefellsjökull glacier, family-friendly lodging, charming Icelandic house",
   },
   "/privacy-and-policy": {
-    title: "Privacy and Policy",
-    description: "Read our privacy and policy.",
-    keywords: "privacy, policy, terms, conditions",
-  },
-  "/slider-photo": {
-    title: "Slider Photo",
-    description: "Check out our slider photos.",
-    keywords: "slider, photos, gallery",
-  },
-  "/book": {
-    title: "Book",
-    description: "Book with us.",
-    keywords: "book, reservation, appointment",
-  },
-  "/enquire": {
-    title: "Enquire",
-    description: "Enquire with us.",
-    keywords: "enquire, contact, questions",
-  },
-  "/beds24": {
-    title: "Beds24",
-    description: "Beds24 information.",
-    keywords: "beds24, information, details",
+    title: "Privacy Policy & Terms of Service - Blue House",
+    description:
+      "Learn about our policies on data collection, usage, cookies, and terms of service. Understand your rights and how we protect your personal information.",
+    keywords:
+      "privacy policy, terms of service, data protection, cookies, Blue House policies, Iceland accommodation privacy, data security, user rights, personal data usage, cookies policy",
   },
   default: {
     title: "Page Not Found",
@@ -63,29 +54,50 @@ const PageHeader = () => {
   const languageIndex = localStorage.getItem("languageIndex");
   const languageCode = languagesAndCodes.languages[languageIndex]?.code || "en";
 
-  return (
-    <>
+  const [title, setTitle] = useState(pageData.title);
+  const [description, setDescription] = useState(pageData.description);
+  const [keywords, setKeywords] = useState(pageData.keywords);
+
+  useEffect(() => {
+    async function fetchTranslations() {
+      try {
+        const [translatedTitle, translatedDescription, translatedKeywords] =
+          await Promise.all([
+            translateMyText(pageData.title),
+            translateMyText(pageData.description),
+            translateMyText(pageData.keywords),
+          ]);
+
+        setTitle(translatedTitle);
+        setDescription(translatedDescription);
+        setKeywords(translatedKeywords);
+      } catch (error) {
+        console.error("Translation error:", error);
+      }
+    }
+
+    fetchTranslations();
+  }, [location, pageData, languageCode]);
+
+  const helmetContent = useMemo(() => {
+    return (
       <Helmet>
         <html lang={languageCode} />
-        <title>
-          <WithTransLate text={pageData.title} />
-        </title>
-        <meta
-          name="description"
-          content={<WithTransLate text={pageData.description} />}
-        />
-        <meta
-          name="keywords"
-          content={<WithTransLate text={pageData.keywords} />}
-        />
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <meta name="keywords" content={keywords} />
         <link
           rel="canonical"
           href={`https://bluehouse.is${location.pathname}`}
         />
       </Helmet>
-      <h1 className={s.mainTitle}>
-        <WithTransLate text={pageData.title} />
-      </h1>
+    );
+  }, [title, description, keywords, languageCode, location.pathname]);
+
+  return (
+    <>
+      {helmetContent}
+      <h1 className={s.mainTitle}>{title}</h1>
     </>
   );
 };

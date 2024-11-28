@@ -1,6 +1,7 @@
-import { Box, makeStyles, Typography } from "@material-ui/core";
 import React, { useContext } from "react";
+import { Box, makeStyles, Typography } from "@material-ui/core";
 import clsx from "clsx";
+import Button from "../../components/Shared/Button/Button";
 import { UserContext } from "../../App";
 // import RecommendationCustomModal from "../../components/customModal/recommendationCustomModal";
 import { WithTransLate } from "../../translating/index";
@@ -151,8 +152,8 @@ const useStyles = makeStyles((theme) => ({
     marginRight: "auto",
     [theme.breakpoints.down("xs")]: {
       marginTop: "5px",
-      textAlign:'center',
-      color:'#073762'
+      textAlign: "center",
+      color: "#073762",
     },
   },
 
@@ -163,10 +164,9 @@ const useStyles = makeStyles((theme) => ({
   },
   but: {
     display: "block",
-    color:'#1D3967', 
-    width:'280px',
-    height:'46px',
-
+    color: "#1D3967",
+    width: "280px",
+    height: "46px",
 
     "@media (max-width: 980px)": {
       marginTop: "5px",
@@ -180,7 +180,7 @@ const useStyles = makeStyles((theme) => ({
       fontWeight: "400",
       fontSize: "16px",
       lineHeight: "20px",
-      color:'#1D3967'
+      color: "#1D3967",
     },
   },
 
@@ -279,9 +279,9 @@ export default function Recommendations({
     >
       <div style={{ width: "100%" }}>
         <div className={root}>
-          <h1  className={titleStyle}>
+          <h2 className={titleStyle}>
             <WithTransLate text={title} />
-          </h1>
+          </h2>
           <Box className={imagesRoot}>
             {backgroundImagesUrlAndTitles.map(
               ({ background, title, objectPosition }, index) => {
@@ -303,7 +303,11 @@ export default function Recommendations({
                         </div>
                       </div>
                     )}
-                    <a href={"https://blog.bluehouse.is/"}  rel="noreferrer" target="_blank">
+                    <a
+                      href={"https://blog.bluehouse.is/"}
+                      rel="noreferrer"
+                      target="_blank"
+                    >
                       <img
                         alt="ph"
                         src={background}
@@ -321,14 +325,23 @@ export default function Recommendations({
           </Box>
         </div>
         {actionType && (
-          <a
-            href="https://blog.bluehouse.is/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={clsx("outLinedButton", but)}
+          <div
+            style={{
+              width: "100%",
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
           >
-            <WithTransLate text={actionType} />
-          </a>
+            <a
+              href="https://blog.bluehouse.is/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button text={actionType} btnClass="btnLight" />
+            </a>
+          </div>
         )}
       </div>
     </div>

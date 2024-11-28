@@ -219,15 +219,6 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
-    "& h1": {
-      fontFamily: "Oblik",
-      fontSize: "14px",
-      fontWeight: "bold",
-      textAlign: "center",
-      color: "#fff",
-      marginTop: "20px",
-      marginBottom: "-15%",
-    },
     "@media(max-width:767px)": {
       display: "flex",
       justifyContent: "center",
