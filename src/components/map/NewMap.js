@@ -249,6 +249,82 @@ const NewMap = () => {
           >
             <AiOutlineFullscreen style={{ width: "30px", height: "30px" }} />
           </button>
+
+          {weather && (
+            <div
+              style={{
+                position: "absolute",
+                bottom: isMobile ? "20px" : "30px",
+                ...(isMobile ? { left: "10px" } : { left: "50px" }),
+                zIndex: 1,
+              }}
+            >
+              <WeatherCard
+                temperature={weather.main.temp}
+                icon={`https://openweathermap.org/img/wn/${weather.weather[0]["icon"]}@2x.png`}
+              />
+            </div>
+          )}
+
+          <div
+            style={{
+              position: "absolute",
+              top: !isMobile ? 30 : 20,
+              left: !isMobile ? 55 : 25,
+              display: "flex",
+              flexDirection: !isMobile ? "row" : "column",
+              gap: "5px",
+              zIndex: 2,
+            }}
+          >
+            <button
+              onClick={() => handleButtonClick("roadmap")}
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+                justifyContent: "center",
+                width: "100px",
+                height: "38px",
+                cursor: "pointer",
+                border:
+                  mapType === "roadmap"
+                    ? "1px solid white"
+                    : "1px solid #314a6f6b",
+                borderRadius: "10px",
+                backgroundColor:
+                  mapType === "roadmap" ? "rgba(0, 0, 0, 0.28)" : "#fff",
+                color: mapType === "roadmap" ? "#fff" : "#000",
+                outline: "none",
+              }}
+            >
+              <span style={{ marginTop: "2px" }}>Roadmap</span>
+            </button>
+            <button
+              onClick={() => handleButtonClick("satellite")}
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+                justifyContent: "center",
+                width: "100px",
+                height: "38px",
+                cursor: "pointer",
+                border:
+                  mapType === "satellite"
+                    ? "1px solid white"
+                    : "1px solid #314a6f6b",
+                borderRadius: "10px",
+                backgroundColor:
+                  mapType === "satellite" ? "rgba(0, 0, 0, 0.28)" : "#fff",
+                color: mapType === "satellite" ? "#fff" : "#000",
+                outline: "none",
+              }}
+            >
+              <span style={{ marginTop: "2px" }}>Satellite</span>
+            </button>
+          </div>
+
           <iframe
             ref={iframeRef}
             title="Google Maps"
