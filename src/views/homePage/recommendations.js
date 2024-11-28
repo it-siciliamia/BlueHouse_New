@@ -258,7 +258,6 @@ export default function Recommendations({
     titleStyle,
     category,
     actionStyle,
-    but,
     hoverImage,
   } = useStyles({ rootStyleInPhoneSize, ...props });
 
