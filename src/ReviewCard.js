@@ -11,16 +11,16 @@ function ReviewCard({ name, review }) {
         </div>
         <div className="reviewCard_center">
           <div className="reviewCard_centertext">
-            <h1>
+            <h2>
               <WithTransLate text={review} />
-            </h1>
+            </h2>
           </div>
         </div>
         <div className="reviewCard_bottom">
-          <h1>
+          <h2>
             __
             <WithTransLate text={name} />
-          </h1>
+          </h2>
           <FormatQuoteIcon className="reviewCard_quotes" />
         </div>
       </Paper>

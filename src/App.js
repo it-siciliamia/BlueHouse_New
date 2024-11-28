@@ -9,6 +9,7 @@ import { ThemeProvider } from "@material-ui/styles";
 import theme from "./theme";
 import ZohoChat from "./components/helpers/ZohoChat/ZohoChat.jsx";
 import ScrollToTopButton from "./components/Shared/ScrollToTopButton/ScrollToTopButton.jsx";
+import PageHeader from "./components/Shared/PageHeader/PageHeader";
 import ScrollToTop from "./ScrollToTop";
 import HouseRules from "./views/houseRules";
 import Footer from "./components/Footer/Footer";
@@ -106,6 +107,7 @@ function App({ basename }) {
                     setRight={setRight}
                   />
                   <ScrollToTop />
+                  <PageHeader />
                   <Switch>
                     <Route exact path="/">
                       <HomePage />
@@ -118,7 +120,6 @@ function App({ basename }) {
                     </Route>
                     <Route exact path="/view-gallery">
                       <ViewGalery />
-                      {/* <Galary /> */}
                     </Route>
                     <Route exact path="/about-us">
                       <Aboutus />

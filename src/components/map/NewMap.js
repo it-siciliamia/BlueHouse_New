@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import WeatherCard from "./WeatherCard";
+import { WithTransLate } from "../../translating/index";
 import { AiOutlineFullscreen } from "react-icons/ai";
 import "./WeatherMap.css";
 
@@ -117,7 +118,9 @@ const NewMap = () => {
                 outline: "none",
               }}
             >
-              <span style={{ marginTop: "2px" }}>Roadmap</span>
+              <span className="btnText">
+                <WithTransLate text="Roadmap" />
+              </span>
             </button>
             <button
               onClick={() => handleButtonClick("satellite")}
@@ -140,7 +143,9 @@ const NewMap = () => {
                 outline: "none",
               }}
             >
-              <span style={{ marginTop: "2px" }}>Satellite</span>
+              <span className="btnText">
+                <WithTransLate text="Satellite" />
+              </span>
             </button>
           </div>
 
@@ -298,7 +303,9 @@ const NewMap = () => {
                 outline: "none",
               }}
             >
-              <span style={{ marginTop: "2px" }}>Roadmap</span>
+              <span className="btnText">
+                <WithTransLate text="Roadmap" />
+              </span>
             </button>
             <button
               onClick={() => handleButtonClick("satellite")}
@@ -321,7 +328,9 @@ const NewMap = () => {
                 outline: "none",
               }}
             >
-              <span style={{ marginTop: "2px" }}>Satellite</span>
+              <span className="btnText">
+                <WithTransLate text="Satellite" />
+              </span>
             </button>
           </div>
 

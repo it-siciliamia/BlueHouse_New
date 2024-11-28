@@ -1,4 +1,4 @@
-import React from "react";
+import Button from "../../components/Shared/Button/Button";
 import "../../css/BlogPart.scss";
 import island from "../../images/Blog/island.jpg";
 import tripAdvisor from "../../images/findMore/TripadvisorLogo.png";
@@ -39,11 +39,12 @@ function BlogPart() {
               <WithTransLate text="FOR USEFUL RECOMMENDATIONS & ADVENTURES READ AMAZING STORIES IN OUR BLOG" />
             </h3>
           </div>
-          <button type="button" onClick={handleBlogButtonClick}>
-            <div style={{ marginTop: "2px" }}>
-              <WithTransLate text="Read Blog" />
-            </div>
-          </button>
+          <Button
+            type="button"
+            text="Read Blog"
+            className="btnLight"
+            handleClick={handleBlogButtonClick}
+          />
         </div>
       </div>
     </div>

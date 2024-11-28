@@ -136,7 +136,6 @@ export async function translateMyText(text = "") {
 }
 
 export function WithTransLate({ text, isFunction }) {
-  
   const [translatedText, setTranslatedText] = useState(text);
   translateMyText(text)
     .then((res) => {

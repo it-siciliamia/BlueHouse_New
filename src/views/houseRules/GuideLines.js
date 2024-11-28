@@ -26,18 +26,6 @@ const useStyles = makeStyles((theme) => ({
         textAlign: "cener",
       },
     },
-    "& h1": {
-      fontFamily: "Oblik",
-      fontSize: "36px",
-      fontWeight: 700,
-      lineHeight: "25px",
-      letterSpacing: "0em",
-      textAlign: "center",
-      [theme.breakpoints.down("xs")]: {
-        fontSize: "24px",
-        textAlign: "center",
-      },
-    },
   },
   [theme.breakpoints.down("xs")]: {
     root: {
@@ -49,10 +37,6 @@ const useStyles = makeStyles((theme) => ({
       margin: "0px 25px",
       "& p": {
         fontSize: "16px",
-        textAlign: "center",
-      },
-      "& h1": {
-        fontSize: "24px",
         textAlign: "center",
       },
     },
@@ -122,9 +106,9 @@ function GuideLines() {
         text="Non-refundable: The amount will be charged immediately. If guests cancel at any time, no refund will be issued."
       />
       <div className={info}>
-        <h1>
+        <h2>
           <WithTransLate text="The Blue House Team" />
-        </h1>
+        </h2>
       </div> */}
     </div>
   );

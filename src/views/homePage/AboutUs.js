@@ -2,6 +2,7 @@ import { Box, makeStyles } from "@material-ui/core";
 import selfie from "../../images/selfie.jpg";
 import { Element } from "react-scroll";
 import { Link } from "react-router-dom";
+import Button from "../../components/Shared/Button/Button";
 import { WithTransLate } from "../../translating/index";
 
 const useStyles = makeStyles((theme) => ({
@@ -113,9 +114,9 @@ export default function AboutUs() {
   return (
     <Element id="aboutus">
       <Box className={root}>
-        <h1 className={titleStyle}>
+        <h2 className={titleStyle}>
           <WithTransLate text="ABOUT US" />{" "}
-        </h1>
+        </h2>
         <div className={content}>
           <div className={outLinedImage}>
             <img className={selfieStyle} alt="selfie" src={selfie} />
@@ -124,10 +125,8 @@ export default function AboutUs() {
             <p className={description}>
               <WithTransLate text="Blue House Bed and Breakfast welcomes you to your home away from home in Reykjavik, Iceland. Simply put, we are a small team of globetrotters, passionate about unforgettable travel experiences." />
             </p>
-            <Link to="/About-us" className={KnowMore}>
-              <div style={{ marginTop: "0px" }}>
-                <WithTransLate text="DISCOVER MORE" />
-              </div>
+            <Link to="/About-us">
+              <Button text="DISCOVER MORE" btnClass="btnLight" />
             </Link>
           </div>
         </div>

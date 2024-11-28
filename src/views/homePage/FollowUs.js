@@ -1,4 +1,4 @@
-import { Box, makeStyles} from "@material-ui/core";
+import { Box, makeStyles } from "@material-ui/core";
 import React, { useContext } from "react";
 import clsx from "clsx";
 import { UserContext } from "../../App";
@@ -180,9 +180,9 @@ const useStyles = makeStyles((theme) => ({
   },
   but: {
     display: "block",
-    color:'#1D3967', 
-    width:'280px',
-    height:'46px',
+    color: "#1D3967",
+    width: "280px",
+    height: "46px",
 
     "@media (max-width: 980px)": {
       marginTop: "20px",
@@ -226,7 +226,7 @@ export default function FollowUs({
     imagesRoot,
     root,
     titleStyle,
-  
+
     actionStyle,
     but,
     hoverImage,
@@ -249,9 +249,9 @@ export default function FollowUs({
     >
       <div style={{ width: "100%" }}>
         <div className={root}>
-          <h1 className={titleStyle}>
+          <h2 className={titleStyle}>
             <WithTransLate text={title} />
-          </h1>
+          </h2>
           <Box className={imagesRoot}>
             {backgroundImagesUrlAndTitles.map(
               ({ background, objectPosition }, index) => {
@@ -273,7 +273,11 @@ export default function FollowUs({
                         </div>
                       </div>
                     )}
-                    <a href={"https://www.instagram.com/bluehousebb/"} rel="noreferrer"  target="_blank">
+                    <a
+                      href={"https://www.instagram.com/bluehousebb/"}
+                      rel="noreferrer"
+                      target="_blank"
+                    >
                       <img
                         alt="ph"
                         src={background}

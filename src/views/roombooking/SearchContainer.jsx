@@ -154,7 +154,7 @@ const SearchContainer = () => {
 
   return (
     <div className="search-wrapper">
-      <h1 className="booking-title">Book your stay with Blue house</h1>
+      <h2 className="booking-title">Book your stay with Blue house</h2>
       <div className="content">
         <div className="search">
           <div className="search-container">
