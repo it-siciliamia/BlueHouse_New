@@ -11,7 +11,7 @@ function Header() {
           <HeaderOptions
             color="white"
             textColor="black"
-            title="MAIN PAGE"
+            title="BOOK YOUR ROOM"
           />
           <HeaderOptions
             color="#04376F"
