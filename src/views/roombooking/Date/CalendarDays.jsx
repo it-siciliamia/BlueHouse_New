@@ -86,7 +86,7 @@ const CalendarDays = () => {
     if (!status) return null
 
     return (
-        <div className={`calendar-popup fixed top-0 left-0 right-0 calendar-el pb-8 border-8 px-4 h-[40%] w-full max-w-[325px] overflow-y-scroll overflow-x-hidden bg-white text-black`}
+        <div className={`calendar-popup fixed top-0 left-0 right-0 calendar-el pb-8 border-8 px-4 h-[40%] w-full max-w-[325px] overflow-y-scroll overflow-x-hidden bg-white text-black z-10`}
             style={{ top: `${yTop + 40}px`, left: `${xLeft}px` }}>
             {Object.entries(months).map(([month, days]) => {
                 if (month === 'January' && format(startOfToday(), 'd MMMM yyyy').split(' ')[1] !== "January") {

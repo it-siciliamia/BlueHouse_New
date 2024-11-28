@@ -5,17 +5,19 @@ import DateCheckIn from "./Date/DateCheckIn"
 import DateCheckOut from "./Date/DateCheckOut"
 import useCalendarStore from "../../stores/calendar"
 import Capacity from "./Date/Capacity"
+import blurBox from "../../images/Blur/blurBox.webp"
 
 
 const NewSearchContainer = () => {
-    const {selectedStart, selectedEnd, selectedCapacity} = useCalendarStore();
-    const [verif,setVerif]=useState(false);
-    useEffect(()=>{
-        if(selectedStart&&selectedEnd && selectedCapacity){
-          setVerif(true);
-        }else{
-          setVerif(false);}
-      },[selectedStart,selectedEnd,selectedCapacity])
+    const { selectedStart, selectedEnd, selectedCapacity } = useCalendarStore();
+    const [verif, setVerif] = useState(false);
+    useEffect(() => {
+        if (selectedStart && selectedEnd && selectedCapacity) {
+            setVerif(true);
+        } else {
+            setVerif(false);
+        }
+    }, [selectedStart, selectedEnd, selectedCapacity])
     return (
         <div className="relative w-full h-[510px] flex items-end">
             <div className="absolute w-full h-full overflow-hidden">
@@ -23,11 +25,11 @@ const NewSearchContainer = () => {
             </div>
             <div className="relative w-full flex flex-col items-center gap-y-8 pb-10 px-10">
                 <div className="text-white text-center text-lg font-bold">BOOK YOUR STAY WITH BLUE HOUSE</div>
-                <div className="w-full flex items-center blur-effect">
+                <div className="w-full flex items-center blur-effect" style={{ backgroundImage: `url(${blurBox})` }}>
                     <DateCheckIn />
                     <DateCheckOut />
-                    <Capacity/>
-                    <CheckDatesButton text={'SEARCH'} className={'whitespace-nowrap'} verif={verif} /> 
+                    <Capacity />
+                    <CheckDatesButton text={'SEARCH'} style={{ border: '1px #1D3967 solid' }} className={'whitespace-nowrap'} verif={verif} />
                 </div>
             </div>
         </div>

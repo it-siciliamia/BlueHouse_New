@@ -20,6 +20,10 @@
     padding-right: 0.5rem;
 }
 
+.p-12px {
+    padding: 12px;
+}
+
 /* border */
 .border {
     border-width: 1px;
@@ -254,6 +258,11 @@ ul.grid {
     border-color: #d8e2dc;
 }
 
+/* border-[#1D3967] */
+.border-\#1D3967 {
+    border-color: #1D3967;
+}
+
 /* mx-auto */
 .mx-auto {
     margin-left: auto;
@@ -326,7 +335,7 @@ ul.grid {
 
 .text-lg {
     font-size: 3.25rem;
-    line-height: 1.75rem;
+    line-height: 1;
 }
 
 /* Overflow and object-fit */
@@ -349,6 +358,7 @@ ul.grid {
 .blur-effect {
     padding: 20px;
     background-color: #ffffff50;
-    /* -webkit-backdrop-filter: blur(30px);
-    backdrop-filter: blur(30px); */
+    /* background-image: url('/public/assets/images/blurBox.webp'); */
+    background-size: cover;
+    background-repeat: no-repeat;
 }

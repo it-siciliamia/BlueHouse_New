@@ -53,7 +53,7 @@ const DateCheckIn = () => {
 
   return (
     <>
-      <div onClick={handleStartClick} className={`inputLeft calendar-el w-full bg-white py-2 px-2 border border-black/30 flex items-center gap-3 cursor-pointer`}>
+      <div onClick={handleStartClick} className={`inputLeft calendar-el w-full bg-white p-12px border border-black/30 flex items-center gap-3 cursor-pointer`}>
         {selectedStart ? <span className="whitespace-nowrap">{selectedStart}</span> : <span className="text-black/70 capitalize whitespace-nowrap">check-in</span>}
         {!selectedStart
           ? <img src="/assets/images/calendar.svg" className="cursor-pointer max-w-5 ms-auto" title="Pick a date" aria-label="Calendar icon for picking a date" />
