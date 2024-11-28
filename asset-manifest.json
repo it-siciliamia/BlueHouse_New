@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/BlueHouse_New/static/css/main.de71a2c1.chunk.css",
-    "main.js": "/BlueHouse_New/static/js/main.1bd0c33b.chunk.js",
-    "main.js.map": "/BlueHouse_New/static/js/main.1bd0c33b.chunk.js.map",
-    "runtime-main.js": "/BlueHouse_New/static/js/runtime-main.421ac39a.js",
-    "runtime-main.js.map": "/BlueHouse_New/static/js/runtime-main.421ac39a.js.map",
+    "main.css": "/BlueHouse_New/static/css/main.5cf9144e.chunk.css",
+    "main.js": "/BlueHouse_New/static/js/main.28cb4757.chunk.js",
+    "main.js.map": "/BlueHouse_New/static/js/main.28cb4757.chunk.js.map",
+    "runtime-main.js": "/BlueHouse_New/static/js/runtime-main.c8d2bf66.js",
+    "runtime-main.js.map": "/BlueHouse_New/static/js/runtime-main.c8d2bf66.js.map",
     "static/css/2.52721fbf.chunk.css": "/BlueHouse_New/static/css/2.52721fbf.chunk.css",
-    "static/js/2.a5d95f06.chunk.js": "/BlueHouse_New/static/js/2.a5d95f06.chunk.js",
-    "static/js/2.a5d95f06.chunk.js.map": "/BlueHouse_New/static/js/2.a5d95f06.chunk.js.map",
-    "static/js/3.9f065dcb.chunk.js": "/BlueHouse_New/static/js/3.9f065dcb.chunk.js",
-    "static/js/3.9f065dcb.chunk.js.map": "/BlueHouse_New/static/js/3.9f065dcb.chunk.js.map",
+    "static/js/2.428ba52d.chunk.js": "/BlueHouse_New/static/js/2.428ba52d.chunk.js",
+    "static/js/2.428ba52d.chunk.js.map": "/BlueHouse_New/static/js/2.428ba52d.chunk.js.map",
+    "static/js/3.c1f8ef91.chunk.js": "/BlueHouse_New/static/js/3.c1f8ef91.chunk.js",
+    "static/js/3.c1f8ef91.chunk.js.map": "/BlueHouse_New/static/js/3.c1f8ef91.chunk.js.map",
     "index.html": "/BlueHouse_New/index.html",
     "static/css/2.52721fbf.chunk.css.map": "/BlueHouse_New/static/css/2.52721fbf.chunk.css.map",
-    "static/css/main.de71a2c1.chunk.css.map": "/BlueHouse_New/static/css/main.de71a2c1.chunk.css.map",
-    "static/js/2.a5d95f06.chunk.js.LICENSE.txt": "/BlueHouse_New/static/js/2.a5d95f06.chunk.js.LICENSE.txt",
+    "static/css/main.5cf9144e.chunk.css.map": "/BlueHouse_New/static/css/main.5cf9144e.chunk.css.map",
+    "static/js/2.428ba52d.chunk.js.LICENSE.txt": "/BlueHouse_New/static/js/2.428ba52d.chunk.js.LICENSE.txt",
     "static/media/1(1).9837d2b1.jpg": "/BlueHouse_New/static/media/1(1).9837d2b1.jpg",
     "static/media/1.32d4ba28.jpg": "/BlueHouse_New/static/media/1.32d4ba28.jpg",
     "static/media/1.49e659fd.jpg": "/BlueHouse_New/static/media/1.49e659fd.jpg",
@@ -196,10 +196,10 @@
     "static/media/zoho_chat.5971b98c.svg": "/BlueHouse_New/static/media/zoho_chat.5971b98c.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.421ac39a.js",
+    "static/js/runtime-main.c8d2bf66.js",
     "static/css/2.52721fbf.chunk.css",
-    "static/js/2.a5d95f06.chunk.js",
-    "static/css/main.de71a2c1.chunk.css",
-    "static/js/main.1bd0c33b.chunk.js"
+    "static/js/2.428ba52d.chunk.js",
+    "static/css/main.5cf9144e.chunk.css",
+    "static/js/main.28cb4757.chunk.js"
   ]
 }
