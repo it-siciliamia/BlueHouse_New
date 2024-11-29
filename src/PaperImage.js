@@ -1,7 +1,8 @@
 import React from "react";
-import "./css/PaperImage.css";
+import Button from "./components/Shared/Button/Button";
 import { Paper } from "@material-ui/core";
 import { WithTransLate } from "./translating/index";
+import "./css/PaperImage.css";
 
 function PaperImage({
   image,

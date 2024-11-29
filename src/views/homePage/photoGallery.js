@@ -9,7 +9,7 @@ import { WithTransLate } from "../../translating/index";
 import MyModal from "./Mymodal";
 // import ViewGallery from "../viewGalery";
 import "./PhotoGallery.css";
-import { Button } from "@mui/material";
+import Button from "../../components/Shared/Button/Button";
 const useStyles = makeStyles((theme) => ({
   root: (props) => ({
     display: "flex",
@@ -316,39 +316,19 @@ export default function PhotoGallery({
                         <ul className={descriptionOfGallaryStyle}>
                           {renderListItems(title)}
                         </ul>
-                        <Button
-                          variant="outlined"
-                          sx={{
-                            position: "absolute",
-                            bottom: 50,
-                            color: "white",
-                            width: "153px",
-                            fontSize: "16px",
-                            fontWeight: "600",
-                            height: "46px",
-                            border: "1px solid white",
-                            borderRadius: "0px",
-                            fontFamily: "Josefin Sans",
-                            textAlign: "center", // Ensures the text is centered horizontally
-                            "&:hover": {
-                              backgroundColor: "#073762",
-                              color: "white",
-                              border: "1px solid #073762",
-                            },
-                          }}
-                          onClick={() => {
-                            setOpen(true);
-                            setTabIndex(index);
-                          }}
-                        >
-                          <div
-                            style={{
-                              marginTop: "6px",
+
+                        <div style={{ position: "absolute", bottom: 50 }}>
+                          <Button
+                            type="button"
+                            text="Know More"
+                            width="180px"
+                            btnClass="inBox"
+                            handleClick={() => {
+                              setOpen(true);
+                              setTabIndex(index);
                             }}
-                          >
-                            <WithTransLate text="KNOW MORE" />
-                          </div>
-                        </Button>
+                          />
+                        </div>
 
                         <div className={actionStyle}></div>
                         <MyModal
