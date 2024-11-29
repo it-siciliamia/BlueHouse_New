@@ -7,6 +7,7 @@ const Button = ({
   btnClass = "btnDark",
   handleClick,
   disabled = false,
+  width = "280px",
 }) => {
   return (
     <button
@@ -14,6 +15,7 @@ const Button = ({
       onClick={handleClick}
       type={type}
       disabled={disabled}
+      style={{ width: width }}
     >
       <div className={s.textWrapper}>
         <WithTransLate text={text} />

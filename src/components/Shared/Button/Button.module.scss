@@ -5,7 +5,6 @@
   justify-content: center;
   padding: 0 !important;
   height: 46px;
-  width: 280px;
   font-family: "Josefin Sans", sans-serif;
   font-size: 16px;
   font-weight: 500;
@@ -40,7 +39,6 @@
   justify-content: center;
   padding: 0px 10px;
   height: 46px;
-  width: 280px;
   font-family: "Josefin Sans", sans-serif;
   font-size: 16px;
   font-weight: 500;
@@ -62,4 +60,34 @@
 .btnLight:hover {
   color: #fff;
   background-color: #1d3967;
+}
+
+.inBox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 0px 10px;
+  height: 46px;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1;
+  text-align: center;
+  background-color: transparent;
+  color: #fff;
+  text-transform: uppercase;
+  border: 1px solid #fff;
+  outline: none;
+  cursor: pointer;
+
+  @media (max-width: 768px) {
+    width: 116px;
+  }
+}
+
+.inBox:hover {
+  background-color: #1d3967;
+  color: #fff;
+  border: 1px solid #1d3967;
 }

@@ -37,8 +37,6 @@ const MyModal = ({ index, open, setOpen, setTabIndex }) => {
     setSliderKey((prevKey) => prevKey + 1); // Reset slider when index changes
   };
 
-  // useState(() => {}, []);
-
   const handleDropdownClick = (indx, itemIndex) => {
     setGalleryTitle(customModalData[index][indx].title);
     setActiveIndexes(
