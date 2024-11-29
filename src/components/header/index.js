@@ -403,8 +403,8 @@ export default function Header({ right, setRight, top, setTop }) {
               <img
                 src={MenuIcon}
                 alt="MenuIcon"
-                width={"40px"}
-                height={"40px"}
+                width={"43px"}
+                height={"32px"}
               />
             </button>
           </div>
