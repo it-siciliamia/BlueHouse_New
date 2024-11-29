@@ -19,9 +19,9 @@ function BlogPart() {
   return (
     <div className="blogPart">
       <div className="tripAdvisor_container">
-        <h5>
+        <h2>
           <WithTransLate text="Find more about us" />
-        </h5>
+        </h2>
         <img
           src={tripAdvisor}
           alt="trip-advisor-logo"
