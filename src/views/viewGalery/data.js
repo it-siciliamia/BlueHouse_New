@@ -1,73 +1,71 @@
-import double1 from "../../images/Rooms/DoubleTwin/dt1.jpg";
-import double2 from "../../images/Rooms/DoubleTwin/dt2.jpg";
-import double3 from "../../images/Rooms/DoubleTwin/dt3.jpg";
-import double4 from "../../images/Rooms/DoubleTwin/dt4.jpg";
-import double5 from "../../images/Rooms/DoubleTwin/dt5.jpg";
+import double1 from "../../images/Rooms/DoubleTwin/dt1.webp";
+import double2 from "../../images/Rooms/DoubleTwin/dt2.webp";
+import double3 from "../../images/Rooms/DoubleTwin/dt3.webp";
+import double4 from "../../images/Rooms/DoubleTwin/dt4.webp";
+import double5 from "../../images/Rooms/DoubleTwin/dt5.webp";
 
-import triple1 from "../../images/Rooms/TripleQuadruple/t1.jpg";
-import triple2 from "../../images/Rooms/TripleQuadruple/t2.jpg";
+import triple1 from "../../images/Rooms/TripleQuadruple/t1.webp";
+import triple2 from "../../images/Rooms/TripleQuadruple/t2.webp";
 
-import family1 from "../../images/Rooms/FamilyRoom/fr1.jpg";
-import family2 from "../../images/Rooms/FamilyRoom/fr2.jpg";
-import family3 from "../../images/Rooms/FamilyRoom/fr3.jpg";
-import family4 from "../../images/Rooms/FamilyRoom/fr4.jpg";
-import family5 from "../../images/Rooms/FamilyRoom/fr5.jpg";
-import family6 from "../../images/Rooms/FamilyRoom/fr6.jpg";
+import family1 from "../../images/Rooms/FamilyRoom/fr1.webp";
+import family2 from "../../images/Rooms/FamilyRoom/fr2.webp";
+import family3 from "../../images/Rooms/FamilyRoom/fr3.webp";
+import family4 from "../../images/Rooms/FamilyRoom/fr4.webp";
+import family5 from "../../images/Rooms/FamilyRoom/fr5.webp";
+import family6 from "../../images/Rooms/FamilyRoom/fr6.webp";
 
-import apartments1 from "../../images/Rooms/Apartment/a3.jpg";
-import apartments2 from "../../images/Rooms/Apartment/a4.jpg";
-import apartments3 from "../../images/Rooms/Apartment/a5.jpg";
-import apartments4 from "../../images/Rooms/Apartment/a7.jpg";
-import apartments5 from "../../images/Rooms/Apartment/a8.jpg";
-// import apartments6 from "../../images/Rooms/Apartment/a9.jpg";
-import apartments7 from "../../images/Rooms/Apartment/a11.jpg";
-import apartments8 from "../../images/Rooms/Apartment/a12.jpg";
-import apartments9 from "../../images/Rooms/Apartment/a13.jpg";
-import apartments10 from "../../images/Rooms/Apartment/a14.jpg";
+import apartments1 from "../../images/Rooms/Apartment/a3.webp";
+import apartments2 from "../../images/Rooms/Apartment/a4.webp";
+import apartments3 from "../../images/Rooms/Apartment/a5.webp";
+import apartments4 from "../../images/Rooms/Apartment/a7.webp";
+import apartments5 from "../../images/Rooms/Apartment/a8.webp";
+import apartments7 from "../../images/Rooms/Apartment/a11.webp";
+import apartments8 from "../../images/Rooms/Apartment/a12.webp";
+import apartments9 from "../../images/Rooms/Apartment/a13.webp";
+import apartments10 from "../../images/Rooms/Apartment/a14.webp";
 
+import blue_house4 from "../../images/Houses/BlueHouse/new/bh.webp";
+import blue_house5 from "../../images/Houses/BlueHouse/new/bh4.webp";
+import blue_house2 from "../../images/Houses/BlueHouse/bh2.webp";
+import blue_house3 from "../../images/Houses/BlueHouse/bh4.webp";
+import blue_house from "../../images/Houses/BlueHouse/bh6.webp";
+import blue_house7 from "../../images/Houses/BlueHouse/bh7.webp";
+import blue_house8 from "../../images/Houses/BlueHouse/new/bh5.webp";
+import blue_house9 from "../../images/Houses/BlueHouse/new/bh6.webp";
+import blue_house10 from "../../images/Houses/BlueHouse/new/bh7.webp";
+import blue_house11 from "../../images/Houses/BlueHouse/new/bh8.webp";
+import blue_house12 from "../../images/Houses/BlueHouse/new/bh9.webp";
+import blue_house13 from "../../images/Houses/BlueHouse/new/bh10.webp";
 
-import blue_house4 from "../../images/Houses/BlueHouse/new/bh.jpg";
-import blue_house5 from "../../images/Houses/BlueHouse/new/bh4.jpg";
-import blue_house2 from "../../images/Houses/BlueHouse/bh2.jpg";
-import blue_house3 from "../../images/Houses/BlueHouse/bh4.jpg";
-import blue_house from "../../images/Houses/BlueHouse/bh6.jpg";
-import blue_house7 from "../../images/Houses/BlueHouse/bh7.jpg";
-import blue_house8 from "../../images/Houses/BlueHouse/new/bh5.jpg";
-import blue_house9 from "../../images/Houses/BlueHouse/new/bh6.jpg";
-import blue_house10 from "../../images/Houses/BlueHouse/new/bh7.jpg";
-import blue_house11 from "../../images/Houses/BlueHouse/new/bh8.jpg";
-import blue_house12 from "../../images/Houses/BlueHouse/new/bh9.jpg";
-import blue_house13 from "../../images/Houses/BlueHouse/new/bh10.jpg";
+import green_house2 from "../../images/view-gallery/houses/GreenHouse/gh1.webp";
+import green_house3 from "../../images/view-gallery/houses/GreenHouse/GH_kitchen.webp";
+import green_house4 from "../../images/view-gallery/houses/GreenHouse/GreenHouse1.webp";
+import green_house6 from "../../images/view-gallery/houses/GreenHouse/Greenhouse_Outside.webp";
+import green_house7 from "../../images/view-gallery/houses/GreenHouse/GH_bathroom.webp";
 
-import green_house2 from "../../images/view-gallery/houses/GreenHouse/gh1.jpg";
-import green_house3 from "../../images/view-gallery/houses/GreenHouse/GH_kitchen.jpg";
-import green_house4 from "../../images/view-gallery/houses/GreenHouse/GreenHouse1.jpg";
-import green_house6 from "../../images/view-gallery/houses/GreenHouse/Greenhouse_Outside.jpg";
-import green_house7 from "../../images/view-gallery/houses/GreenHouse/GH_bathroom.jpg";
-
-import grotta_northern_lights from "../../images/Houses/GNL/gnl1.jpg";
-import grotta_northern_lights2 from "../../images/Houses/GNL/gnl2.jpg";
-import grotta_northern_lights3 from "../../images/Houses/GNL/gnl3.jpg";
-import grotta_northern_lights4 from "../../images/Houses/GNL/gnl4.jpg";
-import grotta_northern_lights5 from "../../images/Houses/GNL/gnl5.jpg";
-import grotta_northern_lights6 from "../../images/Houses/GNL/gnl6.jpg";
-import grotta_northern_lights7 from "../../images/Houses/GNL/gnl7.jpg";
-import grotta_northern_lights8 from "../../images/Houses/GNL/gnl8.jpg";
-import grotta_northern_lights10 from "../../images/Houses/GNL/gnl9.png";
-import grotta_northern_lights9 from "../../images/Houses/GNL/gnl10.jpg";
+import grotta_northern_lights from "../../images/Houses/GNL/gnl1.webp";
+import grotta_northern_lights2 from "../../images/Houses/GNL/gnl2.webp";
+import grotta_northern_lights3 from "../../images/Houses/GNL/gnl3.webp";
+import grotta_northern_lights4 from "../../images/Houses/GNL/gnl4.webp";
+import grotta_northern_lights5 from "../../images/Houses/GNL/gnl5.webp";
+import grotta_northern_lights6 from "../../images/Houses/GNL/gnl6.webp";
+import grotta_northern_lights7 from "../../images/Houses/GNL/gnl7.webp";
+import grotta_northern_lights8 from "../../images/Houses/GNL/gnl8.webp";
+import grotta_northern_lights10 from "../../images/Houses/GNL/gnl9.webp";
+import grotta_northern_lights9 from "../../images/Houses/GNL/gnl10.webp";
 //
-import neighborhoodPic1 from "../../images/view-gallery/neighborhood.jpeg";
-import neighborhoodPic2 from "../../images/view-gallery/neighborhood2.jpg";
-import neighborhoodPic3 from "../../images/view-gallery/neighborhood3.jpg";
+import neighborhoodPic1 from "../../images/view-gallery/neighborhood.webp";
+import neighborhoodPic2 from "../../images/view-gallery/neighborhood2.webp";
+import neighborhoodPic3 from "../../images/view-gallery/neighborhood3.webp";
 
-import northernLightsPic3 from "../../images/Surroundings/surrounding3.jpg";
-import NorthernLightsPic1 from "../../images/view-gallery/northern_lights.jpeg";
-import northernLightsPic2 from "../../images/view-gallery/northern_lights3.jpg";
+import northernLightsPic3 from "../../images/Surroundings/surrounding3.webp";
+import NorthernLightsPic1 from "../../images/view-gallery/northern_lights.webp";
+import northernLightsPic2 from "../../images/view-gallery/northern_lights3.webp";
 
-import activitiesPic from "../../images/view-gallery/Activities/1.jpg";
-import activitiesPic2 from "../../images/view-gallery/Activities/2.jpg";
-import activitiesPic3 from "../../images/view-gallery/Activities/3.jpg";
-import Activites4 from "../../images/view-gallery/Activities/4.jpg";
+import activitiesPic from "../../images/view-gallery/Activities/1.webp";
+import activitiesPic2 from "../../images/view-gallery/Activities/2.webp";
+import activitiesPic3 from "../../images/view-gallery/Activities/3.webp";
+import Activites4 from "../../images/view-gallery/Activities/4.webp";
 
 export const doubleRoom = [
   {
