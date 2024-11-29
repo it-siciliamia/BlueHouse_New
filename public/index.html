@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <link rel="icon" href="%PUBLIC_URL%/bluehouse.png" />
@@ -9,7 +10,7 @@
     content="Blue House B & B welcomes you to your home away from home in Reykjavik, Iceland. Simply put, we are a small team of globetrotters, passionate about unforgettable travel experiences." />
   <meta name="keywords"
     content="Blue House, Reykjavik accommodation, Northern Lights, self-check-in, Reykjavik tours, Iceland lodging, affordable stays in Reykjavik, drone footage locations, Reykjavik rooms, Iceland bed and breakfast, Grótta Northern Lights Apartment, Green House, Blue Lagoon, Glacier caves, Reykjavik travel recommendations, Reykjavik blog, Northern Lights tours, Reykjavik scenic views, Iceland holiday, Iceland travel tips, Reykjavik vacation spots" />
-  <link rel="apple-touch-icon" href="%PUBLIC_URL%/bluehouse.png" />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/bluehouse.png" />
   <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
   <meta name="google-site-verification" content="YHwGOn7DAr15NfmavJzTfkErw-Ov1zbhcmaPaCth-Qk" />
   <!--Pintrest-->
@@ -32,8 +33,8 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script type="module">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" defer></script>
+  <script type="module" defer>
     // Import the functions you need from the SDKs you need
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-app.js";
     import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-analytics.js";
@@ -235,11 +236,12 @@
             }
           `;
         document.head.appendChild(scriptAdditionalZoho);
-      }, 5000); // 5 seconds delay
+      }, 5000);
     });
   </script>
 </body>
 
 </html>
+
 
 
