@@ -6,19 +6,18 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper.css";
 // import "swiper/css/navigation";
 
-import "./homeSlider.css"
+import "./homeSlider.css";
 
 // import required modules
 import { Navigation, Autoplay } from "swiper";
 
 // assets
-import slide1 from "../../images/homePageSlider/slide1.jpg";
-import slide2 from "../../images/homePageSlider/slide2.jpg";
-import slide3 from "../../images/homePageSlider/slide3.jpg";
-import slide4 from "../../images/homePageSlider/slide4.jpg";
-import slide5 from "../../images/homePageSlider/slide5.jpg";
-import slide6 from "../../images/homePageSlider/slide6.jpg";
-
+import slide1 from "../../images/homePageSlider/slide1.webp";
+import slide2 from "../../images/homePageSlider/slide2.webp";
+import slide3 from "../../images/homePageSlider/slide3.webp";
+import slide4 from "../../images/homePageSlider/slide4.webp";
+import slide5 from "../../images/homePageSlider/slide5.webp";
+import slide6 from "../../images/homePageSlider/slide6.webp";
 
 const sliderData = [
   {
@@ -53,7 +52,6 @@ const sliderData = [
   },
 ];
 
-
 export default function TabletHomeSlider() {
   return (
     <>
@@ -63,7 +61,7 @@ export default function TabletHomeSlider() {
           disableOnInteraction: false,
         }}
         navigation={true}
-        modules={[Autoplay,Navigation]}
+        modules={[Autoplay, Navigation]}
         className="bannerSwiper"
       >
         {sliderData.map((tile, index) => (

@@ -4,7 +4,7 @@ import Selfie from "../images/selfie2.png";
 import Signature from "../images/signature.png";
 import colorYourExperience from "../images/aboutus/colorYourExperience.png";
 import message from "../images/aboutus/message.png";
-import Room from "../images/grotta.jpg";
+import Room from "../images/grotta.webp";
 import clsx from "clsx";
 import { WithTransLate } from "../translating/index";
 import Support from "../components/SuportComponent/support.js";
