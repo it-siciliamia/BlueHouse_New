@@ -83,11 +83,11 @@ const NewsletterComponent = () => {
 
   return (
     <div className={s.newsletterContainer}>
-      <h4 className={s.newsletterHeading}>
+      <h2 className={s.newsletterHeading}>
         <WithTransLate
           text={" Sign up to the BH newsletter to get our updates from Iceland"}
         />
-      </h4>
+      </h2>
       <div
         style={{ display: "none" }}
         dangerouslySetInnerHTML={{
@@ -98,7 +98,7 @@ const NewsletterComponent = () => {
               /*Before submit, if you want to trigger your event, "include your code here"*/
           </script>
 
-<meta content="width=device-width,initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+<meta content="width=device-width,initial-scale=1.0 name="viewport">
 <div id="sf3zf5b83c701f03b01a7fdb0983b13eede0fa276bd78b1c824573c795f1545b492a" data-type="signupform">
     <input type="hidden" id="recapTheme" value="2">
     <input type="hidden" id="isRecapIntegDone" value="false">
