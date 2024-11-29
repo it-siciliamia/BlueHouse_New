@@ -4,12 +4,12 @@ import Instructions from "../../components/instructions";
 import Support from "../../components/SuportComponent/support.js";
 import { UserContext } from "../../App";
 import SliderPhoto from "../../components/SliderPhoto.js";
-import house1 from "../../images/view-gallery/houses/1.jpg";
-import house2 from "../../images/view-gallery/houses/Greenhouse Outsidecut.jpg";
-import house3 from "../../images/view-gallery/houses/3.jpg";
-import SURROUNDINGS1 from "../../images/view-gallery/SURROUNDINGS/1.jpg";
-import SURROUNDINGS2 from "../../images/view-gallery/SURROUNDINGS/2.jpg";
-import SURROUNDINGS3 from "../../images/view-gallery/SURROUNDINGS/3.jpg";
+import house1 from "../../images/view-gallery/houses/1.webp";
+import house2 from "../../images/view-gallery/houses/Greenhouse Outsidecut.webp";
+import house3 from "../../images/view-gallery/houses/3.webp";
+import SURROUNDINGS1 from "../../images/view-gallery/SURROUNDINGS/1.webp";
+import SURROUNDINGS2 from "../../images/view-gallery/SURROUNDINGS/2.webp";
+import SURROUNDINGS3 from "../../images/view-gallery/SURROUNDINGS/3.webp";
 import {
   doubleRoom,
   tripleRoom,

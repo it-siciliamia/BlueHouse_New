@@ -1,6 +1,6 @@
 import Button from "../../components/Shared/Button/Button";
 import "../../css/BlogPart.scss";
-import island from "../../images/Blog/island.jpg";
+import island from "../../images/Blog/island.webp";
 import tripAdvisor from "../../images/findMore/TripadvisorLogo.png";
 import { WithTransLate } from "../../translating";
 

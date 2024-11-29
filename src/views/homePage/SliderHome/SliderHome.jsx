@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
-import slide01 from "../../../images/homePageSlider/slide1.jpg";
-import slide02 from "../../../images/homePageSlider/slide2.jpg";
-import slide03 from "../../../images/homePageSlider/slide3.jpg";
-import slide04 from "../../../images/homePageSlider/slide4.jpg";
-import slide05 from "../../../images/homePageSlider/slide5.jpg";
-import slide06 from "../../../images/homePageSlider/slide6.jpg";
+import slide01 from "../../../images/homePageSlider/slide1.webp";
+import slide02 from "../../../images/homePageSlider/slide2.webp";
+import slide03 from "../../../images/homePageSlider/slide3.webp";
+import slide04 from "../../../images/homePageSlider/slide4.webp";
+import slide05 from "../../../images/homePageSlider/slide5.webp";
+import slide06 from "../../../images/homePageSlider/slide6.webp";
 import videoSrc from "../../../videos/intro.mp4";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import s from "./SliderHome.module.scss";
