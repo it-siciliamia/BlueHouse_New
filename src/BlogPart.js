@@ -28,7 +28,7 @@ function BlogPart() {
       <div data-aos="fade-up" className="blogPart__blog">
         <div className="blogPart__blog_image">
           <figure>
-            <img src="./island.jpg" alt="" />
+            <img src="./island.jpg" alt="Blog" />
           </figure>
         </div>
         <div data-aos="fade-up" className="blogPart__blog_content">

@@ -23,7 +23,6 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   container: {
-   
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
@@ -33,7 +32,6 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   button: {
-
     border: "none",
     width: "30px",
     zIndex: "99",
@@ -93,9 +91,9 @@ const Header = () => {
       <div className={classes.mobileDiv}>
         <button className={classes.button} onClick={handleClick}>
           {mobile ? (
-            <img className="" alt="" src={escape} />
+            <img className="" alt="Escape" src={escape} />
           ) : (
-            <img src={menu} alt="" className="" />
+            <img src={menu} alt="Menu" className="" />
           )}
         </button>
         <a

@@ -301,32 +301,64 @@ const RoomCard = ({
                 <div key={index}>
                   <div className="items">
                     {data === "Netflix TV" ? (
-                      <img src={Netflix} alt="" className={classes.icons} />
+                      <img
+                        src={Netflix}
+                        alt="Netflix TV"
+                        className={classes.icons}
+                      />
                     ) : data === "Queen Sized Bed" ||
                       data === "King/Twin Sized Bed" ||
                       data === "King Sized Bed + Sofa Bed" ||
                       data === "2 Bedrooms + 1 Sofa Bed" ||
                       data === "3 Bedrooms + 3 Sofa Beds" ? (
-                      <img src={QueenBed} alt="" className={classes.icons} />
+                      <img
+                        src={QueenBed}
+                        alt="QueenBed"
+                        className={classes.icons}
+                      />
                     ) : data === "Shared Bathroom" ? (
                       <img
                         src={SharedBathroom}
-                        alt=""
+                        alt="Shared Bathroom"
                         className={classes.icons}
                       />
                     ) : data === "Self Service Continental Breakfast" ? (
-                      <img src={SelfService} alt="" className={classes.icons} />
+                      <img
+                        src={SelfService}
+                        alt="Self Service"
+                        className={classes.icons}
+                      />
                     ) : data === "Queen/Twin Beds" ? (
-                      <img src={TwinBed} alt="" className={classes.icons} />
+                      <img
+                        src={TwinBed}
+                        alt="Twin Bed"
+                        className={classes.icons}
+                      />
                     ) : data === "Cereal Breakfast" ? (
-                      <img src={Cereal} alt="" className={classes.icons} />
+                      <img
+                        src={Cereal}
+                        alt="Cereal"
+                        className={classes.icons}
+                      />
                     ) : data === "Private kitchen" ||
                       data === "Private kitchenette" ? (
-                      <img src={Kitchen} alt="" className={classes.icons} />
+                      <img
+                        src={Kitchen}
+                        alt="Kitchen"
+                        className={classes.icons}
+                      />
                     ) : data === "Private dining area" ? (
-                      <img src={Dinning} alt="" className={classes.icons} />
+                      <img
+                        src={Dinning}
+                        alt="Dinning"
+                        className={classes.icons}
+                      />
                     ) : (
-                      <img src={Private} alt="" className={classes.icons} />
+                      <img
+                        src={Private}
+                        alt="Private"
+                        className={classes.icons}
+                      />
                     )}
                   </div>
                   <p className={classes.data}>{data}</p>

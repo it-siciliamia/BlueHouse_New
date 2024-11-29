@@ -207,11 +207,7 @@ function SideNavbarMobile(props) {
     <div className={root}>
       <div className={sliderHeader}>
         <RouterLink onClick={scroll} to="/">
-          <img 
-            src={Logo} 
-            alt="Bluehouse_logo" 
-            className={sliderLogo} 
-          />
+          <img src={Logo} alt="Bluehouse_logo" className={sliderLogo} />
         </RouterLink>
         <Button className={sliderEscape} onClick={scroll}>
           <img src={Escape} alt="Close icon" />
@@ -234,7 +230,7 @@ function SideNavbarMobile(props) {
                 className={sliderIcons}
                 style={{ marginRight: "-3px" }}
                 src={item.src}
-                alt=""
+                alt="Bookings List"
               />
 
               <a
@@ -255,7 +251,7 @@ function SideNavbarMobile(props) {
 
         <ul className={linksList}>
           <li>
-            <img className={sliderIconss} src={Gallery} alt="" />
+            <img className={sliderIconss} src={Gallery} alt="links List" />
 
             <RouterLink
               className={highlightedColor}
@@ -269,11 +265,7 @@ function SideNavbarMobile(props) {
           </li>
 
           <li>
-            <img 
-              className={sliderIconss}
-              src={Bag}
-              alt=""
-            />
+            <img className={sliderIconss} src={Bag} alt="Slider Bag" />
 
             <HashLink
               to="/#recommendations"
@@ -293,7 +285,7 @@ function SideNavbarMobile(props) {
               className={sliderIconss}
               style={{ marginLeft: "-2px" }}
               src={aboutus}
-              alt=""
+              alt="Slider About Us"
             />
 
             <RouterLink
@@ -312,7 +304,7 @@ function SideNavbarMobile(props) {
               className={sliderIconss}
               style={{ height: "19px", marginLeft: "0", paddingRight: "5px" }}
               src={supportImage}
-              alt=""
+              alt="Slider Support"
             />
 
             <a
@@ -330,7 +322,7 @@ function SideNavbarMobile(props) {
               className={sliderIconss}
               style={{ marginLeft: "-3px", paddingRight: "4px" }}
               src={Info}
-              alt=""
+              alt="Slider Info"
             />
 
             <Link onClick={scroll} to="FAQ" duration={500} offset={-145}>
@@ -352,7 +344,7 @@ function SideNavbarMobile(props) {
             target="_blank"
             rel="noreferrer"
           >
-            <img className={socialIcons} src={Instagram} alt="" />
+            <img className={socialIcons} src={Instagram} alt="Social Network" />
           </a>
           <a
             onClick={scroll}
@@ -360,7 +352,7 @@ function SideNavbarMobile(props) {
             target="_blank"
             rel="noreferrer"
           >
-            <img className={socialIcons} src={Facebook} alt="" />
+            <img className={socialIcons} src={Facebook} alt="Facebook" />
           </a>
           <a
             onClick={scroll}
@@ -368,7 +360,7 @@ function SideNavbarMobile(props) {
             target="_blank"
             rel="noreferrer"
           >
-            <img className={socialIcons} src={Whatsapp} alt="" />
+            <img className={socialIcons} src={Whatsapp} alt="Whatsapp" />
           </a>
           <a
             onClick={scroll}
@@ -376,7 +368,7 @@ function SideNavbarMobile(props) {
             target="_blank"
             rel="noreferrer"
           >
-            <img className={socialIcons} src={Email} alt="" />
+            <img className={socialIcons} src={Email} alt="Email" />
           </a>
         </div>
 

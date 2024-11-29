@@ -38,7 +38,7 @@ function Rule({ Icon, text }) {
   const { rule, ruleText, iconStyle } = useStyles();
   return (
     <div className={rule}>
-      {Icon && <img src={Icon} className={iconStyle} alt="icon" />}
+      {Icon && <img src={Icon} className={iconStyle} alt="Rule" />}
       <p className={ruleText}>
         <WithTransLate text={text} />
       </p>

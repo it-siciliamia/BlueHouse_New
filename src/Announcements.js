@@ -5,7 +5,13 @@ import { WithTransLate } from "./translating/index";
 function Announcements({ Icon, title }) {
   return (
     <div className="announcements">
-      {Icon && <img src={Icon} alt="" className="announcements__icon" />}
+      {Icon && (
+        <img
+          src={Icon}
+          alt="Announcements text"
+          className="announcements__icon"
+        />
+      )}
       <div className="announcements_text">
         <p>
           <WithTransLate text={title} />

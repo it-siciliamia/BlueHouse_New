@@ -279,7 +279,7 @@ function CustomModal() {
               imageIndex
             ]
           }
-          alt=""
+          alt="Category"
         />
         <button
           onClick={() => {
@@ -349,7 +349,7 @@ function CustomModal() {
               <WithTransLate text="BOOK NOW" />
             </button>
           </Link>
-        </div>  
+        </div>
       </section>
     </div>
   );

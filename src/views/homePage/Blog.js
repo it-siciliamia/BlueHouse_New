@@ -31,7 +31,7 @@ function BlogPart() {
       </div>
       <div className="blogPart__blog">
         <div className="blogPart__blog_image">
-          <img src={island} alt="" />
+          <img src={island} alt="Island" />
         </div>
         <div className="blogPart__blog_content">
           <div className="blogPart__blog_content_text">

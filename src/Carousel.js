@@ -17,7 +17,11 @@ function Carousel({ homepage }) {
             </a>
             <a href="www.facebook.com" target="_blank">
               {" "}
-              <img className="paper__footerIcon" src="./icon1.svg" alt="" />
+              <img
+                className="paper__footerIcon"
+                src="./icon1.svg"
+                alt="Paper"
+              />
             </a>
             <a href="www.facebook.com" target="_blank">
               {" "}

@@ -11,7 +11,7 @@ const Links = ({ target, icon, info, info2 }) => {
 
   return (
     <a href={target} className={contactItems} target="_blank" rel="noreferrer">
-      {icon && <img src={icon} alt="" className={contactIcons} />}
+      {icon && <img src={icon} alt="Contact" className={contactIcons} />}
       {info}{" "}
       {info2 && (
         <>
