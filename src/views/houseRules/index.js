@@ -70,8 +70,8 @@ function HouseRules() {
         <p className={title}>
           <WithTransLate text="HOUSE RULES" />
         </p>
-        <img src={image2} alt="" className={imageStyle2} />
-        <img src={image} alt="" className={imageStyle} />
+        <img src={image2} alt="HOUSE RULES 1" className={imageStyle2} />
+        <img src={image} alt="HOUSE RULES 2" className={imageStyle} />
       </div>
       <div className={houseRules}>
         <GuideLines />

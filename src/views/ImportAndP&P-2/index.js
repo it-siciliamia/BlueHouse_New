@@ -104,8 +104,12 @@ function PrivacyPolicySection() {
         <p className={title2}>
           <WithTransLate text="PRIVACY POLICIES" />
         </p>
-        <img src={Imagemobile} alt="" className={imageStyle2} />
-        <img src={Image} alt="" className={imageStyle} />
+        <img
+          src={Imagemobile}
+          alt="PRIVACY POLICIES 1"
+          className={imageStyle2}
+        />
+        <img src={Image} alt="PRIVACY POLICIES 2" className={imageStyle} />
       </div>
       <div className={houseRules}>
         <PrivacyPolicy />

@@ -49,7 +49,7 @@ const useStyles = makeStyles((theme) => ({
     height: "3px",
     margin: "8px 15px 0 15px",
     // [theme.breakpoints.down("xs")]: {
-      [theme.breakpoints.down("md")]: {
+    [theme.breakpoints.down("md")]: {
       display: "none",
     },
   },
@@ -279,7 +279,7 @@ function RecommendationCustomModal() {
               imageIndex
             ]
           }
-          alt=""
+          alt="Sub Category"
         />
         <button
           onClick={() => {

@@ -404,7 +404,7 @@ const SliderPhoto = ({
         // _______IMAGE & DESCRIPTION_______
         return (
           <div className={clsx(position, slider)} slider slide key={id}>
-            <img className={slideImg} src={background} alt="" />
+            <img className={slideImg} src={background} alt="Slider Parts" />
             <p className={textOriginText}>{description}</p>
           </div>
         );
