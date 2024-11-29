@@ -180,7 +180,7 @@ function Footer() {
                       <img
                         src={link.icon}
                         className={classes.icon}
-                        alt={link.name}
+                        alt={`Go to ${link.name}`}
                       />
                     )}
                     <WithTransLate text={link.name} />
