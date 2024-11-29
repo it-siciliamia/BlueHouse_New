@@ -1,9 +1,9 @@
-import { Box, makeStyles } from "@material-ui/core";
 import React, { useContext } from "react";
+import { Box, makeStyles } from "@material-ui/core";
+import Button from "../../components/Shared/Button/Button";
 import clsx from "clsx";
 import { UserContext } from "../../App";
 import { WithTransLate } from "../../translating/index";
-// import { MdArrowForwardIos, MdArrowBackIos } from "react-icons/md";
 
 const useStyles = makeStyles((theme) => ({
   root: (props) => ({
@@ -226,9 +226,7 @@ export default function FollowUs({
     imagesRoot,
     root,
     titleStyle,
-
     actionStyle,
-    but,
     hoverImage,
   } = useStyles({ rootStyleInPhoneSize, ...props });
 
@@ -293,19 +291,24 @@ export default function FollowUs({
         </div>
         <div>
           {actionType && (
-            <a
-              href="https://www.instagram.com/bluehousebb/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={clsx("outLinedButton", but)}
+            <div
+              style={{
+                width: "100%",
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
             >
-              <WithTransLate text={actionType} />
-            </a>
+              <a
+                href="https://www.instagram.com/bluehousebb/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button text={actionType} btnClass="btnLight" />
+              </a>
+            </div>
           )}
-          {/* <div>
-            <MdArrowBackIos />
-            <MdArrowForwardIos />
-          </div> */}
         </div>
       </div>
     </div>
