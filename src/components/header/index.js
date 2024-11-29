@@ -10,8 +10,8 @@ import Search from "./search";
 import { Grid } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
-import MenuIcon from "../../images/MenuIcon_Header.png";
-import SearchIcon from "../../images/SearchIcon_Header.png";
+import MenuIcon from "../../images/MenuIcon_Header.svg";
+import SearchIcon from "../../images/SearchIcon_Header.svg";
 import logo from "../../images/logoBlue.png";
 import menu from "../../images/Header_icons/Menu_header_mobileview.svg";
 
@@ -387,7 +387,12 @@ export default function Header({ right, setRight, top, setTop }) {
               onClick={() => handleShowSearchInput(0)}
               aria-label="menu"
             >
-              <img src={SearchIcon} alt="SearchIcon" />
+              <img
+                src={SearchIcon}
+                alt="SearchIcon"
+                width={"30px"}
+                height={"30px"}
+              />
             </button>
 
             <button
@@ -395,7 +400,12 @@ export default function Header({ right, setRight, top, setTop }) {
               onClick={() => handleOpenAndCloseSideNavbar(0)}
               aria-label="menu"
             >
-              <img src={MenuIcon} alt="MenuIcon" />
+              <img
+                src={MenuIcon}
+                alt="MenuIcon"
+                width={"40px"}
+                height={"40px"}
+              />
             </button>
           </div>
         </Grid>

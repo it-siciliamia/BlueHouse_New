@@ -8,7 +8,7 @@ import { Button, Divider, Grid, makeStyles } from "@material-ui/core";
 import TranslateMe from "../translating";
 import { WithTransLate } from "../translating/index";
 
-import Logo from "../images/Bluehouse.png";
+import Logo from "../images/Bluehouse.svg";
 import Escape from "../images/escape.svg";
 import Door from "../images/door.svg";
 import Tour from "../images/tour.svg";

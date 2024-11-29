@@ -4,7 +4,7 @@ import { IconButton, MenuItem, makeStyles, Link } from "@material-ui/core";
 
 import { useClickOutside } from "../../hooks/useClickOutside";
 import keywords from "./keywords.json";
-import SearchImage from "../../images/SearchIcon_Header.png";
+import SearchImage from "../../images/SearchIcon_Header.svg";
 import CloseSearchIcon from "../../images/Header_icons/icon-close-search.svg";
 
 const useStyles = makeStyles((theme) => ({
@@ -45,7 +45,7 @@ const useStyles = makeStyles((theme) => ({
       display: "block",
       boxSizing: "border-box",
       fontSize: "18px",
-      fontFamily:'Josefin Sans',
+      fontFamily: "Josefin Sans",
       fontWeight: 400,
       lineHeight: "20px",
       letterSpacing: "0em",
@@ -347,7 +347,12 @@ export default function Search(props) {
             color="inherit"
             aria-label="menu"
           >
-            <img src={SearchImage} alt="SearchIcon" />
+            <img
+              src={SearchImage}
+              alt="SearchIcon"
+              width={"30px"}
+              height={"30px"}
+            />
           </IconButton>
 
           {!!searchResult.length && (
