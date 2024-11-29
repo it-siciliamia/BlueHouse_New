@@ -1,9 +1,9 @@
+import { useEffect, useState, useMemo } from "react";
 import { useLocation } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { translateMyText } from "../../../translating/index";
 import languagesAndCodes from "../../../translating/languagesAndCodes.json";
 import s from "./PageHeader.module.scss";
-import { useEffect, useState, useMemo } from "react";
 
 const pagesData = {
   "/": {
