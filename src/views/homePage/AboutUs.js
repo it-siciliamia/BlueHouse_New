@@ -1,5 +1,5 @@
 import { Box, makeStyles } from "@material-ui/core";
-import selfie from "../../images/selfie.jpg";
+import selfie from "../../images/selfie.webp";
 import { Element } from "react-scroll";
 import { Link } from "react-router-dom";
 import Button from "../../components/Shared/Button/Button";

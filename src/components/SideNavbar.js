@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-no-duplicate-props */
 import React from "react";
 import { Button, Divider, Grid, makeStyles } from "@material-ui/core";
-import Logo from "../images/Bluehouse.png";
+import Logo from "../images/Bluehouse.svg";
 import Bus from "../images/shuttle.svg";
 import Escape from "../images/escape.svg";
 import Aboutus from "../images/aboutus.svg";
@@ -183,7 +183,7 @@ function SideNavbar(props) {
         <img src={Logo} alt="Bluehouse_logo" className={sliderLogo} />
       </RouterLink>
       <Button className={sliderEscape} onClick={scroll}>
-        <img src={Escape} alt="Bluehouse_logo" />
+        <img src={Escape} alt="Close" />
       </Button>
       <TranslateMe scroll={scroll} />
       <Divider className={horizontalLine} />
