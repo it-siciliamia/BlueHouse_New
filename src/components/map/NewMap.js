@@ -152,6 +152,11 @@ const NewMap = () => {
           {!isMobile && (
             <button
               onClick={handleFullScreen}
+              aria-label={
+                !isFullScreen
+                  ? "Map full screen mode"
+                  : "Close map full screen mode"
+              }
               style={{
                 position: "absolute",
                 top: "30px",
@@ -238,6 +243,11 @@ const NewMap = () => {
         >
           <button
             onClick={handleCloseFullScreen}
+            aria-label={
+              !isFullScreen
+                ? "Map full screen mode"
+                : "Close map full screen mode"
+            }
             style={{
               position: "absolute",
               top: "30px",

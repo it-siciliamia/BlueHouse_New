@@ -19,7 +19,7 @@ const NewsletterComponent = () => {
   } = useForm({
     defaultValues: {
       FIRSTNAME: "",
-      LASTNAME: "Enpty",
+      LASTNAME: "_",
       CONTACT_EMAIL: "",
     },
     mode: "onChange",
@@ -246,6 +246,8 @@ const NewsletterComponent = () => {
               <div className={s.formGroup}>
                 <input
                   {...field}
+                  id="FIRSTNAME"
+                  aria-label="Your Name"
                   type="text"
                   // placeholder="First Name"
                   className={fieldState.invalid ? s.error : ""}
@@ -280,6 +282,8 @@ const NewsletterComponent = () => {
                 <input
                   {...field}
                   type="text"
+                  id="LASTNAME"
+                  aria-label="Your Lastname"
                   // placeholder="Last Name"
                   className={fieldState.invalid ? s.error : ""}
                 />
@@ -311,6 +315,8 @@ const NewsletterComponent = () => {
               <div className={s.formGroup}>
                 <input
                   {...field}
+                  id="CONTACT_EMAIL"
+                  aria-label="Contact Email"
                   type="email"
                   // placeholder="Contact Email"
                   className={fieldState.invalid ? s.error : ""}

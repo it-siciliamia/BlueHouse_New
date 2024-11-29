@@ -231,6 +231,7 @@ export default function Reviews() {
         </ImageList>
         <div className={controlsButtons}>
           <button
+            aria-label="Previous review"
             onClick={() => {
               reviewsRef.current.scrollLeft -= scrollOffset;
             }}
@@ -239,6 +240,7 @@ export default function Reviews() {
             <img alt="arrow back" src={back} />
           </button>
           <button
+            aria-label="Next review"
             className={control}
             onClick={() => {
               reviewsRef.current.scrollLeft += scrollOffset;
