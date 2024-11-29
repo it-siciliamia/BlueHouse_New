@@ -211,7 +211,7 @@ function SideNavbar(props) {
           className={highlightedColor}
         >
           <Grid item>
-            <img className={sliderIcons} src={Bus} alt="" />
+            <img className={sliderIcons} src={Bus} alt="Slider Bus" />
           </Grid>
           <Grid item>
             <p className={sliderLink}>
@@ -231,7 +231,7 @@ function SideNavbar(props) {
           className={highlightedColor}
         >
           <Grid item>
-            <img className={sliderIcons} src={Door} alt="" />
+            <img className={sliderIcons} src={Door} alt="Slider Door" />
           </Grid>
           <Grid item>
             <p className={sliderLink}>
@@ -251,7 +251,7 @@ function SideNavbar(props) {
           className={highlightedColor}
         >
           <Grid item>
-            <img className={sliderIcons} src={Tour} alt="" />
+            <img className={sliderIcons} src={Tour} alt="Slider Tour" />
           </Grid>
           <Grid item>
             <p className={sliderLink}>
@@ -271,7 +271,7 @@ function SideNavbar(props) {
           className={highlightedColor}
         >
           <Grid item>
-            <img className={sliderIcons} src={Car} alt="" />
+            <img className={sliderIcons} src={Car} alt="Slider Car" />
           </Grid>
           <Grid item>
             <p className={sliderLink}>
@@ -304,7 +304,7 @@ function SideNavbar(props) {
           className={highlightedColor}
         >
           <Grid item>
-            <img className={sliderIconss} src={Gallery} alt="" />
+            <img className={sliderIconss} src={Gallery} alt="Slider Gallery" />
           </Grid>
           <Grid item>
             <p className={sliderLink}>
@@ -323,7 +323,7 @@ function SideNavbar(props) {
             <img
               className={sliderIconss}
               src={Bag}
-              alt=""
+              alt="Slider Bag"
               style={{ marginLeft: "20%" }}
             />
           </Grid>
@@ -347,7 +347,7 @@ function SideNavbar(props) {
           className={highlightedColor}
         >
           <Grid item>
-            <img className={sliderIconss} src={Aboutus} alt="" />
+            <img className={sliderIconss} src={Aboutus} alt="Slider About Us" />
           </Grid>
           <Grid item>
             <p className={sliderLink}>
@@ -376,7 +376,7 @@ function SideNavbar(props) {
           justifyContent="flex-start"
         >
           <Grid item>
-            <img className={sliderIconss} src={Info} alt="" />
+            <img className={sliderIconss} src={Info} alt="Slider Info" />
           </Grid>
           <Grid item>
             <a
@@ -400,7 +400,11 @@ function SideNavbar(props) {
           justifyContent="flex-start"
         >
           <Grid item>
-            <img className={sliderIconss} src={supportImage} alt="" />
+            <img
+              className={sliderIconss}
+              src={supportImage}
+              alt="Slider Support"
+            />
           </Grid>
           <Grid item>
             <a
@@ -424,7 +428,7 @@ function SideNavbar(props) {
           justifyContent="flex-start"
         >
           <Grid item>
-            <img className={sliderIcons} src={forumImage} alt="" />
+            <img className={sliderIcons} src={forumImage} alt="Slider Forum" />
           </Grid>
           <Grid item>
             <a
@@ -448,7 +452,11 @@ function SideNavbar(props) {
           justifyContent="flex-start"
         >
           <Grid item>
-            <img className={sliderIconss} src={feedbackImage} alt="" />
+            <img
+              className={sliderIconss}
+              src={feedbackImage}
+              alt="Slider Feedback"
+            />
           </Grid>
           <Grid item>
             <a
@@ -477,7 +485,11 @@ function SideNavbar(props) {
           className={highlightedColor}
         >
           <Grid item>
-            <img className={sliderIconss} src={Location} alt="" />
+            <img
+              className={sliderIconss}
+              src={Location}
+              alt="Slider Location"
+            />
           </Grid>
           <Grid item>
             <p className={sliderLink}>
@@ -497,7 +509,11 @@ function SideNavbar(props) {
             target="_blank"
             rel="noreferrer"
           >
-            <img className={socialIcons} src={Instagram} alt="" />
+            <img
+              className={socialIcons}
+              src={Instagram}
+              alt="Slider Instagram"
+            />
           </a>
           <a
             onClick={scroll}
@@ -505,7 +521,7 @@ function SideNavbar(props) {
             target="_blank"
             rel="noreferrer"
           >
-            <img className={socialIcons} src={Facebook} alt="" />
+            <img className={socialIcons} src={Facebook} alt="Slider Facebook" />
           </a>
           <a
             onClick={scroll}
@@ -513,7 +529,7 @@ function SideNavbar(props) {
             target="_blank"
             rel="noreferrer"
           >
-            <img className={socialIcons} src={Whatsapp} alt="" />
+            <img className={socialIcons} src={Whatsapp} alt="Slider Whatsapp" />
           </a>
           <a
             onClick={scroll}
@@ -521,7 +537,7 @@ function SideNavbar(props) {
             target="_blank"
             rel="noreferrer"
           >
-            <img className={socialIcons} src={Email} alt="" />
+            <img className={socialIcons} src={Email} alt="Slider Email" />
           </a>
         </div>
         <Divider className={horizontalLine} />

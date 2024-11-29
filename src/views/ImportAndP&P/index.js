@@ -50,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
     "@media (min-width: 745px)": {
       display: "none",
     },
-    
+
     flexGrow: 1,
     margin: "0 0 40px",
     paddingInline: "15px",
@@ -92,14 +92,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function PrivacyPolicy() {
-  const {
-    imageStyle,
-    title,
-    imageStyle2,
-    houseRules,
-    header,
-    root,
-  } = useStyles();
+  const { imageStyle, title, imageStyle2, houseRules, header, root } =
+    useStyles();
   return (
     <div className={root}>
       <div className={header}>
@@ -107,9 +101,9 @@ function PrivacyPolicy() {
           <WithTransLate text="IMPRINT AND PRIVACY POLICY" />
         </p>
 
-        <img src={Imagemobile} alt="" className={imageStyle2} />
-        
-        <img src={Image} alt="" className={imageStyle} />
+        <img src={Imagemobile} alt="PRIVACY POLICY 1" className={imageStyle2} />
+
+        <img src={Image} alt="PRIVACY POLICY 2" className={imageStyle} />
       </div>
 
       <div className={houseRules}>

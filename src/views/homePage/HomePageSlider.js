@@ -301,7 +301,7 @@ export default function Header({ title, titleMargins }) {
             <img
               src={Email}
               title="Email"
-              alt=""
+              alt="Email"
               className={classes.iconzImg}
             />
           </a>

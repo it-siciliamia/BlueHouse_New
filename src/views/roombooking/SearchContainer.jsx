@@ -197,7 +197,7 @@ const SearchContainer = () => {
             >
               <img
                 src={`${containerToggle ? arrowUp : arrowDown}`}
-                alt="arrow icon"
+                alt="arrow"
               />
             </button>
             {containerToggle && (
@@ -209,14 +209,14 @@ const SearchContainer = () => {
                       className="count-person decrement-btn"
                       onClick={handleDecrement}
                     >
-                      <img src={minusIcon} alt="minus icon" />
+                      <img src={minusIcon} alt="minus" />
                     </span>
                     <h3 className="count-person">{adultsAmount}</h3>
                     <span
                       className="count-person increment-btn"
                       onClick={handleIncrement}
                     >
-                      <img src={plusIcon} alt="plus icon" />
+                      <img src={plusIcon} alt="plus" />
                     </span>
                   </span>
                 </div>
@@ -227,14 +227,14 @@ const SearchContainer = () => {
                       className="count-person decrement-btn"
                       onClick={handleDecrementChildren}
                     >
-                      <img src={minusIcon} alt="minus icon" />
+                      <img src={minusIcon} alt="minus" />
                     </span>
                     <h3 className="count-person">{childrenAmount}</h3>
                     <span
                       className="count-person increment-btn"
                       onClick={handleIncrementChildren}
                     >
-                      <img src={plusIcon} alt="plus icon" />
+                      <img src={plusIcon} alt="plus" />
                     </span>
                   </span>
                 </div>
@@ -245,14 +245,14 @@ const SearchContainer = () => {
                       className="count-person decrement-btn"
                       onClick={handleDecrementRooms}
                     >
-                      <img src={minusIcon} alt="minus icon" />
+                      <img src={minusIcon} alt="minus" />
                     </span>
                     <h3 className="count-person">{roomsAmount}</h3>
                     <span
                       className="count-person increment-btn"
                       onClick={handleIncrementRooms}
                     >
-                      <img src={plusIcon} alt="plus icon" />
+                      <img src={plusIcon} alt="plus" />
                     </span>
                   </span>
                 </div>
