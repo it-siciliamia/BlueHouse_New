@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/BlueHouse_New/static/css/main.428a041e.chunk.css",
-    "main.js": "/BlueHouse_New/static/js/main.3490183d.chunk.js",
-    "main.js.map": "/BlueHouse_New/static/js/main.3490183d.chunk.js.map",
+    "main.js": "/BlueHouse_New/static/js/main.ee14532e.chunk.js",
+    "main.js.map": "/BlueHouse_New/static/js/main.ee14532e.chunk.js.map",
     "runtime-main.js": "/BlueHouse_New/static/js/runtime-main.c8d2bf66.js",
     "runtime-main.js.map": "/BlueHouse_New/static/js/runtime-main.c8d2bf66.js.map",
     "static/css/2.52721fbf.chunk.css": "/BlueHouse_New/static/css/2.52721fbf.chunk.css",
@@ -41,13 +41,13 @@
     "static/media/Greenhouse_Outside.acbf0e71.webp": "/BlueHouse_New/static/media/Greenhouse_Outside.acbf0e71.webp",
     "static/media/IMG_3846.bc617bb1.webp": "/BlueHouse_New/static/media/IMG_3846.bc617bb1.webp",
     "static/media/Livingroom2.8c07b9f2.webp": "/BlueHouse_New/static/media/Livingroom2.8c07b9f2.webp",
-    "static/media/MenuIcon_Header.f7b00eb9.svg": "/BlueHouse_New/static/media/MenuIcon_Header.f7b00eb9.svg",
+    "static/media/MenuIcon_Header.512e1e20.svg": "/BlueHouse_New/static/media/MenuIcon_Header.512e1e20.svg",
     "static/media/Menu_header_mobileview.eac07f32.svg": "/BlueHouse_New/static/media/Menu_header_mobileview.eac07f32.svg",
     "static/media/NorthernLights.630c0f5d.webp": "/BlueHouse_New/static/media/NorthernLights.630c0f5d.webp",
     "static/media/Northernlights.c76234a2.webp": "/BlueHouse_New/static/media/Northernlights.c76234a2.webp",
     "static/media/index.css": "/BlueHouse_New/static/media/image1.35558bff.webp",
     "static/media/style.css": "/BlueHouse_New/static/media/Oblik_Bold.85f57ab0.otf",
-    "static/media/SearchIcon_Header.8ba9ab8d.svg": "/BlueHouse_New/static/media/SearchIcon_Header.8ba9ab8d.svg",
+    "static/media/SearchIcon_Header.309a4349.svg": "/BlueHouse_New/static/media/SearchIcon_Header.309a4349.svg",
     "static/media/TripadvisorLogo.8c9ca2d4.png": "/BlueHouse_New/static/media/TripadvisorLogo.8c9ca2d4.png",
     "static/media/a10.2e026dd9.webp": "/BlueHouse_New/static/media/a10.2e026dd9.webp",
     "static/media/a11.3ae69ad2.webp": "/BlueHouse_New/static/media/a11.3ae69ad2.webp",
@@ -203,6 +203,6 @@
     "static/css/2.52721fbf.chunk.css",
     "static/js/2.d7bf640d.chunk.js",
     "static/css/main.428a041e.chunk.css",
-    "static/js/main.3490183d.chunk.js"
+    "static/js/main.ee14532e.chunk.js"
   ]
 }
