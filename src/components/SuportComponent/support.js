@@ -1,4 +1,3 @@
-import { useMediaQuery } from "react-responsive";
 import supportImage from "../../images/support/support.png";
 import faqImage from "../../images/support/faq.png";
 import forumImage from "../../images/support/forum.png";
@@ -22,7 +21,6 @@ function SupportCard({ description, title, image }) {
 }
 
 export default function Support() {
-  const isDesktop = useMediaQuery({ minDeviceWidth: 813 });
   return (
     <div
       id="FAQ"
