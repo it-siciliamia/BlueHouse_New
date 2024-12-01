@@ -1,6 +1,8 @@
 .container {
-  max-width: 1300px;
-  min-width: 1085px;
+  @media (max-width: 768px) {
+    margin-top: 180px;
+    margin-bottom: 50px;
+  }
 }
 
 .imageBox {
@@ -9,7 +11,12 @@
   justify-content: center;
   align-items: flex-end;
   width: 100%;
-  height: 550px;
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+  @media (min-width: 768px) and (max-width: 1024px) {
+    width: 100%;
+  }
 }
 
 .image {
@@ -31,6 +38,12 @@
   margin-bottom: 30px;
   position: absolute;
   z-index: 2;
+  @media (max-width: 768px) {
+    margin-bottom: 10px;
+  }
+  @media (min-width: 768px) and (max-width: 1024px) {
+    margin-bottom: 20px;
+  }
 }
 
 .paginationBox {
@@ -38,6 +51,9 @@
   flex-direction: row;
   justify-content: space-between;
   width: 150px;
+  @media (max-width: 768px) {
+    width: 120px;
+  }
 }
 
 .paginationDot {
@@ -46,6 +62,10 @@
   background-color: white;
   width: 10px;
   height: 10px;
+  @media (max-width: 768px) {
+    width: 8px;
+    height: 8px;
+  }
 }
 
 .arrowButton {
