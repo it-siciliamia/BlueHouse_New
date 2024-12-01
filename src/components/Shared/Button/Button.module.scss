@@ -26,6 +26,11 @@
 .btnDark:hover {
   color: #073762;
   background-color: #fff;
+  outline: none;
+}
+
+.btnDark:focus {
+  outline: none;
 }
 
 .textWrapper {
@@ -60,6 +65,11 @@
 .btnLight:hover {
   color: #fff;
   background-color: #1d3967;
+  outline: none;
+}
+
+.btnLight:focus {
+  outline: none;
 }
 
 .inBox {
@@ -90,4 +100,9 @@
   background-color: #1d3967;
   color: #fff;
   border: 1px solid #1d3967;
+  outline: none;
+}
+
+.inBox:focus {
+  outline: none;
 }

@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { Box, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import Facebook from "../../images/Header_icons/headerSocialIcons/facebook.svg";
@@ -232,18 +231,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Header({ title, titleMargins }) {
   const classes = useStyles({ titleMargins });
-  const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setViewportWidth(window.innerWidth);
-    };
-
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
 
   return (
     <Box className={classes.root}>
@@ -308,7 +295,7 @@ export default function Header({ title, titleMargins }) {
         </Box>
       )}
       <Box>
-        <SliderHome viewportWidth={viewportWidth} />
+        <SliderHome />
       </Box>
     </Box>
   );

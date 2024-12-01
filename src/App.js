@@ -31,7 +31,6 @@ import { RedirectBlog, RedirectTripAdv } from "./redirect/Redirect";
 import FindMore from "./components/FindMore/FindMore.jsx";
 import NewMap from "./components/map/NewMap.js";
 import RoomBooking from "./views/roombooking/RoomBooking.jsx";
-// import Carousel from "./Carousel.js";
 // import Galary from "./components/Mobile Galary Section/Galary.js";
 
 export const UserContext = createContext();

@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { useMediaQuery } from "react-responsive";
 import slide01 from "../../../images/homePageSlider/slide1.webp";
 import slide02 from "../../../images/homePageSlider/slide2.webp";
 import slide03 from "../../../images/homePageSlider/slide3.webp";
@@ -11,12 +12,28 @@ import s from "./SliderHome.module.scss";
 
 const images = [videoSrc, slide01, slide02, slide03, slide04, slide05, slide06];
 
-const SliderHome = ({ viewportWidth }) => {
+const SliderHome = () => {
+  const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
+  const isDesktop = useMediaQuery({ minDeviceWidth: 813 });
+  const isMobile = useMediaQuery({ maxDeviceWidth: 767 });
+
   const [currentIndex, setCurrentIndex] = useState(0);
   const videoRef = useRef(null);
   const intervalRef = useRef(null);
 
   const dynamicWidth = Math.round(viewportWidth * 0.75);
+  const dynamicHeigth = Math.round(viewportWidth * 0.66);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setViewportWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   useEffect(() => {
     if (currentIndex === 0 && videoRef.current) {
@@ -86,19 +103,32 @@ const SliderHome = ({ viewportWidth }) => {
   return (
     <div
       className={s.container}
-      style={{ width: dynamicWidth ? `${dynamicWidth}px` : "1085px" }}
+      style={{
+        width: isDesktop && dynamicWidth ? `${dynamicWidth}px` : "100%",
+      }}
     >
-      <div className={s.imageBox}>
-        <div
-          className={`${s.arrowButton} ${s.arrowButtonLeft}`}
-          onClick={goToPreviousSlide}
-        >
-          <FiChevronLeft
-            size={60}
-            strokeWidth={1}
-            className={s.arrowlinkLeft}
-          />
-        </div>
+      <div
+        className={s.imageBox}
+        style={{
+          height: isDesktop
+            ? "550px"
+            : isMobile
+            ? `${dynamicHeigth}px`
+            : "380px",
+        }}
+      >
+        {!isMobile && (
+          <div
+            className={`${s.arrowButton} ${s.arrowButtonLeft}`}
+            onClick={goToPreviousSlide}
+          >
+            <FiChevronLeft
+              size={60}
+              strokeWidth={1}
+              className={s.arrowlinkLeft}
+            />
+          </div>
+        )}
         {images.map((image, index) =>
           index === 0 ? (
             <video
@@ -123,16 +153,18 @@ const SliderHome = ({ viewportWidth }) => {
             />
           )
         )}
-        <div
-          className={`${s.arrowButton} ${s.arrowButtonRight}`}
-          onClick={goToNextSlide}
-        >
-          <FiChevronRight
-            size={60}
-            strokeWidth={1}
-            className={s.arrowlinkRigth}
-          />
-        </div>
+        {!isMobile && (
+          <div
+            className={`${s.arrowButton} ${s.arrowButtonRight}`}
+            onClick={goToNextSlide}
+          >
+            <FiChevronRight
+              size={60}
+              strokeWidth={1}
+              className={s.arrowlinkRigth}
+            />
+          </div>
+        )}
         {renderPagination()}
       </div>
     </div>

@@ -82,7 +82,7 @@ const NewMap = () => {
             padding: "-2px",
             paddingBottom: "-1px",
             width: "100%",
-            height: !isMobile ? "590px" : "390px",
+            height: !isMobile ? "590px" : "490px",
             overflow: "hidden",
           }}
         >
