@@ -22,9 +22,6 @@ const BookingWrapper = () => {
       <div className="buttons">
         <a href="https://beds24.com/booking2.php?propid=3578&layout=1">
           <Button text="BOOK YOUR ROOM" btnClass="btnDark" />
-          {/* <button className="inline">
-            <WithTransLate text="Book Your Room" />
-          </button> */}
         </a>
         <div className="ordial">
           <hr />
@@ -34,10 +31,7 @@ const BookingWrapper = () => {
           <hr />
         </div>
         <a href="https://bluehouse.tourdesk.is/Tour">
-          <Button text="Book Day Tours" btnClass="btnDark" />
-          {/* <button className="outline">
-            <WithTransLate text="Book Day Tours" />
-          </button> */}
+          <Button text="Book Day Tours" btnClass="btnLight" />
         </a>
       </div>
     </div>
