@@ -21,7 +21,7 @@ const BookingWrapper = () => {
       </p>
       <div className="buttons">
         <a href="https://beds24.com/booking2.php?propid=3578&layout=1">
-          <Button text="BOOK YOUR ROOM" btnClass="btnDark" />
+          <Button text="BOOK YOUR ROOM" btnClass="btnDark" width="218px" />
         </a>
         <div className="ordial">
           <hr />
@@ -31,7 +31,7 @@ const BookingWrapper = () => {
           <hr />
         </div>
         <a href="https://bluehouse.tourdesk.is/Tour">
-          <Button text="Book Day Tours" btnClass="btnLight" />
+          <Button text="Book Day Tours" btnClass="btnLight" width="218px" />
         </a>
       </div>
     </div>
