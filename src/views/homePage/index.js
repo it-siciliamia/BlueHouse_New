@@ -1,8 +1,10 @@
+import { useMediaQuery } from "react-responsive";
 import { Box, makeStyles } from "@material-ui/core";
 import HomeHeader from "./HomePageSlider";
 import PhotoGallery from "./photoGallery";
 import OurServices from "../../components/OurServices/OurServices.jsx";
 import BookingWrapper from "./BookingWrapper";
+import SliderHome from "./SliderHome/SliderHome";
 import roomsImage from "../../images/gallery/rooms.svg";
 import housesImage from "../../images/gallery/houseBB2.svg";
 import surroundingsImage from "../../images/gallery/surroundings.svg";
@@ -20,7 +22,6 @@ import Support from "../../components/SuportComponent/support";
 import Recommendations from "./recommendations";
 import AboutUs from "./AboutUs";
 import BlogPart from "./Blog";
-import TabletHomeSlider from "./TabletHomeSlider.js";
 import FollowUs from "./FollowUs.js";
 
 const useStyles = makeStyles((theme) => ({
@@ -133,6 +134,7 @@ export const INSTAGRAM_BACKGROUND_IMAGES = [
 /////////////////////////////////////////////////////////////////////////////
 export default function HomePage() {
   const { root, galleryButton } = useStyles();
+  const isDesktop = useMediaQuery({ minDeviceWidth: 813 });
 
   const customGALLERYTitleStyle = {
     marginTop: "95px",
@@ -153,7 +155,7 @@ export default function HomePage() {
   return (
     <Box className={root}>
       <HomeHeader />
-      <TabletHomeSlider />
+      {!isDesktop && <SliderHome />}
       <BookingWrapper />
       <OurServices />
       <Galary />

@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "../../components/Shared/Button/Button";
 import "./BookingWrapper.css";
 import { WithTransLate } from "../../translating";
 
@@ -20,9 +21,10 @@ const BookingWrapper = () => {
       </p>
       <div className="buttons">
         <a href="https://beds24.com/booking2.php?propid=3578&layout=1">
-          <button className="inline">
+          <Button text="BOOK YOUR ROOM" btnClass="btnDark" />
+          {/* <button className="inline">
             <WithTransLate text="Book Your Room" />
-          </button>
+          </button> */}
         </a>
         <div className="ordial">
           <hr />
@@ -32,9 +34,10 @@ const BookingWrapper = () => {
           <hr />
         </div>
         <a href="https://bluehouse.tourdesk.is/Tour">
-          <button className="outline">
+          <Button text="Book Day Tours" btnClass="btnDark" />
+          {/* <button className="outline">
             <WithTransLate text="Book Day Tours" />
-          </button>
+          </button> */}
         </a>
       </div>
     </div>

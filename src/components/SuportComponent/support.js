@@ -11,10 +11,10 @@ function SupportCard({ description, title, image }) {
   return (
     <div className={s.supportCard}>
       <img alt="icon" className={s.icon} src={image} />
-      <p style={{ fontWeight: "500" }}>
+      <p className={s.cardTitle}>
         <WithTransLate text={title} />
       </p>
-      <p style={{ marginBottom: "0px", marginTop: "-10px" }}>
+      <p className={s.cardText}>
         <WithTransLate text={description} />
       </p>
     </div>
@@ -27,7 +27,7 @@ export default function Support() {
     <div
       id="FAQ"
       className={s.support}
-      style={{ display: !isDesktop ? "none" : "flex" }}
+      // style={{ display: !isDesktop ? "none" : "flex" }}
     >
       <Link
         className={s.description}
