@@ -9,11 +9,13 @@
   align-items: center;
   justify-content: space-between;
   color: #14202b;
-  font-size: 14px;
-  font-weight: 400;
+  font-size: 16px;
+  font-weight: 300;
   box-shadow: 0 4px 7px rgba(7, 55, 98, 0.25);
-  background: url('../../../images/ReviewSlider/quotes-open-icon.svg') 3% 11% / auto auto no-repeat, 
-  url('../../../images/ReviewSlider/quotes-close-icon.svg') 97% 89% / auto auto no-repeat;
+  background: url("../../../images/ReviewSlider/quotes-open-icon.svg") 3% 11% /
+      auto auto no-repeat,
+    url("../../../images/ReviewSlider/quotes-close-icon.svg") 97% 89% / auto
+      auto no-repeat;
 }
 
 .review-card__quote {
@@ -39,19 +41,23 @@
   padding-left: 7px;
 }
 
-@media(min-width: 375px) {
+@media (max-width: 768px) {
   .review-card {
-    --cardPadding: 29px 79px;
-  }
-}
-
-@media(min-width: 600px) {
-  .review-card {
+    --cardPadding: 50px 20px 20px 35px;
+    font-size: 18px;
     font-weight: 300;
   }
 }
 
-@media(min-width: 1024px) {
+@media (min-width: 768px) and (max-width: 1024px) {
+  .review-card {
+    --cardPadding: 50px 55px;
+    font-size: 20px;
+    font-weight: 300;
+  }
+}
+
+@media (min-width: 1024px) {
   .review-card {
     --cardPadding: 40px 60px 10px;
     align-items: stretch;
@@ -74,7 +80,7 @@
   }
 }
 
-@media(min-width: 1440px) {
+@media (min-width: 1440px) {
   .review-card {
     --cardPadding: 45px 50px 10px;
     font-size: 22px;

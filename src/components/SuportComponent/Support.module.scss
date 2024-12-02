@@ -6,14 +6,17 @@
   justify-content: space-between;
   @media (max-width: 768px) {
     margin: 50px auto 50px;
-    width: 90%;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 100%;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    gap: 40px;
+    gap: 30px;
   }
   @media (min-width: 768px) and (max-width: 1024px) {
-    margin: 50px auto 50px;
+    margin-top: 50px;
+    margin-bottom: -50px;
     width: 100%;
   }
 }
@@ -38,7 +41,7 @@
   }
   @media (max-width: 768px) {
     text-transform: lowercase !important;
-    width: 90%;
+    width: 100%;
   }
   @media (min-width: 768px) and (max-width: 1024px) {
     font-size: 16px !important;
@@ -73,7 +76,7 @@
 }
 
 .cardText {
-  margin-bottom: 0px;
+  margin-bottom: 16px;
 }
 
 .cardText::first-letter {

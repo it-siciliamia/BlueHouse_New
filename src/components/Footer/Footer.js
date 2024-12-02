@@ -1,3 +1,4 @@
+import { useMediaQuery } from "react-responsive";
 import { items } from "./footerData";
 import { makeStyles } from "@material-ui/core";
 import { WithTransLate } from "../../translating";
@@ -16,6 +17,15 @@ const useStyles = makeStyles((theme) => ({
       justifyContent: "space-between",
       flexDirection: "row",
     },
+    [theme.breakpoints.down("xs")]: {
+      maxWidth: "100%",
+      margin: "0px",
+      marginBottom: "-30px",
+      paddingTop: "0px",
+      paddingBottom: "0px",
+      paddingLeft: "40px",
+      paddingRight: "40px",
+    },
   },
   logo: {
     marginBottom: theme.spacing(2),
@@ -29,21 +39,34 @@ const useStyles = makeStyles((theme) => ({
     display: "grid",
     gridTemplateColumns: "1fr",
     gridGap: theme.spacing(2),
+    // [theme.breakpoints.up("sm")]: {
+    //   display: "flex",
+    //   flexDirection: "row",
+    //   flex: 1,
+    //   justifyContent: "space-around",
+    //   alignItems: "flex-start",
+    // },
     [theme.breakpoints.up("sm")]: {
+      width: "100%",
       display: "flex",
       flexDirection: "row",
-      flex: 1,
-      justifyContent: "space-around",
-      alignItems: "flex-start",
+      justifyContent: "space-between",
+      gap: "30px",
     },
     [theme.breakpoints.down("xs")]: {
-      gridTemplateColumns: "repeat(2, 1fr)",
-      gap: theme.spacing(2),
-      gridTemplateAreas: `
-      "item1 item2"
-      "item3 item2"
-    `,
+      width: "100%",
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "space-between",
     },
+    // [theme.breakpoints.down("xs")]: {
+    //   gridTemplateColumns: "repeat(2, 1fr)",
+    //   gap: theme.spacing(2),
+    //   gridTemplateAreas: `
+    //   "item1 item2"
+    //   "item3 item2"
+    // `,
+    // },
   },
   socials: {
     display: "flex",
@@ -147,12 +170,12 @@ const useStyles = makeStyles((theme) => ({
 
 function Footer() {
   const classes = useStyles();
+  const isMobile = useMediaQuery({ maxDeviceWidth: 767 });
 
   return (
     <>
       <div style={{ marginBottom: "2rem" }} />
       <div className={classes.container}>
-        <div className={classes.logo}></div>
         <div className={classes.linkContainer}>
           {items.map((item, index) => (
             <div
@@ -187,6 +210,16 @@ function Footer() {
                   </a>
                 ))}
               </div>
+              {index < items.length - 1 && isMobile && (
+                <div
+                  style={{
+                    width: "100%",
+                    borderBottom: "1px solid #1D3967",
+                    opacity: "30%",
+                    marginTop: "20px",
+                  }}
+                ></div>
+              )}
             </div>
           ))}
         </div>

@@ -99,9 +99,11 @@
   letter-spacing: 0.1em;
   text-align: center;
   @media (max-width: 768px) {
-    font-size: 18px;
+    margin-bottom: -10px;
+    font-size: 16px;
   }
   @media (min-width: 768px) and (max-width: 1024px) {
+    margin-bottom: -10px;
     font-size: 20px;
   }
 }
