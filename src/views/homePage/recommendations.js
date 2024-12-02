@@ -285,6 +285,8 @@ export default function Recommendations({
           <Box className={imagesRoot}>
             {backgroundImagesUrlAndTitles.map(
               ({ background, title, objectPosition }, index) => {
+                const lowerCaseTitle = title.toLowerCase();
+
                 return (
                   <div key={index} className={clickableParClassNames}>
                     {(description || action) && (
@@ -304,7 +306,13 @@ export default function Recommendations({
                       </div>
                     )}
                     <a
-                      href={"https://blog.bluehouse.is/"}
+                      href={
+                        lowerCaseTitle === "glacier caves"
+                          ? "https://blog.bluehouse.is/?s=glacier+caves"
+                          : lowerCaseTitle === "blue lagoon"
+                          ? "https://blog.bluehouse.is/?s=blue+lagoon"
+                          : "https://blog.bluehouse.is/?s=northen+lights"
+                      }
                       rel="noreferrer"
                       target="_blank"
                     >
