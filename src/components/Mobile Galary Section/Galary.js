@@ -1,5 +1,6 @@
 import * as React from "react";
 import PropTypes from "prop-types";
+import { useMediaQuery } from "react-responsive";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
@@ -13,7 +14,9 @@ import { Rooms } from "./Galary-information";
 import { Houses } from "./Galary-information";
 import { Surroundings } from "./Galary-information";
 import { WithTransLate } from "../../translating";
+
 function CustomTabPanel(props) {
+  const isMobile = useMediaQuery({ maxDeviceWidth: 767 });
   const { children, value, index, Rooms } = props;
 
   return (
@@ -29,7 +32,9 @@ function CustomTabPanel(props) {
           <Box
             sx={{
               display: "grid",
-              gridTemplateColumns: "repeat(2, 1fr)", // Two columns
+              gridTemplateColumns: isMobile
+                ? "repeat(1, 1fr)"
+                : "repeat(2, 1fr)",
               width: "100%",
               gap: "18px",
               paddingX: "20px",
@@ -140,10 +145,13 @@ const Gallery = () => {
   return (
     <Box
       sx={{
-        width: "100vw",
-        height: "800px",
-        padding: "50px 0px",
-        display: { xs: "block", sm: "none" },
+        width: "100%",
+        // width: "100vw",
+        // height: "800px",
+        paddingTop: "50px",
+
+        display: "block",
+        // display: { xs: "block", sm: "none" },
       }}
     >
       <Typography
@@ -160,25 +168,67 @@ const Gallery = () => {
           sx={{
             margin: "20px 20px",
             marginTop: "0px",
+            // "& .MuiTab-root": {
+            //   borderBottom: "2px solid #8F8F8F",
+            //   fontFamily: "Josefin Sans",
+            //   textTransform: "none", // Keep text capitalization as in the label
+            //   fontWeight: "400",
+            //   fontSize: "18px",
+            //   minWidth: 100, // Adjust minimum width to your needs
+            //   border: "1px solid red",
+            //   color: "#8F8F8F", // Set default text color
+            //   position: "relative", // Ensure the pseudo-element is positioned correctly
+            //   "&.Mui-selected": {
+            //     color: "#1D3967", // Color when selected
+            //   },
+            //   // Remove border and focus styling
+            //   "&.Mui-focusVisible": {
+            //     outline: "none", // Remove the default focus outline
+            //     borderColor: "#1D3967",
+            //   },
+            //   "&:focus": {
+            //     outline: "none", // Remove the default focus outline
+            //     borderColor: "#1D3967",
+            //   },
+            // },
             "& .MuiTab-root": {
-              borderBottom: "2px solid #8F8F8F",
               fontFamily: "Josefin Sans",
-              textTransform: "none", // Keep text capitalization as in the label
+              textTransform: "none",
               fontWeight: "400",
               fontSize: "18px",
-              minWidth: 100, // Adjust minimum width to your needs
-              color: "#8F8F8F", // Set default text color
-              "&.Mui-selected": {
-                color: "#1D3967", // Color when selected
+              minWidth: 100,
+              color: "#8F8F8F",
+              position: "relative",
+              border: "none",
+              "&::after": {
+                content: '""',
+                position: "absolute",
+                bottom: 0,
+                left: "50%",
+                transform: "translateX(-50%) scaleX(0)",
+                height: "2px",
+                backgroundColor: "#8F8F8F",
+                transition: "transform 0.3s ease",
+                transformOrigin: "center",
+                boxSizing: "border-box",
               },
-              // Remove border and focus styling
+              "&.Mui-selected": {
+                fontWeight: "600",
+                color: "#1D3967",
+              },
+              "&.Mui-selected::after": {
+                backgroundColor: "#1D3967",
+                transform: "translateX(-50%) scaleX(1)",
+              },
+              "&:hover::after": {
+                transform: "translateX(-50%) scaleX(1)",
+              },
               "&.Mui-focusVisible": {
-                outline: "none", // Remove the default focus outline
-                borderColor: "#1D3967",
+                outline: "none",
+                borderColor: "none",
               },
               "&:focus": {
-                outline: "none", // Remove the default focus outline
-                borderColor: "#1D3967",
+                outline: "none",
               },
             },
           }}

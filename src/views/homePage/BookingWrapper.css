@@ -8,7 +8,7 @@
   all and (max-width: 480px) {
   .BookingWrapper_container {
     gap: 15px;
-    margin-top: 20px;
+    margin-top: 40px;
     padding: 10px;
     text-align: center;
     display: flex;
