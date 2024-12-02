@@ -213,7 +213,7 @@ const NewsletterComponent = () => {
         </div>
         <input type="hidden" id="isCaptchaNeeded" value="true">
         <input type="hidden" id="superAdminCap" value="0">
-        <img src="https://oqix-zcmp.maillist-manage.eu/images/spacer.gif" onload="referenceSetter(this)" id="refImage" style="display:none;">
+        <img src="https://oqix-zcmp.maillist-manage.eu/images/spacer.gif" id="refImage" style="display:none;">
     </div>
 </div>
 <div id="zcOptinOverLay" oncontextmenu="return false" style="display:none;text-align: center; background-color: rgb(0, 0, 0); opacity: 0.5; z-index: 100; position: fixed; width: 100%; top: 0px; left: 0px; height: 988px;"></div>
