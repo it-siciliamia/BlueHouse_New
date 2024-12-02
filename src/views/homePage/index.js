@@ -20,7 +20,7 @@ import ReviewSlider from "../../components/ReviewSlider/ReviewSlider";
 
 import Support from "../../components/SuportComponent/support";
 import Recommendations from "./recommendations";
-import AboutUs from "./AboutUs";
+import AboutUs from "../../components/AboutUs/AboutUs";
 import BlogPart from "./Blog";
 import FollowUs from "./FollowUs.js";
 
@@ -158,7 +158,7 @@ export default function HomePage() {
       {!isDesktop && <SliderHome />}
       <BookingWrapper />
       <OurServices />
-      <Galary />
+      {!isDesktop && <Galary />}
       <PhotoGallery
         id="gallery"
         actionType="VIEW GALLERY"
