@@ -1,6 +1,7 @@
 import { useState, useRef } from "react";
 import s from "./NewsLetter.module.scss";
 import { useForm, Controller } from "react-hook-form";
+import { useMediaQuery } from "react-responsive";
 import { Link } from "react-router-dom";
 import { WithTransLate } from "../../translating";
 import Button from "../Shared/Button/Button";
@@ -10,6 +11,7 @@ const NewsletterComponent = () => {
   // const [isHumanVerified, setIsHumanVerified] = useState(false);
   const [aproveSendData, setAproveSendData] = useState(false);
   const checkboxRef = useRef(null);
+  const isMobile = useMediaQuery({ maxDeviceWidth: 767 });
 
   const {
     control,
@@ -363,6 +365,7 @@ const NewsletterComponent = () => {
             type="submit"
             btnClass="btnDark"
             disabled={!isValid || !aproveSendData}
+            width={isMobile ? "218px" : "280px"}
           />
         </div>
       </form>
