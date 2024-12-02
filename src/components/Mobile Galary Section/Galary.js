@@ -36,7 +36,7 @@ function CustomTabPanel(props) {
                 ? "repeat(1, 1fr)"
                 : "repeat(2, 1fr)",
               width: "100%",
-              gap: "18px",
+              gap: isMobile ? "40px" : "18px",
               paddingX: "20px",
             }}
           >

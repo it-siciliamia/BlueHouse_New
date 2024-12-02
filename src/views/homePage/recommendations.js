@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { useMediaQuery } from "react-responsive";
 import { Box, makeStyles, Typography } from "@material-ui/core";
 import clsx from "clsx";
 import Button from "../../components/Shared/Button/Button";
@@ -11,7 +12,6 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     marginTop: "20px",
     justifyContent: "space-between",
-    // width: "79vw",
     [theme.breakpoints.down("md")]: {
       width: "90vw",
     },
@@ -24,7 +24,6 @@ const useStyles = makeStyles((theme) => ({
       justifyContent: "center",
       allignItems: "center",
       marginTop: "0",
-
       ...props,
     },
   }),
@@ -133,11 +132,10 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "24px",
     fontWeight: "700",
     letterSpacing: "0.1em",
-
     "@media (max-width: 1023px)": {
       margin: 0,
       transform: "rotate(0deg)",
-      fontSize: "18px",
+      fontSize: "20px",
       fontWeight: 700,
       lineHeight: "50px",
     },
@@ -247,6 +245,7 @@ export default function Recommendations({
   isClickable,
   ...props
 }) {
+  const isMobile = useMediaQuery({ maxDeviceWidth: 767 });
   const [setModal] = useContext(UserContext);
   const rootStyleInPhoneSize = removeInPhoneSize ? { display: "none" } : {};
   const {
@@ -268,7 +267,7 @@ export default function Recommendations({
   return (
     <div
       style={{
-        padding: "16px 15px 0",
+        padding: isMobile ? "0px 20px 0" : "16px 15px 0",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
@@ -279,7 +278,9 @@ export default function Recommendations({
       <div style={{ width: "100%" }}>
         <div className={root}>
           <h2 className={titleStyle}>
-            <WithTransLate text={title} />
+            <WithTransLate
+              text={title === "BLOG" ? "RECOMMENDATIONS" : title}
+            />
           </h2>
           <Box className={imagesRoot}>
             {backgroundImagesUrlAndTitles.map(
@@ -311,7 +312,11 @@ export default function Recommendations({
                         alt="ph"
                         src={background}
                         className={hoverImage}
-                        style={{ objectPosition: objectPosition }}
+                        style={{
+                          objectPosition: objectPosition,
+                          height: isMobile ? "auto" : "auto",
+                          width: isMobile ? "100%" : "auto",
+                        }}
                       />
                     </a>
                     <Typography className={clsx(styling, category)}>

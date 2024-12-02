@@ -31,6 +31,12 @@ const headerStyles = makeStyles((theme) => ({
     right: "0",
     zIndex: 3,
     backgroundColor: "white",
+    [theme.breakpoints.down("sm")]: {
+      padding: "20px 20px",
+    },
+    [theme.breakpoints.up("md")]: {
+      padding: "20px 115px",
+    },
   },
 
   atag: {
