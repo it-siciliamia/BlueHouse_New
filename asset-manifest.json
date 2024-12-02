@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/BlueHouse_New/static/css/main.2d411643.chunk.css",
-    "main.js": "/BlueHouse_New/static/js/main.485ecd93.chunk.js",
-    "main.js.map": "/BlueHouse_New/static/js/main.485ecd93.chunk.js.map",
+    "main.css": "/BlueHouse_New/static/css/main.22221a7e.chunk.css",
+    "main.js": "/BlueHouse_New/static/js/main.98eb187e.chunk.js",
+    "main.js.map": "/BlueHouse_New/static/js/main.98eb187e.chunk.js.map",
     "runtime-main.js": "/BlueHouse_New/static/js/runtime-main.c8d2bf66.js",
     "runtime-main.js.map": "/BlueHouse_New/static/js/runtime-main.c8d2bf66.js.map",
     "static/css/2.52721fbf.chunk.css": "/BlueHouse_New/static/css/2.52721fbf.chunk.css",
-    "static/js/2.47986fdb.chunk.js": "/BlueHouse_New/static/js/2.47986fdb.chunk.js",
-    "static/js/2.47986fdb.chunk.js.map": "/BlueHouse_New/static/js/2.47986fdb.chunk.js.map",
+    "static/js/2.95d3d42b.chunk.js": "/BlueHouse_New/static/js/2.95d3d42b.chunk.js",
+    "static/js/2.95d3d42b.chunk.js.map": "/BlueHouse_New/static/js/2.95d3d42b.chunk.js.map",
     "static/js/3.c1f8ef91.chunk.js": "/BlueHouse_New/static/js/3.c1f8ef91.chunk.js",
     "static/js/3.c1f8ef91.chunk.js.map": "/BlueHouse_New/static/js/3.c1f8ef91.chunk.js.map",
     "index.html": "/BlueHouse_New/index.html",
     "static/css/2.52721fbf.chunk.css.map": "/BlueHouse_New/static/css/2.52721fbf.chunk.css.map",
-    "static/css/main.2d411643.chunk.css.map": "/BlueHouse_New/static/css/main.2d411643.chunk.css.map",
-    "static/js/2.47986fdb.chunk.js.LICENSE.txt": "/BlueHouse_New/static/js/2.47986fdb.chunk.js.LICENSE.txt",
+    "static/css/main.22221a7e.chunk.css.map": "/BlueHouse_New/static/css/main.22221a7e.chunk.css.map",
+    "static/js/2.95d3d42b.chunk.js.LICENSE.txt": "/BlueHouse_New/static/js/2.95d3d42b.chunk.js.LICENSE.txt",
     "static/media/1(1).ffda8da5.webp": "/BlueHouse_New/static/media/1(1).ffda8da5.webp",
     "static/media/1.11b412ac.webp": "/BlueHouse_New/static/media/1.11b412ac.webp",
     "static/media/1.429aae33.webp": "/BlueHouse_New/static/media/1.429aae33.webp",
@@ -201,8 +201,8 @@
   "entrypoints": [
     "static/js/runtime-main.c8d2bf66.js",
     "static/css/2.52721fbf.chunk.css",
-    "static/js/2.47986fdb.chunk.js",
-    "static/css/main.2d411643.chunk.css",
-    "static/js/main.485ecd93.chunk.js"
+    "static/js/2.95d3d42b.chunk.js",
+    "static/css/main.22221a7e.chunk.css",
+    "static/js/main.98eb187e.chunk.js"
   ]
 }
