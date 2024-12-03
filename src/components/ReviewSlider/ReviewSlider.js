@@ -1,6 +1,8 @@
 import { Swiper, SwiperSlide } from "swiper/react";
+import { useMediaQuery } from "react-responsive";
 import { Navigation, Pagination, Autoplay } from "swiper";
 import { WithTransLate } from "../../translating/index";
+
 import "swiper/swiper.css";
 
 import ReviewCard from "./ReviewSlide/ReviewSlide";
@@ -39,6 +41,7 @@ const DESCTOP_BREAKPOINT = 1023;
 
 const ReviewSlider = () => {
   const windowInnerWidth = window.innerWidth;
+  const isMobile = useMediaQuery({ maxDeviceWidth: 767 });
 
   const slidesPerView = windowInnerWidth > DESCTOP_BREAKPOINT ? 2 : 1;
 
@@ -57,11 +60,15 @@ const ReviewSlider = () => {
             disableOnInteraction: true,
             pauseOnMouseEnter: true,
           }}
-          pagination={{
-            clickable: true,
-            bulletClass: "bulletClass",
-            bulletActiveClass: "bulletActiveClass",
-          }}
+          pagination={
+            isMobile
+              ? false
+              : {
+                  clickable: true,
+                  bulletClass: "bulletClass",
+                  bulletActiveClass: "bulletActiveClass",
+                }
+          }
           navigation={{
             prevEl: ".button-prev",
             nextEl: ".button-next",

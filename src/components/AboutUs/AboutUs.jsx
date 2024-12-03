@@ -9,7 +9,7 @@ import s from "./AboutUs.module.scss";
 function AboutUs() {
   const isMobile = useMediaQuery({ maxDeviceWidth: 767 });
   return (
-    <section id="aboutus">
+    <section id="ABOUTUS">
       <div className={s.about}>
         <h2 className={s.titleStyle}>
           <WithTransLate text="ABOUT US" />

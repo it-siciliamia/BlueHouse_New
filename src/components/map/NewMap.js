@@ -76,6 +76,7 @@ const NewMap = () => {
     <>
       {!isFullScreen && (
         <div
+          id="MAP"
           style={{
             position: "relative",
             margin: isMobile ? "10px 0 60px 0" : "90px 0",

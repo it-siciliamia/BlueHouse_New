@@ -1,8 +1,7 @@
 /* eslint-disable react/jsx-no-duplicate-props */
 import React from "react";
-import { Link } from "react-scroll";
+import { Link as ScrollLink } from "react-scroll";
 import { Link as RouterLink } from "react-router-dom";
-import { HashLink } from "react-router-hash-link";
 import { Button, Divider, Grid, makeStyles } from "@material-ui/core";
 
 import TranslateMe from "../translating";
@@ -18,6 +17,7 @@ import Car from "../images/car.svg";
 import Bag from "../images/bag.svg";
 import Info from "../images/info.svg";
 import aboutus from "../images/aboutus.svg";
+import Location from "../images/location.svg";
 import Instagram from "../images/instagram.svg";
 import Facebook from "../images/facebook.svg";
 import Whatsapp from "../images/whatsApp.svg";
@@ -185,7 +185,6 @@ function SideNavbarMobile(props) {
   const {
     sliderHeader,
     linksList,
-    recommendations,
     linksWrapper,
     root,
     sliderTitle,
@@ -246,38 +245,47 @@ function SideNavbarMobile(props) {
         </ul>
 
         <p className={sliderTitle}>
-          <WithTransLate text="GENERAL INFO & HELP" />
+          <WithTransLate text="GENERAL INFORMATION" />
         </p>
 
         <ul className={linksList}>
           <li>
-            <img className={sliderIconss} src={Gallery} alt="links List" />
+            <img
+              className={sliderIconss}
+              src={Gallery}
+              alt="Scroll to Gallery"
+            />
 
-            <RouterLink
+            <ScrollLink
               className={highlightedColor}
-              onClick={scroll}
-              to="/view-gallery"
+              to="GALLERY"
+              spy={true}
+              smooth={true}
+              offset={-70}
               duration={500}
-              offset={-150}
+              onClick={scroll}
             >
               <WithTransLate text="Gallery" />
-            </RouterLink>
+            </ScrollLink>
           </li>
 
           <li>
-            <img className={sliderIconss} src={Bag} alt="Slider Bag" />
-
-            <HashLink
-              to="/#recommendations"
+            <img
+              className={sliderIconss}
+              src={Bag}
+              alt="Scroll to Recommendations"
+            />
+            <ScrollLink
               className={highlightedColor}
-              activeclassname={recommendations}
-              scroll={(el) =>
-                el.scrollIntoView({ behavior: "auto", block: "end" })
-              }
-              style={{ display: "flex", flexDirection: "row" }}
+              to="RECOMMENDATIONS"
+              spy={true}
+              smooth={true}
+              offset={-70}
+              duration={500}
+              onClick={scroll}
             >
               <WithTransLate text="Recommendations" />
-            </HashLink>
+            </ScrollLink>
           </li>
 
           <li>
@@ -285,36 +293,47 @@ function SideNavbarMobile(props) {
               className={sliderIconss}
               style={{ marginLeft: "-2px" }}
               src={aboutus}
-              alt="Slider About Us"
+              alt="Scroll to About Us"
             />
 
-            <RouterLink
+            <ScrollLink
               className={highlightedColor}
-              onClick={scroll}
-              to="/About-Us"
+              to="ABOUTUS"
+              spy={true}
+              smooth={true}
+              offset={-70}
               duration={500}
-              offset={-200}
+              onClick={scroll}
             >
               <WithTransLate text="About us" />
-            </RouterLink>
+            </ScrollLink>
           </li>
+        </ul>
 
+        <p className={sliderTitle}>
+          <WithTransLate text="HELP AND SUPPORT" />
+        </p>
+
+        <ul className={linksList}>
           <li>
             <img
               className={sliderIconss}
               style={{ height: "19px", marginLeft: "0", paddingRight: "5px" }}
               src={supportImage}
-              alt="Slider Support"
+              alt="Scroll to Support"
             />
 
-            <a
-              href="https://gnl.ladesk.com/"
-              target="_blank"
-              rel="noreferrer"
+            <ScrollLink
               className={highlightedColor}
+              to="SUPPORT"
+              spy={true}
+              smooth={true}
+              offset={-70}
+              duration={500}
+              onClick={scroll}
             >
               <WithTransLate text="Support" />
-            </a>
+            </ScrollLink>
           </li>
 
           <li>
@@ -324,10 +343,35 @@ function SideNavbarMobile(props) {
               src={Info}
               alt="Slider Info"
             />
-
-            <Link onClick={scroll} to="FAQ" duration={500} offset={-145}>
+            <a
+              href="https://bluehouseis.zohodesk.eu/portal/en/home"
+              target="_blank"
+              rel="noreferrer"
+              className={highlightedColor}
+            >
               <WithTransLate text="FAQ" />
-            </Link>
+            </a>
+          </li>
+
+          <li>
+            <img
+              className={sliderIconss}
+              style={{ height: "19px", marginLeft: "0", paddingRight: "5px" }}
+              src={Location}
+              alt="Scroll to Map"
+            />
+
+            <ScrollLink
+              className={highlightedColor}
+              to="MAP"
+              spy={true}
+              smooth={true}
+              offset={-70}
+              duration={500}
+              onClick={scroll}
+            >
+              <WithTransLate text="Map" />
+            </ScrollLink>
           </li>
         </ul>
       </div>
