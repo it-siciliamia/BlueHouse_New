@@ -8,33 +8,33 @@ import greenhouse from "./images/1(1).webp";
 import threebedroom from "./images/IMG_3846.webp";
 export const Rooms = [
   {
-    title: "Economy Double Room",
-    From: "from €67 per night",
-    image: interpol,
-    Link: "https://beds24.com/booking2.php?propid=3578&layout=1",
-  },
-  {
-    title: "Double Twin",
-    From: "from €99 per night",
+    title: "Double/Twin",
+    From: "from €90 per night",
     image: "https://bluehouse.is/static/media/dt1.feb270dd.jpg",
     Link: "https://beds24.com/booking2.php?propid=3578&layout=1",
   },
   {
-    title: "Triple Room",
-    From: "from €125 per night",
+    title: "Triple/Quadruple Room",
+    From: "from €110 per night",
     image: "https://bluehouse.is/static/media/t1.7a599542.jpg",
     Link: "https://beds24.com/booking2.php?propid=3578&layout=1",
   },
   {
-    title: "Quadruple Room",
-    From: "from €67 per night",
+    title: "Family Room",
+    From: "from €150 per night",
     image: grotta,
+    Link: "https://beds24.com/booking2.php?propid=3578&layout=1",
+  },
+  {
+    title: "Two-bedroom Appartment",
+    From: "from €100 per night",
+    image: interpol,
     Link: "https://beds24.com/booking2.php?propid=3578&layout=1",
   },
 ];
 export const Houses = [
   {
-    title: "Blue house",
+    title: "Blue House",
     From: "",
     image: bluehouse_image,
     Link: "https://beds24.com/booking2.php?propid=3578&layout=1",
@@ -46,7 +46,7 @@ export const Houses = [
     Link: "https://beds24.com/booking2.php?propid=3578&layout=1",
   },
   {
-    title: "3 bedroom apartment",
+    title: "GNL",
     From: "",
     image: threebedroom,
     Link: "https://beds24.com/booking2.php?propid=3578&layout=1",

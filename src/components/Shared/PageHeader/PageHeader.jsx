@@ -20,13 +20,6 @@ const pagesData = {
     keywords:
       "house rules, Blue House guidelines, Icelandic law, quiet hours, kitchen cleanliness, breakfast policies, eco-friendly accommodation, check-out rules, respectful stay, Blue House Reykjavik rules",
   },
-  "/view-gallery": {
-    title: "Gallery - Explore Our Apartments and Rooms",
-    description:
-      "Browse our gallery showcasing apartments, rooms, and locations available for your stay. Experience the comfort and beauty of Blue House accommodations.",
-    keywords:
-      "gallery, Blue House photos, Reykjavik apartments, room images, Iceland accommodation gallery, Blue House rooms, Reykjavik lodging, Iceland travel photos, cozy apartments, Blue House gallery",
-  },
   "/about-us": {
     title: "About Us - Blue House Bed and Breakfast",
     description:

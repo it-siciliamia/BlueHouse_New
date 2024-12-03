@@ -8,12 +8,12 @@ import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import { Rooms } from "./Galary-information";
 import { Houses } from "./Galary-information";
 import { Surroundings } from "./Galary-information";
 import { WithTransLate } from "../../translating";
+import ImageSlider from "./ImageSlider/ImageSlider";
 
 function CustomTabPanel(props) {
   const isMobile = useMediaQuery({ maxDeviceWidth: 767 });
@@ -23,7 +23,7 @@ function CustomTabPanel(props) {
     <div
       role="tabpanel"
       hidden={value !== index}
-      id={`simple-tabpanel-${index}`}
+      id={`GALLERY`}
       aria-labelledby={`simple-tab-${index}`}
     >
       {value === index && (
@@ -49,11 +49,32 @@ function CustomTabPanel(props) {
                   borderRadius: "0px",
                 }}
               >
-                <CardMedia
-                  sx={{ height: 200 }}
-                  image={room.image}
-                  title={room.title}
-                />
+                <div style={{ position: "relative" }}>
+                  <ImageSlider category={room.title} />
+                  {room.title !== "Northern Lights" &&
+                    room.title !== "Neighbourhood" &&
+                    room.title !== "Activities" && (
+                      <div
+                        style={{
+                          position: "absolute",
+                          left: "0",
+                          bottom: "0",
+                          display: "flex",
+                          flexDirection: "row",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          zIndex: "2",
+                          height: "40px",
+                          width: "100%",
+                          fontSize: "18px",
+                          color: "white",
+                          background: "rgba(0, 0, 0, 0.15)",
+                        }}
+                      >
+                        <WithTransLate text={`<- swipe to see more->`} />
+                      </div>
+                    )}
+                </div>
                 <CardContent
                   sx={{ width: "200px", height: "10px", padding: 0, my: 1 }}
                 >
@@ -146,12 +167,8 @@ const Gallery = () => {
     <Box
       sx={{
         width: "100%",
-        // width: "100vw",
-        // height: "800px",
         paddingTop: "50px",
-
         display: "block",
-        // display: { xs: "block", sm: "none" },
       }}
     >
       <Typography
@@ -168,29 +185,6 @@ const Gallery = () => {
           sx={{
             margin: "20px 20px",
             marginTop: "0px",
-            // "& .MuiTab-root": {
-            //   borderBottom: "2px solid #8F8F8F",
-            //   fontFamily: "Josefin Sans",
-            //   textTransform: "none", // Keep text capitalization as in the label
-            //   fontWeight: "400",
-            //   fontSize: "18px",
-            //   minWidth: 100, // Adjust minimum width to your needs
-            //   border: "1px solid red",
-            //   color: "#8F8F8F", // Set default text color
-            //   position: "relative", // Ensure the pseudo-element is positioned correctly
-            //   "&.Mui-selected": {
-            //     color: "#1D3967", // Color when selected
-            //   },
-            //   // Remove border and focus styling
-            //   "&.Mui-focusVisible": {
-            //     outline: "none", // Remove the default focus outline
-            //     borderColor: "#1D3967",
-            //   },
-            //   "&:focus": {
-            //     outline: "none", // Remove the default focus outline
-            //     borderColor: "#1D3967",
-            //   },
-            // },
             "& .MuiTab-root": {
               fontFamily: "Josefin Sans",
               textTransform: "none",

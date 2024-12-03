@@ -160,7 +160,7 @@ export default function HomePage() {
       <OurServices />
       {!isDesktop && <Galary />}
       <PhotoGallery
-        id="gallery"
+        id="GALLERY_DESCTOP"
         actionType="VIEW GALLERY"
         action={<button className={galleryButton}>DISCOVER MORE</button>}
         description={descrip1}

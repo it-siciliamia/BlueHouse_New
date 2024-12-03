@@ -22,11 +22,7 @@ function SupportCard({ description, title, image }) {
 
 export default function Support() {
   return (
-    <div
-      id="FAQ"
-      className={s.support}
-      // style={{ display: !isDesktop ? "none" : "flex" }}
-    >
+    <div id="SUPPORT" className={s.support}>
       <Link
         className={s.description}
         to={{
