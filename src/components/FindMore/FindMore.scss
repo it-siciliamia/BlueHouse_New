@@ -11,12 +11,18 @@
     align-items: center;
   }
 
-  .findMoreContainer > h5 {
-    font-weight: 300;
-    text-transform: uppercase;
+  .findMoreContainer > h2 {
+    font-family: "Oblik";
+    font-weight: 200;
+    font-size: 20px;
+    letter-spacing: 0.1em;
+    text-align: center;
   }
 
   .findMoreContainer > img {
     width: 70vw;
+    @media (max-width: 768px) {
+      width: 50vw;
+    }
   }
 }

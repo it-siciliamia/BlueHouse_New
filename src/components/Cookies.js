@@ -1,7 +1,9 @@
-import { makeStyles } from "@material-ui/core";
 import React, { useState } from "react";
 import Cookies from "js-cookie";
+import { useMediaQuery } from "react-responsive";
 import { WithTransLate } from "../translating/index";
+import Button from "./Shared/Button/Button";
+import { makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   "@keyframes showUp": {
@@ -18,13 +20,13 @@ const useStyles = makeStyles((theme) => ({
     left: 0,
     right: 0,
     bottom: 0,
-    padding: "60px 12vw",
-    backgroundColor: "white",
+    padding: "20px 12vw",
+    backgroundColor: "rgba(255, 255, 255, 0.8)",
     overflow: "auto",
     maxHeight: "calc(100vh - 120px)",
     display: (props) => props.display,
     flexDirection: "column",
-    gap: "20px",
+    gap: "10px",
     animation: "$showUp 2s ",
     [theme.breakpoints.down("sm")]: {
       padding: "30px 6vw",
@@ -33,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
   },
   cookiesDescription: {
     fontSize: "18px",
-    fontWeight: "300",
+    fontWeight: "500",
     lineHeight: "18px",
     letterSpacing: "0em",
   },
@@ -58,6 +60,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function CookiesShowUp() {
+  const isMobile = useMediaQuery({ maxDeviceWidth: 767 });
   const [showCookies, setShowCookies] = useState(false);
   const showAndHide = () => {
     setShowCookies(!showCookies);
@@ -114,20 +117,18 @@ function CookiesShowUp() {
         </div>
       )}
       <div className={actions}>
-        <button
-          onClick={() => handleAcceptingAndDeclineCookies(true)}
-          className="outLinedButton"
-        >
-          {" "}
-          <WithTransLate text="ACCEPT COOKIES" />
-        </button>
-        <button
-          onClick={() => handleAcceptingAndDeclineCookies(false)}
-          className="outLinedButton"
-        >
-          {" "}
-          <WithTransLate text="DECLINE" />
-        </button>
+        <Button
+          handleClick={() => handleAcceptingAndDeclineCookies(true)}
+          text="ACCEPT COOKIES"
+          btnClass="btnDark"
+          width={isMobile ? "100pх" : "200px"}
+        />
+        <Button
+          handleClick={() => handleAcceptingAndDeclineCookies(false)}
+          text="DECLINE"
+          btnClass="btnDark"
+          width={isMobile ? "100pх" : "200px"}
+        />
       </div>
     </div>
   );

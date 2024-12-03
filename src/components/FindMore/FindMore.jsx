@@ -1,10 +1,14 @@
 import React from "react";
 import tripAdvisor from "../../images/findMore/TripadvisorLogo.png";
+import { WithTransLate } from "../../translating/index";
 import "./FindMore.scss";
+
 const FindMore = () => {
   return (
     <div className="findMoreContainer">
-      <h2>Find more about us</h2>
+      <h2>
+        <WithTransLate text="FIND MORE ABOUT US" />
+      </h2>
       <img src={tripAdvisor} alt="trip-advisor-logo" />
     </div>
   );
