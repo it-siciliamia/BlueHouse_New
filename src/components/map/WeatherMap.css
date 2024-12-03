@@ -75,11 +75,19 @@
   }
 }
 
+.static-icon {
+  margin-top: -35px;
+  font-size: 62px;
+  color: white;
+}
+
 .city-icon {
   margin-top: -20px;
   margin-bottom: 10px;
   width: 70px;
   height: 70px;
+  font-size: 72px;
+  fill: white;
 }
 
 .btnText {
