@@ -11,7 +11,7 @@ import Tour from "../images/tour.svg";
 import Gallery from "../images/gallery.svg";
 import supportImage from "../images/support/whiteBackground_support.svg";
 import forumImage from "../images/support/whiteBackground_forum.svg";
-import feedbackImage from "../images/support/whiteBackground_feedback.svg";
+// import feedbackImage from "../images/support/whiteBackground_feedback.svg";
 import Car from "../images/car.svg";
 import Bag from "../images/bag.svg";
 import Info from "../images/info.svg";
@@ -23,7 +23,6 @@ import Email from "../images/email.svg";
 import { Link as RouterLink } from "react-router-dom";
 import TranslateMe from "../translating";
 import { WithTransLate } from "../translating/index";
-import { HashLink } from "react-router-hash-link";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -155,7 +154,6 @@ const useStyles = makeStyles((theme) => ({
 
 function SideNavbar(props) {
   const {
-    recommendations,
     linksWrapper,
     root,
     sliderTitle,
