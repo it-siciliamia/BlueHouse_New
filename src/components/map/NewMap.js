@@ -5,7 +5,6 @@ import { AiOutlineFullscreen } from "react-icons/ai";
 import "./WeatherMap.css";
 
 const NewMap = () => {
-  const [weather, setWeather] = useState(null);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   const [mapType, setMapType] = useState("roadmap");
   const [isOverlayVisible, setOverlayVisible] = useState(false);
@@ -13,8 +12,6 @@ const NewMap = () => {
   const iframeRef = useRef(null);
 
   useEffect(() => {
-    fetchWeather();
-
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 768);
     };
@@ -36,22 +33,6 @@ const NewMap = () => {
 
   const handleButtonClick = (newMapType) => {
     setMapType(newMapType);
-  };
-
-  const fetchWeather = async () => {
-    try {
-      const apiKey = "1828ad4fcb19ab8b229ab979593d6cc7";
-      const city = "Reykjavik";
-      const response = await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`
-      );
-      const data = await response.json();
-      if (data) {
-        setWeather(data);
-      }
-    } catch (error) {
-      console.error("Error fetching weather data:", error);
-    }
   };
 
   const mapSrc =
@@ -176,21 +157,16 @@ const NewMap = () => {
             </button>
           )}
 
-          {weather && (
-            <div
-              style={{
-                position: "absolute",
-                bottom: isMobile ? "20px" : "30px",
-                ...(isMobile ? { left: "10px" } : { left: "50px" }),
-                zIndex: 1,
-              }}
-            >
-              <WeatherCard
-                temperature={weather.main.temp}
-                icon={`https://openweathermap.org/img/wn/${weather.weather[0]["icon"]}@2x.png`}
-              />
-            </div>
-          )}
+          <div
+            style={{
+              position: "absolute",
+              bottom: isMobile ? "20px" : "30px",
+              ...(isMobile ? { left: "10px" } : { left: "50px" }),
+              zIndex: 1,
+            }}
+          >
+            <WeatherCard />
+          </div>
 
           <div
             style={{
@@ -266,21 +242,16 @@ const NewMap = () => {
             <AiOutlineFullscreen style={{ width: "30px", height: "30px" }} />
           </button>
 
-          {weather && (
-            <div
-              style={{
-                position: "absolute",
-                bottom: isMobile ? "20px" : "30px",
-                ...(isMobile ? { left: "10px" } : { left: "50px" }),
-                zIndex: 1,
-              }}
-            >
-              <WeatherCard
-                temperature={weather.main.temp}
-                icon={`https://openweathermap.org/img/wn/${weather.weather[0]["icon"]}@2x.png`}
-              />
-            </div>
-          )}
+          <div
+            style={{
+              position: "absolute",
+              bottom: isMobile ? "20px" : "30px",
+              ...(isMobile ? { left: "10px" } : { left: "50px" }),
+              zIndex: 1,
+            }}
+          >
+            <WeatherCard />
+          </div>
 
           <div
             style={{
