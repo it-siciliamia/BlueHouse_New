@@ -1,6 +1,7 @@
 /* eslint-disable react/jsx-no-duplicate-props */
 import React from "react";
 import { Button, Divider, Grid, makeStyles } from "@material-ui/core";
+import { Link as ScrollLink } from "react-scroll";
 import Logo from "../images/Bluehouse.svg";
 import Bus from "../images/shuttle.svg";
 import Escape from "../images/escape.svg";
@@ -290,12 +291,15 @@ function SideNavbar(props) {
             <WithTransLate text="GENERAL INFORMATION" />
           </p>
         </Grid>
+
         <Grid
-          component={RouterLink}
+          component={ScrollLink}
           onClick={scroll}
-          to="/view-gallery"
+          to="GALLERY_DESCTOP"
+          spy={true}
+          smooth={true}
+          offset={-70}
           duration={500}
-          offset={-150}
           container
           item
           spacing={2}
@@ -304,7 +308,11 @@ function SideNavbar(props) {
           className={highlightedColor}
         >
           <Grid item>
-            <img className={sliderIconss} src={Gallery} alt="Slider Gallery" />
+            <img
+              className={sliderIconss}
+              src={Gallery}
+              alt="Scroll to Gallery"
+            />
           </Grid>
           <Grid item>
             <p className={sliderLink}>
@@ -312,27 +320,32 @@ function SideNavbar(props) {
             </p>
           </Grid>
         </Grid>
-        <HashLink
-          to="/#recommendations"
+
+        <Grid
+          component={ScrollLink}
+          onClick={scroll}
+          to="RECOMMENDATIONS"
+          spy={true}
+          smooth={true}
+          offset={-70}
+          duration={500}
+          container
+          item
+          spacing={2}
+          alignItems="center"
+          justifyContent="flex-start"
           className={highlightedColor}
-          activeclassname={recommendations}
-          scroll={(el) => el.scrollIntoView({ behavior: "auto", block: "end" })}
-          style={{ display: "flex", flexDirection: "row" }}
         >
           <Grid item>
-            <img
-              className={sliderIconss}
-              src={Bag}
-              alt="Slider Bag"
-              style={{ marginLeft: "20%" }}
-            />
+            <img className={sliderIconss} src={Bag} alt="Slider Bag" />
           </Grid>
           <Grid item>
-            <p className={sliderLink} style={{ marginLeft: "18%" }}>
+            <p className={sliderLink}>
               <WithTransLate text="Recommendations" />
             </p>
           </Grid>
-        </HashLink>
+        </Grid>
+
         <Grid
           component={RouterLink}
           onClick={scroll}
@@ -366,7 +379,6 @@ function SideNavbar(props) {
             <WithTransLate text="HELP AND SUPPORT" />
           </p>
         </Grid>
-
         <Grid
           onClick={scroll}
           container
@@ -443,7 +455,7 @@ function SideNavbar(props) {
             </a>
           </Grid>
         </Grid>
-        <Grid
+        {/* <Grid
           onClick={scroll}
           container
           item
@@ -470,18 +482,21 @@ function SideNavbar(props) {
               </p>
             </a>
           </Grid>
-        </Grid>
+        </Grid> */}
+
         <Grid
+          component={ScrollLink}
+          onClick={scroll}
+          to="MAP"
+          spy={true}
+          smooth={true}
+          offset={-70}
+          duration={500}
           container
           item
           spacing={2}
           alignItems="center"
           justifyContent="flex-start"
-          component={RouterLink}
-          onClick={scroll}
-          to="Map"
-          duration={500}
-          offset={-140}
           className={highlightedColor}
         >
           <Grid item>
@@ -498,6 +513,7 @@ function SideNavbar(props) {
           </Grid>
         </Grid>
       </Grid>
+
       <Grid container direction="column" className={contactus}>
         <p className={sliderTitle2}>
           <WithTransLate text="Contact us" />

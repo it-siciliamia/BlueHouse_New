@@ -15,23 +15,16 @@ import HouseRules from "./views/houseRules";
 import Footer from "./components/Footer/Footer";
 import Notfound from "./views/Notfound";
 import Aboutus from "./views/AboutUs";
-import ViewGalery from "./views/viewGalery";
 import PrivacyandPolicy from "./views/ImportAndP&P";
-// import Map from "./components/map/Map";
-import SliderPhoto from "./components/SliderPhoto";
 import NewsLetter from "./components/NewsLetter/NewsLetter.jsx";
 import { useState, useEffect } from "react";
 import { createContext } from "react";
-//import Home from "./components/Home/Home/Home";
-//import BookingPage from "./components/BookingPage/BookingPage";
 import EnquirePage from "./components/BookingPage/EnquirePage";
-//import Payment from "./components/PaymentPage/Payment";
 import ThankYou from "./thankyou/index.js";
 import { RedirectBlog, RedirectTripAdv } from "./redirect/Redirect";
 import FindMore from "./components/FindMore/FindMore.jsx";
 import NewMap from "./components/map/NewMap.js";
 import RoomBooking from "./views/roombooking/RoomBooking.jsx";
-// import Galary from "./components/Mobile Galary Section/Galary.js";
 
 export const UserContext = createContext();
 
@@ -89,10 +82,8 @@ function App({ basename }) {
                 path={[
                   "/",
                   "/house-rules",
-                  "/view-gallery",
                   "/about-us",
                   "/privacy-and-policy",
-                  "/slider-photo",
                   "/book",
                   "/enquire",
                   "/beds24",
@@ -117,23 +108,16 @@ function App({ basename }) {
                     <Route exact path="/house-rules">
                       <HouseRules />
                     </Route>
-                    <Route exact path="/view-gallery">
-                      <ViewGalery />
-                    </Route>
                     <Route exact path="/about-us">
                       <Aboutus />
                     </Route>
                     <Route exact path="/privacy-and-policy">
                       <PrivacyandPolicy />
                     </Route>
-                    <Route exact path="/slider-photo">
-                      <SliderPhoto />
-                    </Route>
                   </Switch>
                 </div>
                 <Cookies />
                 <FindMore />
-                {/* <Galary/> */}
                 {isMobile ? (
                   <>
                     <NewMap />

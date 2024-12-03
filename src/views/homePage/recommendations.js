@@ -266,13 +266,13 @@ export default function Recommendations({
 
   return (
     <div
+      id="RECOMMENDATIONS"
       style={{
         padding: isMobile ? "0px 20px 0" : "16px 15px 0",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
       }}
-      id={id}
       onClick={() => openSliderOnClick && openSliderOnClick(true)}
     >
       <div style={{ width: "100%" }}>

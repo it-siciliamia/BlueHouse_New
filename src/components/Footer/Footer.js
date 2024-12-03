@@ -39,13 +39,6 @@ const useStyles = makeStyles((theme) => ({
     display: "grid",
     gridTemplateColumns: "1fr",
     gridGap: theme.spacing(2),
-    // [theme.breakpoints.up("sm")]: {
-    //   display: "flex",
-    //   flexDirection: "row",
-    //   flex: 1,
-    //   justifyContent: "space-around",
-    //   alignItems: "flex-start",
-    // },
     [theme.breakpoints.up("sm")]: {
       width: "100%",
       display: "flex",
@@ -59,14 +52,6 @@ const useStyles = makeStyles((theme) => ({
       flexDirection: "column",
       justifyContent: "space-between",
     },
-    // [theme.breakpoints.down("xs")]: {
-    //   gridTemplateColumns: "repeat(2, 1fr)",
-    //   gap: theme.spacing(2),
-    //   gridTemplateAreas: `
-    //   "item1 item2"
-    //   "item3 item2"
-    // `,
-    // },
   },
   socials: {
     display: "flex",
@@ -90,6 +75,7 @@ const useStyles = makeStyles((theme) => ({
     color: "#14202B",
     textAlign: "left",
     marginBottom: "10px",
+    whiteSpace: "nowrap",
     marginRight: theme.spacing(2),
     [theme.breakpoints.down("sm")]: {
       writingMode: "horizontal-tb",
@@ -100,7 +86,7 @@ const useStyles = makeStyles((theme) => ({
   },
   link: {
     fontSize: "16px",
-    maxWidth: "170px",
+    maxWidth: "240px",
     gap: "30px",
     fontWeight: "300",
     display: "flex",
