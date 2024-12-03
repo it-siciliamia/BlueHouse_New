@@ -14,10 +14,8 @@ import NorthernlightsImage from "../../images/RECOMMENDATIONS/Northernlights.web
 import insta1 from "../../images/instagramSVG/insta1.svg";
 import insta2 from "../../images/instagramSVG/insta2.svg";
 import insta3 from "../../images/instagramSVG/insta3.svg";
-
 import Galary from "../../components/Mobile Galary Section/Galary.js";
 import ReviewSlider from "../../components/ReviewSlider/ReviewSlider";
-
 import Support from "../../components/SuportComponent/support";
 import Recommendations from "./recommendations";
 import AboutUs from "../../components/AboutUs/AboutUs";
@@ -73,8 +71,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-////////////////////////////////////////////////////////////////////
-
 const GALLERY_BACKGROUND_IMAGES_AND_TITLES = [
   {
     background: roomsImage,
@@ -91,8 +87,6 @@ const GALLERY_BACKGROUND_IMAGES_AND_TITLES = [
     title: "Surroundings",
   },
 ];
-
-///////////////////////////////////////////////////////////////////////////
 
 export const RECOMMENDATIONS_BACKGROUND_IMAGES_AND_TITLES = [
   {
@@ -131,7 +125,6 @@ export const INSTAGRAM_BACKGROUND_IMAGES = [
   },
 ];
 
-/////////////////////////////////////////////////////////////////////////////
 export default function HomePage() {
   const { root, galleryButton } = useStyles();
   const isDesktop = useMediaQuery({ minDeviceWidth: 813 });

@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { useMediaQuery } from "react-responsive";
 import { Box, makeStyles } from "@material-ui/core";
 import Button from "../../components/Shared/Button/Button";
 import clsx from "clsx";
@@ -217,6 +218,7 @@ export default function FollowUs({
   isClickable,
   ...props
 }) {
+  const isMobile = useMediaQuery({ maxDeviceWidth: 767 });
   const [setModal] = useContext(UserContext);
   const rootStyleInPhoneSize = removeInPhoneSize ? { display: "none" } : {};
   const {
@@ -305,7 +307,11 @@ export default function FollowUs({
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Button text={actionType} btnClass="btnLight" />
+                <Button
+                  text={actionType}
+                  btnClass={isMobile ? "btnDark" : "btnLight"}
+                  width={isMobile ? "218px" : "280px"}
+                />
               </a>
             </div>
           )}

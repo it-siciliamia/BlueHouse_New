@@ -29,10 +29,6 @@ const useStyles = makeStyles((theme) => ({
     width: "calc(550px - 4%)",
     padding: "4%",
     marginRight: " 55px !important",
-    // "&:hover": {
-    //   boxShadow: "0px 4px 4px rgba(7, 55, 98, 0.48)",
-    //   background: "#fff",
-    // },
     [theme.breakpoints.down("xs")]: {
       width: "calc(320px - 2%)",
       padding: "4%",
@@ -76,7 +72,6 @@ const useStyles = makeStyles((theme) => ({
   writerAndEndCount: {
     display: "flex",
     justifyContent: "flex-end",
-    // marginTop: "-30px",
     [theme.breakpoints.down("xs")]: {
       alignItems: "center",
     },
@@ -144,7 +139,6 @@ const useStyles = makeStyles((theme) => ({
   },
   gridListTile: {
     width: "580px",
-    // width: "38.1vw",
     [theme.breakpoints.down("xs")]: {
       width: "141vw",
       height: "90px !important",

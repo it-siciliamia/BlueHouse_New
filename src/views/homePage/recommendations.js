@@ -79,7 +79,7 @@ const useStyles = makeStyles((theme) => ({
       },
       "& img": {
         height: "280px",
-        minWidth: "290px",
+        minWidth: "260px",
         maxWidth: "100%",
         width: "100%",
       },
@@ -351,7 +351,11 @@ export default function Recommendations({
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Button text={actionType} btnClass="btnLight" />
+              <Button
+                text={actionType}
+                btnClass="btnLight"
+                width={isMobile ? "218px" : "280px"}
+              />
             </a>
           </div>
         )}

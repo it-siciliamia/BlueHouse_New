@@ -66,7 +66,7 @@ function CustomTabPanel(props) {
                           zIndex: "2",
                           height: "40px",
                           width: "100%",
-                          fontSize: "18px",
+                          fontSize: "15px",
                           color: "white",
                           background: "rgba(0, 0, 0, 0.15)",
                         }}
@@ -76,13 +76,13 @@ function CustomTabPanel(props) {
                     )}
                 </div>
                 <CardContent
-                  sx={{ width: "200px", height: "10px", padding: 0, my: 1 }}
+                  sx={{ maxWidth: "280px", height: "10px", padding: 0, my: 1 }}
                 >
                   <Typography
                     gutterBottom
                     variant="p"
                     fontSize="16px"
-                    fontWeight={"400"}
+                    fontWeight="400"
                     color="#000000"
                     fontFamily="Josefin Sans"
                     component="div"
@@ -114,7 +114,7 @@ function CustomTabPanel(props) {
                 >
                   <Button
                     sx={{
-                      width: "90px",
+                      maxWidth: "280px",
                       height: "46px",
                       textDecoration: "underline",
                       p: 0,
@@ -122,6 +122,7 @@ function CustomTabPanel(props) {
                       color: "#1D3967",
                       fontFamily: "Josefin Sans",
                       fontWeight: "600",
+                      whiteSpace: "nowrap",
                     }}
                     href={room.Link}
                     target="_blank"
