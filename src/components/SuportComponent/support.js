@@ -3,7 +3,6 @@ import faqImage from "../../images/support/faq.png";
 import forumImage from "../../images/support/forum.png";
 // import feedbackImage from "../../images/support/feedback.png";
 import { WithTransLate } from "../../translating/index";
-import { Link } from "react-router-dom";
 import s from "./Support.module.scss";
 
 function SupportCard({ description, title, image }) {
@@ -23,58 +22,54 @@ function SupportCard({ description, title, image }) {
 export default function Support() {
   return (
     <div id="SUPPORT" className={s.support}>
-      <Link
+      <a
         className={s.description}
-        to={{
-          pathname:
-            "https://bluehouseis.zohodesk.eu/portal/en/newticket?departmentId=135604000000205173&layoutId=135604000000214460",
-        }}
+        href="https://bluehouseis.zohodesk.eu/portal/en/newticket?departmentId=135604000000205173&layoutId=135604000000214460"
         target="_blank"
+        rel="noopener noreferrer"
       >
         <SupportCard
           description={"Get personal support from our team."}
           title={"SUPPORT"}
           image={supportImage}
         />
-      </Link>
-      <Link
+      </a>
+      <a
         className={s.description}
-        to={{
-          pathname: "https://bluehouseis.zohodesk.eu/portal/en/home",
-        }}
+        href="https://bluehouseis.zohodesk.eu/portal/en/home"
         target="_blank"
+        rel="noopener noreferrer"
       >
         <SupportCard
           description={"Check previous guest requests."}
           title={"FAQ"}
           image={faqImage}
         />
-      </Link>
-      {/* <Link
-        className={LinksColor}
-        to={{ pathname: "https://gnl.ladesk.com/219394-Feedback" }}
+      </a>
+      {/* <a
+        className={s.description}
+        href="https://gnl.ladesk.com/219394-Feedback"
         target="_blank"
+        rel="noopener noreferrer"
       >
         <SupportCard
           description={"Your opinion is important to us."}
           title={"FEEDBACK"}
           image={feedbackImage}
         />
-      </Link> */}
-      <Link
+      </a> */}
+      <a
         className={s.description}
-        to={{
-          pathname:
-            "https://bluehouseis.zohodesk.eu/portal/en/community/guestforum",
-        }}
+        href="https://bluehouseis.zohodesk.eu/portal/en/community/guestforum"
         target="_blank"
+        rel="noopener noreferrer"
       >
         <SupportCard
           description={"Connect, Explore, and Share Your Journey!"}
           title={"FORUM"}
           image={forumImage}
         />
-      </Link>
+      </a>
     </div>
   );
 }
