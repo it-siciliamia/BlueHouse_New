@@ -30,7 +30,7 @@ export const items = [
     ],
   },
   {
-    title: "BLUE HOUSE",
+    title: "ABOUT US",
     links: [
       {
         name: "House Rules & Cancellation Policy",
@@ -41,17 +41,17 @@ export const items = [
         href: "https://blog.bluehouse.is/",
       },
       {
-        name: "Northern Lights",
+        name: "Tours and Activities",
         href: "https://bluehouse.tourdesk.is/Tour/Item/18676/1/Northern_lights_-_Minibus",
       },
       {
         name: "Airport Shuttle",
         href: "https://bluehouse.tourdesk.is/Transportation",
       },
-      {
-        name: "Feedback",
-        href: "https://gnl.ladesk.com/219394-Feedback",
-      },
+      // {
+      //   name: "Feedback",
+      //   href: "https://gnl.ladesk.com/219394-Feedback",
+      // },
       {
         name: "Imprint & Privacy Policy",
         href: "/privacy-and-policy",
@@ -60,7 +60,7 @@ export const items = [
   },
 
   {
-    title: "SOCIAL MEDIA",
+    title: "FOLLOW US",
     links: [
       {
         name: "Instagram",
@@ -73,7 +73,11 @@ export const items = [
         href: "https://www.facebook.com/bluehouseiceland",
       },
       { name: "X(Twitter)", icon: X, href: "https://x.com/icelandbed" },
-      { name: "YouTube", icon: Youtube, href: "https://youtube.com/@bluehousebbiceland1339?si=OCqKpXhElbK9J-SZ" },
+      {
+        name: "YouTube",
+        icon: Youtube,
+        href: "https://youtube.com/@bluehousebbiceland1339?si=OCqKpXhElbK9J-SZ",
+      },
     ],
   },
 ];
