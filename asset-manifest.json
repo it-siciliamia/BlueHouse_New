@@ -1,19 +1,19 @@
 {
   "files": {
     "main.css": "/BlueHouse_New/static/css/main.d3828741.chunk.css",
-    "main.js": "/BlueHouse_New/static/js/main.28c5e675.chunk.js",
-    "main.js.map": "/BlueHouse_New/static/js/main.28c5e675.chunk.js.map",
+    "main.js": "/BlueHouse_New/static/js/main.9094cf3c.chunk.js",
+    "main.js.map": "/BlueHouse_New/static/js/main.9094cf3c.chunk.js.map",
     "runtime-main.js": "/BlueHouse_New/static/js/runtime-main.421ac39a.js",
     "runtime-main.js.map": "/BlueHouse_New/static/js/runtime-main.421ac39a.js.map",
     "static/css/2.16ce25a8.chunk.css": "/BlueHouse_New/static/css/2.16ce25a8.chunk.css",
-    "static/js/2.6f8c75eb.chunk.js": "/BlueHouse_New/static/js/2.6f8c75eb.chunk.js",
-    "static/js/2.6f8c75eb.chunk.js.map": "/BlueHouse_New/static/js/2.6f8c75eb.chunk.js.map",
+    "static/js/2.f11c905e.chunk.js": "/BlueHouse_New/static/js/2.f11c905e.chunk.js",
+    "static/js/2.f11c905e.chunk.js.map": "/BlueHouse_New/static/js/2.f11c905e.chunk.js.map",
     "static/js/3.9f065dcb.chunk.js": "/BlueHouse_New/static/js/3.9f065dcb.chunk.js",
     "static/js/3.9f065dcb.chunk.js.map": "/BlueHouse_New/static/js/3.9f065dcb.chunk.js.map",
     "index.html": "/BlueHouse_New/index.html",
     "static/css/2.16ce25a8.chunk.css.map": "/BlueHouse_New/static/css/2.16ce25a8.chunk.css.map",
     "static/css/main.d3828741.chunk.css.map": "/BlueHouse_New/static/css/main.d3828741.chunk.css.map",
-    "static/js/2.6f8c75eb.chunk.js.LICENSE.txt": "/BlueHouse_New/static/js/2.6f8c75eb.chunk.js.LICENSE.txt",
+    "static/js/2.f11c905e.chunk.js.LICENSE.txt": "/BlueHouse_New/static/js/2.f11c905e.chunk.js.LICENSE.txt",
     "static/media/1(1).ffda8da5.webp": "/BlueHouse_New/static/media/1(1).ffda8da5.webp",
     "static/media/1.54ed61ff.webp": "/BlueHouse_New/static/media/1.54ed61ff.webp",
     "static/media/2.0d3c956b.webp": "/BlueHouse_New/static/media/2.0d3c956b.webp",
@@ -93,7 +93,6 @@
     "static/media/dt3.2e026dd9.webp": "/BlueHouse_New/static/media/dt3.2e026dd9.webp",
     "static/media/dt4.3ae69ad2.webp": "/BlueHouse_New/static/media/dt4.3ae69ad2.webp",
     "static/media/dt5.5e54793e.webp": "/BlueHouse_New/static/media/dt5.5e54793e.webp",
-    "static/media/email.43c98fad.svg": "/BlueHouse_New/static/media/email.43c98fad.svg",
     "static/media/email.844106aa.svg": "/BlueHouse_New/static/media/email.844106aa.svg",
     "static/media/escape.84a5668e.svg": "/BlueHouse_New/static/media/escape.84a5668e.svg",
     "static/media/facebook.15b74733.svg": "/BlueHouse_New/static/media/facebook.15b74733.svg",
@@ -189,8 +188,8 @@
   "entrypoints": [
     "static/js/runtime-main.421ac39a.js",
     "static/css/2.16ce25a8.chunk.css",
-    "static/js/2.6f8c75eb.chunk.js",
+    "static/js/2.f11c905e.chunk.js",
     "static/css/main.d3828741.chunk.css",
-    "static/js/main.28c5e675.chunk.js"
+    "static/js/main.9094cf3c.chunk.js"
   ]
 }
