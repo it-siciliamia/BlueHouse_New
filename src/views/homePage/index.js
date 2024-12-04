@@ -21,7 +21,6 @@ import Recommendations from "./recommendations";
 import AboutUs from "../../components/AboutUs/AboutUs";
 import BlogPart from "./Blog";
 import FollowUs from "./FollowUs.js";
-import NewMap from "../../components/map/NewMap";
 import NewsLetter from "../../components/NewsLetter/NewsLetter.jsx";
 import FindMore from "../../components/FindMore/FindMore.jsx";
 
@@ -131,7 +130,6 @@ export const INSTAGRAM_BACKGROUND_IMAGES = [
 export default function HomePage() {
   const { root, galleryButton } = useStyles();
   const isDesktop = useMediaQuery({ minDeviceWidth: 813 });
-  const isMobile = useMediaQuery({ maxDeviceWidth: 767 });
 
   const customGALLERYTitleStyle = {
     marginTop: "95px",
