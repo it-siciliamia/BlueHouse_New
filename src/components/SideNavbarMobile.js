@@ -133,7 +133,7 @@ const useStyles = makeStyles((theme) => ({
   groupIcons: {
     display: "flex",
     justifyContent: "space-between",
-    width: "170px",
+    width: "120px",
     marginBottom: "13px",
   },
 
@@ -409,14 +409,14 @@ function SideNavbarMobile(props) {
           >
             <img className={socialIcons} src={Whatsapp} alt="Whatsapp" />
           </a>
-          <a
+          {/* <a
             onClick={scroll}
             href="https://gnl.ladesk.com/submit_ticket"
             target="_blank"
             rel="noreferrer"
           >
             <img className={socialIcons} src={Email} alt="Email" />
-          </a>
+          </a> */}
         </div>
 
         <Divider className={horizontalLine} />
