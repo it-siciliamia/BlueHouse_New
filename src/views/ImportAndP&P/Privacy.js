@@ -225,7 +225,7 @@ export default function Privacy() {
           text="For the purposes of this Privacy Policy:"
         />
 
-        <p className={textClass}>
+        <div className={textClass}>
           <ul className={definitionList}>
             <li>
               <span className={definition}>
@@ -340,7 +340,7 @@ export default function Privacy() {
               <WithTransLate text="means the individual accessing or using the Service, or the company, or other legal entity on behalf of which such individual is accessing or using the Service, as applicable." />
             </li>
           </ul>
-        </p>
+        </div>
       </div>
 
       <div className={articleWrapper}>
@@ -358,7 +358,7 @@ export default function Privacy() {
               <WithTransLate text="1. Personal Data" />
             </h4>
 
-            <p className={textClass}>
+            <div className={textClass}>
               <WithTransLate text="While using Our Service, We may ask You to provide Us with certain personally identifiable information that can be used to contact or identify You. Personally identifiable information may include, but is not limited to:" />
               <ul className={personalDataList}>
                 <li>
@@ -381,7 +381,7 @@ export default function Privacy() {
                   <WithTransLate text="Credit card details" />
                 </li>
               </ul>
-            </p>
+            </div>
           </div>
 
           <div className={typesOfDataItem}>
@@ -713,7 +713,7 @@ export default function Privacy() {
               <WithTransLate text="You have several rights under data-protection law in relation to how we use your personal information. You have the right, free of charge, to:" />
             </p>
 
-            <p className={textClass}>
+            <div className={textClass}>
               <ul className={personalDataList}>
                 <li>
                   <WithTransLate text="Request a copy of the personal information we hold about you in a structured, commonly used and machine readable format;" />
@@ -747,7 +747,7 @@ export default function Privacy() {
                   <WithTransLate text="Lodge a complaint with the appropriate data-protection authority if you have concerns about how we process your personal data." />
                 </li>
               </ul>
-            </p>
+            </div>
 
             <p className={textClass}>
               <WithTransLate text="Where we need to collect personal data by law, or under the terms of a contract we have with you and you fail to provide that data when requested, we may not be able to perform the contract we have or are trying to enter into with you (for example, to provide you with goods or services). In this case, we may have to cancel a product or service you have with us but we will notify you if this is the case at the time." />
