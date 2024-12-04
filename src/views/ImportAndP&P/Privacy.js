@@ -14,21 +14,22 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "40px",
     fontWeight: "700",
     lineHeight: "50px",
-
-    "@media (max-width: 743px)": {
+    [theme.breakpoints.down("md")]: {
       fontSize: "30px",
       lineHeight: "40px",
+    },
+    [theme.breakpoints.between(768, 1024)]: {
+      fontSize: "35px",
+      lineHeight: "45px",
     },
   },
   titleInfo: {
     margin: "20px 0 128px 0",
-
-    "@media (max-width: 1279px)": {
+    [theme.breakpoints.down("md")]: {
       margin: "20px 0 44px 0",
     },
-
-    "@media (max-width: 743px)": {
-      margin: "10px 0 24px 0",
+    [theme.breakpoints.between(768, 1024)]: {
+      margin: "20px 0 80px 0",
     },
   },
   subtitle: {
@@ -36,8 +37,12 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 600,
     lineHeight: "28px",
     letterSpacing: "0em",
-    "@media (max-width: 743px)": {
+    [theme.breakpoints.down("md")]: {
       fontSize: "18px",
+      lineHeight: "28px",
+    },
+    [theme.breakpoints.between(768, 1024)]: {
+      fontSize: "19px",
       lineHeight: "28px",
     },
   },
@@ -49,40 +54,46 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "space-between",
     marginTop: "20px",
   },
-
   textClass: {
     marginTop: "5px",
     fontSize: "18px",
     lineHeight: "24px",
     fontWeight: 300,
     letterSpacing: "0em",
-    "@media (max-width: 743px)": {
+    [theme.breakpoints.down("md")]: {
       fontSize: "16px",
       lineHeight: "22px",
     },
+    [theme.breakpoints.between(768, 1024)]: {
+      fontSize: "17px",
+      lineHeight: "23px",
+    },
   },
-
   articleWrapper: {
     marginBottom: "44px",
+    [theme.breakpoints.down("md")]: {
+      marginBottom: "24px",
+    },
+    [theme.breakpoints.between(768, 1024)]: {
+      marginBottom: "34px",
+    },
   },
-  "@media (max-width: 743px)": {
-    marginBottom: "24px",
-  },
-
   articleTitle: {
     marginBottom: "20px",
     fontSize: "28px",
     fontWeight: 600,
     lineHeight: "30px",
-    "@media (max-width: 743px)": {
+    [theme.breakpoints.down("md")]: {
       fontSize: "24px",
       lineHeight: "30px",
     },
+    [theme.breakpoints.between(768, 1024)]: {
+      fontSize: "26px",
+      lineHeight: "30px",
+    },
   },
-
   definitionList: {
     paddingLeft: "15px",
-
     "& li": {
       paddingBottom: "10px",
     },
@@ -90,17 +101,14 @@ const useStyles = makeStyles((theme) => ({
       paddingBottom: 0,
     },
   },
-
   definition: {
     fontWeight: 600,
   },
-
   link: {
     color: "#1D3967",
     fontWeight: 400,
     textDecoration: "underline",
   },
-
   additionSubtitle: {
     marginTop: "5px",
     paddingLeft: "10px",
@@ -108,24 +116,23 @@ const useStyles = makeStyles((theme) => ({
     lineHeight: "24px",
     fontWeight: 600,
     letterSpacing: "0em",
-    "@media (max-width: 743px)": {
+    [theme.breakpoints.down("md")]: {
       fontSize: "16px",
       lineHeight: "22px",
     },
+    [theme.breakpoints.between(768, 1024)]: {
+      fontSize: "17px",
+      lineHeight: "23px",
+    },
   },
-
   subtitle2: {
     marginBottom: "20px",
   },
-
   personalDataList: {
     paddingTop: "8px",
     paddingLeft: "25px",
   },
-
-  collectingAndUsingItem: {
-    marginBottom: "30px",
-  },
+  collectingAndUsingItem: {},
   typesOfDataItem: {},
   paddingList: {
     paddingLeft: "25px",
@@ -353,7 +360,6 @@ export default function Privacy() {
 
             <p className={textClass}>
               <WithTransLate text="While using Our Service, We may ask You to provide Us with certain personally identifiable information that can be used to contact or identify You. Personally identifiable information may include, but is not limited to:" />
-
               <ul className={personalDataList}>
                 <li>
                   <WithTransLate text="First name and last name" />
@@ -637,29 +643,29 @@ export default function Privacy() {
 
             <p className={textClass}>
               <WithTransLate text="The Company may disclose Your Personal Data in the good faith belief that such action is necessary to:" />
-
-              <ul className={personalDataList}>
-                <li>
-                  <WithTransLate text="Comply with a legal obligation" />
-                </li>
-
-                <li>
-                  <WithTransLate text="Protect and defend the rights or property of the Company" />
-                </li>
-
-                <li>
-                  <WithTransLate text="Prevent or investigate possible wrongdoing in connection with the Service" />
-                </li>
-
-                <li>
-                  <WithTransLate text="Protect the personal safety of Users of the Service or the public" />
-                </li>
-
-                <li>
-                  <WithTransLate text="Protect against legal liability" />
-                </li>
-              </ul>
             </p>
+
+            <ul className={personalDataList}>
+              <li>
+                <WithTransLate text="Comply with a legal obligation" />
+              </li>
+
+              <li>
+                <WithTransLate text="Protect and defend the rights or property of the Company" />
+              </li>
+
+              <li>
+                <WithTransLate text="Prevent or investigate possible wrongdoing in connection with the Service" />
+              </li>
+
+              <li>
+                <WithTransLate text="Protect the personal safety of Users of the Service or the public" />
+              </li>
+
+              <li>
+                <WithTransLate text="Protect against legal liability" />
+              </li>
+            </ul>
           </div>
         </div>
 

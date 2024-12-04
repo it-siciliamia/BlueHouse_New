@@ -7,7 +7,11 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     fontFamily: "Josefin Sans",
     marginTop: "-20px",
+    marginBottom: "-40px",
     flexDirection: "column",
+    [theme.breakpoints.between(768, 1024)]: {
+      marginBottom: "-50px",
+    },
   },
 
   title: {
@@ -15,10 +19,13 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "40px",
     fontWeight: "700",
     lineHeight: "50px",
-
-    "@media (max-width: 743px)": {
+    [theme.breakpoints.down("md")]: {
       fontSize: "30px",
       lineHeight: "40px",
+    },
+    [theme.breakpoints.between(768, 1024)]: {
+      fontSize: "35px",
+      lineHeight: "45px",
     },
   },
   titleInfo: {
@@ -40,22 +47,28 @@ const useStyles = makeStyles((theme) => ({
     lineHeight: "24px",
     fontWeight: 300,
     letterSpacing: "0em",
-    "@media (max-width: 743px)": {
+    [theme.breakpoints.down("md")]: {
       fontSize: "16px",
       lineHeight: "22px",
+    },
+    [theme.breakpoints.between(768, 1024)]: {
+      fontSize: "17px",
+      lineHeight: "23px",
     },
   },
 
   articleWrapper: {
     marginBottom: "44px",
-  },
-  "@media (max-width: 743px)": {
-    marginBottom: "24px",
+    [theme.breakpoints.down("md")]: {
+      marginBottom: "24px",
+    },
+    [theme.breakpoints.between(768, 1024)]: {
+      marginBottom: "34px",
+    },
   },
 
   definitionList: {
     paddingLeft: "15px",
-
     "& li": {
       paddingBottom: "10px",
     },
@@ -86,9 +99,11 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: "10px",
     fontWeight: 400,
     fontSize: "18px",
-
-    "@media (max-width: 743px)": {
+    [theme.breakpoints.down("md")]: {
       fontSize: "16px",
+    },
+    [theme.breakpoints.between(768, 1024)]: {
+      fontSize: "17px",
     },
   },
 

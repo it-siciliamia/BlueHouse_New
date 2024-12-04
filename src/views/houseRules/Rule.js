@@ -18,19 +18,31 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: "50px",
     fontStyle: "normal",
     fontWeight: 300,
-    fontSize: "24px",
+    fontSize: "22px",
     lineHeight: "25px",
     [theme.breakpoints.down("sm")]: {
       textAlign: "left",
       marginLeft: 0,
     },
     [theme.breakpoints.down("xs")]: {
-      margin: "0 20px",
-      fontSize: "14px",
+      margin: "0 10px",
+      fontSize: "16px",
+    },
+    [theme.breakpoints.between(768, 1024)]: {
+      margin: "0 10px",
+      fontSize: "18px",
     },
   },
   iconStyle: {
     maxWidth: "30px",
+    [theme.breakpoints.down("xs")]: {
+      maxWidth: "60px",
+      marginBottom: "10px",
+    },
+    [theme.breakpoints.between(768, 1024)]: {
+      maxWidth: "60px",
+      marginBottom: "10px",
+    },
   },
 }));
 
