@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useLocation } from "react-router-dom";
 import Header from "./components/header";
 import HomePage from "./views/homePage";
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
@@ -28,13 +27,11 @@ import "./App.css";
 export const UserContext = createContext();
 
 function App({ basename }) {
-  const location = useLocation();
   const [modalState, setModal] = useState({
     state: false,
     index: 0,
   });
   const [room, setRoom] = useState(false);
-
   const [right, setRight] = useState("-6000px");
   const [top, setTop] = useState("-200%");
 
@@ -102,7 +99,7 @@ function App({ basename }) {
                   </Switch>
                 </div>
                 <Cookies />
-                {location.pathname === "/" && <NewMap />}
+                <NewMap />
                 <Footer />
               </Route>
               <>

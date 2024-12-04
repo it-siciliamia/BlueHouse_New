@@ -68,7 +68,9 @@ function CustomTabPanel(props) {
                           width: "100%",
                           fontSize: "15px",
                           color: "white",
-                          background: "rgba(0, 0, 0, 0.15)",
+                          background:
+                            "linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8))",
+                          textShadow: "2px 2px 4px rgba(0, 0, 0, 0.7)",
                         }}
                       >
                         <WithTransLate text={`<- swipe to see more->`} />

@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
   imageStyle2: {
     flexGrow: 1,
     width: "100%",
-    marginTop: "50%",
+    marginTop: "190px",
   },
   [theme.breakpoints.up("sm")]: {
     imageStyle2: {
