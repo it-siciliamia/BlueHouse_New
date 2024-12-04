@@ -108,7 +108,6 @@ function PrivacyPolicy() {
 
       <div className={houseRules}>
         <Privacy />
-
         <CookiePolicy />
       </div>
     </div>

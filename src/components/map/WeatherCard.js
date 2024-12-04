@@ -64,7 +64,15 @@ const WeatherCard = () => {
 
   return (
     <div className="container" style={{ display: weather ? "block" : "none" }}>
-      <div className="card">
+      <div
+        className="card"
+        style={{
+          background: "rgba(0, 0, 0, 0.25)",
+          border: "1px solid white",
+          borderRadius: "10px",
+          backdropFilter: "blur(30px)",
+        }}
+      >
         <p className="temp">{Math.round(temperature)} °C</p>
         {iconError ? (
           <div className="static-icon">{iconStatic}</div>

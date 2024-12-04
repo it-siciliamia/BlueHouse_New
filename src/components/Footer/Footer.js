@@ -1,3 +1,5 @@
+import React from "react";
+import { useLocation } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
 import { items } from "./footerData";
 import { makeStyles } from "@material-ui/core";
@@ -155,12 +157,19 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function Footer() {
+  const location = useLocation();
   const classes = useStyles();
   const isMobile = useMediaQuery({ maxDeviceWidth: 767 });
 
   return (
     <>
       <div style={{ marginBottom: "2rem" }} />
+      {!isMobile && location.pathname !== "/" && (
+        <div
+          className={classes.lineSeparator}
+          style={{ marginBottom: "2.5rem" }}
+        ></div>
+      )}
       <div className={classes.container}>
         <div className={classes.linkContainer}>
           {items.map((item, index) => (
@@ -178,13 +187,7 @@ function Footer() {
                 }`}
               >
                 {item.links.map((link, idx) => (
-                  <a
-                    key={idx}
-                    href={link.href}
-                    className={classes.link}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
+                  <a key={idx} href={link.href} className={classes.link}>
                     {link.icon && (
                       <img
                         src={link.icon}
