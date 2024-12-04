@@ -1,6 +1,5 @@
 import React from "react";
 import GuideLines from "./GuideLines.js";
-import Instructions from "../../components/instructions/index.js";
 import Support from "../../components/SuportComponent/support.js";
 import image from "../../images/houserules.jpg";
 import image2 from "../../images/houserules_mobile.png";
@@ -29,7 +28,6 @@ const useStyles = makeStyles((theme) => ({
     lineHeight: "50px",
     letterSpacing: "0.1em",
     color: "#14202B",
-    // marginRight: "auto",
     whiteSpace: "nowrap",
   },
   imageStyle2: {
@@ -76,7 +74,6 @@ function HouseRules() {
       <div className={houseRules}>
         <GuideLines />
       </div>
-      <Instructions />
       <Support />
     </div>
   );

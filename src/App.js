@@ -1,4 +1,5 @@
-import "./App.css";
+import { useState } from "react";
+import { useLocation } from "react-router-dom";
 import Header from "./components/header";
 import HomePage from "./views/homePage";
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
@@ -16,19 +17,18 @@ import Footer from "./components/Footer/Footer";
 import Notfound from "./views/Notfound";
 import Aboutus from "./views/AboutUs";
 import PrivacyandPolicy from "./views/ImportAndP&P";
-import NewsLetter from "./components/NewsLetter/NewsLetter.jsx";
-import { useState, useEffect } from "react";
 import { createContext } from "react";
 import EnquirePage from "./components/BookingPage/EnquirePage";
 import ThankYou from "./thankyou/index.js";
 import { RedirectBlog, RedirectTripAdv } from "./redirect/Redirect";
-import FindMore from "./components/FindMore/FindMore.jsx";
 import NewMap from "./components/map/NewMap.js";
 import RoomBooking from "./views/roombooking/RoomBooking.jsx";
+import "./App.css";
 
 export const UserContext = createContext();
 
 function App({ basename }) {
+  const location = useLocation();
   const [modalState, setModal] = useState({
     state: false,
     index: 0,
@@ -37,21 +37,6 @@ function App({ basename }) {
 
   const [right, setRight] = useState("-6000px");
   const [top, setTop] = useState("-200%");
-
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
-
-    window.addEventListener("resize", handleResize);
-
-    // Clean up the event listener on component unmount
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
 
   return (
     <ThemeProvider theme={theme}>
@@ -117,18 +102,7 @@ function App({ basename }) {
                   </Switch>
                 </div>
                 <Cookies />
-                <FindMore />
-                {isMobile ? (
-                  <>
-                    <NewMap />
-                    <NewsLetter />
-                  </>
-                ) : (
-                  <>
-                    <NewsLetter />
-                    <NewMap />
-                  </>
-                )}
+                {location.pathname === "/" && <NewMap />}
                 <Footer />
               </Route>
               <>
