@@ -211,6 +211,8 @@ function Footer() {
                     className={`${classes.link} ${
                       index === 2 ? classes.socialLink : ""
                     }`}
+                    target={link.href.startsWith("/") ? "_self" : "_blank"}
+                    rel={link.href.startsWith("/") ? "" : "noopener noreferrer"}
                   >
                     {link.icon && (
                       <img
