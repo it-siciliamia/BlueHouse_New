@@ -1,12 +1,11 @@
 /* eslint-disable react/jsx-no-duplicate-props */
 import React from "react";
-import { Link as ScrollLink } from "react-scroll";
+import { Link as ScrollLink, scroller } from "react-scroll";
 import { Link as RouterLink } from "react-router-dom";
+import { useLocation, useHistory } from "react-router-dom";
 import { Button, Divider, Grid, makeStyles } from "@material-ui/core";
-
 import TranslateMe from "../translating";
 import { WithTransLate } from "../translating/index";
-
 import Logo from "../images/Bluehouse.svg";
 import Escape from "../images/escape.svg";
 import Door from "../images/door.svg";
@@ -21,7 +20,7 @@ import Location from "../images/location.svg";
 import Instagram from "../images/instagram.svg";
 import Facebook from "../images/facebook.svg";
 import Whatsapp from "../images/whatsApp.svg";
-import Email from "../images/email.svg";
+// import Email from "../images/email.svg";
 
 const bookingsList = [
   {
@@ -202,8 +201,34 @@ function SideNavbarMobile(props) {
     highlightedColor,
   } = useStyles(props);
   const { handleOpenAndCloseSideNavbar } = props;
+  const location = useLocation();
+  const history = useHistory();
 
   const scroll = () => handleOpenAndCloseSideNavbar("-200%");
+
+  const isHomePage = location.pathname === "/";
+  const navigateAndScroll = (to) => {
+    if (!isHomePage) {
+      history.push("/");
+      setTimeout(() => {
+        scroller.scrollTo(to, {
+          duration: 500,
+          delay: 0,
+          smooth: "easeInOutQuart",
+          offset: -70,
+        });
+      }, 500);
+      scroll();
+    } else {
+      scroller.scrollTo(to, {
+        duration: 500,
+        delay: 0,
+        smooth: "easeInOutQuart",
+        offset: -70,
+      });
+      scroll();
+    }
+  };
 
   return (
     <div className={root}>
@@ -266,7 +291,7 @@ function SideNavbarMobile(props) {
               smooth={true}
               offset={-70}
               duration={500}
-              onClick={scroll}
+              onClick={() => navigateAndScroll("GALLERY")}
             >
               <WithTransLate text="Gallery" />
             </ScrollLink>
@@ -285,7 +310,7 @@ function SideNavbarMobile(props) {
               smooth={true}
               offset={-70}
               duration={500}
-              onClick={scroll}
+              onClick={() => navigateAndScroll("RECOMMENDATIONS")}
             >
               <WithTransLate text="Recommendations" />
             </ScrollLink>
@@ -306,7 +331,7 @@ function SideNavbarMobile(props) {
               smooth={true}
               offset={-70}
               duration={500}
-              onClick={scroll}
+              onClick={() => navigateAndScroll("ABOUTUS")}
             >
               <WithTransLate text="About us" />
             </ScrollLink>
@@ -333,7 +358,7 @@ function SideNavbarMobile(props) {
               smooth={true}
               offset={-70}
               duration={500}
-              onClick={scroll}
+              onClick={() => navigateAndScroll("SUPPORT")}
             >
               <WithTransLate text="Support" />
             </ScrollLink>
@@ -371,7 +396,7 @@ function SideNavbarMobile(props) {
               smooth={true}
               offset={-70}
               duration={500}
-              onClick={scroll}
+              onClick={() => navigateAndScroll("MAP")}
             >
               <WithTransLate text="Map" />
             </ScrollLink>
@@ -386,7 +411,7 @@ function SideNavbarMobile(props) {
 
         <div className={groupIcons}>
           <a
-            onClick={scroll}
+            onClick={() => navigateAndScroll("CONTACT US")}
             href="https://www.instagram.com/bluehousebb/"
             target="_blank"
             rel="noreferrer"

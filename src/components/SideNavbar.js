@@ -181,7 +181,6 @@ function SideNavbar(props) {
   const scroll = () => handleOpenAndCloseSideNavbar("-6000px");
 
   const isHomePage = location.pathname === "/";
-
   const navigateAndScroll = (to) => {
     if (!isHomePage) {
       history.push("/");
@@ -193,6 +192,7 @@ function SideNavbar(props) {
           offset: -70,
         });
       }, 500);
+      scroll();
     } else {
       scroller.scrollTo(to, {
         duration: 500,
@@ -200,6 +200,7 @@ function SideNavbar(props) {
         smooth: "easeInOutQuart",
         offset: -70,
       });
+      scroll();
     }
   };
 
