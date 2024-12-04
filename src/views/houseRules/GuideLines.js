@@ -1,13 +1,12 @@
-import { makeStyles } from "@material-ui/core";
 import React from "react";
 import Rule from "./Rule.js";
-// import { WithTransLate } from "../../translating/index";
+import { makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     flexDirection: "column",
-    gap: "38px",
+    gap: "40px",
     marginLeft: "62px",
   },
   info: {
@@ -25,12 +24,20 @@ const useStyles = makeStyles((theme) => ({
         fontSize: "16px",
         textAlign: "cener",
       },
+      [theme.breakpoints.down("md")]: {
+        fontSize: "18px",
+        textAlign: "cener",
+      },
+      [theme.breakpoints.between(768, 1024)]: {
+        fontSize: "35px",
+        lineHeight: "45px",
+      },
     },
   },
   [theme.breakpoints.down("xs")]: {
     root: {
       margin: "auto",
-      gap: "50px",
+      gap: "40px",
       marginBottom: "-50px",
     },
     info: {

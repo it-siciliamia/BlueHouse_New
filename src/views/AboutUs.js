@@ -1,4 +1,5 @@
 import React from "react";
+import { useMediaQuery } from "react-responsive";
 import { makeStyles } from "@material-ui/core";
 import Selfie from "../images/selfie2.png";
 import Signature from "../images/signature.png";
@@ -17,8 +18,14 @@ const useStyles = makeStyles((theme) => ({
     alignContent: "center",
     margin: "auto",
     marginTop: "30px",
+    marginBottom: "-100px",
     [theme.breakpoints.down("md")]: {
+      marginTop: "-350px",
+      marginBottom: "-40px",
+    },
+    [theme.breakpoints.between(768, 1024)]: {
       marginTop: "-300px",
+      marginBottom: "0px",
     },
   },
   row1: {
@@ -61,6 +68,9 @@ const useStyles = makeStyles((theme) => ({
       fontWeight: 300,
       marginLeft: "25px",
     },
+    [theme.breakpoints.between(768, 1024)]: {
+      width: "100%",
+    },
   },
   description2: {
     width: "calc(50% - 100px)",
@@ -81,6 +91,9 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("xs")]: {
       fontWeight: 300,
       marginLeft: "25px",
+    },
+    [theme.breakpoints.between(768, 1024)]: {
+      width: "100%",
     },
   },
   image1: {
@@ -202,16 +215,23 @@ function Aboutus() {
     titles,
     imageStyle,
   } = useStyles();
+  const isMobile = useMediaQuery({ maxDeviceWidth: 767 });
   return (
     <div className={root}>
       <div className={row1}>
-        <h2 className={clsx(titles, experienceTitle)}>
+        <h2
+          className={clsx(titles, experienceTitle)}
+          style={{ marginLeft: isMobile ? "30px" : "0px" }}
+        >
           <WithTransLate text=" COLOUR YOUR EXPERIENCE" />
         </h2>
         <div className={imageAndDescriptionWrapper}>
           <img src={Room} alt="Room" className={imageStyle} />
           <img src={Room} className={image1} alt="roomImg" />
-          <div className={description1}>
+          <div
+            className={description1}
+            style={{ padding: isMobile ? "0px 0px" : "0px 20px" }}
+          >
             <p>
               <WithTransLate text="Blue House Bed and Breakfast welcomes you to your home away from home in Reykjavik, Iceland. Simply put, we are a small team of globetrotters, passionate about unforgettable travel experiences. It’s an old, traditional, warm, charming Icelandic house." />
             </p>
@@ -235,7 +255,13 @@ function Aboutus() {
       </div>
       <div className={row2}>
         <div className={imageAndDescriptionWrapper}>
-          <div className={description2}>
+          <div
+            className={description2}
+            style={{
+              padding: isMobile ? "0px 0px" : "0px 20px",
+              marginBottom: isMobile ? "-10px" : "0px",
+            }}
+          >
             <p>
               <WithTransLate text="For over 11 years I have been lucky to welcome guests from all over the globe." />
             </p>
@@ -270,7 +296,10 @@ function Aboutus() {
             <img alt="Signature img" className={signature} src={Signature} />
           </div>
         </div>
-        <h2 className={clsx(titles, founderMessageTitle)}>
+        <h2
+          className={clsx(titles, founderMessageTitle)}
+          style={{ marginLeft: isMobile ? "30px" : "0px" }}
+        >
           <WithTransLate text=" MESSAGE FROM FOUNDER" />
         </h2>
       </div>
