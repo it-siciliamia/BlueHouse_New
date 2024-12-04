@@ -19,7 +19,7 @@ import Location from "../images/location.svg";
 import Instagram from "../images/instagram.svg";
 import Facebook from "../images/facebook.svg";
 import Whatsapp from "../images/whatsApp.svg";
-import Email from "../images/email.svg";
+// import Email from "../images/email.svg";
 import { Link as RouterLink } from "react-router-dom";
 import TranslateMe from "../translating";
 import { WithTransLate } from "../translating/index";
@@ -113,7 +113,7 @@ const useStyles = makeStyles((theme) => ({
   groupIcons: {
     display: "flex",
     justifyContent: "space-between",
-    width: "170px",
+    width: "120px",
     marginBottom: "20px",
     [theme.breakpoints.down("sm")]: {
       marginBottom: "0px",
@@ -131,6 +131,9 @@ const useStyles = makeStyles((theme) => ({
   },
   highlightedColor: {
     color: "white",
+    "&:hover": {
+      color: "#1E90FF !important",
+    },
   },
   socialIcons: {
     transform: "scale(.9)",
@@ -570,14 +573,14 @@ function SideNavbar(props) {
           >
             <img className={socialIcons} src={Whatsapp} alt="Slider Whatsapp" />
           </a>
-          <a
+          {/* <a
             onClick={scroll}
             href="https://gnl.ladesk.com/submit_ticket"
             target="_blank"
             rel="noreferrer"
           >
             <img className={socialIcons} src={Email} alt="Slider Email" />
-          </a>
+          </a> */}
         </div>
         <Divider className={horizontalLine} />
         <p className={sliderInfo}>Blue House B&B</p>

@@ -145,6 +145,9 @@ const useStyles = makeStyles((theme) => ({
 
   highlightedColor: {
     color: "white",
+    "&:hover": {
+      color: "#1E90FF !important",
+    },
   },
 
   socialIcons: {
