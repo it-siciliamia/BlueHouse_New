@@ -1,7 +1,8 @@
 /* eslint-disable react/jsx-no-duplicate-props */
 import React from "react";
 import { Button, Divider, Grid, makeStyles } from "@material-ui/core";
-import { Link as ScrollLink } from "react-scroll";
+import { Link as ScrollLink, scroller } from "react-scroll";
+import { useLocation, useHistory } from "react-router-dom";
 import Logo from "../images/Bluehouse.svg";
 import Bus from "../images/shuttle.svg";
 import Escape from "../images/escape.svg";
@@ -11,7 +12,6 @@ import Tour from "../images/tour.svg";
 import Gallery from "../images/gallery.svg";
 import supportImage from "../images/support/whiteBackground_support.svg";
 import forumImage from "../images/support/whiteBackground_forum.svg";
-// import feedbackImage from "../images/support/whiteBackground_feedback.svg";
 import Car from "../images/car.svg";
 import Bag from "../images/bag.svg";
 import Info from "../images/info.svg";
@@ -172,8 +172,33 @@ function SideNavbar(props) {
     bg,
   } = useStyles(props);
   const { handleOpenAndCloseSideNavbar } = props;
+  const location = useLocation();
+  const history = useHistory();
 
   const scroll = () => handleOpenAndCloseSideNavbar("-6000px");
+
+  const isHomePage = location.pathname === "/";
+
+  const navigateAndScroll = (to) => {
+    if (!isHomePage) {
+      history.push("/");
+      setTimeout(() => {
+        scroller.scrollTo(to, {
+          duration: 500,
+          delay: 0,
+          smooth: "easeInOutQuart",
+          offset: -70,
+        });
+      }, 500);
+    } else {
+      scroller.scrollTo(to, {
+        duration: 500,
+        delay: 0,
+        smooth: "easeInOutQuart",
+        offset: -70,
+      });
+    }
+  };
 
   return (
     <div className={root}>
@@ -292,7 +317,7 @@ function SideNavbar(props) {
 
         <Grid
           component={ScrollLink}
-          onClick={scroll}
+          onClick={() => navigateAndScroll("GALLERY_DESCTOP")}
           to="GALLERY_DESCTOP"
           spy={true}
           smooth={true}
@@ -321,7 +346,7 @@ function SideNavbar(props) {
 
         <Grid
           component={ScrollLink}
-          onClick={scroll}
+          onClick={() => navigateAndScroll("RECOMMENDATIONS")}
           to="RECOMMENDATIONS"
           spy={true}
           smooth={true}
@@ -484,7 +509,7 @@ function SideNavbar(props) {
 
         <Grid
           component={ScrollLink}
-          onClick={scroll}
+          onClick={() => navigateAndScroll("MAP")}
           to="MAP"
           spy={true}
           smooth={true}

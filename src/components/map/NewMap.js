@@ -1,10 +1,12 @@
 import { useState, useEffect, useRef } from "react";
+import { useLocation } from "react-router-dom";
 import WeatherCard from "./WeatherCard";
 import { WithTransLate } from "../../translating/index";
 import { AiOutlineFullscreen } from "react-icons/ai";
 import "./WeatherMap.css";
 
 const NewMap = () => {
+  const location = useLocation();
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   const [mapType, setMapType] = useState("roadmap");
   const [isOverlayVisible, setOverlayVisible] = useState(false);
@@ -59,6 +61,7 @@ const NewMap = () => {
         <div
           id="MAP"
           style={{
+            display: location.pathname === "/" ? "block" : "none",
             position: "relative",
             margin: isMobile ? "10px 0 60px 0" : "90px 0",
             padding: "-2px",

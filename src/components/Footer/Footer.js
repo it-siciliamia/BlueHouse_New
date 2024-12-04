@@ -22,6 +22,7 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("xs")]: {
       maxWidth: "100%",
       margin: "0px",
+      marginTop: "-10px",
       marginBottom: "-30px",
       paddingTop: "0px",
       paddingBottom: "0px",
@@ -59,6 +60,11 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column !important",
     gap: "10px !important",
+    [theme.breakpoints.down("xs")]: {
+      flexDirection: "row !important",
+      justifyContent: "flex-start",
+      marginLeft: "0px",
+    },
   },
   titleContainer: {
     display: "column",
@@ -101,6 +107,18 @@ const useStyles = makeStyles((theme) => ({
     },
     [theme.breakpoints.down("xs")]: {
       justifyContent: "flex-start",
+    },
+  },
+  socialLink: {
+    display: "flex",
+    alignItems: "center",
+    [theme.breakpoints.down("xs")]: {
+      marginRight: "20px",
+    },
+  },
+  socialName: {
+    [theme.breakpoints.down("xs")]: {
+      display: "none",
     },
   },
   itemLinks: {
@@ -187,7 +205,13 @@ function Footer() {
                 }`}
               >
                 {item.links.map((link, idx) => (
-                  <a key={idx} href={link.href} className={classes.link}>
+                  <a
+                    key={idx}
+                    href={link.href}
+                    className={`${classes.link} ${
+                      index === 2 ? classes.socialLink : ""
+                    }`}
+                  >
                     {link.icon && (
                       <img
                         src={link.icon}
@@ -195,7 +219,9 @@ function Footer() {
                         alt={`Go to ${link.name}`}
                       />
                     )}
-                    <WithTransLate text={link.name} />
+                    <span className={index === 2 ? classes.socialName : ""}>
+                      <WithTransLate text={link.name} />
+                    </span>
                   </a>
                 ))}
               </div>

@@ -81,10 +81,6 @@ function GuideLines() {
         text="Do not make a big mess in the kitchen when you use it since you are not alone in the house. Always keep in mind how you would like to find the kitchen when entering the room. This is how we would like you to leave it too."
       />
       <Rule
-        Icon={"./windows.svg"}
-        text="Do not make a big mess in the kitchen when you use it since you are not alone in the house. Always keep in mind how you would like to find the kitchen when entering the room. This is how we would like you to leave it too."
-      />
-      <Rule
         Icon={"./8.svg"}
         text="Please do not leave the lights and the heater on when it is not necessary - we are an eco-friendly house."
       />
