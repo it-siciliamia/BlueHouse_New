@@ -12,6 +12,10 @@ const useStyles = makeStyles((theme) => ({
     height: "auto",
     marginLeft: "65px",
     marginBottom: "100px",
+    [theme.breakpoints.between(768, 1024)]: {
+      width: "88.5%",
+      marginBottom: "50px",
+    },
   },
   header: {
     display: "absolute",
@@ -51,11 +55,18 @@ const useStyles = makeStyles((theme) => ({
     },
     houseRules: {
       marginTop: "22px",
+      [theme.breakpoints.down("xs")]: {
+        marginBottom: "90px",
+      },
     },
     title: {
       margin: "24px 0",
       fontSize: "18px",
       transform: "rotate(0)",
+      [theme.breakpoints.down("xs")]: {
+        marginTop: "30px",
+        marginBottom: "10px",
+      },
     },
   },
 }));
