@@ -1,10 +1,10 @@
 /* eslint-disable no-unused-vars */
+import React, { useEffect, useState } from "react";
+import PropTypes from "prop-types";
 import languagesAndCodes from "./languagesAndCodes.json";
 import { makeStyles } from "@material-ui/core";
 import Select from "../../../images/select.svg";
-import { useEffect, useState } from "react";
 import translate from "translate";
-import React from "react";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import { Button } from "@material-ui/core";
@@ -72,7 +72,7 @@ export default function TranslateMe({ scroll }) {
     setLanguage(index);
     localStorage.setItem("languageIndex", index);
   };
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [anchorEl, setAnchorEl] = useState(null);
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -127,6 +127,10 @@ export default function TranslateMe({ scroll }) {
   );
 }
 
+TranslateMe.propTypes = {
+  scroll: PropTypes.func.isRequired,
+};
+
 export async function translateMyText(text = "") {
   const { languages } = languagesAndCodes;
   const langIndex = localStorage.getItem("languageIndex");
@@ -145,3 +149,8 @@ export function WithTransLate({ text, isFunction }) {
 
   return isFunction ? translatedText : <>{translatedText}</>;
 }
+
+WithTransLate.propTypes = {
+  text: PropTypes.string.isRequired,
+  isFunction: PropTypes.bool,
+};

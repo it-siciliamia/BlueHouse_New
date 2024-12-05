@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { Box, makeStyles, Typography } from "@material-ui/core";
 import CloseIcon from "@material-ui/icons/Close";
 import bleuHouseImage from "../../images/popUpVariations/bluehousepng.png";
@@ -13,7 +14,6 @@ const useStyles = makeStyles((theme) => ({
       opacity: 1,
     },
   },
-
   root: {
     display: "flex",
     justifyContent: "space-between",
@@ -45,7 +45,6 @@ const useStyles = makeStyles((theme) => ({
       transform: "translate(-58%, -50%)",
     },
   },
-
   titleStyle: {
     fontFamily: "Oblik",
     fontSize: "32px",
@@ -154,7 +153,6 @@ const useStyles = makeStyles((theme) => ({
       minWidth: "unset",
     },
   },
-
   logoStyle: {
     display: "flex",
     width: "30vw",
@@ -162,7 +160,6 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: "-2%",
     marginTop: "12%",
     marginBottom: "16%",
-
     [theme.breakpoints.down("xs")]: {
       width: "25vw",
       height: "20vh",
@@ -178,7 +175,6 @@ const useStyles = makeStyles((theme) => ({
     left: "0",
     right: "0",
     bottom: "0",
-
     "& .backgroundImage": {
       background: `url(${bleuHouseImage}) no-repeat center`,
       backgroundSize: "cover",
@@ -230,7 +226,6 @@ export default function PopUpVariationMainLayout({
   popUpSmallContetn,
 }) {
   const color = window.innerWidth < 600 ? "primary" : "secondary";
-
   const popUpContent =
     window.innerWidth >= 600 ? popUpLargeContetn : popUpSmallContetn;
   const {
@@ -274,3 +269,13 @@ export default function PopUpVariationMainLayout({
     </Box>
   );
 }
+
+PopUpVariationMainLayout.propTypes = {
+  handleClose: PropTypes.func.isRequired,
+  originalSideImageWidth: PropTypes.string.isRequired,
+  imageSrcReplace: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  imgSrc: PropTypes.string.isRequired,
+  popUpLargeContetn: PropTypes.node.isRequired,
+  popUpSmallContetn: PropTypes.node.isRequired,
+};

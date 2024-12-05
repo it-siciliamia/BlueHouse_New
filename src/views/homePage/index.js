@@ -1,9 +1,10 @@
+import React from "react";
 import { useMediaQuery } from "react-responsive";
 import { Box, makeStyles } from "@material-ui/core";
 import HomeHeader from "./HomeHeader";
 import PhotoGallery from "../../components/PhotoGallery/DesctopGallerySection/photoGallery";
 import OurServices from "../../components/OurServices/OurServices.jsx";
-import BookingWrapper from "../../components/BookingWrapper/BookingWrapper";
+import BookingWrapper from "../../components/BookingWrapper/BookingWrapper.jsx";
 import SliderHome from "./SliderHome/SliderHome";
 import roomsImage from "../../images/gallery/rooms.svg";
 import housesImage from "../../images/gallery/houseBB2.svg";

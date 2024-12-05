@@ -1,3 +1,4 @@
+import React from "react";
 import instaIcon from "../../images/Header_icons/headerSocialIcons/insta.svg";
 import facebookIcon from "../../images/Header_icons/headerSocialIcons/facebook.svg";
 import whatsappIcon from "../../images/Header_icons/headerSocialIcons/whats.svg";

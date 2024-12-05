@@ -178,9 +178,6 @@ const useStyles = makeStyles((theme) => ({
       width: "100%",
     },
   },
-  mobile: {
-    // display: "none",
-  },
 }));
 
 export default function PhotoGallery({

@@ -83,7 +83,13 @@
     ]
   },
   "devDependencies": {
+    "@babel/eslint-parser": "^7.25.9",
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@babel/preset-env": "^7.26.0",
+    "@babel/preset-react": "^7.26.3",
+    "eslint": "^7.32.0",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-react": "^7.37.2",
     "sass": "^1.81.0",
     "tailwindcss": "^3.4.15"
   },

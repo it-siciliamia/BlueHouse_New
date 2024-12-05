@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { Box, makeStyles } from "@material-ui/core";
 import { WithTransLate } from "../../components/helpers/translating/index";
 
@@ -50,7 +51,7 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: "Josefin sans",
     display: "flex",
     flexDirection: "column",
-    textAling: "left",
+    textAlign: "left",
     justifyContent: "space-between",
     marginTop: "20px",
   },
@@ -166,6 +167,11 @@ function Subtitle({ title, text }) {
     </Box>
   );
 }
+
+Subtitle.propTypes = {
+  title: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+};
 
 export default function Privacy() {
   const {
@@ -412,7 +418,7 @@ export default function Privacy() {
             </h4>
 
             <p className={textClass}>
-              <WithTransLate text="When You leave comments on the site We collect the data shown in the comments form, and also Your IP address and browser agent string to help spam detection." />
+              <WithTransLate text="When You leave comments on the site We collect the data shown in the comments form, and also Your IP address and browser user agent string to help spam detection." />
             </p>
 
             <p className={textClass}>
@@ -430,7 +436,7 @@ export default function Privacy() {
             </h4>
 
             <p className={textClass}>
-              <WithTransLate text="If You upload images to the website, You should avoid uploading images with embedded location data (EXIF GPS) included. Any visitors to the website can download and extract any location data from images on the website." />
+              <WithTransLate text="If You upload images to the website, You should avoid uploading images with embedded location data (EXIF GPS) included. Any visitor to the website can download and extract any location data from images on the website." />
             </p>
           </div>
 
@@ -460,7 +466,7 @@ export default function Privacy() {
 
               <li>
                 <h4 className={`${additionSubtitle} ${cookies}`}>
-                  <WithTransLate text="Cookies Policy / Notice Acceptance Cookies" />
+                  <WithTransLate text="Cookie Policy / Notice Acceptance Cookies" />
                 </h4>
 
                 <p className={`${textClass} ${cookiesText}`}>
@@ -486,7 +492,7 @@ export default function Privacy() {
 
                   <li>
                     <p className={`${textClass} ${marginBottom}`}>
-                      <WithTransLate text="When You log in, we will also set up several cookies to save Your login information and Your screen display choices. Login cookies last for two days, and screen options cookies last for a year. If You select “Remember Me”, Your login will persist for two weeks. If You log ozut of Your account, the login cookies will be removed." />
+                      <WithTransLate text="When You log in, we will also set up several cookies to save Your login information and Your screen display choices. Login cookies last for two days, and screen options cookies last for a year. If You select “Remember Me”, Your login will persist for two weeks. If You log out of Your account, the login cookies will be removed." />
                     </p>
                   </li>
 
@@ -837,3 +843,8 @@ export default function Privacy() {
     </Box>
   );
 }
+
+Privacy.propTypes = {
+  title: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+};
