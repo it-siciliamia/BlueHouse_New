@@ -18,7 +18,7 @@ import PrivacyandPolicy from "./views/ImportAndP&P/index.js";
 import EnquirePage from "./components/BookingPage/EnquirePage.js";
 import ThankYou from "./thankyou/index.js";
 import NewMap from "./components/Map/NewMap.js";
-import RoomBooking from "./views/Roombooking/RoomBooking.jsx";
+import RoomBooking from "./views/RoomBooking/RoomBooking.jsx";
 import {
   RedirectBlog,
   RedirectTripAdv,
