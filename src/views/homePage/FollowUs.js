@@ -4,7 +4,7 @@ import { Box, makeStyles } from "@material-ui/core";
 import Button from "../../components/Shared/Button/Button";
 import clsx from "clsx";
 import { UserContext } from "../../App";
-import { WithTransLate } from "../../translating/index";
+import { WithTransLate } from "../../components/helpers/translating/index";
 
 const useStyles = makeStyles((theme) => ({
   root: (props) => ({

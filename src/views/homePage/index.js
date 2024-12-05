@@ -1,9 +1,9 @@
 import { useMediaQuery } from "react-responsive";
 import { Box, makeStyles } from "@material-ui/core";
-import HomeHeader from "./HomePageSlider";
-import PhotoGallery from "./photoGallery";
+import HomeHeader from "./HomeHeader";
+import PhotoGallery from "../../components/PhotoGallery/DesctopGallerySection/photoGallery";
 import OurServices from "../../components/OurServices/OurServices.jsx";
-import BookingWrapper from "./BookingWrapper";
+import BookingWrapper from "../../components/BookingWrapper/BookingWrapper";
 import SliderHome from "./SliderHome/SliderHome";
 import roomsImage from "../../images/gallery/rooms.svg";
 import housesImage from "../../images/gallery/houseBB2.svg";
@@ -14,13 +14,13 @@ import NorthernlightsImage from "../../images/RECOMMENDATIONS/Northernlights.web
 import insta1 from "../../images/instagramSVG/insta1.svg";
 import insta2 from "../../images/instagramSVG/insta2.svg";
 import insta3 from "../../images/instagramSVG/insta3.svg";
-import Galary from "../../components/Mobile Galary Section/Galary.js";
+import Galary from "../../components/PhotoGallery/MobileGallerySection/Galary";
 import ReviewSlider from "../../components/ReviewSlider/ReviewSlider";
 import Support from "../../components/SuportComponent/support";
-import Recommendations from "./recommendations";
+import Recommendations from "../../components/Recommendations/recommendations";
 import AboutUs from "../../components/AboutUs/AboutUs";
-import BlogPart from "./Blog";
-import FollowUs from "./FollowUs.js";
+import BlogPart from "../../components/BlogComponent/Blog";
+import FollowUs from "./FollowUs";
 import NewsLetter from "../../components/NewsLetter/NewsLetter.jsx";
 import FindMore from "../../components/FindMore/FindMore.jsx";
 

@@ -1,7 +1,7 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useMediaQuery } from "react-responsive";
 import { Navigation, Pagination, Autoplay } from "swiper";
-import { WithTransLate } from "../../translating/index";
+import { WithTransLate } from "../helpers/translating/index";
 
 import "swiper/swiper.css";
 

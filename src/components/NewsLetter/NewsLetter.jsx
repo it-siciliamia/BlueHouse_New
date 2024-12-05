@@ -3,7 +3,7 @@ import s from "./NewsLetter.module.scss";
 import { useForm, Controller } from "react-hook-form";
 import { useMediaQuery } from "react-responsive";
 import { Link } from "react-router-dom";
-import { WithTransLate } from "../../translating";
+import { WithTransLate } from "../helpers/translating";
 import Button from "../Shared/Button/Button";
 // import HumanVerification from "../HumanVerification/HumanVerification";
 

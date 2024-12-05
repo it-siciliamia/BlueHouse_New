@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
 import { items } from "./footerData";
 import { makeStyles } from "@material-ui/core";
-import { WithTransLate } from "../../translating";
+import { WithTransLate } from "../helpers/translating";
 
 const useStyles = makeStyles((theme) => ({
   container: {

@@ -1,6 +1,6 @@
 import React from "react";
 import tripAdvisor from "../../images/findMore/TripadvisorLogo.png";
-import { WithTransLate } from "../../translating/index";
+import { WithTransLate } from "../helpers/translating/index";
 import "./FindMore.scss";
 
 const FindMore = () => {

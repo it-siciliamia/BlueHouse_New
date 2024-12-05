@@ -2,7 +2,7 @@ import React from "react";
 import { Box, makeStyles, Typography } from "@material-ui/core";
 import CloseIcon from "@material-ui/icons/Close";
 import bleuHouseImage from "../../images/popUpVariations/bluehousepng.png";
-import { WithTransLate } from "../../translating/index";
+import { WithTransLate } from "../helpers/translating/index";
 
 const useStyles = makeStyles((theme) => ({
   "@keyframes showup": {
