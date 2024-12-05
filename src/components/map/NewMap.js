@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import WeatherCard from "./WeatherCard";
-import { WithTransLate } from "../../translating/index";
+import { WithTransLate } from "../helpers/translating/index";
 import { AiOutlineFullscreen } from "react-icons/ai";
 import "./WeatherMap.css";
 

@@ -1,4 +1,4 @@
-import { WithTransLate } from "../../../translating/index";
+import { WithTransLate } from "../../helpers/translating/index";
 
 import "./ReviewSlide.css";
 

@@ -2,8 +2,8 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
 import clsx from "clsx";
-import SideNavbar from "../SideNavbar";
-import SideNavbarMobile from "../SideNavbarMobile";
+import SideNavbar from "../SideNavbar/SideNavbar";
+import SideNavbarMobile from "../SideNavbar/SideNavbarMobile";
 import Button from "../Shared/Button/Button";
 import Search from "./search";
 

@@ -1,27 +1,29 @@
-import { useState } from "react";
-import Header from "./components/header";
-import HomePage from "./views/homePage";
+import { useState, createContext } from "react";
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 import { HelmetProvider, Helmet } from "react-helmet-async";
-import schema from "./components/helpers/SchemaOrg/schema.js";
-import Cookies from "./components/Cookies";
 import { ThemeProvider } from "@material-ui/styles";
-import theme from "./theme";
-import ZohoChat from "./components/helpers/ZohoChat/ZohoChat.jsx";
 import ScrollToTopButton from "./components/Shared/ScrollToTopButton/ScrollToTopButton.jsx";
+import ZohoChat from "./components/helpers/ZohoChat/ZohoChat.jsx";
+import schema from "./components/helpers/SchemaOrg/schema.js";
+import CookiesBanner from "./components/CookiesBanner/CookiesBanner";
+import Header from "./components/Header";
+import HomePage from "./views/HomePage/index.js";
 import PageHeader from "./components/Shared/PageHeader/PageHeader";
-import ScrollToTop from "./ScrollToTop";
-import HouseRules from "./views/houseRules";
+import ScrollToTop from "./components/helpers/ScrollToTop";
+import HouseRules from "./views/HouseRules/index.js";
 import Footer from "./components/Footer/Footer";
-import Notfound from "./views/Notfound";
-import Aboutus from "./views/AboutUs";
+import Notfound from "./views/NotFoundPage/Notfound.js";
+import Aboutus from "./views/AboutUsPage/AboutUs.js";
 import PrivacyandPolicy from "./views/ImportAndP&P";
-import { createContext } from "react";
 import EnquirePage from "./components/BookingPage/EnquirePage";
 import ThankYou from "./thankyou/index.js";
-import { RedirectBlog, RedirectTripAdv } from "./redirect/Redirect";
-import NewMap from "./components/map/NewMap.js";
-import RoomBooking from "./views/roombooking/RoomBooking.jsx";
+import NewMap from "./components/Map/NewMap.js";
+import RoomBooking from "./views/Roombooking/RoomBooking.jsx";
+import {
+  RedirectBlog,
+  RedirectTripAdv,
+} from "./components/helpers/redirect/Redirect";
+import theme from "./theme";
 import "./App.css";
 
 export const UserContext = createContext();
@@ -98,7 +100,7 @@ function App({ basename }) {
                     </Route>
                   </Switch>
                 </div>
-                <Cookies />
+                <CookiesBanner />
                 <NewMap />
                 <Footer />
               </Route>

@@ -2,7 +2,7 @@ import supportImage from "../../images/support/support.png";
 import faqImage from "../../images/support/faq.png";
 import forumImage from "../../images/support/forum.png";
 // import feedbackImage from "../../images/support/feedback.png";
-import { WithTransLate } from "../../translating/index";
+import { WithTransLate } from "../helpers/translating/index";
 import s from "./Support.module.scss";
 
 function SupportCard({ description, title, image }) {
