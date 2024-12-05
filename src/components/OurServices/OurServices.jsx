@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { WithTransLate } from "../../translating/index";
+import { WithTransLate } from "../helpers/translating/index";
 import { useMediaQuery } from "react-responsive";
 import DifferentLocations from "./ServicesType/DifferentLocations";
 import SelfCheckIn from "./ServicesType/selfCheckIn";

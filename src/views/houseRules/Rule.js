@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/core";
 import React from "react";
-import { WithTransLate } from "../../translating/index";
+import { WithTransLate } from "../../components/helpers/translating/index";
 
 const useStyles = makeStyles((theme) => ({
   rule: {

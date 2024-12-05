@@ -4,7 +4,7 @@ import Support from "../../components/SuportComponent/support.js";
 import image from "../../images/houserules.jpg";
 import image2 from "../../images/houserules_mobile.png";
 import { makeStyles } from "@material-ui/core/styles";
-import { WithTransLate } from "../../translating/index";
+import { WithTransLate } from "../../components/helpers/translating/index";
 
 const useStyles = makeStyles((theme) => ({
   imageStyle: {

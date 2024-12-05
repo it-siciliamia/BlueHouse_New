@@ -3,7 +3,7 @@ import PopUpVariationLayoutServices from "../../popUpVariations/popUpVariationLa
 import logo from "../../../images/stampLogo.png";
 import originalSideImage from "../../../images/popUpVariations/CHEAPESTPRICE.png";
 import replaceImage from "../../../images/popUpVariations/replace/CHEAPESTPRICE.svg";
-import { WithTransLate } from "../../../translating/index";
+import { WithTransLate } from "../../helpers/translating/index";
 
 const useStyles = makeStyles((theme) => ({
   intro: {

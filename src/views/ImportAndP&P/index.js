@@ -3,7 +3,7 @@ import Privacy from "./Privacy.js";
 import { makeStyles } from "@material-ui/core/styles";
 import Imagemobile from "../../images/privacy_mobile.png";
 import Image from "../../images/privacy.jpg";
-import { WithTransLate } from "../../translating/index";
+import { WithTransLate } from "../../components/helpers/translating/index";
 import CookiePolicy from "./CookiePolicy.js";
 
 const useStyles = makeStyles((theme) => ({

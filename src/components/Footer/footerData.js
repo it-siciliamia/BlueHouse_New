@@ -1,11 +1,11 @@
-import Map from "../images/footer/map.svg";
-import Mail from "../images/footer/mail.svg";
-import Phone from "../images/footer/phone.svg";
-import Youtube from "../images/footer/youtube.svg";
-import Insta from "../images/footer/instagram.svg";
-import Whatsapp from "../images/footer/whatsapp.svg";
-import Facebook from "../images/footer/facebook.svg";
-import X from "../images/footer/x.svg";
+import Map from "../../images/footer/map.svg";
+import Mail from "../../images/footer/mail.svg";
+import Phone from "../../images/footer/phone.svg";
+import Youtube from "../../images/footer/youtube.svg";
+import Insta from "../../images/footer/instagram.svg";
+import Whatsapp from "../../images/footer/whatsapp.svg";
+import Facebook from "../../images/footer/facebook.svg";
+import X from "../../images/footer/x.svg";
 
 export const items = [
   {

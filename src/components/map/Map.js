@@ -5,7 +5,7 @@ import upArrow from "../../images/map/upArrow.svg";
 import "../../Styles/Home.css";
 import "../../Styles/Home.scss";
 import { Element } from "react-scroll";
-import { WithTransLate } from "../../translating/index";
+import { WithTransLate } from "../helpers/translating/index";
 
 const containerStyle = {
   width: "100%",
