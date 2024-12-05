@@ -1,6 +1,6 @@
 import React from "react";
-import GuideLines from "./GuideLines.js";
 import Support from "../../components/SuportComponent/support.js";
+import GuideLines from "./GuideLines.js";
 import image from "../../images/houserules.jpg";
 import image2 from "../../images/houserules_mobile.png";
 import { makeStyles } from "@material-ui/core/styles";
