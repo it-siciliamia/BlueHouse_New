@@ -35,11 +35,10 @@ import perlanb from "../../images/map/icons_perlan darkblueb.svg";
 
 const features = [
   {
-    position: { lat: 64.153491, lng:-21.946779 },
+    position: { lat: 64.153491, lng: -21.946779 },
     icon: whale,
     type: "whale",
     iconb: whaleb,
-
   },
   {
     position: { lat: 64.128921, lng: -21.919546 },
@@ -54,19 +53,19 @@ const features = [
     iconb: vikingb,
   },
   {
-    position:  { lat: 64.164754, lng: -21.907355 },
+    position: { lat: 64.164754, lng: -21.907355 },
     icon: puffin,
     type: "puffin",
     iconb: puffinb,
   },
   {
-    position: { lat:64.154115, lng: -21.998533 },
+    position: { lat: 64.154115, lng: -21.998533 },
     icon: bluehouse,
     type: "blue_house",
     iconb: bluehouseb,
   },
   {
-    position: { lat: 64.155020, lng: -22.004284 },
+    position: { lat: 64.15502, lng: -22.004284 },
     icon: bus,
     type: "bus_station",
     iconb: busb,
@@ -78,7 +77,7 @@ const features = [
     iconb: PublicSwimmingpoolb,
   },
   {
-    position: { lat:  64.155515, lng: -21.951529 },
+    position: { lat: 64.155515, lng: -21.951529 },
     icon: bonussupermarket,
     type: "super_market",
     iconb: bonussupermarketb,
@@ -86,15 +85,14 @@ const features = [
   {
     icon: lighthouse,
     type: "Grótta_Lighthouse",
-    position: { lat: 64.164522, lng:-22.022136 },
+    position: { lat: 64.164522, lng: -22.022136 },
     iconb: lighthouseb,
   },
   {
     icon: hallgrimsk,
     type: "Hallgrimska",
-    position: { lat: 64.142004, lng:-21.926549 },
+    position: { lat: 64.142004, lng: -21.926549 },
     iconb: hallgrimskb,
-
   },
   {
     icon: grotta,
@@ -105,7 +103,7 @@ const features = [
   {
     icon: supermarket,
     type: "Supermarket",
-    position: { lat: 64.151699, lng:-21.984832 },
+    position: { lat: 64.151699, lng: -21.984832 },
     iconb: supermarketb,
   },
 ];
@@ -114,7 +112,7 @@ const legandItemsData = [
   {
     src: bluehouse,
     text: "Blue house B&B",
-    position:  { lat:64.154115, lng: -21.998533 },
+    position: { lat: 64.154115, lng: -21.998533 },
   },
   {
     src: grotta,
@@ -124,22 +122,22 @@ const legandItemsData = [
   {
     src: lighthouse,
     text: "Grótta Lighthouse",
-    position: { lat: 64.164522, lng:-22.022136 },
+    position: { lat: 64.164522, lng: -22.022136 },
   },
   {
     src: bus,
-    position: { lat:  64.155020, lng:-22.004284 },
+    position: { lat: 64.15502, lng: -22.004284 },
     text: "Stop for Bus 11 Haedarbraut/Lindarbraut",
   },
   {
     src: PublicSwimmingpool,
-    position:  { lat: 64.152381, lng: -21.991011 },
+    position: { lat: 64.152381, lng: -21.991011 },
     text: "Geothermal Swimming Pool Sundlaug Seltjarnarnes",
   },
   {
     src: supermarket,
     text: "Minimall with nearest supermarket (08 AM - 12 AM)",
-    position: { lat: 64.151699, lng:-21.984832 },
+    position: { lat: 64.151699, lng: -21.984832 },
   },
   {
     src: bonussupermarket,
@@ -159,7 +157,7 @@ const legandItemsData = [
   {
     src: hallgrimsk,
     text: "Hallgrimskirka",
-    position: { lat: 64.142004, lng:-21.926549 },
+    position: { lat: 64.142004, lng: -21.926549 },
   },
   {
     src: viking,
@@ -171,8 +169,6 @@ const legandItemsData = [
     text: "Perlan Museum and viewing platform",
     position: { lat: 64.128921, lng: -21.919546 },
   },
-
-
 ];
 
 export { legandItemsData, features };

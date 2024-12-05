@@ -1,3 +1,4 @@
+import React from "react";
 import Button from "../Shared/Button/Button";
 import island from "../../images/Blog/island.webp";
 import tripAdvisor from "../../images/findMore/TripadvisorLogo.png";

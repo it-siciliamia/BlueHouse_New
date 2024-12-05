@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import PropTypes from "prop-types";
 import { useMediaQuery } from "react-responsive";
 import { Box, makeStyles } from "@material-ui/core";
 import Button from "../../components/Shared/Button/Button";
@@ -22,16 +23,15 @@ const useStyles = makeStyles((theme) => ({
       width: "100%",
       display: "none",
       justifyContent: "center",
-      allignItems: "center",
+      alignItems: "center",
       marginTop: "0",
-
       ...props,
     },
   }),
   photoWrapper: (props) => ({
     position: "relative",
     marginLeft: "65px",
-    marginBottom: "50px", //added this for the deployed version
+    marginBottom: "50px",
     maxWidth: props.maxWidth,
     minWidth: props.minWidth,
     backgroundSize: "cover",
@@ -80,7 +80,6 @@ const useStyles = makeStyles((theme) => ({
         alignItems: "center",
       },
     },
-
     "@media (max-width: 768px)": {
       width: "100%",
       "& a": {
@@ -99,7 +98,6 @@ const useStyles = makeStyles((theme) => ({
         color: "#073762",
       },
     },
-
     "@media (max-width: 640px)": {
       "& a": {
         width: "98%",
@@ -109,20 +107,17 @@ const useStyles = makeStyles((theme) => ({
       },
     },
   }),
-
-  imagesRoot: (props) => ({
+  imagesRoot: () => ({
     paddingInline: "25px",
     gap: "10px",
     display: "flex",
     justifyContent: "space-evenly",
     flexGrow: 1,
     flexWrap: "nowrap",
-
     "@media (max-width: 1023px)": {
       padding: "20px 0 0",
       maxWidth: "100%",
     },
-
     "@media (max-width: 768px)": {
       flexDirection: "column",
       gap: "7%",
@@ -131,19 +126,16 @@ const useStyles = makeStyles((theme) => ({
       justifyContent: "center",
     },
   }),
-
-  titleStyle: (props) => ({
+  titleStyle: () => ({
     margin: "8rem 0 0 -15px",
     whiteSpace: "nowrap",
     transform: "rotate(-90deg)",
     height: "fit-content",
     fontFamily: "Oblik",
     width: "36px",
-
     fontSize: "24px",
     fontWeight: "700",
     letterSpacing: "0.1em",
-
     "@media (max-width: 1023px)": {
       margin: 0,
       transform: "rotate(0deg)",
@@ -152,7 +144,6 @@ const useStyles = makeStyles((theme) => ({
       lineHeight: "50px",
     },
   }),
-
   category: {
     fontFamily: "Josefin Sans",
     fontSize: "22px",
@@ -164,9 +155,8 @@ const useStyles = makeStyles((theme) => ({
       marginTop: "10px",
     },
   },
-
   actionStyle: {
-    margin: " 50px  auto 0px auto",
+    margin: " 50px auto 0px auto",
     display: "flex",
     justifyContent: "center",
   },
@@ -184,7 +174,6 @@ const useStyles = makeStyles((theme) => ({
     color: "#1D3967",
     width: "280px",
     height: "46px",
-
     "@media (max-width: 980px)": {
       marginTop: "20px",
       width: "165px",
@@ -208,15 +197,12 @@ export default function FollowUs({
   id,
   backgroundImagesUrlAndTitles,
   action,
-  styling,
   description,
   title,
   actionType,
   removeInPhoneSize,
   openSliderOnClick,
-  openSliderOnClickKnowMore,
   isClickable,
-  ...props
 }) {
   const isMobile = useMediaQuery({ maxDeviceWidth: 767 });
   const [setModal] = useContext(UserContext);
@@ -230,7 +216,7 @@ export default function FollowUs({
     titleStyle,
     actionStyle,
     hoverImage,
-  } = useStyles({ rootStyleInPhoneSize, ...props });
+  } = useStyles({ rootStyleInPhoneSize });
 
   const clickableParClassNames = isClickable
     ? clsx(photoWrapper, "clickable")
@@ -320,3 +306,20 @@ export default function FollowUs({
     </div>
   );
 }
+
+FollowUs.propTypes = {
+  id: PropTypes.string,
+  backgroundImagesUrlAndTitles: PropTypes.arrayOf(
+    PropTypes.shape({
+      background: PropTypes.string.isRequired,
+      objectPosition: PropTypes.string,
+    })
+  ).isRequired,
+  action: PropTypes.node,
+  description: PropTypes.string,
+  title: PropTypes.string.isRequired,
+  actionType: PropTypes.string,
+  removeInPhoneSize: PropTypes.bool,
+  openSliderOnClick: PropTypes.func,
+  isClickable: PropTypes.bool,
+};

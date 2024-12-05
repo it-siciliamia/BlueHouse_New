@@ -1,5 +1,6 @@
-import { makeStyles } from "@material-ui/core";
 import React from "react";
+import { makeStyles } from "@material-ui/core";
+import PropTypes from "prop-types";
 import { WithTransLate } from "../../components/helpers/translating/index";
 
 const useStyles = makeStyles((theme) => ({
@@ -7,7 +8,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "row",
     textAlign: "left",
-    marginBottom: "30px,",
+    marginBottom: "30px",
     [theme.breakpoints.down("sm")]: {
       flexDirection: "column",
       alignItems: "center",
@@ -57,5 +58,10 @@ function Rule({ Icon, text }) {
     </div>
   );
 }
+
+Rule.propTypes = {
+  Icon: PropTypes.string,
+  text: PropTypes.string.isRequired,
+};
 
 export default Rule;

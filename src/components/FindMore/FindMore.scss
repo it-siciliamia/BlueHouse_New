@@ -19,10 +19,10 @@
     text-align: center;
   }
 
-  .findMoreContainer > img {
-    width: 70vw;
-    @media (max-width: 768px) {
-      width: 50vw;
-    }
+  .link {
+    width: 50vw;
+  }
+  .image {
+    width: 50vw;
   }
 }

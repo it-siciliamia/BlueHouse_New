@@ -1,3 +1,5 @@
+import React from "react";
+import PropTypes from "prop-types";
 import supportImage from "../../images/support/support.png";
 import faqImage from "../../images/support/faq.png";
 import forumImage from "../../images/support/forum.png";
@@ -18,6 +20,12 @@ function SupportCard({ description, title, image }) {
     </div>
   );
 }
+
+SupportCard.propTypes = {
+  description: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+};
 
 export default function Support() {
   return (

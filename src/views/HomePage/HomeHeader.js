@@ -1,3 +1,5 @@
+import React from "react";
+import PropTypes from "prop-types";
 import { Box, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import Facebook from "../../images/Header_icons/headerSocialIcons/facebook.svg";
@@ -300,3 +302,8 @@ export default function Header({ title, titleMargins }) {
     </Box>
   );
 }
+
+Header.propTypes = {
+  title: PropTypes.string,
+  titleMargins: PropTypes.string,
+};

@@ -1,3 +1,4 @@
+import React from "react";
 import Advantages from "./Advantages";
 import HeaderIcons from "./HeaderIcons";
 import "./index.css";

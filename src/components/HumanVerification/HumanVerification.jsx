@@ -1,3 +1,4 @@
+import React from "react";
 import { useState, useEffect, useCallback } from "react";
 import { ReactComponent as AirplaneIcon } from "../../images/icon-human/airplane.svg";
 import { ReactComponent as BicycleIcon } from "../../images/icon-human/bicycle.svg";
