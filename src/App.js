@@ -6,8 +6,8 @@ import ScrollToTopButton from "./components/Shared/ScrollToTopButton/ScrollToTop
 import ZohoChat from "./components/helpers/ZohoChat/ZohoChat.jsx";
 import schema from "./components/helpers/SchemaOrg/schema.js";
 import CookiesBanner from "./components/CookiesBanner/CookiesBanner";
-import Header from "./components/Header/index";
-import HomePage from "./views/HomePage/index.js";
+import Header from "./components/Header/index.js";
+import HomePage from "./views/HomePage";
 import PageHeader from "./components/Shared/PageHeader/PageHeader";
 import ScrollToTop from "./components/helpers/ScrollToTop";
 import HouseRules from "./views/HouseRules/index.js";
