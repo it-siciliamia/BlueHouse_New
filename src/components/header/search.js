@@ -1,5 +1,5 @@
-import React from "react";
-import { useRef } from "react";
+import React, { useRef } from "react";
+
 import { Link as RouterLink } from "react-router-dom";
 import { IconButton, MenuItem, makeStyles, Link } from "@material-ui/core";
 import PropTypes from "prop-types";

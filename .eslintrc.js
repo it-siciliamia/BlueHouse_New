@@ -40,3 +40,6 @@ module.exports = {
     es6: true,
   },
 };
+
+//npx eslint ./src --ext .js,.jsx
+//npx eslint . --fix

@@ -9,9 +9,9 @@ import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
-import { Rooms } from "./Galary-information";
-import { Houses } from "./Galary-information";
-import { Surroundings } from "./Galary-information";
+import { Rooms , Houses , Surroundings } from "./Galary-information";
+
+
 import { WithTransLate } from "../../helpers/translating";
 import ImageSlider from "./ImageSlider/ImageSlider";
 
@@ -108,7 +108,7 @@ function CustomTabPanel(props) {
                     pt: 2,
                     pl: 0,
                     pr: 0,
-                    mt: !!room.From ? 6 : 3,
+                    mt: room.From ? 6 : 3,
                     width: "100%",
                     ml: 0,
                     mr: 0,

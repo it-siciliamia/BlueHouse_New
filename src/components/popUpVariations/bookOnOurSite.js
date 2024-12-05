@@ -1,10 +1,10 @@
-import { makeStyles, Typography } from "@material-ui/core";
+import { makeStyles, Typography , Grid } from "@material-ui/core";
 import PopUpVariationMainLayout from "./popUpVariationMainLayout";
 import originalSideImage from "../../images/popUpVariations/BOOKONOURSITE.jpg";
 import BHlogo from "../../images/popUpVariations/bluehouse.svg";
 import replaceImage from "../../images/popUpVariations/replace/BOOKONOURSITE.svg";
 import { WithTransLate } from "../helpers/translating/index";
-import { Grid } from "@material-ui/core";
+
 
 const useStyles = makeStyles((theme) => ({
   intro: {
