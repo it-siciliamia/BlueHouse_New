@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import useCalendarStore from '../../../stores/calendar'
+import '../index.css'
 
 const CapacityForm = () => {
   const [adults,setAdults] = useState(0);
@@ -14,7 +15,7 @@ const CapacityForm = () => {
   }
 
   return (
-    <div className={`calendar-popup fixed top-0 calendar-el left-0 right-0 pb-8 border-8 px-4 h-[40%] max-w-[325px] bg-white text-black pt-3`} style={{ top: `${yTop + 40}px`, left: `${xLeft}px` }}>
+    <div className={`calendar-popup fixed top-0 calendar-el left-0 right-0 pb-8 border-8 px-4 mt-3 h-[40%] max-w-[325px] bg-white text-black pt-3`} style={{ top: `${yTop + 40}px`, left: `${xLeft}px` }}>
         <div className={`flex p-2 border-top align-middle`}>
             <div className="w-full p-2">Adults</div>
             <div className='flex border justify-content-around w-100'>

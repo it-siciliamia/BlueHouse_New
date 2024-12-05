@@ -167,3 +167,17 @@
   margin-top: 15px;
   margin-bottom: 0;
 }
+@media (max-width: 1165px) {
+  .items-disp {
+    display: flex;
+    flex-direction: column;
+      /* Change text color for smaller screens */
+  }
+}
+@media (min-width: 1165px) {
+  .items-disp{
+      display: flex;
+      flex-direction: row;
+      /* Change text color for smaller screens */
+  }
+}

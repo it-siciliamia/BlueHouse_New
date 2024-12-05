@@ -33,10 +33,10 @@ const Capacity = () => {
   return (
     <>
       <div onClick={handleCapacityClick} className={`inputCapacity calendar-el w-full bg-white p-12px border border-black/30 flex items-center gap-3 cursor-pointer`}>
-        {selectedCapacity ? <span className="whitespace-nowrap">{selectedCapacity[0]} adult(s), {selectedCapacity[1]} child(ren) and {selectedCapacity[2]} room(s).</span> : <span className="text-black/70 capitalize whitespace-nowrap">Pick capacity</span>}
-        {!selectedCapacity
-          ? <img src="/assets/images/arrow-down.svg" className="cursor-pointer max-w-5 ms-auto" title="Pick capacity" aria-label="Calendar icon for picking a capacity" />
-          : <img src="/assets/images/close.svg" onClick={handleVoidCapacity} className="ms-auto cursor-pointer max-w-5" title="Clear the selected date" aria-label={`Clear the selected check-in date`} />}
+        {selectedCapacity
+        ? <div className='flex w-full'><span className="whitespace w-full">{selectedCapacity[0]} adult(s), {selectedCapacity[1]} child(ren) and {selectedCapacity[2]} room(s).</span><img src="/assets/images/close.svg" onClick={handleVoidCapacity} className="ms-auto cursor-pointer" title="Clear the selected date" aria-label={`Clear the selected check-in date`} /></div>
+        : <div className='flex w-full'><span className="text-black/70 capitalize whitespace-nowrap w-full">Pick capacity</span>{status!=='capacity'?<img src="/assets/images/arrow-down.svg" className="cursor-pointer" title="Pick capacity" aria-label="Calendar icon for picking a capacity" />:<img src="/assets/images/arrow-up.svg" className="cursor-pointer" title="Pick capacity" aria-label="Calendar icon for picking a capacity" />}</div>}
+
       </div>
       {status === 'capacity' && <CapacityForm />}
     </>
