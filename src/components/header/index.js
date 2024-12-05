@@ -6,10 +6,8 @@ import SideNavbar from "../SideNavbar/SideNavbar";
 import SideNavbarMobile from "../SideNavbar/SideNavbarMobile";
 import Button from "../Shared/Button/Button";
 import Search from "./search";
-
 import { Grid } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-
 import MenuIcon from "../../images/MenuIcon_Header.svg";
 import SearchIcon from "../../images/SearchIcon_Header.svg";
 import logo from "../../images/logoBlue.png";
