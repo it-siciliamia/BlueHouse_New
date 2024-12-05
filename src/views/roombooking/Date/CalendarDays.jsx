@@ -46,7 +46,6 @@ const CalendarDays = () => {
 
   const handleDateClick = useCallback(
     (actualDate) => {
-      console.log("tsss");
       if (status === "start") {
         // const formattedDate = format(actualDate, 'MMM d, yyyy')
         // // Check if the new start date is after the current end date

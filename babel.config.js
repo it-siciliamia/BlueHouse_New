@@ -7,4 +7,5 @@ module.exports = {
     comments: false,
     shouldPrintComment: () => false,
   },
+  presets: ["@babel/preset-env", "@babel/preset-react"],
 };

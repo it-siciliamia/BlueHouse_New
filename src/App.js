@@ -1,4 +1,5 @@
-import { useState, createContext } from "react";
+import React, { useState, createContext } from "react";
+import PropTypes from "prop-types";
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 import { HelmetProvider, Helmet } from "react-helmet-async";
 import { ThemeProvider } from "@material-ui/styles";
@@ -6,19 +7,19 @@ import ScrollToTopButton from "./components/Shared/ScrollToTopButton/ScrollToTop
 import ZohoChat from "./components/helpers/ZohoChat/ZohoChat.jsx";
 import schema from "./components/helpers/SchemaOrg/schema.js";
 import CookiesBanner from "./components/CookiesBanner/CookiesBanner.js";
-import Header from "./components/Header/index.js";
+import Header from "./components/header/index.js";
 import HomePage from "./views/HomePage";
+import Aboutus from "./views/AboutUsPage/AboutUs.js";
+import PrivacyandPolicy from "./views/ImportAndP&P/index.js";
 import PageHeader from "./components/Shared/PageHeader/PageHeader.jsx";
 import ScrollToTop from "./components/helpers/ScrollToTop.js";
 import HouseRules from "./views/HouseRules/HouseRules.js";
 import Footer from "./components/Footer/Footer.js";
 import Notfound from "./views/NotFoundPage/Notfound.js";
-import Aboutus from "./views/AboutUsPage/AboutUs.js";
-import RoomBooking from "./views/RoomBooking/RoomBooking.jsx";
-import PrivacyandPolicy from "./views/ImportAndP&P/index.js";
+import RoomBooking from "./views/roombooking/RoomBooking.jsx";
 import EnquirePage from "./components/BookingPage/EnquirePage.js";
 import ThankYou from "./thankyou/index.js";
-import NewMap from "./components/Map/NewMap.js";
+import NewMap from "./components/map/NewMap";
 import {
   RedirectBlog,
   RedirectTripAdv,
@@ -27,6 +28,10 @@ import theme from "./theme.js";
 import "./App.css";
 
 export const UserContext = createContext();
+
+App.propTypes = {
+  basename: PropTypes.string,
+};
 
 function App({ basename }) {
   const [modalState, setModal] = useState({

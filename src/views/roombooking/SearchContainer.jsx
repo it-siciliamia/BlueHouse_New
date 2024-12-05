@@ -1,3 +1,4 @@
+import React from "react";
 import { useState } from "react";
 import minusIcon from "../../images/roombooking/minus.svg";
 import plusIcon from "../../images/roombooking/plus.svg";

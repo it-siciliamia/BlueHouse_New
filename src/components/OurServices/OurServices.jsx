@@ -1,3 +1,4 @@
+import React from "react";
 import { useState } from "react";
 import { WithTransLate } from "../helpers/translating/index";
 import { useMediaQuery } from "react-responsive";
