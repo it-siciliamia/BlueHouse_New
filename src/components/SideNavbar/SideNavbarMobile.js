@@ -1,11 +1,11 @@
 /* eslint-disable react/jsx-no-duplicate-props */
 import React from "react";
 import { Link as ScrollLink, scroller } from "react-scroll";
-import { Link as RouterLink } from "react-router-dom";
-import { useLocation, useHistory } from "react-router-dom";
+import { Link as RouterLink , useLocation, useHistory } from "react-router-dom";
+
 import { Button, Divider, Grid, makeStyles } from "@material-ui/core";
-import TranslateMe from "../helpers/translating";
-import { WithTransLate } from "../helpers/translating/index";
+import TranslateMe, { WithTransLate } from "../helpers/translating";
+
 import Logo from "../../images/Bluehouse.svg";
 import Escape from "../../images/escape.svg";
 import Door from "../../images/door.svg";

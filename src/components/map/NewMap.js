@@ -1,5 +1,5 @@
-import React from "react";
-import { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
+
 import { useLocation } from "react-router-dom";
 import WeatherCard from "./WeatherCard";
 import { WithTransLate } from "../helpers/translating/index";
