@@ -10,7 +10,7 @@ import Header from "./components/Header/index.js";
 import HomePage from "./views/HomePage";
 import PageHeader from "./components/Shared/PageHeader/PageHeader.jsx";
 import ScrollToTop from "./components/helpers/ScrollToTop.js";
-import HouseRules from "./views/HouseRules/index.js";
+import HouseRules from "./views/HouseRules/HouseRules.js";
 import Footer from "./components/Footer/Footer.js";
 import Notfound from "./views/NotFoundPage/Notfound.js";
 import Aboutus from "./views/AboutUsPage/AboutUs.js";
