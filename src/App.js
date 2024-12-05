@@ -14,11 +14,11 @@ import HouseRules from "./views/HouseRules/HouseRules.js";
 import Footer from "./components/Footer/Footer.js";
 import Notfound from "./views/NotFoundPage/Notfound.js";
 import Aboutus from "./views/AboutUsPage/AboutUs.js";
+import RoomBooking from "./views/RoomBooking/RoomBooking.jsx";
 import PrivacyandPolicy from "./views/ImportAndP&P/index.js";
 import EnquirePage from "./components/BookingPage/EnquirePage.js";
 import ThankYou from "./thankyou/index.js";
 import NewMap from "./components/Map/NewMap.js";
-import RoomBooking from "./views/RoomBooking/RoomBooking.jsx";
 import {
   RedirectBlog,
   RedirectTripAdv,
