@@ -5,25 +5,25 @@ import { ThemeProvider } from "@material-ui/styles";
 import ScrollToTopButton from "./components/Shared/ScrollToTopButton/ScrollToTopButton.jsx";
 import ZohoChat from "./components/helpers/ZohoChat/ZohoChat.jsx";
 import schema from "./components/helpers/SchemaOrg/schema.js";
-import CookiesBanner from "./components/CookiesBanner/CookiesBanner";
+import CookiesBanner from "./components/CookiesBanner/CookiesBanner.js";
 import Header from "./components/Header/index.js";
 import HomePage from "./views/HomePage";
-import PageHeader from "./components/Shared/PageHeader/PageHeader";
-import ScrollToTop from "./components/helpers/ScrollToTop";
+import PageHeader from "./components/Shared/PageHeader/PageHeader.jsx";
+import ScrollToTop from "./components/helpers/ScrollToTop.js";
 import HouseRules from "./views/HouseRules/index.js";
-import Footer from "./components/Footer/Footer";
+import Footer from "./components/Footer/Footer.js";
 import Notfound from "./views/NotFoundPage/Notfound.js";
 import Aboutus from "./views/AboutUsPage/AboutUs.js";
-import PrivacyandPolicy from "./views/ImportAndP&P";
-import EnquirePage from "./components/BookingPage/EnquirePage";
+import PrivacyandPolicy from "./views/ImportAndP&P/index.js";
+import EnquirePage from "./components/BookingPage/EnquirePage.js";
 import ThankYou from "./thankyou/index.js";
 import NewMap from "./components/Map/NewMap.js";
 import RoomBooking from "./views/Roombooking/RoomBooking.jsx";
 import {
   RedirectBlog,
   RedirectTripAdv,
-} from "./components/helpers/redirect/Redirect";
-import theme from "./theme";
+} from "./components/helpers/redirect/Redirect.js";
+import theme from "./theme.js";
 import "./App.css";
 
 export const UserContext = createContext();
