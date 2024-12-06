@@ -50,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function GuideLines() {
+function Guidelines() {
   const { root } = useStyles();
   return (
     <div className={root}>
@@ -101,4 +101,4 @@ function GuideLines() {
   );
 }
 
-export default GuideLines;
+export default Guidelines;
