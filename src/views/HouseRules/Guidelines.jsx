@@ -1,5 +1,5 @@
 import React from "react";
-import Rule from "./Rule";
+import Rule from "./Rule.jsx";
 import { makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
