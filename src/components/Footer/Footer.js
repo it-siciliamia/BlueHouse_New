@@ -4,6 +4,7 @@ import { useMediaQuery } from "react-responsive";
 import { items } from "./footerData";
 import { makeStyles } from "@material-ui/core";
 import { WithTransLate } from "../helpers/translating";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -205,26 +206,49 @@ function Footer() {
                 }`}
               >
                 {item.links.map((link, idx) => (
-                  <a
-                    key={idx}
-                    href={link.href}
-                    className={`${classes.link} ${
-                      index === 2 ? classes.socialLink : ""
-                    }`}
-                    target={link.href.startsWith("/") ? "_self" : "_blank"}
-                    rel={link.href.startsWith("/") ? "" : "noopener noreferrer"}
-                  >
-                    {link.icon && (
-                      <img
-                        src={link.icon}
-                        className={classes.icon}
-                        alt={`Go to ${link.name}`}
-                      />
+                  <React.Fragment key={idx}>
+                    {link.to ? (
+                      <Link
+                        to={link.to}
+                        className={`${classes.link} ${
+                          index === 2 ? classes.socialLink : ""
+                        }`}
+                      >
+                        {link.icon && (
+                          <img
+                            src={link.icon}
+                            className={classes.icon}
+                            alt={`Go to ${link.name}`}
+                          />
+                        )}
+                        <span className={index === 2 ? classes.socialName : ""}>
+                          <WithTransLate text={link.name} />
+                        </span>
+                      </Link>
+                    ) : (
+                      <a
+                        href={link.href}
+                        className={`${classes.link} ${
+                          index === 2 ? classes.socialLink : ""
+                        }`}
+                        target={link.href.startsWith("/") ? "_self" : "_blank"}
+                        rel={
+                          link.href.startsWith("/") ? "" : "noopener noreferrer"
+                        }
+                      >
+                        {link.icon && (
+                          <img
+                            src={link.icon}
+                            className={classes.icon}
+                            alt={`Go to ${link.name}`}
+                          />
+                        )}
+                        <span className={index === 2 ? classes.socialName : ""}>
+                          <WithTransLate text={link.name} />
+                        </span>
+                      </a>
                     )}
-                    <span className={index === 2 ? classes.socialName : ""}>
-                      <WithTransLate text={link.name} />
-                    </span>
-                  </a>
+                  </React.Fragment>
                 ))}
               </div>
               {index < items.length - 1 && isMobile && (
