@@ -22,7 +22,7 @@ function CustomTabPanel(props) {
     <div
       role="tabpanel"
       hidden={value !== index}
-      id={`GALLERY`}
+      id={`GALLERY-${index}`}
       aria-labelledby={`simple-tab-${index}`}
     >
       {value === index && (
@@ -81,7 +81,6 @@ function CustomTabPanel(props) {
                 >
                   <Typography
                     gutterBottom
-                    // variant="div"
                     fontSize="16px"
                     fontWeight="400"
                     color="#000000"
@@ -92,7 +91,6 @@ function CustomTabPanel(props) {
                   </Typography>
                   <Typography
                     gutterBottom
-                    // variant="div"
                     fontSize="14px"
                     fontWeight="300"
                     color="#14202B"
@@ -154,7 +152,7 @@ CustomTabPanel.propTypes = {
 function a11yProps(index) {
   return {
     id: `simple-tab-${index}`,
-    "aria-controls": `simple-tabpanel-${index}`,
+    "aria-controls": `GALLERY-${index}`,
   };
 }
 
@@ -167,6 +165,7 @@ const Gallery = () => {
 
   return (
     <Box
+      id="GALLERY"
       sx={{
         width: "100%",
         paddingTop: "50px",
@@ -176,8 +175,11 @@ const Gallery = () => {
       <Typography
         gutterBottom
         variant="h2"
-        marginLeft="20px"
-        fontFamily={"Oblik"}
+        sx={{
+          fontSize: "20px",
+          marginLeft: "20px",
+          fontFamily: "Oblik",
+        }}
       >
         <WithTransLate sx={{}} text="GALLERY" />
       </Typography>
