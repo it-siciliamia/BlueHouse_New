@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
     right: 0,
     bottom: 0,
     padding: "20px 12vw",
-    backgroundColor: "rgba(255, 255, 255, 0.9)",
+    backgroundColor: "rgba(255, 255, 255, 1)",
     overflow: "auto",
     maxHeight: "calc(100vh - 120px)",
     display: (props) => props.display,
@@ -61,6 +61,7 @@ const useStyles = makeStyles((theme) => ({
 
 function CookiesBanner() {
   const isMobile = useMediaQuery({ maxDeviceWidth: 767 });
+  const isDesktop = useMediaQuery({ minDeviceWidth: 813 });
   const [showCookies, setShowCookies] = useState(false);
   const showAndHide = () => {
     setShowCookies(!showCookies);
@@ -74,7 +75,13 @@ function CookiesBanner() {
   const { root, cookiesDescription, coockieTitle, actions, moreInfo } =
     useStyles({ display });
   return (
-    <div className={root}>
+    <div
+      className={root}
+      style={{
+        border: isMobile ? "3px solid #1d3967" : "3px solid #1d3967",
+        margin: isMobile ? "10px" : isDesktop ? "10px 110px" : "10px 20px",
+      }}
+    >
       <p className={cookiesDescription}>
         <WithTransLate text="BlueHouse uses cookies on bluehouse.is to analyse usage of the website and to enable content sharing on social media. Cookies may be placed by third parties. By closing this message and continuing to use the site you consent to cookie use by bluehouse.is" />
       </p>
