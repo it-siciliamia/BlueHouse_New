@@ -5,7 +5,7 @@ import HomeHeader from "./HomeHeader.js";
 import PhotoGallery from "../../components/PhotoGallery/DesctopGallerySection/photoGallery.js";
 import OurServices from "../../components/OurServices/OurServices.jsx";
 import BookingWrapper from "../../components/BookingWrapper/BookingWrapper.jsx";
-import SliderHome from "./SliderHome/SliderHome.jsx";
+import CaruselSliderHome from "./CaruselSliderHome/CaruselSliderHome.jsx";
 import roomsImage from "../../images/gallery/rooms.svg";
 import housesImage from "../../images/gallery/houseBB2.svg";
 import surroundingsImage from "../../images/gallery/surroundings.svg";
@@ -151,7 +151,7 @@ export default function HomePage() {
   return (
     <Box className={root}>
       <HomeHeader />
-      {!isDesktop && <SliderHome />}
+      {!isDesktop && <CaruselSliderHome />}
       <BookingWrapper />
       <OurServices />
       {!isDesktop && <Galary />}
