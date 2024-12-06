@@ -5,7 +5,7 @@ import { HelmetProvider, Helmet } from "react-helmet-async";
 import { ThemeProvider } from "@material-ui/styles";
 import ScrollToTopButton from "./components/Shared/ScrollToTopButton/ScrollToTopButton.jsx";
 import ZohoChat from "./components/helpers/ZohoChat/ZohoChat.jsx";
-import schema from "./components/helpers/SchemaOrg/schema.js";
+import combinedSchema from "./components/helpers/SchemaOrg/schema.js";
 import CookiesBanner from "./components/CookiesBanner/CookiesBanner.js";
 import Header from "./components/header/index.js";
 import HomePage from "./views/HomePage/HomePage.jsx";
@@ -46,7 +46,7 @@ function App({ basename }) {
     <ThemeProvider theme={theme}>
       <HelmetProvider>
         <Helmet>
-          <script type="application/ld+json">{schema}</script>
+          <script type="application/ld+json">{combinedSchema}</script>
         </Helmet>
         <UserContext.Provider value={[modalState, setModal, room, setRoom]}>
           <ScrollToTop />
