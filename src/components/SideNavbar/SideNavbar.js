@@ -23,7 +23,6 @@ import Whatsapp from "../../images/whatsApp.svg";
 import { Link as RouterLink } from "react-router-dom";
 import TranslateMe, { WithTransLate } from "../helpers/translating";
 
-
 const useStyles = makeStyles((theme) => ({
   root: {
     transitionDuration: "0.5s",
@@ -103,7 +102,7 @@ const useStyles = makeStyles((theme) => ({
   sliderEscape: {
     position: "fixed",
     transition: "all 1s",
-    right: (props) => (props.right === 0 ? "10px" : "-100px"),
+    right: (props) => (props.right === 0 ? "20px" : "-100px"),
     width: "fit-content",
     padding: 0,
     "&:focus": {
