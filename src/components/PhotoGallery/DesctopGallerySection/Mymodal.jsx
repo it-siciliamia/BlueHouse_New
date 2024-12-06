@@ -251,7 +251,6 @@ const MyModal = ({ index, open, setOpen, setTabIndex }) => {
                         <Button
                           href="https://beds24.com/booking2.php?propid=3578&layout=1"
                           target="_blank"
-                          variant="contained"
                           sx={{
                             width: 225,
                             height: 46,
@@ -263,6 +262,11 @@ const MyModal = ({ index, open, setOpen, setTabIndex }) => {
                             color: "white",
                             mt: 3,
                             mb: 2,
+                            "&:hover": {
+                              background: "white",
+                              color: "#073762",
+                              border: "1px solid #073762",
+                            },
                           }}
                         >
                           <span style={{ marginTop: "5px" }}>
@@ -334,7 +338,6 @@ const MyModal = ({ index, open, setOpen, setTabIndex }) => {
                         <Button
                           href="https://beds24.com/booking2.php?propid=3578&layout=1"
                           target="_blank"
-                          variant="contained"
                           sx={{
                             width: 225,
                             height: 46,
@@ -346,6 +349,11 @@ const MyModal = ({ index, open, setOpen, setTabIndex }) => {
                             color: "white",
                             mt: 3,
                             mb: 2,
+                            "&:hover": {
+                              background: "white",
+                              color: "#073762",
+                              border: "1px solid #073762",
+                            },
                           }}
                         >
                           <span style={{ marginTop: "5px" }}>
