@@ -11,7 +11,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  background-color: rgba(240, 255, 255, 0.614);
+  background: rgba(245, 245, 245, 0.269);
 }
 
 .slick-prev:before,
@@ -22,12 +22,12 @@
 .slick-prev:hover,
 .slick-next:hover {
   opacity: 1;
-  background: rgba(62, 66, 66, 0.4);
+  background-color: rgba(245, 245, 245, 0.634);
 }
 
 .slick-prev:hover .btnIconLeft,
 .slick-next:hover .btnIconRight {
-  color: white;
+  color: #073762;
 }
 
 .slick-prev,
@@ -45,13 +45,13 @@
 }
 
 .btnIconLeft {
-  color: #073762;
+  color: white;
   font-size: 35px;
   margin-right: 4px;
 }
 
 .btnIconRight {
-  color: #073762;
+  color: white;
   font-size: 35px;
   margin-left: 4px;
 }
