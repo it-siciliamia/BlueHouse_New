@@ -9,7 +9,6 @@ import { WithTransLate } from "../../helpers/translating/index";
 import MyModal from "./Mymodal";
 import "./PhotoGallery.css";
 import Button from "../../Shared/Button/Button";
-
 const useStyles = makeStyles((theme) => ({
   root: (props) => ({
     display: "flex",
@@ -60,6 +59,7 @@ const useStyles = makeStyles((theme) => ({
       },
     },
   }),
+
   imagesRoot: (props) => ({
     gap: "10px",
     display: "flex",
@@ -68,6 +68,7 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: "-60px",
     marginRight: "-20px",
     flexWrap: "wrap",
+
     [theme.breakpoints.down("md")]: {
       flexWrap: "wrap",
       justifyContent: "space-evenly",
@@ -162,6 +163,7 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     background:
       "linear-gradient(180deg, rgba(0, 0, 0, 0.52) 0%, rgba(0, 0, 0, 0.25) 100%)",
+
     [theme.breakpoints.down("md")]: {
       "& div:first-child": {
         width: "100%",
@@ -207,6 +209,7 @@ export default function PhotoGallery({
     titleStyle,
     category,
     actionStyle,
+
     hoverImage,
   } = useStyles({ rootStyleInPhoneSize, ...props });
 
