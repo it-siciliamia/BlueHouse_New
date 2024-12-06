@@ -1,10 +1,10 @@
 import React from "react";
-import GuideLines from "./GuideLines.js";
 import Support from "../../components/SuportComponent/support.js";
 import image from "../../images/houserules.jpg";
 import image2 from "../../images/houserules_mobile.png";
 import { makeStyles } from "@material-ui/core/styles";
 import { WithTransLate } from "../../components/helpers/translating/index";
+import Guidelines from "./Guidelines.jsx";
 
 const useStyles = makeStyles((theme) => ({
   imageStyle: {
@@ -83,7 +83,7 @@ function HouseRules() {
         <img src={image} alt="HOUSE RULES 2" className={imageStyle} />
       </div>
       <div className={houseRules}>
-        <GuideLines />
+        <Guidelines />
       </div>
       <Support />
     </div>

@@ -1,5 +1,5 @@
 import React from "react";
-import Rule from "./Rule";
+import Rule from "./Rule.jsx";
 import { makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
@@ -50,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function GuideLines() {
+function Guidelines() {
   const { root } = useStyles();
   return (
     <div className={root}>
@@ -97,24 +97,8 @@ function GuideLines() {
         If you wish to check out later, please contact info@bluehouse.is as we can help you further. 
         You are also always welcome to stay a couple of more hours in our common areas if needed."
       />
-      {/* <div>
-        <h3>Cancellation Policy</h3>
-      </div>
-      <Rule
-        Icon={"./Money.svg"}
-        text="Standard: The amount will be charged within 14 days prior to the arrival day. Guests can cancel their booking for free up to 14 days before their arrival day. If guests cancel within 14 days before the arrival date, no refund will be issued."
-      />
-      <Rule
-        Icon={"./Nomoney.svg"}
-        text="Non-refundable: The amount will be charged immediately. If guests cancel at any time, no refund will be issued."
-      />
-      <div className={info}>
-        <h2>
-          <WithTransLate text="The Blue House Team" />
-        </h2>
-      </div> */}
     </div>
   );
 }
 
-export default GuideLines;
+export default Guidelines;

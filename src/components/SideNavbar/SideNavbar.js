@@ -21,8 +21,8 @@ import Facebook from "../../images/facebook.svg";
 import Whatsapp from "../../images/whatsApp.svg";
 // import Email from "../images/email.svg";
 import { Link as RouterLink } from "react-router-dom";
-import TranslateMe from "../helpers/translating";
-import { WithTransLate } from "../helpers/translating/index";
+import TranslateMe, { WithTransLate } from "../helpers/translating";
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
