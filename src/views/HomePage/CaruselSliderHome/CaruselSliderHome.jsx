@@ -8,7 +8,7 @@ import slide05 from "../../../images/homePageSlider/slide5.webp";
 import slide06 from "../../../images/homePageSlider/slide6.webp";
 import videoSrc from "../../../videos/intro.mp4";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
-import s from "./SliderHome.module.scss";
+import s from "./CaruselSliderHome.module.scss";
 
 const images = [videoSrc, slide01, slide02, slide03, slide04, slide05, slide06];
 
