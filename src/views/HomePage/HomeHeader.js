@@ -8,7 +8,7 @@ import houserules_mobile from "../../images/houserules_mobile.png";
 import Email from "../../images/Header_icons/headerSocialIcons/email.svg";
 import Whatsapp from "../../images/Header_icons/headerSocialIcons/whats.svg";
 import { WithTransLate } from "../../components/helpers/translating/index";
-import SliderHome from "./SliderHome/SliderHome";
+import CaruselSliderHome from "./CaruselSliderHome/CaruselSliderHome";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -297,7 +297,7 @@ export default function Header({ title, titleMargins }) {
         </Box>
       )}
       <Box>
-        <SliderHome />
+        <CaruselSliderHome />
       </Box>
     </Box>
   );
