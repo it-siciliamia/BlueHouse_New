@@ -9,8 +9,7 @@ import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
-import { Rooms , Houses , Surroundings } from "./Galary-information";
-
+import { Rooms, Houses, Surroundings } from "./Galary-information";
 
 import { WithTransLate } from "../../helpers/translating";
 import ImageSlider from "./ImageSlider/ImageSlider";
@@ -176,7 +175,7 @@ const Gallery = () => {
     >
       <Typography
         gutterBottom
-        variant="h6"
+        variant="h2"
         marginLeft="20px"
         fontFamily={"Oblik"}
       >

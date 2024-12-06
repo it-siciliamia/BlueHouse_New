@@ -25,7 +25,7 @@ const BookingWrapper = () => {
         </a>
         <div className="ordial">
           <hr />
-          <p>
+          <p style={{ color: "#1d3967" }}>
             <WithTransLate text="OR" />
           </p>
           <hr />
