@@ -1,6 +1,7 @@
 import * as React from "react";
 import PropTypes from "prop-types";
 import { useMediaQuery } from "react-responsive";
+import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
@@ -63,16 +64,27 @@ function CustomTabPanel(props) {
                           alignItems: "center",
                           justifyContent: "center",
                           zIndex: "2",
-                          height: "40px",
+                          height: "60px",
                           width: "100%",
                           fontSize: "15px",
                           color: "white",
                           background:
-                            "linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8))",
+                            "linear-gradient(to bottom, rgba(0, 0, 0,  0), rgba(0, 0, 0,  0.4), rgba(0, 0, 0, 0.8))",
                           textShadow: "2px 2px 4px rgba(0, 0, 0, 0.7)",
                         }}
                       >
-                        <WithTransLate text={`<- swipe to see more->`} />
+                        {/* <DotLottieReact
+                          src="https://lottie.host/c5ab6f95-ee26-4dee-bc61-cf78f2044e6b/9KVNaXgEwD.lottie"
+                          loop
+                          autoplay
+                          speed={0.6}
+                        /> */}
+                        <DotLottieReact
+                          src="https://lottie.host/e5903ea4-cd45-454c-83d0-ca95cbbb6749/bk7jcjsaoe.lottie"
+                          loop
+                          autoplay
+                          speed={0.6}
+                        />
                       </div>
                     )}
                 </div>
