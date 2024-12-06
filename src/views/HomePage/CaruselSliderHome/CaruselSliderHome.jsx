@@ -12,7 +12,7 @@ import s from "./SliderHome.module.scss";
 
 const images = [videoSrc, slide01, slide02, slide03, slide04, slide05, slide06];
 
-const SliderHome = () => {
+const CaruselSliderHome = () => {
   const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
   const isDesktop = useMediaQuery({ minDeviceWidth: 813 });
   const isMobile = useMediaQuery({ maxDeviceWidth: 767 });
@@ -171,4 +171,4 @@ const SliderHome = () => {
   );
 };
 
-export default SliderHome;
+export default CaruselSliderHome;
