@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/BlueHouse_New/static/css/main.c5476dfb.chunk.css",
+    "main.css": "/BlueHouse_New/static/css/main.8fa6e445.chunk.css",
     "main.js": "/BlueHouse_New/static/js/main.ed92f2a3.chunk.js",
     "main.js.map": "/BlueHouse_New/static/js/main.ed92f2a3.chunk.js.map",
     "runtime-main.js": "/BlueHouse_New/static/js/runtime-main.c8d2bf66.js",
@@ -12,7 +12,7 @@
     "static/js/3.c1f8ef91.chunk.js.map": "/BlueHouse_New/static/js/3.c1f8ef91.chunk.js.map",
     "index.html": "/BlueHouse_New/index.html",
     "static/css/2.16ce25a8.chunk.css.map": "/BlueHouse_New/static/css/2.16ce25a8.chunk.css.map",
-    "static/css/main.c5476dfb.chunk.css.map": "/BlueHouse_New/static/css/main.c5476dfb.chunk.css.map",
+    "static/css/main.8fa6e445.chunk.css.map": "/BlueHouse_New/static/css/main.8fa6e445.chunk.css.map",
     "static/js/2.967149a0.chunk.js.LICENSE.txt": "/BlueHouse_New/static/js/2.967149a0.chunk.js.LICENSE.txt",
     "static/media/1.54ed61ff.webp": "/BlueHouse_New/static/media/1.54ed61ff.webp",
     "static/media/2.0d3c956b.webp": "/BlueHouse_New/static/media/2.0d3c956b.webp",
@@ -189,7 +189,7 @@
     "static/js/runtime-main.c8d2bf66.js",
     "static/css/2.16ce25a8.chunk.css",
     "static/js/2.967149a0.chunk.js",
-    "static/css/main.c5476dfb.chunk.css",
+    "static/css/main.8fa6e445.chunk.css",
     "static/js/main.ed92f2a3.chunk.js"
   ]
 }
