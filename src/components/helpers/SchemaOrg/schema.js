@@ -6,7 +6,7 @@ const schema = `{
   "logo": "https://bluehouse.is/logo.jpg",
   "contactPoint": {
     "@type": "ContactPoint",
-    "telephone": "+354 775 6480",
+    "telephone": "+3547756480",
     "contactType": "Reservations",
     "email": "info@bluehouse.is"
   },
@@ -25,99 +25,71 @@ const schema = `{
   "hasPart": [
     {
       "@type": "LodgingBusiness",
-      "name": "Blue House B&B",
-      "url": "https://bluehouse.is",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Valhúsabraut 19",
-        "addressLocality": "Seltjarnarnes",
-        "postalCode": "170",
-        "addressCountry": "IS"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 64.154115,
-        "longitude": -21.998533
-      },
-      "telephone": "+354 775 6480",
-      "makesOffer": {
-        "@type": "Offer",
-        "name": "Family Room - Nes - Grotta Northern Lights",
-        "description": "Private Bathroom, Bed & Living room, Sea View, King Sized Bed + Sofa Bed, Self-service Continental Breakfast.",
-        "priceCurrency": "EUR",
-        "price": "150.00",
-        "priceValidUntil": "2024-11-07",
-        "itemOffered": {
-          "@type": "Accommodation",
-          "name": "Family Room - Nes - Grotta Northern Lights",
-          "bed": "King Sized Bed + Sofa Bed",
-          "numberOfRooms": 1,
-          "occupancy": {
-            "@type": "QuantitativeValue",
-            "value": 4,
-            "unitCode": "C62"
-          }
-        },
-        "availability": "https://schema.org/InStock"
-      }
+      "name": "Economy Double Room",
+      "description": "Located at 3 properties. Facing Valhúsahaedpark, equipped with a queen-size bed and Netflix TV. Shared bathroom and kitchen. Continental self-service breakfast included.",
+      "priceRange": "120-140 EUR"
     },
     {
       "@type": "LodgingBusiness",
-      "name": "Grótta Northern Lights Apartment",
-      "url": "https://bluehouse.is",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Miðbraut 11",
-        "addressLocality": "Seltjarnarnes",
-        "postalCode": "170",
-        "addressCountry": "IS"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 64.155827,
-        "longitude": -21.996957
-      },
-      "telephone": "+354 775 6480",
-      "makesOffer": {
-        "@type": "Offer",
-        "name": "Grótta Northern Lights Apartment",
-        "description": "Private Apartment with Sea View, King Sized Bed, Self-service Continental Breakfast.",
-        "priceCurrency": "EUR",
-        "price": "200.00",
-        "priceValidUntil": "2024-11-07",
-        "itemOffered": {
-          "@type": "Accommodation",
-          "name": "Grótta Northern Lights Apartment",
-          "bed": "King Sized Bed",
-          "numberOfRooms": 1,
-          "occupancy": {
-            "@type": "QuantitativeValue",
-            "value": 2,
-            "unitCode": "C62"
-          }
-        },
-        "availability": "https://schema.org/InStock"
-      }
+      "name": "Double/Twin Room",
+      "description": "Located at 3 properties. Facing the seaside, equipped with king-size or twin bed and Netflix TV. Shared bathroom and kitchen. Continental self-service breakfast included.",
+      "priceRange": "120-140 EUR"
     },
     {
-      "@type": "LandmarksOrHistoricalBuildings",
-      "name": "Grótta Lighthouse",
-      "url": "https://bluehouse.is",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Grótta",
-        "addressLocality": "Seltjarnarnes",
-        "postalCode": "170",
-        "addressCountry": "IS"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 64.164522,
-        "longitude": -22.022136
-      },
-      "telephone": "+354 775 6480"
+      "@type": "LodgingBusiness",
+      "name": "Ec. Triple Room",
+      "description": "Located in the Blue House and Yellow House. Equipped with king-size/twin bed and Netflix-TV. Extra beds are queen-sized sofa beds. Shared bathroom and kitchen. Continental self-service breakfast included.",
+      "priceRange": "108-130 EUR"
+    },
+    {
+      "@type": "LodgingBusiness",
+      "name": "Ec. Quadruple Room",
+      "description": "Located in the Blue House and Yellow House. Equipped with king-size/twin bed and Netflix-TV. Extra beds are queen-sized sofa beds. Shared bathroom and kitchen. Private options available. Breakfast options included.",
+      "priceRange": "127-150 EUR"
+    },
+    {
+      "@type": "LodgingBusiness",
+      "name": "Family Room - Nes - Grotta Northern Lights",
+      "description": "Located at the Yellow House. Incredible seaside and lighthouse view, popular for northern lights hunters. Equipped with Netflix-TV, King size bed, and sofa bed. Private bathroom and dining area. Shared kitchen. Breakfast included.",
+      "priceRange": "120-140 EUR"
+    },
+    {
+      "@type": "LodgingBusiness",
+      "name": "Two Bedroom Apartment",
+      "description": "Ideal for families and groups. Located in the garden of the Blue House. Two bedrooms with double or twin beds, Netflix-TV, private living room, bathroom, kitchenette, terrace, and dining area. Breakfast included.",
+      "priceRange": "150-170 EUR"
+    },
+    {
+      "@type": "LodgingBusiness",
+      "name": "Three Bedroom Apartment",
+      "description": "Located at the Yellow House. Incredible seaside and lighthouse view, popular for northern lights hunters. Up to 12 adults (recommended 9). Multiple beds, 3 Netflix-TV equipped rooms, private bathroom, kitchen, terrace, and dining area. Breakfast included.",
+      "priceRange": "170-210 EUR"
     }
-  ]
+  ],
+  "blog": {
+    "@type": "Blog",
+    "url": "https://blog.bluehouse.is",
+    "name": "Blue House Blog",
+    "description": "Discover useful travel tips, insights, and updates about staying at Blue House and exploring Iceland."
+  },
+  "support": {
+    "@type": "FAQPage",
+    "url": "https://bluehouseis.zohodesk.eu/portal/en/home",
+    "name": "Blue House FAQ",
+    "description": "Find answers to frequently asked questions about staying at Blue House."
+  },
+  "forum": {
+    "@type": "DiscussionForumPosting",
+    "url": "https://bluehouseis.zohodesk.eu/portal/en/community/guestforum",
+    "name": "Blue House Community Forum",
+    "description": "Join discussions and explore interesting topics with other guests."
+  },
+  "tours": {
+    "@type": "Service",
+    "name": "Tours and Activities",
+    "url": "https://bluehouse.tourdesk.is/Tour?notfound=True",
+    "description": "Book unique tours and activities in Iceland through Blue House."
+  }
 }`;
 
 export default schema;

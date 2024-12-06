@@ -35,6 +35,13 @@ const pagesData = {
     keywords:
       "privacy policy, terms of service, data protection, cookies, Blue House policies, Iceland accommodation privacy, data security, user rights, personal data usage, cookies policy",
   },
+  "/beds24": {
+    title: "Book Apartments Directly - Best Price Guarantee | Blue House",
+    description:
+      "Book apartments directly from the owner for the best price. Check availability for your chosen dates, view apartment photos, read living conditions, and proceed to booking.",
+    keywords:
+      "direct booking, best price, Blue House apartments, Reykjavik apartments, Iceland lodging, book directly, apartment availability, Reykjavik accommodation photos, Reykjavik living conditions, Blue House booking",
+  },
   default: {
     title: "Page Not Found",
     description: "This page does not exist.",
