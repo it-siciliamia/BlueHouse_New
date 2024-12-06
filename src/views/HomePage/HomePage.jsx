@@ -21,7 +21,7 @@ import Support from "../../components/SuportComponent/support.js";
 import Recommendations from "../../components/Recommendations/recommendations.js";
 import AboutUs from "../../components/AboutUs/AboutUs.jsx";
 import BlogPart from "../../components/BlogComponent/Blog.js";
-import FollowUs from "./FollowUs.js";
+import FollowUs from "./FollowUs.jsx";
 import NewsLetter from "../../components/NewsLetter/NewsLetter.jsx";
 import FindMore from "../../components/FindMore/FindMore.jsx";
 
