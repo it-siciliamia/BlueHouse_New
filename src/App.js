@@ -8,7 +8,7 @@ import ZohoChat from "./components/helpers/ZohoChat/ZohoChat.jsx";
 import schema from "./components/helpers/SchemaOrg/schema.js";
 import CookiesBanner from "./components/CookiesBanner/CookiesBanner.js";
 import Header from "./components/header/index.js";
-import HomePage from "./views/HomePage";
+import HomePage from "./views/HomePage/HomePage.jsx";
 import Aboutus from "./views/AboutUsPage/AboutUs.js";
 import PrivacyandPolicy from "./views/ImportAndP&P/index.js";
 import PageHeader from "./components/Shared/PageHeader/PageHeader.jsx";
