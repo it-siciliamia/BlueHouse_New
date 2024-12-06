@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
     left: "53.9%",
     transform: "translate(-50%, -50%)",
     boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
-    animation: "$showup 1s",
+    animation: "$showup 0.3s",
     background: "#EDF1F4",
     [theme.breakpoints.down("xs")]: {
       height: "100vh",
