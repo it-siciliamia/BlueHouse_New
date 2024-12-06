@@ -1,11 +1,9 @@
 /* eslint-disable react/jsx-no-duplicate-props */
 import React from "react";
 import { Link as ScrollLink, scroller } from "react-scroll";
-import { Link as RouterLink , useLocation, useHistory } from "react-router-dom";
-
+import { Link as RouterLink, useLocation, useHistory } from "react-router-dom";
 import { Button, Divider, Grid, makeStyles } from "@material-ui/core";
 import TranslateMe, { WithTransLate } from "../helpers/translating";
-
 import Logo from "../../images/Bluehouse.svg";
 import Escape from "../../images/escape.svg";
 import Door from "../../images/door.svg";
@@ -20,7 +18,6 @@ import Location from "../../images/location.svg";
 import Instagram from "../../images/instagram.svg";
 import Facebook from "../../images/facebook.svg";
 import Whatsapp from "../../images/whatsApp.svg";
-// import Email from "../../images/email.svg";
 
 const bookingsList = [
   {
@@ -61,11 +58,9 @@ const useStyles = makeStyles((theme) => ({
     overflowY: "auto",
     display: "flex",
     flexDirection: "column",
-
     "@media (min-width: 661px)": {
       display: "none",
     },
-
     "&::before": {
       maxWidth: "100vw",
       position: "fixed",
@@ -76,7 +71,6 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: "black",
     },
   },
-
   sliderTitle: {
     fontWeight: "700",
     padding: "0",
@@ -84,7 +78,6 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "16px",
     lineHeight: "1",
   },
-
   sliderLink: {
     margin: "0",
     padding: "0",
@@ -92,14 +85,12 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: "400",
     lineHeight: "1",
   },
-
   horizontalLine: {
     width: "117%",
     margin: "20px 0 10px -35px",
     border: "0px solid rgba(255, 255, 255, 0.17)",
     background: "rgba(255, 255, 255, 0.17)",
   },
-
   sliderInfo: {
     fontSize: "15px",
     fontWeight: "400",
@@ -107,75 +98,62 @@ const useStyles = makeStyles((theme) => ({
     margin: "10px 0",
     color: "white",
   },
-
   sliderLogo: {
     width: "110px",
     marginBottom: "26px",
   },
-
   sliderHeader: {
     display: "flex",
     alignItems: "flex-start",
     justifyContent: "space-between",
   },
-
   sliderEscape: {
     transition: "all 1s",
     width: "fit-content",
     padding: 0,
-
     "&:focus": {
       outline: "none",
     },
   },
-
   groupIcons: {
     display: "flex",
     justifyContent: "space-between",
     width: "120px",
     marginBottom: "13px",
   },
-
   sliderIconss: {
     margin: "0",
     marginLeft: "-3px",
     marginRight: "-8px",
   },
-
   highlightedColor: {
     color: "white",
     "&:hover": {
       color: "#1E90FF !important",
     },
   },
-
   socialIcons: {
     transform: "scale(.9)",
   },
-
   linksWrapper: {
     padding: "17px 1vw 0",
   },
-
   linksList: {
     margin: "0",
     padding: "0 0 21px 0",
     display: "flex",
     flexDirection: "column",
     gap: "12px",
-
     "& li": {
       listStyle: "none",
       display: "flex",
       justifyContent: "start",
       gap: "15px",
-
       "& img": {
         objectFit: "contain",
       },
     },
   },
-
   [theme.breakpoints.down("sm")]: {
     sliderEscape: {
       minWidth: "20px",
@@ -259,7 +237,6 @@ function SideNavbarMobile(props) {
                 src={item.src}
                 alt="Bookings List"
               />
-
               <a
                 href={item.href}
                 target="_blank"
@@ -283,18 +260,13 @@ function SideNavbarMobile(props) {
               src={Gallery}
               alt="Scroll to Gallery"
             />
-
-            <ScrollLink
+            <RouterLink
               className={highlightedColor}
-              to="GALLERY"
-              spy={true}
-              smooth={true}
-              offset={-70}
-              duration={500}
+              to="/#GALLERY"
               onClick={() => navigateAndScroll("GALLERY")}
             >
               <WithTransLate text="Gallery" />
-            </ScrollLink>
+            </RouterLink>
           </li>
 
           <li>
@@ -303,17 +275,13 @@ function SideNavbarMobile(props) {
               src={Bag}
               alt="Scroll to Recommendations"
             />
-            <ScrollLink
+            <RouterLink
               className={highlightedColor}
-              to="RECOMMENDATIONS"
-              spy={true}
-              smooth={true}
-              offset={-70}
-              duration={500}
+              to="/#RECOMMENDATIONS"
               onClick={() => navigateAndScroll("RECOMMENDATIONS")}
             >
               <WithTransLate text="Recommendations" />
-            </ScrollLink>
+            </RouterLink>
           </li>
 
           <li>
@@ -323,18 +291,13 @@ function SideNavbarMobile(props) {
               src={aboutus}
               alt="Scroll to About Us"
             />
-
-            <ScrollLink
+            <RouterLink
               className={highlightedColor}
-              to="ABOUTUS"
-              spy={true}
-              smooth={true}
-              offset={-70}
-              duration={500}
-              onClick={() => navigateAndScroll("ABOUTUS")}
+              to="/about-us"
+              onClick={scroll}
             >
               <WithTransLate text="About us" />
-            </ScrollLink>
+            </RouterLink>
           </li>
         </ul>
 
@@ -350,18 +313,13 @@ function SideNavbarMobile(props) {
               src={supportImage}
               alt="Scroll to Support"
             />
-
-            <ScrollLink
+            <RouterLink
               className={highlightedColor}
-              to="SUPPORT"
-              spy={true}
-              smooth={true}
-              offset={-70}
-              duration={500}
+              to="/#SUPPORT"
               onClick={() => navigateAndScroll("SUPPORT")}
             >
               <WithTransLate text="Support" />
-            </ScrollLink>
+            </RouterLink>
           </li>
 
           <li>
@@ -388,18 +346,13 @@ function SideNavbarMobile(props) {
               src={Location}
               alt="Scroll to Map"
             />
-
-            <ScrollLink
+            <RouterLink
               className={highlightedColor}
-              to="MAP"
-              spy={true}
-              smooth={true}
-              offset={-70}
-              duration={500}
+              to="/#MAP"
               onClick={() => navigateAndScroll("MAP")}
             >
               <WithTransLate text="Map" />
-            </ScrollLink>
+            </RouterLink>
           </li>
         </ul>
       </div>
@@ -434,14 +387,6 @@ function SideNavbarMobile(props) {
           >
             <img className={socialIcons} src={Whatsapp} alt="Whatsapp" />
           </a>
-          {/* <a
-            onClick={scroll}
-            href="https://gnl.ladesk.com/submit_ticket"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <img className={socialIcons} src={Email} alt="Email" />
-          </a> */}
         </div>
 
         <Divider className={horizontalLine} />

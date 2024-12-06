@@ -19,7 +19,6 @@ import Location from "../../images/location.svg";
 import Instagram from "../../images/instagram.svg";
 import Facebook from "../../images/facebook.svg";
 import Whatsapp from "../../images/whatsApp.svg";
-// import Email from "../images/email.svg";
 import { Link as RouterLink } from "react-router-dom";
 import TranslateMe, { WithTransLate } from "../helpers/translating";
 
@@ -44,11 +43,9 @@ const useStyles = makeStyles((theme) => ({
       width: "48.9%",
       maxWidth: "none",
     },
-
     "@media (max-width: 601px)": {
       display: "none",
     },
-
     "&::before": {
       position: "fixed",
       top: "0",
@@ -58,7 +55,6 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: "black",
     },
   },
-
   sliderTitle: {
     fontSize: "16px",
     fontWeight: "700",
@@ -227,7 +223,7 @@ function SideNavbar(props) {
           </p>
         </Grid>
         <Grid
-          component={"a"}
+          component="a"
           href="https://bluehouse.tourdesk.is/Transportation"
           target="_blank"
           container
@@ -247,7 +243,7 @@ function SideNavbar(props) {
           </Grid>
         </Grid>
         <Grid
-          component={"a"}
+          component="a"
           href="https://beds24.com/booking2.php?propid=3578&layout=1"
           target="_blank"
           container
@@ -267,7 +263,7 @@ function SideNavbar(props) {
           </Grid>
         </Grid>
         <Grid
-          component={"a"}
+          component="a"
           href="https://bluehouse.tourdesk.is/Tour"
           target="_blank"
           container
@@ -287,7 +283,7 @@ function SideNavbar(props) {
           </Grid>
         </Grid>
         <Grid
-          component={"a"}
+          component="a"
           href="https://bluehouse.tourdesk.is/CarRental"
           target="_blank"
           container
@@ -319,13 +315,9 @@ function SideNavbar(props) {
         </Grid>
 
         <Grid
-          component={ScrollLink}
+          component={RouterLink}
           onClick={() => navigateAndScroll("GALLERY_DESCTOP")}
-          to="GALLERY_DESCTOP"
-          spy={true}
-          smooth={true}
-          offset={-70}
-          duration={500}
+          to="/#GALLERY_DESCTOP"
           container
           item
           spacing={2}
@@ -348,13 +340,9 @@ function SideNavbar(props) {
         </Grid>
 
         <Grid
-          component={ScrollLink}
+          component={RouterLink}
           onClick={() => navigateAndScroll("RECOMMENDATIONS")}
-          to="RECOMMENDATIONS"
-          spy={true}
-          smooth={true}
-          offset={-70}
-          duration={500}
+          to="/#RECOMMENDATIONS"
           container
           item
           spacing={2}
@@ -376,8 +364,6 @@ function SideNavbar(props) {
           component={RouterLink}
           onClick={scroll}
           to="/about-us"
-          duration={500}
-          offset={-150}
           container
           item
           spacing={2}
@@ -511,13 +497,9 @@ function SideNavbar(props) {
         </Grid> */}
 
         <Grid
-          component={ScrollLink}
+          component={RouterLink}
           onClick={() => navigateAndScroll("MAP")}
-          to="MAP"
-          spy={true}
-          smooth={true}
-          offset={-70}
-          duration={500}
+          to="/#MAP"
           container
           item
           spacing={2}
