@@ -80,7 +80,7 @@ function CustomTabPanel(props) {
                           speed={0.6}
                         /> */}
                         <DotLottieReact
-                          src="https://lottie.host/e5903ea4-cd45-454c-83d0-ca95cbbb6749/bk7jcjsaoe.lottie"
+                          src="https://lottie.host/910a4f04-df80-4b5e-9ace-0564c5005b2e/7RauUmHT2f.lottie"
                           loop
                           autoplay
                           speed={0.6}
