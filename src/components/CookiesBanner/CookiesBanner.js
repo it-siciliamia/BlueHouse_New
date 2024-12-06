@@ -66,7 +66,7 @@ function CookiesBanner() {
   const showAndHide = () => {
     setShowCookies(!showCookies);
   };
-  const isShowable = Cookies.get("cookiesPermation") ? "flex" : "flex";
+  const isShowable = Cookies.get("cookiesPermation") ? "none" : "flex";
   const [display, setDisplay] = useState(isShowable);
   const handleAcceptingAndDeclineCookies = (choice) => {
     Cookies.set("cookiesPermation", choice);
