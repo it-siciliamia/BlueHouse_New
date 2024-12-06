@@ -10,7 +10,8 @@ import PropTypes from "prop-types";
 
 const isGitHubPages = window.location.hostname.includes("github.io");
 
-const basename = isGitHubPages ? "/BlueHouse_New" : "/";
+// const basename = isGitHubPages ? "/BlueHouse_New" : "/";
+const basename = "/";
 
 const Router = ({ children }) =>
   isGitHubPages ? (
