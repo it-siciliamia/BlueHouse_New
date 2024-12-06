@@ -180,6 +180,10 @@ function Footer() {
   const classes = useStyles();
   const isMobile = useMediaQuery({ maxDeviceWidth: 767 });
 
+  const isInternalLink = (href) => {
+    return href.startsWith("/");
+  };
+
   return (
     <>
       <div style={{ marginBottom: "2rem" }} />
@@ -207,9 +211,9 @@ function Footer() {
               >
                 {item.links.map((link, idx) => (
                   <React.Fragment key={idx}>
-                    {link.to ? (
+                    {isInternalLink(link.href) ? (
                       <Link
-                        to={link.to}
+                        to={link.href}
                         className={`${classes.link} ${
                           index === 2 ? classes.socialLink : ""
                         }`}
@@ -231,10 +235,8 @@ function Footer() {
                         className={`${classes.link} ${
                           index === 2 ? classes.socialLink : ""
                         }`}
-                        target={link.href.startsWith("/") ? "_self" : "_blank"}
-                        rel={
-                          link.href.startsWith("/") ? "" : "noopener noreferrer"
-                        }
+                        target="_blank"
+                        rel="noopener noreferrer"
                       >
                         {link.icon && (
                           <img

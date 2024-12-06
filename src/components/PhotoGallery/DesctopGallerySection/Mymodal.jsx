@@ -119,12 +119,18 @@ const MyModal = ({ index, open, setOpen, setTabIndex }) => {
   }
 
   return (
-    <div>
+    <div style={{ background: "transparent" }}>
       <Modal
         open={open}
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
+        BackdropProps={{
+          style: {
+            backdropFilter: "blur(3px)",
+            backgroundColor: "rgba(0, 0, 0, 0.1)",
+          },
+        }}
       >
         <Box sx={style}>
           <Box
@@ -468,13 +474,13 @@ const MyModal = ({ index, open, setOpen, setTabIndex }) => {
                 sx={{
                   width: "5%",
                   position: "absolute",
-                  top: -20,
-                  right: 0,
-                  zIndex: "10",
+                  top: -30,
+                  right: -20,
+                  zIndex: "5",
                   marginBottom: "20px",
                 }}
               >
-                <IoClose size="25px" color="#2E3A59" />
+                <IoClose size="30px" color="#2E3A59" />
               </Button>
               <Slider
                 {...settings}
