@@ -28,7 +28,9 @@ const headerStyles = makeStyles((theme) => ({
     left: "0",
     right: "0",
     zIndex: 3,
-    backgroundColor: "white",
+    // backgroundColor: "white",
+    backdropFilter: "blur(3px)",
+    backgroundColor: "rgba(255, 255, 255, 0.7)",
     [theme.breakpoints.down("sm")]: {
       padding: "20px 20px",
     },
