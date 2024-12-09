@@ -7,8 +7,9 @@
   max-width: 1275px;
 }
 .hero {
-  gap: 55px;
+  width: 100%;
   display: flex;
+  gap: 55px;
 }
 .social-app-icons {
   display: flex;
