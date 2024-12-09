@@ -1,9 +1,10 @@
 import { items } from "./footerData";
 import { makeStyles } from "@material-ui/core";
-import Logo from "../images/footer/logo-blue.svg";
+// import Logo from "../images/footer/logo-blue.svg";
 import { FaLongArrowAltUp } from "react-icons/fa";
 import { WithTransLate } from "../../translating";
-import Newsletter from "../NewsLetter/NewsLetter";
+// import Newsletter from "../NewsLetter/NewsLetter";
+import ManagePreferencesFooter from "./ManagePreferencesFooter";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -135,7 +136,7 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 300,
     marginRight: "10px",
     flexShrink: 0,
-    cursor: 'pointer'
+    cursor: 'pointer',
   },
   scrollToTopBtn: {
     borderRadius: "100%",
@@ -194,6 +195,7 @@ function Footer() {
       <div className={classes.lineSeparator} style={{ marginTop: "2rem" }} />
       <div className={classes.blueHouseContainer}>
         <span className={classes.blueHouse}>© Blue House 2024</span>
+        <ManagePreferencesFooter />
         <div className={classes.right} onClick={scrollToTop}>
           <div className={classes.backToTop}>
             <WithTransLate text="Back To Top" />

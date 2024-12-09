@@ -2,6 +2,7 @@ import { makeStyles } from "@material-ui/core";
 import React, { useState } from "react";
 import Cookies from "js-cookie";
 import { WithTransLate } from "../translating/index";
+import ManagePreferences from "./Footer/ManagePreferences";
 
 const useStyles = makeStyles((theme) => ({
   "@keyframes showUp": {
@@ -56,6 +57,45 @@ const useStyles = makeStyles((theme) => ({
     cursor: "pointer",
   },
 }));
+
+// const disableChat = () => {
+//   // Attempt to remove all Zoho SalesIQ-related scripts
+//   const zsiqChatScript = document.getElementById("zsiqchat");
+//   const zsiqScript = document.getElementById("zsiqscript");
+
+//   if (zsiqChatScript) {
+//     zsiqChatScript.remove();
+//     console.log("Chat script (zsiqchat) removed.");
+//     console.log(zsiqChatScript)
+//   } else {
+//     console.warn("Chat script (zsiqchat) not found.");
+//   }
+
+//   if (zsiqScript) {
+//     zsiqScript.remove();
+//     console.log("Dynamic chat script (zsiqscript) removed.");
+//   } else {
+//     console.warn("Dynamic chat script (zsiqscript) not found.");
+//   }
+
+//   // Attempt to remove the floating widget
+//   const chatWidget = document.querySelector(".zsiq_float"); // Check the actual class name
+//   if (chatWidget) {
+//     chatWidget.remove();
+//     console.log("Chat widget removed.");
+//   } else {
+//     console.warn("Chat widget not found.");
+//   }
+
+//   // Attempt to clear SalesIQ state
+//   if (window.$zoho && window.$zoho.salesiq) {
+//     window.$zoho.salesiq = null; // Clear global object reference
+//     console.log("Zoho SalesIQ state cleared.");
+//   } else {
+//     console.warn("Zoho SalesIQ object not found.");
+//   }
+// };
+
 
 function CookiesShowUp() {
   const [showCookies, setShowCookies] = useState(false);
@@ -113,6 +153,7 @@ function CookiesShowUp() {
           </p>
         </div>
       )}
+      <ManagePreferences />
       <div className={actions}>
         <button
           onClick={() => handleAcceptingAndDeclineCookies(true)}
@@ -122,7 +163,10 @@ function CookiesShowUp() {
           <WithTransLate text="ACCEPT COOKIES" />
         </button>
         <button
-          onClick={() => handleAcceptingAndDeclineCookies(false)}
+          onClick={() => {
+            handleAcceptingAndDeclineCookies(false);
+            // disableChat();
+          }}
           className="outLinedButton"
         >
           {" "}
