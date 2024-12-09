@@ -62,7 +62,10 @@ const NewMap = () => {
         <div
           id="MAP"
           style={{
-            display: location.pathname === "/" ? "block" : "none",
+            display:
+              location.pathname === "/" || location.pathname === "/beds24"
+                ? "block"
+                : "none",
             position: "relative",
             margin: isMobile ? "10px 0 60px 0" : "90px 0",
             padding: "-2px",

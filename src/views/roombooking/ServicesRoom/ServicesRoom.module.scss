@@ -1,0 +1,108 @@
+.services {
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+}
+
+.servicesPart {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+}
+
+.servicesName {
+  position: relative;
+  width: 5.1%;
+}
+
+.servicesNameWrapper {
+  position: absolute;
+  top: 24px;
+  left: -25px;
+  transform: rotate(-90deg);
+  font-family: "Oblik";
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+}
+
+.roomsList {
+  width: 94.9%;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.roomItem {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.roomImage {
+  width: 300px;
+  height: 260px;
+  overflow: hidden;
+}
+
+.roomInfo {
+  margin-left: 20px;
+  padding-left: 40px;
+  width: 39%;
+}
+
+.roomServices {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+}
+
+.serviceItem {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  font-weight: 300;
+  font-size: 17px;
+}
+
+.servicesColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.pricePart {
+  width: 39%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.priceWrapperPlus {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+.priceWrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+}
+
+.pricePartWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+}
