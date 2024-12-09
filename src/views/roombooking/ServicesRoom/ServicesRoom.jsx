@@ -23,7 +23,7 @@ const ServicesRoom = () => {
       <div className={s.servicesPart}>
         <div className={s.servicesName}>
           <span className={s.servicesNameWrapper}>
-            <WithTransLate text="Rooms" />
+            <WithTransLate text="ROOMS" />
           </span>
         </div>
         <ul className={s.roomsList}>
@@ -126,7 +126,7 @@ const ServicesRoom = () => {
       <div className={s.servicesPart}>
         <div className={s.servicesName}>
           <span className={s.servicesNameWrapper}>
-            <WithTransLate text="Houses" />
+            <WithTransLate text="HOUSES" />
           </span>
         </div>
         <ul className={s.roomsList}>

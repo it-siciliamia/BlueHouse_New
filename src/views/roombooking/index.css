@@ -7,6 +7,7 @@
   max-width: 1275px;
 }
 .hero {
+  padding-left: 50px;
   width: 100%;
   display: flex;
   gap: 55px;
@@ -37,6 +38,7 @@
 }
 .content {
   padding: 30px 100px 60px;
+  border: 1px solid red;
 }
 .search {
   position: relative;
@@ -48,10 +50,11 @@
   background-color: white;
   display: flex;
   justify-content: space-between;
-  min-width: 225px;
+  min-width: 25%;
   padding: 12px;
   border: 1px solid lightgrey;
   position: relative;
+  border: 1px solid blue;
 }
 .search-container:focus {
   border: 1px solid #073762;
