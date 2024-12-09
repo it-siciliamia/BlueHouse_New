@@ -154,7 +154,7 @@ const SearchContainer = () => {
   };
 
   return (
-    <div className="search-wrapper">
+    <div className="search-wrapper" style={{ width: "100%" }}>
       <h2 className="booking-title">Book your stay with Blue house</h2>
       <div className="content">
         <div className="search">
