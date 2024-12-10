@@ -17,6 +17,7 @@ import HouseRules from "./views/HouseRules/HouseRules.js";
 import Footer from "./components/Footer/Footer.js";
 import Notfound from "./views/NotFoundPage/Notfound.js";
 import RoomBooking from "./views/roombooking/RoomBooking.jsx";
+import RoomDetails from "./views/RoomDetails/RoomDetails.jsx";
 import EnquirePage from "./components/BookingPage/EnquirePage.js";
 import ThankYou from "./thankyou/index.js";
 import NewMap from "./components/map/NewMap";
@@ -52,6 +53,7 @@ function App({ basename }) {
           <ScrollToTop />
           <ScrollToTopButton />
           <ZohoChat />
+
           <Switch>
             <Route exact path="/enquire">
               <EnquirePage />
@@ -75,6 +77,7 @@ function App({ basename }) {
                 "/book",
                 "/enquire",
                 "/beds24",
+                "/beds24/:room",
               ]}
             >
               <div className="App">
@@ -86,23 +89,24 @@ function App({ basename }) {
                 />
                 <ScrollToTop />
                 <PageHeader />
-                <Switch>
-                  <Route exact path="/">
-                    <HomePage />
-                  </Route>
-                  <Route exact path="/beds24">
-                    <RoomBooking />
-                  </Route>
-                  <Route exact path="/house-rules">
-                    <HouseRules />
-                  </Route>
-                  <Route exact path="/about-us">
-                    <Aboutus />
-                  </Route>
-                  <Route exact path="/privacy-and-policy">
-                    <PrivacyandPolicy />
-                  </Route>
-                </Switch>
+                <Route exact path="/">
+                  <HomePage />
+                </Route>
+                <Route exact path="/house-rules">
+                  <HouseRules />
+                </Route>
+                <Route exact path="/about-us">
+                  <Aboutus />
+                </Route>
+                <Route exact path="/privacy-and-policy">
+                  <PrivacyandPolicy />
+                </Route>
+                <Route path="/beds24/:room">
+                  <RoomDetails />
+                </Route>
+                <Route exact path="/beds24">
+                  <RoomBooking />
+                </Route>
               </div>
               <CookiesBanner />
               <NewMap />
