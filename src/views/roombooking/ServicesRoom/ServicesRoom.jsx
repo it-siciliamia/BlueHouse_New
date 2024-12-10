@@ -114,7 +114,14 @@ const ServicesRoom = () => {
                         </span>
                       </div>
                     </div>
-                    <Button text="Book Now" btnClass="btnDark" width="218px" />
+                    <Button
+                      text="Book Now"
+                      btnClass="btnDark"
+                      width="218px"
+                      handleClick={() =>
+                        (window.location.href = room.links.href)
+                      }
+                    />
                   </div>
                 </div>
               </li>
@@ -217,7 +224,14 @@ const ServicesRoom = () => {
                         </span>
                       </div>
                     </div>
-                    <Button text="Book Now" btnClass="btnDark" width="218px" />
+                    <Button
+                      text="Book Now"
+                      btnClass="btnDark"
+                      width="218px"
+                      handleClick={() =>
+                        (window.location.href = room.links.href)
+                      }
+                    />
                   </div>
                 </div>
               </li>
