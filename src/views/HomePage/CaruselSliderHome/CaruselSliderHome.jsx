@@ -22,7 +22,6 @@ const CaruselSliderHome = () => {
   const isMobile = useMediaQuery({ maxDeviceWidth: 767 });
   const isPlaceholderShown = useSelector(getIsPlaceholderShown);
   const dispatch = useDispatch();
-  console.log(isPlaceholderShown);
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [showPlaceholder, setShowPlaceholder] = useState(true);
@@ -72,21 +71,44 @@ const CaruselSliderHome = () => {
     };
   }, [currentIndex]);
 
-  useEffect(() => {
-    const placeholderTimeout = setTimeout(() => {
-      setFadeOutPlaceholder(true);
-      dispatch(setPlaceholderShown(true));
-    }, 3000);
+  // useEffect(() => {
+  //   const placeholderTimeout = setTimeout(() => {
+  //     setFadeOutPlaceholder(true);
+  //   }, 3000);
 
-    const hidePlaceholderTimeout = setTimeout(() => {
-      setShowPlaceholder(false);
-    }, 5000);
+  //   const hidePlaceholderTimeout = setTimeout(() => {
+  //     dispatch(setPlaceholderShown(true));
+  //     setShowPlaceholder(false);
+  //   }, 5000);
+
+  //   return () => {
+  //     clearTimeout(placeholderTimeout);
+  //     clearTimeout(hidePlaceholderTimeout);
+  //   };
+  // }, []);
+
+  useEffect(() => {
+    const handleCanPlayThrough = () => {
+      setFadeOutPlaceholder(true);
+      setTimeout(() => {
+        dispatch(setPlaceholderShown(true));
+        setShowPlaceholder(false);
+      }, 2000);
+    };
+
+    if (videoRef.current) {
+      videoRef.current.addEventListener("canplaythrough", handleCanPlayThrough);
+    }
 
     return () => {
-      clearTimeout(placeholderTimeout);
-      clearTimeout(hidePlaceholderTimeout);
+      if (videoRef.current) {
+        videoRef.current.removeEventListener(
+          "canplaythrough",
+          handleCanPlayThrough
+        );
+      }
     };
-  }, []);
+  }, [dispatch]);
 
   const goToPreviousSlide = () => {
     setCurrentIndex(
