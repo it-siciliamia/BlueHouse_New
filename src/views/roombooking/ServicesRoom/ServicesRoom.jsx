@@ -1,5 +1,4 @@
 import React from "react";
-// import { Link as RouterLink } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import { WithTransLate } from "../../../components/helpers/translating/index";
 import Button from "../../../components/Shared/Button/Button";
@@ -123,14 +122,6 @@ const ServicesRoom = () => {
                         </span>
                       </div>
                     </div>
-                    {/* <Button
-                      text="Book Now"
-                      btnClass="btnDark"
-                      width="218px"
-                      handleClick={() =>
-                        (window.location.href = room.links.href)
-                      }
-                    /> */}
                     <Button
                       text="Book Now"
                       btnClass="btnDark"
@@ -239,14 +230,6 @@ const ServicesRoom = () => {
                         </span>
                       </div>
                     </div>
-                    {/* <Button
-                      text="Book Now"
-                      btnClass="btnDark"
-                      width="218px"
-                      handleClick={() =>
-                        (window.location.href = room.links.href)
-                      }
-                    /> */}
                     <Button
                       text="Book Now"
                       btnClass="btnDark"

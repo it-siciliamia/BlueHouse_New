@@ -34,6 +34,56 @@ import main05 from "../../../images/services_room/card room house__image05.webp"
 import main06 from "../../../images/services_room/card room house__image06.webp";
 import main07 from "../../../images/services_room/card room house__image07.webp";
 
+import ecdr01 from "../../../images/services_room/Economy_Double_Room/01.webp";
+import ecdr02 from "../../../images/services_room/Economy_Double_Room/02.webp";
+
+import dtr01 from "../../../images/services_room/Double_Twin_Room/01.webp";
+import dtr02 from "../../../images/services_room/Double_Twin_Room/02.webp";
+import dtr03 from "../../../images/services_room/Double_Twin_Room/03.webp";
+import dtr04 from "../../../images/services_room/Double_Twin_Room/04.webp";
+import dtr05 from "../../../images/services_room/Double_Twin_Room/05.webp";
+
+import tr01 from "../../../images/services_room/Triple_Room/01.webp";
+import tr02 from "../../../images/services_room/Triple_Room/02.webp";
+
+import qr01 from "../../../images/services_room/Quadruple_Room/01.webp";
+import qr02 from "../../../images/services_room/Quadruple_Room/02.webp";
+
+import fr01 from "../../../images/services_room/Family_Room/01.webp";
+import fr02 from "../../../images/services_room/Family_Room/01.webp";
+import fr03 from "../../../images/services_room/Family_Room/01.webp";
+import fr04 from "../../../images/services_room/Family_Room/01.webp";
+import fr05 from "../../../images/services_room/Family_Room/01.webp";
+import fr06 from "../../../images/services_room/Family_Room/01.webp";
+
+import tba01 from "../../../images/services_room/Two_Bedroom_Apartment/01.webp";
+import tba02 from "../../../images/services_room/Two_Bedroom_Apartment/02.webp";
+import tba03 from "../../../images/services_room/Two_Bedroom_Apartment/03.webp";
+import tba04 from "../../../images/services_room/Two_Bedroom_Apartment/04.webp";
+import tba05 from "../../../images/services_room/Two_Bedroom_Apartment/05.webp";
+import tba06 from "../../../images/services_room/Two_Bedroom_Apartment/06.webp";
+import tba07 from "../../../images/services_room/Two_Bedroom_Apartment/07.webp";
+import tba08 from "../../../images/services_room/Two_Bedroom_Apartment/08.webp";
+import tba09 from "../../../images/services_room/Two_Bedroom_Apartment/09.webp";
+import tba10 from "../../../images/services_room/Two_Bedroom_Apartment/010.webp";
+import tba11 from "../../../images/services_room/Two_Bedroom_Apartment/011.webp";
+import tba12 from "../../../images/services_room/Two_Bedroom_Apartment/012.webp";
+import tba13 from "../../../images/services_room/Two_Bedroom_Apartment/013.webp";
+import tba14 from "../../../images/services_room/Two_Bedroom_Apartment/014.webp";
+import tba15 from "../../../images/services_room/Two_Bedroom_Apartment/015.webp";
+import tba16 from "../../../images/services_room/Two_Bedroom_Apartment/016.webp";
+import tba17 from "../../../images/services_room/Two_Bedroom_Apartment/017.webp";
+
+import trba01 from "../../../images/services_room/Three_Bedroom_Apartment/01.webp";
+import trba02 from "../../../images/services_room/Three_Bedroom_Apartment/02.webp";
+import trba03 from "../../../images/services_room/Three_Bedroom_Apartment/03.webp";
+import trba04 from "../../../images/services_room/Three_Bedroom_Apartment/04.webp";
+import trba05 from "../../../images/services_room/Three_Bedroom_Apartment/05.webp";
+import trba06 from "../../../images/services_room/Three_Bedroom_Apartment/06.webp";
+import trba07 from "../../../images/services_room/Three_Bedroom_Apartment/07.webp";
+import trba08 from "../../../images/services_room/Three_Bedroom_Apartment/08.webp";
+import trba09 from "../../../images/services_room/Three_Bedroom_Apartment/09.webp";
+
 const BASE_URL = `${window.location.protocol}//${window.location.host}`;
 
 export const price = [
@@ -121,6 +171,7 @@ export const achievements = [
 export const items = [
   {
     title: "Economy Double Room",
+    photos: [ecdr01, ecdr02],
     type: "room",
     links: {
       icon: sharedlink,
@@ -218,6 +269,7 @@ export const items = [
   //Double/Twin Room
   {
     type: "room",
+    photos: [dtr01, dtr02, dtr03, dtr04, dtr05],
     title: "Double/Twin Room",
     links: {
       icon: sharedlink,
@@ -306,8 +358,9 @@ export const items = [
   },
   //Triple Room
   {
-    type: "room",
     title: "Triple Room",
+    photos: [tr01, tr02],
+    type: "room",
     links: {
       icon: sharedlink,
       href: `${BASE_URL}/beds24/triple_room`,
@@ -392,6 +445,7 @@ export const items = [
   //Quadruple Room
   {
     type: "room",
+    photos: [qr01, qr02],
     title: "Quadruple Room",
     links: {
       icon: sharedlink,
@@ -464,6 +518,7 @@ export const items = [
   //Family Room
   {
     type: "house",
+    photos: [fr01, fr02, fr03, fr04, fr05, fr06],
     title: "Family Room",
     links: {
       icon: sharedlink,
@@ -548,6 +603,25 @@ export const items = [
   //Two Bedroom Apartment
   {
     type: "house",
+    photos: [
+      tba01,
+      tba02,
+      tba03,
+      tba04,
+      tba05,
+      tba06,
+      tba07,
+      tba08,
+      tba09,
+      tba10,
+      tba11,
+      tba12,
+      tba13,
+      tba14,
+      tba15,
+      tba16,
+      tba17,
+    ],
     title: "Two Bedroom Apartment",
     links: {
       icon: sharedlink,
@@ -632,6 +706,17 @@ export const items = [
   //Three Bedroom Apartment
   {
     type: "house",
+    photos: [
+      trba01,
+      trba02,
+      trba03,
+      trba04,
+      trba05,
+      trba06,
+      trba07,
+      trba08,
+      trba09,
+    ],
     title: "Three Bedroom Apartment",
     links: {
       icon: sharedlink,
