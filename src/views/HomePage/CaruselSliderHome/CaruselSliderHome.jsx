@@ -1,11 +1,15 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useMediaQuery } from "react-responsive";
+import { useSelector, useDispatch } from "react-redux";
+import { getIsPlaceholderShown } from "../../../redux/technitial/technical-selectors.js";
+import { setPlaceholderShown } from "../../../redux/technitial/technical-slice.js";
 import slide01 from "../../../images/homePageSlider/slide1.webp";
 import slide02 from "../../../images/homePageSlider/slide2.webp";
 import slide03 from "../../../images/homePageSlider/slide3.webp";
 import slide04 from "../../../images/homePageSlider/slide4.webp";
 import slide05 from "../../../images/homePageSlider/slide5.webp";
 import slide06 from "../../../images/homePageSlider/slide6.webp";
+import placeholder from "../../../images/homePageSlider/placeholder.webp";
 import videoSrc from "../../../videos/intro.mp4";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import s from "./CaruselSliderHome.module.scss";
@@ -16,8 +20,13 @@ const CaruselSliderHome = () => {
   const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
   const isDesktop = useMediaQuery({ minDeviceWidth: 813 });
   const isMobile = useMediaQuery({ maxDeviceWidth: 767 });
+  const isPlaceholderShown = useSelector(getIsPlaceholderShown);
+  const dispatch = useDispatch();
+  console.log(isPlaceholderShown);
 
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [showPlaceholder, setShowPlaceholder] = useState(true);
+  const [fadeOutPlaceholder, setFadeOutPlaceholder] = useState(false);
   const videoRef = useRef(null);
   const intervalRef = useRef(null);
 
@@ -62,6 +71,22 @@ const CaruselSliderHome = () => {
       }
     };
   }, [currentIndex]);
+
+  useEffect(() => {
+    const placeholderTimeout = setTimeout(() => {
+      setFadeOutPlaceholder(true);
+      dispatch(setPlaceholderShown(true));
+    }, 3000);
+
+    const hidePlaceholderTimeout = setTimeout(() => {
+      setShowPlaceholder(false);
+    }, 5000);
+
+    return () => {
+      clearTimeout(placeholderTimeout);
+      clearTimeout(hidePlaceholderTimeout);
+    };
+  }, []);
 
   const goToPreviousSlide = () => {
     setCurrentIndex(
@@ -115,6 +140,7 @@ const CaruselSliderHome = () => {
             : isMobile
             ? `${dynamicHeigth}px`
             : "380px",
+          overflow: "hidden",
         }}
       >
         {!isMobile && (
@@ -128,6 +154,15 @@ const CaruselSliderHome = () => {
               className={s.arrowlinkLeft}
             />
           </div>
+        )}
+        {showPlaceholder && !isPlaceholderShown && (
+          <img
+            src={placeholder}
+            alt="Placeholder"
+            className={`${s.placeholder} ${
+              fadeOutPlaceholder ? s.fadeOut : ""
+            }`}
+          />
         )}
         {images.map((image, index) =>
           index === 0 ? (
