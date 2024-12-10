@@ -3,7 +3,7 @@ import { persistReducer } from "redux-persist";
 import searchReducer from "./search/search.reducer";
 import dateReducer from "./dates/dates.reducer";
 import bookingReducer from "./booking/booking.reducer";
-
+import technicalReducer from "./technitial/technical-slice";
 import userInfoReducer from "./userInfo/userInfo.reducer";
 import storage from "redux-persist/lib/storage";
 
@@ -18,7 +18,7 @@ const persistConfig = {
     "price",
     "userInfo",
     "quantity",
-    "name"
+    "name",
   ],
 };
 
@@ -33,6 +33,7 @@ const rootReducer = combineReducers({
   index: bookingReducer,
   userInfo: userInfoReducer,
   quantity: userInfoReducer,
+  technical: technicalReducer,
 });
 
 export default persistReducer(persistConfig, rootReducer);
