@@ -1,23 +1,20 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { items } from "../roombooking/ServicesRoom/ServicesRoomData";
+import PhotoSlider from "../../components/Shared/SliderSlick/SliderSlick";
+import s from "./RoomDetails.module.scss";
 
 const RoomDetails = () => {
-  const { room } = useParams(); // Отримуємо параметр кімнати з URL
-  const roomData = items.find((item) => item.links.href.includes(room)); // Знаходимо дані кімнати за параметром
-
-  if (!roomData) {
-    return <h1>Room not found</h1>; // Якщо кімната не знайдена
-  }
+  const { room } = useParams();
+  const roomData = items.find((item) => item.links.href.includes(room));
 
   return (
-    <div style={{ padding: "20px" }}>
+    <div className={s.roomdetails}>
+      <div>
+        <PhotoSlider photos={roomData.photos} width="92%" height="550px" />
+      </div>
+
       <h1>{roomData.title}</h1>
-      <img
-        src={roomData.mainImage}
-        alt={roomData.title}
-        style={{ width: "100%", height: "auto" }}
-      />
       <p>{roomData.description}</p>
       <h3>Services:</h3>
       <ul>
