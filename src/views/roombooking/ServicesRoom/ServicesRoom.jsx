@@ -1,4 +1,6 @@
 import React from "react";
+// import { Link as RouterLink } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { WithTransLate } from "../../../components/helpers/translating/index";
 import Button from "../../../components/Shared/Button/Button";
 import { items, price } from "./ServicesRoomData";
@@ -6,6 +8,13 @@ import { items, price } from "./ServicesRoomData";
 import s from "./ServicesRoom.module.scss";
 
 const ServicesRoom = () => {
+  const history = useHistory();
+
+  const handleNavigation = (href) => {
+    const relativePath = href.replace(`${window.location.origin}`, "");
+    history.push(relativePath);
+  };
+
   const roomItems = items.filter((item) => item.type === "room");
   const houseItems = items.filter((item) => item.type === "house");
 
@@ -114,13 +123,19 @@ const ServicesRoom = () => {
                         </span>
                       </div>
                     </div>
-                    <Button
+                    {/* <Button
                       text="Book Now"
                       btnClass="btnDark"
                       width="218px"
                       handleClick={() =>
                         (window.location.href = room.links.href)
                       }
+                    /> */}
+                    <Button
+                      text="Book Now"
+                      btnClass="btnDark"
+                      width="218px"
+                      handleClick={() => handleNavigation(room.links.href)}
                     />
                   </div>
                 </div>
@@ -224,13 +239,19 @@ const ServicesRoom = () => {
                         </span>
                       </div>
                     </div>
-                    <Button
+                    {/* <Button
                       text="Book Now"
                       btnClass="btnDark"
                       width="218px"
                       handleClick={() =>
                         (window.location.href = room.links.href)
                       }
+                    /> */}
+                    <Button
+                      text="Book Now"
+                      btnClass="btnDark"
+                      width="218px"
+                      handleClick={() => handleNavigation(room.links.href)}
                     />
                   </div>
                 </div>
