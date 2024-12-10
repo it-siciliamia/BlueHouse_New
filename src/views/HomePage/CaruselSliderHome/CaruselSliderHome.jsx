@@ -71,22 +71,6 @@ const CaruselSliderHome = () => {
     };
   }, [currentIndex]);
 
-  // useEffect(() => {
-  //   const placeholderTimeout = setTimeout(() => {
-  //     setFadeOutPlaceholder(true);
-  //   }, 3000);
-
-  //   const hidePlaceholderTimeout = setTimeout(() => {
-  //     dispatch(setPlaceholderShown(true));
-  //     setShowPlaceholder(false);
-  //   }, 5000);
-
-  //   return () => {
-  //     clearTimeout(placeholderTimeout);
-  //     clearTimeout(hidePlaceholderTimeout);
-  //   };
-  // }, []);
-
   useEffect(() => {
     const handleCanPlayThrough = () => {
       setFadeOutPlaceholder(true);
