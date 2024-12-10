@@ -1,0 +1,95 @@
+.sliderContainer {
+  position: relative;
+}
+
+.sliderItem {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.slickPrev,
+.slickNext {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(245, 245, 245, 0.269);
+  transition: background-color 0.3s ease;
+}
+
+.slickPrev:before,
+.slickNext:before {
+  display: none;
+}
+
+.slickPrev:hover,
+.slickNext:hover {
+  background-color: rgba(245, 245, 245, 0.634);
+}
+
+.slickPrev:hover .btnIconLeft,
+.slickNext:hover .btnIconRight {
+  color: #073762;
+}
+
+.slickPrev {
+  left: 20px;
+}
+
+.slickNext {
+  right: 20px;
+}
+
+.btnIconLeft {
+  color: white;
+  font-size: 35px;
+  margin-right: 4px;
+}
+
+.btnIconRight {
+  color: white;
+  font-size: 35px;
+  margin-left: 4px;
+}
+
+.customDots {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  display: flex !important;
+  justify-content: center;
+  z-index: 2;
+  color: white;
+}
+
+.customDots li button:before {
+  font-size: 9px;
+  color: #073762;
+  opacity: 0.2;
+}
+
+.customDots li.slick-active button:before {
+  color: #073762;
+}
+
+.sliderContainer {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.sliderItem {
+  padding: 10px;
+  text-align: center;
+}
+
+.sliderImage {
+  width: 100%;
+  height: auto;
+  border-radius: 0px;
+}
