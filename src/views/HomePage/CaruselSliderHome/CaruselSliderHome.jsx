@@ -11,17 +11,21 @@ import slide05 from "../../../images/homePageSlider/slide5.webp";
 import slide06 from "../../../images/homePageSlider/slide6.webp";
 import placeholder from "../../../images/homePageSlider/placeholder.webp";
 import videoSrc from "../../../videos/intro.mp4";
+import { useHeaderSize } from "../../../components/helpers/HeaderContext/HeaderContext.js";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
+
 import s from "./CaruselSliderHome.module.scss";
 
 const images = [videoSrc, slide01, slide02, slide03, slide04, slide05, slide06];
 
 const CaruselSliderHome = () => {
-  const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
-  const isDesktop = useMediaQuery({ minDeviceWidth: 813 });
-  const isMobile = useMediaQuery({ maxDeviceWidth: 767 });
+  const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 600 });
+  const isTablet = useMediaQuery({ minWidth: 601, maxWidth: 1280 });
+  const isDesktop = useMediaQuery({ minWidth: 1281, maxWidth: 2200 });
+
   const isPlaceholderShown = useSelector(getIsPlaceholderShown);
   const dispatch = useDispatch();
+  const { width } = useHeaderSize();
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [showPlaceholder, setShowPlaceholder] = useState(true);
@@ -29,19 +33,8 @@ const CaruselSliderHome = () => {
   const videoRef = useRef(null);
   const intervalRef = useRef(null);
 
-  const dynamicWidth = Math.round(viewportWidth * 0.75);
-  const dynamicHeigth = Math.round(viewportWidth * 0.66);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setViewportWidth(window.innerWidth);
-    };
-
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
+  const dynamicWidth = isDesktop ? Math.round(width - 375) : width;
+  const dynamicHeigth = Math.round(dynamicWidth * 0.66);
 
   useEffect(() => {
     if (currentIndex === 0 && videoRef.current) {
@@ -135,17 +128,17 @@ const CaruselSliderHome = () => {
     <div
       className={s.container}
       style={{
-        width: isDesktop && dynamicWidth ? `${dynamicWidth}px` : "100%",
+        width: isDesktop ? `${dynamicWidth}px` : "100%",
       }}
     >
       <div
         className={s.imageBox}
         style={{
-          height: isDesktop
-            ? "550px"
-            : isMobile
+          height: isMobile
             ? `${dynamicHeigth}px`
-            : "380px",
+            : isTablet
+            ? "400px"
+            : "550px",
           overflow: "hidden",
         }}
       >

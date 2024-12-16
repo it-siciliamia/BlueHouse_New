@@ -61,12 +61,12 @@ const useStyles = makeStyles((theme) => ({
   }),
 
   imagesRoot: (props) => ({
-    gap: "10px",
     display: "flex",
-    justifyContent: "space-evenly",
+    justifyContent: "space-between",
+    gap: "10px",
     flexGrow: 1,
-    marginLeft: "-60px",
-    marginRight: "-20px",
+    marginLeft: "30px",
+    // marginRight: "70px",
     flexWrap: "wrap",
 
     [theme.breakpoints.down("md")]: {
@@ -250,7 +250,7 @@ export default function PhotoGallery({
   return (
     <div id={id} onClick={() => openSliderOnClick && openSliderOnClick(true)}>
       <Element name={id}>
-        <div className={root}>
+        <div className={root} style={{ width: "100%" }}>
           <h2 className={titleStyle}>
             <WithTransLate text={title} />
           </h2>

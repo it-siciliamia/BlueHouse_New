@@ -71,12 +71,6 @@ a {
   color: unset;
 }
 
-.App {
-  padding: 0 6vw 0 7.6vw;
-  margin-bottom: 100px;
-  margin-top: 120px;
-}
-
 .clickable:hover {
   cursor: url(./images/cursor.svg), auto;
 }
@@ -87,26 +81,35 @@ a {
 
 .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
   border-color: rgba(0, 0, 0, 0.23) !important;
-  border-width: 1px !important ;
+  border-width: 1px !important;
 }
 
-@media (max-width: 1280px) {
-  .App {
-    padding: 0 2.63vw;
+.App {
+  /* Mobile screens (min-width: 320px) and (max-width: 600px)*/
+  @media (min-width: 320px) and (max-width: 600px) {
+    padding-top: 20px;
+    width: 100%;
+  }
+
+  /* Tablet screens (min-width: 601px and max-width: 1280px) */
+  @media (min-width: 601px) and (max-width: 1280px) {
+    padding-top: 27px;
+    margin-left: auto;
+    margin-right: auto;
+    min-width: 601px;
+    max-width: 1270px;
+  }
+
+  /* Descktop screens (min-width: 1281px and max-width: 2200px) */
+  @media (min-width: 1281px) and (max-width: 2200px) {
+    padding-top: 112px;
+    padding-left: 100px;
+    padding-right: 100px;
+    min-width: 1280px;
+    max-width: 2200px;
   }
 }
-@media (max-width: 600px) {
-  .App {
-    margin-top: -125px;
-    padding: 0;
-    margin-bottom: 50px;
-  }
-  .outLinedButton {
-    padding: 8px 20px 5px !important;
-    font-size: 16px;
-    line-height: 20px;
-  }
-}
+
 .hidden {
   display: none;
 }

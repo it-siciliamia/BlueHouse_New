@@ -1,29 +1,24 @@
 import React from "react";
 import { useMediaQuery } from "react-responsive";
-import { Box, makeStyles } from "@material-ui/core";
-import HomeHeader from "./HomeHeader.js";
+import { makeStyles } from "@material-ui/core";
+import HomeHeader from "./HomeHeader.jsx";
 import PhotoGallery from "../../components/PhotoGallery/DesctopGallerySection/photoGallery.js";
 import OurServices from "../../components/OurServices/OurServices.jsx";
 import BookingWrapper from "../../components/BookingWrapper/BookingWrapper.jsx";
-import CaruselSliderHome from "./CaruselSliderHome/CaruselSliderHome.jsx";
 import roomsImage from "../../images/gallery/rooms.svg";
 import housesImage from "../../images/gallery/houseBB2.svg";
 import surroundingsImage from "../../images/gallery/surroundings.svg";
-import Blue_lagoonImage from "../../images/RECOMMENDATIONS/Blue-lagoon.webp";
-import Glacier_CaveseImage from "../../images/RECOMMENDATIONS/Glacier-Caves.webp";
-import NorthernlightsImage from "../../images/RECOMMENDATIONS/Northernlights.webp";
-import insta1 from "../../images/instagramSVG/insta1.svg";
-import insta2 from "../../images/instagramSVG/insta2.svg";
-import insta3 from "../../images/instagramSVG/insta3.svg";
 import Galary from "../../components/PhotoGallery/MobileGallerySection/Galary.js";
 import ReviewSlider from "../../components/ReviewSlider/ReviewSlider.js";
 import Support from "../../components/SuportComponent/support.js";
-import Recommendations from "../../components/Recommendations/recommendations.js";
+import Recommendations from "../../components/Recommendations/Recommendations.jsx";
 import AboutUs from "../../components/AboutUs/AboutUs.jsx";
 import BlogPart from "../../components/BlogComponent/Blog.js";
-import FollowUs from "./FollowUs.jsx";
+import FollowUs from "../../components/FollowUs/FollowUs.jsx";
 import NewsLetter from "../../components/NewsLetter/NewsLetter.jsx";
 import FindMore from "../../components/FindMore/FindMore.jsx";
+
+import s from "./HomePage.module.scss";
 
 const useStyles = makeStyles((theme) => ({
   galleryButton: {
@@ -79,58 +74,20 @@ const GALLERY_BACKGROUND_IMAGES_AND_TITLES = [
     background: roomsImage,
     title: "Rooms",
   },
-
   {
     background: housesImage,
     title: "Houses",
   },
-
   {
     background: surroundingsImage,
     title: "Surroundings",
   },
 ];
 
-export const RECOMMENDATIONS_BACKGROUND_IMAGES_AND_TITLES = [
-  {
-    background: NorthernlightsImage,
-    title: "Northern lights",
-    objectPosition: "center 91%",
-  },
-
-  {
-    background: Blue_lagoonImage,
-    title: "Blue Lagoon",
-    objectPosition: "center 70%",
-  },
-
-  {
-    background: Glacier_CaveseImage,
-    title: "Glacier caves",
-    objectPosition: "center 73%",
-  },
-];
-
-export const INSTAGRAM_BACKGROUND_IMAGES = [
-  {
-    background: insta1,
-    objectPosition: "center 91%",
-  },
-
-  {
-    background: insta2,
-    objectPosition: "center 70%",
-  },
-
-  {
-    background: insta3,
-    objectPosition: "center 73%",
-  },
-];
-
 export default function HomePage() {
   const { root, galleryButton } = useStyles();
-  const isDesktop = useMediaQuery({ minDeviceWidth: 813 });
+  const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 600 });
+  const isTablet = useMediaQuery({ minWidth: 601, maxWidth: 1280 });
 
   const customGALLERYTitleStyle = {
     marginTop: "95px",
@@ -149,12 +106,11 @@ export default function HomePage() {
   const TABLET_BREAKPOINT = 900;
 
   return (
-    <Box className={root}>
+    <div className={s.home}>
       <HomeHeader />
-      {!isDesktop && <CaruselSliderHome />}
       <BookingWrapper />
       <OurServices />
-      {!isDesktop && <Galary />}
+      {(isMobile || isTablet) && <Galary />}
       <PhotoGallery
         id="GALLERY_DESCTOP"
         actionType="VIEW GALLERY"
@@ -169,33 +125,12 @@ export default function HomePage() {
       />
       <AboutUs />
       <ReviewSlider />
-      <Recommendations
-        removeInPhoneSize
-        id="recommendations"
-        actionType="DISCOVER MORE"
-        title={
-          window.innerWidth >= TABLET_BREAKPOINT ? "RECOMMENDATIONS" : "BLOG"
-        }
-        backgroundImagesUrlAndTitles={
-          RECOMMENDATIONS_BACKGROUND_IMAGES_AND_TITLES
-        }
-        customTitleStyle={customRECOMMENDATIONSTitleStyle}
-        maxWidth={"514px"}
-        minWidth={"220px"}
-      />
+      <Recommendations id="recommendations" />
       <BlogPart />
-      <FollowUs
-        id="follow Us"
-        actionType="FOLLOW US"
-        title="INSTAGRAM"
-        backgroundImagesUrlAndTitles={INSTAGRAM_BACKGROUND_IMAGES}
-        customTitleStyle={customRECOMMENDATIONSTitleStyle}
-        maxWidth={"514px"}
-        minWidth={"220px"}
-      />
+      <FollowUs id="follow Us" />
       <FindMore />
       <Support />
       <NewsLetter />
-    </Box>
+    </div>
   );
 }

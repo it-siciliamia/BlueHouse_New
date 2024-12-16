@@ -7,7 +7,8 @@ import ScrollToTopButton from "./components/Shared/ScrollToTopButton/ScrollToTop
 import ZohoChat from "./components/helpers/ZohoChat/ZohoChat.jsx";
 import combinedSchema from "./components/helpers/SchemaOrg/schema.js";
 import CookiesBanner from "./components/CookiesBanner/CookiesBanner.js";
-import Header from "./components/header/index.js";
+import { HeaderProvider } from "./components/helpers/HeaderContext/HeaderContext";
+import Header from "./components/header/Header.jsx";
 import HomePage from "./views/HomePage/HomePage.jsx";
 import Aboutus from "./views/AboutUsPage/AboutUs.js";
 import PrivacyandPolicy from "./views/ImportAndP&P/index.js";
@@ -50,78 +51,80 @@ function App({ basename }) {
           <script type="application/ld+json">{combinedSchema}</script>
         </Helmet>
         <UserContext.Provider value={[modalState, setModal, room, setRoom]}>
-          <ScrollToTop />
-          <ScrollToTopButton />
-          <ZohoChat />
+          <HeaderProvider>
+            <ScrollToTop />
+            <ScrollToTopButton />
+            <ZohoChat />
 
-          <Switch>
-            <Route exact path="/enquire">
-              <EnquirePage />
-            </Route>
-            <Route path="/thankyou">
-              <ThankYou />
-            </Route>
-            <Route path="/blog">
-              <RedirectBlog />
-            </Route>
-            <Route path="/tripadvisor">
-              <RedirectTripAdv />
-            </Route>
-            <Route
-              exact
-              path={[
-                "/",
-                "/house-rules",
-                "/about-us",
-                "/privacy-and-policy",
-                "/book",
-                "/enquire",
-                "/beds24",
-                "/beds24/:room",
-              ]}
-            >
-              <div className="App">
+            <Switch>
+              <Route exact path="/enquire">
+                <EnquirePage />
+              </Route>
+              <Route path="/thankyou">
+                <ThankYou />
+              </Route>
+              <Route path="/blog">
+                <RedirectBlog />
+              </Route>
+              <Route path="/tripadvisor">
+                <RedirectTripAdv />
+              </Route>
+              <Route
+                exact
+                path={[
+                  "/",
+                  "/house-rules",
+                  "/about-us",
+                  "/privacy-and-policy",
+                  "/book",
+                  "/enquire",
+                  "/beds24",
+                  "/beds24/:room",
+                ]}
+              >
                 <Header
                   top={top}
                   setTop={setTop}
                   right={right}
                   setRight={setRight}
                 />
-                <ScrollToTop />
-                <PageHeader />
-                <Route exact path="/">
-                  <HomePage />
-                </Route>
-                <Route exact path="/house-rules">
-                  <HouseRules />
-                </Route>
-                <Route exact path="/about-us">
-                  <Aboutus />
-                </Route>
-                <Route exact path="/privacy-and-policy">
-                  <PrivacyandPolicy />
-                </Route>
-                <Route path="/beds24/:room">
-                  <RoomDetails />
-                </Route>
-                <Route exact path="/beds24">
-                  <RoomBooking />
-                </Route>
-              </div>
-              <CookiesBanner />
-              <NewMap />
-              <Footer />
-            </Route>
-            <>
-              <Header
-                top={top}
-                setTop={setTop}
-                right={right}
-                setRight={setRight}
-              />
-              <Notfound />
-            </>
-          </Switch>
+                <div className="App">
+                  <ScrollToTop />
+                  <PageHeader />
+                  <Route exact path="/">
+                    <HomePage />
+                  </Route>
+                  <Route exact path="/house-rules">
+                    <HouseRules />
+                  </Route>
+                  <Route exact path="/about-us">
+                    <Aboutus />
+                  </Route>
+                  <Route exact path="/privacy-and-policy">
+                    <PrivacyandPolicy />
+                  </Route>
+                  <Route path="/beds24/:room">
+                    <RoomDetails />
+                  </Route>
+                  <Route exact path="/beds24">
+                    <RoomBooking />
+                  </Route>
+                </div>
+                <CookiesBanner />
+                <NewMap />
+                <Footer />
+              </Route>
+              <>
+                <Header
+                  top={top}
+                  setTop={setTop}
+                  right={right}
+                  setRight={setRight}
+                />
+                <Notfound />
+              </>
+            </Switch>
+          </HeaderProvider>
         </UserContext.Provider>
       </HelmetProvider>
     </ThemeProvider>

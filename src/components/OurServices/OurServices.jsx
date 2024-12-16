@@ -26,12 +26,9 @@ const servicesData = [
 ];
 
 const OurServices = () => {
-  const isMobile = useMediaQuery({ maxDeviceWidth: 767 });
-  // const isTablet = useMediaQuery({
-  //   minDeviceWidth: 768,
-  //   maxDeviceWidth: 812,
-  // });
-  const isDesktop = useMediaQuery({ minDeviceWidth: 813 });
+  const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 600 });
+  const isTablet = useMediaQuery({ minWidth: 601, maxWidth: 1279 });
+  const isDesktop = useMediaQuery({ minWidth: 1280, maxWidth: 1700 });
 
   const [activeModal, setActiveModal] = useState(null);
 
@@ -45,7 +42,6 @@ const OurServices = () => {
 
   return (
     <div className={s.ourServices}>
-      {isDesktop && <div className={s.sectionName}></div>}
       <div className={s.sectionContent}>
         {servicesData.map(({ icon, text }, index) => (
           <div

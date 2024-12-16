@@ -1,67 +1,117 @@
 .support {
-  margin: 100px auto 100px;
-  width: 78.9%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  @media (max-width: 768px) {
-    margin: 50px auto 50px;
-    padding-left: 20px;
-    padding-right: 20px;
+  @media (min-width: 320px) and (max-width: 600px) {
+    margin-bottom: 50px;
+    padding: 0px 20px;
     width: 100%;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    gap: 30px;
   }
-  @media (min-width: 768px) and (max-width: 1024px) {
+  @media (min-width: 601px) and (max-width: 1280px) {
     margin-top: 50px;
-    margin-bottom: -50px;
     width: 100%;
+  }
+  @media (min-width: 1281px) and (max-width: 2200px) {
+    margin-top: 100px;
+    width: 100%;
+  }
+}
+
+.sectionContent {
+  display: flex;
+  flex-direction: column;
+  @media (min-width: 320px) and (max-width: 600px) {
+    align-items: center;
+    width: 100%;
+    gap: 20px;
+  }
+
+  @media (min-width: 601px) and (max-width: 700px) {
+    width: 100%;
+  }
+
+  @media (min-width: 700px) and (max-width: 1280px) {
+    padding-left: 0px;
+    padding-right: 0px;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  @media (min-width: 1281px) and (max-width: 2200px) {
+    margin-left: 65px;
+    padding-left: 60px;
+    padding-right: 60px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
   }
 }
 
 .description {
-  width: 27.3%;
   font-size: 17px;
   font-weight: 300;
-  line-height: 1.2;
+  line-height: 1.5;
   text-align: center;
   color: #14202b;
   font-family: "Josefin Sans";
   text-transform: uppercase !important;
-  transition: font-weight 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
   cursor: pointer;
 
   &:hover {
-    box-shadow: 0px 4px 4px rgba(7, 55, 98, 0.249);
+    font-size: 17px;
     font-weight: 500;
-    line-height: 1.2;
+    line-height: 1.5;
     color: #243864;
   }
-  @media (max-width: 768px) {
+
+  @media (min-width: 320px) and (max-width: 600px) {
     text-transform: lowercase !important;
+    width: 80%;
+  }
+
+  @media (min-width: 601px) and (max-width: 700px) {
     width: 100%;
   }
-  @media (min-width: 768px) and (max-width: 1024px) {
+
+  @media (min-width: 701px) and (max-width: 1280px) {
     font-size: 16px !important;
-    width: 32%;
+    width: 28% !important;
+  }
+
+  @media (min-width: 1281px) and (max-width: 2200px) {
+    width: 30% !important;
+    font-weight: 300;
+    line-height: 1.5;
   }
 }
 
 .supportCard {
-  padding: 0px 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
-  @media (max-width: 768px) {
-    padding: 0px 25px;
-    gap: 10px;
+  gap: 10px;
+  padding: 0px 25px;
+  width: 100%;
+  flex: 1;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+
+  @media (min-width: 320px) and (max-width: 600px) {
+    padding: 0px 10px;
+    padding-top: 20px;
   }
-  @media (min-width: 768px) and (max-width: 1024px) {
+
+  @media (min-width: 601px) and (max-width: 1280px) {
     padding: 0px 25px;
-    gap: 20px;
+  }
+
+  @media (min-width: 1281px) and (max-width: 2200px) {
+    padding: 0px 25px;
+  }
+
+  &:hover {
+    box-shadow: 0px 4px 4px rgba(7, 55, 98, 0.249);
   }
 }
 
@@ -73,13 +123,17 @@
 .cardTitle {
   font-weight: 500;
   text-transform: uppercase;
-  @media (max-width: 768px) {
+  @media (min-width: 601px) and (max-width: 700px) {
+    margin-bottom: 0px;
+  }
+  @media (min-width: 701px) and (max-width: 1280px) {
     margin-bottom: 5px;
   }
 }
 
 .cardText {
   margin-bottom: 16px;
+  flex-grow: 1;
 }
 
 .cardText::first-letter {
