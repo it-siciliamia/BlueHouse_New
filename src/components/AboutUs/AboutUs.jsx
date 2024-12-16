@@ -7,16 +7,18 @@ import selfie from "../../images/selfie.webp";
 import s from "./AboutUs.module.scss";
 
 function AboutUs() {
-  const isMobile = useMediaQuery({ maxDeviceWidth: 767 });
+  const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 600 });
+
   return (
-    <section id="ABOUTUS">
-      <div className={s.about}>
-        <h2 className={s.titleStyle}>
-          <WithTransLate text="ABOUT US" />
-        </h2>
-        <div className={s.content}>
-          <div className={s.outLinedImage}>
-            {!isMobile && <div className={s.outLinedImageShdow}></div>}
+    <section id="ABOUTUS" className={s.about}>
+      <div className={s.sectionWrapper}>
+        <div className={s.titleWrapper}>
+          <h2 className={s.title}>
+            <WithTransLate text="ABOUT US" />
+          </h2>
+        </div>
+        <div className={s.sectionContent}>
+          <div className={s.imageWrapper}>
             <img className={s.selfieStyle} alt="selfie" src={selfie} />
           </div>
           <div className={s.descriptionWrapper}>
@@ -26,7 +28,7 @@ function AboutUs() {
             <Link to="/About-us">
               <Button
                 text="DISCOVER MORE"
-                btnClass="btnLight"
+                btnClass="btnLightWithOut"
                 width={isMobile ? "218px" : "280px"}
               />
             </Link>

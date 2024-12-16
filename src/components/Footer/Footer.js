@@ -30,6 +30,15 @@ const useStyles = makeStyles((theme) => ({
       paddingLeft: "40px",
       paddingRight: "40px",
     },
+    "@media (min-width: 601px) and (max-width: 1280px)": {
+      marginTop: "-20px",
+      maxWidth: "85% !important",
+      marginLeft: "auto",
+      marginRight: "auto",
+    },
+    "@media (min-width: 1281px) and (max-width: 2200px)": {
+      maxWidth: "80% !important",
+    },
   },
   logo: {
     marginBottom: theme.spacing(2),
@@ -138,6 +147,9 @@ const useStyles = makeStyles((theme) => ({
     borderBottom: "1px solid #1D3967",
     width: "80%",
     opacity: "30%",
+    "@media (min-width: 600px) and (max-width: 1280px)": {
+      width: "85% !important",
+    },
   },
   blueHouseContainer: {
     maxWidth: "80%",
@@ -147,6 +159,10 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
+    "@media (min-width: 601px) and (max-width: 1280px)": {
+      marginLeft: "60px",
+      marginRight: "60px",
+    },
   },
   blueHouse: {
     fontSize: "14px",
@@ -178,7 +194,8 @@ const useStyles = makeStyles((theme) => ({
 function Footer() {
   const location = useLocation();
   const classes = useStyles();
-  const isMobile = useMediaQuery({ maxDeviceWidth: 767 });
+  const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 600 });
+  const islineSeparator = useMediaQuery({ maxDeviceWidth: 559 });
 
   const isInternalLink = (href) => {
     return href.startsWith("/");
@@ -186,13 +203,15 @@ function Footer() {
 
   return (
     <>
-      <div style={{ marginBottom: "2rem" }} />
-      {!isMobile && location.pathname !== "/" && (
-        <div
-          className={classes.lineSeparator}
-          style={{ marginBottom: "2.5rem" }}
-        ></div>
-      )}
+      <div />
+      {!isMobile &&
+        location.pathname !== "/" &&
+        !location.pathname.startsWith("/beds24") && (
+          <div
+            className={classes.lineSeparator}
+            style={{ marginBottom: "2.5rem" }}
+          ></div>
+        )}
       <div className={classes.container}>
         <div className={classes.linkContainer}>
           {items.map((item, index) => (
@@ -253,7 +272,7 @@ function Footer() {
                   </React.Fragment>
                 ))}
               </div>
-              {index < items.length - 1 && isMobile && (
+              {index < items.length - 1 && islineSeparator && (
                 <div
                   style={{
                     width: "100%",

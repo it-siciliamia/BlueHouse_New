@@ -2,6 +2,9 @@
   padding: 58px 15px 14px;
   display: flex;
   flex-direction: column;
+  @media (min-width: 320px) and (max-width: 600px) {
+    padding-top: 40px !important;
+  }
 
   @media (max-width: 768px) {
     padding: 50px 20px 50px;

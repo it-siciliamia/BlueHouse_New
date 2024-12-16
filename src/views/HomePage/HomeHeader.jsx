@@ -10,6 +10,8 @@ import Whatsapp from "../../images/Header_icons/headerSocialIcons/whats.svg";
 import { WithTransLate } from "../../components/helpers/translating/index";
 import CaruselSliderHome from "./CaruselSliderHome/CaruselSliderHome";
 
+import s from "./HomePage.module.scss";
+
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
@@ -235,7 +237,7 @@ export default function Header({ title, titleMargins }) {
   const classes = useStyles({ titleMargins });
 
   return (
-    <Box className={classes.root}>
+    <div className={s.homeHeader}>
       {title ? (
         <Typography className={classes.titleStyle}>
           <WithTransLate text={title} />
@@ -299,7 +301,7 @@ export default function Header({ title, titleMargins }) {
       <Box>
         <CaruselSliderHome />
       </Box>
-    </Box>
+    </div>
   );
 }
 
