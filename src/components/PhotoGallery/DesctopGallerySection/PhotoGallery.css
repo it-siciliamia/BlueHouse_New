@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 10vh; /* This will center the button vertically */
+  height: 10%;
 }
 
 .centered-button {

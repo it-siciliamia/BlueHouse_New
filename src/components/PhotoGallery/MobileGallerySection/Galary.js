@@ -16,7 +16,7 @@ import { WithTransLate } from "../../helpers/translating";
 import ImageSlider from "./ImageSlider/ImageSlider";
 
 function CustomTabPanel(props) {
-  const isMobile = useMediaQuery({ maxDeviceWidth: 767 });
+  const isTwoColumn = useMediaQuery({ maxDeviceWidth: 600 });
   const { children, value, index, Rooms } = props;
 
   return (
@@ -32,11 +32,11 @@ function CustomTabPanel(props) {
           <Box
             sx={{
               display: "grid",
-              gridTemplateColumns: isMobile
+              gridTemplateColumns: isTwoColumn
                 ? "repeat(1, 1fr)"
                 : "repeat(2, 1fr)",
               width: "100%",
-              gap: isMobile ? "40px" : "18px",
+              gap: isTwoColumn ? "40px" : "18px",
               paddingX: "20px",
             }}
           >

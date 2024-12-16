@@ -2,14 +2,24 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0 10px 0 50px;
-  gap: 70px;
+  padding: 0 0 0 50px;
+  gap: 50px;
   width: 100%;
   margin: 100px 0;
-  @media (min-width: 768px) and (max-width: 1024px) {
+  @media (min-width: 320px) and (max-width: 600px) {
+    padding: 0 20px 0 20px;
+    margin-bottom: 50px !important;
+    margin-top: 50px !important;
+  }
+  @media (min-width: 601px) and (max-width: 1280px) {
     margin-top: 50px;
     margin-bottom: 0px;
     padding-bottom: 0px;
+  }
+  @media (min-width: 1281px) and (max-width: 2200px) {
+    margin: 100px 0;
+    padding: 0 0 0 50px;
+    gap: 75px;
   }
 }
 
@@ -17,9 +27,14 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: left;
+  align-items: center;
   @media (min-width: 768px) and (max-width: 1024px) {
-    align-items: center;
+    align-items: flex-start;
+  }
+  @media (min-width: 1281px) and (max-width: 2200px) {
+    margin-left: 20px;
+    width: 50%;
+    align-items: flex-start;
   }
 }
 
@@ -39,26 +54,28 @@
 
 .blogPart__blog {
   display: flex;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 20px;
   align-items: center;
-  gap: 50px;
   width: 100%;
   border: 1px solid #c6d1db;
-  padding: 30px;
-  min-width: 300px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  padding-left: 35px;
+  min-width: 630px;
+  max-width: 800px;
 }
 
 .blogPart__blog_image {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 20px;
-  width: 100%;
 }
 
 .blogPart__blog_image > img {
-  width: 100%;
-  height: 100%;
+  max-width: 286px !important;
+  max-height: 232px !important;
 }
 
 .blogPart__blog_content {
@@ -68,34 +85,13 @@
   align-items: center;
   gap: 50px;
 }
+
 .blogPart__blog_content_text > h3 {
-  font-size: 20px;
+  font-size: 18px;
+  line-height: 1.2;
   font-weight: 300;
   text-align: center;
-}
-
-.blogPart__blog_content > button {
-  width: 160px;
-  height: 46px;
-  font-size: 16px;
-  font-weight: 600;
-  font-family: Josefin Sans;
-  padding: 11px;
-  text-transform: uppercase;
-  background-color: white;
-  color: #1d3967;
-  border: 1px solid #1d3967;
-}
-
-.blogPart__blog_content > button:hover {
-  color: white;
-  background: linear-gradient(
-      180deg,
-      #04376f 99.99%,
-      rgba(255, 255, 255, 0) 100%
-    ),
-    #ffffff;
-  // text-decoration: underline;
+  margin-right: 20px;
 }
 
 @media (max-width: 600px) {

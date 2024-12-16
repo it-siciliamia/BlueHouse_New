@@ -1,0 +1,171 @@
+.followus {
+  width: 100%;
+  padding: 0px 20px;
+  @media (min-width: 1281px) and (max-width: 2200px) {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.sectionWrapper {
+  @media (min-width: 320px) and (max-width: 600px) {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  @media (min-width: 601px) and (max-width: 1280px) {
+    width: 100%;
+  }
+  @media (min-width: 1281px) and (max-width: 2200px) {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+.sectionContent {
+  @media (min-width: 320px) and (max-width: 600px) {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+  @media (min-width: 601px) and (max-width: 1280px) {
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    display: row;
+    justify-content: space-between;
+    gap: 40px;
+  }
+  @media (min-width: 1281px) and (max-width: 2200px) {
+    width: 100%;
+    display: flex;
+    display: row;
+    justify-content: space-between;
+    gap: 60px;
+  }
+}
+
+.recommendationItem {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  @media (min-width: 1281px) and (max-width: 2200px) {
+    width: 27%;
+  }
+}
+
+.titleWrapper {
+  @media (min-width: 1281px) and (max-width: 2200px) {
+    width: 70px;
+    position: relative;
+  }
+}
+
+.title {
+  @media (min-width: 320px) and (max-width: 1280px) {
+    white-space: nowrap;
+    font-family: "Oblik", Arial, sans-serif;
+    font-size: 20px;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+  }
+  @media (min-width: 1281px) and (max-width: 2200px) {
+    position: absolute;
+    white-space: nowrap;
+    top: 64px;
+    left: -62px;
+    height: fit-content;
+    font-family: "Oblik", Arial, sans-serif;
+    font-size: 24px;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+    transform: rotate(-90deg);
+  }
+}
+
+.text {
+  @media (min-width: 320px) and (max-width: 600px) {
+    margin-top: 5px;
+    font-family: Josefin Sans;
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 1.5;
+    letter-spacing: 0em;
+    margin-right: auto;
+  }
+  @media (min-width: 601px) and (max-width: 1280px) {
+    margin-top: 5px;
+    font-family: Josefin Sans;
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1.5;
+    letter-spacing: 0em;
+    text-align: center;
+  }
+  @media (min-width: 1281px) and (max-width: 2200px) {
+    margin-top: 10px;
+    font-family: Josefin Sans;
+    font-size: 22px;
+    font-weight: 300;
+    line-height: 1.5;
+    letter-spacing: 0em;
+    text-align: left;
+  }
+}
+
+.image {
+  @media (min-width: 320px) and (max-width: 600px) {
+    width: 100%;
+    height: auto;
+  }
+  @media (min-width: 601px) and (max-width: 1280px) {
+    width: 100%;
+    height: auto;
+  }
+  @media (min-width: 1281px) and (max-width: 2200px) {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.btnWrapper {
+  @media (min-width: 320px) and (max-width: 600px) {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+  @media (min-width: 1281px) and (max-width: 2200px) {
+    margin-left: 60px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.sliderBtnWrapper {
+  margin-top: 40px;
+  margin-bottom: -40px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.arrow {
+  width: 34px;
+  height: 24px;
+  border: none;
+  padding: 0 12.5px;
+  background: none;
+  background: url("../../images/ReviewSlider/shevron-right.svg") center / auto
+    no-repeat;
+  outline: none;
+  cursor: pointer;
+}
+
+.buttonPrev {
+  transform: rotate(180deg);
+}

@@ -20,9 +20,11 @@ function BlogPart() {
   return (
     <div className="blogPart">
       <div className="tripAdvisor_container">
-        <h2>
-          <WithTransLate text="Find more about us" />
-        </h2>
+        <h3
+          style={{ whiteSpace: "nowrap", fontSize: "18px", fontWeight: "300" }}
+        >
+          <WithTransLate text="FIND MORE ABOUT US" />
+        </h3>
         <img
           src={tripAdvisor}
           alt="trip-advisor-logo"
@@ -41,9 +43,8 @@ function BlogPart() {
             </h3>
           </div>
           <Button
-            type="button"
-            text="Read Blog"
-            className="btnLight"
+            text="READ BLOG"
+            btnClass="btnLightWithOut"
             handleClick={handleBlogButtonClick}
           />
         </div>

@@ -10,10 +10,10 @@
   font-weight: 500;
   line-height: 1;
   text-align: center;
-  background-color: #1d3967;
+  background-color: #3b5998;
   color: #fff;
   text-transform: uppercase;
-  border: 1px solid #1d3967;
+  border: 1px solid #3b5998;
   outline: none;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -24,7 +24,7 @@
 }
 
 .btnDark:hover {
-  color: #073762;
+  color: #14202b;
   background-color: #fff;
   outline: none;
 }
@@ -50,10 +50,10 @@
   line-height: 1;
   text-align: center;
   background-color: #fff;
-  color: #1d3967;
+  color: #14202b;
   text-transform: uppercase;
   transition: all 0.3s ease;
-  border: 1px solid #1d3967;
+  border: 1px solid #3b5998;
   outline: none;
   cursor: pointer;
 
@@ -64,7 +64,7 @@
 
 .btnLight:hover {
   color: #fff;
-  background-color: #1d3967;
+  background-color: #3b5998;
   outline: none;
 }
 
@@ -104,5 +104,40 @@
 }
 
 .inBox:focus {
+  outline: none;
+}
+
+.btnLightWithOut {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 0px 10px;
+  height: 46px;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1;
+  text-align: center;
+  background-color: transparent;
+  color: #14202b;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+  outline: none;
+  cursor: pointer;
+
+  @media (max-width: 768px) {
+    width: 232px;
+  }
+}
+
+.btnLightWithOut :hover {
+  color: #14202b;
+  font-weight: 800;
+  outline: none;
+}
+
+.btnLightWithOut :focus {
   outline: none;
 }

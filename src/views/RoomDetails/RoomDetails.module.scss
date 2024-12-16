@@ -1,4 +1,25 @@
 .roomdetails {
   width: 100%;
-  border: 1px solid red;
+  margin-bottom: -100px;
+}
+
+.container {
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.mainPart {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  border: 1px solid green;
+}
+
+.partDetails {
+  width: 65%;
+  border: 1px solid blue;
+}
+
+.partCalendar {
+  width: 35%;
 }

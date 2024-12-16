@@ -7,7 +7,8 @@
   display: flex;
   flex-direction: row;
   align-items: flex-end;
-  @media (max-width: 768px) {
+
+  @media (min-width: 320px) and (max-width: 600px) {
     margin-top: 20px;
     margin-bottom: -10px;
     padding-top: 20px;
@@ -16,25 +17,52 @@
     padding-bottom: 0px;
     width: 100%;
   }
-  @media (min-width: 768px) and (max-width: 1024px) {
-    margin-top: 40px;
+  @media (min-width: 601px) and (max-width: 1280px) {
+    margin-top: 50px;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 100%;
+  }
+  @media (min-width: 1281px) and (max-width: 2200px) {
+    margin-top: 50px;
+    padding-top: 20px;
+    padding-left: 70px;
+    padding-right: 0px;
     width: 100%;
   }
 }
 
 .description {
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 300;
   line-height: 1.2;
   text-align: center;
+  color: #14202b;
   font-family: "Josefin Sans";
-  transition: font-weight 0.3s ease-in-out;
   text-transform: uppercase !important;
-  @media (max-width: 768px) {
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  @media (min-width: 320px) and (max-width: 600px) {
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1.2;
+    text-align: center;
+    font-family: "Josefin Sans";
+    transition: font-weight 0.3s ease-in-out;
     text-transform: lowercase !important;
   }
-  @media (min-width: 768px) and (max-width: 1024px) {
+  @media (min-width: 601px) and (max-width: 1280px) {
+    text-transform: uppercase !important;
     font-size: 16px !important;
+    font-weight: 300;
+    line-height: 1.5;
+    text-align: center;
+  }
+  @media (min-width: 1281px) and (max-width: 2200px) {
+    text-align: center;
+    font-weight: 300;
+    line-height: 1.5;
   }
 }
 
@@ -42,49 +70,76 @@
   text-transform: capitalize;
 }
 
-.sectionName {
-  width: 4.4%;
-}
-
 .sectionContent {
-  width: 87.6%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  @media (max-width: 768px) {
+  width: 100%;
+  @media (min-width: 320px) and (max-width: 600px) {
     width: 100%;
+    display: flex;
     flex-direction: column;
-    justify-content: space-between;
     align-items: center;
     gap: 10px;
   }
-  @media (min-width: 768px) and (max-width: 1024px) {
+  @media (min-width: 601px) and (max-width: 700px) {
     width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  @media (min-width: 700px) and (max-width: 1280px) {
+    padding-left: 0px;
+    padding-right: 0px;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  @media (min-width: 1281px) and (max-width: 2200px) {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 30px;
   }
 }
 
 .serviceCard {
-  padding: 0px 25px;
-  padding-top: 20px;
-  width: 28.1%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 40px;
+  font-weight: 300;
+  line-height: 1.2;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
-  @media (max-width: 768px) {
+
+  @media (min-width: 320px) and (max-width: 600px) {
+    padding: 0px 10px !important;
+    padding-top: 20px !important;
+    width: 80% !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+  @media (max-width: 770px) {
+    padding: 0px 20px;
     width: 100%;
   }
-  @media (min-width: 768px) and (max-width: 1024px) {
+  @media (min-width: 770px) and (max-width: 1025px) {
     width: 32%;
+  }
+
+  @media (min-width: 1281px) and (max-width: 2200px) {
+    padding: 0 20px 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 28%;
+    flex: 1;
   }
 
   &:hover {
     box-shadow: 0px 4px 4px rgba(7, 55, 98, 0.249);
     .description {
       font-weight: 500;
-      line-height: 1.2;
+      line-height: 1.5;
       color: #243864;
     }
   }
