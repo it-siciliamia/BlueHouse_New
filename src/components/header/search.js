@@ -61,12 +61,12 @@ const useStyles = makeStyles(() => ({
       border: "none",
       margin: "0",
     },
-    "@media @media (min-width: 320px) and (max-width: 600px)": {
+    "@media @media (min-width: 320px) and (max-width: 599px)": {
       display: "none",
     },
-    "@media (min-width: 601px) and (max-width: 1279px)": {
+    "@media (min-width: 600px) and (max-width: 1279px)": {
       marginRight: "25px !important",
-      top: "20px !important",
+      top: "18px !important",
       height: "46px",
     },
     "@media (min-width: 1280px) and (max-width: 2200px)": {
@@ -341,11 +341,11 @@ export default function Search(props) {
   const userDeviceWidth = window.innerWidth;
   const mobileBreakpoint = 600;
 
-  const isDesctopSearchbarVisible = userDeviceWidth > mobileBreakpoint;
+  const isDesktopSearchbarVisible = userDeviceWidth > mobileBreakpoint;
 
   return (
     <div className={wrapper}>
-      {isDesctopSearchbarVisible && (
+      {isDesktopSearchbarVisible && (
         <form className={searchBar} id="searchBar" ref={searchRef}>
           <input
             onChange={(e) => {
@@ -403,7 +403,7 @@ export default function Search(props) {
         </form>
       )}
 
-      {!isDesctopSearchbarVisible && (
+      {!isDesktopSearchbarVisible && (
         <form className={searchMobileBar} id="searchMobileBar" ref={searchRef}>
           <label>
             <button

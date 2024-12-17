@@ -41,23 +41,28 @@
   padding-left: 7px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 600px) {
   .review-card {
     --cardPadding: 50px 20px 20px 35px;
     font-size: 18px;
     font-weight: 300;
   }
 }
-
-@media (min-width: 768px) and (max-width: 1024px) {
+@media (min-width: 600px) and (max-width: 960px) {
+  .review-card {
+    --cardPadding: 50px 20px 20px 35px;
+    font-size: 18px;
+    font-weight: 300;
+  }
+}
+@media (min-width: 960px) and (max-width: 1280px) {
   .review-card {
     --cardPadding: 50px 55px;
     font-size: 20px;
     font-weight: 300;
   }
 }
-
-@media (min-width: 1024px) {
+@media (min-width: 1280px) {
   .review-card {
     --cardPadding: 40px 60px 10px;
     align-items: stretch;

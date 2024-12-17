@@ -38,11 +38,12 @@ const QUOTES = [
   },
 ];
 
-const DESCTOP_BREAKPOINT = 1023;
+// const DESCTOP_BREAKPOINT = 1000;
+const DESCTOP_BREAKPOINT = 600;
 
 const ReviewSlider = () => {
   const windowInnerWidth = window.innerWidth;
-  const isMobile = useMediaQuery({ maxDeviceWidth: 767 });
+  const isMobile = useMediaQuery({ maxDeviceWidth: 599 });
 
   const slidesPerView = windowInnerWidth > DESCTOP_BREAKPOINT ? 2 : 1;
 
@@ -61,15 +62,7 @@ const ReviewSlider = () => {
             disableOnInteraction: true,
             pauseOnMouseEnter: true,
           }}
-          pagination={
-            isMobile
-              ? false
-              : {
-                  clickable: true,
-                  bulletClass: "bulletClass",
-                  bulletActiveClass: "bulletActiveClass",
-                }
-          }
+          pagination={false}
           navigation={{
             prevEl: ".button-prev",
             nextEl: ".button-next",

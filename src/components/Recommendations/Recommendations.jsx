@@ -7,12 +7,15 @@ import gc from "../../images/RECOMMENDATIONS/Glacier-Caves.webp";
 import nld from "../../images/RECOMMENDATIONS/Northernlights01.webp";
 import bld from "../../images/RECOMMENDATIONS/Blue-lagoon01.webp";
 import gcd from "../../images/RECOMMENDATIONS/Glacier-Caves01.webp";
+import restd from "../../images/RECOMMENDATIONS/Geysers01.webp";
+import rest from "../../images/RECOMMENDATIONS/Geysers.webp";
 import s from "./Recommendations.module.scss";
 
 const Recommendations = () => {
-  // const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 600 });
-  // const isTablet = useMediaQuery({ minWidth: 601, maxWidth: 1280 });
-  const isDesctop = useMediaQuery({ minWidth: 1281, maxWidth: 2200 });
+  const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 599 });
+  const isTablet = useMediaQuery({ minWidth: 600, maxWidth: 959 });
+  const isLaptop = useMediaQuery({ minWidth: 960, maxWidth: 1279 });
+  const isDesktop = useMediaQuery({ minWidth: 1280, maxWidth: 2200 });
 
   const recommendationsData = [
     {
@@ -33,7 +36,24 @@ const Recommendations = () => {
       image: gc,
       imageD: gcd,
     },
+    {
+      name: "Valley of Geysers",
+      link: "https://blog.bluehouse.is/?s=Valley+of+Geysers",
+      image: rest,
+      imageD: restd,
+    },
   ];
+
+  let displayedCards = [];
+  if (isMobile) {
+    displayedCards = recommendationsData.slice(0, 3);
+  } else if (isTablet) {
+    displayedCards = recommendationsData.slice(0, 4);
+  } else if (isLaptop) {
+    displayedCards = recommendationsData.slice(0, 3);
+  } else if (isDesktop) {
+    displayedCards = recommendationsData.slice(0, 3);
+  }
 
   return (
     <div className={s.recommendations}>
@@ -44,7 +64,7 @@ const Recommendations = () => {
           </h2>
         </div>
         <div className={s.sectionContent}>
-          {recommendationsData.map(({ image, imageD, name, link }) => (
+          {displayedCards.map(({ image, imageD, name, link }) => (
             <div key={name} className={s.recommendationItem}>
               <a
                 href={link}
@@ -54,7 +74,7 @@ const Recommendations = () => {
               >
                 <img
                   alt={name}
-                  src={isDesctop ? imageD : image}
+                  src={isDesktop ? imageD : image}
                   className={s.image}
                 />
               </a>

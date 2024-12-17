@@ -7,7 +7,7 @@ import selfie from "../../images/selfie.webp";
 import s from "./AboutUs.module.scss";
 
 function AboutUs() {
-  const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 600 });
+  const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 599 });
 
   return (
     <section id="ABOUTUS" className={s.about}>

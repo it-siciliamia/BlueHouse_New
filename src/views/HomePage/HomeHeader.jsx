@@ -167,11 +167,9 @@ const useStyles = makeStyles((theme) => ({
     border: "none",
   },
   socialIcons: {
-    marginTop: "12px",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    padding: "45px 0 0 0",
     gap: "31px",
     [theme.breakpoints.down("sm")]: {
       display: "none",
