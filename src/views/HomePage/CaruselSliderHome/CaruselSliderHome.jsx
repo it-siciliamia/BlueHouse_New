@@ -19,9 +19,10 @@ import s from "./CaruselSliderHome.module.scss";
 const images = [videoSrc, slide01, slide02, slide03, slide04, slide05, slide06];
 
 const CaruselSliderHome = () => {
-  const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 600 });
-  const isTablet = useMediaQuery({ minWidth: 601, maxWidth: 1280 });
-  const isDesktop = useMediaQuery({ minWidth: 1281, maxWidth: 2200 });
+  const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 599 });
+  const isTablet = useMediaQuery({ minWidth: 600, maxWidth: 1279 });
+  const isDesktop = useMediaQuery({ minWidth: 1280, maxWidth: 2200 });
+  const isLaplop = useMediaQuery({ minWidth: 960, maxWidth: 1279 });
 
   const isPlaceholderShown = useSelector(getIsPlaceholderShown);
   const dispatch = useDispatch();
@@ -33,7 +34,11 @@ const CaruselSliderHome = () => {
   const videoRef = useRef(null);
   const intervalRef = useRef(null);
 
-  const dynamicWidth = isDesktop ? Math.round(width - 375) : width;
+  const dynamicWidth = isDesktop
+    ? Math.round(width - 375)
+    : isLaplop
+    ? Math.round(width - 115)
+    : width;
   const dynamicHeigth = Math.round(dynamicWidth * 0.66);
 
   useEffect(() => {
@@ -128,7 +133,11 @@ const CaruselSliderHome = () => {
     <div
       className={s.container}
       style={{
-        width: isDesktop ? `${dynamicWidth}px` : "100%",
+        width: isDesktop
+          ? `${dynamicWidth}px`
+          : isLaplop
+          ? `${dynamicWidth}px`
+          : "100%",
       }}
     >
       <div
@@ -138,6 +147,8 @@ const CaruselSliderHome = () => {
             ? `${dynamicHeigth}px`
             : isTablet
             ? "400px"
+            : isLaplop
+            ? "500px"
             : "550px",
           overflow: "hidden",
         }}

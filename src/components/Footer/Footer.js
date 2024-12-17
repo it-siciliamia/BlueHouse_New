@@ -8,36 +8,33 @@ import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   container: {
-    maxWidth: "80%",
+    // maxWidth: "80%",
     margin: "0 auto",
     padding: theme.spacing(2),
     display: "grid",
     gridTemplateColumns: "1fr",
     gridGap: theme.spacing(2),
-    [theme.breakpoints.up("md")]: {
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "space-between",
-      flexDirection: "row",
-    },
-    [theme.breakpoints.down("xs")]: {
+    "@media (min-width: 320px) and (max-width: 599px)": {
+      padding: "0 40px !important",
       maxWidth: "100%",
-      margin: "0px",
-      marginTop: "-10px",
-      marginBottom: "-30px",
-      paddingTop: "0px",
-      paddingBottom: "0px",
-      paddingLeft: "40px",
-      paddingRight: "40px",
+      gap: "0px",
     },
-    "@media (min-width: 601px) and (max-width: 1280px)": {
-      marginTop: "-20px",
-      maxWidth: "85% !important",
-      marginLeft: "auto",
+    "@media (min-width: 600px) and (max-width: 959px)": {
+      padding: "0 40px !important",
+      maxWidth: "90%",
+      gap: "0px",
+    },
+    "@media (min-width: 960px) and (max-width: 1279px)": {
       marginRight: "auto",
+      marginLeft: "auto",
+      padding: "0 20px",
+      maxWidth: "960px !important",
+      gap: "0 !important",
     },
-    "@media (min-width: 1281px) and (max-width: 2200px)": {
+    "@media (min-width: 1280px) and (max-width: 2200px)": {
       maxWidth: "80% !important",
+      padding: "0px",
+      gap: "0px",
     },
   },
   logo: {
@@ -145,23 +142,22 @@ const useStyles = makeStyles((theme) => ({
   lineSeparator: {
     margin: "auto",
     borderBottom: "1px solid #1D3967",
-    width: "80%",
+    width: "100%",
     opacity: "30%",
-    "@media (min-width: 600px) and (max-width: 1280px)": {
-      width: "85% !important",
-    },
   },
   blueHouseContainer: {
-    maxWidth: "80%",
-    margin: "0 auto",
+    width: "100%",
     paddingBottom: theme.spacing(2),
     paddingTop: theme.spacing(2),
     display: "flex",
-    justifyContent: "space-between",
+    flexDirection: "row",
+    justifyContent: "center",
     alignItems: "center",
-    "@media (min-width: 601px) and (max-width: 1280px)": {
-      marginLeft: "60px",
-      marginRight: "60px",
+    "@media (min-width: 1280px) and (max-width: 2200px)": {
+      display: "flex",
+      flexDirection: "row",
+      justifyContent: "flex-start",
+      alignItems: "center",
     },
   },
   blueHouse: {
@@ -194,7 +190,7 @@ const useStyles = makeStyles((theme) => ({
 function Footer() {
   const location = useLocation();
   const classes = useStyles();
-  const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 600 });
+  const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 599 });
   const islineSeparator = useMediaQuery({ maxDeviceWidth: 559 });
 
   const isInternalLink = (href) => {
@@ -202,8 +198,7 @@ function Footer() {
   };
 
   return (
-    <>
-      <div />
+    <footer style={{ width: "100%" }}>
       {!isMobile &&
         location.pathname !== "/" &&
         !location.pathname.startsWith("/beds24") && (
@@ -285,12 +280,12 @@ function Footer() {
             </div>
           ))}
         </div>
+        <div className={classes.lineSeparator} style={{ marginTop: "1rem" }} />
+        <div className={classes.blueHouseContainer}>
+          <span className={classes.blueHouse}>© Blue House 2024</span>
+        </div>
       </div>
-      <div className={classes.lineSeparator} style={{ marginTop: "2rem" }} />
-      <div className={classes.blueHouseContainer}>
-        <span className={classes.blueHouse}>© Blue House 2024</span>
-      </div>
-    </>
+    </footer>
   );
 }
 

@@ -15,9 +15,10 @@ const userDeviceWidth = window.innerWidth;
 const mobileBreakpoint = 600;
 
 export default function Header({ right, setRight, top, setTop }) {
-  const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 600 });
-  const isTablet = useMediaQuery({ minWidth: 601, maxWidth: 1280 });
-  const isDesctop = useMediaQuery({ minWidth: 1281 });
+  const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 599 });
+  const isTablet = useMediaQuery({ minWidth: 600, maxWidth: 1279 });
+  const isLaptop = useMediaQuery({ minWidth: 960, maxWidth: 1279 });
+  const isDesktop = useMediaQuery({ minWidth: 1280, maxWidth: 2200 });
   const { width } = useHeaderSize();
 
   const [rightSearch, setRightSearch] = useState("-200%");
@@ -87,69 +88,79 @@ export default function Header({ right, setRight, top, setTop }) {
         />
       )}
 
-      <header id="header" className={s.header}>
-        <span
-          style={{
-            position: "absolute",
-            top: "10px",
-            left: "10px",
-            color: "violet",
-            fontWeight: "700",
-          }}
-        >
-          {width}
-        </span>
-        <div>
-          <Link to="/" className={s.logo} color="inherit" aria-label="logo">
-            <img src={logo} alt="logo" className={s.imgLogo} />
-          </Link>
-        </div>
-
-        {isDesctop && (
-          <div className={s.bookingButtonsWrapper}>
-            <a
-              href="https://beds24.com/booking2.php?propid=3578&layout=1"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <Button text="BOOK YOUR ROOM" btnClass="btnDark" width="280px" />
-            </a>
-            <a
-              href="https://bluehouse.tourdesk.is/Tour"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <Button text="BOOK DAY TOUR" btnClass="btnLight" width="280px" />
-            </a>
+      <header className={s.headerContainer}>
+        <div id="header" className={s.header}>
+          <span
+            style={{
+              position: "absolute",
+              top: "10px",
+              left: "10px",
+              color: "violet",
+              fontWeight: "700",
+            }}
+          >
+            {width}
+          </span>
+          <div>
+            <Link to="/" className={s.logo} color="inherit" aria-label="logo">
+              <img src={logo} alt="logo" className={s.imgLogo} />
+            </Link>
           </div>
-        )}
 
-        <div className={s.rightPart}>
-          <button
-            className={s.menuIcon}
-            onClick={() => handleShowSearchInput(isMobile ? searchTop : 0)}
-            aria-label="menu"
-          >
-            <img
-              src={SearchIcon}
-              alt="SearchIcon"
-              width={isTablet || isMobile ? "25px" : "30"}
-              height={isTablet || isMobile ? "25px" : "30"}
-            />
-          </button>
+          {(isDesktop || isLaptop) && (
+            <div className={s.bookingButtonsWrapper}>
+              <a
+                href="https://beds24.com/booking2.php?propid=3578&layout=1"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <Button
+                  text="BOOK YOUR ROOM"
+                  btnClass="btnDark"
+                  width={isLaptop ? "240px" : "280px"}
+                />
+              </a>
+              <a
+                href="https://bluehouse.tourdesk.is/Tour"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <Button
+                  text="BOOK DAY TOUR"
+                  btnClass="btnLight"
+                  width={isLaptop ? "240px" : "280px"}
+                />
+              </a>
+            </div>
+          )}
 
-          <button
-            className={s.menuIcon}
-            onClick={() => handleOpenAndCloseSideNavbar(0)}
-            aria-label="menu"
-          >
-            <img
-              src={MenuIcon}
-              alt="MenuIcon"
-              width={isTablet || isMobile ? "30px" : "40"}
-              height={isTablet || isMobile ? "25px" : "30"}
-            />
-          </button>
+          <div className={s.rightPart}>
+            <button
+              className={s.menuIcon}
+              onClick={() => handleShowSearchInput(isMobile ? searchTop : 0)}
+              aria-label="menu"
+            >
+              <img
+                src={SearchIcon}
+                alt="SearchIcon"
+                width={isTablet || isMobile ? "25px" : "30"}
+                height={isTablet || isMobile ? "25px" : "30"}
+              />
+            </button>
+
+            <button
+              className={s.menuIcon}
+              onClick={() => handleOpenAndCloseSideNavbar(0)}
+              aria-label="menu"
+            >
+              <img
+                src={MenuIcon}
+                alt="MenuIcon"
+                width={isTablet || isMobile ? "30px" : "40"}
+                height={isTablet || isMobile ? "25px" : "30"}
+              />
+            </button>
+          </div>
         </div>
       </header>
     </>

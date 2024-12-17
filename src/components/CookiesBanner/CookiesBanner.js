@@ -60,8 +60,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function CookiesBanner() {
-  const isMobile = useMediaQuery({ maxDeviceWidth: 767 });
-  const isDesktop = useMediaQuery({ minDeviceWidth: 813 });
+  const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 599 });
+  const isDesktop = useMediaQuery({ minWidth: 1280, maxWidth: 2200 });
   const [showCookies, setShowCookies] = useState(false);
   const showAndHide = () => {
     setShowCookies(!showCookies);

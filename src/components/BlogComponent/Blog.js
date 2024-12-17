@@ -46,6 +46,7 @@ function BlogPart() {
             text="READ BLOG"
             btnClass="btnLightWithOut"
             handleClick={handleBlogButtonClick}
+            width="218px"
           />
         </div>
       </div>

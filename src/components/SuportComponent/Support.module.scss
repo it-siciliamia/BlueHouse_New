@@ -1,14 +1,21 @@
 .support {
-  @media (min-width: 320px) and (max-width: 600px) {
+  @media (min-width: 320px) and (max-width: 599px) {
     margin-bottom: 50px;
     padding: 0px 20px;
     width: 100%;
   }
-  @media (min-width: 601px) and (max-width: 1280px) {
-    margin-top: 50px;
+  @media (min-width: 600px) and (max-width: 959px) {
+    margin-bottom: 50px;
+    padding: 0px 20px;
     width: 100%;
   }
-  @media (min-width: 1281px) and (max-width: 2200px) {
+  @media (min-width: 960px) and (max-width: 1279px) {
+    margin-top: 50px;
+    margin-bottom: -50px;
+    padding: 0px 20px;
+    width: 100%;
+  }
+  @media (min-width: 1280px) and (max-width: 2200px) {
     margin-top: 100px;
     width: 100%;
   }
@@ -17,27 +24,24 @@
 .sectionContent {
   display: flex;
   flex-direction: column;
-  @media (min-width: 320px) and (max-width: 600px) {
+  @media (min-width: 320px) and (max-width: 599px) {
     align-items: center;
     width: 100%;
     gap: 20px;
   }
-
-  @media (min-width: 601px) and (max-width: 700px) {
+  @media (min-width: 600px) and (max-width: 959px) {
+    align-items: center;
     width: 100%;
+    gap: 10px;
   }
-
-  @media (min-width: 700px) and (max-width: 1280px) {
-    padding-left: 0px;
-    padding-right: 0px;
-    width: 100%;
+  @media (min-width: 960px) and (max-width: 1279px) {
+    padding-left: 30px;
+    padding-right: 30px;
     flex-direction: row;
     justify-content: space-between;
     align-items: stretch;
-    gap: 10px;
   }
-
-  @media (min-width: 1281px) and (max-width: 2200px) {
+  @media (min-width: 1280px) and (max-width: 2200px) {
     margin-left: 65px;
     padding-left: 60px;
     padding-right: 60px;
@@ -65,21 +69,21 @@
     color: #243864;
   }
 
-  @media (min-width: 320px) and (max-width: 600px) {
+  @media (min-width: 320px) and (max-width: 599px) {
     text-transform: lowercase !important;
     width: 80%;
   }
-
-  @media (min-width: 601px) and (max-width: 700px) {
-    width: 100%;
+  @media (min-width: 600px) and (max-width: 959px) {
+    text-transform: lowercase !important;
+    width: 70%;
   }
-
-  @media (min-width: 701px) and (max-width: 1280px) {
-    font-size: 16px !important;
-    width: 28% !important;
+  @media (min-width: 960px) and (max-width: 1279px) {
+    text-transform: lowercase !important;
+    width: 65% !important;
+    font-weight: 300;
+    line-height: 1.5;
   }
-
-  @media (min-width: 1281px) and (max-width: 2200px) {
+  @media (min-width: 1280px) and (max-width: 2200px) {
     width: 30% !important;
     font-weight: 300;
     line-height: 1.5;
@@ -96,17 +100,18 @@
   flex: 1;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
-
-  @media (min-width: 320px) and (max-width: 600px) {
+  @media (min-width: 320px) and (max-width: 599px) {
     padding: 0px 10px;
     padding-top: 20px;
   }
-
-  @media (min-width: 601px) and (max-width: 1280px) {
+  @media (min-width: 600px) and (max-width: 959px) {
+    padding: 0px 10px;
+    padding-top: 20px;
+  }
+  @media (min-width: 960px) and (max-width: 1279px) {
     padding: 0px 25px;
   }
-
-  @media (min-width: 1281px) and (max-width: 2200px) {
+  @media (min-width: 1280px) and (max-width: 2200px) {
     padding: 0px 25px;
   }
 
@@ -123,10 +128,10 @@
 .cardTitle {
   font-weight: 500;
   text-transform: uppercase;
-  @media (min-width: 601px) and (max-width: 700px) {
+  @media (min-width: 600px) and (max-width: 959px) {
     margin-bottom: 0px;
   }
-  @media (min-width: 701px) and (max-width: 1280px) {
+  @media (min-width: 960px) and (max-width: 1280px) {
     margin-bottom: 5px;
   }
 }

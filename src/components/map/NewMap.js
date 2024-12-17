@@ -7,11 +7,9 @@ import { AiOutlineFullscreen } from "react-icons/ai";
 import "./WeatherMap.css";
 
 const NewMap = () => {
-  const isMobile = useMediaQuery({ maxWidth: 426 });
-  const isTablet = useMediaQuery({ minWidth: 427, maxWidth: 769 });
-  const isLaptop = useMediaQuery({ minWidth: 770, maxWidth: 1025 });
-  // const isDesktop = useMediaQuery({ minWidth: 1026, maxWidth: 1441 });
-  // const isLargeScreen = useMediaQuery({ minWidth: 1442 });
+  const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 599 });
+  const isTablet = useMediaQuery({ minWidth: 600, maxWidth: 1279 });
+  const isDesktop = useMediaQuery({ minWidth: 1280, maxWidth: 2200 });
 
   const location = useLocation();
   const [mapType, setMapType] = useState("roadmap");
@@ -53,12 +51,11 @@ const NewMap = () => {
                 ? "block"
                 : "none",
             position: "relative",
-            margin:
-              isMobile || isTablet || isLaptop ? "50px 0 50px 0" : "90px 0",
+            margin: isMobile || isTablet ? "50px 0 50px 0" : "90px 0",
             padding: "-2px",
             paddingBottom: "-1px",
             width: "100%",
-            height: !isMobile ? "590px" : "490px",
+            height: !isDesktop ? "490px" : "590px",
             overflow: "hidden",
           }}
         >
