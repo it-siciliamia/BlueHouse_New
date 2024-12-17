@@ -86,24 +86,19 @@ const GALLERY_BACKGROUND_IMAGES_AND_TITLES = [
 
 export default function HomePage() {
   const { root, galleryButton } = useStyles();
-  const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 600 });
-  const isTablet = useMediaQuery({ minWidth: 601, maxWidth: 1280 });
+  const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 599 });
+  const isTablet = useMediaQuery({ minWidth: 600, maxWidth: 1279 });
 
   const customGALLERYTitleStyle = {
     marginTop: "95px",
     marginTopXs: "52px",
   };
 
-  const customRECOMMENDATIONSTitleStyle = {
-    marginTop: "264px",
-  };
   const descrip1 = [
     ["DOUBLE / TWIN", "TRIPLE / QUADRUPLE", "FAMILY ROOM", "APARTMENTS"],
     ["Blue House", "Green House", "Grótta Northern Lights"],
     ["Northern Lights", "Neighborhood", "Activities"],
   ];
-
-  const TABLET_BREAKPOINT = 900;
 
   return (
     <div className={s.home}>

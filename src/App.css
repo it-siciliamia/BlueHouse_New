@@ -85,23 +85,23 @@ a {
 }
 
 .App {
-  /* Mobile screens (min-width: 320px) and (max-width: 600px)*/
-  @media (min-width: 320px) and (max-width: 600px) {
-    padding-top: 20px;
+  @media (min-width: 320px) and (max-width: 599px) {
+    padding-top: 75px;
     width: 100%;
   }
-
-  /* Tablet screens (min-width: 601px and max-width: 1280px) */
-  @media (min-width: 601px) and (max-width: 1280px) {
-    padding-top: 27px;
+  @media (min-width: 600px) and (max-width: 959px) {
+    padding-top: 82px;
     margin-left: auto;
     margin-right: auto;
-    min-width: 601px;
-    max-width: 1270px;
+    max-width: 600px;
   }
-
-  /* Descktop screens (min-width: 1281px and max-width: 2200px) */
-  @media (min-width: 1281px) and (max-width: 2200px) {
+  @media (min-width: 960px) and (max-width: 1279px) {
+    padding-top: 82px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 960px;
+  }
+  @media (min-width: 1280px) and (max-width: 2200px) {
     padding-top: 112px;
     padding-left: 100px;
     padding-right: 100px;

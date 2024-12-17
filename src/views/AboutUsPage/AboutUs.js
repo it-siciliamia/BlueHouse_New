@@ -215,7 +215,7 @@ function Aboutus() {
     titles,
     imageStyle,
   } = useStyles();
-  const isMobile = useMediaQuery({ maxDeviceWidth: 767 });
+  const isMobile = useMediaQuery({ maxDeviceWidth: 599 });
   return (
     <div className={root}>
       <div className={row1}>

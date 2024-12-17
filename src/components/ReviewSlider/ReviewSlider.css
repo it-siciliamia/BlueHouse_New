@@ -5,6 +5,12 @@
   @media (min-width: 320px) and (max-width: 600px) {
     padding-top: 40px !important;
   }
+  @media (min-width: 601px) and (max-width: 701px) {
+    padding-top: 30px !important;
+  }
+  @media (min-width: 701px) and (max-width: 1281px) {
+    padding-top: 30px !important;
+  }
 
   @media (max-width: 768px) {
     padding: 50px 20px 50px;
@@ -58,7 +64,7 @@
   background-color: #073762;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1280px) {
   .review {
     margin-bottom: 64px;
   }

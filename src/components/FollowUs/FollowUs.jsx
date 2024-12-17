@@ -26,12 +26,13 @@ import s from "./FollowUs.module.scss";
 import Button from "../Shared/Button/Button";
 
 const FollowUs = () => {
-  const isMobile = useMediaQuery({ maxWidth: 600 });
-  // const isTablet = useMediaQuery({ minWidth: 601, maxWidth: 1280 });
-  // const isDesktop = useMediaQuery({ minWidth: 1281, maxWidth: 2200 });
+  const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 599 });
+  const isTablet = useMediaQuery({ minWidth: 600, maxWidth: 959 });
+  // const isLaptop = useMediaQuery({ minWidth: 960, maxWidth: 1279 });
+  // const isDesktop = useMediaQuery({ minWidth: 1280, maxWidth: 2200 });
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const itemsPerPage = isMobile ? 1 : 3;
+  const itemsPerPage = isMobile ? 1 : isTablet ? 2 : 3;
 
   const data = [
     insta01,
@@ -57,7 +58,9 @@ const FollowUs = () => {
     insta21,
   ];
 
-  const totalSlides = Math.ceil(data.length / itemsPerPage);
+  const totalSlides = Math.ceil(
+    isTablet ? (data.length - 1) / itemsPerPage : data.length / itemsPerPage
+  );
 
   const nextSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % totalSlides);

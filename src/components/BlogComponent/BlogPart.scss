@@ -6,17 +6,20 @@
   gap: 50px;
   width: 100%;
   margin: 100px 0;
-  @media (min-width: 320px) and (max-width: 600px) {
+  @media (min-width: 320px) and (max-width: 599px) {
+    display: none;
+  }
+  @media (min-width: 600px) and (max-width: 959px) {
+    padding: 0 20px 0 20px;
+    margin-bottom: 50px;
+    margin-top: 50px;
+  }
+  @media (min-width: 960px) and (max-width: 1279px) {
     padding: 0 20px 0 20px;
     margin-bottom: 50px !important;
     margin-top: 50px !important;
   }
-  @media (min-width: 601px) and (max-width: 1280px) {
-    margin-top: 50px;
-    margin-bottom: 0px;
-    padding-bottom: 0px;
-  }
-  @media (min-width: 1281px) and (max-width: 2200px) {
+  @media (min-width: 1280px) and (max-width: 2200px) {
     margin: 100px 0;
     padding: 0 0 0 50px;
     gap: 75px;
@@ -28,10 +31,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  @media (min-width: 768px) and (max-width: 1024px) {
-    align-items: flex-start;
+  @media (min-width: 600px) and (max-width: 1279px) {
+    align-items: center;
   }
-  @media (min-width: 1281px) and (max-width: 2200px) {
+  @media (min-width: 1280px) and (max-width: 2200px) {
     margin-left: 20px;
     width: 50%;
     align-items: flex-start;
@@ -58,13 +61,25 @@
   justify-content: space-between;
   gap: 20px;
   align-items: center;
-  width: 100%;
   border: 1px solid #c6d1db;
   padding-top: 50px;
   padding-bottom: 50px;
   padding-left: 35px;
   min-width: 630px;
   max-width: 800px;
+  @media (min-width: 600px) and (max-width: 959px) {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    padding-left: 20px;
+    min-width: 560px;
+  }
+  @media (min-width: 960px) and (max-width: 1279px) {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-left: 35px;
+    min-width: 630px;
+    max-width: 800px;
+  }
 }
 
 .blogPart__blog_image {
@@ -84,6 +99,12 @@
   justify-content: center;
   align-items: center;
   gap: 50px;
+  @media (min-width: 600px) and (max-width: 959px) {
+    gap: 20px;
+  }
+  @media (min-width: 960px) and (max-width: 1280px) {
+    gap: 50px;
+  }
 }
 
 .blogPart__blog_content_text > h3 {
@@ -92,14 +113,20 @@
   font-weight: 300;
   text-align: center;
   margin-right: 20px;
+  @media (min-width: 600px) and (max-width: 959px) {
+    font-size: 16px !important;
+  }
+  @media (min-width: 960px) and (max-width: 1279px) {
+    font-size: 18px;
+  }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 599px) {
   .blogPart {
     display: none;
   }
 }
-@media (max-width: 1000px) {
+@media (max-width: 1279px) {
   .blogPart {
     flex-wrap: wrap;
   }
