@@ -22,7 +22,12 @@ function AboutPageComponent() {
           </div>
           <div className={s.sectionContent}>
             <div className={s.sectionPart}>
-              <div className={s.partImage}>
+              <div
+                className={s.partImage}
+                style={{
+                  marginBottom: "60px",
+                }}
+              >
                 <div className={s.imageFirst}></div>
               </div>
               <div className={s.partTextWripper}>
