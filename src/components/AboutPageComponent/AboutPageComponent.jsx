@@ -25,7 +25,8 @@ function AboutPageComponent() {
               <div
                 className={s.partImage}
                 style={{
-                  marginBottom: "60px",
+                  marginBottom: !isDesktop || !isLaptop ? "65px" : "0px",
+                  border: "1px solid red",
                 }}
               >
                 <div className={s.imageFirst}></div>
