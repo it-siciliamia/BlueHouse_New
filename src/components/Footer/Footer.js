@@ -6,6 +6,8 @@ import { makeStyles } from "@material-ui/core";
 import { WithTransLate } from "../helpers/translating";
 import { Link } from "react-router-dom";
 
+import s from "./Footer.module.scss";
+
 const useStyles = makeStyles((theme) => ({
   container: {
     margin: "0 auto",
@@ -13,28 +15,6 @@ const useStyles = makeStyles((theme) => ({
     display: "grid",
     gridTemplateColumns: "1fr",
     gridGap: theme.spacing(2),
-    "@media (min-width: 320px) and (max-width: 599.99px)": {
-      padding: "0 40px !important",
-      maxWidth: "100%",
-      gap: "0px",
-    },
-    "@media (min-width: 600px) and (max-width: 959.99px)": {
-      padding: "0 40px !important",
-      maxWidth: "90%",
-      gap: "0px",
-    },
-    "@media (min-width: 960px) and (max-width: 1279.99px)": {
-      marginRight: "auto",
-      marginLeft: "auto",
-      padding: "0 20px",
-      maxWidth: "960px !important",
-      gap: "0 !important",
-    },
-    "@media (min-width: 1280px) and (max-width: 2200px)": {
-      maxWidth: "80% !important",
-      padding: "0px",
-      gap: "0px",
-    },
   },
   logo: {
     marginBottom: theme.spacing(2),
@@ -190,6 +170,10 @@ function Footer() {
   const location = useLocation();
   const classes = useStyles();
   const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 599.99 });
+  const isTablet = useMediaQuery({ minWidth: 600, maxWidth: 959.99 });
+  const isLaptop = useMediaQuery({ minWidth: 960, maxWidth: 1279.99 });
+  const isDesktop = useMediaQuery({ minWidth: 1280, maxWidth: 2200 });
+
   const islineSeparator = useMediaQuery({ maxDeviceWidth: 559.99 });
 
   const isInternalLink = (href) => {
@@ -198,15 +182,16 @@ function Footer() {
 
   return (
     <footer style={{ width: "100%" }}>
-      {!isMobile &&
-        location.pathname !== "/" &&
-        !location.pathname.startsWith("/beds24") && (
-          <div
-            className={classes.lineSeparator}
-            style={{ marginBottom: "2.5rem" }}
-          ></div>
-        )}
-      <div className={classes.container}>
+      {/* <div className={classes.container}> */}
+      <div className={s.container}>
+        {!isMobile &&
+          location.pathname !== "/" &&
+          !location.pathname.startsWith("/beds24") && (
+            <div
+              className={classes.lineSeparator}
+              style={{ marginBottom: isDesktop ? "5rem" : "2.5rem" }}
+            ></div>
+          )}
         <div className={classes.linkContainer}>
           {items.map((item, index) => (
             <div
@@ -279,7 +264,13 @@ function Footer() {
             </div>
           ))}
         </div>
-        <div className={classes.lineSeparator} style={{ marginTop: "1rem" }} />
+        <div
+          className={classes.lineSeparator}
+          style={{
+            marginBottom: isDesktop ? "1rem" : isLaptop ? "0.5rem" : "0.5rem",
+            marginTop: isDesktop ? "4.5rem" : isMobile ? "1rem" : "2.5rem",
+          }}
+        />
         <div className={classes.blueHouseContainer}>
           <span className={classes.blueHouse}>© Blue House 2024</span>
         </div>
