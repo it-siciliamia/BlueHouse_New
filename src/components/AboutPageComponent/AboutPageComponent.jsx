@@ -1,12 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
-import Button from "../../components/Shared/Button/Button";
 import { WithTransLate } from "../helpers/translating/index";
 import signature from "../../images/aboutus/signature.png";
-import message from "../../images/aboutus/zeno.webp";
-import house01 from "../../images/aboutus/house01.webp";
-import house02 from "../../images/aboutus/house02.webp";
+
 import s from "./AboutPageComponent.module.scss";
 
 function AboutPageComponent() {
