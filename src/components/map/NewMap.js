@@ -7,7 +7,7 @@ import { AiOutlineFullscreen } from "react-icons/ai";
 import "./WeatherMap.css";
 
 const NewMap = () => {
-  const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 599 });
+  const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 599.99 });
   const isTablet = useMediaQuery({ minWidth: 600, maxWidth: 1279 });
   const isDesktop = useMediaQuery({ minWidth: 1280, maxWidth: 2200 });
 

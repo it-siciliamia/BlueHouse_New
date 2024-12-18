@@ -1,15 +1,15 @@
 .recommendations {
   width: 100%;
   padding: 0px 20px;
-  @media (min-width: 320px) and (max-width: 599px) {
+  @media (min-width: 320px) and (max-width: 599.99px) {
     width: 100%;
     margin-bottom: 50px;
   }
-  @media (min-width: 600px) and (max-width: 959px) {
+  @media (min-width: 600px) and (max-width: 959.99px) {
     width: 100%;
     margin-bottom: 50px;
   }
-  @media (min-width: 960px) and (max-width: 1279px) {
+  @media (min-width: 960px) and (max-width: 1279.99px) {
     margin-top: 30px;
   }
   @media (min-width: 1280px) and (max-width: 2200px) {
@@ -20,15 +20,15 @@
 }
 
 .sectionWrapper {
-  @media (min-width: 320px) and (max-width: 599px) {
+  @media (min-width: 320px) and (max-width: 599.99px) {
     width: 100%;
     display: flex;
     flex-direction: column;
   }
-  @media (min-width: 600px) and (max-width: 959px) {
+  @media (min-width: 600px) and (max-width: 959.99px) {
     width: 100%;
   }
-  @media (min-width: 960px) and (max-width: 1279px) {
+  @media (min-width: 960px) and (max-width: 1279.99px) {
     width: 100%;
   }
   @media (min-width: 1280px) and (max-width: 2200px) {
@@ -38,13 +38,13 @@
 }
 
 .sectionContent {
-  @media (min-width: 320px) and (max-width: 599px) {
+  @media (min-width: 320px) and (max-width: 599.99px) {
     margin-top: 20px;
     display: flex;
     flex-direction: column;
     gap: 40px;
   }
-  @media (min-width: 600px) and (max-width: 959px) {
+  @media (min-width: 600px) and (max-width: 959.99px) {
     margin-top: 20px;
     width: 100%;
     display: grid;
@@ -52,13 +52,7 @@
     grid-template-columns: 1fr 1fr;
     grid-template-rows: repeat(2, auto);
   }
-  @media (min-width: 960px) and (max-width: 1279px) {
-    // margin-top: 20px;
-    // width: 100%;
-    // display: grid;
-    // gap: 20px;
-    // grid-template-columns: 1fr 1fr;
-    // grid-template-rows: repeat(2, auto);
+  @media (min-width: 960px) and (max-width: 1279.99px) {
     width: 100%;
     display: flex;
     display: row;
@@ -90,7 +84,7 @@
 }
 
 .title {
-  @media (min-width: 320px) and (max-width: 1279px) {
+  @media (min-width: 320px) and (max-width: 1279.99px) {
     white-space: nowrap;
     font-family: "Oblik", Arial, sans-serif;
     font-size: 20px;
@@ -112,7 +106,7 @@
 }
 
 .text {
-  @media (min-width: 320px) and (max-width: 599px) {
+  @media (min-width: 320px) and (max-width: 599.99px) {
     margin-top: 5px;
     font-family: Josefin Sans;
     font-size: 20px;
@@ -121,7 +115,7 @@
     letter-spacing: 0em;
     margin-right: auto;
   }
-  @media (min-width: 600px) and (max-width: 1279px) {
+  @media (min-width: 600px) and (max-width: 1279.99px) {
     margin-top: 5px;
     font-family: Josefin Sans;
     font-size: 18px;
@@ -142,15 +136,15 @@
 }
 
 .image {
-  @media (min-width: 320px) and (max-width: 599px) {
+  @media (min-width: 320px) and (max-width: 599.99px) {
     width: 100%;
     height: auto;
   }
-  @media (min-width: 600px) and (max-width: 959px) {
+  @media (min-width: 600px) and (max-width: 959.99px) {
     width: 100%;
     height: auto;
   }
-  @media (min-width: 960px) and (max-width: 1279px) {
+  @media (min-width: 960px) and (max-width: 1279.99px) {
     width: 100%;
     height: auto;
   }

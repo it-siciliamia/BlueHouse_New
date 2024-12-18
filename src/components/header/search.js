@@ -61,10 +61,10 @@ const useStyles = makeStyles(() => ({
       border: "none",
       margin: "0",
     },
-    "@media @media (min-width: 320px) and (max-width: 599px)": {
+    "@media @media (min-width: 320px) and (max-width: 599.99px)": {
       display: "none",
     },
-    "@media (min-width: 600px) and (max-width: 1279px)": {
+    "@media (min-width: 600px) and (max-width: 1279.99px)": {
       marginRight: "25px !important",
       top: "18px !important",
       height: "46px",
@@ -243,7 +243,7 @@ SearchResult.propTypes = {
 };
 
 export default function Search(props) {
-  const isTablet = useMediaQuery({ minWidth: 601, maxWidth: 1023 });
+  const isTablet = useMediaQuery({ minWidth: 600, maxWidth: 1279.99 });
   const {
     searchInput,
     searchResult,
