@@ -11,7 +11,7 @@ const NewsletterComponent = () => {
   // const [isHumanVerified, setIsHumanVerified] = useState(false);
   const [aproveSendData, setAproveSendData] = useState(false);
   const checkboxRef = useRef(null);
-  const isMobile = useMediaQuery({ maxDeviceWidth: 599 });
+  const isMobile = useMediaQuery({ maxDeviceWidth: 599.99 });
 
   const {
     control,

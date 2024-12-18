@@ -19,10 +19,10 @@ import s from "./CaruselSliderHome.module.scss";
 const images = [videoSrc, slide01, slide02, slide03, slide04, slide05, slide06];
 
 const CaruselSliderHome = () => {
-  const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 599 });
-  const isTablet = useMediaQuery({ minWidth: 600, maxWidth: 1279 });
+  const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 599.99 });
+  const isTablet = useMediaQuery({ minWidth: 600, maxWidth: 1279.99 });
   const isDesktop = useMediaQuery({ minWidth: 1280, maxWidth: 2200 });
-  const isLaplop = useMediaQuery({ minWidth: 960, maxWidth: 1279 });
+  const isLaplop = useMediaQuery({ minWidth: 960, maxWidth: 1279.99 });
 
   const isPlaceholderShown = useSelector(getIsPlaceholderShown);
   const dispatch = useDispatch();

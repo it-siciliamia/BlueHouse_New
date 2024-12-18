@@ -60,7 +60,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function CookiesBanner() {
-  const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 599 });
+  const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 599.99 });
   const isDesktop = useMediaQuery({ minWidth: 1280, maxWidth: 2200 });
   const [showCookies, setShowCookies] = useState(false);
   const showAndHide = () => {
@@ -78,7 +78,7 @@ function CookiesBanner() {
     <div
       className={root}
       style={{
-        border: isMobile ? "3px solid #1d3967" : "3px solid #1d3967",
+        border: isMobile ? "2px solid #1d3967" : "2px solid #1d3967",
         margin: isMobile ? "10px" : isDesktop ? "10px 110px" : "10px 20px",
       }}
     >
@@ -132,7 +132,7 @@ function CookiesBanner() {
         />
         <Button
           handleClick={() => handleAcceptingAndDeclineCookies(false)}
-          text="DECLINE"
+          text="DECLINE COOKIES"
           btnClass="btnDark"
           width={isMobile ? "100pх" : "200px"}
         />

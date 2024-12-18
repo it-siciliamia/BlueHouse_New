@@ -1,10 +1,10 @@
 .findMoreContainer {
-  @media (min-width: 599px) and (max-width: 2200px) {
+  @media (min-width: 599.99px) and (max-width: 2200px) {
     display: none !important;
   }
 }
 
-@media (max-width: 599px) {
+@media (max-width: 599.99px) {
   .findMoreContainer {
     margin: 50px 0;
     display: flex;

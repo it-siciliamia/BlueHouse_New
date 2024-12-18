@@ -86,8 +86,8 @@ const GALLERY_BACKGROUND_IMAGES_AND_TITLES = [
 
 export default function HomePage() {
   const { root, galleryButton } = useStyles();
-  const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 599 });
-  const isTablet = useMediaQuery({ minWidth: 600, maxWidth: 1279 });
+  const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 599.99 });
+  const isTablet = useMediaQuery({ minWidth: 600, maxWidth: 1279.99 });
 
   const customGALLERYTitleStyle = {
     marginTop: "95px",

@@ -12,9 +12,9 @@ import rest from "../../images/RECOMMENDATIONS/Geysers.webp";
 import s from "./Recommendations.module.scss";
 
 const Recommendations = () => {
-  const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 599 });
-  const isTablet = useMediaQuery({ minWidth: 600, maxWidth: 959 });
-  const isLaptop = useMediaQuery({ minWidth: 960, maxWidth: 1279 });
+  // const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 599.99 });
+  const isTablet = useMediaQuery({ minWidth: 600, maxWidth: 959.99 });
+  // const isLaptop = useMediaQuery({ minWidth: 960, maxWidth: 1279.99 });
   const isDesktop = useMediaQuery({ minWidth: 1280, maxWidth: 2200 });
 
   const recommendationsData = [
@@ -45,13 +45,9 @@ const Recommendations = () => {
   ];
 
   let displayedCards = [];
-  if (isMobile) {
-    displayedCards = recommendationsData.slice(0, 3);
-  } else if (isTablet) {
+  if (isTablet) {
     displayedCards = recommendationsData.slice(0, 4);
-  } else if (isLaptop) {
-    displayedCards = recommendationsData.slice(0, 3);
-  } else if (isDesktop) {
+  } else {
     displayedCards = recommendationsData.slice(0, 3);
   }
 
