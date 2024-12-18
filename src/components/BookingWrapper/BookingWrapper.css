@@ -2,8 +2,8 @@
   display: none;
 }
 
-@media all and (min-width: 600px) and (max-width: 959px),
-  all and (max-width: 599px) {
+@media all and (min-width: 600px) and (max-width: 959.99px),
+  all and (max-width: 599.99px) {
   .BookingWrapper_container {
     gap: 15px;
     margin-top: 50px;

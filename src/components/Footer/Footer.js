@@ -8,23 +8,22 @@ import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   container: {
-    // maxWidth: "80%",
     margin: "0 auto",
     padding: theme.spacing(2),
     display: "grid",
     gridTemplateColumns: "1fr",
     gridGap: theme.spacing(2),
-    "@media (min-width: 320px) and (max-width: 599px)": {
+    "@media (min-width: 320px) and (max-width: 599.99px)": {
       padding: "0 40px !important",
       maxWidth: "100%",
       gap: "0px",
     },
-    "@media (min-width: 600px) and (max-width: 959px)": {
+    "@media (min-width: 600px) and (max-width: 959.99px)": {
       padding: "0 40px !important",
       maxWidth: "90%",
       gap: "0px",
     },
-    "@media (min-width: 960px) and (max-width: 1279px)": {
+    "@media (min-width: 960px) and (max-width: 1279.99px)": {
       marginRight: "auto",
       marginLeft: "auto",
       padding: "0 20px",
@@ -190,8 +189,8 @@ const useStyles = makeStyles((theme) => ({
 function Footer() {
   const location = useLocation();
   const classes = useStyles();
-  const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 599 });
-  const islineSeparator = useMediaQuery({ maxDeviceWidth: 559 });
+  const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 599.99 });
+  const islineSeparator = useMediaQuery({ maxDeviceWidth: 559.99 });
 
   const isInternalLink = (href) => {
     return href.startsWith("/");

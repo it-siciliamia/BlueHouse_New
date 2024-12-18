@@ -6,15 +6,15 @@
   gap: 50px;
   width: 100%;
   margin: 100px 0;
-  @media (min-width: 320px) and (max-width: 599px) {
+  @media (min-width: 320px) and (max-width: 599.99px) {
     display: none;
   }
-  @media (min-width: 600px) and (max-width: 959px) {
+  @media (min-width: 600px) and (max-width: 959.99px) {
     padding: 0 20px 0 20px;
     margin-bottom: 50px;
     margin-top: 50px;
   }
-  @media (min-width: 960px) and (max-width: 1279px) {
+  @media (min-width: 960px) and (max-width: 1279.99px) {
     padding: 0 20px 0 20px;
     margin-bottom: 50px !important;
     margin-top: 50px !important;
@@ -31,7 +31,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  @media (min-width: 600px) and (max-width: 1279px) {
+  @media (min-width: 600px) and (max-width: 1279.99px) {
     align-items: center;
   }
   @media (min-width: 1280px) and (max-width: 2200px) {
@@ -67,13 +67,13 @@
   padding-left: 35px;
   min-width: 630px;
   max-width: 800px;
-  @media (min-width: 600px) and (max-width: 959px) {
+  @media (min-width: 600px) and (max-width: 959.99px) {
     padding-top: 40px;
     padding-bottom: 40px;
     padding-left: 20px;
     min-width: 560px;
   }
-  @media (min-width: 960px) and (max-width: 1279px) {
+  @media (min-width: 960px) and (max-width: 1279.99px) {
     padding-top: 50px;
     padding-bottom: 50px;
     padding-left: 35px;
@@ -99,7 +99,7 @@
   justify-content: center;
   align-items: center;
   gap: 50px;
-  @media (min-width: 600px) and (max-width: 959px) {
+  @media (min-width: 600px) and (max-width: 959.99px) {
     gap: 20px;
   }
   @media (min-width: 960px) and (max-width: 1280px) {
@@ -113,20 +113,20 @@
   font-weight: 300;
   text-align: center;
   margin-right: 20px;
-  @media (min-width: 600px) and (max-width: 959px) {
+  @media (min-width: 600px) and (max-width: 959.99px) {
     font-size: 16px !important;
   }
-  @media (min-width: 960px) and (max-width: 1279px) {
+  @media (min-width: 960px) and (max-width: 1279.99px) {
     font-size: 18px;
   }
 }
 
-@media (max-width: 599px) {
+@media (max-width: 599.99px) {
   .blogPart {
     display: none;
   }
 }
-@media (max-width: 1279px) {
+@media (max-width: 1279.99px) {
   .blogPart {
     flex-wrap: wrap;
   }

@@ -10,7 +10,7 @@ import CookiesBanner from "./components/CookiesBanner/CookiesBanner.js";
 import { HeaderProvider } from "./components/helpers/HeaderContext/HeaderContext";
 import Header from "./components/header/Header.jsx";
 import HomePage from "./views/HomePage/HomePage.jsx";
-import Aboutus from "./views/AboutUsPage/AboutUs.js";
+import Aboutus from "./views/AboutUsPage/AboutUs.jsx";
 import PrivacyandPolicy from "./views/ImportAndP&P/index.js";
 import PageHeader from "./components/Shared/PageHeader/PageHeader.jsx";
 import ScrollToTop from "./components/helpers/ScrollToTop.js";
