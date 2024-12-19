@@ -7,6 +7,7 @@
     padding: 0 20px;
   }
   @media (min-width: 1280px) and (max-width: 2200px) {
+    margin-top: 25px;
     padding: 0 50px;
   }
 }
@@ -30,6 +31,7 @@
   letter-spacing: 0.1em;
   color: #00366e;
   @media (min-width: 320px) and (max-width: 1279.99px) {
+    margin: 20px 0;
     font-size: 20px;
     font-weight: 700;
     margin-bottom: 20px;
@@ -191,7 +193,7 @@
 }
 
 .imageFirst {
-  background-image: url("../../images/aboutus/house01.webp");
+  background-image: url("../../images/aboutus/house02.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -200,7 +202,7 @@
 }
 
 .imageSecond {
-  background-image: url("../../images/aboutus/house02.webp");
+  background-image: url("../../images/aboutus/house01.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

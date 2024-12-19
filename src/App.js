@@ -11,10 +11,10 @@ import { HeaderProvider } from "./components/helpers/HeaderContext/HeaderContext
 import Header from "./components/header/Header.jsx";
 import HomePage from "./views/HomePage/HomePage.jsx";
 import Aboutus from "./views/AboutUsPage/AboutUs.jsx";
-import PrivacyandPolicy from "./views/ImportAndP&P/index.js";
+import PrivacyandPolicyPage from "./views/PrivacyPolicyPage/PrivacyPolicyPage.jsx";
 import PageHeader from "./components/Shared/PageHeader/PageHeader.jsx";
 import ScrollToTop from "./components/helpers/ScrollToTop.js";
-import HouseRules from "./views/HouseRules/HouseRules.js";
+import HouseRules from "./views/HouseRulesPage/HouseRules.jsx";
 import Footer from "./components/Footer/Footer.js";
 import Notfound from "./views/NotFoundPage/Notfound.js";
 import RoomBooking from "./views/roombooking/RoomBooking.jsx";
@@ -101,7 +101,7 @@ function App({ basename }) {
                     <Aboutus />
                   </Route>
                   <Route exact path="/privacy-and-policy">
-                    <PrivacyandPolicy />
+                    <PrivacyandPolicyPage />
                   </Route>
                   <Route path="/beds24/:room">
                     <RoomDetails />
