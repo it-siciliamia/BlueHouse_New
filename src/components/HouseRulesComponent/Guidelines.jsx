@@ -1,59 +1,11 @@
 import React from "react";
 import Rule from "./Rule.jsx";
-import { makeStyles } from "@material-ui/core";
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    display: "flex",
-    flexDirection: "column",
-    gap: "40px",
-    marginLeft: "62px",
-  },
-  info: {
-    letterSpacing: "0em",
-    textAlign: "center",
-    display: "flex",
-    flexDirection: "column",
-    gap: "60px",
-    margin: "80px auto",
-    "& p": {
-      fontSize: "24px",
-      fontWeight: 300,
-      lineHeight: "25px",
-      [theme.breakpoints.down("xs")]: {
-        fontSize: "16px",
-        textAlign: "cener",
-      },
-      [theme.breakpoints.down("md")]: {
-        fontSize: "18px",
-        textAlign: "cener",
-      },
-      [theme.breakpoints.between(768, 1024)]: {
-        fontSize: "35px",
-        lineHeight: "45px",
-      },
-    },
-  },
-  [theme.breakpoints.down("xs")]: {
-    root: {
-      margin: "auto",
-      gap: "40px",
-      marginBottom: "-50px",
-    },
-    info: {
-      margin: "0px 25px",
-      "& p": {
-        fontSize: "16px",
-        textAlign: "center",
-      },
-    },
-  },
-}));
+import s from "./HouseRulesComponent.module.scss";
 
 function Guidelines() {
-  const { root } = useStyles();
   return (
-    <div className={root}>
+    <div className={s.guidelines}>
       <Rule
         Icon={"./1.svg"}
         text="Do not smoke inside the room and the house. 

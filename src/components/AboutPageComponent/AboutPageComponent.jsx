@@ -162,7 +162,10 @@ function AboutPageComponent() {
                         : "flex-start",
                   }}
                 >
-                  <div className={s.imageZeno}></div>
+                  <div
+                    className={s.imageZeno}
+                    style={{ marginBottom: "20px" }}
+                  ></div>
                   <img
                     src={signature}
                     className={s.photoSignature}
