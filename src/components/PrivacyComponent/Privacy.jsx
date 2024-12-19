@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Box, makeStyles } from "@material-ui/core";
-import { WithTransLate } from "../../components/helpers/translating/index";
+import { WithTransLate } from "../helpers/translating/index";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -25,12 +25,12 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   titleInfo: {
-    margin: "20px 0 128px 0",
+    margin: "20px 0 20px 0",
     [theme.breakpoints.down("md")]: {
       margin: "20px 0 44px 0",
     },
     [theme.breakpoints.between(768, 1024)]: {
-      margin: "20px 0 80px 0",
+      margin: "20px 0 20px 0",
     },
   },
   subtitle: {
@@ -81,15 +81,15 @@ const useStyles = makeStyles((theme) => ({
   },
   articleTitle: {
     marginBottom: "20px",
-    fontSize: "28px",
+    fontSize: "24px",
     fontWeight: 600,
     lineHeight: "30px",
     [theme.breakpoints.down("md")]: {
-      fontSize: "24px",
+      fontSize: "22px",
       lineHeight: "30px",
     },
     [theme.breakpoints.between(768, 1024)]: {
-      fontSize: "26px",
+      fontSize: "24px",
       lineHeight: "30px",
     },
   },
@@ -198,9 +198,9 @@ export default function Privacy() {
   } = useStyles();
   return (
     <Box className={root}>
-      <h2 className={title}>
+      {/* <h2 className={title}>
         <WithTransLate text="IMPRINT & PRIVACY POLICY" />
-      </h2>
+      </h2> */}
 
       <div className={titleInfo}>
         <p className={textClass}>
@@ -845,6 +845,6 @@ export default function Privacy() {
 }
 
 Privacy.propTypes = {
-  title: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired,
+  title: PropTypes.string,
+  text: PropTypes.string,
 };

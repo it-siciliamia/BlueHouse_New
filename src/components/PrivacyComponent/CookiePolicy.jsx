@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, makeStyles } from "@material-ui/core";
-import { WithTransLate } from "../../components/helpers/translating/index";
+import { WithTransLate } from "../helpers/translating/index";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -58,7 +58,7 @@ const useStyles = makeStyles((theme) => ({
   },
 
   articleWrapper: {
-    marginBottom: "44px",
+    marginBottom: "20px",
     [theme.breakpoints.down("md")]: {
       marginBottom: "24px",
     },
@@ -157,9 +157,9 @@ export default function CookiePolicy() {
   } = useStyles();
   return (
     <Box className={root}>
-      <h2 className={title}>
+      {/* <h2 className={title}>
         <WithTransLate text="COOKIE POLICY" />
-      </h2>
+      </h2> */}
 
       <div className={titleInfo}>
         <p className={textClass}>
@@ -291,13 +291,12 @@ export default function CookiePolicy() {
             </p>
           ))}
         </div>
+        <p className={textClass}>
+          <span className={definition}>
+            <WithTransLate text="For further information on how we handle your data please read our privacy policy." />
+          </span>
+        </p>
       </div>
-
-      <p className={textClass}>
-        <span className={definition}>
-          <WithTransLate text="For further information on how we handle your data please read our privacy policy." />
-        </span>
-      </p>
     </Box>
   );
 }
