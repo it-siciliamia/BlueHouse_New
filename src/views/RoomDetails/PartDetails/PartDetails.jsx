@@ -3,7 +3,10 @@ import { Link as ScrollLink, scroller } from "react-scroll";
 import { WithTransLate } from "../../../components/helpers/translating/index";
 import Button from "../../../components/Shared/Button/Button";
 import locationIcon from "../../../images/services_room/location.svg";
-import { items, price } from "../../roombooking/ServicesRoom/ServicesRoomData";
+import {
+  items,
+  price,
+} from "../../../components/ServicesRoom/ServicesRoomData";
 import s from "./PartDetails.module.scss";
 
 const PartDetails = ({ data }) => {

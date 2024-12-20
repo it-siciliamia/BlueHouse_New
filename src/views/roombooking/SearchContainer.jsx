@@ -1,272 +1,187 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useLanguage } from "../../components/helpers/translating/LanguageContext";
+import DatePicker from "react-datepicker";
+import {
+  WithTransLate,
+  translateMyText,
+} from "../../components/helpers/translating/index";
+import "react-datepicker/dist/react-datepicker.css";
 import minusIcon from "../../images/roombooking/minus.svg";
 import plusIcon from "../../images/roombooking/plus.svg";
 import arrowDown from "../../images/roombooking/ArrowDown.svg";
 import arrowUp from "../../images/roombooking/ArrowUp.svg";
-import {
-  format,
-  isSameDay,
-  isSameMonth,
-  isWithinInterval,
-  eachDayOfInterval,
-  startOfMonth,
-  endOfMonth,
-  startOfWeek,
-  endOfWeek,
-  subMonths,
-  addMonths,
-  isBefore,
-} from "date-fns";
 
 const SearchContainer = () => {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
-  const [focusedDate, setFocusedDate] = useState(new Date());
-  const [showCalendar, setShowCalendar] = useState(false);
   const [containerToggle, setContainerToggle] = useState(false);
   const [adultsAmount, setAdultsAmount] = useState(2);
   const [childrenAmount, setChildrenAmount] = useState(0);
   const [roomsAmount, setRoomsAmount] = useState(1);
+  const languageIndex = useLanguage();
 
-  const handleIncrement = () => {
-    setAdultsAmount(adultsAmount + 1);
-  };
+  const [placeholderText1, setPlaceholderText1] = useState("Check in");
+  const [placeholderText2, setPlaceholderText2] = useState("Check out");
 
-  const handleIncrementChildren = () => {
-    setChildrenAmount(childrenAmount + 1);
-  };
+  const handleIncrement = (setter, value) => setter(value + 1);
+  const handleDecrement = (setter, value) => value > 0 && setter(value - 1);
 
-  const handleIncrementRooms = () => {
-    setRoomsAmount(roomsAmount + 1);
-  };
+  const toggleHandle = () => setContainerToggle(!containerToggle);
 
-  const handleDecrement = () => {
-    if (adultsAmount > 0) {
-      setAdultsAmount(adultsAmount - 1);
-    }
-  };
-
-  const handleDecrementChildren = () => {
-    if (childrenAmount > 0) {
-      setChildrenAmount(childrenAmount - 1);
-    }
-  };
-
-  const handleDecrementRooms = () => {
-    if (roomsAmount > 0) {
-      setRoomsAmount(roomsAmount - 1);
-    }
-  };
-
-  const toggleHandle = () => {
-    setContainerToggle((prevState) => !prevState);
-    setShowCalendar(false);
-  };
-
-  const handleDayClick = (day) => {
-    if (isBefore(day, new Date())) {
-      return;
-    }
-    if (!startDate) {
-      setStartDate(day);
-      setFocusedDate(day);
-    } else if (!endDate) {
-      if (isBefore(day, startDate)) {
-        setStartDate(day);
-        setEndDate(null);
-      } else {
-        setEndDate(day);
-        setShowCalendar(false);
+  useEffect(() => {
+    const fetchPlaceholders = async () => {
+      try {
+        const translatedCheckIn = await translateMyText("Check in");
+        const translatedCheckOut = await translateMyText("Check out");
+        setPlaceholderText1(translatedCheckIn);
+        setPlaceholderText2(translatedCheckOut);
+      } catch (error) {
+        console.error("Error translating placeholders:", error);
       }
-    } else {
-      setStartDate(day);
-      setEndDate(null);
-      setFocusedDate(day);
-    }
-  };
+    };
 
-  const renderCalendar = () => {
-    // const daysInMonth = eachDayOfInterval({ start: startOfMonth(focusedDate), end: endOfMonth(focusedDate) });
-    const firstDayOfMonth = startOfMonth(focusedDate);
-    const lastDayOfMonth = endOfMonth(focusedDate);
-    const firstDayOfWeek = startOfWeek(firstDayOfMonth);
-    const lastDayOfWeek = endOfWeek(lastDayOfMonth);
-
-    const days = eachDayOfInterval({
-      start: firstDayOfWeek,
-      end: lastDayOfWeek,
-    });
-
-    return (
-      <div className="calendar">
-        <div className="calendar-header">
-          <button onClick={() => setFocusedDate(subMonths(focusedDate, 1))}>
-            &lt;
-          </button>
-          <span>{format(focusedDate, "MMMM yyyy")}</span>
-          <button onClick={() => setFocusedDate(addMonths(focusedDate, 1))}>
-            &gt;
-          </button>
-        </div>
-        <div className="calendar-days">
-          {days.map((day) => {
-            const isCurrentMonth = isSameMonth(day, focusedDate);
-            const isSelected =
-              isSameDay(day, startDate) ||
-              isSameDay(day, endDate) ||
-              (startDate &&
-                endDate &&
-                isWithinInterval(day, { start: startDate, end: endDate }));
-            const isOutsideMonth = !isWithinInterval(day, {
-              start: firstDayOfMonth,
-              end: lastDayOfMonth,
-            });
-            const isDisabled = isBefore(day, new Date());
-
-            const isFirstSelected = startDate && isSameDay(day, startDate);
-            const isLastSelected = endDate && isSameDay(day, endDate);
-
-            return (
-              <div
-                key={day.toString()}
-                className={`day 
-                                ${isOutsideMonth ? "outside-month" : ""} 
-                                ${isCurrentMonth ? "current-month" : ""} 
-                                ${isSelected ? "selected" : ""} 
-                                ${isDisabled ? "disabled" : ""}
-                                ${
-                                  isFirstSelected || isLastSelected
-                                    ? "first-last-selected"
-                                    : ""
-                                }`}
-                onClick={() =>
-                  isCurrentMonth && !isDisabled && handleDayClick(day)
-                }
-              >
-                {format(day, "d")}
-              </div>
-            );
-          })}
-        </div>
-      </div>
-    );
-  };
+    fetchPlaceholders();
+  }, [languageIndex]);
 
   return (
-    <div className="search-wrapper" style={{ width: "100%" }}>
-      <h2 className="booking-title">Book your stay with Blue house</h2>
-      <div className="content">
-        <div className="search">
-          <div className="search-container">
-            <span className="calendar-icon"></span>
-            <input
-              className="date-range__input"
-              type="text"
-              placeholder="Check in"
-              value={startDate ? format(startDate, "MMM d, yyyy") : ""}
-              readOnly
-              onClick={() => {
-                setFocusedDate(startDate || new Date());
-                setShowCalendar(true);
-                if (containerToggle) return setContainerToggle(false);
-              }}
-            />
-          </div>
-          <div className="search-container">
-            <span className="calendar-icon"></span>
-            <input
-              className="date-range__input"
-              type="text"
-              placeholder="Check in"
-              value={endDate ? format(endDate, "MMM d, yyyy") : ""}
-              readOnly
-              onClick={() => {
-                setFocusedDate(endDate || startDate || new Date());
-                setShowCalendar(false);
-              }}
-            />
-          </div>
-          <div className="search-container quantity">
-            <div>{`${adultsAmount} adults, ${
-              childrenAmount ? `${childrenAmount} child, ` : ""
-            }${roomsAmount} rooms`}</div>
-
-            <button
-              className="quantity-container-toggle-btn"
-              onClick={toggleHandle}
-            >
-              <img
-                src={`${containerToggle ? arrowUp : arrowDown}`}
-                alt="arrow"
+    <div className="search-component">
+      <div className="search-wrapper">
+        <h2 className="booking-title">
+          <WithTransLate text="Book your stay with Blue house" />
+        </h2>
+        <div className="content">
+          <div className="search">
+            <div className="search-container">
+              <DatePicker
+                selected={startDate}
+                onChange={(date) => setStartDate(date)}
+                selectsStart
+                startDate={startDate}
+                endDate={endDate}
+                placeholderText={placeholderText1}
+                className="date-range__input"
               />
-            </button>
-            {containerToggle && (
-              <div className="quantity-container">
-                <div className="quantity-element">
-                  <span>Adults</span>
-                  <span className="quantity-content">
-                    <span
-                      className="count-person decrement-btn"
-                      onClick={handleDecrement}
-                    >
-                      <img src={minusIcon} alt="minus" />
-                    </span>
-                    <h3 className="count-person">{adultsAmount}</h3>
-                    <span
-                      className="count-person increment-btn"
-                      onClick={handleIncrement}
-                    >
-                      <img src={plusIcon} alt="plus" />
-                    </span>
-                  </span>
-                </div>
-                <div className="quantity-element">
-                  <span>Children</span>
-                  <span className="quantity-content">
-                    <span
-                      className="count-person decrement-btn"
-                      onClick={handleDecrementChildren}
-                    >
-                      <img src={minusIcon} alt="minus" />
-                    </span>
-                    <h3 className="count-person">{childrenAmount}</h3>
-                    <span
-                      className="count-person increment-btn"
-                      onClick={handleIncrementChildren}
-                    >
-                      <img src={plusIcon} alt="plus" />
-                    </span>
-                  </span>
-                </div>
-                <div className="quantity-element">
-                  <span>Rooms</span>
-                  <span className="quantity-content">
-                    <span
-                      className="count-person decrement-btn"
-                      onClick={handleDecrementRooms}
-                    >
-                      <img src={minusIcon} alt="minus" />
-                    </span>
-                    <h3 className="count-person">{roomsAmount}</h3>
-                    <span
-                      className="count-person increment-btn"
-                      onClick={handleIncrementRooms}
-                    >
-                      <img src={plusIcon} alt="plus" />
-                    </span>
-                  </span>
-                </div>
-                <div className="quantity-element">
-                  <button className="submit-amount">DONE</button>
-                </div>
+              <span className="calendar-icon"></span>
+            </div>
+            <div className="search-container">
+              <DatePicker
+                selected={endDate}
+                onChange={(date) => setEndDate(date)}
+                selectsEnd
+                startDate={startDate}
+                endDate={endDate}
+                minDate={startDate}
+                placeholderText={placeholderText2}
+                className="date-range__input"
+              />
+              <span className="calendar-icon"></span>
+            </div>
+            <div className="search-container quantity">
+              <div className="search-container-text">
+                <WithTransLate
+                  text={`${adultsAmount} adults, ${
+                    childrenAmount || "no"
+                  } child, ${roomsAmount} room(s)`}
+                />
               </div>
-            )}
+              <button
+                className="quantity-container-toggle-btn"
+                onClick={toggleHandle}
+              >
+                <img src={containerToggle ? arrowUp : arrowDown} alt="Toggle" />
+              </button>
+              {containerToggle && (
+                <div className="quantity-container">
+                  <div className="quantity-element">
+                    <span style={{ textTransform: "capitalize" }}>
+                      <WithTransLate text="Adults" />
+                    </span>
+                    <div className="quantity-content">
+                      <button
+                        onClick={() =>
+                          handleDecrement(setAdultsAmount, adultsAmount)
+                        }
+                        className="count-person decrement-btn"
+                      >
+                        <img src={minusIcon} alt="Minus" />
+                      </button>
+                      <span>{adultsAmount}</span>
+                      <button
+                        onClick={() =>
+                          handleIncrement(setAdultsAmount, adultsAmount)
+                        }
+                        className="count-person increment-btn"
+                      >
+                        <img src={plusIcon} alt="Plus" />
+                      </button>
+                    </div>
+                  </div>
+                  <div className="quantity-element">
+                    <span style={{ textTransform: "capitalize" }}>
+                      <WithTransLate text="Children" />
+                    </span>
+                    <div className="quantity-content">
+                      <button
+                        onClick={() =>
+                          handleDecrement(setChildrenAmount, childrenAmount)
+                        }
+                        className="count-person decrement-btn"
+                      >
+                        <img src={minusIcon} alt="Minus" />
+                      </button>
+                      <span>{childrenAmount}</span>
+                      <button
+                        onClick={() =>
+                          handleIncrement(setChildrenAmount, childrenAmount)
+                        }
+                        className="count-person increment-btn"
+                      >
+                        <img src={plusIcon} alt="Plus" />
+                      </button>
+                    </div>
+                  </div>
+                  <div className="quantity-element">
+                    <span style={{ textTransform: "capitalize" }}>
+                      <WithTransLate text="Rooms" />
+                    </span>
+                    <div className="quantity-content">
+                      <button
+                        onClick={() =>
+                          handleDecrement(setRoomsAmount, roomsAmount)
+                        }
+                        className="count-person decrement-btn"
+                      >
+                        <img src={minusIcon} alt="Minus" />
+                      </button>
+                      <span>{roomsAmount}</span>
+                      <button
+                        onClick={() =>
+                          handleIncrement(setRoomsAmount, roomsAmount)
+                        }
+                        className="count-person increment-btn"
+                      >
+                        <img src={plusIcon} alt="Plus" />
+                      </button>
+                    </div>
+                  </div>
+                  <dib className="submit-amount-wrapper">
+                    <button
+                      className="submit-amount"
+                      style={{ width: "100%" }}
+                      onClick={() => setContainerToggle(false)}
+                    >
+                      DONE
+                    </button>
+                  </dib>
+                </div>
+              )}
+            </div>
+            <div className="search-container search-btn-container">
+              <button className="search-btn">
+                <WithTransLate text="SEARCH" />
+              </button>
+            </div>
           </div>
-          <div className="search-container search-btn-container">
-            <button className="search-btn">Search</button>
-          </div>
-          {showCalendar && renderCalendar()}
         </div>
       </div>
     </div>

@@ -3,14 +3,26 @@
   font-weight: bold;
   src: url("../../fonts/Oblik-Bold.otf") format("opentype");
 }
-.booking-container {
-  max-width: 1275px;
+
+.roomBooking {
+  border: 1px solid violet;
+  @media (min-width: 320px) and (max-width: 599.99px) {
+    padding: 0 20px;
+    width: 100%;
+  }
+  @media (min-width: 600px) and (max-width: 1279.99px) {
+    padding: 0 20px;
+  }
+  @media (min-width: 1280px) and (max-width: 2200px) {
+    padding: 0 50px;
+    margin-bottom: -100px;
+  }
 }
+
 .hero {
-  padding-left: 50px;
   width: 100%;
   display: flex;
-  gap: 55px;
+  gap: 45px;
 }
 .social-app-icons {
   display: flex;
@@ -22,22 +34,37 @@
   width: 24px;
   height: 24px;
 }
-.search-wrapper {
+
+.search-component {
+  position: relative;
+  width: 100%;
   background-image: url("../../images/roombooking/image1.webp");
   background-repeat: no-repeat;
   background-size: cover;
+  @media (min-width: 960px) and (max-width: 1279.99px) {
+    height: 400px;
+  }
+  @media (min-width: 1280px) and (max-width: 2200px) {
+    height: 510px;
+  }
 }
+
+.search-wrapper {
+  width: 100%;
+  position: absolute;
+  bottom: 60px;
+}
+
 .booking-title {
   text-align: center;
   font-family: "Oblik";
-  padding-top: 278px;
   font-size: 46px;
   font-weight: bold;
   color: white;
   text-transform: uppercase;
 }
 .content {
-  padding: 30px 100px 60px;
+  padding: 30px 100px 0px;
 }
 .search {
   position: relative;
@@ -50,7 +77,7 @@
   display: flex;
   justify-content: space-between;
   min-width: 25%;
-  padding: 12px;
+  height: 48px;
   border: 1px solid lightgrey;
   position: relative;
 }
@@ -69,9 +96,88 @@
   padding: 0;
   border: none;
 }
+
+.date-range__input {
+  border: none;
+  outline: none;
+  padding: 10px;
+  font-size: 16px;
+  font-size: 18px;
+  @media (min-width: 960px) and (max-width: 1279.99px) {
+    font-size: 15px;
+  }
+}
+
+.react-datepicker {
+  border: 1px solid #ccc;
+  background-color: white;
+  border-radius: 0px;
+  padding: 10px;
+}
+
+.react-datepicker__header {
+  background-color: white;
+  border-bottom: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+}
+
+.react-datepicker__current-month {
+  margin-top: -15px;
+  font-weight: 500;
+  font-size: 16px;
+  @media (min-width: 960px) and (max-width: 1279.99px) {
+    font-size: 15px;
+  }
+}
+
+.react-datepicker__day {
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  margin: 2px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 300;
+  border: 1px solid rgba(0, 0, 0, 0.294);
+  border-radius: 5px;
+  @media (min-width: 960px) and (max-width: 1279.99px) {
+    width: 28px;
+    height: 28px;
+    line-height: 28px;
+    font-size: 14px;
+  }
+}
+
+.react-datepicker__day--today {
+  font-weight: 500;
+}
+.react-datepicker__day--selected {
+  font-weight: 500;
+}
+
+.search-container-text {
+  padding-left: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 300px;
+  line-height: 1.2;
+  @media (min-width: 960px) and (max-width: 1279.99px) {
+    font-size: 15px;
+  }
+}
+
 .search-btn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
   color: white;
-  background-color: #455c80;
+  background-color: #3b5998;
+  border: 1px solid #3b5998;
   text-transform: uppercase;
   height: 100%;
   width: 100%;
@@ -88,12 +194,15 @@
   position: relative;
 }
 .quantity-container {
-  min-width: 390px;
-  background-color: #f5f5f5;
-  top: 55px;
-  right: 0;
   position: absolute;
-  padding: 24px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 20px;
+  top: 48px;
+  right: 0;
+  width: 100%;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.294);
 }
 .quantity-element {
   padding: 16px 0;
@@ -103,13 +212,11 @@
   justify-content: space-between;
 }
 .quantity-content {
-  width: 119px;
-  align-items: baseline;
-  padding: 6px 12px;
-  justify-content: space-between;
   display: flex;
-  background-color: white;
-  border: 1px solid lightgray;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 110px;
 }
 .count-person {
   padding: 2px 5px;
@@ -118,28 +225,42 @@
   color: #14202b;
   margin: 0;
 }
+.submit-amount-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
 .submit-amount {
   color: white;
   font-weight: 600;
   padding: 14.5px 0;
-  width: 100%;
-  background-color: #073762;
+  height: 48px;
+  background-color: #3b5998;
+  border: 1px solid #3b5998;
 }
-.increment-btn {
-  cursor: pointer;
-  transition: all ease-in-out 0.1s;
-}
+.increment-btn,
 .decrement-btn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
   cursor: pointer;
   transition: all ease-in-out 0.1s;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.294);
+  background-color: white;
 }
 .increment-btn:active {
   background-color: #f5f5f5;
-  border-radius: 25%;
+  border: 1px solid rgba(0, 0, 0, 0.514);
 }
 .decrement-btn:active {
   background-color: #f5f5f5;
-  border-radius: 25%;
+  border: 1px solid rgba(0, 0, 0, 0.514);
 }
 .quantity-container-toggle-btn {
   border: none;

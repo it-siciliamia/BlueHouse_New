@@ -1,7 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import { WithTransLate } from "../../../components/helpers/translating/index";
-import Button from "../../../components/Shared/Button/Button";
+import { WithTransLate } from "..//helpers/translating/index";
+import Button from "../Shared/Button/Button";
 import { items, price } from "./ServicesRoomData";
 
 import s from "./ServicesRoom.module.scss";
@@ -27,13 +27,18 @@ const ServicesRoom = () => {
   };
 
   return (
-    <div className={s.services}>
+    <section className={s.services}>
       <div className={s.servicesPart}>
-        <div className={s.servicesName}>
+        <div className={s.titleWrapper}>
+          <h2 className={s.titleFirst}>
+            <WithTransLate text="ROOMS" />
+          </h2>
+        </div>
+        {/* <div className={s.servicesName}>
           <span className={s.servicesNameWrapper}>
             <WithTransLate text="ROOMS" />
           </span>
-        </div>
+        </div> */}
         <ul className={s.roomsList}>
           {roomItems.map((room, index) => {
             const [firstColumn, secondColumn] = splitServices(room.services);
@@ -124,7 +129,7 @@ const ServicesRoom = () => {
                     </div>
                     <Button
                       text="Book Now"
-                      btnClass="btnDark"
+                      btnClass="btnLightWithOut"
                       width="218px"
                       handleClick={() => handleNavigation(room.links.href)}
                     />
@@ -137,11 +142,16 @@ const ServicesRoom = () => {
       </div>
 
       <div className={s.servicesPart}>
-        <div className={s.servicesName}>
+        <div className={s.titleWrapper}>
+          <h2 className={s.titleSecond}>
+            <WithTransLate text="HOUSES" />
+          </h2>
+        </div>
+        {/* <div className={s.servicesName}>
           <span className={s.servicesNameWrapper}>
             <WithTransLate text="HOUSES" />
           </span>
-        </div>
+        </div> */}
         <ul className={s.roomsList}>
           {houseItems.map((room, index) => {
             const [firstColumn, secondColumn] = splitServices(room.services);
@@ -243,7 +253,7 @@ const ServicesRoom = () => {
           })}
         </ul>
       </div>
-    </div>
+    </section>
   );
 };
 
