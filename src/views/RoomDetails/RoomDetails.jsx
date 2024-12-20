@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { items } from "../roombooking/ServicesRoom/ServicesRoomData";
+import { items } from "../../components/ServicesRoom/ServicesRoomData";
 import PhotoSlider from "../../components/Shared/SliderSlick/SliderSlick";
 import PartDetails from "./PartDetails/PartDetails";
 import Support from "../../components/SuportComponent/support";
