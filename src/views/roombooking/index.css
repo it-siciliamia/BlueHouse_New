@@ -150,6 +150,22 @@
   }
 }
 
+.react-datepicker__day-name {
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  margin: 2px;
+  font-size: 15px;
+  font-weight: 500;
+  @media (min-width: 960px) and (max-width: 1279.99px) {
+    width: 28px;
+    height: 28px;
+    line-height: 28px;
+    font-size: 14px;
+  }
+}
+
 .react-datepicker__day--today {
   font-weight: 500;
 }
