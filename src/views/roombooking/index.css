@@ -20,9 +20,17 @@
 }
 
 .hero {
-  width: 100%;
-  display: flex;
-  gap: 45px;
+  @media (min-width: 960px) and (max-width: 1279.99px) {
+    margin-left: 15px;
+    width: 100%;
+    display: flex;
+    gap: 25px;
+  }
+  @media (min-width: 1280px) and (max-width: 2200px) {
+    width: 100%;
+    display: flex;
+    gap: 45px;
+  }
 }
 .social-app-icons {
   display: flex;
@@ -42,6 +50,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   @media (min-width: 960px) and (max-width: 1279.99px) {
+    width: calc(100% - 63px);
     height: 400px;
   }
   @media (min-width: 1280px) and (max-width: 2200px) {
@@ -58,13 +67,26 @@
 .booking-title {
   text-align: center;
   font-family: "Oblik";
-  font-size: 46px;
   font-weight: bold;
   color: white;
   text-transform: uppercase;
+  @media (min-width: 960px) and (max-width: 1279.99px) {
+    font-size: 38px;
+  }
+  @media (min-width: 1280px) and (max-width: 2200px) {
+    font-size: 46px;
+  }
 }
 .content {
-  padding: 30px 100px 0px;
+  @media (min-width: 960px) and (max-width: 1279.99px) {
+    padding: 30px 30px 0px;
+  }
+  @media (min-width: 1280px) and (max-width: 1479.99px) {
+    padding: 30px 30px 0px;
+  }
+  @media (min-width: 1480px) and (max-width: 2200px) {
+    padding: 30px 100px 0px;
+  }
 }
 .search {
   position: relative;
@@ -102,9 +124,18 @@
   outline: none;
   padding: 10px;
   font-size: 16px;
-  font-size: 18px;
+  @media (min-width: 320px) and (max-width: 599.99px) {
+    margin-top: 3px;
+    margin-bottom: -3px;
+    font-size: 16px;
+  }
   @media (min-width: 960px) and (max-width: 1279.99px) {
     font-size: 15px;
+  }
+  @media (min-width: 1280px) and (max-width: 2200px) {
+    padding-top: 11px;
+    padding-bottom: 9px;
+    font-size: 18px;
   }
 }
 
@@ -181,6 +212,11 @@
   font-size: 16px;
   font-weight: 300px;
   line-height: 1.2;
+  @media (min-width: 320px) and (max-width: 599.99px) {
+    font-size: 16px;
+    font-weight: 300px;
+    line-height: 1.2;
+  }
   @media (min-width: 960px) and (max-width: 1279.99px) {
     font-size: 15px;
   }
@@ -284,25 +320,162 @@
 }
 
 .bh_advantages-wrapper {
-  padding: 63px 60px 63px 80px;
+  @media (min-width: 320px) and (max-width: 599.99px) {
+    padding-top: 50px;
+  }
+  @media (min-width: 1280px) and (max-width: 2200px) {
+    padding: 63px 0px 63px 70px;
+  }
 }
 .bh_advantages-list {
-  margin: 0;
-  padding: 0;
-  display: flex;
-  list-style: none;
-  justify-content: space-between;
-  align-items: flex-end;
-  gap: 60px;
+  @media (min-width: 320px) and (max-width: 599.99px) {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    list-style: none;
+    gap: 15px;
+    width: 100%;
+  }
+  @media (min-width: 1280px) and (max-width: 2200px) {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 60px;
+  }
 }
 .bh_advantages-item {
-  text-align: center;
-  transition: all 0.2s;
+  @media (min-width: 320px) and (max-width: 599.99px) {
+    padding-top: 15px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 15px;
+    border-top: 1px solid #cdd7e2;
+  }
+  @media (min-width: 1280px) and (max-width: 2200px) {
+    text-align: center;
+    width: 140px;
+  }
 }
-.bh_advantages-item:hover {
-  transform: scale(1.05);
+.bh_advantages-item:last-child {
+  @media (min-width: 320px) and (max-width: 599.99px) {
+    padding-bottom: 15px;
+    border-bottom: 1px solid #cdd7e2;
+  }
 }
+.bh_advantages-icons {
+  @media (min-width: 320px) and (max-width: 599.99px) {
+    width: 23px;
+    height: auto;
+  }
+  @media (min-width: 1280px) and (max-width: 2200px) {
+    width: 56px;
+    height: auto;
+  }
+}
+
 .bh_advantages-text {
-  margin-top: 15px;
-  margin-bottom: 0;
+  @media (min-width: 320px) and (max-width: 599.99px) {
+    margin: 0;
+    margin-top: 5px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #14202b;
+  }
+  @media (min-width: 1280px) and (max-width: 2200px) {
+    margin-top: 15px;
+    margin-bottom: 0;
+  }
+}
+.bh_advantages-title {
+  @media (min-width: 320px) and (max-width: 599.99px) {
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: 500;
+    color: #1d3967;
+  }
+}
+.bh_advantages-title-text {
+  @media (min-width: 320px) and (max-width: 599.99px) {
+    margin-top: 50px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: 600;
+    color: black;
+    text-transform: uppercase;
+  }
+}
+.bh_advantages-link {
+  @media (min-width: 320px) and (max-width: 599.99px) {
+    margin-top: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #14202b;
+    cursor: pointer;
+    text-decoration: underline;
+    transition: all 0.3s ease;
+  }
+}
+.bh_advantages-link:hover {
+  font-weight: 600;
+}
+
+.search-component-mobile {
+  width: 100%;
+}
+.search-hero-mobile {
+  width: 100%;
+}
+.booking-title-mobile {
+  margin-top: 25px;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 22px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: black;
+}
+.content-mobile {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.datePart-mobile {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+.search-container-mobile {
+  padding-top: 1px;
+  padding-bottom: 1px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  width: 49%;
+  height: 50px;
+  background-color: white;
+  border: 1px solid lightgrey;
+  z-index: 2;
+}
+.booking-text-mobile {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+.search-hero-photo-mobile {
+  @media (min-width: 320px) and (max-width: 1279.99px) {
+    width: calc(100% + 40px);
+    max-height: 350px;
+    margin-right: -20px;
+    margin-left: -20px;
+  }
 }
