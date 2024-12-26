@@ -92,7 +92,10 @@ const SearchContainer = () => {
               </button>
               {containerToggle && (
                 <div className="quantity-container">
-                  <div className="quantity-element">
+                  <div
+                    className="quantity-element"
+                    style={{ borderTop: "none" }}
+                  >
                     <span style={{ textTransform: "capitalize" }}>
                       <WithTransLate text="Adults" />
                     </span>
@@ -164,20 +167,20 @@ const SearchContainer = () => {
                       </button>
                     </div>
                   </div>
-                  <dib className="submit-amount-wrapper">
+                  <div className="submit-amount-wrapper">
                     <button
                       className="submit-amount"
                       style={{ width: "100%" }}
                       onClick={() => setContainerToggle(false)}
                     >
-                      DONE
+                      <WithTransLate text="UPDATE" />
                     </button>
-                  </dib>
+                  </div>
                 </div>
               )}
             </div>
             <div className="search-container search-btn-container">
-              <button className="search-btn">
+              <button className="search-btn" style={{ paddingTop: "5px" }}>
                 <WithTransLate text="SEARCH" />
               </button>
             </div>

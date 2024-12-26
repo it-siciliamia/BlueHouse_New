@@ -1,16 +1,33 @@
 .services {
   display: flex;
   flex-direction: column;
-  gap: 100px;
+  @media (min-width: 320px) and (max-width: 959.99px) {
+    gap: 0px;
+  }
+  @media (min-width: 1280px) and (max-width: 2200px) {
+    gap: 100px;
+  }
 }
 
 .servicesPart {
-  margin-left: 70px;
-  // width: 100%;
-  height: auto;
-  display: flex;
-  flex-direction: row;
-  border: 1px solid red;
+  @media (min-width: 320px) and (max-width: 959.99px) {
+    margin-top: 50px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  @media (min-width: 960px) and (max-width: 1279.99px) {
+    margin-top: 50px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  @media (min-width: 1280px) and (max-width: 2200px) {
+    margin-left: 70px;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+  }
 }
 
 .titleWrapper {
@@ -24,7 +41,7 @@
   letter-spacing: 0.1em;
   color: #00366e;
   @media (min-width: 320px) and (max-width: 1279.99px) {
-    margin: 20px 0;
+    margin-bottom: 20px;
     font-size: 20px;
     font-weight: 700;
     margin-bottom: 20px;
@@ -47,7 +64,7 @@
   letter-spacing: 0.1em;
   color: #00366e;
   @media (min-width: 320px) and (max-width: 1279.99px) {
-    margin: 20px 0;
+    margin-bottom: 20px;
     font-size: 20px;
     font-weight: 700;
     margin-bottom: 20px;
@@ -64,56 +81,162 @@
   }
 }
 
-// .servicesName {
-//   position: relative;
-//   width: 5.5%;
-// }
-
-// .servicesNameWrapper {
-//   position: absolute;
-//   top: 24px;
-//   left: -25px;
-//   transform: rotate(-90deg);
-//   font-family: "Oblik";
-//   font-size: 24px;
-//   font-weight: 700;
-//   letter-spacing: 0.1em;
-//   white-space: nowrap;
-// }
-
 .roomsList {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-  list-style: none;
-  padding: 0;
-  margin: 0;
+  @media (min-width: 320px) and (max-width: 759.99px) {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  @media (min-width: 760px) {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (min-width: 1100px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media (min-width: 1280px) and (max-width: 2200px) {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
 }
 
 .roomItem {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  @media (min-width: 320px) and (max-width: 759.99px) {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  @media (min-width: 760px) and (max-width: 1099.99px) {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  @media (min-width: 1100px) and (max-width: 1279.99px) {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  @media (min-width: 1280px) and (max-width: 2200px) {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
 }
 
 .roomImage {
-  width: 300px;
-  height: 260px;
-  overflow: hidden;
+  @media (min-width: 320px) and (max-width: 759.99px) {
+    width: 100%;
+    height: auto;
+  }
+  @media (min-width: 760px) and (max-width: 959.99px) {
+    width: 266px;
+    height: auto;
+  }
+  @media (min-width: 960px) and (max-width: 1099.99px) {
+    width: 448px;
+    height: auto;
+  }
+  @media (min-width: 1100px) and (max-width: 1279.99px) {
+    width: 290px;
+    height: auto;
+  }
+  @media (min-width: 1280px) and (max-width: 2200px) {
+    width: 470px;
+    height: 260px;
+    overflow: hidden;
+  }
 }
 
 .roomInfo {
-  padding-left: 40px;
-  width: 39%;
+  @media (min-width: 320px) and (max-width: 959.99px) {
+    width: 100%;
+  }
+  @media (min-width: 1280px) and (max-width: 1479.99px) {
+    padding-left: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 40%;
+  }
+  @media (min-width: 1480px) and (max-width: 2200px) {
+    padding-left: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 39%;
+  }
+}
+
+.roomInfoTitle {
+  @media (min-width: 320px) and (max-width: 759.99px) {
+    margin: 0 !important;
+  }
+  @media (min-width: 760px) and (max-width: 1099.99px) {
+    margin-top: 20px;
+  }
+  @media (min-width: 760px) and (max-width: 959.99px) {
+  }
+}
+
+.roomServicesWrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  @media (min-width: 320px) and (max-width: 759.99px) {
+    margin: 0 10px;
+  }
+  @media (min-width: 760px) and (max-width: 1279.99px) {
+    height: 85%;
+  }
 }
 
 .roomServices {
-  margin-top: 40px;
-  display: flex;
-  flex-direction: row;
-  gap: 40px;
+  width: 100%;
+  @media (min-width: 320px) and (max-width: 759.99px) {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+  }
+  @media (min-width: 760px) and (max-width: 1279.99px) {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+  }
+  @media (min-width: 1280px) and (max-width: 1479.99px) {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+  }
+  @media (min-width: 1480px) and (max-width: 2200px) {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+  }
 }
 
 .serviceItem {
@@ -126,35 +249,119 @@
 }
 
 .servicesColumn {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+  width: 50%;
+  @media (min-width: 320px) and (max-width: 959.99px) {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  @media (min-width: 1280px) and (max-width: 1479.99px) {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  @media (min-width: 1480px) and (max-width: 2200px) {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+.servicesText {
+  @media (min-width: 320px) and (max-width: 1479.99px) {
+    font-size: 15px !important;
+    line-height: 1.3 !important;
+  }
+  @media (min-width: 1480px) and (max-width: 2200px) {
+    font-size: 17px;
+    line-height: 1.3;
+  }
 }
 
 .pricePart {
-  width: 39%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
+  @media (min-width: 320px) and (max-width: 759.99px) {
+    margin-top: -20px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+  @media (min-width: 760px) and (max-width: 1279.99px) {
+    margin-top: 0px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+  @media (min-width: 1280px) and (max-width: 1479.99px) {
+    width: 30%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+  @media (min-width: 1480px) and (max-width: 2200px) {
+    width: 39%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 .priceWrapperPlus {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 40px;
+  @media (min-width: 320px) and (max-width: 959.99px) {
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+  }
+  @media (min-width: 1280px) and (max-width: 1479.99px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+  }
+  @media (min-width: 1480px) and (max-width: 2200px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+  }
 }
 
 .priceWrapper {
-  display: flex;
-  flex-direction: row;
-  gap: 40px;
+  width: 100%;
+  @media (min-width: 320px) and (max-width: 1279.99px) {
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  @media (min-width: 1280px) and (max-width: 1379.99px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  @media (min-width: 1480px) and (max-width: 2200px) {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+  }
 }
 
 .pricePartWrapper {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   gap: 5px;
 }

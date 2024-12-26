@@ -1,0 +1,222 @@
+.ratings {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  @media (min-width: 960px) and (max-width: 1279.99px) {
+    margin-top: 20px;
+  }
+  @media (min-width: 1280px) and (max-width: 2200px) {
+    margin-top: 100px;
+  }
+}
+
+.sectionWrapper {
+  @media (min-width: 960px) and (max-width: 1279.99px) {
+    margin-left: 0;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  @media (min-width: 1280px) and (max-width: 2200px) {
+    margin-left: 68px;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+  }
+}
+
+.contentPart {
+  width: 95%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  gap: 40px;
+  @media (min-width: 960px) and (max-width: 1279.99px) {
+    width: 100%;
+    gap: 20px;
+  }
+  @media (min-width: 1280px) and (max-width: 1479.99px) {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 93.4%;
+  }
+  @media (min-width: 1480px) and (max-width: 2200px) {
+    width: 95%;
+    gap: 40px;
+  }
+}
+
+.circleRating {
+  padding: 30px 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  border: 2px solid #00aa6c;
+  @media (min-width: 960px) and (max-width: 1279.99px) {
+    width: 448px;
+  }
+  @media (min-width: 1280px) and (max-width: 1479.99px) {
+    width: 410px;
+  }
+  @media (min-width: 1480px) and (max-width: 2200px) {
+    width: 480px;
+  }
+
+  .details {
+    margin-top: -10px;
+    p {
+      margin: 0;
+      padding: 0;
+      font-size: 22px;
+    }
+  }
+}
+
+.starRating {
+  padding: 30px 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  border: 2px solid #c6d1db;
+  @media (min-width: 960px) and (max-width: 1279.99px) {
+    width: 448px;
+  }
+  @media (min-width: 1280px) and (max-width: 1479.99px) {
+    width: 410px;
+  }
+  @media (min-width: 1480px) and (max-width: 2200px) {
+    width: 480px;
+  }
+
+  .details {
+    margin-top: -10px;
+    p {
+      margin: 0;
+      padding: 0;
+      font-size: 22px;
+    }
+  }
+}
+
+.circle {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin: 0 3px;
+  border-radius: 50%;
+  background-color: white;
+  border: 1px solid #00aa6c;
+}
+
+.star {
+  position: relative;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin: 0 2px;
+  background-color: #ffa726;
+  clip-path: polygon(
+    50% 0%,
+    61% 35%,
+    98% 35%,
+    68% 57%,
+    79% 91%,
+    50% 70%,
+    21% 91%,
+    32% 57%,
+    2% 35%,
+    39% 35%
+  );
+}
+
+.circle.full {
+  background-color: #00aa6c;
+}
+
+.star.full {
+  background-color: #ffa726;
+}
+
+.circle.partial {
+  background: linear-gradient(to right, #00aa6c 50%, white 50%);
+}
+
+.star.partial {
+  background: linear-gradient(to right, #ffa726 50%, white 50%);
+}
+
+.star.partial::before {
+  content: "☆";
+  position: absolute;
+  top: -9px;
+  left: -2px;
+  font-size: 28px;
+  color: #ffa726;
+  z-index: 1;
+}
+
+.circle.empty {
+  border: 1px solid #00aa6c;
+  background-color: white;
+}
+
+.star.empty {
+  border: 1px solid #ffa726;
+  background-color: white;
+}
+
+.titleWrapper {
+  @media (min-width: 1280px) and (max-width: 2200px) {
+    width: 0px;
+    position: relative;
+  }
+}
+
+.title {
+  white-space: nowrap;
+  font-family: "Oblik", Arial, sans-serif;
+  letter-spacing: 0.1em;
+  color: #00366e;
+  @media (min-width: 320px) and (max-width: 1279.99px) {
+    margin: 20px 0;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+  @media (min-width: 1280px) and (max-width: 2200px) {
+    position: absolute;
+    top: 35px;
+    left: -110px;
+    margin-bottom: 0;
+    height: fit-content;
+    font-size: 24px;
+    font-weight: 900;
+    transform: rotate(-90deg);
+  }
+}
+
+.titleText {
+  margin: 0;
+  white-space: nowrap;
+  font-family: "Oblik", Arial, sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: black;
+}
+
+.progressPart {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  p {
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+  }
+}

@@ -1,0 +1,89 @@
+.sliderPreviewPhoto {
+  display: flex;
+  align-items: flex-start;
+}
+
+.mainPhoto {
+  position: relative;
+  flex: 3;
+  margin-right: 5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 340px;
+  height: 260px;
+  overflow: hidden;
+}
+
+.mainPhotoZoom {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28px;
+  color: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  outline: none;
+}
+
+.mainPhotoZoom:hover {
+  font-size: 32px;
+  color: rgba(0, 0, 0, 0.9);
+}
+
+.mainPhotoImage {
+  max-width: auto;
+  height: 100%;
+  object-fit: cover;
+}
+
+.photoSlider {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  height: 260px;
+}
+
+.sliderPhoto {
+  margin: 5px 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  width: 100px;
+  height: 65px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.sliderPhoto img {
+  max-width: auto;
+  height: 100%;
+  object-fit: cover;
+}
+
+.scrollButton {
+  background: none;
+  border: none;
+  width: 100%;
+  cursor: pointer;
+}
+
+.scrollButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.sliderArrow {
+  width: 100%;
+  height: 10px;
+}

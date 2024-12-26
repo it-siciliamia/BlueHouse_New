@@ -29,13 +29,13 @@ const HeaderIcons = () => {
       >
         <img src={whatsappIcon} alt="whatsapp" className="app-links" />
       </a>
-      <a
+      {/* <a
         href="https://www.tripadvisor.com/Hotel_Review-g189970-d1915669-Reviews-Blue_House-Reykjavik_Capital_Region.html"
         target="_blank"
         rel="noreferrer"
       >
         <img src={tripIcon} alt="tripadvisor" className="app-links" />
-      </a>
+      </a> */}
       <a
         href="https://bluehouseis.zohodesk.eu/portal/en/newticket?departmentId=135604000000205173&layoutId=135604000000214460"
         target="_blank"
