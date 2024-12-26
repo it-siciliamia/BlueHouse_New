@@ -1,7 +1,6 @@
 import * as React from "react";
 import PropTypes from "prop-types";
 import { useMediaQuery } from "react-responsive";
-import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
@@ -49,44 +48,8 @@ function CustomTabPanel(props) {
                   borderRadius: "0px",
                 }}
               >
-                <div style={{ position: "relative" }}>
+                <div>
                   <ImageSlider category={room.title} />
-                  {room.title !== "Northern Lights" &&
-                    room.title !== "Neighbourhood" &&
-                    room.title !== "Activities" && (
-                      <div
-                        style={{
-                          position: "absolute",
-                          left: "0",
-                          bottom: "0",
-                          display: "flex",
-                          flexDirection: "row",
-                          alignItems: "center",
-                          justifyContent: "center",
-                          zIndex: "2",
-                          height: "60px",
-                          width: "100%",
-                          fontSize: "15px",
-                          color: "white",
-                          background:
-                            "linear-gradient(to bottom, rgba(0, 0, 0,  0), rgba(0, 0, 0,  0.4), rgba(0, 0, 0, 0.8))",
-                          textShadow: "2px 2px 4px rgba(0, 0, 0, 0.7)",
-                        }}
-                      >
-                        {/* <DotLottieReact
-                          src="https://lottie.host/c5ab6f95-ee26-4dee-bc61-cf78f2044e6b/9KVNaXgEwD.lottie"
-                          loop
-                          autoplay
-                          speed={0.6}
-                        /> */}
-                        <DotLottieReact
-                          src="https://lottie.host/910a4f04-df80-4b5e-9ace-0564c5005b2e/7RauUmHT2f.lottie"
-                          loop
-                          autoplay
-                          speed={0.6}
-                        />
-                      </div>
-                    )}
                 </div>
                 <CardContent
                   sx={{ maxWidth: "280px", height: "10px", padding: 0, my: 1 }}

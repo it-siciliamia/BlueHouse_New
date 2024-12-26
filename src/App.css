@@ -71,8 +71,12 @@ a {
   color: unset;
 }
 
-.clickable:hover {
+/* .clickable:hover {
   cursor: url(./images/cursor.svg), auto;
+} */
+
+.custom-cursor {
+  cursor: url("./images/cursor.svg"), auto !important;
 }
 
 .MuiInputBase-input:focus {
