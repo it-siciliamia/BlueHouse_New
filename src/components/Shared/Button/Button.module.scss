@@ -34,7 +34,18 @@
 }
 
 .textWrapper {
-  padding-top: 4px;
+  padding-top: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.iconWrapper {
+  margin-bottom: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .btnLight {

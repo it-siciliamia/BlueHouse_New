@@ -13,6 +13,39 @@
   justify-content: space-between;
 }
 
+.locationPart {
+  margin-top: 15px;
+}
+
+.textWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  font-weight: 300;
+  @media (min-width: 320px) and (max-width: 959.99px) {
+    font-size: 16px !important;
+  }
+  @media (min-width: 960px) and (max-width: 2200px) {
+    font-size: 20px !important;
+  }
+}
+
+.textWrapperNavigate {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  font-weight: 300;
+  font-size: 16px !important;
+  cursor: pointer;
+  animation: color 3s ease-in-out;
+}
+
+.textWrapperNavigate:hover {
+  color: #0055b2 !important;
+}
+
 .addressWrapper {
   margin-bottom: 15px;
   display: flex;
@@ -22,16 +55,8 @@
   cursor: pointer;
 }
 
-.textWrapper {
-  font-size: 20px;
-  font-weight: 300;
-}
-
 .copiedMessage {
   position: absolute;
-  top: 0px;
-  right: 40px;
-  // background-color: #4caf50;
   background-color: #1d3967;
   color: white;
   padding: 10px 20px;
@@ -39,6 +64,15 @@
   font-size: 14px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   animation: fadeInOut 3s ease-in-out;
+  @media (min-width: 320px) and (max-width: 959.99px) {
+    top: -55px;
+    right: 0px;
+  }
+  @media (min-width: 960px) and (max-width: 2200px) {
+    position: absolute;
+    top: 0px;
+    right: 40px;
+  }
 }
 
 @keyframes fadeInOut {
@@ -57,12 +91,6 @@
   }
 }
 
-.roomServices {
-  display: flex;
-  flex-direction: row;
-  gap: 110px;
-}
-
 .serviceItem {
   display: flex;
   flex-direction: row;
@@ -72,19 +100,61 @@
   font-size: 17px;
 }
 
-.servicesColumn {
+.roomServices {
   display: flex;
-  flex-direction: column;
-  gap: 10px;
+  flex-direction: row;
+  @media (min-width: 320px) and (max-width: 959.99px) {
+    justify-content: space-between;
+  }
+  @media (min-width: 960px) and (max-width: 2200px) {
+    gap: 110px;
+  }
+}
+
+.servicesColumn {
+  @media (min-width: 320px) and (max-width: 959.99px) {
+    width: 48%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  @media (min-width: 960px) and (max-width: 2200px) {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
 }
 
 .priceWrapper {
-  padding-top: 10px;
-  padding-bottom: 5px;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  border-top: 1px solid #1d39675d;
-  font-size: 18px;
+  @media (min-width: 320px) and (max-width: 959.99px) {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border-top: 1px solid #1d39675d;
+  }
+  @media (min-width: 960px) and (max-width: 2200px) {
+    padding-top: 10px;
+    padding-bottom: 5px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-top: 1px solid #1d39675d;
+    font-size: 18px;
+  }
 }
+
+// .priceDetailWrapper {
+//   @media (min-width: 320px) and (max-width: 959.99px) {
+//     display: flex;
+//     flex-direction: column;
+//   }
+//   @media (min-width: 960px) and (max-width: 2200px) {
+//     display: flex;
+//     flexdirection: column;
+//     alignitems: center;
+//   }
+// }

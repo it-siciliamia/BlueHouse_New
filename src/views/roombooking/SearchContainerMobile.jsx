@@ -1,23 +1,50 @@
 import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useLanguage } from "../../components/helpers/translating/LanguageContext";
 import DatePicker from "react-datepicker";
 import {
   WithTransLate,
   translateMyText,
 } from "../../components/helpers/translating/index";
+import {
+  setCheckIn,
+  setCheckOut,
+  setAddParams,
+} from "../../redux/dataSearch/dataSearch-slice";
+import {
+  getCheckInDay,
+  getCheckOutDay,
+  getAddParams,
+} from "../../redux/dataSearch/datesSearch-selectors";
 import hero from "../../images/roombooking/image2.webp";
 import minusIcon from "../../images/roombooking/minus.svg";
 import plusIcon from "../../images/roombooking/plus.svg";
 import arrowDown from "../../images/roombooking/ArrowDown.svg";
 import arrowUp from "../../images/roombooking/ArrowUp.svg";
+import * as moment from "moment";
 
 const SearchContainerMobile = () => {
-  const [startDate, setStartDate] = useState(null);
-  const [endDate, setEndDate] = useState(null);
+  let newDate = moment().format("YYYYMMDD");
+  const dispatch = useDispatch();
+  const firstDay = useSelector(getCheckInDay);
+  const secondDay = useSelector(getCheckOutDay);
+
+  const [startDate, setStartDate] = useState(
+    firstDay && secondDay && firstDay === newDate
+      ? null
+      : moment(firstDay, "YYYYMMDD").toDate()
+  );
+
+  const [endDate, setEndDate] = useState(
+    firstDay && secondDay && secondDay === newDate
+      ? null
+      : moment(secondDay, "YYYYMMDD").toDate()
+  );
+  const addParams = useSelector(getAddParams);
   const [containerToggle, setContainerToggle] = useState(false);
-  const [adultsAmount, setAdultsAmount] = useState(2);
-  const [childrenAmount, setChildrenAmount] = useState(0);
-  const [roomsAmount, setRoomsAmount] = useState(1);
+  const [adultsAmount, setAdultsAmount] = useState(addParams.adult);
+  const [childrenAmount, setChildrenAmount] = useState(addParams.children);
+  const [roomsAmount, setRoomsAmount] = useState(addParams.room);
   const languageIndex = useLanguage();
 
   const [placeholderText1, setPlaceholderText1] = useState("Check in");
@@ -60,7 +87,10 @@ const SearchContainerMobile = () => {
           <div className="search-container-mobile">
             <DatePicker
               selected={startDate}
-              onChange={(date) => setStartDate(date)}
+              onChange={(date) => {
+                setStartDate(date);
+                dispatch(setCheckIn(date));
+              }}
               selectsStart
               startDate={startDate}
               endDate={endDate}
@@ -72,7 +102,10 @@ const SearchContainerMobile = () => {
           <div className="search-container-mobile">
             <DatePicker
               selected={endDate}
-              onChange={(date) => setEndDate(date)}
+              onChange={(date) => {
+                setEndDate(date);
+                dispatch(setCheckOut(date));
+              }}
               selectsEnd
               startDate={startDate}
               endDate={endDate}
@@ -182,7 +215,16 @@ const SearchContainerMobile = () => {
                 <button
                   className="submit-amount"
                   style={{ width: "218px" }}
-                  onClick={() => setContainerToggle(false)}
+                  onClick={() => {
+                    setContainerToggle(false);
+                    dispatch(
+                      setAddParams({
+                        adult: adultsAmount,
+                        children: childrenAmount,
+                        room: roomsAmount,
+                      })
+                    );
+                  }}
                 >
                   <WithTransLate text="UPDATE" />
                 </button>

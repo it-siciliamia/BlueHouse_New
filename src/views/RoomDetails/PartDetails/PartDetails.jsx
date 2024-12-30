@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import { Link as ScrollLink, scroller } from "react-scroll";
+import { useMediaQuery } from "react-responsive";
+import Advantages from "../Advantages/Advantages";
+import PhotoSlider from "../../../components/Shared/SliderSlick/SliderSlick";
 import { WithTransLate } from "../../../components/helpers/translating/index";
 import Button from "../../../components/Shared/Button/Button";
 import locationIcon from "../../../images/services_room/location.svg";
@@ -11,6 +14,8 @@ import s from "./PartDetails.module.scss";
 
 const PartDetails = ({ data }) => {
   const [copied, setCopied] = useState(false);
+  const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 599.99 });
+  const isTablet = useMediaQuery({ minWidth: 600, maxWidth: 959.99 });
 
   const handleCopyLink = () => {
     navigator.clipboard
@@ -64,19 +69,48 @@ const PartDetails = ({ data }) => {
           </div>
         )}
       </div>
-      <div
-        className={s.addressWrapper}
-        onClick={() => navigateAndScroll("MAP")}
-      >
-        <img
-          src={locationIcon}
-          alt="Go to Location"
-          style={{ width: "30px", height: "auto" }}
-        />
-        <span className={s.textWrapper}>
-          <WithTransLate text="Address" />
-        </span>
+      {(isMobile || isTablet) && (
+        <PhotoSlider photos={data.photos} height="250px" />
+      )}
+
+      <div className={s.locationPart}>
+        <h4>
+          <WithTransLate text="Location" />
+        </h4>
+        <div className={s.textWrapper}>
+          <div
+            className={s.addressWrapper}
+            onClick={() => navigateAndScroll("MAP")}
+          >
+            <img
+              src={locationIcon}
+              alt="Go to Location"
+              style={{
+                width: "25px",
+                height: "auto",
+              }}
+            />
+            <span className={s.textWrapper} style={{ marginTop: "3px" }}>
+              <WithTransLate text="Address" />
+            </span>
+          </div>
+          {(isMobile || isTablet) && (
+            <span
+              className={s.textWrapperNavigate}
+              onClick={() => navigateAndScroll("MAP")}
+            >
+              <WithTransLate text="Show on map" />
+            </span>
+          )}
+        </div>
       </div>
+
+      {(isMobile || isTablet) && (
+        <div>
+          <Advantages />
+        </div>
+      )}
+
       <div>
         <h4>
           <WithTransLate text="Description" />
