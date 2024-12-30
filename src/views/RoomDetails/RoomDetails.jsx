@@ -1,40 +1,80 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
+import { useMediaQuery } from "react-responsive";
 import { items } from "../../components/ServicesRoom/ServicesRoomData";
+import { WithTransLate } from "../../components/helpers/translating/index";
 import PhotoSlider from "../../components/Shared/SliderSlick/SliderSlick";
 import PartDetails from "./PartDetails/PartDetails";
+import PartCalendar from "./PartCalendar/PartCalendar";
+import AdditionalServices from "../../components/AdditionalServices/AdditionalServices";
 import Support from "../../components/SuportComponent/support";
+import Button from "../../components/Shared/Button/Button";
+import { IoIosArrowBack } from "react-icons/io";
 import s from "./RoomDetails.module.scss";
 
 const RoomDetails = () => {
   const { room } = useParams();
+  const history = useHistory();
+
+  const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 599.99 });
+  const isTablet = useMediaQuery({ minWidth: 600, maxWidth: 959.99 });
+  const isLaptop = useMediaQuery({ minWidth: 960, maxWidth: 1279.99 });
+  const isDesktop = useMediaQuery({ minWidth: 1280, maxWidth: 2200 });
+
   const roomData = items.find((item) => item.links.href.includes(room));
+
+  const handleBackClick = () => {
+    history.goBack();
+  };
+
+  const calculatedWidth = `calc(100% - 70px)`;
 
   return (
     <div className={s.roomdetails}>
       <div className={s.container}>
-        <PhotoSlider photos={roomData.photos} width="100%" height="550px" />
+        <div className={s.sliderPart}>
+          <div className={s.backButton}>
+            <Button
+              text="Back"
+              icon={<IoIosArrowBack />}
+              size="24px"
+              width="115px"
+              btnClass="btnLightWithOut"
+              handleClick={handleBackClick}
+            />
+          </div>
+          {(isDesktop || isLaptop) && (
+            <PhotoSlider
+              photos={roomData.photos}
+              width={calculatedWidth}
+              height="510px"
+            />
+          )}
+        </div>
+
         <div className={s.mainPart}>
           <div className={s.partDetails}>
             <PartDetails data={roomData} />
           </div>
-          <div className={s.partCalendar}></div>
+          <div className={s.partCalendar}>
+            <PartCalendar />
+          </div>
         </div>
-
-        <h3>Services:</h3>
-        <ul>
-          {roomData.services.map((service, idx) => (
-            <li key={idx}>
-              <img
-                src={service.icon}
-                alt={service.name}
-                style={{ width: "20px", height: "20px", marginRight: "10px" }}
-              />
-              {service.name}
-            </li>
-          ))}
-        </ul>
       </div>
+      <div className={s.addInfoContent}>
+        <p className={s.titleText}>
+          <WithTransLate text="Need more information? Contact us on WhatsApp. Our admins will help you." />
+        </p>
+        <a
+          href="https://api.whatsapp.com/send?phone=3547756480&text=&source=&data="
+          target="_blank"
+          rel="noreferrer"
+          className={s.addInfoLink}
+        >
+          <WithTransLate text="GO TO WHATSAPP" />
+        </a>
+      </div>
+      <AdditionalServices />
       <Support />
     </div>
   );

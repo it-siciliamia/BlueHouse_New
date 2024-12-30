@@ -1,11 +1,15 @@
 import React from "react";
 import Slider from "react-slick";
+import { useMediaQuery } from "react-responsive";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import s from "./SliderSlick.module.scss";
 
 const PhotoSlider = ({ photos, width = "100%", height = "auto" }) => {
+  const isLaptop = useMediaQuery({ minWidth: 960, maxWidth: 1279.99 });
+  const isDesktop = useMediaQuery({ minWidth: 1280, maxWidth: 2200 });
+
   const CustomPrevArrow = (props) => {
     const { className, style, onClick } = props;
     return (
@@ -39,7 +43,7 @@ const PhotoSlider = ({ photos, width = "100%", height = "auto" }) => {
     autoplay: true,
     slidesToShow: 1,
     slidesToScroll: 1,
-    arrows: true,
+    arrows: isDesktop || isLaptop ? true : false,
     dotsClass: `slick-dots ${s.customDots}`,
     nextArrow: <CustomNextArrow />,
     prevArrow: <CustomPrevArrow />,
