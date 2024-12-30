@@ -1,7 +1,7 @@
 import { combineReducers } from "redux";
 import { persistReducer } from "redux-persist";
 import searchReducer from "./search/search.reducer";
-import dateReducer from "./dates/dates.reducer";
+import dataSearchReducer from "./dataSearch/dataSearch-slice";
 import bookingReducer from "./booking/booking.reducer";
 import technicalReducer from "./technitial/technical-slice";
 import userInfoReducer from "./userInfo/userInfo.reducer";
@@ -24,12 +24,9 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
   clicked: searchReducer,
-  checkIn: dateReducer,
-  checkOut: dateReducer,
-  dayDifference: dateReducer,
+  dataSearch: dataSearchReducer,
   price: bookingReducer,
   name: bookingReducer,
-
   index: bookingReducer,
   userInfo: userInfoReducer,
   quantity: userInfoReducer,

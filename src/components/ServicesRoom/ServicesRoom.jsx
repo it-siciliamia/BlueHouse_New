@@ -161,7 +161,7 @@ const ServicesRoom = () => {
                     )}
                     <Button
                       text="Book"
-                      btnClass="btnLightWithOut"
+                      btnClass="btnDark"
                       width="218px"
                       handleClick={() => handleNavigation(room.links.href)}
                     />
@@ -298,7 +298,7 @@ const ServicesRoom = () => {
                     )}
                     <Button
                       text="Book"
-                      btnClass="btnLightWithOut"
+                      btnClass="btnDark"
                       width="218px"
                       handleClick={() => handleNavigation(room.links.href)}
                     />
