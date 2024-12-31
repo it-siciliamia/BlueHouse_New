@@ -10,9 +10,6 @@ import timeSign from "../../images/roombooking/timeSign.svg";
 
 const Advantages = () => {
   const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 599.99 });
-  // const isTablet = useMediaQuery({ minWidth: 600, maxWidth: 959.99 });
-  // const isLaptop = useMediaQuery({ minWidth: 960, maxWidth: 1279.99 });
-  const isDesktop = useMediaQuery({ minWidth: 1280, maxWidth: 2200 });
   return (
     <section className="bh_advantages-wrapper">
       <div className="bh_advantages-container">
@@ -83,21 +80,6 @@ const Advantages = () => {
             </p>
           </li>
         </ul>
-        {isMobile && (
-          <>
-            <p className="bh_advantages-title-text">
-              <WithTransLate text="Need more information? Contact us on WhatsApp. Our admins will help you." />
-            </p>
-            <a
-              href="https://api.whatsapp.com/send?phone=3547756480&text=&source=&data="
-              target="_blank"
-              rel="noreferrer"
-              className="bh_advantages-link"
-            >
-              <WithTransLate text="GO TO WHATSAPP" />
-            </a>
-          </>
-        )}
       </div>
     </section>
   );

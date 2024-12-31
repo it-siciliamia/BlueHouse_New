@@ -16,18 +16,16 @@ const RoomDetails = () => {
   const { room } = useParams();
   const history = useHistory();
 
-  const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 599.99 });
-  const isTablet = useMediaQuery({ minWidth: 600, maxWidth: 959.99 });
   const isLaptop = useMediaQuery({ minWidth: 960, maxWidth: 1279.99 });
   const isDesktop = useMediaQuery({ minWidth: 1280, maxWidth: 2200 });
 
   const roomData = items.find((item) => item.links.href.includes(room));
 
   const handleBackClick = () => {
-    history.goBack();
+    history.push("/beds24");
   };
 
-  const calculatedWidth = `calc(100% - 70px)`;
+  const calculatedWidth = isLaptop ? `calc(100% - 50px)` : `calc(100% - 70px)`;
 
   return (
     <div className={s.roomdetails}>
@@ -38,7 +36,7 @@ const RoomDetails = () => {
               text="Back"
               icon={<IoIosArrowBack />}
               size="24px"
-              width="115px"
+              width={isLaptop ? "95px" : "115px"}
               btnClass="btnLightWithOut"
               handleClick={handleBackClick}
             />
@@ -47,7 +45,7 @@ const RoomDetails = () => {
             <PhotoSlider
               photos={roomData.photos}
               width={calculatedWidth}
-              height="510px"
+              height={isLaptop ? "400px" : "510px"}
             />
           )}
         </div>
