@@ -37,7 +37,7 @@ const PhotoSlider = ({ photos, width = "100%", height = "auto" }) => {
   };
 
   const settings = {
-    dots: true,
+    dots: isDesktop || isLaptop ? true : false,
     infinite: true,
     speed: 600,
     autoplay: true,
