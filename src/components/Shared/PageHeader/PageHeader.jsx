@@ -1,9 +1,9 @@
-import React from "react";
-import { useEffect, useState, useMemo } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import { useLocation } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { translateMyText } from "../../helpers/translating/index";
 import languagesAndCodes from "../../helpers/translating/languagesAndCodes.json";
+
 import s from "./PageHeader.module.scss";
 
 const pagesData = {
@@ -42,6 +42,41 @@ const pagesData = {
     keywords:
       "direct booking, best price, Blue House apartments, Reykjavik apartments, Iceland lodging, book directly, apartment availability, Reykjavik accommodation photos, Reykjavik living conditions, Blue House booking",
   },
+  "/beds24/economy_double_room": {
+    title: "Economy Double Room - Blue House",
+    description:
+      "Our economy double rooms are located at 3 of our properties. Facing Valhúsahaedpark, the rooms are equipped with a queen-size bed and Netflix TV. All offer shared bathroom and kitchen facilities. Continental self-service breakfast with homemade bread is included in the room rate. House and type of bed cannot be guaranteed.",
+    keywords:
+      "economy double room, Blue House, Reykjavik accommodations, queen-size bed, shared bathroom, kitchen facilities, Netflix TV, homemade bread breakfast",
+  },
+  "/beds24/double_twin_room": {
+    title: "Double Twin Room - Blue House",
+    description:
+      "Our double/twin rooms are located at 3 of our properties. Facing the seaside, the rooms are equipped with a king-size or twin bed and Netflix TV. All offer shared bathroom and kitchen facilities. Continental self-service breakfast with homemade bread is included in the room rate.",
+    keywords:
+      "double twin room, seaside view, Blue House, Reykjavik accommodations, king-size bed, shared bathroom, kitchen facilities, Netflix TV, homemade bread breakfast",
+  },
+  "/beds24/triple_room": {
+    title: "Triple Room - Blue House",
+    description:
+      "Our triple rooms are located both in the Blue House and the Yellow House. The rooms are equipped with a king-size/twin bed and Netflix-TV. Extra beds are queen-sized sofa beds. Bathroom and kitchen facilities are shared. Continental self-service breakfast with homemade bread is included.",
+    keywords:
+      "triple room, Blue House, Reykjavik accommodations, king-size bed, shared bathroom, kitchen facilities, Netflix TV, homemade bread breakfast",
+  },
+  "/beds24/Quadruple_room": {
+    title: "Quadruple Room - Blue House",
+    description:
+      "Our quadruple rooms are located both in the Blue House and the Yellow House. The rooms are equipped with a king-size/twin bed and Netflix-TV. Extra beds are queen-sized sofa beds. Bathroom and kitchen facilities are shared.",
+    keywords:
+      "quadruple room, Blue House, Reykjavik accommodations, king-size bed, shared bathroom, kitchen facilities, Netflix TV, homemade bread breakfast",
+  },
+  "/beds24/family_room": {
+    title: "Family Room - Blue House",
+    description:
+      "Our Family room is located at the Yellow House and offers an incredible view to the seaside and lighthouse. It is extremely popular for northern lights hunters in the winter.",
+    keywords:
+      "family room, seaside view, Blue House, Reykjavik accommodations, family-friendly, shared facilities, northern lights view",
+  },
   default: {
     title: "Page Not Found",
     description: "This page does not exist.",
@@ -51,9 +86,13 @@ const pagesData = {
 
 const PageHeader = () => {
   const location = useLocation();
-  const pageData = pagesData[location.pathname] || pagesData["default"];
   const languageIndex = localStorage.getItem("languageIndex");
   const languageCode = languagesAndCodes.languages[languageIndex]?.code || "en";
+
+  const pageData = useMemo(
+    () => pagesData[location.pathname] || pagesData["default"],
+    [location.pathname]
+  );
 
   const [title, setTitle] = useState(pageData.title);
   const [description, setDescription] = useState(pageData.description);
@@ -78,10 +117,10 @@ const PageHeader = () => {
     }
 
     fetchTranslations();
-  }, [location, pageData, languageCode]);
+  }, [location.pathname, pageData, languageCode]);
 
-  const helmetContent = useMemo(() => {
-    return (
+  return (
+    <>
       <Helmet>
         <html lang={languageCode} />
         <title>{title}</title>
@@ -92,12 +131,6 @@ const PageHeader = () => {
           href={`https://bluehouse.is${location.pathname}`}
         />
       </Helmet>
-    );
-  }, [title, description, keywords, languageCode, location.pathname]);
-
-  return (
-    <>
-      {helmetContent}
       <h1 className={s.mainTitle}>{title}</h1>
     </>
   );

@@ -319,7 +319,8 @@
 
 .bh_advantages-wrapper {
   @media (min-width: 320px) and (max-width: 599.99px) {
-    padding-top: 50px;
+    margin-top: 50px;
+    margin-bottom: -20px;
   }
   @media (min-width: 1280px) and (max-width: 2200px) {
     padding: 63px 0px 63px 70px;
@@ -472,6 +473,7 @@
 .search-hero-photo-mobile {
   @media (min-width: 320px) and (max-width: 1279.99px) {
     width: calc(100% + 40px);
+    min-height: 250px;
     max-height: 350px;
     margin-right: -20px;
     margin-left: -20px;

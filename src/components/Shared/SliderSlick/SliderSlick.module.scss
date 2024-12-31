@@ -61,11 +61,12 @@
 .customDots {
   position: absolute;
   bottom: 20px;
-  width: 100%;
   display: flex !important;
+  flex-direction: row;
+  gap: 2px;
   justify-content: center;
   z-index: 2;
-  color: white;
+  color: white !important;
 }
 
 .customDots li button:before {

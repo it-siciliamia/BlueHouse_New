@@ -139,7 +139,7 @@ const PartCalendar = () => {
             } child, ${roomsAmount} room(s)`}
           />
         </div>
-        <button className={s.quantityContainerToggleBtn} onClick={toggleHandle}>
+        <button className={s.toggleBtn} onClick={toggleHandle}>
           <img src={containerToggle ? arrowUp : arrowDown} alt="Toggle" />
         </button>
         {containerToggle && (

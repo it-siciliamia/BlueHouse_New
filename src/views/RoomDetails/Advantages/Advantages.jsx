@@ -1,5 +1,4 @@
 import React from "react";
-import { useMediaQuery } from "react-responsive";
 import { WithTransLate } from "../../../components/helpers/translating";
 import dollarSign from "../../../images/roombooking/dollarsign.svg";
 import spotSign from "../../../images/roombooking/spotSign.svg";
@@ -11,10 +10,6 @@ import timeSign from "../../../images/roombooking/timeSign.svg";
 import s from "./Advantages.module.scss";
 
 const Advantages = () => {
-  const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 599.99 });
-  // const isTablet = useMediaQuery({ minWidth: 600, maxWidth: 959.99 });
-  // const isLaptop = useMediaQuery({ minWidth: 960, maxWidth: 1279.99 });
-  const isDesktop = useMediaQuery({ minWidth: 1280, maxWidth: 2200 });
   return (
     <section className={s.advantagesWrapper}>
       <div className={s.advantagesContainer}>

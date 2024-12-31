@@ -1,12 +1,11 @@
 .advantagesWrapper {
-  @media (min-width: 320px) and (max-width: 599.99px) {
-    // padding-top: 50px;
+  @media (min-width: 320px) and (max-width: 959.99px) {
     margin-bottom: 30px;
   }
 }
 
 .advantagesList {
-  @media (min-width: 320px) and (max-width: 599.99px) {
+  @media (min-width: 320px) and (max-width: 959.99px) {
     margin: 0;
     padding: 0;
     display: flex;
@@ -19,7 +18,7 @@
 }
 
 .advantagesItem {
-  @media (min-width: 320px) and (max-width: 599.99px) {
+  @media (min-width: 320px) and (max-width: 959.99px) {
     padding-top: 15px;
     width: 100%;
     display: flex;
@@ -31,21 +30,21 @@
   }
 }
 .advantagesItem:last-child {
-  @media (min-width: 320px) and (max-width: 599.99px) {
+  @media (min-width: 320px) and (max-width: 959.99px) {
     padding-bottom: 15px;
     border-bottom: 1px solid #cdd7e2;
   }
 }
 
 .advantagesIcons {
-  @media (min-width: 320px) and (max-width: 599.99px) {
+  @media (min-width: 320px) and (max-width: 959.99px) {
     width: 23px;
     height: auto;
   }
 }
 
 .advantagesText {
-  @media (min-width: 320px) and (max-width: 599.99px) {
+  @media (min-width: 320px) and (max-width: 959.99px) {
     margin: 0;
     margin-top: 5px;
     font-size: 16px;

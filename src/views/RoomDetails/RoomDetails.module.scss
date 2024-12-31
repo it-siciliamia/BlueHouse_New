@@ -1,6 +1,14 @@
 .roomdetails {
-  border: 1px solid violet;
   width: 100%;
+  @media (min-width: 320px) and (max-width: 599.99px) {
+    margin-bottom: -10px;
+  }
+  @media (min-width: 600px) and (max-width: 959.99px) {
+    margin-bottom: -50px;
+  }
+  @media (min-width: 960px) and (max-width: 1279.99px) {
+    margin-bottom: -50px;
+  }
 }
 
 .backButton {
@@ -40,7 +48,6 @@
     margin-top: 20px;
     display: flex;
     flex-direction: row;
-    border: 1px solid green;
   }
 }
 
@@ -48,10 +55,13 @@
   @media (min-width: 320px) and (max-width: 959.99px) {
     width: 100%;
   }
-  @media (min-width: 960px) and (max-width: 2200px) {
+  @media (min-width: 960px) and (max-width: 1279.99px) {
+    margin-left: 45px;
+    width: 65%;
+  }
+  @media (min-width: 1280px) and (max-width: 2200px) {
     margin-left: 65px;
     width: 65%;
-    border: 1px solid blue;
   }
 }
 
@@ -70,6 +80,9 @@
     padding-right: 20px;
     margin-bottom: 50px;
   }
+  @media (min-width: 960px) and (max-width: 1279.99px) {
+    margin: 50px;
+  }
   @media (min-width: 1280px) and (max-width: 2200px) {
     padding-top: 50px;
     padding-left: 120px;
@@ -81,6 +94,20 @@
   @media (min-width: 320px) and (max-width: 599.99px) {
     margin-top: 50px;
     margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: 600;
+    color: black;
+    text-transform: uppercase;
+  }
+  @media (min-width: 600px) and (max-width: 959.99px) {
+    margin-top: 50px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: 600;
+    color: black;
+    text-transform: uppercase;
+  }
+  @media (min-width: 960px) and (max-width: 1279.99px) {
     font-size: 18px;
     font-weight: 600;
     color: black;

@@ -13,14 +13,33 @@
   justify-content: space-between;
 }
 
+.partDetailsTitle {
+  margin: 0;
+}
+
 .locationPart {
   margin-top: 15px;
+}
+
+.locationWrapper {
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 300;
+  @media (min-width: 320px) and (max-width: 959.99px) {
+    font-size: 16px !important;
+  }
+  @media (min-width: 960px) and (max-width: 2200px) {
+    font-size: 20px !important;
+  }
 }
 
 .textWrapper {
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
   font-weight: 300;
   @media (min-width: 320px) and (max-width: 959.99px) {
@@ -47,7 +66,6 @@
 }
 
 .addressWrapper {
-  margin-bottom: 15px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -118,7 +136,13 @@
     flex-direction: column;
     gap: 10px;
   }
-  @media (min-width: 960px) and (max-width: 2200px) {
+  @media (min-width: 960px) and (max-width: 1279.99px) {
+    width: 48%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  @media (min-width: 1280px) and (max-width: 2200px) {
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -146,15 +170,3 @@
     font-size: 18px;
   }
 }
-
-// .priceDetailWrapper {
-//   @media (min-width: 320px) and (max-width: 959.99px) {
-//     display: flex;
-//     flex-direction: column;
-//   }
-//   @media (min-width: 960px) and (max-width: 2200px) {
-//     display: flex;
-//     flexdirection: column;
-//     alignitems: center;
-//   }
-// }

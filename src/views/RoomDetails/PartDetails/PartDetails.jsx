@@ -6,10 +6,7 @@ import PhotoSlider from "../../../components/Shared/SliderSlick/SliderSlick";
 import { WithTransLate } from "../../../components/helpers/translating/index";
 import Button from "../../../components/Shared/Button/Button";
 import locationIcon from "../../../images/services_room/location.svg";
-import {
-  items,
-  price,
-} from "../../../components/ServicesRoom/ServicesRoomData";
+import { price } from "../../../components/ServicesRoom/ServicesRoomData";
 import s from "./PartDetails.module.scss";
 
 const PartDetails = ({ data }) => {
@@ -53,7 +50,7 @@ const PartDetails = ({ data }) => {
   return (
     <div className={s.partDetails}>
       <div className={s.titleWrapper}>
-        <h3>
+        <h3 className={s.partDetailsTitle}>
           <WithTransLate text={data.title} />
         </h3>
         <div onClick={handleCopyLink} style={{ cursor: "pointer" }}>
@@ -77,7 +74,7 @@ const PartDetails = ({ data }) => {
         <h4>
           <WithTransLate text="Location" />
         </h4>
-        <div className={s.textWrapper}>
+        <div className={s.locationWrapper}>
           <div
             className={s.addressWrapper}
             onClick={() => navigateAndScroll("MAP")}
@@ -112,7 +109,7 @@ const PartDetails = ({ data }) => {
       )}
 
       <div>
-        <h4>
+        <h4 style={{ marginBottom: isMobile ? "20px" : "10px" }}>
           <WithTransLate text="Description" />
         </h4>
         <p className={s.textWrapper}>
