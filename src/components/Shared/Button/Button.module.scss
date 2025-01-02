@@ -31,6 +31,7 @@
 
 .btnDark:focus {
   outline: none;
+  box-shadow: none;
 }
 
 .textWrapper {
@@ -81,6 +82,7 @@
 
 .btnLight:focus {
   outline: none;
+  box-shadow: none;
 }
 
 .inBox {
@@ -116,6 +118,7 @@
 
 .inBox:focus {
   outline: none;
+  box-shadow: none;
 }
 
 .btnLightWithOut {
@@ -143,12 +146,13 @@
   }
 }
 
-.btnLightWithOut :hover {
+.btnLightWithOut:hover {
   color: #14202b;
   font-weight: 800;
   outline: none;
 }
 
-.btnLightWithOut :focus {
+.btnLightWithOut:focus {
   outline: none;
+  box-shadow: none;
 }
