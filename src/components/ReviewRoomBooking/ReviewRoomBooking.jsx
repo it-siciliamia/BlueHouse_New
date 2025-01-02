@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { WithTransLate } from "../helpers/translating/index";
 import tripadvisor from "../../images/tipadvisor.png";
 import google from "../../images/google.png";
+
 import s from "./ReviewRoomBooking.module.scss";
 
 const CircleRating = ({ rating, text, reviews }) => {

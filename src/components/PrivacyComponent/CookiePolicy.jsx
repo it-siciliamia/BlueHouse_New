@@ -144,7 +144,6 @@ const COOKIES_NECESSARY = [
 export default function CookiePolicy() {
   const {
     root,
-    title,
     textClass,
     titleInfo,
     definitionList,
@@ -157,10 +156,6 @@ export default function CookiePolicy() {
   } = useStyles();
   return (
     <Box className={root}>
-      {/* <h2 className={title}>
-        <WithTransLate text="COOKIE POLICY" />
-      </h2> */}
-
       <div className={titleInfo}>
         <p className={textClass}>
           <WithTransLate text="In order to provide you with a more personalized and responsive service we need to remember and store information about how you use this website. This is done using small text files called cookies. Cookies contain small amounts of information and are downloaded to your computer or other device by a server for this website. Your web browser then sends these cookies back to this Website on each subsequent visit so that it can recognise you and remember things like your user preferences. A cookie is a small file of letters and numbers that we store on your browser and hard drive of your computer. Cookies contain information that is transferred to your computer’s hard drive. By browsing our sites you are accepting our use of cookies. You can close the cookie notification by clicking “OK” button." />

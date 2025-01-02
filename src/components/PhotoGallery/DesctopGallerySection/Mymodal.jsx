@@ -260,7 +260,7 @@ const MyModal = ({ index, open, setOpen, setTabIndex }) => {
                           sx={{
                             width: 225,
                             height: 46,
-                            background: "#073762",
+                            background: "#3b5998",
                             borderRadius: "0px",
                             fontFamily: "Josefin Sans",
                             fontWeight: 700,
@@ -271,7 +271,7 @@ const MyModal = ({ index, open, setOpen, setTabIndex }) => {
                             "&:hover": {
                               background: "white",
                               color: "#073762",
-                              border: "1px solid #073762",
+                              border: "1px solid #3b5998",
                             },
                           }}
                         >
@@ -347,7 +347,7 @@ const MyModal = ({ index, open, setOpen, setTabIndex }) => {
                           sx={{
                             width: 225,
                             height: 46,
-                            background: "#073762",
+                            background: "#3b5998",
                             borderRadius: "0px",
                             fontFamily: "Josefin Sans",
                             fontWeight: 700,
@@ -358,7 +358,7 @@ const MyModal = ({ index, open, setOpen, setTabIndex }) => {
                             "&:hover": {
                               background: "white",
                               color: "#073762",
-                              border: "1px solid #073762",
+                              border: "1px solid #3b5998",
                             },
                           }}
                         >

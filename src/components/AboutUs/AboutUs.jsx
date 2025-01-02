@@ -4,6 +4,7 @@ import { useMediaQuery } from "react-responsive";
 import Button from "../../components/Shared/Button/Button";
 import { WithTransLate } from "../helpers/translating/index";
 import selfie from "../../images/selfie.webp";
+
 import s from "./AboutUs.module.scss";
 
 function AboutUs() {

@@ -4,6 +4,7 @@ import { useMediaQuery } from "react-responsive";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
+
 import s from "./SliderSlick.module.scss";
 
 const PhotoSlider = ({ photos, width = "100%", height = "auto" }) => {
