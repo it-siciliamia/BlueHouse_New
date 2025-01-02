@@ -10,7 +10,7 @@ const BookingWrapper = () => {
         <span>
           <WithTransLate text="Blue House Bed and Breakfast" />
         </span>{" "}
-        <WithTransLate text=" welcomes you to your home away from home in" />{" "}
+        <WithTransLate text="welcomes you to your home away from home in" />{" "}
         <span>
           <WithTransLate text="Reykjavik, Iceland." />
         </span>{" "}

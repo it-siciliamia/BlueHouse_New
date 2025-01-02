@@ -9,12 +9,11 @@ import bld from "../../images/RECOMMENDATIONS/Blue-lagoon01.webp";
 import gcd from "../../images/RECOMMENDATIONS/Glacier-Caves01.webp";
 import restd from "../../images/RECOMMENDATIONS/Geysers01.webp";
 import rest from "../../images/RECOMMENDATIONS/Geysers.webp";
+
 import s from "./Recommendations.module.scss";
 
 const Recommendations = () => {
-  // const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 599.99 });
   const isTablet = useMediaQuery({ minWidth: 600, maxWidth: 959.99 });
-  // const isLaptop = useMediaQuery({ minWidth: 960, maxWidth: 1279.99 });
   const isDesktop = useMediaQuery({ minWidth: 1280, maxWidth: 2200 });
 
   const recommendationsData = [

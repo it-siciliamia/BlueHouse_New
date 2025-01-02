@@ -1,5 +1,4 @@
 import React from "react";
-import image from "../../images/houserules.jpg";
 import { WithTransLate } from "../../components/helpers/translating/index";
 import Guidelines from "./Guidelines.jsx";
 
