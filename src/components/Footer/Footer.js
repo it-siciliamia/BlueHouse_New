@@ -170,7 +170,6 @@ function Footer() {
   const location = useLocation();
   const classes = useStyles();
   const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 599.99 });
-  const isTablet = useMediaQuery({ minWidth: 600, maxWidth: 959.99 });
   const isLaptop = useMediaQuery({ minWidth: 960, maxWidth: 1279.99 });
   const isDesktop = useMediaQuery({ minWidth: 1280, maxWidth: 2200 });
 
@@ -182,7 +181,6 @@ function Footer() {
 
   return (
     <footer style={{ width: "100%" }}>
-      {/* <div className={classes.container}> */}
       <div className={s.container}>
         {!isMobile &&
           location.pathname !== "/" &&

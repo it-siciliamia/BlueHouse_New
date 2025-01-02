@@ -176,7 +176,6 @@ Subtitle.propTypes = {
 export default function Privacy() {
   const {
     root,
-    title,
     textClass,
     titleInfo,
     articleWrapper,
@@ -198,10 +197,6 @@ export default function Privacy() {
   } = useStyles();
   return (
     <Box className={root}>
-      {/* <h2 className={title}>
-        <WithTransLate text="IMPRINT & PRIVACY POLICY" />
-      </h2> */}
-
       <div className={titleInfo}>
         <p className={textClass}>
           <WithTransLate text="Last updated: June 06, 2022" />

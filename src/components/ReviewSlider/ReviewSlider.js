@@ -1,13 +1,9 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-// import { useMediaQuery } from "react-responsive";
 import { Navigation, Pagination, Autoplay } from "swiper";
 import { WithTransLate } from "../helpers/translating/index";
-
 import "swiper/swiper.css";
-
 import ReviewCard from "./ReviewSlide/ReviewSlide";
-
 import "./ReviewSlider.css";
 
 const QUOTES = [
@@ -42,7 +38,6 @@ const DESCTOP_BREAKPOINT = 600;
 
 const ReviewSlider = () => {
   const windowInnerWidth = window.innerWidth;
-  // const isMobile = useMediaQuery({ maxDeviceWidth: 599.99 });
 
   const slidesPerView = windowInnerWidth > DESCTOP_BREAKPOINT ? 2 : 1;
 

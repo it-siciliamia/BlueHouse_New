@@ -5,6 +5,7 @@ import { IoIosArrowUp } from "react-icons/io";
 import PhotoSlider from "../../Shared/SliderSlick/SliderSlick";
 import Modal from "./Modal";
 import { BsZoomIn } from "react-icons/bs";
+
 import s from "./SliderPreviewPhoto.module.scss";
 
 const SliderPreviewPhoto = ({ photos }) => {
