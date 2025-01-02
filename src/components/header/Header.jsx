@@ -90,7 +90,7 @@ export default function Header({ right, setRight, top, setTop }) {
 
       <header className={s.headerContainer}>
         <div id="header" className={s.header}>
-          <span
+          {/* <span
             style={{
               position: "absolute",
               top: "10px",
@@ -100,7 +100,7 @@ export default function Header({ right, setRight, top, setTop }) {
             }}
           >
             {width}
-          </span>
+          </span> */}
           <div>
             <Link to="/" className={s.logo} color="inherit" aria-label="logo">
               <img src={logo} alt="logo" className={s.imgLogo} />
