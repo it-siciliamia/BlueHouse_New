@@ -215,7 +215,7 @@ function Payment({ price, userInfo, checkIn, checkOut, name, quantity }) {
     },
   }));
   const classes = useStyles();
-  console.log("userInfo", userInfo);
+
   const handleClick = (item) => {
     if (item === "show1") {
       setShow1(!show1);
