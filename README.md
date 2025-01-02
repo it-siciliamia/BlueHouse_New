@@ -57,15 +57,22 @@ https://it-siciliamia.github.io/BlueHouse_New/
    ```
 
 8. **Create a Pull Request**:
-   1. Open the repository in your browser:  
-      [https://github.com/it-siciliamia/BlueHouse_New](https://github.com/it-siciliamia/BlueHouse_New)
-   2. Go to the **Pull Requests** tab.
-   3. Click **New Pull Request**.
-   4. In the "base" field, select the branch where changes should be merged (e.g., `main`).
-   5. Review the list of changes (GitHub will display all modified files).
-   6. Select the person who will review and approve your Pull Request.
-   7. Add a title and description to explain the purpose of the changes.
-   8. Click **Create Pull Request**.
+
+🔗 Open the repository in your browser: https://github.com/it-siciliamia/BlueHouse_New
+
+📋 Go to the Pull Requests tab.
+
+🌟 Click New Pull Request.
+
+🔄 In the "base" field, select the branch where changes should be merged (e.g., main).
+
+🔍 Review the list of changes (GitHub will display all modified files).
+
+👥 Select the person who will review and approve your Pull Request.
+
+📝 Add a title and description to explain the purpose of the changes.
+
+🚀 Click Create Pull Request.
 
 ---
 
