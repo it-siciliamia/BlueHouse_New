@@ -27,8 +27,8 @@ import {
   RedirectBlog,
   RedirectTripAdv,
 } from "./components/helpers/redirect/Redirect.js";
-import theme from "./theme.js";
-import "./App.css";
+import theme from "./Styles/theme.js";
+import "./Styles/App.css";
 
 export const UserContext = createContext();
 

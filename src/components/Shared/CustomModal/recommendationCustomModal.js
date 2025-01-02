@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import "../../../css/CustomModal.css";
+import "../../../Styles/CustomModal.css";
 import { Modal, makeStyles } from "@material-ui/core";
 import { UserContext } from "../../../App";
 import LinearProgress from "@material-ui/core/LinearProgress";

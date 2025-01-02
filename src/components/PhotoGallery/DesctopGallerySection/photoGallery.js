@@ -1,6 +1,5 @@
 import React, { useContext, useState } from "react";
 import { Box, makeStyles, Typography } from "@material-ui/core";
-import "../../../css/Services.css";
 import clsx from "clsx";
 import { Element } from "react-scroll";
 import { UserContext } from "../../../App";

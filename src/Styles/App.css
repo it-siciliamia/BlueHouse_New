@@ -4,7 +4,7 @@
 @font-face {
   font-family: Oblik;
   font-weight: bold;
-  src: url("./fonts/Oblik-Bold.otf") format("opentype");
+  src: url("../fonts/Oblik-Bold.otf") format("opentype");
 }
 * {
   margin: 0;
@@ -72,11 +72,11 @@ a {
 }
 
 /* .clickable:hover {
-  cursor: url(./images/cursor.svg), auto;
+  cursor: url(../images/cursor.svg), auto;
 } */
 
 .custom-cursor {
-  cursor: url("./images/cursor.svg"), auto !important;
+  cursor: url("../images/cursor.svg"), auto !important;
 }
 
 .MuiInputBase-input:focus {

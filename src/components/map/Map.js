@@ -2,8 +2,8 @@ import React, { useRef } from "react";
 import { GoogleMap, useJsApiLoader, Marker } from "@react-google-maps/api";
 import { legandItemsData, features } from "./Elements";
 import upArrow from "../../images/map/upArrow.svg";
-import "../../Styles/Home.css";
-import "../../Styles/Home.scss";
+import "./Home.css";
+import "./Home.scssHome.scss";
 import { Element } from "react-scroll";
 import { WithTransLate } from "../helpers/translating/index";
 

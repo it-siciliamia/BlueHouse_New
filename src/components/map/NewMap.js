@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useRef } from "react";
 import { useMediaQuery } from "react-responsive";
 import { useLocation } from "react-router-dom";
 import WeatherCard from "./WeatherCard";
