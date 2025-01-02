@@ -100,6 +100,15 @@
       no-repeat;
   }
 
+  .review__button:focus {
+    outline: none;
+    box-shadow: none;
+  }
+
+  .review__button:hover {
+    border: 1px solid darkgray;
+  }
+
   .button-prev {
     transform: rotate(180deg);
   }

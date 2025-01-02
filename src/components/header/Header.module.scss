@@ -56,6 +56,11 @@
   cursor: pointer;
 }
 
+.menuIcon:focus {
+  outline: none;
+  box-shadow: none;
+}
+
 .bookingButtonsWrapper {
   margin-right: 25px;
   display: flex;

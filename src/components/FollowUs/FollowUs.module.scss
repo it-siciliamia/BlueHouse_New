@@ -178,6 +178,15 @@
   cursor: pointer;
 }
 
+.arrow:hover {
+  border: 1px solid darkgray;
+}
+
+.arrow:focus {
+  outline: none;
+  box-shadow: none;
+}
+
 .buttonPrev {
   transform: rotate(180deg);
 }
