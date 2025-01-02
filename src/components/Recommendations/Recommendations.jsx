@@ -51,7 +51,7 @@ const Recommendations = () => {
   }
 
   return (
-    <div className={s.recommendations}>
+    <div id="RECOMMENDATIONS" className={s.recommendations}>
       <div className={s.sectionWrapper}>
         <div className={s.titleWrapper}>
           <h2 className={s.title}>

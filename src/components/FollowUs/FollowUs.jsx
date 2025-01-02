@@ -85,7 +85,7 @@ const FollowUs = () => {
   );
 
   return (
-    <section className={s.followus}>
+    <section id="follow Us" className={s.followus}>
       <div className={s.sectionWrapper}>
         <div className={s.titleWrapper}>
           <h2 className={s.title}>
