@@ -120,9 +120,9 @@ export default function HomePage() {
       />
       <AboutUs />
       <ReviewSlider />
-      <Recommendations id="recommendations" />
+      <Recommendations />
       <BlogPart />
-      <FollowUs id="follow Us" />
+      <FollowUs />
       <FindMore />
       <Support />
       <NewsLetter />
