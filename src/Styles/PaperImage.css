@@ -4,18 +4,21 @@
   position: relative;
   text-align: left;
 }
+
 .paper__text {
   position: absolute;
   left: 30%;
   top: 20%;
   opacity: 0;
 }
+
 .paper__image:hover > .paper__text,
 .paper__image:hover > .paper__button {
   opacity: 1;
   position: absolute;
   animation: fragment3BeforeAnimationMove 3s;
 }
+
 .paper__text > ul > li {
   margin-top: 30px;
   color: white;
@@ -26,6 +29,7 @@
   letter-spacing: 0.1rem;
   font-family: "Josephin 20";
 }
+
 .paper__image > figure {
   object-fit: cover;
   width: 100%;
@@ -35,6 +39,7 @@
   background: #fff;
   overflow: hidden;
 }
+
 .paper__image > figure > img {
   object-fit: cover;
   width: 100%;
@@ -44,14 +49,17 @@
   -webkit-transition: 0.3s ease-in-out;
   transition: 0.3s ease-in-out;
 }
+
 .paper__image_text {
   width: 60%;
   height: 50%;
 }
+
 .paper_body {
   display: flex;
   flex-direction: column;
 }
+
 .paper__button {
   position: absolute;
   bottom: 10%;
@@ -67,9 +75,11 @@
   border: 1px solid white;
   font-family: "Josephin 18";
 }
+
 .paper__button:hover {
   background: rgb(131, 131, 131);
 }
+
 .paper_body_text {
   font-style: normal;
   font-weight: 200;
