@@ -30,9 +30,7 @@ const SearchContainer = () => {
   const secondDay = useSelector(getCheckOutDay);
 
   const [startDate, setStartDate] = useState(
-    firstDay && secondDay && firstDay === newDate
-      ? null
-      : moment(firstDay, "YYYYMMDD").toDate()
+    firstDay === secondDay ? null : moment(firstDay, "YYYYMMDD").toDate()
   );
 
   const [endDate, setEndDate] = useState(

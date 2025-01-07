@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
 import SideNavbar from "../SideNavbar/SideNavbar";
 import SideNavbarMobile from "../SideNavbar/SideNavbarMobile";
@@ -8,6 +8,7 @@ import Search from "./search";
 import MenuIcon from "../../images/MenuIcon_Header.svg";
 import SearchIcon from "../../images/SearchIcon_Header.svg";
 import logo from "../../images/logoBlue.png";
+import ProcessPaymentPanel from "../PaymentComponent/ProcessPaymentPanel/ProcessPaymentPanel";
 import { useHeaderSize } from "../../components/helpers/HeaderContext/HeaderContext";
 import s from "./Header.module.scss";
 
@@ -19,7 +20,7 @@ export default function Header({ right, setRight, top, setTop }) {
   const isTablet = useMediaQuery({ minWidth: 600, maxWidth: 1279.99 });
   const isLaptop = useMediaQuery({ minWidth: 960, maxWidth: 1279.99 });
   const isDesktop = useMediaQuery({ minWidth: 1280, maxWidth: 2200 });
-  const { width } = useHeaderSize();
+  const location = useLocation();
 
   const [rightSearch, setRightSearch] = useState("-200%");
   const [topSearch, setTopSearch] = useState("-200%");
@@ -109,28 +110,34 @@ export default function Header({ right, setRight, top, setTop }) {
 
           {(isDesktop || isLaptop) && (
             <div className={s.bookingButtonsWrapper}>
-              <a
-                href="https://beds24.com/booking2.php?propid=3578&layout=1"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <Button
-                  text="BOOK YOUR ROOM"
-                  btnClass="btnDark"
-                  width={isLaptop ? "240px" : "280px"}
-                />
-              </a>
-              <a
-                href="https://bluehouse.tourdesk.is/Tour"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <Button
-                  text="BOOK DAY TOUR"
-                  btnClass="btnLight"
-                  width={isLaptop ? "240px" : "280px"}
-                />
-              </a>
+              {location.pathname === "/payment" ? (
+                <ProcessPaymentPanel />
+              ) : (
+                <>
+                  <a
+                    href="https://beds24.com/booking2.php?propid=3578&layout=1"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <Button
+                      text="BOOK YOUR ROOM"
+                      btnClass="btnDark"
+                      width={isLaptop ? "240px" : "280px"}
+                    />
+                  </a>
+                  <a
+                    href="https://bluehouse.tourdesk.is/Tour"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <Button
+                      text="BOOK DAY TOUR"
+                      btnClass="btnLight"
+                      width={isLaptop ? "240px" : "280px"}
+                    />
+                  </a>
+                </>
+              )}
             </div>
           )}
 

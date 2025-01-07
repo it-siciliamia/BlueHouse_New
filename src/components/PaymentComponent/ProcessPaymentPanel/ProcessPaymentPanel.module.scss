@@ -1,0 +1,55 @@
+.paymentPanel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  width: 585px;
+}
+
+.circle {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  border: 1px solid #000;
+  border-radius: 50%;
+  color: #000;
+  background-color: #fff;
+  font-size: 19px;
+  font-weight: 700;
+  z-index: 2;
+  transition: background-color 0.3s, color 0.3s;
+
+  &.active {
+    background-color: #1d3967;
+    color: #fff;
+    font-weight: 700;
+  }
+
+  .label {
+    position: absolute;
+    top: 60px;
+    font-size: 16px;
+    font-weight: 400;
+    color: #000;
+    text-align: center;
+    white-space: nowrap;
+    &.active {
+      font-weight: 700;
+    }
+  }
+}
+
+.line {
+  flex-grow: 1;
+  height: 1px;
+  background-color: #000;
+  margin: 0 -10px; /* Adjust overlap with circles */
+  transition: background-color 0.3s;
+
+  &.activeLine {
+    background-color: #1d3967;
+  }
+}
