@@ -12,6 +12,9 @@ const initialState = {
     children: 0,
     room: 1,
   },
+  appartmentName: null,
+  pricePerNight: null,
+  paymentType: null,
 };
 
 const dataSearch = createSlice({
@@ -41,9 +44,25 @@ const dataSearch = createSlice({
         room: room !== undefined ? room : store.addParams.room,
       };
     },
+    setAppartmentName: (store, action) => {
+      store.appartmentName = action.payload;
+    },
+    setPricePerNight: (store, action) => {
+      store.pricePerNight = action.payload;
+    },
+    setPaymentType: (store, action) => {
+      store.paymentType = action.payload;
+    },
   },
   extraReducers: (builder) => {},
 });
 
 export default dataSearch.reducer;
-export const { setCheckIn, setCheckOut, setAddParams } = dataSearch.actions;
+export const {
+  setCheckIn,
+  setCheckOut,
+  setAddParams,
+  setAppartmentName,
+  setPricePerNight,
+  setPaymentType,
+} = dataSearch.actions;

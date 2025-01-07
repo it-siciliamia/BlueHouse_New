@@ -1,15 +1,24 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 import { Link as ScrollLink, scroller } from "react-scroll";
 import { useMediaQuery } from "react-responsive";
 import Advantages from "../Advantages/Advantages";
 import PhotoSlider from "../../../components/Shared/SliderSlick/SliderSlick";
 import { WithTransLate } from "../../../components/helpers/translating/index";
+import {
+  setAppartmentName,
+  setPricePerNight,
+  setPaymentType,
+} from "../../../redux/dataSearch/dataSearch-slice";
 import Button from "../../../components/Shared/Button/Button";
 import locationIcon from "../../../images/services_room/location.svg";
 import { price } from "../../../components/ServicesRoom/ServicesRoomData";
 import s from "./PartDetails.module.scss";
 
 const PartDetails = ({ data }) => {
+  const dispatch = useDispatch();
+  const history = useHistory();
   const [copied, setCopied] = useState(false);
   const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 599.99 });
   const isTablet = useMediaQuery({ minWidth: 600, maxWidth: 959.99 });
@@ -179,7 +188,12 @@ const PartDetails = ({ data }) => {
             text="Book Now"
             btnClass="btnDark"
             width="218px"
-            // handleClick={() => {}}
+            handleClick={() => {
+              dispatch(setAppartmentName(data.title));
+              dispatch(setPricePerNight(roomPrice.price1));
+              dispatch(setPaymentType("Non-refundable"));
+              history.push("/payment");
+            }}
           />
         </div>
         <div
@@ -224,7 +238,12 @@ const PartDetails = ({ data }) => {
             text="Book Now"
             btnClass="btnDark"
             width="218px"
-            // handleClick={() => {}}
+            handleClick={() => {
+              dispatch(setAppartmentName(data.title));
+              dispatch(setPricePerNight(roomPrice.price2));
+              dispatch(setPaymentType("Refundable"));
+              history.push("/payment");
+            }}
           />
         </div>
       </div>

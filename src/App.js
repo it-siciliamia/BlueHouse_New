@@ -29,6 +29,7 @@ import {
 } from "./components/helpers/redirect/Redirect.js";
 import theme from "./Styles/theme.js";
 import "./Styles/App.css";
+import PaymentPage from "./views/PaymentPage/PaymentPage.jsx";
 
 export const UserContext = createContext();
 
@@ -70,6 +71,17 @@ function App({ basename }) {
                 </Route>
                 <Route path="/tripadvisor">
                   <RedirectTripAdv />
+                </Route>
+                <Route path="/payment">
+                  <>
+                    <Header
+                      top={top}
+                      setTop={setTop}
+                      right={right}
+                      setRight={setRight}
+                    />
+                    <PaymentPage />
+                  </>
                 </Route>
                 <Route
                   exact
