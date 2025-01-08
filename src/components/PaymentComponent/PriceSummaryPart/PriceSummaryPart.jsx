@@ -109,135 +109,145 @@ const PriceSummaryPart = () => {
 
   return (
     <div className={s.container}>
-      <div className={s.selectorWrapper}>
-        <label htmlFor="currency-select" className={s.label}>
-          <WithTransLate text="Your Price Summary" />
-        </label>
-        <select
-          id="currency-select"
-          value={selectedCurrency}
-          onChange={handleCurrencyChange}
-          className={s.select}
-        >
-          {currencies.map((currency) => (
-            <option
-              key={currency.code}
-              value={currency.code}
-              className={s.option}
-            >
-              {currency.code} - {currency.symbol}
-            </option>
-          ))}
-        </select>
-      </div>
+      <div className={s.partBorder}>
+        <div className={s.selectorWrapper}>
+          <label htmlFor="currency-select" className={s.label}>
+            <WithTransLate text="Your Price Summary" />
+          </label>
+          <select
+            id="currency-select"
+            value={selectedCurrency}
+            onChange={handleCurrencyChange}
+            className={s.select}
+          >
+            {currencies.map((currency) => (
+              <option
+                key={currency.code}
+                value={currency.code}
+                className={s.option}
+              >
+                {currency.code} - {currency.symbol}
+              </option>
+            ))}
+          </select>
+        </div>
 
-      <div className={s.priceWrapper}>
-        <h3 style={{ margin: "0" }}>
-          <WithTransLate text="Description" />
-        </h3>
-        <div className={s.leftPartWrapper}>
+        <div className={s.priceWrapper}>
           <h3 style={{ margin: "0" }}>
-            <WithTransLate text="Price" />
+            <WithTransLate text="Description" />
           </h3>
+          <div className={s.leftPartWrapper}>
+            <h3 style={{ margin: "0" }}>
+              <WithTransLate text="Price" />
+            </h3>
+          </div>
         </div>
-      </div>
 
-      <div
-        className={s.priceWrapper}
-        style={{ backgroundColor: "rgba(217, 217, 217, 0.2)" }}
-      >
-        <p style={{ margin: "0", fontSize: "18px" }}>
-          <WithTransLate
-            text={`${room} ${room === 1 ? "room" : "rooms"} x ${
-              dayDifference === 1
-                ? `${dayDifference} night`
-                : `${dayDifference} nights`
-            }`}
-          />
-        </p>
-        <div className={s.leftPartWrapper}>
-          <p style={{ margin: "0", fontSize: "18px", fontWeight: "500" }}>
-            <WithTransLate
-              text={`€ ${!pricePerNight ? 0 : pricePerNight * dayDifference}`}
-            />
-          </p>
-        </div>
-      </div>
-
-      <div
-        className={s.priceWrapper}
-        style={{ backgroundColor: "rgba(217, 217, 217, 0.2)" }}
-      >
-        <div>
-          <p style={{ fontSize: "18px", margin: "0" }}>
-            <WithTransLate text="Property currency" />
-          </p>
-          <p style={{ fontSize: "18px", fontWeight: "300", margin: "0" }}>
-            <WithTransLate
-              text={`(in ${selectedCurrency} for ${adult} ${
-                adult === 1 ? "adult" : "adults"
-              } ${
-                children === 0
-                  ? ""
-                  : `and ${children} ${children === 1 ? "child" : "children"}`
-              })`}
-            />
-          </p>
-        </div>
-        <div className={s.leftPartWrapper}>
-          <p style={{ margin: "0", fontSize: "18px", fontWeight: "500" }}>
-            <WithTransLate
-              text={`${getCurrencySymbol(selectedCurrency)} ${convertedPrice}`}
-            />
-          </p>
-        </div>
-      </div>
-
-      <div
-        className={s.priceWrapper}
-        style={{ backgroundColor: "#1d3967", marginBottom: "45px" }}
-      >
-        <p
-          style={{
-            margin: "0",
-            fontSize: "20px",
-            fontWeight: "700",
-            color: "#fff",
-          }}
+        <div
+          className={s.priceWrapper}
+          style={{ backgroundColor: "rgba(217, 217, 217, 0.2)" }}
         >
-          <WithTransLate text="Total" />
-        </p>
-        <div className={s.leftPartWrapper}>
+          <p style={{ margin: "0", fontSize: "18px" }}>
+            <WithTransLate
+              text={`${room} ${room === 1 ? "room" : "rooms"} x ${
+                dayDifference === 1
+                  ? `${dayDifference} night`
+                  : `${dayDifference} nights`
+              }`}
+            />
+          </p>
+          <div className={s.leftPartWrapper}>
+            <p style={{ margin: "0", fontSize: "18px", fontWeight: "500" }}>
+              <WithTransLate
+                text={`€ ${
+                  !pricePerNight
+                    ? 0.0
+                    : (pricePerNight * dayDifference).toFixed(2)
+                }`}
+              />
+            </p>
+          </div>
+        </div>
+
+        <div
+          className={s.priceWrapper}
+          style={{ backgroundColor: "rgba(217, 217, 217, 0.2)" }}
+        >
+          <div>
+            <p style={{ fontSize: "18px", margin: "0" }}>
+              <WithTransLate text="Property currency" />
+            </p>
+            <p style={{ fontSize: "18px", fontWeight: "300", margin: "0" }}>
+              <WithTransLate
+                text={`(in ${selectedCurrency} for ${adult} ${
+                  adult === 1 ? "adult" : "adults"
+                } ${
+                  children === 0
+                    ? ""
+                    : `and ${children} ${children === 1 ? "child" : "children"}`
+                })`}
+              />
+            </p>
+          </div>
+          <div className={s.leftPartWrapper}>
+            <p style={{ margin: "0", fontSize: "18px", fontWeight: "500" }}>
+              <WithTransLate
+                text={`${getCurrencySymbol(
+                  selectedCurrency
+                )} ${convertedPrice}`}
+              />
+            </p>
+          </div>
+        </div>
+
+        <div className={s.priceWrapper} style={{ backgroundColor: "#1d3967" }}>
           <p
             style={{
               margin: "0",
               fontSize: "20px",
-              fontWeight: "500",
+              fontWeight: "700",
               color: "#fff",
             }}
           >
-            <WithTransLate
-              text={`${getCurrencySymbol(selectedCurrency)} ${convertedPrice}`}
-            />
+            <WithTransLate text="Total" />
           </p>
+          <div className={s.leftPartWrapper}>
+            <p
+              style={{
+                margin: "0",
+                fontSize: "20px",
+                fontWeight: "500",
+                color: "#fff",
+              }}
+            >
+              <WithTransLate
+                text={`${getCurrencySymbol(
+                  selectedCurrency
+                )} ${convertedPrice}${selectedCurrency !== "EUR" ? "*" : ""}`}
+              />
+            </p>
+          </div>
         </div>
       </div>
 
-      <div style={{ padding: "0 20px" }}>
+      <div style={{ padding: "0 40px" }}>
+        {selectedCurrency !== "EUR" && (
+          <p
+            style={{
+              margin: "0",
+              marginBottom: "20px",
+              fontSize: "18px",
+              fontWeight: "500",
+            }}
+          >
+            <WithTransLate
+              text={`*The price is converted to show you the approximate cost in ${selectedCurrency}. Your card will be charged in € or ISK The exchange rate may change before you pay.`}
+            />
+          </p>
+        )}
         <p
           style={{
             margin: "0",
-            marginBottom: "20px",
-            fontSize: "18px",
-            fontWeight: "500",
-          }}
-        >
-          <WithTransLate text="*The price is converted to show you the approximate cost in US dollars. Your card will be charged in € or ISK The exchange rate may change before you pay." />
-        </p>
-        <p
-          style={{
-            margin: "0",
-            marginBottom: "45px",
             fontSize: "18px",
             fontWeight: "500",
           }}
@@ -249,14 +259,15 @@ const PriceSummaryPart = () => {
       <div
         style={{
           backgroundColor: "rgba(217, 217, 217, 0.2)",
+          border: "1px solid lightgray",
         }}
       >
         <p
           style={{
             margin: "0",
             paddingTop: "20px",
-            paddingLeft: "20px",
-            paddingRight: "20px",
+            paddingLeft: "40px",
+            paddingRight: "40px",
             fontSize: "24px",
             fontWeight: "500",
           }}

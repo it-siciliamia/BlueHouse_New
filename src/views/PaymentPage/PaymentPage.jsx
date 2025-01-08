@@ -2,6 +2,7 @@ import React from "react";
 
 import { useMediaQuery } from "react-responsive";
 import PaymentComponent from "../../components/PaymentComponent/PaymentComponent";
+import FooterPayment from "../../components/PaymentComponent/FooterPayment/FooterPayment";
 
 import s from "./PaymentPage.module.scss";
 
@@ -12,6 +13,7 @@ const PaymentPage = () => {
   return (
     <div className={s.payment}>
       <PaymentComponent />
+      <FooterPayment />
     </div>
   );
 };
