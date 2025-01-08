@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
+import { useDispatch } from "react-redux";
+import { setPaymentStage } from "../../redux/technitial/technical-slice";
 import { items } from "../../components/ServicesRoom/ServicesRoomData";
 import { WithTransLate } from "../../components/helpers/translating/index";
 import PhotoSlider from "../../components/Shared/SliderSlick/SliderSlick";
@@ -10,16 +12,22 @@ import AdditionalServices from "../../components/AdditionalServices/AdditionalSe
 import Support from "../../components/SuportComponent/support";
 import Button from "../../components/Shared/Button/Button";
 import { IoIosArrowBack } from "react-icons/io";
+
 import s from "./RoomDetails.module.scss";
 
 const RoomDetails = () => {
   const { room } = useParams();
   const history = useHistory();
+  const dispatch = useDispatch();
 
   const isLaptop = useMediaQuery({ minWidth: 960, maxWidth: 1279.99 });
   const isDesktop = useMediaQuery({ minWidth: 1280, maxWidth: 2200 });
 
   const roomData = items.find((item) => item.links.href.includes(room));
+
+  useEffect(() => {
+    dispatch(setPaymentStage(1));
+  }, [dispatch]);
 
   const handleBackClick = () => {
     history.push("/beds24");

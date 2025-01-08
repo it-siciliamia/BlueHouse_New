@@ -1,6 +1,5 @@
 .paymentComponent {
   width: 100%;
-  border: 1px solid violet;
   @media (min-width: 320px) and (max-width: 599.99px) {
     margin-bottom: -10px;
   }
@@ -11,6 +10,7 @@
   }
   @media (min-width: 1280px) and (max-width: 2200px) {
     margin-top: 50px;
+    margin-bottom: 50px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;

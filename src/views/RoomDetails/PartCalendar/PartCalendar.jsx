@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useLocation } from "react-router-dom";
 import { useLanguage } from "../../../components/helpers/translating/LanguageContext";
 import DatePicker from "react-datepicker";
 import {
@@ -27,7 +28,10 @@ import * as moment from "moment";
 
 import s from "./PartCalendar.module.scss";
 
-const PartCalendar = () => {
+const PartCalendar = ({ onEditClick }) => {
+  const location = useLocation();
+  const isPaymentPage = location.pathname === "/payment";
+
   let newDate = moment().format("YYYYMMDD");
   const dispatch = useDispatch();
   const firstDay = useSelector(getCheckInDay);
@@ -246,7 +250,12 @@ const PartCalendar = () => {
           justifyContent: "center",
         }}
       >
-        <Button text="SEARCH" btnClass="btnDark" width="218px" />
+        <Button
+          text={isPaymentPage ? "EDIT" : "SEARCH"}
+          btnClass="btnDark"
+          width="218px"
+          handleClick={isPaymentPage ? onEditClick : null}
+        />
       </div>
     </div>
   );
