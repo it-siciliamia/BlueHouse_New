@@ -50,6 +50,7 @@
     "react-router-hash-link": "^2.4.3",
     "react-scripts": "^4.0.3",
     "react-scroll": "^1.8.4",
+    "react-select": "^5.9.0",
     "react-slick": "^0.30.2",
     "react-stripe-checkout": "^2.6.3",
     "redux": "^4.1.1",
