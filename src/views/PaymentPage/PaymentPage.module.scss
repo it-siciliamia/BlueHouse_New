@@ -16,10 +16,14 @@
     max-width: 960px;
   }
   @media (min-width: 1280px) and (max-width: 2200px) {
-    padding-top: 112px;
-    padding-left: 100px;
-    padding-right: 100px;
+    padding: 112px 107px 0px 130px;
     min-width: 1280px;
     max-width: 2200px;
   }
+}
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 1280px;
 }

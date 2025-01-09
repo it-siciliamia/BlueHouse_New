@@ -21,7 +21,8 @@
 }
 
 .selectorWrapper {
-  padding: 0 40px;
+  padding-left: 40px;
+  padding-right: 20px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -37,7 +38,7 @@ label {
   display: block;
   margin-bottom: 5px;
   font-family: Josefin Sans, sans-serif;
-  font-size: 36px;
+  font-size: 24px;
   font-weight: bold;
 }
 
@@ -87,6 +88,13 @@ select:disabled {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+}
+
+.priceTitle {
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 24px;
 }
 
 .leftPartWrapper {

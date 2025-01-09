@@ -133,11 +133,11 @@ const PriceSummaryPart = () => {
         </div>
 
         <div className={s.priceWrapper}>
-          <h3 style={{ margin: "0" }}>
+          <h3 className={s.priceTitle}>
             <WithTransLate text="Description" />
           </h3>
           <div className={s.leftPartWrapper}>
-            <h3 style={{ margin: "0" }}>
+            <h3 className={s.priceTitle}>
               <WithTransLate text="Price" />
             </h3>
           </div>
