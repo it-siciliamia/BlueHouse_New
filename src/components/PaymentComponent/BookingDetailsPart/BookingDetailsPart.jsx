@@ -74,7 +74,7 @@ const BookingDetailsPart = () => {
           <div className={s.leftPartWrapper}>
             <button
               className={s.button}
-              onClick={() => setIsCalendarOpen(true)}
+              onClick={() => setIsCalendarOpen(!isCalendarOpen)}
             >
               <WithTransLate text="Edit" />
             </button>

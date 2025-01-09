@@ -1,5 +1,4 @@
 import React from "react";
-
 import { useMediaQuery } from "react-responsive";
 import PaymentComponent from "../../components/PaymentComponent/PaymentComponent";
 import FooterPayment from "../../components/PaymentComponent/FooterPayment/FooterPayment";
@@ -12,7 +11,9 @@ const PaymentPage = () => {
 
   return (
     <div className={s.payment}>
-      <PaymentComponent />
+      <div className={s.container}>
+        <PaymentComponent />
+      </div>
       <FooterPayment />
     </div>
   );

@@ -1,0 +1,73 @@
+.label {
+  position: relative;
+  display: inline-block;
+  height: 48px;
+  width: 100%;
+  color: black;
+}
+
+.input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: inline-block;
+  padding-left: 10px;
+  width: 100%;
+  height: 48px;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1;
+  background: white;
+  background-color: white;
+  color: black;
+  box-shadow: none;
+  border: 1px solid white;
+  letter-spacing: 1px;
+  -webkit-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.hasValue {
+  background: white; /* Білий фон */
+  background-color: white; /* Білий фон */
+  border: 1px solid white;
+}
+
+.input:focus {
+  outline: none;
+  border: 1px solid white;
+  background: white !important;
+  background-color: white !important;
+}
+
+.error {
+  position: absolute;
+  top: 51px;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 1;
+  color: red;
+}
+
+.placeholderTop {
+  position: absolute;
+  top: -25px;
+  left: 1px;
+  display: inline-block;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.1;
+  color: black;
+}
+
+.placeholderBottom {
+  position: absolute;
+  top: 17px;
+  left: 1px;
+  margin-left: 10px;
+  display: inline-block;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1;
+}
