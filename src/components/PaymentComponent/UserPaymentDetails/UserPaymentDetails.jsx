@@ -1,34 +1,39 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import { useDispatch } from "react-redux";
 import { useForm, Controller } from "react-hook-form";
 import Select from "react-select";
-import {
-  WithTransLate,
-  translateMyText,
-} from "../../helpers/translating/index";
-import TextField from "../../Shared/TextField/TextField";
+import { WithTransLate } from "../../helpers/translating/index";
+import { setPaymentStage } from "../../../redux/technitial/technical-slice";
 import { fields } from "../../Shared/TextField/fields";
-import Button from "../../Shared/Button/Button";
 import { countries } from "./countries";
+import { arrivalTimes } from "./arrivalTimes";
+import BookingDetailsPart2 from "../BookingDetailsPart2/BookingDetailsPart2";
+import TextField from "../../Shared/TextField/TextField";
+import Button from "../../Shared/Button/Button";
 
 import s from "./UserPaymentDetails.module.scss";
 
 const UserPaymentDetails = () => {
+  const dispatch = useDispatch();
+
   const { control, handleSubmit, reset } = useForm({
     defaultValues: {
       firstName: "",
       lastName: "",
-      emailaddress: "",
+      emailAddress: "",
       phoneNumber: "",
       address: "",
       city: "",
       postCode: "",
-      password: "",
       country: "",
+      additionalRequests: "",
+      arrivalTime: "",
     },
   });
 
   const onSubmit = async (data) => {
     console.log(data);
+    dispatch(setPaymentStage(3));
     reset();
   };
 
@@ -49,18 +54,14 @@ const UserPaymentDetails = () => {
               control={control}
               name="firstName"
               rules={{
-                required: <WithTransLate text="First name is required" />,
+                required: "First name is required",
                 minLength: {
                   value: 2,
-                  message: (
-                    <WithTransLate text="First name must have at least 2 characters" />
-                  ),
+                  message: "First name must have at least 2 characters",
                 },
                 maxLength: {
                   value: 20,
-                  message: (
-                    <WithTransLate text="First name must have no more than 20 characters" />
-                  ),
+                  message: "First name must have no more than 20 characters",
                 },
               }}
               render={({ field: { onChange, value }, fieldState }) => (
@@ -78,18 +79,14 @@ const UserPaymentDetails = () => {
               control={control}
               name="lastName"
               rules={{
-                required: <WithTransLate text="Last name is required" />,
+                required: "Last name is required",
                 minLength: {
                   value: 2,
-                  message: (
-                    <WithTransLate text="Last name must have at least 2 characters" />
-                  ),
+                  message: "Last name must have at least 2 characters",
                 },
                 maxLength: {
                   value: 20,
-                  message: (
-                    <WithTransLate text="Last name must have no more than 20 characters" />
-                  ),
+                  message: "Last name must have no more than 20 characters",
                 },
               }}
               render={({ field: { onChange, value }, fieldState }) => (
@@ -108,10 +105,10 @@ const UserPaymentDetails = () => {
             control={control}
             name="emailAddress"
             rules={{
-              required: <WithTransLate text="Email address is required" />,
+              required: "Email address is required",
               pattern: {
                 value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                message: <WithTransLate text="Invalid email address" />,
+                message: "Invalid email address",
               },
             }}
             render={({ field: { onChange, value }, fieldState }) => (
@@ -142,10 +139,10 @@ const UserPaymentDetails = () => {
             control={control}
             name="phoneNumber"
             rules={{
-              required: <WithTransLate text="Phone number is required" />,
+              required: "Phone number is required",
               pattern: {
                 value: /^\+?[1-9]\d{1,14}$/,
-                message: <WithTransLate text="Invalid phone number format" />,
+                message: "Invalid phone number format",
               },
             }}
             render={({ field: { onChange, value }, fieldState }) => (
@@ -163,18 +160,14 @@ const UserPaymentDetails = () => {
             control={control}
             name="address"
             rules={{
-              required: <WithTransLate text="Address is required" />,
+              required: "Address is required",
               minLength: {
                 value: 2,
-                message: (
-                  <WithTransLate text="Address must have at least 2 characters" />
-                ),
+                message: "Address must have at least 2 characters",
               },
               maxLength: {
                 value: 40,
-                message: (
-                  <WithTransLate text="Address must have no more than 40 characters" />
-                ),
+                message: "Address must have no more than 40 characters",
               },
             }}
             render={({ field: { onChange, value }, fieldState }) => (
@@ -192,18 +185,14 @@ const UserPaymentDetails = () => {
             control={control}
             name="city"
             rules={{
-              required: <WithTransLate text="City is required" />,
+              required: "City is required",
               minLength: {
                 value: 2,
-                message: (
-                  <WithTransLate text="City must have at least 2 characters" />
-                ),
+                message: "City must have at least 2 characters",
               },
               maxLength: {
                 value: 40,
-                message: (
-                  <WithTransLate text="City must have no more than 40 characters" />
-                ),
+                message: "City must have no more than 40 characters",
               },
             }}
             render={({ field: { onChange, value }, fieldState }) => (
@@ -221,10 +210,10 @@ const UserPaymentDetails = () => {
             control={control}
             name="postCode"
             rules={{
-              required: <WithTransLate text="Post code is required" />,
+              required: "Post code is required",
               pattern: {
                 value: /^[A-Z0-9\s-]{4,10}$/i,
-                message: <WithTransLate text="Invalid post code format" />,
+                message: "Invalid post code format",
               },
             }}
             render={({ field: { onChange, value }, fieldState }) => (
@@ -249,8 +238,8 @@ const UserPaymentDetails = () => {
                 <Select
                   className={s.select}
                   options={countries}
-                  onChange={(selectedOption) => onChange(selectedOption?.value)}
-                  value={countries.find((country) => country.value === value)}
+                  onChange={(selectedOption) => onChange(selectedOption?.label)}
+                  value={countries.find((country) => country.label === value)}
                   placeholder={<WithTransLate text="Select a country" />}
                   isSearchable
                   styles={{
@@ -324,10 +313,10 @@ const UserPaymentDetails = () => {
                 <label htmlFor="additionalRequests" className={s.label}>
                   <WithTransLate text="Special Reguests" />
                 </label>
-                <p className={s.textAreaDescription}>
+                <p className={s.textDescription}>
                   <WithTransLate text="Special requests cannot be guaranteed – but the property will do its best to meet your needs. You can always make a special request after your booking is complete!" />
                 </p>
-                <p className={s.textAreaWarning}>
+                <p className={s.textWarning}>
                   <WithTransLate text="Please write your request in English." />
                 </p>
                 <div className={s.textAreaWrapper}>
@@ -351,12 +340,102 @@ const UserPaymentDetails = () => {
             )}
           />
         </div>
+      </div>
+      <div className={s.partBooking}>
+        <BookingDetailsPart2 />
 
+        <div className={s.requestPart}>
+          <Controller
+            control={control}
+            name="arrivalTime"
+            rules={{
+              required: "Time is required",
+            }}
+            render={({ field: { onChange, value }, fieldState }) => (
+              <div className={s.textSelectPart}>
+                <h3 className={s.titlePart}>
+                  <WithTransLate text="Your Arrival Time" />
+                </h3>
+                <p className={s.textDescription}>
+                  <WithTransLate text="Your room will be ready for check-in at 16:00" />
+                </p>
+                <p className={s.textWarning}>
+                  <WithTransLate text="Add your estimated arrival time*" />
+                </p>
+                <div className={s.textSelectWrapper}>
+                  <Select
+                    className={s.select}
+                    options={arrivalTimes}
+                    onChange={(selectedOption) =>
+                      onChange(selectedOption?.value)
+                    }
+                    value={
+                      arrivalTimes.find((time) => time.value === value) || null
+                    }
+                    placeholder={<WithTransLate text="Select a time" />}
+                    isSearchable
+                    styles={{
+                      control: (provided, state) => ({
+                        ...provided,
+                        borderColor: state.isFocused
+                          ? fieldState.error
+                            ? "red"
+                            : "white"
+                          : "white",
+                        boxShadow: "none",
+                        border: "1px solid white",
+                        backgroundColor: "white",
+                        height: "48px",
+                        paddingLeft: "0px",
+                        fontSize: "18px",
+                        fontWeight: "400",
+                        letterSpacing: "1px",
+                        transition: "all 0.2s ease-in-out",
+                        "&:hover": {
+                          borderColor: state.isFocused ? "white" : "white",
+                        },
+                      }),
+                      input: (provided) => ({
+                        ...provided,
+                        color: "black",
+                      }),
+                      placeholder: (provided) => ({
+                        ...provided,
+                        color: "black",
+                      }),
+                      singleValue: (provided) => ({
+                        ...provided,
+                        color: "black",
+                      }),
+                      menu: (provided) => ({
+                        ...provided,
+                        marginTop: "0",
+                        border: "1px solid white",
+                        backgroundColor: "white",
+                      }),
+                      option: (provided, state) => ({
+                        ...provided,
+                        backgroundColor: state.isFocused
+                          ? "lightgray"
+                          : "white",
+                        color: "black",
+                      }),
+                    }}
+                  />
+                  {fieldState.error && (
+                    <p className={s.error}>
+                      <WithTransLate text={`*${fieldState.error.message}`} />
+                    </p>
+                  )}
+                </div>
+              </div>
+            )}
+          />
+        </div>
         <div className={s.wrapper}>
           <Button text="Proceed to payment" btnClass="btnDark" />
         </div>
       </div>
-      <div className={s.partBooking}></div>
     </form>
   );
 };

@@ -1,7 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { WithTransLate } from "../helpers/translating";
-import { useMediaQuery } from "react-responsive";
 import { getPaymentStage } from "../../redux/technitial/technical-selectors";
 import PriceSummaryPart from "./PriceSummaryPart/PriceSummaryPart";
 import BookingDetailsPart from "./BookingDetailsPart/BookingDetailsPart";
@@ -11,8 +10,6 @@ import s from "./PaymentComponent.module.scss";
 
 const PaymentComponent = () => {
   const paymentStage = useSelector(getPaymentStage);
-  const isLaptop = useMediaQuery({ minWidth: 960, maxWidth: 1279.99 });
-  const isDesktop = useMediaQuery({ minWidth: 1280, maxWidth: 2200 });
 
   return (
     <>
@@ -40,6 +37,16 @@ const PaymentComponent = () => {
             <div style={{ width: "100%" }}>
               <UserPaymentDetails />
             </div>
+          </div>
+        </>
+      )}
+      {paymentStage === 3 && (
+        <>
+          <h2 className={s.title}>
+            <WithTransLate text="Wellcome to Stage 3" />
+          </h2>
+          <div className={s.paymentComponent}>
+            <div style={{ width: "100%" }}></div>
           </div>
         </>
       )}
