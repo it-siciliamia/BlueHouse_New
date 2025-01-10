@@ -75,7 +75,7 @@ const ServicesRoom = () => {
                             <img
                               src={service.icon}
                               alt={service.name}
-                              style={{ width: "20px", height: "auto" }}
+                              style={{ width: "24px", height: "24px" }}
                             />
                             <span className={s.servicesText}>
                               <WithTransLate text={service.name} />
@@ -89,7 +89,7 @@ const ServicesRoom = () => {
                             <img
                               src={service.icon}
                               alt={service.name}
-                              style={{ width: "20px", height: "auto" }}
+                              style={{ width: "24px", height: "24px" }}
                             />
                             <span className={s.servicesText}>
                               <WithTransLate text={service.name} />
