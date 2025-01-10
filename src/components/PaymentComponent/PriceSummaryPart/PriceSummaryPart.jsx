@@ -1,24 +1,32 @@
 import React, { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { WithTransLate } from "../../helpers/translating";
 import {
   getAddParams,
   getPricePerNight,
   getDayDifference,
   getPaymentType,
+  getTotalAmountEuro,
+  getTotalAmountCurrency,
 } from "../../../redux/dataSearch/datesSearch-selectors";
+import {
+  setCurrency,
+  setExchangeRate,
+} from "../../../redux/dataSearch/dataSearch-slice";
+
 import s from "./PriceSummaryPart.module.scss";
 
 const PriceSummaryPart = () => {
+  const dispatch = useDispatch();
   const [currencies, setCurrencies] = useState([]);
   const [selectedCurrency, setSelectedCurrency] = useState("EUR");
-  const [exchangeRate, setExchangeRate] = useState(null);
-  const [convertedPrice, setConvertedPrice] = useState(null);
+  const [exchangeRateServer, setExchangeRateServer] = useState(null);
   const pricePerNight = useSelector(getPricePerNight);
   const dayDifference = useSelector(getDayDifference);
   const paymentType = useSelector(getPaymentType);
   const { adult, children, room } = useSelector(getAddParams);
-  const [price] = useState(dayDifference * pricePerNight);
+  const totalAmountEuro = useSelector(getTotalAmountEuro);
+  const totalAmountCurrency = useSelector(getTotalAmountCurrency);
 
   const popularCurrencies = [
     { code: "USD", symbol: "$" },
@@ -64,7 +72,7 @@ const PriceSummaryPart = () => {
         );
 
         setCurrencies(currencyList);
-        setExchangeRate(data.conversion_rates);
+        setExchangeRateServer(data.conversion_rates);
       } catch (error) {
         console.error(`Error with API key (${key}):`, error.message);
         throw error;
@@ -88,15 +96,17 @@ const PriceSummaryPart = () => {
   }, []);
 
   useEffect(() => {
-    if (exchangeRate && selectedCurrency) {
+    if (exchangeRateServer && selectedCurrency) {
       if (selectedCurrency === "EUR") {
-        setConvertedPrice(price.toFixed(2));
+        dispatch(setCurrency("€"));
+        dispatch(setExchangeRate(1));
       } else {
-        const rate = exchangeRate[selectedCurrency];
-        setConvertedPrice((price * rate).toFixed(2));
+        const rate = exchangeRateServer[selectedCurrency];
+        dispatch(setCurrency(selectedCurrency));
+        dispatch(setExchangeRate(rate));
       }
     }
-  }, [selectedCurrency, exchangeRate, price]);
+  }, [selectedCurrency, exchangeRateServer, dispatch]);
 
   const handleCurrencyChange = (event) => {
     setSelectedCurrency(event.target.value);
@@ -159,11 +169,7 @@ const PriceSummaryPart = () => {
           <div className={s.leftPartWrapper}>
             <p style={{ margin: "0", fontSize: "18px", fontWeight: "500" }}>
               <WithTransLate
-                text={`€ ${
-                  !pricePerNight
-                    ? 0.0
-                    : (pricePerNight * dayDifference).toFixed(2)
-                }`}
+                text={`€ ${!pricePerNight ? 0.0 : totalAmountEuro}`}
               />
             </p>
           </div>
@@ -194,7 +200,7 @@ const PriceSummaryPart = () => {
               <WithTransLate
                 text={`${getCurrencySymbol(
                   selectedCurrency
-                )} ${convertedPrice}`}
+                )} ${totalAmountCurrency}`}
               />
             </p>
           </div>
@@ -223,7 +229,9 @@ const PriceSummaryPart = () => {
               <WithTransLate
                 text={`${getCurrencySymbol(
                   selectedCurrency
-                )} ${convertedPrice}${selectedCurrency !== "EUR" ? "*" : ""}`}
+                )} ${totalAmountCurrency}${
+                  selectedCurrency !== "EUR" ? "*" : ""
+                }`}
               />
             </p>
           </div>
@@ -294,7 +302,7 @@ const PriceSummaryPart = () => {
             >
               <WithTransLate
                 text={`${getCurrencySymbol(selectedCurrency)} ${
-                  paymentType === "Refundable" ? 0 : convertedPrice
+                  paymentType === "Refundable" ? 0 : totalAmountCurrency
                 }`}
               />
             </p>

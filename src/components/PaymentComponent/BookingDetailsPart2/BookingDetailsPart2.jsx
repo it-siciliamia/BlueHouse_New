@@ -6,26 +6,27 @@ import {
   getCheckInDay,
   getCheckOutDay,
   getAppartmentName,
+  getTotalAmountCurrency,
+  getCurrency,
 } from "../../../redux/dataSearch/datesSearch-selectors";
-import { setPaymentStage } from "../../../redux/technitial/technical-slice";
 import PartCalendar from "../../../views/RoomDetails/PartCalendar/PartCalendar";
-import GoodToKnow from "./GoodToKnow/GoodToKnow";
-import Button from "../../Shared/Button/Button";
+import AddServices from "../UserPaymentDetails/AddServices/AddServices";
 import { items } from "../../ServicesRoom/ServicesRoomData";
 import placeholder from "../../../images/homePageSlider/placeholder.webp";
 import { googleRatings } from "../../../views/roombooking/RoomBooking";
 import google from "../../../images/google.png";
-import parking from "../../../images/parking.svg";
 import moment from "moment";
-import s from "./BookingDetailsPart.module.scss";
+import s from "./BookingDetailsPart2.module.scss";
 
-const BookingDetailsPart = () => {
+const BookingDetailsPart2 = () => {
   const dispatch = useDispatch();
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
   const dayDifference = useSelector(getDayDifference);
   const firstDay = useSelector(getCheckInDay);
   const secondDay = useSelector(getCheckOutDay);
   const appartmentName = useSelector(getAppartmentName);
+  const totalAmountCurrency = useSelector(getTotalAmountCurrency);
+  const selectedCurrency = useSelector(getCurrency);
 
   const totalReviews = googleRatings.reduce(
     (sum, item) => sum + item.reviews,
@@ -54,22 +55,11 @@ const BookingDetailsPart = () => {
   return (
     <div className={s.container}>
       <div className={s.partContent}>
-        <h2
-          className={s.title}
-          style={{ marginLeft: "40px", marginRight: "40px" }}
-        >
-          <WithTransLate text="Your Booking Details" />
-        </h2>
-
         <div className={s.bookingWrapper} style={{ position: "relative" }}>
-          <p className={s.text} style={{ margin: "0" }}>
-            <WithTransLate
-              text={`Total length of stay: ${dayDifference} ${
-                dayDifference === 1 ? "night" : "nights"
-              }`}
-            />
-          </p>
-          <div className={s.leftPartWrapper}>
+          <h2 className={s.title}>
+            <WithTransLate text="Booking Summary" />
+          </h2>
+          <div className={s.leftPartWrapperTop}>
             <button
               className={s.button}
               onClick={() => setIsCalendarOpen(!isCalendarOpen)}
@@ -82,6 +72,58 @@ const BookingDetailsPart = () => {
               <PartCalendar onEditClick={handleEditClick} />
             </div>
           )}
+        </div>
+
+        <div className={s.photoWrapper}>
+          <div
+            className={s.photo}
+            style={{
+              backgroundImage: apartmentPhoto
+                ? `url(${apartmentPhoto})`
+                : `url(${placeholder})`,
+            }}
+          ></div>
+          <div className={s.detailWrapper}>
+            <div className={s.ratingWrapper}>
+              <div className={s.ratingTitle}>
+                <img
+                  src={google}
+                  alt="Google"
+                  style={{ width: "24px", height: "24px" }}
+                />
+                <WithTransLate text="Google rating" />
+              </div>
+              <div className={s.ratingDetail}>
+                <p className={s.regularText}>
+                  <WithTransLate
+                    text={`★ ${averageRating.toFixed(1)} (
+            ${totalReviews} reviews)`}
+                  />
+                </p>
+                <p className={s.titleText}>
+                  <WithTransLate
+                    text={appartmentName ? appartmentName : "No name"}
+                  />
+                </p>
+                <p className={s.regularText}>
+                  <WithTransLate text="Valhúsabraut 19, 170 Reykjavík, Iceland" />
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className={s.partText}>
+          <p className={s.textBold} style={{ margin: "0" }}>
+            <WithTransLate text="Total length of stay:" />
+          </p>
+          <p className={s.textRegular} style={{ margin: "0" }}>
+            <WithTransLate
+              text={`${dayDifference} ${
+                dayDifference === 1 ? "night" : "nights"
+              }`}
+            />
+          </p>
         </div>
 
         <div className={s.dateWrapper}>
@@ -110,79 +152,41 @@ const BookingDetailsPart = () => {
           </div>
         </div>
 
-        <p
-          className={s.text}
-          style={{
-            margin: "0",
-            marginLeft: "40px",
-            marginRight: "40px",
-            marginBottom: "30px",
-            fontSize: "18px",
-            fontWeight: "700",
-          }}
-        >
-          <WithTransLate text="Blue House B&B" />
-        </p>
+        <div className={s.AddServices}>
+          <AddServices />
+        </div>
 
-        <div className={s.photoWrapper}>
-          <div
-            className={s.photo}
+        <div className={s.verticalDivider}></div>
+
+        <div className={s.priceWrapper}>
+          <p
             style={{
-              backgroundImage: apartmentPhoto
-                ? `url(${apartmentPhoto})`
-                : `url(${placeholder})`,
+              margin: "0",
+              fontSize: "20px",
+              fontWeight: "700",
+              color: "black",
             }}
-          ></div>
-          <div>
-            <div className={s.ratingTitle}>
-              <img
-                src={google}
-                alt="Google"
-                style={{ width: "24px", height: "24px" }}
+          >
+            <WithTransLate text="Total" />
+          </p>
+          <div className={s.leftPartWrapper}>
+            <p
+              style={{
+                margin: "0",
+                fontSize: "20px",
+                fontWeight: "500",
+                color: "black",
+              }}
+            >
+              <WithTransLate
+                text={`${selectedCurrency} ${totalAmountCurrency}`}
               />
-              <WithTransLate text="Google rating" />
-            </div>
-            <div className={s.ratingDetail}>
-              <p className={s.regularText}>
-                <WithTransLate
-                  text={`★ ${averageRating.toFixed(1)} (
-            ${totalReviews} reviews)`}
-                />
-              </p>
-              <p className={s.titleText}>
-                <WithTransLate
-                  text={appartmentName ? appartmentName : "No name"}
-                />
-              </p>
-              <p className={s.regularText}>
-                <WithTransLate text="Valhúsabraut 19, 170 Reykjavík, Iceland" />
-              </p>
-              <div className={s.services}>
-                <img
-                  src={parking}
-                  alt="Parking"
-                  style={{ width: "24px", height: "24px" }}
-                />
-                <WithTransLate text="Free parking" />
-              </div>
-            </div>
+            </p>
           </div>
         </div>
-      </div>
-      <div className={s.partContent}>
-        <GoodToKnow
-          title={appartmentName ? appartmentName : "Economy Double Room"}
-        />
-      </div>
-      <div className={s.btnWrapper}>
-        <Button
-          text="Proceed to payment details"
-          btnClass="btnDark"
-          handleClick={() => dispatch(setPaymentStage(2))}
-        />
       </div>
     </div>
   );
 };
 
-export default BookingDetailsPart;
+export default BookingDetailsPart2;

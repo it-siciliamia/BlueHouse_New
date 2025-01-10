@@ -10,7 +10,7 @@ import kitchenfacilities from "../../images/services_room/BH Icons 30 p_Cutlery.
 import ironingfacilities from "../../images/services_room/BH Icons 30 p_Ironing.svg";
 import gardenview from "../../images/services_room/garden.svg";
 import seaview from "../../images/services_room/BH Icons 30 p_Sea View.svg";
-import tv from "../../images/services_room/netflix.svg";
+import tv from "../../images/services_room/tv.svg";
 import peoples from "../../images/services_room/guests.svg";
 import bed from "../../images/services_room/king size bedroom.svg";
 import sharedbathroom from "../../images/services_room/shared bathroom.svg";
