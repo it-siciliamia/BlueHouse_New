@@ -198,7 +198,7 @@ export const items = [
       },
       {
         name: "Shared bathroom",
-        icon: peoples,
+        icon: sharedbathroom,
       },
       {
         name: "Self service breakfast",
@@ -297,7 +297,7 @@ export const items = [
       },
       {
         name: "Shared bathroom",
-        icon: peoples,
+        icon: sharedbathroom,
       },
       {
         name: "Self service breakfast",
@@ -388,7 +388,7 @@ export const items = [
       },
       {
         name: "Shared bathroom",
-        icon: peoples,
+        icon: sharedbathroom,
       },
       {
         name: "Self service breakfast",
@@ -471,7 +471,7 @@ export const items = [
       },
       {
         name: "Shared bathroom",
-        icon: peoples,
+        icon: sharedbathroom,
       },
       {
         name: "Cereal breakfast",
@@ -499,7 +499,7 @@ export const items = [
       },
       {
         name: "Shared bathroom",
-        icon: peoples,
+        icon: sharedbathroom,
       },
       {
         name: "Self service continental breakfast",
