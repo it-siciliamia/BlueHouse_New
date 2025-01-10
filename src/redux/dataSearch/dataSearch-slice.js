@@ -13,8 +13,12 @@ const initialState = {
     room: 1,
   },
   appartmentName: null,
-  pricePerNight: null,
+  pricePerNight: 0,
   paymentType: null,
+  totalAmountEuro: 0,
+  totalAmountCurrency: 0,
+  currency: "€",
+  exchangeRate: 1,
 };
 
 const dataSearch = createSlice({
@@ -27,6 +31,7 @@ const dataSearch = createSlice({
         moment(store.checkIn, "YYYYMMDD"),
         "days"
       );
+      updateTotalAmounts(store);
     },
     setCheckOut: (store, action) => {
       store.checkOut = moment(action.payload, "YYYYMMDD").format("YYYYMMDD");
@@ -34,6 +39,7 @@ const dataSearch = createSlice({
         moment(store.checkIn, "YYYYMMDD"),
         "days"
       );
+      updateTotalAmounts(store);
     },
     setAddParams: (store, action) => {
       const { adult, children, room } = action.payload;
@@ -43,19 +49,39 @@ const dataSearch = createSlice({
         children: children !== undefined ? children : store.addParams.children,
         room: room !== undefined ? room : store.addParams.room,
       };
+      updateTotalAmounts(store);
     },
     setAppartmentName: (store, action) => {
       store.appartmentName = action.payload;
     },
     setPricePerNight: (store, action) => {
       store.pricePerNight = action.payload;
+      updateTotalAmounts(store);
     },
     setPaymentType: (store, action) => {
       store.paymentType = action.payload;
     },
+    setCurrency: (store, action) => {
+      store.currency = action.payload;
+    },
+    setExchangeRate: (store, action) => {
+      store.exchangeRate = action.payload;
+      updateTotalAmounts(store);
+    },
   },
   extraReducers: (builder) => {},
 });
+
+const updateTotalAmounts = (store) => {
+  store.totalAmountEuro = (
+    store.dayDifference *
+    store.pricePerNight *
+    store.addParams.room
+  ).toFixed(2);
+  store.totalAmountCurrency = (
+    store.totalAmountEuro * store.exchangeRate
+  ).toFixed(2);
+};
 
 export default dataSearch.reducer;
 export const {
@@ -65,4 +91,6 @@ export const {
   setAppartmentName,
   setPricePerNight,
   setPaymentType,
+  setCurrency,
+  setExchangeRate,
 } = dataSearch.actions;

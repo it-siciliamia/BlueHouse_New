@@ -25,7 +25,7 @@ const ProcessPaymentPanel = () => {
               paymentStage >= item.stage ? s.active : ""
             }`}
           >
-            {item.stage}
+            <span style={{ marginTop: "3px" }}>{item.stage}</span>
             <span
               className={`${s.label} ${
                 paymentStage >= item.stage ? s.active : ""

@@ -23,8 +23,6 @@ const TextField = forwardRef(
     const inputClass = className ? `${s.input} ${s[className]}` : s.input;
     const emptyInputClass = "hasValue";
 
-    console.log(error);
-
     return (
       <label className={labelClass}>
         <input
@@ -49,7 +47,7 @@ const TextField = forwardRef(
         )}
         {error && (
           <p className={s.error}>
-            <WithTransLate text={title || "Error occurred"} />
+            <WithTransLate text={error.message || "Error occurred"} />
           </p>
         )}
       </label>

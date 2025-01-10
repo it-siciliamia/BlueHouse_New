@@ -78,20 +78,21 @@
   background-color: rgba(217, 217, 217, 0.2);
 }
 
-.textAreaPart {
+.textAreaPart,
+.textSelectPart {
   display: flex;
   flex-direction: column;
   gap: 22px;
 }
 
-.textAreaDescription {
+.textDescription {
   margin: 0;
   font-size: 16px;
   font-weight: 400;
   line-height: 1.1;
 }
 
-.textAreaWarning {
+.textWarning {
   margin: 0;
   font-size: 18px;
   font-weight: 600;
@@ -105,8 +106,20 @@
   font-size: 16px;
   padding: 10px;
   resize: none;
+  &:focus {
+    outline: none;
+    border-color: white;
+  }
 }
 
-.textAreaWrapper {
+.textAreaWrapper,
+.textSelectWrapper {
   position: relative;
+}
+
+.wrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
