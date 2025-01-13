@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { WithTransLate } from "../helpers/translating";
 import {
@@ -17,6 +17,13 @@ import s from "./PaymentComponent.module.scss";
 const PaymentComponent = () => {
   const paymentStage = useSelector(getPaymentStage);
   const bookingConfirmed = useSelector(getBookingConfirmed);
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, [paymentStage, bookingConfirmed]);
 
   return (
     <>
