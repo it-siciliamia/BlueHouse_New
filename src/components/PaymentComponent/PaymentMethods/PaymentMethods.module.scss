@@ -1,0 +1,189 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  width: 100%;
+}
+
+.titlePart {
+  margin: 0;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 1.1;
+}
+
+.partMethods {
+  padding: 50px 45px;
+  width: 52.5%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  border: 1px solid lightgray;
+  background-color: rgba(217, 217, 217, 0.2);
+}
+
+.partPrint {
+  padding: 50px 45px;
+  display: flex;
+  flex-direction: column;
+  width: 47.5%;
+  border: 1px solid lightgray;
+}
+
+.textWrapper {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.text {
+  margin: 0;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.1;
+}
+
+.methodContainer {
+  padding: 20 0px;
+  border-bottom: 1px solid lightgray;
+}
+
+.methodSelection {
+  margin-right: 35px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border: 1px solid #7d7987;
+  border-radius: 50%;
+  background-color: white;
+}
+
+.selectionCenter {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+}
+
+.methodButton {
+  padding: 10px 0px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 15px;
+  background-color: transparent;
+  border: 1px transparent;
+  cursor: pointer;
+}
+
+.methodButton:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.methodTitle {
+  margin-top: 4px;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.cardFields {
+  padding-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.cardFieldsWrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+}
+
+.buttonWrapper {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.termsWrapper {
+  margin: 0;
+  margin-top: 30px;
+  display: inline;
+}
+
+.textTerms {
+  display: inline;
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.btn {
+  display: inline;
+  background: none;
+  border: none;
+  padding: 0;
+  color: #1464b9;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.btn:hover {
+  text-decoration: none;
+}
+
+.dateilsPart {
+  margin: 30px 0px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.textAreaPart {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.label {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.textAreaWrapper {
+  position: relative;
+}
+
+.textarea {
+  width: 100%;
+  border: 1px solid white;
+  background-color: white;
+  font-size: 16px;
+  padding: 10px;
+  resize: none;
+  &:focus {
+    outline: none;
+    border-color: white;
+  }
+}
+
+.errorTextArea {
+  position: absolute;
+  top: 95px;
+  left: 0;
+  margin: 0;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 1;
+  color: red;
+}

@@ -1,8 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { set } from "date-fns";
 
 const initialState = {
   isPlaceholderShown: false,
   paymentStage: 1,
+  bookingConfirmed: false,
   error: "",
   message: "",
 };
@@ -17,9 +19,13 @@ const technical = createSlice({
     setPaymentStage: (store, action) => {
       store.paymentStage = action.payload;
     },
+    setBookingConfirmed: (store, action) => {
+      store.bookingConfirmed = action.payload;
+    },
   },
   extraReducers: (builder) => {},
 });
 
 export default technical.reducer;
-export const { setPlaceholderShown, setPaymentStage } = technical.actions;
+export const { setPlaceholderShown, setPaymentStage, setBookingConfirmed } =
+  technical.actions;
