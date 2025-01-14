@@ -15,7 +15,7 @@ import {
   getCheckInDay,
   getCheckOutDay,
   getAddParams,
-} from "../../redux/dataSearch/datesSearch-selectors";
+} from "../../redux/dataSearch/dataSearch-selectors";
 import hero from "../../images/roombooking/image2.webp";
 import minusIcon from "../../images/roombooking/minus.svg";
 import plusIcon from "../../images/roombooking/plus.svg";

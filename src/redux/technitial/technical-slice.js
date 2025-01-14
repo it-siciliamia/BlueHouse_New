@@ -1,18 +1,25 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { set } from "date-fns";
+import { getRoomsData, createStripeSession } from "./technical-operations";
 
 const initialState = {
+  error: null,
+  message: null,
+  loading: false,
   isPlaceholderShown: false,
   paymentStage: 1,
   bookingConfirmed: false,
-  error: "",
-  message: "",
 };
 
 const technical = createSlice({
   name: "technical",
   initialState,
   reducers: {
+    clearError: (store, action) => {
+      store.error = action.payload;
+    },
+    clearMessage: (store, action) => {
+      store.message = action.payload;
+    },
     setPlaceholderShown: (store, action) => {
       store.isPlaceholderShown = action.payload;
     },
@@ -23,9 +30,44 @@ const technical = createSlice({
       store.bookingConfirmed = action.payload;
     },
   },
-  extraReducers: (builder) => {},
+  extraReducers: (builder) => {
+    builder
+      // * GET ROOMS DATA
+      .addCase(getRoomsData.pending, (store) => {
+        store.loading = true;
+        store.error = null;
+        store.message = null;
+      })
+      .addCase(getRoomsData.fulfilled, (store, { payload }) => {
+        store.loading = false;
+      })
+      .addCase(getRoomsData.rejected, (store, { payload }) => {
+        store.loading = false;
+        store.error =
+          payload?.data?.message || "Oops, something went wrong, try again";
+      })
+      // * CREATE STRIPE SESSION
+      .addCase(createStripeSession.pending, (store) => {
+        store.loading = true;
+        store.error = null;
+        store.message = null;
+      })
+      .addCase(createStripeSession.fulfilled, (store, { payload }) => {
+        store.loading = false;
+      })
+      .addCase(createStripeSession.rejected, (store, { payload }) => {
+        store.loading = false;
+        store.error =
+          payload?.data?.message || "Oops, something went wrong, try again";
+      });
+  },
 });
 
 export default technical.reducer;
-export const { setPlaceholderShown, setPaymentStage, setBookingConfirmed } =
-  technical.actions;
+export const {
+  clearError,
+  clearMessage,
+  setPlaceholderShown,
+  setPaymentStage,
+  setBookingConfirmed,
+} = technical.actions;

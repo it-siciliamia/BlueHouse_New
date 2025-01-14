@@ -6,7 +6,7 @@ import {
   getCheckInDay,
   getCheckOutDay,
   getAppartmentName,
-} from "../../../redux/dataSearch/datesSearch-selectors";
+} from "../../../redux/dataSearch/dataSearch-selectors";
 import { setPaymentStage } from "../../../redux/technitial/technical-slice";
 import PartCalendar from "../../../views/RoomDetails/PartCalendar/PartCalendar";
 import GoodToKnow from "./GoodToKnow/GoodToKnow";

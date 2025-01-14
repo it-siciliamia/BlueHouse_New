@@ -16,7 +16,7 @@ import {
   getCheckInDay,
   getCheckOutDay,
   getAddParams,
-} from "../../../redux/dataSearch/datesSearch-selectors";
+} from "../../../redux/dataSearch/dataSearch-selectors";
 import Button from "../../../components/Shared/Button/Button";
 import "react-datepicker/dist/react-datepicker.css";
 import minusIcon from "../../../images/roombooking/minus.svg";

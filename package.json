@@ -21,6 +21,7 @@
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
     "ansi-html": "^0.0.7",
+    "axios": "^1.7.9",
     "browserslist": "^4.17.4",
     "clsx": "^1.1.1",
     "css-what": "^5.1.0",
