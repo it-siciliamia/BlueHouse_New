@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { Link as ScrollLink, scroller } from "react-scroll";
 import { useMediaQuery } from "react-responsive";
@@ -14,6 +14,10 @@ import {
 import Button from "../../../components/Shared/Button/Button";
 import locationIcon from "../../../images/services_room/location.svg";
 import { price } from "../../../components/ServicesRoom/ServicesRoomData";
+import {
+  getDayDifference,
+  getAddParams,
+} from "../../../redux/dataSearch/dataSearch-selectors";
 import s from "./PartDetails.module.scss";
 
 const PartDetails = ({ data }) => {
@@ -22,6 +26,8 @@ const PartDetails = ({ data }) => {
   const [copied, setCopied] = useState(false);
   const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 599.99 });
   const isTablet = useMediaQuery({ minWidth: 600, maxWidth: 959.99 });
+  const { room: roomNumber } = useSelector(getAddParams);
+  const days = useSelector(getDayDifference);
 
   const handleCopyLink = () => {
     navigator.clipboard
@@ -178,10 +184,20 @@ const PartDetails = ({ data }) => {
             }}
           >
             <strong>
-              <WithTransLate text={`from € ${roomPrice.price1}`} />
+              <WithTransLate
+                text={`from € ${(
+                  roomPrice.price1 *
+                  (roomNumber === 0 ? 1 : roomNumber) *
+                  (days === 0 ? 1 : days)
+                ).toFixed(0)}`}
+              />
             </strong>
             <span style={{ fontWeight: "300" }}>
-              <WithTransLate text="1 room for a night" />
+              <WithTransLate
+                text={`${
+                  roomNumber === 1 ? "1 room" : `${roomNumber} rooms`
+                } for ${days <= 1 ? "a night" : `${days} nights`}`}
+              />
             </span>
           </div>
           <Button
@@ -228,10 +244,20 @@ const PartDetails = ({ data }) => {
             }}
           >
             <strong>
-              <WithTransLate text={`from € ${roomPrice.price2}`} />
+              <WithTransLate
+                text={`from € ${(
+                  roomPrice.price2 *
+                  (roomNumber === 0 ? 1 : roomNumber) *
+                  (days === 0 ? 1 : days)
+                ).toFixed(0)}`}
+              />
             </strong>
             <span style={{ fontWeight: "300" }}>
-              <WithTransLate text="1 room for a night" />
+              <WithTransLate
+                text={`${
+                  roomNumber === 1 ? "1 room" : `${roomNumber} rooms`
+                } for ${days <= 1 ? "a night" : `${days} nights`}`}
+              />
             </span>
           </div>
           <Button
