@@ -1,9 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 import * as moment from "moment";
+import { getAvailableRooms } from "./dataSearch-operations";
 
 const newDate = moment().format("YYYYMMDD");
 
 const initialState = {
+  error: null,
+  message: null,
+  loading: false,
   checkIn: newDate,
   checkOut: newDate,
   dayDifference: 0,
@@ -25,6 +29,12 @@ const dataSearch = createSlice({
   name: "dataSearch",
   initialState,
   reducers: {
+    clearError: (store, action) => {
+      store.error = action.payload;
+    },
+    clearMessage: (store, action) => {
+      store.message = action.payload;
+    },
     setCheckIn: (store, action) => {
       store.checkIn = moment(action.payload, "YYYYMMDD").format("YYYYMMDD");
       store.dayDifference = moment(store.checkOut, "YYYYMMDD").diff(
@@ -69,7 +79,24 @@ const dataSearch = createSlice({
       updateTotalAmounts(store);
     },
   },
-  extraReducers: (builder) => {},
+  extraReducers: (builder) => {
+    builder
+      // * GET AVAILABLE ROOMS
+      .addCase(getAvailableRooms.pending, (store) => {
+        store.loading = true;
+        store.error = null;
+        store.message = null;
+      })
+      .addCase(getAvailableRooms.fulfilled, (store, { payload }) => {
+        store.loading = false;
+        store.message = payload.message;
+      })
+      .addCase(getAvailableRooms.rejected, (store, { payload }) => {
+        store.loading = false;
+        store.error =
+          payload?.data?.message || "Oops, something went wrong, try again";
+      });
+  },
 });
 
 const updateTotalAmounts = (store) => {
@@ -85,6 +112,8 @@ const updateTotalAmounts = (store) => {
 
 export default dataSearch.reducer;
 export const {
+  clearError,
+  clearMessage,
   setCheckIn,
   setCheckOut,
   setAddParams,

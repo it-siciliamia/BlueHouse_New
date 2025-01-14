@@ -8,7 +8,7 @@ import {
   getAppartmentName,
   getTotalAmountCurrency,
   getCurrency,
-} from "../../../redux/dataSearch/datesSearch-selectors";
+} from "../../../redux/dataSearch/dataSearch-selectors";
 import PartCalendar from "../../../views/RoomDetails/PartCalendar/PartCalendar";
 import AddServices from "../UserPaymentDetails/AddServices/AddServices";
 import { items } from "../../ServicesRoom/ServicesRoomData";

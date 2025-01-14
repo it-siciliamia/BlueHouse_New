@@ -1,11 +1,16 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
+import { useSelector } from "react-redux";
 import { useMediaQuery } from "react-responsive";
 import { WithTransLate } from "..//helpers/translating/index";
 import SliderPreviewPhoto from "./SliderPreviewPhoto/SliderPreviewPhoto";
 import SliderPreviewPhotoM from "./SliderPreviewPhotoM/SliderPreviewPhotoM";
 import Button from "../Shared/Button/Button";
 import { items, price } from "./ServicesRoomData";
+import {
+  getDayDifference,
+  getAddParams,
+} from "../../redux/dataSearch/dataSearch-selectors";
 
 import s from "./ServicesRoom.module.scss";
 
@@ -14,6 +19,8 @@ const ServicesRoom = () => {
   const isTablet = useMediaQuery({ minWidth: 600, maxWidth: 959.99 });
   const isLaptop = useMediaQuery({ minWidth: 960, maxWidth: 1279.99 });
   const isDesktop = useMediaQuery({ minWidth: 1280, maxWidth: 2200 });
+  const { room: roomNumber } = useSelector(getAddParams);
+  const days = useSelector(getDayDifference);
 
   const history = useHistory();
 
@@ -105,10 +112,22 @@ const ServicesRoom = () => {
                     {(isMobile || isTablet || isLaptop) && (
                       <div className={s.priceWrapper}>
                         <strong>
-                          <WithTransLate text={`from € ${roomPrice.price1}`} />
+                          <WithTransLate
+                            text={`from € ${(
+                              roomPrice.price1 *
+                              (roomNumber === 0 ? 1 : roomNumber) *
+                              (days === 0 ? 1 : days)
+                            ).toFixed(0)}`}
+                          />
                         </strong>
                         <span style={{ fontWeight: "300" }}>
-                          <WithTransLate text="1 room for a night" />
+                          <WithTransLate
+                            text={`${
+                              roomNumber === 1
+                                ? "1 room"
+                                : `${roomNumber} rooms`
+                            } for ${days <= 1 ? "a night" : `${days} nights`}`}
+                          />
                         </span>
                       </div>
                     )}
@@ -120,11 +139,23 @@ const ServicesRoom = () => {
                           </span>
                           <strong>
                             <WithTransLate
-                              text={`from € ${roomPrice.price1}`}
+                              text={`from € ${(
+                                roomPrice.price1 *
+                                (roomNumber === 0 ? 1 : roomNumber) *
+                                (days === 0 ? 1 : days)
+                              ).toFixed(0)}`}
                             />
                           </strong>
                           <span style={{ fontWeight: "300" }}>
-                            <WithTransLate text="1 room for a night" />
+                            <WithTransLate
+                              text={`${
+                                roomNumber === 1
+                                  ? "1 room"
+                                  : `${roomNumber} rooms`
+                              } for ${
+                                days <= 1 ? "a night" : `${days} nights`
+                              }`}
+                            />
                           </span>
                         </div>
                         <div className={s.pricePartWrapper}>
@@ -150,11 +181,23 @@ const ServicesRoom = () => {
                           </span>
                           <strong>
                             <WithTransLate
-                              text={`from € ${roomPrice.price2}`}
+                              text={`from € ${(
+                                roomPrice.price2 *
+                                (roomNumber === 0 ? 1 : roomNumber) *
+                                (days === 0 ? 1 : days)
+                              ).toFixed(0)}`}
                             />
                           </strong>
                           <span style={{ fontWeight: "300" }}>
-                            <WithTransLate text="1 room for a night" />
+                            <WithTransLate
+                              text={`${
+                                roomNumber === 1
+                                  ? "1 room"
+                                  : `${roomNumber} rooms`
+                              } for ${
+                                days <= 1 ? "a night" : `${days} nights`
+                              }`}
+                            />
                           </span>
                         </div>
                       </div>
@@ -242,10 +285,22 @@ const ServicesRoom = () => {
                     {!isDesktop && (
                       <div className={s.priceWrapper}>
                         <strong>
-                          <WithTransLate text={`from € ${roomPrice.price1}`} />
+                          <WithTransLate
+                            text={`from € ${(
+                              roomPrice.price1 *
+                              (roomNumber === 0 ? 1 : roomNumber) *
+                              (days === 0 ? 1 : days)
+                            ).toFixed(0)}`}
+                          />
                         </strong>
                         <span style={{ fontWeight: "300" }}>
-                          <WithTransLate text="1 room for a night" />
+                          <WithTransLate
+                            text={`${
+                              roomNumber === 1
+                                ? "1 room"
+                                : `${roomNumber} rooms`
+                            } for ${days <= 1 ? "a night" : `${days} nights`}`}
+                          />
                         </span>
                       </div>
                     )}
@@ -257,11 +312,23 @@ const ServicesRoom = () => {
                           </span>
                           <strong>
                             <WithTransLate
-                              text={`from € ${roomPrice.price1}`}
+                              text={`from € ${(
+                                roomPrice.price1 *
+                                (roomNumber === 0 ? 1 : roomNumber) *
+                                (days === 0 ? 1 : days)
+                              ).toFixed(0)}`}
                             />
                           </strong>
                           <span style={{ fontWeight: "300" }}>
-                            <WithTransLate text="1 room for a night" />
+                            <WithTransLate
+                              text={`${
+                                roomNumber === 1
+                                  ? "1 room"
+                                  : `${roomNumber} rooms`
+                              } for ${
+                                days <= 1 ? "a night" : `${days} nights`
+                              }`}
+                            />
                           </span>
                         </div>
                         <div className={s.pricePartWrapper}>
@@ -287,11 +354,23 @@ const ServicesRoom = () => {
                           </span>
                           <strong>
                             <WithTransLate
-                              text={`from € ${roomPrice.price2}`}
+                              text={`from € ${(
+                                roomPrice.price2 *
+                                (roomNumber === 0 ? 1 : roomNumber) *
+                                (days === 0 ? 1 : days)
+                              ).toFixed(0)}`}
                             />
                           </strong>
                           <span style={{ fontWeight: "300" }}>
-                            <WithTransLate text="1 room for a night" />
+                            <WithTransLate
+                              text={`${
+                                roomNumber === 1
+                                  ? "1 room"
+                                  : `${roomNumber} rooms`
+                              } for ${
+                                days <= 1 ? "a night" : `${days} nights`
+                              }`}
+                            />
                           </span>
                         </div>
                       </div>

@@ -1,3 +1,5 @@
+export const getDataSearchError = ({ dataSearch }) => dataSearch.error;
+export const getDataSearchMessage = ({ dataSearch }) => dataSearch.message;
 export const getCheckInDay = ({ dataSearch }) => dataSearch.checkIn;
 export const getCheckOutDay = ({ dataSearch }) => dataSearch.checkOut;
 export const getAddParams = ({ dataSearch }) => dataSearch.addParams;

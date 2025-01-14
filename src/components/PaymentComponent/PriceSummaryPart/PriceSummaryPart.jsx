@@ -8,7 +8,7 @@ import {
   getPaymentType,
   getTotalAmountEuro,
   getTotalAmountCurrency,
-} from "../../../redux/dataSearch/datesSearch-selectors";
+} from "../../../redux/dataSearch/dataSearch-selectors";
 import {
   setCurrency,
   setExchangeRate,
