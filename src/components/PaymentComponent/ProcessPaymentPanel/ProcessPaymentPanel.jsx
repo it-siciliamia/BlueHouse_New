@@ -2,12 +2,9 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { getPaymentStage } from "../../../redux/technitial/technical-selectors";
 import { WithTransLate } from "../../helpers/translating";
-import { useMediaQuery } from "react-responsive";
 import s from "./ProcessPaymentPanel.module.scss";
 
 const ProcessPaymentPanel = () => {
-  const isLaptop = useMediaQuery({ minWidth: 960, maxWidth: 1279.99 });
-  const isDesktop = useMediaQuery({ minWidth: 1280, maxWidth: 2200 });
   const paymentStage = useSelector(getPaymentStage);
 
   const stages = [

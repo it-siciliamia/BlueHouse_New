@@ -9,7 +9,7 @@ import MenuIcon from "../../images/MenuIcon_Header.svg";
 import SearchIcon from "../../images/SearchIcon_Header.svg";
 import logo from "../../images/logoBlue.png";
 import ProcessPaymentPanel from "../PaymentComponent/ProcessPaymentPanel/ProcessPaymentPanel";
-import { useHeaderSize } from "../../components/helpers/HeaderContext/HeaderContext";
+
 import s from "./Header.module.scss";
 
 const userDeviceWidth = window.innerWidth;
@@ -17,8 +17,8 @@ const mobileBreakpoint = 600;
 
 export default function Header({ right, setRight, top, setTop }) {
   const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 599.99 });
-  const isTablet = useMediaQuery({ minWidth: 600, maxWidth: 1279.99 });
-  const isLaptop = useMediaQuery({ minWidth: 960, maxWidth: 1279.99 });
+  const isTablet = useMediaQuery({ minWidth: 600, maxWidth: 1279 });
+  const isLaptop = useMediaQuery({ minWidth: 960, maxWidth: 1279 });
   const isDesktop = useMediaQuery({ minWidth: 1280, maxWidth: 2200 });
   const location = useLocation();
 

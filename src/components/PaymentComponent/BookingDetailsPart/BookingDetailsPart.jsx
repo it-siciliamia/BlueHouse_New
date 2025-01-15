@@ -54,10 +54,7 @@ const BookingDetailsPart = () => {
   return (
     <div className={s.container}>
       <div className={s.partContent}>
-        <h2
-          className={s.title}
-          style={{ marginLeft: "40px", marginRight: "40px" }}
-        >
+        <h2 className={s.title}>
           <WithTransLate text="Your Booking Details" />
         </h2>
 
@@ -110,17 +107,7 @@ const BookingDetailsPart = () => {
           </div>
         </div>
 
-        <p
-          className={s.text}
-          style={{
-            margin: "0",
-            marginLeft: "40px",
-            marginRight: "40px",
-            marginBottom: "30px",
-            fontSize: "18px",
-            fontWeight: "700",
-          }}
-        >
+        <p className={s.textMain}>
           <WithTransLate text="Blue House B&B" />
         </p>
 

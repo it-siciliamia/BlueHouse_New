@@ -3,7 +3,29 @@
   align-items: center;
   justify-content: space-between;
   position: relative;
-  width: 585px;
+  @media (min-width: 320px) and (max-width: 599.99px) {
+    padding: 0 20px;
+    min-width: 280px;
+    max-width: 500px;
+  }
+  @media (min-width: 600px) and (max-width: 959.99px) {
+    margin-right: auto;
+    margin-left: auto;
+    padding: 0 40px;
+    width: 500px;
+  }
+  @media (min-width: 960px) and (max-width: 1279px) {
+    margin-right: auto;
+    margin-left: auto;
+    padding: 0 40px;
+    width: 500px;
+  }
+  @media (min-width: 1279px) and (max-width: 1279.99px) {
+    width: 585px;
+  }
+  @media (min-width: 1280px) and (max-width: 2200px) {
+    width: 585px;
+  }
 }
 
 .circle {
@@ -31,13 +53,18 @@
   .label {
     position: absolute;
     top: 60px;
-    font-size: 16px;
     font-weight: 400;
     color: #000;
     text-align: center;
     white-space: nowrap;
     &.active {
       font-weight: 700;
+    }
+    @media (min-width: 320px) and (max-width: 374.99px) {
+      font-size: 13px;
+    }
+    @media (min-width: 375px) {
+      font-size: 16px;
     }
   }
 }
@@ -46,7 +73,7 @@
   flex-grow: 1;
   height: 1px;
   background-color: #000;
-  margin: 0 -10px; /* Adjust overlap with circles */
+  margin: 0 -10px;
   transition: background-color 0.3s;
 
   &.activeLine {
