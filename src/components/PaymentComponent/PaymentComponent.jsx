@@ -48,28 +48,30 @@ const PaymentComponent = () => {
         </div>
       )}
       {paymentStage === 2 && (
-        <>
+        <div className={s.paymentComponent}>
+          {(isMobile || isTablet) && <ProcessPaymentPanel />}
           <h2 className={s.title}>
             <WithTransLate text="Payment Details" />
           </h2>
-          <div className={s.paymentComponent}>
+          <div className={s.componentParts}>
             <div style={{ width: "100%" }}>
               <UserPaymentDetails />
             </div>
           </div>
-        </>
+        </div>
       )}
       {paymentStage === 3 && !bookingConfirmed && (
-        <>
+        <div className={s.paymentComponent}>
+          {(isMobile || isTablet) && <ProcessPaymentPanel />}
           <h2 className={s.title}>
             <WithTransLate text="Payment Method" />
           </h2>
-          <div className={s.paymentComponent}>
+          <div className={s.componentParts}>
             <div style={{ width: "100%" }}>
               <PaymentMethods />
             </div>
           </div>
-        </>
+        </div>
       )}
       {paymentStage === 3 && bookingConfirmed && (
         <>

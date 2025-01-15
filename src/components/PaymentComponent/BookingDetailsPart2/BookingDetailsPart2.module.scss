@@ -105,14 +105,8 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  @media (min-width: 1280px) and (max-width: 1419.99px) {
-    width: 80%;
-  }
-  @media (min-width: 1420px) and (max-width: 1539.99px) {
-    width: 60%;
-  }
-  @media (min-width: 1540px) and (max-width: 2200px) {
-    width: 45%;
+  @media (min-width: 1280px) and (max-width: 2200px) {
+    width: 100%;
   }
 }
 
