@@ -8,22 +8,47 @@
   padding: 50px 0;
   width: 100%;
   border: 1px solid lightgray;
+  @media (min-width: 320px) and (max-width: 599.99px) {
+    padding: 20px 0;
+  }
+  @media (min-width: 960px) and (max-width: 1279px) {
+    padding: 30px 0;
+  }
+  @media (min-width: 1279px) and (max-width: 1279.99px) {
+    padding: 50px 0;
+    width: 100%;
+  }
+  @media (min-width: 1280px) and (max-width: 2200px) {
+    padding: 50px 0;
+    width: 100%;
+  }
 }
 
 .title {
+  margin: 0 40px;
+  margin-bottom: 20px;
   font-family: Josefin Sans, sans-serif;
   font-size: 24px;
   font-weight: bold;
+  @media (min-width: 320px) and (max-width: 599.99px) {
+    margin: 0 20px;
+    margin-bottom: 20px;
+    font-size: 18px;
+  }
 }
 
 .bookingWrapper {
-  padding-left: 40px;
-  padding-right: 40px;
+  padding: 0 40px;
   height: 70px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  @media (min-width: 320px) and (max-width: 599.99px) {
+    margin-bottom: 20px;
+    padding: 0 20px;
+    height: 40px;
+  }
 }
 
 .leftPartWrapper {
@@ -38,6 +63,22 @@
   font-family: Josefin Sans, sans-serif;
   font-size: 18px;
   font-weight: 500;
+  @media (min-width: 320px) and (max-width: 599.99px) {
+    font-size: 16px;
+  }
+}
+
+.textMain {
+  margin: 0;
+  margin: 0 40px;
+  margin-bottom: 30px;
+  font-size: 18px;
+  font-weight: 700;
+  @media (min-width: 320px) and (max-width: 599.99px) {
+    margin: 0 20px;
+    margin-bottom: 20px;
+    font-size: 16px;
+  }
 }
 
 .button {
@@ -90,12 +131,50 @@
   flex-direction: row;
   justify-content: space-between;
   gap: 10px;
+  @media (min-width: 320px) and (max-width: 599.99px) {
+    margin-bottom: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  @media (min-width: 960px) and (max-width: 1279px) {
+    width: 390px;
+    gap: 5px;
+  }
+  @media (min-width: 1279px) and (max-width: 1279.99px) {
+    argin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+    width: 420px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  @media (min-width: 1280px) and (max-width: 2200px) {
+    argin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+    width: 420px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 10px;
+  }
 }
 
 .divider {
   width: 1px;
   height: 85px;
   background-color: lightgray;
+  @media (min-width: 320px) and (max-width: 599.99px) {
+    margin: 0 auto;
+    min-width: 230px;
+    max-width: 500px;
+    height: 1px;
+  }
 }
 
 .photo {
@@ -104,14 +183,20 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  @media (min-width: 1280px) and (max-width: 1419.99px) {
-    width: 80%;
+  @media (min-width: 320px) and (max-width: 599.99px) {
+    width: 100%;
   }
-  @media (min-width: 1420px) and (max-width: 1539.99px) {
-    width: 60%;
+  @media (min-width: 600px) and (max-width: 959.99px) {
+    width: 65%;
   }
-  @media (min-width: 1540px) and (max-width: 2200px) {
-    width: 45%;
+  @media (min-width: 960px) and (max-width: 1279px) {
+    width: 100%;
+  }
+  @media (min-width: 1279px) and (max-width: 1279.99px) {
+    width: 100%;
+  }
+  @media (min-width: 1280px) and (max-width: 2200px) {
+    width: 100%;
   }
 }
 
@@ -120,6 +205,30 @@
   display: flex;
   flex-direction: row;
   gap: 30px;
+  @media (min-width: 320px) and (max-width: 599.99px) {
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  @media (min-width: 960px) and (max-width: 1279px) {
+    padding: 0 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  @media (min-width: 1279px) and (max-width: 1279.99px) {
+    padding: 0 40px;
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+  }
+  @media (min-width: 1280px) and (max-width: 2200px) {
+    padding: 0 40px;
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+  }
 }
 
 .ratingTitle {

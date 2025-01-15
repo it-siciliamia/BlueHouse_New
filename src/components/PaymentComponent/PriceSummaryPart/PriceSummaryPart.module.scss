@@ -2,12 +2,29 @@
   display: flex;
   flex-direction: column;
   gap: 45px;
+  @media (min-width: 320px) and (max-width: 599.99px) {
+    gap: 20px;
+  }
 }
 
 .partBorder {
   padding-top: 50px;
   width: 100%;
   border: 1px solid lightgray;
+  @media (min-width: 320px) and (max-width: 599.99px) {
+    padding-top: 20px;
+  }
+  @media (min-width: 960px) and (max-width: 1279px) {
+    padding-top: 20px;
+  }
+  @media (min-width: 1279px) and (max-width: 1279.99px) {
+    padding-top: 50px;
+    width: 100%;
+  }
+  @media (min-width: 1280px) and (max-width: 2200px) {
+    padding-top: 50px;
+    width: 100%;
+  }
 }
 
 .currency-selector {
@@ -26,7 +43,22 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   margin-bottom: 50px;
+  @media (min-width: 320px) and (max-width: 599.99px) {
+    margin-bottom: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  @media (min-width: 600px) and (max-width: 959.99px) {
+    margin-bottom: 20px;
+  }
+  @media (min-width: 960px) and (max-width: 1279px) {
+    margin-bottom: 20px;
+  }
+  @media (min-width: 1279px) and (max-width: 1279.99px) {
+    margin-bottom: 20px;
+  }
 }
 
 .currency-selector h3 {
@@ -38,8 +70,25 @@ label {
   display: block;
   margin-bottom: 5px;
   font-family: Josefin Sans, sans-serif;
-  font-size: 24px;
   font-weight: bold;
+  @media (min-width: 320px) and (max-width: 599.99px) {
+    margin: 0;
+    font-size: 18px;
+  }
+  @media (min-width: 600px) and (max-width: 959.99px) {
+    margin: 0;
+    font-size: 24px;
+  }
+  @media (min-width: 960px) and (max-width: 1279px) {
+    margin: 0;
+    font-size: 24px;
+  }
+  @media (min-width: 1279px) and (max-width: 1279.99px) {
+    font-size: 24px;
+  }
+  @media (min-width: 1280px) and (max-width: 2200px) {
+    font-size: 24px;
+  }
 }
 
 .select {
@@ -59,6 +108,11 @@ label {
   background-repeat: no-repeat;
   background-position: right 10px center;
   background-size: 26px 26px;
+  @media (min-width: 320px) and (max-width: 599.99px) {
+    width: 125px;
+    height: 40px;
+    font-size: 16px;
+  }
 }
 
 .select:focus {
@@ -88,6 +142,10 @@ select:disabled {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  @media (min-width: 320px) and (max-width: 599.99px) {
+    padding-left: 20px;
+    height: 50px;
+  }
 }
 
 .priceTitle {
@@ -103,4 +161,7 @@ select:disabled {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  @media (min-width: 320px) and (max-width: 599.99px) {
+    width: 30%;
+  }
 }

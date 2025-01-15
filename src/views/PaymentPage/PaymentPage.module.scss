@@ -1,29 +1,35 @@
 .payment {
   @media (min-width: 320px) and (max-width: 599.99px) {
-    padding-top: 75px;
+    margin-top: 75px;
     width: 100%;
   }
   @media (min-width: 600px) and (max-width: 959.99px) {
-    padding-top: 82px;
+    margin-top: 82px;
     margin-left: auto;
     margin-right: auto;
     max-width: 600px;
   }
-  @media (min-width: 960px) and (max-width: 1279.99px) {
-    padding-top: 82px;
+  @media (min-width: 960px) and (max-width: 1279px) {
+    margin-top: 82px;
     margin-left: auto;
     margin-right: auto;
     max-width: 960px;
   }
   @media (min-width: 1280px) and (max-width: 2200px) {
-    padding: 112px 107px 0px 130px;
+    margin-top: 110px;
     min-width: 1280px;
     max-width: 2200px;
   }
 }
 
 .container {
-  margin-left: auto;
-  margin-right: auto;
-  width: 1280px;
+  @media (min-width: 320px) and (max-width: 599.99px) {
+    width: 100%;
+  }
+  @media (min-width: 1280px) and (max-width: 2200px) {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0px 100px;
+    width: 1280px;
+  }
 }

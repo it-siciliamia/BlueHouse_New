@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { WithTransLate } from "../helpers/translating";
+import { useMediaQuery } from "react-responsive";
 import {
   getPaymentStage,
   getBookingConfirmed,
@@ -11,12 +12,15 @@ import UserPaymentDetails from "./UserPaymentDetails/UserPaymentDetails";
 import PaymentMethods from "./PaymentMethods/PaymentMethods";
 import Support from "../SuportComponent/support";
 import DayTours from "./DayTours/DayTours";
+import ProcessPaymentPanel from "./ProcessPaymentPanel/ProcessPaymentPanel";
 
 import s from "./PaymentComponent.module.scss";
 
 const PaymentComponent = () => {
   const paymentStage = useSelector(getPaymentStage);
   const bookingConfirmed = useSelector(getBookingConfirmed);
+  const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 599.99 });
+  const isTablet = useMediaQuery({ minWidth: 600, maxWidth: 959 });
 
   useEffect(() => {
     window.scrollTo({
@@ -28,19 +32,20 @@ const PaymentComponent = () => {
   return (
     <>
       {paymentStage === 1 && (
-        <>
+        <div className={s.paymentComponent}>
+          {(isMobile || isTablet) && <ProcessPaymentPanel />}
           <h2 className={s.title}>
             <WithTransLate text="Your selection" />
           </h2>
-          <div className={s.paymentComponent}>
-            <div style={{ width: "52.5%" }}>
+          <div className={s.componentParts}>
+            <div style={{ width: isTablet || isMobile ? "100%" : "52.5%" }}>
               <PriceSummaryPart />
             </div>
-            <div style={{ width: "47.5%" }}>
+            <div style={{ width: isTablet || isMobile ? "100%" : "47.5%" }}>
               <BookingDetailsPart />
             </div>
           </div>
-        </>
+        </div>
       )}
       {paymentStage === 2 && (
         <>

@@ -5,6 +5,18 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  @media (min-width: 320px) and (max-width: 480px) {
+    padding: 0px 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+  @media (min-width: 1280px) and (max-width: 2200px) {
+    padding: 20px 107px 20px 130px;
+    width: 100%;
+    min-width: 1281px;
+  }
 }
 
 .btn {
@@ -13,12 +25,18 @@
   font-weight: 500;
   color: #1464b9;
   cursor: pointer;
+  @media (min-width: 320px) and (max-width: 480px) {
+    font-size: 14px;
+  }
 }
 
 .сopyrightText {
   margin: 0;
   font-size: 16px;
   font-weight: 300;
+  @media (min-width: 320px) and (max-width: 480px) {
+    font-size: 14px;
+  }
 }
 
 .footerCopyright {
@@ -31,4 +49,7 @@
   display: flex;
   flex-direction: row;
   gap: 20px;
+  @media (min-width: 320px) and (max-width: 480px) {
+    display: none;
+  }
 }
