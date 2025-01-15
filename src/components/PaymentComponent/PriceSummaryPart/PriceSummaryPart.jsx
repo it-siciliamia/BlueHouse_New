@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useMediaQuery } from "react-responsive";
 import { useSelector, useDispatch } from "react-redux";
 import { WithTransLate } from "../../helpers/translating";
 import {
@@ -27,6 +28,8 @@ const PriceSummaryPart = () => {
   const { adult, children, room } = useSelector(getAddParams);
   const totalAmountEuro = useSelector(getTotalAmountEuro);
   const totalAmountCurrency = useSelector(getTotalAmountCurrency);
+
+  const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 599.99 });
 
   const popularCurrencies = [
     { code: "USD", symbol: "$" },
@@ -157,7 +160,7 @@ const PriceSummaryPart = () => {
           className={s.priceWrapper}
           style={{ backgroundColor: "rgba(217, 217, 217, 0.2)" }}
         >
-          <p style={{ margin: "0", fontSize: "18px" }}>
+          <p style={{ margin: "0", fontSize: isMobile ? "16px" : "18px" }}>
             <WithTransLate
               text={`${room} ${room === 1 ? "room" : "rooms"} x ${
                 dayDifference === 1
@@ -167,9 +170,15 @@ const PriceSummaryPart = () => {
             />
           </p>
           <div className={s.leftPartWrapper}>
-            <p style={{ margin: "0", fontSize: "18px", fontWeight: "500" }}>
+            <p
+              style={{
+                margin: "0",
+                fontSize: isMobile ? "16px" : "18px",
+                fontWeight: "500",
+              }}
+            >
               <WithTransLate
-                text={`€ ${!pricePerNight ? 0.0 : totalAmountEuro}`}
+                text={`€ ${!pricePerNight ? "0.00" : totalAmountEuro}`}
               />
             </p>
           </div>
@@ -180,10 +189,16 @@ const PriceSummaryPart = () => {
           style={{ backgroundColor: "rgba(217, 217, 217, 0.2)" }}
         >
           <div>
-            <p style={{ fontSize: "18px", margin: "0" }}>
+            <p style={{ fontSize: isMobile ? "16px" : "18px", margin: "0" }}>
               <WithTransLate text="Property currency" />
             </p>
-            <p style={{ fontSize: "18px", fontWeight: "300", margin: "0" }}>
+            <p
+              style={{
+                fontSize: isMobile ? "16px" : "18px",
+                fontWeight: "300",
+                margin: "0",
+              }}
+            >
               <WithTransLate
                 text={`(in ${selectedCurrency} for ${adult} ${
                   adult === 1 ? "adult" : "adults"
@@ -196,7 +211,13 @@ const PriceSummaryPart = () => {
             </p>
           </div>
           <div className={s.leftPartWrapper}>
-            <p style={{ margin: "0", fontSize: "18px", fontWeight: "500" }}>
+            <p
+              style={{
+                margin: "0",
+                fontSize: isMobile ? "16px" : "18px",
+                fontWeight: "500",
+              }}
+            >
               <WithTransLate
                 text={`${getCurrencySymbol(
                   selectedCurrency
@@ -210,7 +231,8 @@ const PriceSummaryPart = () => {
           <p
             style={{
               margin: "0",
-              fontSize: "20px",
+              fontSize: isMobile ? "18px" : "20px",
+              lineHeight: "1",
               fontWeight: "700",
               color: "#fff",
             }}
@@ -221,7 +243,8 @@ const PriceSummaryPart = () => {
             <p
               style={{
                 margin: "0",
-                fontSize: "20px",
+                fontSize: isMobile ? "18px" : "20px",
+                lineHeight: "1",
                 fontWeight: "500",
                 color: "#fff",
               }}
@@ -238,13 +261,13 @@ const PriceSummaryPart = () => {
         </div>
       </div>
 
-      <div style={{ padding: "0 40px" }}>
+      <div style={{ padding: isMobile ? "0 20px" : "0 40px" }}>
         {selectedCurrency !== "EUR" && (
           <p
             style={{
               margin: "0",
               marginBottom: "20px",
-              fontSize: "18px",
+              fontSize: isMobile ? "16px" : "18px",
               fontWeight: "500",
             }}
           >
@@ -256,7 +279,7 @@ const PriceSummaryPart = () => {
         <p
           style={{
             margin: "0",
-            fontSize: "18px",
+            fontSize: isMobile ? "16px" : "18px",
             fontWeight: "500",
           }}
         >
@@ -274,10 +297,10 @@ const PriceSummaryPart = () => {
           style={{
             margin: "0",
             paddingTop: "20px",
-            paddingLeft: "40px",
-            paddingRight: "40px",
-            fontSize: "24px",
-            fontWeight: "500",
+            paddingLeft: isMobile ? "20px" : "40px",
+            paddingRight: isMobile ? "20px" : "40px",
+            fontSize: isMobile ? "20px" : "24px",
+            fontWeight: "600",
           }}
         >
           <WithTransLate text="How much would it cost to cancel" />
@@ -286,17 +309,17 @@ const PriceSummaryPart = () => {
           <p
             style={{
               margin: "0",
-              fontSize: "20px",
+              fontSize: isMobile ? "16px" : "20px",
               fontWeight: "500",
             }}
           >
-            <WithTransLate text="If you cancel, you’ll pay" />
+            <WithTransLate text="If you cancel, you’ll pay:" />
           </p>
           <div className={s.leftPartWrapper}>
             <p
               style={{
                 margin: "0",
-                fontSize: "20px",
+                fontSize: isMobile ? "18px" : "20px",
                 fontWeight: "500",
               }}
             >
