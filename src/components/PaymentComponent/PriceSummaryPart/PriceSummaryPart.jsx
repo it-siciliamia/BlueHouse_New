@@ -138,7 +138,7 @@ const PriceSummaryPart = () => {
                 value={currency.code}
                 className={s.option}
               >
-                {currency.code} - {currency.symbol}
+                {`${currency.code}  ${currency.symbol}`}
               </option>
             ))}
           </select>
