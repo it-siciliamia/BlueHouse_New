@@ -1,13 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { getRoomsData, createStripeSession } from "./technical-operations";
-import { reset } from "ansi-html";
 
 const initialState = {
   error: null,
   message: null,
   loading: false,
   isPlaceholderShown: false,
-  paymentStage: 3,
+  paymentStage: 1,
   bookingConfirmed: false,
 };
 
