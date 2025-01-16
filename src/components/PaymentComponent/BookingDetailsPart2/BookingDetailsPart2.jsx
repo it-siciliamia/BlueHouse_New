@@ -176,6 +176,7 @@ const BookingDetailsPart2 = () => {
                 fontSize: "20px",
                 fontWeight: "500",
                 color: "black",
+                textAlign: "center",
               }}
             >
               <WithTransLate
