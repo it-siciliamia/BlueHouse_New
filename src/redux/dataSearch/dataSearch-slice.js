@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import * as moment from "moment";
 import { getAvailableRooms } from "./dataSearch-operations";
+import { reset } from "ansi-html";
 
 const newDate = moment().format("YYYYMMDD");
 
@@ -78,6 +79,26 @@ const dataSearch = createSlice({
       store.exchangeRate = action.payload;
       updateTotalAmounts(store);
     },
+    resetDataSearch: (store) => {
+      store.error = null;
+      store.message = null;
+      store.loading = false;
+      store.checkIn = newDate;
+      store.checkOut = newDate;
+      store.dayDifference = 0;
+      store.addParams = {
+        adult: 2,
+        children: 0,
+        room: 1,
+      };
+      store.appartmentName = null;
+      store.pricePerNight = 0;
+      store.paymentType = null;
+      store.totalAmountEuro = 0;
+      store.totalAmountCurrency = 0;
+      store.currency = "€";
+      store.exchangeRate = 1;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -122,4 +143,5 @@ export const {
   setPaymentType,
   setCurrency,
   setExchangeRate,
+  resetDataSearch,
 } = dataSearch.actions;

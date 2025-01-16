@@ -28,7 +28,6 @@ const PriceSummaryPart = () => {
   const { adult, children, room } = useSelector(getAddParams);
   const totalAmountEuro = useSelector(getTotalAmountEuro);
   const totalAmountCurrency = useSelector(getTotalAmountCurrency);
-
   const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 599.99 });
 
   const popularCurrencies = [

@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { getPaymentStage } from "../../../redux/technitial/technical-selectors";
 import { WithTransLate } from "../../helpers/translating";
+
 import s from "./ProcessPaymentPanel.module.scss";
 
 const ProcessPaymentPanel = () => {

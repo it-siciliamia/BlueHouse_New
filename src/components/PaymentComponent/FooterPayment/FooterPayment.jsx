@@ -5,6 +5,7 @@ import Facebook from "../../../images/Header_icons/headerSocialIcons/facebook.sv
 import instaIcon from "../../../images/Header_icons/headerSocialIcons/insta.svg";
 import Email from "../../../images/Header_icons/headerSocialIcons/email.svg";
 import Whatsapp from "../../../images/Header_icons/headerSocialIcons/whats.svg";
+
 import s from "./FooterPayment.module.scss";
 
 const FooterPayment = () => {

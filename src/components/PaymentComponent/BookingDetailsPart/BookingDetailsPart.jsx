@@ -17,6 +17,7 @@ import { googleRatings } from "../../../views/roombooking/RoomBooking";
 import google from "../../../images/google.png";
 import parking from "../../../images/parking.svg";
 import moment from "moment";
+
 import s from "./BookingDetailsPart.module.scss";
 
 const BookingDetailsPart = () => {

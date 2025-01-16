@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { WithTransLate } from "../../helpers/translating";
 import {
   getDayDifference,
@@ -16,10 +16,10 @@ import placeholder from "../../../images/homePageSlider/placeholder.webp";
 import { googleRatings } from "../../../views/roombooking/RoomBooking";
 import google from "../../../images/google.png";
 import moment from "moment";
+
 import s from "./BookingDetailsPart2.module.scss";
 
 const BookingDetailsPart2 = () => {
-  const dispatch = useDispatch();
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
   const dayDifference = useSelector(getDayDifference);
   const firstDay = useSelector(getCheckInDay);
@@ -152,7 +152,7 @@ const BookingDetailsPart2 = () => {
           </div>
         </div>
 
-        <div className={s.AddServices}>
+        <div className={s.addServices}>
           <AddServices />
         </div>
 
