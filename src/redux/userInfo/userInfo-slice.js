@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { reset } from "ansi-html";
 
 const initialState = {
   error: null,
