@@ -20,7 +20,7 @@ const AddServices = () => {
   const { adult, children } = useSelector(getAddParams);
 
   const firstColumn = [
-    { icon: spot, description: "Spot for Northern Lights" },
+    { icon: spot, description: "Northern Lights Spot" },
     { icon: nosmoking, description: "No smoking" },
     {
       icon: paymentType === "refundable" ? ref : nonref,

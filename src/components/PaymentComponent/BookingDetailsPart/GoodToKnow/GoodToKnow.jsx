@@ -1,6 +1,7 @@
 import React from "react";
 import { goodToKnowData } from "../goodToKnowData";
 import { WithTransLate } from "../../../helpers/translating";
+
 import s from "./GoodToKnow.module.scss";
 
 const GoodToKnow = ({ title }) => {

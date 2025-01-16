@@ -3,6 +3,18 @@
   flex-direction: row;
   gap: 40px;
   width: 100%;
+  @media (min-width: 320px) and (max-width: 599.99px) {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+  @media (min-width: 600px) and (max-width: 959.99px) {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
 }
 
 .partUser {
@@ -10,6 +22,12 @@
   flex-direction: column;
   gap: 24px;
   width: 52.5%;
+  @media (min-width: 320px) and (max-width: 599.99px) {
+    width: 100%;
+  }
+  @media (min-width: 600px) and (max-width: 959.99px) {
+    width: 100%;
+  }
 }
 
 .partBooking {
@@ -17,6 +35,12 @@
   flex-direction: column;
   gap: 40px;
   width: 47.5%;
+  @media (min-width: 320px) and (max-width: 599.99px) {
+    width: 100%;
+  }
+  @media (min-width: 600px) and (max-width: 959.99px) {
+    width: 100%;
+  }
 }
 
 .partWrapper {
@@ -26,12 +50,20 @@
   gap: 50px;
   border: 1px solid lightgray;
   background-color: rgba(217, 217, 217, 0.2);
+  @media (min-width: 320px) and (max-width: 599.99px) {
+    padding: 20px;
+  }
 }
 
 .nameFieldsWrapper {
   display: flex;
   flex-direction: row;
   gap: 20px;
+  @media (min-width: 320px) and (max-width: 599.99px) {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+  }
 }
 
 .titlePart {
@@ -39,6 +71,10 @@
   font-size: 24px;
   font-weight: bold;
   line-height: 1.1;
+  @media (min-width: 320px) and (max-width: 599.99px) {
+    font-size: 18px;
+    margin-bottom: -20px;
+  }
 }
 
 .form {
@@ -76,6 +112,9 @@
   gap: 22px;
   border: 1px solid lightgray;
   background-color: rgba(217, 217, 217, 0.2);
+  @media (min-width: 320px) and (max-width: 599.99px) {
+    padding: 20px;
+  }
 }
 
 .textAreaPart,

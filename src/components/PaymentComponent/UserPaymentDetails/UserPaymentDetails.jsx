@@ -1,9 +1,11 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useForm, Controller } from "react-hook-form";
 import Select from "react-select";
 import { WithTransLate } from "../../helpers/translating/index";
 import { setPaymentStage } from "../../../redux/technitial/technical-slice";
+import { setUserInformation } from "../../../redux/userInfo/userInfo-slice";
+import { getUserInformation } from "../../../redux/userInfo/userInfo-selectors";
 import { fields } from "../../Shared/TextField/fields";
 import { countries } from "./countries";
 import { arrivalTimes } from "./arrivalTimes";
@@ -15,24 +17,48 @@ import s from "./UserPaymentDetails.module.scss";
 
 const UserPaymentDetails = () => {
   const dispatch = useDispatch();
+  const {
+    firstName,
+    surname,
+    email,
+    mobile,
+    address,
+    postcode,
+    city,
+    country,
+    arrival,
+    comments,
+  } = useSelector(getUserInformation);
 
   const { control, handleSubmit, reset } = useForm({
     defaultValues: {
-      firstName: "",
-      lastName: "",
-      emailAddress: "",
-      phoneNumber: "",
-      address: "",
-      city: "",
-      postCode: "",
-      country: "",
-      additionalRequests: "",
-      arrivalTime: "",
+      firstName: firstName ? firstName : "",
+      lastName: surname ? surname : "",
+      emailAddress: email ? email : "",
+      phoneNumber: mobile ? mobile : "",
+      address: address ? address : "",
+      city: city ? city : "",
+      postCode: postcode ? postcode : "",
+      country: country ? country : "",
+      additionalRequests: comments ? comments : "",
+      arrivalTime: arrival ? arrival : "",
     },
   });
 
   const onSubmit = async (data) => {
-    console.log(data);
+    const userInfo = {
+      firstName: data.firstName,
+      surname: data.lastName,
+      email: data.emailAddress,
+      mobile: data.phoneNumber,
+      address: data.address,
+      postcode: data.postCode,
+      city: data.city,
+      country: data.country,
+      arrival: data.arrivalTime,
+      comments: data.additionalRequests,
+    };
+    dispatch(setUserInformation(userInfo));
     dispatch(setPaymentStage(3));
     reset();
   };
@@ -124,6 +150,7 @@ const UserPaymentDetails = () => {
                   <p
                     style={{
                       marginTop: "-10px",
+                      marginLeft: "10px",
                       marginBottom: "-20px",
                       color: "gray",
                     }}
