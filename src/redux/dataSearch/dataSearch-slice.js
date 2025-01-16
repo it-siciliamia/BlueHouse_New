@@ -1,7 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import * as moment from "moment";
 import { getAvailableRooms } from "./dataSearch-operations";
-import { reset } from "ansi-html";
 
 const newDate = moment().format("YYYYMMDD");
 
