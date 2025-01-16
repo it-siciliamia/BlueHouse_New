@@ -174,6 +174,7 @@ const PriceSummaryPart = () => {
                 margin: "0",
                 fontSize: isMobile ? "16px" : "18px",
                 fontWeight: "500",
+                textAlign: "center",
               }}
             >
               <WithTransLate
@@ -215,6 +216,7 @@ const PriceSummaryPart = () => {
                 margin: "0",
                 fontSize: isMobile ? "16px" : "18px",
                 fontWeight: "500",
+                textAlign: "center",
               }}
             >
               <WithTransLate
@@ -246,6 +248,7 @@ const PriceSummaryPart = () => {
                 lineHeight: "1",
                 fontWeight: "500",
                 color: "#fff",
+                textAlign: "center",
               }}
             >
               <WithTransLate
@@ -320,6 +323,7 @@ const PriceSummaryPart = () => {
                 margin: "0",
                 fontSize: isMobile ? "18px" : "20px",
                 fontWeight: "500",
+                textAlign: "center",
               }}
             >
               <WithTransLate
