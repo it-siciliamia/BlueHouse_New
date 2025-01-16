@@ -8,6 +8,9 @@ import { setBookingConfirmed } from "../../../redux/technitial/technical-slice";
 import card from "../../../images/payment/credit-card.svg";
 import paypal from "../../../images/payment/paypal.svg";
 import bank from "../../../images/payment/landmark.svg";
+import { resetDataSearch } from "../../../redux/dataSearch/dataSearch-slice";
+import { resetUserInfo } from "../../../redux/userInfo/userInfo-slice";
+
 import s from "./PaymentMethods.module.scss";
 
 const PaymentMethods = () => {
@@ -30,6 +33,10 @@ const PaymentMethods = () => {
 
   const onSubmit = (data) => {
     console.log("Payment Data:", data);
+    // Remove all reset functions to booking-slice -> addCase(createNewBooking.fulfilled...
+    dispatch(resetDataSearch());
+    dispatch(resetUserInfo());
+
     reset();
     setSelectedMethod(null);
     dispatch(setBookingConfirmed(true));

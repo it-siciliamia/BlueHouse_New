@@ -1,12 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { getRoomsData, createStripeSession } from "./technical-operations";
+import { reset } from "ansi-html";
 
 const initialState = {
   error: null,
   message: null,
   loading: false,
   isPlaceholderShown: false,
-  paymentStage: 1,
+  paymentStage: 3,
   bookingConfirmed: false,
 };
 
@@ -28,6 +29,14 @@ const technical = createSlice({
     },
     setBookingConfirmed: (store, action) => {
       store.bookingConfirmed = action.payload;
+    },
+    resetTechnical: (store) => {
+      store.error = null;
+      store.message = null;
+      store.loading = false;
+      store.isPlaceholderShown = false;
+      store.paymentStage = 1;
+      store.bookingConfirmed = false;
     },
   },
   extraReducers: (builder) => {
@@ -70,4 +79,5 @@ export const {
   setPlaceholderShown,
   setPaymentStage,
   setBookingConfirmed,
+  resetTechnical,
 } = technical.actions;

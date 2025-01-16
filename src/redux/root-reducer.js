@@ -1,10 +1,9 @@
 import { combineReducers } from "redux";
 import { persistReducer } from "redux-persist";
-import searchReducer from "./search/search.reducer";
 import dataSearchReducer from "./dataSearch/dataSearch-slice";
 import bookingReducer from "./booking/booking-slice";
 import technicalReducer from "./technitial/technical-slice";
-import userInfoReducer from "./userInfo/userInfo.reducer";
+import userInfoReducer from "./userInfo/userInfo-slice";
 import storage from "redux-persist/lib/storage";
 
 const persistConfig = {
@@ -16,16 +15,13 @@ const persistConfig = {
     "clicked",
     "dayDifference",
     "userInfo",
-    "quantity",
     "name",
   ],
 };
 
 const rootReducer = combineReducers({
-  clicked: searchReducer,
   dataSearch: dataSearchReducer,
   userInfo: userInfoReducer,
-  quantity: userInfoReducer,
   technical: technicalReducer,
   booking: bookingReducer,
 });
