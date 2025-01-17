@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useMediaQuery } from "react-responsive";
+import useBreakpoints from "../../../Styles/useBreakpoints.js";
 import { useSelector, useDispatch } from "react-redux";
 import { getIsPlaceholderShown } from "../../../redux/technitial/technical-selectors.js";
 import { setPlaceholderShown } from "../../../redux/technitial/technical-slice.js";
@@ -19,10 +19,7 @@ import s from "./CaruselSliderHome.module.scss";
 const images = [videoSrc, slide01, slide02, slide03, slide04, slide05, slide06];
 
 const CaruselSliderHome = () => {
-  const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 599.99 });
-  const isTablet = useMediaQuery({ minWidth: 600, maxWidth: 1279.99 });
-  const isDesktop = useMediaQuery({ minWidth: 1280, maxWidth: 2200 });
-  const isLaplop = useMediaQuery({ minWidth: 960, maxWidth: 1279.99 });
+  const { isMobile, isTablet, isLaptop, isDesktop } = useBreakpoints();
 
   const isPlaceholderShown = useSelector(getIsPlaceholderShown);
   const dispatch = useDispatch();
@@ -36,9 +33,10 @@ const CaruselSliderHome = () => {
 
   const dynamicWidth = isDesktop
     ? Math.round(width - 365)
-    : isLaplop
+    : isLaptop
     ? Math.round(width - 115)
     : width;
+
   const dynamicHeigth = Math.round(dynamicWidth * 0.66);
 
   useEffect(() => {
@@ -135,7 +133,7 @@ const CaruselSliderHome = () => {
       style={{
         width: isDesktop
           ? `${dynamicWidth}px`
-          : isLaplop
+          : isLaptop
           ? `${dynamicWidth}px`
           : "100%",
       }}
@@ -147,7 +145,7 @@ const CaruselSliderHome = () => {
             ? `${dynamicHeigth}px`
             : isTablet
             ? "400px"
-            : isLaplop
+            : isLaptop
             ? "500px"
             : "550px",
           overflow: "hidden",

@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { WithTransLate } from "../helpers/translating/index";
-import { useMediaQuery } from "react-responsive";
+import useBreakpoints from "../../Styles/useBreakpoints";
 import DifferentLocations from "./ServicesType/DifferentLocations";
 import SelfCheckIn from "./ServicesType/selfCheckIn";
 import CheapestPrice from "./ServicesType/CheapestPrice";
@@ -26,9 +26,7 @@ const servicesData = [
 ];
 
 const OurServices = () => {
-  const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 599.99 });
-  // const isTablet = useMediaQuery({ minWidth: 600, maxWidth: 1279.99 });
-  const isDesktop = useMediaQuery({ minWidth: 1280, maxWidth: 2200 });
+  const { isMobile, isDesktop } = useBreakpoints();
 
   const [activeModal, setActiveModal] = useState(null);
 

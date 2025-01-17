@@ -399,7 +399,7 @@ const UserPaymentDetails = () => {
                     value={
                       arrivalTimes.find((time) => time.value === value) || null
                     }
-                    placeholder={<WithTransLate text="Select a time" />}
+                    placeholder={<WithTransLate text="Select time" />}
                     isSearchable
                     styles={{
                       control: (provided, state) => ({

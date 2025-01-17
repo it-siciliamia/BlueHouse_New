@@ -1,15 +1,12 @@
 import React from "react";
-import { useMediaQuery } from "react-responsive";
+import useBreakpoints from "../../Styles/useBreakpoints";
 import { WithTransLate } from "../helpers/translating/index";
 import signature from "../../images/aboutus/signature.png";
 
 import s from "./AboutPageComponent.module.scss";
 
 function AboutPageComponent() {
-  const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 599.99 });
-  const isTablet = useMediaQuery({ minWidth: 600, maxWidth: 959.99 });
-  const isLaptop = useMediaQuery({ minWidth: 960, maxWidth: 1279.99 });
-  const isDesktop = useMediaQuery({ minWidth: 1280, maxWidth: 2200 });
+  const { isMobile, isTablet, isLaptop, isDesktop } = useBreakpoints();
 
   return (
     <section className={s.about}>

@@ -11,12 +11,8 @@
   @media (min-width: 320px) and (max-width: 599.99px) {
     padding: 20px 0;
   }
-  @media (min-width: 960px) and (max-width: 1279px) {
+  @media (min-width: 960px) and (max-width: 1279.99px) {
     padding: 30px 0;
-  }
-  @media (min-width: 1279px) and (max-width: 1279.99px) {
-    padding: 50px 0;
-    width: 100%;
   }
   @media (min-width: 1280px) and (max-width: 2200px) {
     padding: 50px 0;
@@ -139,19 +135,9 @@
     align-items: center;
     gap: 10px;
   }
-  @media (min-width: 960px) and (max-width: 1279px) {
+  @media (min-width: 960px) and (max-width: 1279.99px) {
     width: 390px;
     gap: 5px;
-  }
-  @media (min-width: 1279px) and (max-width: 1279.99px) {
-    argin-left: auto;
-    margin-right: auto;
-    margin-bottom: 30px;
-    width: 420px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    gap: 10px;
   }
   @media (min-width: 1280px) and (max-width: 2200px) {
     argin-left: auto;
@@ -189,10 +175,7 @@
   @media (min-width: 600px) and (max-width: 959.99px) {
     width: 65%;
   }
-  @media (min-width: 960px) and (max-width: 1279px) {
-    width: 100%;
-  }
-  @media (min-width: 1279px) and (max-width: 1279.99px) {
+  @media (min-width: 960px) and (max-width: 1279.99px) {
     width: 100%;
   }
   @media (min-width: 1280px) and (max-width: 2200px) {
@@ -211,17 +194,17 @@
     flex-direction: column;
     gap: 20px;
   }
-  @media (min-width: 960px) and (max-width: 1279px) {
-    padding: 0 40px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-  @media (min-width: 1279px) and (max-width: 1279.99px) {
+  @media (min-width: 600px) and (max-width: 959.99px) {
     padding: 0 40px;
     display: flex;
     flex-direction: row;
     gap: 30px;
+  }
+  @media (min-width: 960px) and (max-width: 1279.99px) {
+    padding: 0 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
   }
   @media (min-width: 1280px) and (max-width: 2200px) {
     padding: 0 40px;

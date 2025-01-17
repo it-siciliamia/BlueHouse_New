@@ -1,5 +1,5 @@
 import React from "react";
-import { useMediaQuery } from "react-responsive";
+import useBreakpoints from "../../Styles/useBreakpoints";
 import { WithTransLate } from "../../components/helpers/translating";
 import dollarSign from "../../images/roombooking/dollarsign.svg";
 import spotSign from "../../images/roombooking/spotSign.svg";
@@ -9,7 +9,7 @@ import planeSign from "../../images/roombooking/planeSign.svg";
 import timeSign from "../../images/roombooking/timeSign.svg";
 
 const Advantages = () => {
-  const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 599.99 });
+  const { isMobile } = useBreakpoints();
   return (
     <section className="bh_advantages-wrapper">
       <div className="bh_advantages-container">

@@ -1,6 +1,6 @@
 import React from "react";
 import Slider from "react-slick";
-import { useMediaQuery } from "react-responsive";
+import useBreakpoints from "../../../Styles/useBreakpoints";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
@@ -8,8 +8,7 @@ import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import s from "./SliderSlick.module.scss";
 
 const PhotoSlider = ({ photos, width = "100%", height = "auto" }) => {
-  const isLaptop = useMediaQuery({ minWidth: 960, maxWidth: 1279.99 });
-  const isDesktop = useMediaQuery({ minWidth: 1280, maxWidth: 2200 });
+  const { isLaptop, isDesktop } = useBreakpoints();
 
   const CustomPrevArrow = (props) => {
     const { className, style, onClick } = props;
