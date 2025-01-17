@@ -1,10 +1,10 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
-import { useMediaQuery } from "react-responsive";
 import { items } from "./footerData";
 import { makeStyles } from "@material-ui/core";
 import { WithTransLate } from "../helpers/translating";
 import { Link } from "react-router-dom";
+import useBreakpoints from "../../Styles/useBreakpoints";
 
 import s from "./Footer.module.scss";
 
@@ -167,13 +167,9 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function Footer() {
+  const { isMobile, isLaptop, isDesktop } = useBreakpoints();
   const location = useLocation();
   const classes = useStyles();
-  const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 599.99 });
-  const isLaptop = useMediaQuery({ minWidth: 960, maxWidth: 1279.99 });
-  const isDesktop = useMediaQuery({ minWidth: 1280, maxWidth: 2200 });
-
-  const islineSeparator = useMediaQuery({ maxDeviceWidth: 559.99 });
 
   const isInternalLink = (href) => {
     return href.startsWith("/");
@@ -249,7 +245,7 @@ function Footer() {
                   </React.Fragment>
                 ))}
               </div>
-              {index < items.length - 1 && islineSeparator && (
+              {index < items.length - 1 && isMobile && (
                 <div
                   style={{
                     width: "100%",
@@ -265,7 +261,7 @@ function Footer() {
         <div
           className={classes.lineSeparator}
           style={{
-            marginBottom: isDesktop ? "1rem" : isLaptop ? "0.5rem" : "0.5rem",
+            marginBottom: isDesktop ? "0.5rem" : isLaptop ? "0.5rem" : "0.5rem",
             marginTop: isDesktop ? "4.5rem" : isMobile ? "1rem" : "2.5rem",
           }}
         />

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { Link as ScrollLink, scroller } from "react-scroll";
-import { useMediaQuery } from "react-responsive";
+import useBreakpoints from "../../../Styles/useBreakpoints";
 import Advantages from "../Advantages/Advantages";
 import PhotoSlider from "../../../components/Shared/SliderSlick/SliderSlick";
 import { WithTransLate } from "../../../components/helpers/translating/index";
@@ -24,8 +24,7 @@ const PartDetails = ({ data }) => {
   const dispatch = useDispatch();
   const history = useHistory();
   const [copied, setCopied] = useState(false);
-  const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 599.99 });
-  const isTablet = useMediaQuery({ minWidth: 600, maxWidth: 959.99 });
+  const { isMobile, isTablet } = useBreakpoints();
   const { room: roomNumber } = useSelector(getAddParams);
   const days = useSelector(getDayDifference);
 

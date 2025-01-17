@@ -15,6 +15,12 @@
     flex-direction: column;
     gap: 40px;
   }
+  @media (min-width: 960px) and (max-width: 1279.99px) {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    width: 100%;
+  }
 }
 
 .partUser {
@@ -28,6 +34,12 @@
   @media (min-width: 600px) and (max-width: 959.99px) {
     width: 100%;
   }
+  @media (min-width: 960px) and (max-width: 1279.99px) {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 52.5%;
+  }
 }
 
 .partBooking {
@@ -40,6 +52,12 @@
   }
   @media (min-width: 600px) and (max-width: 959.99px) {
     width: 100%;
+  }
+  @media (min-width: 960px) and (max-width: 1279.99px) {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    width: 47.5%;
   }
 }
 

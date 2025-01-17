@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import { useMediaQuery } from "react-responsive";
+import useBreakpoints from "../../Styles/useBreakpoints";
 import { useLocation } from "react-router-dom";
 import WeatherCard from "./WeatherCard";
 import { WithTransLate } from "../helpers/translating/index";
@@ -7,9 +7,7 @@ import { AiOutlineFullscreen } from "react-icons/ai";
 import "./WeatherMap.css";
 
 const NewMap = () => {
-  const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 599.99 });
-  const isTablet = useMediaQuery({ minWidth: 600, maxWidth: 1279 });
-  const isDesktop = useMediaQuery({ minWidth: 1280, maxWidth: 2200 });
+  const { isMobile, isTablet, isDesktop } = useBreakpoints();
 
   const location = useLocation();
   const [mapType, setMapType] = useState("roadmap");

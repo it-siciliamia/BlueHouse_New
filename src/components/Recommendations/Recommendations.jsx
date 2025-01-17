@@ -1,5 +1,5 @@
 import React from "react";
-import { useMediaQuery } from "react-responsive";
+import useBreakpoints from "../../Styles/useBreakpoints";
 import { WithTransLate } from "../helpers/translating/index";
 import nl from "../../images/RECOMMENDATIONS/Northernlights.webp";
 import bl from "../../images/RECOMMENDATIONS/Blue-lagoon.webp";
@@ -13,8 +13,7 @@ import rest from "../../images/RECOMMENDATIONS/Geysers.webp";
 import s from "./Recommendations.module.scss";
 
 const Recommendations = () => {
-  const isTablet = useMediaQuery({ minWidth: 600, maxWidth: 959.99 });
-  const isDesktop = useMediaQuery({ minWidth: 1280, maxWidth: 2200 });
+  const { isTablet, isDesktop } = useBreakpoints();
 
   const recommendationsData = [
     {

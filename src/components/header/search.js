@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { useMediaQuery } from "react-responsive";
+import useBreakpoints from "../../Styles/useBreakpoints";
 import { Link as RouterLink } from "react-router-dom";
 import { IconButton, MenuItem, makeStyles, Link } from "@material-ui/core";
 import PropTypes from "prop-types";
@@ -243,7 +243,7 @@ SearchResult.propTypes = {
 };
 
 export default function Search(props) {
-  const isTablet = useMediaQuery({ minWidth: 600, maxWidth: 1279.99 });
+  const { isTablet } = useBreakpoints();
   const {
     searchInput,
     searchResult,

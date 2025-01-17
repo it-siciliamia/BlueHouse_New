@@ -1,5 +1,5 @@
 import React from "react";
-import { useMediaQuery } from "react-responsive";
+import useBreakpoints from "../../Styles/useBreakpoints.js";
 import { makeStyles } from "@material-ui/core";
 import HomeHeader from "./HomeHeader.jsx";
 import PhotoGallery from "../../components/PhotoGallery/DesctopGallerySection/photoGallery.js";
@@ -86,8 +86,7 @@ const GALLERY_BACKGROUND_IMAGES_AND_TITLES = [
 
 export default function HomePage() {
   const { root, galleryButton } = useStyles();
-  const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 599.99 });
-  const isTablet = useMediaQuery({ minWidth: 600, maxWidth: 1279.99 });
+  const { isMobile, isTablet } = useBreakpoints();
 
   const customGALLERYTitleStyle = {
     marginTop: "95px",

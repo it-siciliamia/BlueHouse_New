@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { WithTransLate } from "../helpers/translating";
-import { useMediaQuery } from "react-responsive";
+import useBreakpoints from "../../Styles/useBreakpoints";
 import {
   getPaymentStage,
   getBookingConfirmed,
@@ -21,9 +21,7 @@ const PaymentComponent = () => {
   const dispatch = useDispatch();
   const paymentStage = useSelector(getPaymentStage);
   const bookingConfirmed = useSelector(getBookingConfirmed);
-  const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 599.99 });
-  const isTablet = useMediaQuery({ minWidth: 600, maxWidth: 959 });
-  const isLaptop = useMediaQuery({ minWidth: 960, maxWidth: 1279.99 });
+  const { isMobile, isTablet, isLaptop } = useBreakpoints();
 
   useEffect(() => {
     window.scrollTo({

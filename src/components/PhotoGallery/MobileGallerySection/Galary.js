@@ -1,6 +1,6 @@
 import * as React from "react";
 import PropTypes from "prop-types";
-import { useMediaQuery } from "react-responsive";
+import useBreakpoints from "../../../Styles/useBreakpoints";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
@@ -15,7 +15,8 @@ import { WithTransLate } from "../../helpers/translating";
 import ImageSlider from "./ImageSlider/ImageSlider";
 
 function CustomTabPanel(props) {
-  const isTwoColumn = useMediaQuery({ maxDeviceWidth: 600 });
+  const { isMobile } = useBreakpoints();
+  const isTwoColumn = isMobile;
   const { children, value, index, Rooms } = props;
 
   return (
