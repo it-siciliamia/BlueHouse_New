@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Cookies from "js-cookie";
-import { useMediaQuery } from "react-responsive";
+import useBreakpoints from "../../Styles/useBreakpoints";
 import { WithTransLate } from "../helpers/translating/index";
 import Button from "../Shared/Button/Button";
 import { makeStyles } from "@material-ui/core";
@@ -60,8 +60,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function CookiesBanner() {
-  const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 599.99 });
-  const isDesktop = useMediaQuery({ minWidth: 1280, maxWidth: 2200 });
+  const { isMobile, isDesktop } = useBreakpoints();
+
   const [showCookies, setShowCookies] = useState(false);
   const showAndHide = () => {
     setShowCookies(!showCookies);

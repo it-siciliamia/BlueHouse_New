@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useMediaQuery } from "react-responsive";
+import useBreakpoints from "../../Styles/useBreakpoints";
 import { WithTransLate } from "../helpers/translating/index";
 import insta01 from "../../images/instagramSVG/insta01.webp";
 import insta02 from "../../images/instagramSVG/insta02.webp";
@@ -26,11 +26,8 @@ import s from "./FollowUs.module.scss";
 import Button from "../Shared/Button/Button";
 
 const FollowUs = () => {
-  const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 599.99 });
-  const isTablet = useMediaQuery({ minWidth: 600, maxWidth: 959.99 });
-
+  const { isMobile, isTablet } = useBreakpoints();
   const [currentIndex, setCurrentIndex] = useState(0);
-
   const itemsPerPage = isMobile ? 1 : isTablet ? 2 : 3;
 
   const data = [

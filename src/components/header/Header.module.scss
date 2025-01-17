@@ -15,7 +15,6 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-
   @media (min-width: 320px) and (max-width: 599.99px) {
     padding: 0px 25px;
     width: 100%;
@@ -24,36 +23,38 @@
   @media (min-width: 600px) and (max-width: 959.99px) {
     margin-left: auto;
     margin-right: auto;
-    max-width: 600px;
     padding: 10px 20px;
+    max-width: 600px;
+    height: 81px;
   }
-  @media (min-width: 960px) and (max-width: 1279px) {
+  @media (min-width: 960px) and (max-width: 1279.99px) {
     margin-left: auto;
     margin-right: auto;
-    max-width: 960px !important;
     padding: 10px 20px;
-  }
-  @media (min-width: 1279px) and (max-width: 1279.99px) {
-    padding: 20px 107px 20px 130px;
-    width: 100%;
-    min-width: 1281px;
+    max-width: 960px;
+    height: 81px;
   }
   @media (min-width: 1280px) and (max-width: 2200px) {
+    margin-left: auto;
+    margin-right: auto;
     padding: 20px 107px 20px 130px;
     width: 100%;
-    min-width: 1281px;
+    min-width: 1280px;
+    height: 110px;
   }
 }
 
 .imgLogo {
-  width: 180px;
   @media (min-width: 320px) and (max-width: 599.99px) {
     width: 156px;
   }
-  @media (min-width: 600px) and (max-width: 1279px) {
+  @media (min-width: 600px) and (max-width: 959.99px) {
     width: 156px;
   }
-  @media (min-width: 1279px) and (max-width: 1279.99px) {
+  @media (min-width: 960px) and (max-width: 1279.99px) {
+    width: 156px;
+  }
+  @media (min-width: 1280px) and (max-width: 2200px) {
     width: 180px;
   }
 }

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
-import { useMediaQuery } from "react-responsive";
+import useBreakpoints from "../../Styles/useBreakpoints";
 import { useDispatch } from "react-redux";
 import { setPaymentStage } from "../../redux/technitial/technical-slice";
 import { items } from "../../components/ServicesRoom/ServicesRoomData";
@@ -20,8 +20,7 @@ const RoomDetails = () => {
   const history = useHistory();
   const dispatch = useDispatch();
 
-  const isLaptop = useMediaQuery({ minWidth: 960, maxWidth: 1279.99 });
-  const isDesktop = useMediaQuery({ minWidth: 1280, maxWidth: 2200 });
+  const { isLaptop, isDesktop } = useBreakpoints();
 
   const roomData = items.find((item) => item.links.href.includes(room));
 

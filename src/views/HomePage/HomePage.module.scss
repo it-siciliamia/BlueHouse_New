@@ -15,6 +15,7 @@
 
 .homeHeader {
   @media (min-width: 960px) and (max-width: 1279.99px) {
+    width: 100%;
     margin-left: 35px;
     display: flex;
     flex-direction: row;

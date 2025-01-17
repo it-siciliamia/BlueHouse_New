@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { useMediaQuery } from "react-responsive";
+import useBreakpoints from "../../Styles/useBreakpoints";
 import SideNavbar from "../SideNavbar/SideNavbar";
 import SideNavbarMobile from "../SideNavbar/SideNavbarMobile";
 import Button from "../Shared/Button/Button";
@@ -16,10 +16,7 @@ const userDeviceWidth = window.innerWidth;
 const mobileBreakpoint = 600;
 
 export default function Header({ right, setRight, top, setTop }) {
-  const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 599.99 });
-  const isTablet = useMediaQuery({ minWidth: 600, maxWidth: 1279 });
-  const isLaptop = useMediaQuery({ minWidth: 960, maxWidth: 1279 });
-  const isDesktop = useMediaQuery({ minWidth: 1280, maxWidth: 2200 });
+  const { isMobile, isTablet, isLaptop, isDesktop } = useBreakpoints();
   const location = useLocation();
 
   const [rightSearch, setRightSearch] = useState("-200%");

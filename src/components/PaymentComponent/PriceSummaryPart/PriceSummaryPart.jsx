@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useMediaQuery } from "react-responsive";
+import useBreakpoints from "../../../Styles/useBreakpoints";
 import { useSelector, useDispatch } from "react-redux";
 import { WithTransLate } from "../../helpers/translating";
 import {
@@ -28,7 +28,7 @@ const PriceSummaryPart = () => {
   const { adult, children, room } = useSelector(getAddParams);
   const totalAmountEuro = useSelector(getTotalAmountEuro);
   const totalAmountCurrency = useSelector(getTotalAmountCurrency);
-  const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 599.99 });
+  const { isMobile } = useBreakpoints();
 
   const popularCurrencies = [
     { code: "USD", symbol: "$" },

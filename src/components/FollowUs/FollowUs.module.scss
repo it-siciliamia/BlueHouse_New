@@ -33,7 +33,7 @@
     margin-top: 20px;
     width: 100%;
     display: flex;
-    display: row;
+    flex-direction: row;
     justify-content: space-between;
     gap: 40px;
   }

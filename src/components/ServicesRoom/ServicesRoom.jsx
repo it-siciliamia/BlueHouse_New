@@ -1,7 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { useMediaQuery } from "react-responsive";
+import useBreakpoints from "../../Styles/useBreakpoints";
 import { WithTransLate } from "..//helpers/translating/index";
 import SliderPreviewPhoto from "./SliderPreviewPhoto/SliderPreviewPhoto";
 import SliderPreviewPhotoM from "./SliderPreviewPhotoM/SliderPreviewPhotoM";
@@ -15,10 +15,7 @@ import {
 import s from "./ServicesRoom.module.scss";
 
 const ServicesRoom = () => {
-  const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 599.99 });
-  const isTablet = useMediaQuery({ minWidth: 600, maxWidth: 959.99 });
-  const isLaptop = useMediaQuery({ minWidth: 960, maxWidth: 1279.99 });
-  const isDesktop = useMediaQuery({ minWidth: 1280, maxWidth: 2200 });
+  const { isMobile, isTablet, isLaptop, isDesktop } = useBreakpoints();
   const { room: roomNumber } = useSelector(getAddParams);
   const days = useSelector(getDayDifference);
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { useMediaQuery } from "react-responsive";
+import useBreakpoints from "../../Styles/useBreakpoints";
 import { WithTransLate } from "../helpers/translating/index";
 import addservices01 from "../../images/roombooking/add_services/add_services01.webp";
 import addservices02 from "../../images/roombooking/add_services/add_services02.webp";
@@ -9,8 +9,7 @@ import addservices04 from "../../images/roombooking/add_services/add_services04.
 import s from "./AdditionalServices.module.scss";
 
 const AdditionalServices = () => {
-  const isTablet = useMediaQuery({ minWidth: 600, maxWidth: 959.99 });
-  const isDesktop = useMediaQuery({ minWidth: 1280, maxWidth: 2200 });
+  const { isTablet, isDesktop } = useBreakpoints();
 
   const additionalServicesData = [
     {

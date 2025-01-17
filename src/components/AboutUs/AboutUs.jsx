@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useMediaQuery } from "react-responsive";
+import useBreakpoints from "../../Styles/useBreakpoints";
 import Button from "../../components/Shared/Button/Button";
 import { WithTransLate } from "../helpers/translating/index";
 import selfie from "../../images/selfie.webp";
@@ -8,7 +8,7 @@ import selfie from "../../images/selfie.webp";
 import s from "./AboutUs.module.scss";
 
 function AboutUs() {
-  const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 599.99 });
+  const { isMobile } = useBreakpoints();
 
   return (
     <section id="ABOUTUS" className={s.about}>
