@@ -1,0 +1,134 @@
+.ourServices {
+  margin-top: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  @media (max-width: 768px) {
+    margin-top: 20px;
+    margin-bottom: -10px;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 0px;
+    width: 100%;
+  }
+  @media (min-width: 768px) and (max-width: 1024px) {
+    margin-top: 40px;
+    width: 100%;
+  }
+}
+
+.description {
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1.2;
+  text-align: center;
+  font-family: "Josefin Sans";
+  transition: font-weight 0.3s ease-in-out;
+  text-transform: uppercase !important;
+  @media (max-width: 768px) {
+    text-transform: lowercase !important;
+  }
+  @media (min-width: 768px) and (max-width: 1024px) {
+    font-size: 16px !important;
+  }
+}
+
+.description::first-letter {
+  text-transform: capitalize;
+}
+
+.sectionName {
+  width: 4.4%;
+}
+
+.sectionContent {
+  width: 87.6%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  @media (max-width: 768px) {
+    width: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+  }
+  @media (min-width: 768px) and (max-width: 1024px) {
+    width: 100%;
+  }
+}
+
+.serviceCard {
+  padding: 0px 25px;
+  padding-top: 20px;
+  width: 28.1%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+  @media (min-width: 768px) and (max-width: 1024px) {
+    width: 32%;
+  }
+
+  &:hover {
+    box-shadow: 0px 4px 4px rgba(7, 55, 98, 0.249);
+    .description {
+      font-weight: 500;
+      line-height: 1.2;
+      color: #243864;
+    }
+  }
+}
+
+.imageContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 58px;
+  width: 58px;
+  overflow: hidden;
+
+  .icon {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modalContent {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}

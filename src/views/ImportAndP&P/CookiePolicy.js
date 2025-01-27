@@ -1,13 +1,17 @@
 import React from "react";
 import { Box, makeStyles } from "@material-ui/core";
-import { WithTransLate } from "../../translating/index";
+import { WithTransLate } from "../../components/helpers/translating/index";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     fontFamily: "Josefin Sans",
     marginTop: "-20px",
+    marginBottom: "-40px",
     flexDirection: "column",
+    [theme.breakpoints.between(768, 1024)]: {
+      marginBottom: "-50px",
+    },
   },
 
   title: {
@@ -15,10 +19,13 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "40px",
     fontWeight: "700",
     lineHeight: "50px",
-
-    "@media (max-width: 743px)": {
+    [theme.breakpoints.down("md")]: {
       fontSize: "30px",
       lineHeight: "40px",
+    },
+    [theme.breakpoints.between(768, 1024)]: {
+      fontSize: "35px",
+      lineHeight: "45px",
     },
   },
   titleInfo: {
@@ -40,28 +47,34 @@ const useStyles = makeStyles((theme) => ({
     lineHeight: "24px",
     fontWeight: 300,
     letterSpacing: "0em",
-    "@media (max-width: 743px)": {
+    [theme.breakpoints.down("md")]: {
       fontSize: "16px",
       lineHeight: "22px",
+    },
+    [theme.breakpoints.between(768, 1024)]: {
+      fontSize: "17px",
+      lineHeight: "23px",
     },
   },
 
   articleWrapper: {
     marginBottom: "44px",
-  },
-  "@media (max-width: 743px)": {
-    marginBottom: "24px",
+    [theme.breakpoints.down("md")]: {
+      marginBottom: "24px",
+    },
+    [theme.breakpoints.between(768, 1024)]: {
+      marginBottom: "34px",
+    },
   },
 
   definitionList: {
     paddingLeft: "15px",
-
     "& li": {
       paddingBottom: "10px",
     },
     "& li:last-child": {
       paddingBottom: 0,
-    }
+    },
   },
 
   definition: {
@@ -69,7 +82,7 @@ const useStyles = makeStyles((theme) => ({
   },
 
   link: {
-    color: "#3b5998",
+    color: "#1D3967",
     fontWeight: 600,
     textDecoration: "underline",
   },
@@ -79,16 +92,18 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "space-between",
     alignItems: "center",
     borderBottom: "1px solid #e5e5e5",
-    color: "#3b5998",
+    color: "#1D3967",
   },
 
   subtitle: {
     marginBottom: "10px",
     fontWeight: 400,
     fontSize: "18px",
-
-    "@media (max-width: 743px)": {
+    [theme.breakpoints.down("md")]: {
       fontSize: "16px",
+    },
+    [theme.breakpoints.between(768, 1024)]: {
+      fontSize: "17px",
     },
   },
 
@@ -98,32 +113,32 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const COOKIES_ADVERTISEMENT = [
-  {id: 1, text: "TAUnique", link: ".tripadvisor.com"},
-  {id: 2, text: "TACds", link: ".tripadvisor.com"},
-  {id: 3, text: "b3e783bb62", link: "salesiq.zoho.eu"},
+  { id: 1, text: "TAUnique", link: ".tripadvisor.com" },
+  { id: 2, text: "TACds", link: ".tripadvisor.com" },
+  { id: 3, text: "b3e783bb62", link: "salesiq.zoho.eu" },
 ];
 
 const COOKIES_ANALITICS = [
-  {id: 1, text: "_ga", link: ".bluehouse.is"},
-  {id: 2, text: "_gid", link: ".bluehouse.is"},
-  {id: 3, text: "_gat_UA-223879896-1", link: ".bluehouse.is"},
-  {id: 4, text: "_ga_6QGX4YP9SF", link: ".bluehouse.is"},
-  {id: 5, text: "LaVisitorNew", link: ".bluehouse.is"},
-  {id: 6, text: "LaSID", link: ".bluehouse.is"},
-  {id: 7, text: "_ga_WYRZ6Q7MDE", link: ".bluehouse.is"},
-  {id: 8, text: "TADCID", link: "www.tripadvisor.com"},
+  { id: 1, text: "_ga", link: ".bluehouse.is" },
+  { id: 2, text: "_gid", link: ".bluehouse.is" },
+  { id: 3, text: "_gat_UA-223879896-1", link: ".bluehouse.is" },
+  { id: 4, text: "_ga_6QGX4YP9SF", link: ".bluehouse.is" },
+  { id: 5, text: "LaVisitorNew", link: ".bluehouse.is" },
+  { id: 6, text: "LaSID", link: ".bluehouse.is" },
+  { id: 7, text: "_ga_WYRZ6Q7MDE", link: ".bluehouse.is" },
+  { id: 8, text: "TADCID", link: "www.tripadvisor.com" },
 ];
 
 const COOKIES_FUNCTIONAL = [
-  {id: 1, text: "TASession", link: ".tripadvisor.com"},
-  {id: 2, text: "ServerPool", link: ".tripadvisor.com"},
-  {id: 3, text: "_zcsr_tmp", link: "salesiq.zoho.eu"},
+  { id: 1, text: "TASession", link: ".tripadvisor.com" },
+  { id: 2, text: "ServerPool", link: ".tripadvisor.com" },
+  { id: 3, text: "_zcsr_tmp", link: "salesiq.zoho.eu" },
 ];
 
 const COOKIES_NECESSARY = [
-  {id: 1, text: "LS_CSRF_TOKEN", link: "salesiq.zoho.eu"},
-  {id: 2, text: "zfccn", link: "pagesense-collect.zoho.eu"},
-  {id: 3, text: "JSESSIONID", link: "maillist-manage.eu"},
+  { id: 1, text: "LS_CSRF_TOKEN", link: "salesiq.zoho.eu" },
+  { id: 2, text: "zfccn", link: "pagesense-collect.zoho.eu" },
+  { id: 3, text: "JSESSIONID", link: "maillist-manage.eu" },
 ];
 
 export default function CookiePolicy() {
@@ -142,16 +157,16 @@ export default function CookiePolicy() {
   } = useStyles();
   return (
     <Box className={root}>
-      <h1 className={title}>
+      <h2 className={title}>
         <WithTransLate text="COOKIE POLICY" />
-      </h1>
+      </h2>
 
       <div className={titleInfo}>
         <p className={textClass}>
           <WithTransLate text="In order to provide you with a more personalized and responsive service we need to remember and store information about how you use this website. This is done using small text files called cookies. Cookies contain small amounts of information and are downloaded to your computer or other device by a server for this website. Your web browser then sends these cookies back to this Website on each subsequent visit so that it can recognise you and remember things like your user preferences. A cookie is a small file of letters and numbers that we store on your browser and hard drive of your computer. Cookies contain information that is transferred to your computer’s hard drive. By browsing our sites you are accepting our use of cookies. You can close the cookie notification by clicking “OK” button." />
         </p>
 
-        <p className={textClass}>
+        <div className={textClass}>
           <ul className={definitionList}>
             <li>
               <span className={definition}>
@@ -187,7 +202,7 @@ export default function CookiePolicy() {
               <WithTransLate text="These cookies can be connected to your social accounts to display advertisements to your social accounts." />
             </li>
           </ul>
-        </p>
+        </div>
 
         <p className={textClass}>
           <WithTransLate text="Most browsers will allow you to see what cookies you have and delete them on an individual basis or block cookies from particular or all websites. Be aware that any preference you have set will be lost if you delete all cookies, including your preference to close the cookie notification." />
@@ -206,11 +221,16 @@ export default function CookiePolicy() {
             <WithTransLate text="Advertisement" />
           </p>
 
-          {COOKIES_ADVERTISEMENT.map(data => (
-            <p key={data.id} className={`${textClass} ${subtitle} ${linkWrapper}`}>
+          {COOKIES_ADVERTISEMENT.map((data) => (
+            <p
+              key={data.id}
+              className={`${textClass} ${subtitle} ${linkWrapper}`}
+            >
               <WithTransLate text={data.text} />
 
-              <a href={data.link} className={link}>{data.link}</a>
+              <a href={data.link} className={link}>
+                {data.link}
+              </a>
             </p>
           ))}
         </div>
@@ -221,10 +241,15 @@ export default function CookiePolicy() {
           </p>
 
           {COOKIES_ANALITICS.map((data) => (
-            <p key={data.id} className={`${textClass} ${subtitle} ${linkWrapper}`}>
+            <p
+              key={data.id}
+              className={`${textClass} ${subtitle} ${linkWrapper}`}
+            >
               <WithTransLate text={data.text} />
 
-              <a href={data.link} className={link}>{data.link}</a>
+              <a href={data.link} className={link}>
+                {data.link}
+              </a>
             </p>
           ))}
         </div>
@@ -235,10 +260,15 @@ export default function CookiePolicy() {
           </p>
 
           {COOKIES_FUNCTIONAL.map((data) => (
-            <p key={data.id} className={`${textClass} ${subtitle} ${linkWrapper}`}>
+            <p
+              key={data.id}
+              className={`${textClass} ${subtitle} ${linkWrapper}`}
+            >
               <WithTransLate text={data.text} />
 
-              <a href={data.link} className={link}>{data.link}</a>
+              <a href={data.link} className={link}>
+                {data.link}
+              </a>
             </p>
           ))}
         </div>
@@ -249,10 +279,15 @@ export default function CookiePolicy() {
           </p>
 
           {COOKIES_NECESSARY.map((data) => (
-            <p key={data.id} className={`${textClass} ${subtitle} ${linkWrapper}`}>
+            <p
+              key={data.id}
+              className={`${textClass} ${subtitle} ${linkWrapper}`}
+            >
               <WithTransLate text={data.text} />
 
-              <a href={data.link} className={link}>{data.link}</a>
+              <a href={data.link} className={link}>
+                {data.link}
+              </a>
             </p>
           ))}
         </div>

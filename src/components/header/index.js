@@ -1,16 +1,15 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useMediaQuery } from "react-responsive";
 import clsx from "clsx";
-import { WithTransLate } from "../../translating/index";
-import SideNavbar from "../SideNavbar";
-import SideNavbarMobile from "../SideNavbarMobile";
+import SideNavbar from "../SideNavbar/SideNavbar";
+import SideNavbarMobile from "../SideNavbar/SideNavbarMobile";
+import Button from "../Shared/Button/Button";
 import Search from "./search";
-
 import { Grid } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-
-import MenuIcon from "../../images/MenuIcon_Header.png";
-import SearchIcon from "../../images/SearchIcon_Header.png";
+import MenuIcon from "../../images/MenuIcon_Header.svg";
+import SearchIcon from "../../images/SearchIcon_Header.svg";
 import logo from "../../images/logoBlue.png";
 import menu from "../../images/Header_icons/Menu_header_mobileview.svg";
 
@@ -23,14 +22,21 @@ const headerStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    padding:'20px 115px',
+    padding: "20px 115px",
     position: "fixed",
     top: "0",
     left: "0",
     right: "0",
     zIndex: 3,
-    backgroundColor: "white",
-    
+    // backgroundColor: "white",
+    backdropFilter: "blur(3px)",
+    backgroundColor: "rgba(255, 255, 255, 0.7)",
+    [theme.breakpoints.down("sm")]: {
+      padding: "20px 20px",
+    },
+    [theme.breakpoints.up("md")]: {
+      padding: "20px 115px",
+    },
   },
 
   atag: {
@@ -47,11 +53,11 @@ const headerStyles = makeStyles((theme) => ({
     justifyContent: "center",
     alignItems: "Center",
     width: "700px",
-    gap:"20px !important",
   },
 
   column3: {
     gap: "10px",
+
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
@@ -69,7 +75,7 @@ const headerStyles = makeStyles((theme) => ({
 
   bookingButtons: {
     border: "1px solid #14202B",
-    width: "280px !important" ,
+    width: "280px !important",
     textTransform: "uppercase",
     cursor: "pointer",
     fontFamily: "Josefin Sans",
@@ -77,8 +83,8 @@ const headerStyles = makeStyles((theme) => ({
     lineHeight: "20px",
     textAlign: "center",
     display: "block",
-    height: "36px",
-    alignContent: "center",
+    height: "46px",
+    padding: "14px",
     "&:hover": {
       background: "#04376F",
     },
@@ -96,11 +102,12 @@ const headerStyles = makeStyles((theme) => ({
   },
 
   bookingRoom: {
-    backgroundColor: "#3B5998",
+    backgroundColor: "#1D3967",
+    marginRight: "52px",
     color: "#fff",
     "&:hover": {
       color: "#073762",
-      backgroundColor:'#fff'
+      backgroundColor: "#fff",
     },
     [theme.breakpoints.down("md")]: {
       marginRight: "-22px",
@@ -112,7 +119,7 @@ const headerStyles = makeStyles((theme) => ({
     color: "#073762",
     "&:hover": {
       color: "#fff",
-    backgroundColor:'#3B5998'
+      backgroundColor: "#1D3967",
     },
     [theme.breakpoints.down("md")]: {
       marginRight: "-82px",
@@ -183,8 +190,8 @@ const headerStyles = makeStyles((theme) => ({
   menuIcon: {
     marginRight: "10px",
     backgroundColor: "transparent",
-    border:'none',
-    outline:'none',
+    border: "none",
+    outline: "none",
 
     "&:focus": {
       outline: "none",
@@ -275,6 +282,7 @@ const headerStyles = makeStyles((theme) => ({
 }));
 
 export default function Header({ right, setRight, top, setTop }) {
+  const isDesktop = useMediaQuery({ minDeviceWidth: 813 });
   const classes = headerStyles();
 
   const [rightSearch, setRightSearch] = useState("-200%");
@@ -357,25 +365,27 @@ export default function Header({ right, setRight, top, setTop }) {
             </Link>
           </div>
 
-          <div className={classes.bookingButtonsWrapper}>
-            <a
-              className={clsx(classes.bookingRoom, classes.bookingButtons)}
-              href="https://beds24.com/booking2.php?propid=3578&layout=1"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <WithTransLate text="main page" />
-            </a>
+          {isDesktop && (
+            <div className={classes.bookingButtonsWrapper}>
+              <a
+                className={clsx(classes.bookingRoom)}
+                href="https://beds24.com/booking2.php?propid=3578&layout=1"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <Button text="BOOK YOUR ROOM" btnClass="btnDark" />
+              </a>
 
-            <a
-              className={clsx(classes.bookingTour, classes.bookingButtons)}
-              href="https://bluehouse.tourdesk.is/Tour"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <WithTransLate text="book day tour" />
-            </a>
-          </div>
+              <a
+                className={clsx(classes.bookingTour)}
+                href="https://bluehouse.tourdesk.is/Tour"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <Button text="BOOK DAY TOUR" btnClass="btnLight" />
+              </a>
+            </div>
+          )}
 
           <div className={classes.column3}>
             <button
@@ -383,7 +393,12 @@ export default function Header({ right, setRight, top, setTop }) {
               onClick={() => handleShowSearchInput(0)}
               aria-label="menu"
             >
-              <img src={SearchIcon} alt="SearchIcon" />
+              <img
+                src={SearchIcon}
+                alt="SearchIcon"
+                width={"30px"}
+                height={"30px"}
+              />
             </button>
 
             <button
@@ -391,7 +406,12 @@ export default function Header({ right, setRight, top, setTop }) {
               onClick={() => handleOpenAndCloseSideNavbar(0)}
               aria-label="menu"
             >
-              <img src={MenuIcon} alt="MenuIcon" />
+              <img
+                src={MenuIcon}
+                alt="MenuIcon"
+                width={"43px"}
+                height={"32px"}
+              />
             </button>
           </div>
         </Grid>

@@ -1,0 +1,108 @@
+.btnDark {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 0px 10px !important;
+  height: 46px;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1;
+  text-align: center;
+  background-color: #1d3967;
+  color: #fff;
+  text-transform: uppercase;
+  border: 1px solid #1d3967;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  @media (max-width: 768px) {
+    width: 232px;
+  }
+}
+
+.btnDark:hover {
+  color: #073762;
+  background-color: #fff;
+  outline: none;
+}
+
+.btnDark:focus {
+  outline: none;
+}
+
+.textWrapper {
+  padding-top: 4px;
+}
+
+.btnLight {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 0px 10px;
+  height: 46px;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1;
+  text-align: center;
+  background-color: #fff;
+  color: #1d3967;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  border: 1px solid #1d3967;
+  outline: none;
+  cursor: pointer;
+
+  @media (max-width: 768px) {
+    width: 232px;
+  }
+}
+
+.btnLight:hover {
+  color: #fff;
+  background-color: #1d3967;
+  outline: none;
+}
+
+.btnLight:focus {
+  outline: none;
+}
+
+.inBox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 0px 10px;
+  height: 46px;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1;
+  text-align: center;
+  background-color: transparent;
+  color: #fff;
+  text-transform: uppercase;
+  border: 1px solid #fff;
+  outline: none;
+  cursor: pointer;
+
+  @media (max-width: 768px) {
+    width: 116px;
+  }
+}
+
+.inBox:hover {
+  background-color: #1d3967;
+  color: #fff;
+  border: 1px solid #1d3967;
+  outline: none;
+}
+
+.inBox:focus {
+  outline: none;
+}

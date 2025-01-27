@@ -1,8 +1,7 @@
 import React from "react";
-import { Box,Grid, makeStyles, Typography } from "@material-ui/core";
+import { Box, Grid, makeStyles, Typography } from "@material-ui/core";
 import CloseIcon from "@material-ui/icons/Close";
-import { WithTransLate } from "../../translating/index";
-
+import { WithTransLate } from "../helpers/translating/index";
 
 const useStyles = makeStyles((theme) => ({
   "@keyframes showup": {
@@ -13,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
       opacity: 1,
     },
   },
-  
+
   root: {
     display: "flex",
     justifyContent: "space-between",
@@ -40,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
       left: "50%",
     },
 
-    '@media (max-width: 810px)' : {
+    "@media (max-width: 810px)": {
       width: "100vw",
       height: "100vh",
       maxWidth: "100%",
@@ -58,10 +57,10 @@ const useStyles = makeStyles((theme) => ({
   logoClass: {
     display: "flex",
     width: "30vw",
-    height:"15vh", 
-    marginLeft:"-2%", 
-    marginTop:"-16%",
-    marginBottom:"26%",
+    height: "15vh",
+    marginLeft: "-2%",
+    marginTop: "-16%",
+    marginBottom: "26%",
   },
 
   titleStyle: {
@@ -70,7 +69,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "32px",
     lineHeight: "34px",
     letterSpacing: "0px",
-    top:"-10rem",
+    top: "-10rem",
 
     "@media (max-width: 900px)": {
       marginTop: "-20%",
@@ -170,7 +169,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "space-evenly",
     gap: "20px",
     width: "50%",
-    position:'relative',
+    position: "relative",
     "@media (max-width: 600px)": {
       padding: "20px 25px",
       width: "calc(100% - 48px)",
@@ -182,14 +181,14 @@ const useStyles = makeStyles((theme) => ({
 
   BHlogoStyle: {
     position: "absolute",
-    top:50,
-    left:60,
+    top: 50,
+    left: 60,
     display: "flex",
     minWidth: "90px",
     width: "20%",
-    height:"10vh", 
+    height: "10vh",
     marginBottom: "5%",
-    marginLeft:"-6%",
+    marginLeft: "-6%",
     marginTop: "-12%",
 
     "@media (max-width: 1100px)": {
@@ -201,8 +200,8 @@ const useStyles = makeStyles((theme) => ({
     },
 
     "@media (max-width: 600px)": {
-      width: "25vw", 
-      height:"20vh",
+      width: "25vw",
+      height: "20vh",
       marginLeft: "-2%",
       marginTop: "-5%",
     },
@@ -240,9 +239,8 @@ export default function PopUpVariationMainLayout({
 }) {
   const color = window.innerWidth <= 600 ? "primary" : "secondary";
 
-  const popUpContent = window.innerWidth > 600
-    ? popUpLargeContent
-    : popUpSmallContent;
+  const popUpContent =
+    window.innerWidth > 600 ? popUpLargeContent : popUpSmallContent;
 
   const {
     replaceImageStyle,
@@ -257,15 +255,14 @@ export default function PopUpVariationMainLayout({
 
   return (
     <Box className={root}>
-      <div className={bluredBackground}>
-      </div>
+      <div className={bluredBackground}></div>
 
       <div className={originalSideImageStyle}>
-        <img src={imgSrc} alt="" />
+        <img src={imgSrc} alt="support" />
       </div>
 
       <div className={replaceImageStyle}>
-        <img src={imageSrcReplace} alt="" />
+        <img src={imageSrcReplace} alt="support background" />
       </div>
 
       <Box className={content}>
@@ -280,7 +277,7 @@ export default function PopUpVariationMainLayout({
         <Typography className={titleStyle}>
           <WithTransLate text={title} />
         </Typography>
-        
+
         {popUpContent}
       </Box>
     </Box>

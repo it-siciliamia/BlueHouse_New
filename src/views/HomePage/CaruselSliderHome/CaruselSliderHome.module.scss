@@ -1,0 +1,121 @@
+.container {
+  margin-top: 55px;
+  @media (max-width: 768px) {
+    margin-top: 190px;
+    margin-bottom: 50px;
+  }
+  @media (min-width: 768px) and (max-width: 1024px) {
+    margin-top: 0px;
+  }
+}
+
+.imageBox {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  width: 100%;
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+  @media (min-width: 768px) and (max-width: 1024px) {
+    width: 100%;
+  }
+}
+
+.image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  object-fit: cover;
+  transition: opacity 1s ease-in-out;
+}
+
+.currentImage {
+  opacity: 1;
+}
+
+.pagination {
+  margin-bottom: 30px;
+  position: absolute;
+  z-index: 2;
+  @media (max-width: 768px) {
+    margin-bottom: 10px;
+  }
+  @media (min-width: 768px) and (max-width: 1024px) {
+    margin-bottom: 20px;
+  }
+}
+
+.paginationBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 150px;
+  @media (max-width: 768px) {
+    width: 120px;
+  }
+}
+
+.paginationDot {
+  cursor: pointer;
+  border-radius: 50%;
+  background-color: white;
+  width: 10px;
+  height: 10px;
+  @media (max-width: 768px) {
+    width: 8px;
+    height: 8px;
+  }
+}
+
+.arrowButton {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 54px;
+  height: 54px;
+  background-color: transparent;
+  border-radius: 50%;
+  transition: all 0.3s ease-in-out;
+}
+
+.arrowButton svg {
+  color: rgba(245, 245, 245, 0.634);
+}
+
+.arrowButton:hover {
+  background-color: rgba(245, 245, 245, 0.269);
+}
+
+.arrowButton:hover svg {
+  color: #1d3967;
+}
+
+.arrowlinkRigth {
+  margin-left: 6px;
+}
+
+.arrowlinkLeft {
+  margin-right: 6px;
+}
+
+.arrowButtonLeft {
+  position: absolute;
+  margin-left: 20px;
+  top: 47%;
+  left: 0;
+  z-index: 2;
+}
+
+.arrowButtonRight {
+  position: absolute;
+  margin-right: 20px;
+  top: 47%;
+  right: 0;
+  z-index: 2;
+}

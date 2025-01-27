@@ -4,15 +4,14 @@ import { makeStyles } from "@material-ui/core";
 const useStyles = makeStyles((theme) => ({
   modal: {
     backgroundColor: "#fff",
-    padding: "20px",
     borderRadius: "8px",
     fontFamily: "Arial, sans-serif",
-    margin: "20px",
   },
   form: {
     display: "flex",
     flexDirection: "row",
     gap: "20px",
+    marginTop: "15px",
     marginBottom: "15px",
     [theme.breakpoints.down("sm")]: {
       flexDirection: "column",
@@ -27,7 +26,8 @@ const useStyles = makeStyles((theme) => ({
   },
   buttonContainer: {
     display: "flex",
-    justifyContent: "space-evenly",
+    justifyContent: "flex-end",
+    gap: "10px",
     [theme.breakpoints.down("sm")]: {
       flexDirection: "column",
       gap: "10px",

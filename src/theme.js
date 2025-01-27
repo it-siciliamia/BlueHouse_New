@@ -9,4 +9,5 @@ const theme = createTheme({
     secondary: "#073762",
   },
 });
+
 export default theme;

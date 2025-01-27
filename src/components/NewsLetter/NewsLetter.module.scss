@@ -6,21 +6,22 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 30px 15px;
+  padding: 40px 30px;
   gap: 20px;
-  //   border: 1px solid #243864;
   border: 1px solid #d8dfe7;
 
   @media (max-width: 768px) {
     width: 90%;
-    padding: 15px;
+    padding: 40px 20px;
+    margin-top: 0px;
     margin-bottom: 50px;
   }
 
   @media (min-width: 768px) and (max-width: 1024px) {
     width: 90%;
     padding: 20px 15px;
-    margin-bottom: 50px;
+    margin-top: 90px;
+    margin-bottom: -40px;
   }
 }
 
@@ -79,8 +80,9 @@
 }
 
 .formGroup {
+  position: relative;
+  margin-bottom: 16px;
   margin-right: 200px;
-  margin-bottom: 15px;
   width: 350px;
 
   @media (max-width: 768px) {
@@ -106,9 +108,15 @@ input.error {
 }
 
 .errorMessage {
-  color: red;
+  display: block;
+  height: 16px;
   font-size: 12px;
-  margin-top: 5px;
+  color: red;
+  visibility: hidden;
+}
+
+.errorMessage:not(:empty) {
+  visibility: visible;
 }
 
 .customCheckbox {
@@ -171,7 +179,7 @@ input.error {
   font-weight: 600;
   font-size: 14px;
   line-height: 1.5;
-  color: #8969af;
+  color: blue;
 }
 
 .humanVerification {
@@ -183,7 +191,7 @@ input.error {
 
 .btn {
   margin-top: 15px;
-  background-color: #3b5998;
+  background-color: #1d3967;
   font-size: 15px;
   color: #fff;
   font-size: 16px;
@@ -192,11 +200,11 @@ input.error {
   width: 280px;
   text-transform: uppercase;
   transition: border-color 0.3s ease;
-  border: 1px solid #3b5998;
+  border: 1px solid #1d3967;
   cursor: pointer;
 
   @media (max-width: 768px) {
-    width: 220px;
+    width: 232px;
   }
 }
 

@@ -1,10 +1,10 @@
-import { makeStyles, Typography } from "@material-ui/core";
+import { makeStyles, Typography , Grid } from "@material-ui/core";
 import PopUpVariationMainLayout from "./popUpVariationMainLayout";
 import originalSideImage from "../../images/popUpVariations/BOOKONOURSITE.jpg";
-import BHlogo from"../../images/popUpVariations/bluehouse.svg";
+import BHlogo from "../../images/popUpVariations/bluehouse.svg";
 import replaceImage from "../../images/popUpVariations/replace/BOOKONOURSITE.svg";
-import { WithTransLate } from "../../translating/index";
-import { Grid } from "@material-ui/core";
+import { WithTransLate } from "../helpers/translating/index";
+
 
 const useStyles = makeStyles((theme) => ({
   intro: {
@@ -84,7 +84,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function BookOnOurWebsite({ handleClose }) {
-  const { intro, infoList, smallSizeFont, ButtonPosition, sliderSecondButton } = useStyles();
+  const { intro, infoList, smallSizeFont, ButtonPosition, sliderSecondButton } =
+    useStyles();
 
   const largContent = (
     <>
@@ -95,27 +96,23 @@ export default function BookOnOurWebsite({ handleClose }) {
       <Typography className={infoList}>
         <ul>
           <li>
-            <WithTransLate
-              text=" Best Price guaranteed"
-            />
+            <WithTransLate text=" Best Price guaranteed" />
           </li>
           <li>
-            <WithTransLate
-              text=" Breakfast included (Continental/Cereal Depending on your booking)"
-            />
+            <WithTransLate text=" Breakfast included (Continental/Cereal Depending on your booking)" />
           </li>
           <li>
-            <WithTransLate
-              text=" 45 minutes away from the new volcanic eruption"
-            />
+            <WithTransLate text=" 45 minutes away from the new volcanic eruption" />
           </li>
         </ul>
       </Typography>
       <Grid marginTop="-15%" item>
         <div className={ButtonPosition}>
-          <a  href="https://beds24.com/booking2.php?propid=3578&layout=1"
-              target="_blank"
-              rel="noreferrer">
+          <a
+            href="https://beds24.com/booking2.php?propid=3578&layout=1"
+            target="_blank"
+            rel="noreferrer"
+          >
             <button className={sliderSecondButton} type="button">
               <WithTransLate text="BOOK NOW" />
             </button>
@@ -128,26 +125,18 @@ export default function BookOnOurWebsite({ handleClose }) {
   const smallContent = (
     <>
       <Typography className={smallSizeFont}>
-        <WithTransLate
-          text=" Don't miss an adventure!"
-        />
+        <WithTransLate text=" Don't miss an adventure!" />
       </Typography>
       <Typography className={smallSizeFont}>
         <ul>
           <li>
-            <WithTransLate
-              text=" Best Price guaranteed"
-            />
+            <WithTransLate text=" Best Price guaranteed" />
           </li>
           <li>
-            <WithTransLate
-              text=" Breakfast included (Continental/Cereal Depending on your booking)"
-            />
+            <WithTransLate text=" Breakfast included (Continental/Cereal Depending on your booking)" />
           </li>
           <li>
-            <WithTransLate
-              text=" 45 minutes away from the new volcanic eruption"
-            />
+            <WithTransLate text=" 45 minutes away from the new volcanic eruption" />
           </li>
         </ul>
       </Typography>

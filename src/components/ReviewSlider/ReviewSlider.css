@@ -2,6 +2,10 @@
   padding: 58px 15px 14px;
   display: flex;
   flex-direction: column;
+
+  @media (max-width: 768px) {
+    padding: 50px 20px 50px;
+  }
 }
 
 .review__section {
@@ -14,7 +18,7 @@
   margin: 0 0 0 5px;
   font-family: Oblik;
   font-weight: 900;
-  font-size: 18px;
+  font-size: 20px;
   line-height: 50px;
   letter-spacing: 0.1em;
   white-space: nowrap;

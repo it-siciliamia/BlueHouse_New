@@ -1,6 +1,7 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { Box, makeStyles } from "@material-ui/core";
-import { WithTransLate } from "../../translating/index";
+import { WithTransLate } from "../../components/helpers/translating/index";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -14,21 +15,22 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "40px",
     fontWeight: "700",
     lineHeight: "50px",
-
-    "@media (max-width: 743px)": {
+    [theme.breakpoints.down("md")]: {
       fontSize: "30px",
       lineHeight: "40px",
+    },
+    [theme.breakpoints.between(768, 1024)]: {
+      fontSize: "35px",
+      lineHeight: "45px",
     },
   },
   titleInfo: {
     margin: "20px 0 128px 0",
-
-    "@media (max-width: 1279px)": {
+    [theme.breakpoints.down("md")]: {
       margin: "20px 0 44px 0",
     },
-
-    "@media (max-width: 743px)": {
-      margin: "10px 0 24px 0",
+    [theme.breakpoints.between(768, 1024)]: {
+      margin: "20px 0 80px 0",
     },
   },
   subtitle: {
@@ -36,8 +38,12 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 600,
     lineHeight: "28px",
     letterSpacing: "0em",
-    "@media (max-width: 743px)": {
+    [theme.breakpoints.down("md")]: {
       fontSize: "18px",
+      lineHeight: "28px",
+    },
+    [theme.breakpoints.between(768, 1024)]: {
+      fontSize: "19px",
       lineHeight: "28px",
     },
   },
@@ -45,62 +51,65 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: "Josefin sans",
     display: "flex",
     flexDirection: "column",
-    textAling: "left",
+    textAlign: "left",
     justifyContent: "space-between",
     marginTop: "20px",
   },
-
   textClass: {
     marginTop: "5px",
     fontSize: "18px",
     lineHeight: "24px",
     fontWeight: 300,
     letterSpacing: "0em",
-    "@media (max-width: 743px)": {
+    [theme.breakpoints.down("md")]: {
       fontSize: "16px",
       lineHeight: "22px",
     },
+    [theme.breakpoints.between(768, 1024)]: {
+      fontSize: "17px",
+      lineHeight: "23px",
+    },
   },
-
   articleWrapper: {
     marginBottom: "44px",
+    [theme.breakpoints.down("md")]: {
+      marginBottom: "24px",
+    },
+    [theme.breakpoints.between(768, 1024)]: {
+      marginBottom: "34px",
+    },
   },
-  "@media (max-width: 743px)": {
-    marginBottom: "24px",
-  },
-
   articleTitle: {
     marginBottom: "20px",
     fontSize: "28px",
     fontWeight: 600,
     lineHeight: "30px",
-    "@media (max-width: 743px)": {
+    [theme.breakpoints.down("md")]: {
       fontSize: "24px",
       lineHeight: "30px",
     },
+    [theme.breakpoints.between(768, 1024)]: {
+      fontSize: "26px",
+      lineHeight: "30px",
+    },
   },
-
   definitionList: {
     paddingLeft: "15px",
-
     "& li": {
       paddingBottom: "10px",
     },
     "& li:last-child": {
       paddingBottom: 0,
-    }
+    },
   },
-
   definition: {
     fontWeight: 600,
   },
-
   link: {
-    color: "#3b5998",
+    color: "#1D3967",
     fontWeight: 400,
     textDecoration: "underline",
   },
-
   additionSubtitle: {
     marginTop: "5px",
     paddingLeft: "10px",
@@ -108,24 +117,23 @@ const useStyles = makeStyles((theme) => ({
     lineHeight: "24px",
     fontWeight: 600,
     letterSpacing: "0em",
-    "@media (max-width: 743px)": {
+    [theme.breakpoints.down("md")]: {
       fontSize: "16px",
       lineHeight: "22px",
     },
+    [theme.breakpoints.between(768, 1024)]: {
+      fontSize: "17px",
+      lineHeight: "23px",
+    },
   },
-
   subtitle2: {
     marginBottom: "20px",
   },
-
   personalDataList: {
     paddingTop: "8px",
     paddingLeft: "25px",
   },
-
-  collectingAndUsingItem: {
-    marginBottom: "30px",
-  },
+  collectingAndUsingItem: {},
   typesOfDataItem: {},
   paddingList: {
     paddingLeft: "25px",
@@ -160,6 +168,11 @@ function Subtitle({ title, text }) {
   );
 }
 
+Subtitle.propTypes = {
+  title: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+};
+
 export default function Privacy() {
   const {
     root,
@@ -185,9 +198,9 @@ export default function Privacy() {
   } = useStyles();
   return (
     <Box className={root}>
-      <h1 className={title}>
+      <h2 className={title}>
         <WithTransLate text="IMPRINT & PRIVACY POLICY" />
-      </h1>
+      </h2>
 
       <div className={titleInfo}>
         <p className={textClass}>
@@ -218,7 +231,7 @@ export default function Privacy() {
           text="For the purposes of this Privacy Policy:"
         />
 
-        <p className={textClass}>
+        <div className={textClass}>
           <ul className={definitionList}>
             <li>
               <span className={definition}>
@@ -242,7 +255,7 @@ export default function Privacy() {
               </span>
 
               <WithTransLate text=", Valhusabraut 19, Seltjarnarnes, 170, Iceland and " />
-              
+
               <span className={definition}>
                 <WithTransLate text="Grotta Northern Lights apartment" />
               </span>
@@ -270,7 +283,7 @@ export default function Privacy() {
               <span className={definition}>
                 <WithTransLate text="Device " />
               </span>
-              
+
               <WithTransLate text="means any device that can access the Service such as a computer, a cell phone or a digital tablet." />
             </li>
 
@@ -278,7 +291,7 @@ export default function Privacy() {
               <span className={definition}>
                 <WithTransLate text="Personal Data " />
               </span>
-              
+
               <WithTransLate text="is any information that relates to an identified or identifiable individual." />
             </li>
 
@@ -286,7 +299,7 @@ export default function Privacy() {
               <span className={definition}>
                 <WithTransLate text="Service " />
               </span>
-              
+
               <WithTransLate text="refers to the Website." />
             </li>
 
@@ -294,7 +307,7 @@ export default function Privacy() {
               <span className={definition}>
                 <WithTransLate text="Service Provider " />
               </span>
-              
+
               <WithTransLate text="means any natural or legal person who processes the data on behalf of the Company. It refers to third-party companies or individuals employed by the Company to facilitate the Service, to provide the Service on behalf of the Company, to perform services related to the Service or to assist the Company in analyzing how the Service is used." />
             </li>
 
@@ -302,29 +315,38 @@ export default function Privacy() {
               <span className={definition}>
                 <WithTransLate text="Usage Data " />
               </span>
-              
+
               <WithTransLate text="refers to data collected automatically, either generated by the use of the Service or from the Service infrastructure itself (for example, the duration of a page visit)." />
             </li>
 
             <li>
-              <span className={definition}><WithTransLate text="Website " /></span>
+              <span className={definition}>
+                <WithTransLate text="Website " />
+              </span>
 
               <WithTransLate text="refers to Blue House B&B, accessible from" />
 
-              <a href="https://bluehouse.is/" className={link}> https://bluehouse.is/ </a>
+              <a href="https://bluehouse.is/" className={link}>
+                {" "}
+                https://bluehouse.is/{" "}
+              </a>
 
               <WithTransLate text="and Grotta Northern Lights apartment, accessible from" />
 
-              <a href="https://grottanorthernlights.com/" className={link}> https://grottanorthernlights.com/ </a>
+              <a href="https://grottanorthernlights.com/" className={link}>
+                {" "}
+                https://grottanorthernlights.com/{" "}
+              </a>
             </li>
 
             <li>
-              <span className={definition}><WithTransLate text="You " /></span>
+              <span className={definition}>
+                <WithTransLate text="You " />
+              </span>
               <WithTransLate text="means the individual accessing or using the Service, or the company, or other legal entity on behalf of which such individual is accessing or using the Service, as applicable." />
             </li>
           </ul>
-        </p>
-        
+        </div>
       </div>
 
       <div className={articleWrapper}>
@@ -342,21 +364,30 @@ export default function Privacy() {
               <WithTransLate text="1. Personal Data" />
             </h4>
 
-            <p className={textClass}>
+            <div className={textClass}>
               <WithTransLate text="While using Our Service, We may ask You to provide Us with certain personally identifiable information that can be used to contact or identify You. Personally identifiable information may include, but is not limited to:" />
-
               <ul className={personalDataList}>
-                <li><WithTransLate text="First name and last name" /></li>
+                <li>
+                  <WithTransLate text="First name and last name" />
+                </li>
 
-                <li><WithTransLate text="Email address" /></li>
+                <li>
+                  <WithTransLate text="Email address" />
+                </li>
 
-                <li><WithTransLate text="Address, State, Province, ZIP/Postal code, City" /></li>
+                <li>
+                  <WithTransLate text="Address, State, Province, ZIP/Postal code, City" />
+                </li>
 
-                <li><WithTransLate text="Phone number" /></li>
+                <li>
+                  <WithTransLate text="Phone number" />
+                </li>
 
-                <li><WithTransLate text="Credit card details" /></li>
+                <li>
+                  <WithTransLate text="Credit card details" />
+                </li>
               </ul>
-            </p>
+            </div>
           </div>
 
           <div className={typesOfDataItem}>
@@ -387,7 +418,7 @@ export default function Privacy() {
             </h4>
 
             <p className={textClass}>
-              <WithTransLate text="When You leave comments on the site We collect the data shown in the comments form, and also Your IP address and browser agent string to help spam detection." />
+              <WithTransLate text="When You leave comments on the site We collect the data shown in the comments form, and also Your IP address and browser user agent string to help spam detection." />
             </p>
 
             <p className={textClass}>
@@ -405,7 +436,7 @@ export default function Privacy() {
             </h4>
 
             <p className={textClass}>
-              <WithTransLate text="If You upload images to the website, You should avoid uploading images with embedded location data (EXIF GPS) included. Any visitors to the website can download and extract any location data from images on the website." />
+              <WithTransLate text="If You upload images to the website, You should avoid uploading images with embedded location data (EXIF GPS) included. Any visitor to the website can download and extract any location data from images on the website." />
             </p>
           </div>
 
@@ -435,7 +466,7 @@ export default function Privacy() {
 
               <li>
                 <h4 className={`${additionSubtitle} ${cookies}`}>
-                  <WithTransLate text="Cookies Policy / Notice Acceptance Cookies" />
+                  <WithTransLate text="Cookie Policy / Notice Acceptance Cookies" />
                 </h4>
 
                 <p className={`${textClass} ${cookiesText}`}>
@@ -461,7 +492,7 @@ export default function Privacy() {
 
                   <li>
                     <p className={`${textClass} ${marginBottom}`}>
-                      <WithTransLate text="When You log in, we will also set up several cookies to save Your login information and Your screen display choices. Login cookies last for two days, and screen options cookies last for a year. If You select “Remember Me”, Your login will persist for two weeks. If You log ozut of Your account, the login cookies will be removed." />
+                      <WithTransLate text="When You log in, we will also set up several cookies to save Your login information and Your screen display choices. Login cookies last for two days, and screen options cookies last for a year. If You select “Remember Me”, Your login will persist for two weeks. If You log out of Your account, the login cookies will be removed." />
                     </p>
                   </li>
 
@@ -539,7 +570,7 @@ export default function Privacy() {
                 <WithTransLate text="We may share Your personal information in the following situations:" />
               </p>
             </li>
-            
+
             <li>
               <p className={textClass}>
                 <WithTransLate text="With Service Providers: We may share Your personal information with Service Providers to monitor and analyze the use of our Service, to contact You." />
@@ -618,19 +649,29 @@ export default function Privacy() {
 
             <p className={textClass}>
               <WithTransLate text="The Company may disclose Your Personal Data in the good faith belief that such action is necessary to:" />
-
-              <ul className={personalDataList}>
-                <li><WithTransLate text="Comply with a legal obligation" /></li>
-
-                <li><WithTransLate text="Protect and defend the rights or property of the Company" /></li>
-
-                <li><WithTransLate text="Prevent or investigate possible wrongdoing in connection with the Service" /></li>
-
-                <li><WithTransLate text="Protect the personal safety of Users of the Service or the public" /></li>
-
-                <li><WithTransLate text="Protect against legal liability" /></li>
-              </ul>
             </p>
+
+            <ul className={personalDataList}>
+              <li>
+                <WithTransLate text="Comply with a legal obligation" />
+              </li>
+
+              <li>
+                <WithTransLate text="Protect and defend the rights or property of the Company" />
+              </li>
+
+              <li>
+                <WithTransLate text="Prevent or investigate possible wrongdoing in connection with the Service" />
+              </li>
+
+              <li>
+                <WithTransLate text="Protect the personal safety of Users of the Service or the public" />
+              </li>
+
+              <li>
+                <WithTransLate text="Protect against legal liability" />
+              </li>
+            </ul>
           </div>
         </div>
 
@@ -678,25 +719,41 @@ export default function Privacy() {
               <WithTransLate text="You have several rights under data-protection law in relation to how we use your personal information. You have the right, free of charge, to:" />
             </p>
 
-            <p className={textClass}>
+            <div className={textClass}>
               <ul className={personalDataList}>
-                <li><WithTransLate text="Request a copy of the personal information we hold about you in a structured, commonly used and machine readable format;" /></li>
+                <li>
+                  <WithTransLate text="Request a copy of the personal information we hold about you in a structured, commonly used and machine readable format;" />
+                </li>
 
-                <li><WithTransLate text="Rectify any inaccurate personal information we hold about you;" /></li>
+                <li>
+                  <WithTransLate text="Rectify any inaccurate personal information we hold about you;" />
+                </li>
 
-                <li><WithTransLate text="Withdraw your consent where we have relied upon your consent to process your information;" /></li>
+                <li>
+                  <WithTransLate text="Withdraw your consent where we have relied upon your consent to process your information;" />
+                </li>
 
-                <li><WithTransLate text="Erase the personal information we hold about you subject to certain exceptions;" /></li>
+                <li>
+                  <WithTransLate text="Erase the personal information we hold about you subject to certain exceptions;" />
+                </li>
 
-                <li><WithTransLate text="Restrict processing of your personal information in certain circumstances;" /></li>
+                <li>
+                  <WithTransLate text="Restrict processing of your personal information in certain circumstances;" />
+                </li>
 
-                <li><WithTransLate text="Object to our use of your personal information for our legitimate interests, for profiling and for direct marketing purposes;" /></li>
+                <li>
+                  <WithTransLate text="Object to our use of your personal information for our legitimate interests, for profiling and for direct marketing purposes;" />
+                </li>
 
-                <li><WithTransLate text="Not be subject to a decision which is based solely on automated processing where that decision produces a legal effect on you or otherwise significantly affects you. We do not make automated decisions of this nature;" /></li>
+                <li>
+                  <WithTransLate text="Not be subject to a decision which is based solely on automated processing where that decision produces a legal effect on you or otherwise significantly affects you. We do not make automated decisions of this nature;" />
+                </li>
 
-                <li><WithTransLate text="Lodge a complaint with the appropriate data-protection authority if you have concerns about how we process your personal data." /></li>
+                <li>
+                  <WithTransLate text="Lodge a complaint with the appropriate data-protection authority if you have concerns about how we process your personal data." />
+                </li>
               </ul>
-            </p>
+            </div>
 
             <p className={textClass}>
               <WithTransLate text="Where we need to collect personal data by law, or under the terms of a contract we have with you and you fail to provide that data when requested, we may not be able to perform the contract we have or are trying to enter into with you (for example, to provide you with goods or services). In this case, we may have to cancel a product or service you have with us but we will notify you if this is the case at the time." />
@@ -738,36 +795,56 @@ export default function Privacy() {
               <WithTransLate text="If you have any questions about this Privacy Policy, You can contact us:" />
             </p>
 
-              <ul className={personalDataList}>
-                <li>
-                  <p className={`${textClass} ${marginBottom}`}>
-                    <WithTransLate text="By email:" />
+            <ul className={personalDataList}>
+              <li>
+                <p className={`${textClass} ${marginBottom}`}>
+                  <WithTransLate text="By email:" />
 
-                    <a href="mailto:info@bluehouse.is" className={link}> info@bluehouse.is </a>
+                  <a href="mailto:info@bluehouse.is" className={link}>
+                    {" "}
+                    info@bluehouse.is{" "}
+                  </a>
 
-                    <WithTransLate text="or" />
+                  <WithTransLate text="or" />
 
-                    <a href="mailto:info@grottanorthernlights.com" className={link}> info@grottanorthernlights.com </a>
-                  </p>
-                </li>
+                  <a
+                    href="mailto:info@grottanorthernlights.com"
+                    className={link}
+                  >
+                    {" "}
+                    info@grottanorthernlights.com{" "}
+                  </a>
+                </p>
+              </li>
 
-                <li>
-                  <p className={`${textClass} ${marginBottom}`}>
-                    <WithTransLate text="By visiting this page on our website:" />
-                    
-                    <a href="https://bluehouse.is/privacy-and-policy" className={link}> https://bluehouse.is/privacy-and-policy </a>
-                  </p>
-                </li>
+              <li>
+                <p className={`${textClass} ${marginBottom}`}>
+                  <WithTransLate text="By visiting this page on our website:" />
 
-                <li>
-                  <p className={`${textClass} ${marginBottom}`}>
-                    <WithTransLate text="By phone number: +354 775 6480" />
-                  </p>
-                </li>
-              </ul>
+                  <a
+                    href="https://bluehouse.is/privacy-and-policy"
+                    className={link}
+                  >
+                    {" "}
+                    https://bluehouse.is/privacy-and-policy{" "}
+                  </a>
+                </p>
+              </li>
+
+              <li>
+                <p className={`${textClass} ${marginBottom}`}>
+                  <WithTransLate text="By phone number: +354 775 6480" />
+                </p>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
     </Box>
   );
 }
+
+Privacy.propTypes = {
+  title: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+};

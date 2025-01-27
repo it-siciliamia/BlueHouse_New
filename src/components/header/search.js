@@ -1,13 +1,15 @@
-import { useRef } from "react";
+import React, { useRef } from "react";
+
 import { Link as RouterLink } from "react-router-dom";
 import { IconButton, MenuItem, makeStyles, Link } from "@material-ui/core";
+import PropTypes from "prop-types";
 
 import { useClickOutside } from "../../hooks/useClickOutside";
 import keywords from "./keywords.json";
-import SearchImage from "../../images/SearchIcon_Header.png";
+import SearchImage from "../../images/SearchIcon_Header.svg";
 import CloseSearchIcon from "../../images/Header_icons/icon-close-search.svg";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   wrapper: {
     position: "relative",
   },
@@ -45,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
       display: "block",
       boxSizing: "border-box",
       fontSize: "18px",
-      fontFamily:'Josefin Sans',
+      fontFamily: "Josefin Sans",
       fontWeight: 400,
       lineHeight: "20px",
       letterSpacing: "0em",
@@ -232,8 +234,20 @@ function SearchResult({ pageUrl, text }) {
   );
 }
 
+SearchResult.propTypes = {
+  pageUrl: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+};
+
 export default function Search(props) {
-  const { searchInput, searchResult, setSearchInput, setSearchResult } = {
+  const {
+    searchInput,
+    searchResult,
+    setSearchInput,
+    setSearchResult,
+    showSearchInputHandler,
+    setHasSearchbar,
+  } = {
     ...props,
   };
 
@@ -309,10 +323,10 @@ export default function Search(props) {
 
   const closeSearchbar = (e) => {
     e?.preventDefault();
-    props.showSearchInputHandler("-200%");
+    showSearchInputHandler("-200%");
 
     setTimeout(() => {
-      props.setHasSearchbar(false);
+      setHasSearchbar(false);
     }, 400);
   };
 
@@ -347,7 +361,12 @@ export default function Search(props) {
             color="inherit"
             aria-label="menu"
           >
-            <img src={SearchImage} alt="SearchIcon" />
+            <img
+              src={SearchImage}
+              alt="SearchIcon"
+              width={"30px"}
+              height={"30px"}
+            />
           </IconButton>
 
           {!!searchResult.length && (
@@ -449,3 +468,13 @@ export default function Search(props) {
     </div>
   );
 }
+
+Search.propTypes = {
+  searchInput: PropTypes.string.isRequired,
+  searchResult: PropTypes.oneOfType([PropTypes.array, PropTypes.string])
+    .isRequired,
+  setSearchInput: PropTypes.func.isRequired,
+  setSearchResult: PropTypes.func.isRequired,
+  showSearchInputHandler: PropTypes.func.isRequired,
+  setHasSearchbar: PropTypes.func.isRequired,
+};

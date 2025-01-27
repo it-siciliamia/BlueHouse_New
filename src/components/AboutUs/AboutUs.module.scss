@@ -1,0 +1,158 @@
+.about {
+  display: flex;
+  margin: 130px 0px 50px;
+  @media (max-width: 768px) {
+    margin: 50px 0px 0px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  @media (min-width: 768px) and (max-width: 1024px) {
+    margin: 50px 0px 0px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+}
+
+.titleStyle {
+  font-family: "Oblik";
+  transform: rotate(-90deg);
+  height: fit-content;
+  width: fit-content;
+  margin: 0 0 0 -58px;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  margin-top: -13px;
+  white-space: nowrap;
+  @media (max-width: 768px) {
+    margin: 0px 0px 7px 20px;
+    transform: rotate(0deg);
+    font-size: 20px;
+  }
+  @media (min-width: 768px) and (max-width: 1024px) {
+    margin: 0px 0px 7px 20px;
+    transform: rotate(0deg);
+    font-size: 20px;
+  }
+}
+
+.content {
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-between;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 40px;
+  }
+  @media (min-width: 768px) and (max-width: 1024px) {
+    flex-direction: column;
+    gap: 40px;
+  }
+}
+
+.outLinedImage {
+  position: relative;
+  width: 495px;
+  height: 462px;
+  @media (max-width: 768px) {
+    width: 100%;
+    height: auto;
+  }
+  @media (min-width: 768px) and (max-width: 1024px) {
+    margin-left: 20px;
+  }
+}
+
+.outLinedImageShdow {
+  position: absolute;
+  top: 0px;
+  left: -25px;
+  width: 545px;
+  height: 415px;
+  border: 1px solid black;
+}
+
+.selfieStyle {
+  position: absolute;
+  width: 495px;
+  height: 462px;
+  margin-top: -70px;
+  object-fit: cover;
+  @media (max-width: 768px) {
+    position: relative;
+    margin-top: 20px;
+    width: 100%;
+    height: auto;
+  }
+  @media (min-width: 768px) and (max-width: 1024px) {
+    margin-top: 20px;
+  }
+}
+
+.description {
+  font-size: 24px;
+  font-weight: 300;
+  font-family: "Josefin Sans";
+  line-height: 30px;
+  letter-spacing: 0.1em;
+  text-align: center;
+  @media (max-width: 768px) {
+    margin-bottom: -10px;
+    font-size: 16px;
+  }
+  @media (min-width: 768px) and (max-width: 1024px) {
+    margin-bottom: -10px;
+    font-size: 20px;
+  }
+}
+
+.descriptionWrapper {
+  margin-right: 9%;
+  align-items: center;
+  gap: 40px;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  @media (max-width: 768px) {
+    margin-right: 0%;
+    padding: 0px 20px;
+    width: 100%;
+  }
+  @media (min-width: 768px) and (max-width: 1024px) {
+    margin-right: 0%;
+    padding: 0px 20px;
+    width: 100%;
+  }
+}
+
+.KnowMore {
+  width: 280px !important;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-family: "Josefin Sans";
+  font-size: 16px;
+  line-height: 16px;
+  text-align: center;
+  color: #073865;
+  background: #fff;
+  display: block;
+  height: 46px;
+  padding: 16px;
+  font-weight: 600;
+  border: 1px solid #073865;
+  &:hover {
+    background: #1d3967;
+    color: #fff;
+  }
+  @media (max-width: 960px) {
+    width: 270px;
+    height: 60px;
+    margin-left: 60px;
+  }
+  @media (max-width: 600px) {
+    display: none;
+  }
+}

@@ -1,21 +1,24 @@
-import Advantages from "./Advantages"
-import HeaderIcons from "./HeaderIcons"
-import "./index.css"
-import "./calendar.css"
-import SearchContainer from "./SearchContainer"
+import React from "react";
+import Advantages from "./Advantages";
+import HeaderIcons from "./HeaderIcons";
+import ServicesRoom from "./ServicesRoom/ServicesRoom";
+import Support from "../../components/SuportComponent/support";
+import "./index.css";
+import "./calendar.css";
+import SearchContainer from "./SearchContainer";
 
 const RoomBooking = () => {
   return (
-    <main className="main">
-        <div className="booking-container">
-            <section className="hero">
-                <HeaderIcons />
-                <SearchContainer />
-            </section>
-            <Advantages />
-        </div>
+    <main className="main" style={{ width: "100%", paddingRight: "60px" }}>
+      <section className="hero">
+        <HeaderIcons />
+        <SearchContainer />
+      </section>
+      <Advantages />
+      <ServicesRoom />
+      <Support />
     </main>
-  )
-}
+  );
+};
 
-export default RoomBooking
+export default RoomBooking;

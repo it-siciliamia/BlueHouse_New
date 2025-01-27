@@ -1,0 +1,87 @@
+.support {
+  margin: 100px auto 100px;
+  width: 78.9%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  @media (max-width: 768px) {
+    margin: 50px auto 50px;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+  }
+  @media (min-width: 768px) and (max-width: 1024px) {
+    margin-top: 50px;
+    margin-bottom: -50px;
+    width: 100%;
+  }
+}
+
+.description {
+  width: 27.3%;
+  font-size: 17px;
+  font-weight: 300;
+  line-height: 1.2;
+  text-align: center;
+  color: #14202b;
+  font-family: "Josefin Sans";
+  text-transform: uppercase !important;
+  transition: font-weight 0.3s ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: 0px 4px 4px rgba(7, 55, 98, 0.249);
+    font-weight: 500;
+    line-height: 1.2;
+    color: #243864;
+  }
+  @media (max-width: 768px) {
+    text-transform: lowercase !important;
+    width: 100%;
+  }
+  @media (min-width: 768px) and (max-width: 1024px) {
+    font-size: 16px !important;
+    width: 32%;
+  }
+}
+
+.supportCard {
+  padding: 0px 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  @media (max-width: 768px) {
+    padding: 0px 25px;
+    gap: 10px;
+  }
+  @media (min-width: 768px) and (max-width: 1024px) {
+    padding: 0px 25px;
+    gap: 20px;
+  }
+}
+
+.icon {
+  width: 70px;
+  height: 70px;
+}
+
+.cardTitle {
+  font-weight: 500;
+  text-transform: uppercase;
+  @media (max-width: 768px) {
+    margin-bottom: 5px;
+  }
+}
+
+.cardText {
+  margin-bottom: 16px;
+}
+
+.cardText::first-letter {
+  text-transform: capitalize;
+}
