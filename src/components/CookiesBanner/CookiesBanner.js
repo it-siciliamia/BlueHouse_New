@@ -124,7 +124,7 @@ function CookiesBanner() {
           </p>
         </div>
       )}
-      <ManagePreferences />
+      
       <div className={actions}>
         <Button
           handleClick={() => handleAcceptingAndDeclineCookies(true)}
@@ -138,6 +138,7 @@ function CookiesBanner() {
           btnClass="btnDark"
           width={isMobile ? "100pх" : "200px"}
         />
+        <ManagePreferences />
       </div>
     </div>
   );

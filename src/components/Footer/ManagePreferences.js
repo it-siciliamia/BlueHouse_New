@@ -10,7 +10,7 @@ const ManagePreferences = () => {
 
   return (
     <div>
-      <button onClick={() => setShowConsentModal(true)} style={{backgroundColor:"#3B5998", color:"white", border: "none", borderRadius: "4px", padding: "8px 12px",
+      <button onClick={() => setShowConsentModal(true)} style={{backgroundColor:"#fff", color:"#1d3967", border: "1px solid #1d3967", padding: "8px 12px", width:"200px", height:"46px"
        }}>
         Manage Preferences
       </button>

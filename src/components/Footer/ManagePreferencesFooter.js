@@ -5,9 +5,8 @@ import { makeStyles } from "@material-ui/core";
 const useStyles = makeStyles((theme) => ({
   button: {
     backgroundColor: "#fff", 
-    color: "black", 
-    border: "1px solid #3B5998", 
-    borderRadius: "4px", 
+    color: "#1d3967", 
+    border: "1px solid #1d3967", 
     padding: "5px 12px",
     [theme.breakpoints.down("sm")]: {
       padding:'2px',
