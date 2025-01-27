@@ -4,6 +4,7 @@ import useBreakpoints from "../../Styles/useBreakpoints";
 import { WithTransLate } from "../helpers/translating/index";
 import Button from "../Shared/Button/Button";
 import { makeStyles } from "@material-ui/core";
+import ManagePreferences from "../Footer/ManagePreferences";
 
 const useStyles = makeStyles((theme) => ({
   "@keyframes showUp": {
@@ -123,6 +124,7 @@ function CookiesBanner() {
           </p>
         </div>
       )}
+      
       <div className={actions}>
         <Button
           handleClick={() => handleAcceptingAndDeclineCookies(true)}
@@ -136,6 +138,7 @@ function CookiesBanner() {
           btnClass="btnDark"
           width={isMobile ? "100pх" : "200px"}
         />
+        <ManagePreferences />
       </div>
     </div>
   );
