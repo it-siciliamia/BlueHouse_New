@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Cookies from "js-cookie";
-import { useMediaQuery } from "react-responsive";
+import useBreakpoints from "../../Styles/useBreakpoints";
 import { WithTransLate } from "../helpers/translating/index";
 import Button from "../Shared/Button/Button";
 import { makeStyles } from "@material-ui/core";
@@ -61,8 +61,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function CookiesBanner() {
-  const isMobile = useMediaQuery({ maxDeviceWidth: 767 });
-  const isDesktop = useMediaQuery({ minDeviceWidth: 813 });
+  const { isMobile, isDesktop } = useBreakpoints();
+
   const [showCookies, setShowCookies] = useState(false);
   const showAndHide = () => {
     setShowCookies(!showCookies);
@@ -79,7 +79,7 @@ function CookiesBanner() {
     <div
       className={root}
       style={{
-        border: isMobile ? "3px solid #1d3967" : "3px solid #1d3967",
+        border: isMobile ? "2px solid #1d3967" : "2px solid #1d3967",
         margin: isMobile ? "10px" : isDesktop ? "10px 110px" : "10px 20px",
       }}
     >
@@ -134,7 +134,7 @@ function CookiesBanner() {
         />
         <Button
           handleClick={() => handleAcceptingAndDeclineCookies(false)}
-          text="DECLINE"
+          text="DECLINE COOKIES"
           btnClass="btnDark"
           width={isMobile ? "100pх" : "200px"}
         />

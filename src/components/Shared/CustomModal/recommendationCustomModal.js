@@ -1,7 +1,6 @@
-import React, { useState , useContext } from "react";
-import "../../../css/CustomModal.css";
+import React, { useState, useContext } from "react";
+import "../../../Styles/CustomModal.css";
 import { Modal, makeStyles } from "@material-ui/core";
-
 import { UserContext } from "../../../App";
 import LinearProgress from "@material-ui/core/LinearProgress";
 import Typography from "@material-ui/core/Typography";
@@ -196,7 +195,6 @@ function RecommendationCustomModal() {
     return setImageIndex(nextIndex);
   };
 
-  ///////////////////////////////////////////////////////////////////////
   const handleChangeSubCategory = (subCategory) => {
     const progressNewInitialValue =
       100 / customModalData[modalState.index][subCategory].backgrounds.length;
@@ -205,7 +203,7 @@ function RecommendationCustomModal() {
     setProgressInitialValue(progressNewInitialValue);
     setProgress(progressNewInitialValue);
   };
-  ////////////////////////////////////////////////////////////////////////////
+
   const handleChangeCategory = (categoryindex) => {
     const progressNewInitialValue =
       100 / customModalData[categoryindex][0].backgrounds.length;

@@ -1,39 +1,43 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useMediaQuery } from "react-responsive";
+import useBreakpoints from "../../../Styles/useBreakpoints.js";
+import { useSelector, useDispatch } from "react-redux";
+import { getIsPlaceholderShown } from "../../../redux/technitial/technical-selectors.js";
+import { setPlaceholderShown } from "../../../redux/technitial/technical-slice.js";
 import slide01 from "../../../images/homePageSlider/slide1.webp";
 import slide02 from "../../../images/homePageSlider/slide2.webp";
 import slide03 from "../../../images/homePageSlider/slide3.webp";
 import slide04 from "../../../images/homePageSlider/slide4.webp";
 import slide05 from "../../../images/homePageSlider/slide5.webp";
 import slide06 from "../../../images/homePageSlider/slide6.webp";
+import placeholder from "../../../images/homePageSlider/placeholder.webp";
 import videoSrc from "../../../videos/intro.mp4";
+import { useHeaderSize } from "../../../components/helpers/HeaderContext/HeaderContext.js";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
+
 import s from "./CaruselSliderHome.module.scss";
 
 const images = [videoSrc, slide01, slide02, slide03, slide04, slide05, slide06];
 
 const CaruselSliderHome = () => {
-  const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
-  const isDesktop = useMediaQuery({ minDeviceWidth: 813 });
-  const isMobile = useMediaQuery({ maxDeviceWidth: 767 });
+  const { isMobile, isTablet, isLaptop, isDesktop } = useBreakpoints();
+
+  const isPlaceholderShown = useSelector(getIsPlaceholderShown);
+  const dispatch = useDispatch();
+  const { width } = useHeaderSize();
 
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [showPlaceholder, setShowPlaceholder] = useState(true);
+  const [fadeOutPlaceholder, setFadeOutPlaceholder] = useState(false);
   const videoRef = useRef(null);
   const intervalRef = useRef(null);
 
-  const dynamicWidth = Math.round(viewportWidth * 0.75);
-  const dynamicHeigth = Math.round(viewportWidth * 0.66);
+  const dynamicWidth = isDesktop
+    ? Math.round(width - 365)
+    : isLaptop
+    ? Math.round(width - 115)
+    : width;
 
-  useEffect(() => {
-    const handleResize = () => {
-      setViewportWidth(window.innerWidth);
-    };
-
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
+  const dynamicHeigth = Math.round(dynamicWidth * 0.66);
 
   useEffect(() => {
     if (currentIndex === 0 && videoRef.current) {
@@ -62,6 +66,29 @@ const CaruselSliderHome = () => {
       }
     };
   }, [currentIndex]);
+
+  useEffect(() => {
+    const handleCanPlayThrough = () => {
+      setFadeOutPlaceholder(true);
+      setTimeout(() => {
+        dispatch(setPlaceholderShown(true));
+        setShowPlaceholder(false);
+      }, 2000);
+    };
+
+    if (videoRef.current) {
+      videoRef.current.addEventListener("canplaythrough", handleCanPlayThrough);
+    }
+
+    return () => {
+      if (videoRef.current) {
+        videoRef.current.removeEventListener(
+          "canplaythrough",
+          handleCanPlayThrough
+        );
+      }
+    };
+  }, [dispatch]);
 
   const goToPreviousSlide = () => {
     setCurrentIndex(
@@ -104,17 +131,24 @@ const CaruselSliderHome = () => {
     <div
       className={s.container}
       style={{
-        width: isDesktop && dynamicWidth ? `${dynamicWidth}px` : "100%",
+        width: isDesktop
+          ? `${dynamicWidth}px`
+          : isLaptop
+          ? `${dynamicWidth}px`
+          : "100%",
       }}
     >
       <div
         className={s.imageBox}
         style={{
-          height: isDesktop
-            ? "550px"
-            : isMobile
+          height: isMobile
             ? `${dynamicHeigth}px`
-            : "380px",
+            : isTablet
+            ? "400px"
+            : isLaptop
+            ? "500px"
+            : "550px",
+          overflow: "hidden",
         }}
       >
         {!isMobile && (
@@ -128,6 +162,15 @@ const CaruselSliderHome = () => {
               className={s.arrowlinkLeft}
             />
           </div>
+        )}
+        {showPlaceholder && !isPlaceholderShown && (
+          <img
+            src={placeholder}
+            alt="Placeholder"
+            className={`${s.placeholder} ${
+              fadeOutPlaceholder ? s.fadeOut : ""
+            }`}
+          />
         )}
         {images.map((image, index) =>
           index === 0 ? (

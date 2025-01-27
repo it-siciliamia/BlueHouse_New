@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef } from "react";
-
+import React, { useState, useRef } from "react";
+import useBreakpoints from "../../Styles/useBreakpoints";
 import { useLocation } from "react-router-dom";
 import WeatherCard from "./WeatherCard";
 import { WithTransLate } from "../helpers/translating/index";
@@ -7,32 +7,13 @@ import { AiOutlineFullscreen } from "react-icons/ai";
 import "./WeatherMap.css";
 
 const NewMap = () => {
+  const { isMobile, isTablet, isDesktop } = useBreakpoints();
+
   const location = useLocation();
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   const [mapType, setMapType] = useState("roadmap");
   const [isOverlayVisible, setOverlayVisible] = useState(false);
   const [isFullScreen, setIsFullScreen] = useState(false);
   const iframeRef = useRef(null);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
-
-    const handleKeyDown = (event) => {
-      if (event.key === "Escape" && isFullScreen) {
-        setIsFullScreen(false);
-      }
-    };
-
-    window.addEventListener("resize", handleResize);
-    window.addEventListener("keydown", handleKeyDown);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-      window.removeEventListener("keydown", handleKeyDown);
-    };
-  }, [isFullScreen]);
 
   const handleButtonClick = (newMapType) => {
     setMapType(newMapType);
@@ -63,15 +44,16 @@ const NewMap = () => {
           id="MAP"
           style={{
             display:
-              location.pathname === "/" || location.pathname === "/beds24"
+              location.pathname === "/" ||
+              location.pathname.startsWith("/beds24")
                 ? "block"
                 : "none",
             position: "relative",
-            margin: isMobile ? "10px 0 60px 0" : "90px 0",
+            margin: isMobile || isTablet ? "50px 0 50px 0" : "90px 0",
             padding: "-2px",
             paddingBottom: "-1px",
             width: "100%",
-            height: !isMobile ? "590px" : "490px",
+            height: !isDesktop ? "490px" : "590px",
             overflow: "hidden",
           }}
         >

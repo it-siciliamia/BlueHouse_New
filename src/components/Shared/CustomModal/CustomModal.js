@@ -1,7 +1,6 @@
-import React, { useState , useContext } from "react";
-import "../../../css/CustomModal.css";
+import React, { useState, useContext } from "react";
+import "../../../Styles/CustomModal.css";
 import { Modal, makeStyles } from "@material-ui/core";
-
 import { UserContext } from "../../../App";
 import LinearProgress from "@material-ui/core/LinearProgress";
 import Typography from "@material-ui/core/Typography";
@@ -71,14 +70,12 @@ const useStyles = makeStyles((theme) => ({
     },
     [theme.breakpoints.down("md")]: {
       width: "100%",
-      // height: "70%",
     },
     [theme.breakpoints.down("xs")]: {
       display: "flex",
       overflow: "auto",
       justifyContent: "space-between",
       width: "61.5vw",
-      // marginRight: "20px",
       whiteSpace: "nowrap",
       textIndent: "16px",
       "& h2": {
@@ -196,7 +193,6 @@ function CustomModal() {
     return setImageIndex(nextIndex);
   };
 
-  ///////////////////////////////////////////////////////////////////////
   const handleChangeSubCategory = (subCategory) => {
     const progressNewInitialValue =
       100 / customModalData[modalState.index][subCategory].backgrounds.length;
@@ -205,7 +201,7 @@ function CustomModal() {
     setProgressInitialValue(progressNewInitialValue);
     setProgress(progressNewInitialValue);
   };
-  ////////////////////////////////////////////////////////////////////////////
+
   const handleChangeCategory = (categoryindex) => {
     const progressNewInitialValue =
       100 / customModalData[categoryindex][0].backgrounds.length;

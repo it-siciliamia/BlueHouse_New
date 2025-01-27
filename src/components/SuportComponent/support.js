@@ -30,31 +30,32 @@ SupportCard.propTypes = {
 export default function Support() {
   return (
     <div id="SUPPORT" className={s.support}>
-      <a
-        className={s.description}
-        href="https://bluehouseis.zohodesk.eu/portal/en/newticket?departmentId=135604000000205173&layoutId=135604000000214460"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <SupportCard
-          description={"Get personal support from our team."}
-          title={"SUPPORT"}
-          image={supportImage}
-        />
-      </a>
-      <a
-        className={s.description}
-        href="https://bluehouseis.zohodesk.eu/portal/en/home"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <SupportCard
-          description={"Check previous guest requests."}
-          title={"FAQ"}
-          image={faqImage}
-        />
-      </a>
-      {/* <a
+      <div className={s.sectionContent}>
+        <a
+          className={s.description}
+          href="https://bluehouseis.zohodesk.eu/portal/en/newticket?departmentId=135604000000205173&layoutId=135604000000214460"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <SupportCard
+            description={"Get personal support from our team."}
+            title={"SUPPORT"}
+            image={supportImage}
+          />
+        </a>
+        <a
+          className={s.description}
+          href="https://bluehouseis.zohodesk.eu/portal/en/home"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <SupportCard
+            description={"Check previous guest requests."}
+            title={"FAQ"}
+            image={faqImage}
+          />
+        </a>
+        {/* <a
         className={s.description}
         href="https://gnl.ladesk.com/219394-Feedback"
         target="_blank"
@@ -66,18 +67,19 @@ export default function Support() {
           image={feedbackImage}
         />
       </a> */}
-      <a
-        className={s.description}
-        href="https://bluehouseis.zohodesk.eu/portal/en/community/guestforum"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <SupportCard
-          description={"Connect, Explore, and Share Your Journey!"}
-          title={"FORUM"}
-          image={forumImage}
-        />
-      </a>
+        <a
+          className={s.description}
+          href="https://bluehouseis.zohodesk.eu/portal/en/community/guestforum"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <SupportCard
+            description={"Connect, Explore, and Share Your Journey!"}
+            title={"FORUM"}
+            image={forumImage}
+          />
+        </a>
+      </div>
     </div>
   );
 }

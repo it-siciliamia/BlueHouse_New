@@ -1,0 +1,131 @@
+.houseRules {
+  @media (min-width: 320px) and (max-width: 599.99px) {
+    padding: 0 20px;
+    width: 100%;
+  }
+  @media (min-width: 600px) and (max-width: 1279.99px) {
+    padding: 0 20px;
+  }
+  @media (min-width: 1280px) and (max-width: 2200px) {
+    padding: 0 50px;
+  }
+}
+
+.titleWrapper {
+  @media (min-width: 1280px) and (max-width: 2200px) {
+    margin-left: 35px;
+    width: 70px;
+    position: relative;
+  }
+}
+
+.title {
+  color: #00366e;
+  @media (min-width: 320px) and (max-width: 1279.99px) {
+    margin: 20px 0px;
+    white-space: nowrap;
+    font-family: "Oblik", Arial, sans-serif;
+    font-size: 20px;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+  }
+  @media (min-width: 1280px) and (max-width: 2200px) {
+    position: absolute;
+    white-space: nowrap;
+    top: 80px;
+    left: -120px;
+    height: fit-content;
+    font-family: "Oblik", Arial, sans-serif;
+    font-size: 24px;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+    transform: rotate(-90deg);
+  }
+}
+
+.houseRulesContent {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  @media (min-width: 1280px) and (max-width: 2200px) {
+    margin-left: 60px;
+    gap: 50px;
+  }
+}
+
+.imageMain {
+  background-image: url("../../images/houserules.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  @media (min-width: 320px) and (max-width: 1279.99px) {
+    height: 400px;
+  }
+  @media (min-width: 1280px) and (max-width: 2200px) {
+    height: 500px;
+  }
+}
+
+.guidelines {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  @media (min-width: 320px) and (max-width: 599.99px) {
+    margin: auto;
+    gap: 40px;
+  }
+  @media (min-width: 1280px) and (max-width: 2200px) {
+    gap: 50px;
+  }
+}
+
+.rule {
+  display: flex;
+  flex-direction: row;
+  text-align: left;
+  @media (min-width: 320px) and (max-width: 599.99px) {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  @media (min-width: 1280px) and (max-width: 2200px) {
+    align-items: center;
+  }
+}
+
+.iconStyle {
+  max-width: 60px;
+  @media (min-width: 320px) and (max-width: 599.99px) {
+    margin-bottom: 20px;
+  }
+  @media (min-width: 600px) and (max-width: 959.99px) {
+    margin-bottom: 0;
+  }
+}
+
+.ruleText {
+  margin-left: 50px;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 22px;
+  line-height: 25px;
+  @media (min-width: 320px) and (max-width: 599.99px) {
+    margin: 0;
+    font-size: 16px;
+    text-align: left;
+    margin-left: 0;
+  }
+  @media (min-width: 600px) and (max-width: 959.99px) {
+    margin: 0 0 0 30px;
+    font-size: 16px;
+  }
+  @media (min-width: 960px) and (max-width: 1279.99px) {
+    margin: 0 0 0 40px;
+    font-size: 16px;
+  }
+  @media (min-width: 1280px) and (max-width: 2200px) {
+    margin: 0 0 0 40px;
+    font-size: 20px;
+  }
+}

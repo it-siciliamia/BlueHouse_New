@@ -1,93 +1,143 @@
 .about {
   display: flex;
-  margin: 130px 0px 50px;
-  @media (max-width: 768px) {
-    margin: 50px 0px 0px;
+  @media (min-width: 320px) and (max-width: 599.99px) {
+    margin-top: 50px;
+    padding: 0 20px;
     display: flex;
     flex-direction: column;
     width: 100%;
   }
-  @media (min-width: 768px) and (max-width: 1024px) {
+  @media (min-width: 600px) and (max-width: 959.99px) {
     margin: 50px 0px 0px;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  @media (min-width: 960px) and (max-width: 1279.99px) {
+    margin: 50px 0px 0px;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  @media (min-width: 1280px) and (max-width: 2200px) {
+    margin-top: 100px;
+    margin-bottom: 50px;
+    padding: 0px;
     display: flex;
     flex-direction: column;
     width: 100%;
   }
 }
 
-.titleStyle {
-  font-family: "Oblik";
-  transform: rotate(-90deg);
-  height: fit-content;
-  width: fit-content;
-  margin: 0 0 0 -58px;
-  font-size: 24px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  margin-top: -13px;
-  white-space: nowrap;
-  @media (max-width: 768px) {
-    margin: 0px 0px 7px 20px;
-    transform: rotate(0deg);
-    font-size: 20px;
+.sectionWrapper {
+  @media (min-width: 320px) and (max-width: 599.99px) {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
   }
-  @media (min-width: 768px) and (max-width: 1024px) {
-    margin: 0px 0px 7px 20px;
-    transform: rotate(0deg);
-    font-size: 20px;
+  @media (min-width: 600px) and (max-width: 959.99px) {
+    width: 100%;
+  }
+  @media (min-width: 960px) and (max-width: 1279.99px) {
+    width: 100%;
+  }
+  @media (min-width: 1280px) and (max-width: 2200px) {
+    display: flex;
+    flex-direction: row;
   }
 }
 
-.content {
+.titleWrapper {
+  @media (min-width: 1280px) and (max-width: 2200px) {
+    width: 70px;
+    position: relative;
+  }
+}
+
+.title {
+  @media (min-width: 320px) and (max-width: 1279.99px) {
+    white-space: nowrap;
+    font-family: "Oblik", Arial, sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+  }
+  @media (min-width: 1280px) and (max-width: 2200px) {
+    position: absolute;
+    white-space: nowrap;
+    top: 55px;
+    left: -50px;
+    height: fit-content;
+    font-size: 24px;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+    transform: rotate(-90deg);
+  }
+}
+
+.sectionContent {
   display: flex;
-  flex-grow: 1;
   justify-content: space-between;
-  @media (max-width: 768px) {
+  @media (min-width: 320px) and (max-width: 599.99px) {
     flex-direction: column;
     gap: 40px;
   }
-  @media (min-width: 768px) and (max-width: 1024px) {
+  @media (min-width: 600px) and (max-width: 959.99px) {
     flex-direction: column;
     gap: 40px;
   }
-}
-
-.outLinedImage {
-  position: relative;
-  width: 495px;
-  height: 462px;
-  @media (max-width: 768px) {
+  @media (min-width: 960px) and (max-width: 1279.99px) {
+    flex-direction: column;
+    gap: 40px;
+  }
+  @media (min-width: 1280px) and (max-width: 2200px) {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    justify-content: space-between;
     width: 100%;
-    height: auto;
-  }
-  @media (min-width: 768px) and (max-width: 1024px) {
-    margin-left: 20px;
   }
 }
 
-.outLinedImageShdow {
-  position: absolute;
-  top: 0px;
-  left: -25px;
-  width: 545px;
-  height: 415px;
-  border: 1px solid black;
+.imageWrapper {
+  @media (min-width: 1280px) and (max-width: 2200px) {
+    margin-left: -20px;
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 .selfieStyle {
-  position: absolute;
-  width: 495px;
-  height: 462px;
-  margin-top: -70px;
+  max-width: 495px;
+  max-height: 462px;
   object-fit: cover;
-  @media (max-width: 768px) {
+  @media (min-width: 320px) and (max-width: 599.99px) {
     position: relative;
     margin-top: 20px;
     width: 100%;
     height: auto;
   }
-  @media (min-width: 768px) and (max-width: 1024px) {
+  @media (min-width: 600px) and (max-width: 959.99px) {
+    position: relative;
     margin-top: 20px;
+    width: 100%;
+    height: auto;
+  }
+  @media (min-width: 960px) and (max-width: 1279.99px) {
+    position: relative;
+    margin-top: 20px;
+    width: 100%;
+    height: auto;
+  }
+  @media (min-width: 1280px) and (max-width: 2200px) {
+    object-fit: cover;
+    width: 100%;
+    height: auto;
   }
 }
 
@@ -98,61 +148,46 @@
   line-height: 30px;
   letter-spacing: 0.1em;
   text-align: center;
-  @media (max-width: 768px) {
+  @media (min-width: 320px) and (max-width: 599.99px) {
     margin-bottom: -10px;
     font-size: 16px;
   }
-  @media (min-width: 768px) and (max-width: 1024px) {
+  @media (min-width: 600px) and (max-width: 959.99px) {
     margin-bottom: -10px;
-    font-size: 20px;
+    font-size: 16px;
+  }
+  @media (min-width: 960px) and (max-width: 1279.99px) {
+    margin-bottom: -10px;
+    font-size: 16px;
   }
 }
 
 .descriptionWrapper {
-  margin-right: 9%;
   align-items: center;
   gap: 40px;
-  width: 40%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  @media (max-width: 768px) {
+  @media (min-width: 320px) and (max-width: 599.99px) {
     margin-right: 0%;
     padding: 0px 20px;
     width: 100%;
   }
-  @media (min-width: 768px) and (max-width: 1024px) {
+  @media (min-width: 600px) and (max-width: 959.99px) {
+    margin-top: 40px;
     margin-right: 0%;
     padding: 0px 20px;
     width: 100%;
   }
-}
-
-.KnowMore {
-  width: 280px !important;
-  text-transform: uppercase;
-  cursor: pointer;
-  font-family: "Josefin Sans";
-  font-size: 16px;
-  line-height: 16px;
-  text-align: center;
-  color: #073865;
-  background: #fff;
-  display: block;
-  height: 46px;
-  padding: 16px;
-  font-weight: 600;
-  border: 1px solid #073865;
-  &:hover {
-    background: #1d3967;
-    color: #fff;
+  @media (min-width: 960px) and (max-width: 1279.99px) {
+    margin-top: 40px;
+    margin-right: 0%;
+    padding: 0px 20px;
+    width: 100%;
   }
-  @media (max-width: 960px) {
-    width: 270px;
-    height: 60px;
-    margin-left: 60px;
-  }
-  @media (max-width: 600px) {
-    display: none;
+  @media (min-width: 1280px) and (max-width: 2200px) {
+    width: 50%;
+    margin-right: auto;
+    margin-left: auto;
   }
 }

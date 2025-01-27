@@ -1,0 +1,106 @@
+.privacy {
+  @media (min-width: 320px) and (max-width: 599.99px) {
+    padding: 0 20px;
+    width: 100%;
+  }
+  @media (min-width: 600px) and (max-width: 1279.99px) {
+    padding: 0 20px;
+  }
+  @media (min-width: 1280px) and (max-width: 2200px) {
+    padding: 0 50px;
+  }
+}
+
+.contentPart {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  @media (min-width: 1280px) and (max-width: 2200px) {
+    margin-left: 60px;
+    gap: 50px;
+  }
+}
+
+.titleWrapper {
+  @media (min-width: 1280px) and (max-width: 2200px) {
+    margin-left: 35px;
+    width: 70px;
+    position: relative;
+  }
+}
+
+.titleFirst {
+  color: #00366e;
+  @media (min-width: 320px) and (max-width: 1279.99px) {
+    margin: 20px 0px;
+    white-space: nowrap;
+    font-family: "Oblik", Arial, sans-serif;
+    font-size: 20px;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+  }
+  @media (min-width: 1280px) and (max-width: 2200px) {
+    position: absolute;
+    white-space: nowrap;
+    top: 190px;
+    left: -230px;
+    height: fit-content;
+    font-family: "Oblik", Arial, sans-serif;
+    font-size: 24px;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+    transform: rotate(-90deg);
+  }
+}
+
+.titleSecond {
+  color: #00366e;
+  @media (min-width: 320px) and (max-width: 1279.99px) {
+    margin: 20px 0px;
+    white-space: nowrap;
+    font-family: "Oblik", Arial, sans-serif;
+    font-size: 20px;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+  }
+  @media (min-width: 1280px) and (max-width: 2200px) {
+    position: absolute;
+    white-space: nowrap;
+    top: 90px;
+    left: -130px;
+    height: fit-content;
+    font-family: "Oblik", Arial, sans-serif;
+    font-size: 24px;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+    transform: rotate(-90deg);
+  }
+}
+
+.imagePrivacy {
+  background-image: url("../../images/privacy.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  @media (min-width: 320px) and (max-width: 1279.99px) {
+    height: 400px;
+  }
+  @media (min-width: 1280px) and (max-width: 2200px) {
+    height: 500px;
+  }
+}
+
+.imageCookie {
+  background-image: url("../../images/cookie.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  @media (min-width: 320px) and (max-width: 1279.99px) {
+    height: 400px;
+  }
+  @media (min-width: 1280px) and (max-width: 2200px) {
+    height: 500px;
+  }
+}

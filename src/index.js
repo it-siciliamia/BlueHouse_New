@@ -26,7 +26,7 @@ Router.propTypes = {
 ReactDOM.render(
   <Router>
     <Provider store={store}>
-      <PersistGate persistor={persistor}>
+      <PersistGate loading={null} persistor={persistor}>
         <App basename={basename} />
       </PersistGate>
     </Provider>

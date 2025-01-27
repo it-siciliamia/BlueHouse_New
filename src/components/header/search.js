@@ -1,9 +1,8 @@
 import React, { useRef } from "react";
-
+import useBreakpoints from "../../Styles/useBreakpoints";
 import { Link as RouterLink } from "react-router-dom";
 import { IconButton, MenuItem, makeStyles, Link } from "@material-ui/core";
 import PropTypes from "prop-types";
-
 import { useClickOutside } from "../../hooks/useClickOutside";
 import keywords from "./keywords.json";
 import SearchImage from "../../images/SearchIcon_Header.svg";
@@ -62,13 +61,17 @@ const useStyles = makeStyles(() => ({
       border: "none",
       margin: "0",
     },
-
-    "@media (max-width:1024px)": {
-      top: "45px",
-    },
-
-    "@media (max-width:600px)": {
+    "@media @media (min-width: 320px) and (max-width: 599.99px)": {
       display: "none",
+    },
+    "@media (min-width: 600px) and (max-width: 1279.99px)": {
+      marginRight: "25px !important",
+      top: "18px !important",
+      height: "46px",
+    },
+    "@media (min-width: 1280px) and (max-width: 2200px)": {
+      top: "32px",
+      marginRight: "30px !important",
     },
   },
 
@@ -240,6 +243,7 @@ SearchResult.propTypes = {
 };
 
 export default function Search(props) {
+  const { isTablet } = useBreakpoints();
   const {
     searchInput,
     searchResult,
@@ -337,11 +341,11 @@ export default function Search(props) {
   const userDeviceWidth = window.innerWidth;
   const mobileBreakpoint = 600;
 
-  const isDesctopSearchbarVisible = userDeviceWidth > mobileBreakpoint;
+  const isDesktopSearchbarVisible = userDeviceWidth > mobileBreakpoint;
 
   return (
     <div className={wrapper}>
-      {isDesctopSearchbarVisible && (
+      {isDesktopSearchbarVisible && (
         <form className={searchBar} id="searchBar" ref={searchRef}>
           <input
             onChange={(e) => {
@@ -364,8 +368,8 @@ export default function Search(props) {
             <img
               src={SearchImage}
               alt="SearchIcon"
-              width={"30px"}
-              height={"30px"}
+              width={isTablet ? "25px" : "30"}
+              height={isTablet ? "25px" : "30"}
             />
           </IconButton>
 
@@ -399,7 +403,7 @@ export default function Search(props) {
         </form>
       )}
 
-      {!isDesctopSearchbarVisible && (
+      {!isDesktopSearchbarVisible && (
         <form className={searchMobileBar} id="searchMobileBar" ref={searchRef}>
           <label>
             <button

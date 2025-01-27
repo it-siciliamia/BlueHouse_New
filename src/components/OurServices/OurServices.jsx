@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { WithTransLate } from "../helpers/translating/index";
-import { useMediaQuery } from "react-responsive";
+import useBreakpoints from "../../Styles/useBreakpoints";
 import DifferentLocations from "./ServicesType/DifferentLocations";
 import SelfCheckIn from "./ServicesType/selfCheckIn";
 import CheapestPrice from "./ServicesType/CheapestPrice";
@@ -26,12 +26,7 @@ const servicesData = [
 ];
 
 const OurServices = () => {
-  const isMobile = useMediaQuery({ maxDeviceWidth: 767 });
-  // const isTablet = useMediaQuery({
-  //   minDeviceWidth: 768,
-  //   maxDeviceWidth: 812,
-  // });
-  const isDesktop = useMediaQuery({ minDeviceWidth: 813 });
+  const { isMobile, isDesktop } = useBreakpoints();
 
   const [activeModal, setActiveModal] = useState(null);
 
@@ -45,7 +40,6 @@ const OurServices = () => {
 
   return (
     <div className={s.ourServices}>
-      {isDesktop && <div className={s.sectionName}></div>}
       <div className={s.sectionContent}>
         {servicesData.map(({ icon, text }, index) => (
           <div

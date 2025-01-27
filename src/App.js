@@ -7,13 +7,15 @@ import ScrollToTopButton from "./components/Shared/ScrollToTopButton/ScrollToTop
 import ZohoChat from "./components/helpers/ZohoChat/ZohoChat.jsx";
 import combinedSchema from "./components/helpers/SchemaOrg/schema.js";
 import CookiesBanner from "./components/CookiesBanner/CookiesBanner.js";
-import Header from "./components/header/index.js";
+import { HeaderProvider } from "./components/helpers/HeaderContext/HeaderContext";
+import { LanguageProvider } from "./components/helpers/translating/LanguageContext.js";
+import Header from "./components/header/Header.jsx";
 import HomePage from "./views/HomePage/HomePage.jsx";
-import Aboutus from "./views/AboutUsPage/AboutUs.js";
-import PrivacyandPolicy from "./views/ImportAndP&P/index.js";
+import Aboutus from "./views/AboutUsPage/AboutUs.jsx";
+import PrivacyandPolicyPage from "./views/PrivacyPolicyPage/PrivacyPolicyPage.jsx";
 import PageHeader from "./components/Shared/PageHeader/PageHeader.jsx";
 import ScrollToTop from "./components/helpers/ScrollToTop.js";
-import HouseRules from "./views/HouseRules/HouseRules.js";
+import HouseRules from "./views/HouseRulesPage/HouseRules.jsx";
 import Footer from "./components/Footer/Footer.js";
 import Notfound from "./views/NotFoundPage/Notfound.js";
 import RoomBooking from "./views/roombooking/RoomBooking.jsx";
@@ -25,8 +27,9 @@ import {
   RedirectBlog,
   RedirectTripAdv,
 } from "./components/helpers/redirect/Redirect.js";
-import theme from "./theme.js";
-import "./App.css";
+import theme from "./Styles/theme.js";
+import "./Styles/App.css";
+import PaymentPage from "./views/PaymentPage/PaymentPage.jsx";
 
 export const UserContext = createContext();
 
@@ -50,78 +53,93 @@ function App({ basename }) {
           <script type="application/ld+json">{combinedSchema}</script>
         </Helmet>
         <UserContext.Provider value={[modalState, setModal, room, setRoom]}>
-          <ScrollToTop />
-          <ScrollToTopButton />
-          <ZohoChat />
+          <HeaderProvider>
+            <LanguageProvider>
+              <ScrollToTop />
+              <ScrollToTopButton />
+              <ZohoChat />
 
-          <Switch>
-            <Route exact path="/enquire">
-              <EnquirePage />
-            </Route>
-            <Route path="/thankyou">
-              <ThankYou />
-            </Route>
-            <Route path="/blog">
-              <RedirectBlog />
-            </Route>
-            <Route path="/tripadvisor">
-              <RedirectTripAdv />
-            </Route>
-            <Route
-              exact
-              path={[
-                "/",
-                "/house-rules",
-                "/about-us",
-                "/privacy-and-policy",
-                "/book",
-                "/enquire",
-                "/beds24",
-                "/beds24/:room",
-              ]}
-            >
-              <div className="App">
-                <Header
-                  top={top}
-                  setTop={setTop}
-                  right={right}
-                  setRight={setRight}
-                />
-                <ScrollToTop />
-                <PageHeader />
-                <Route exact path="/">
-                  <HomePage />
+              <Switch>
+                <Route exact path="/enquire">
+                  <EnquirePage />
                 </Route>
-                <Route exact path="/house-rules">
-                  <HouseRules />
+                <Route path="/thankyou">
+                  <ThankYou />
                 </Route>
-                <Route exact path="/about-us">
-                  <Aboutus />
+                <Route path="/blog">
+                  <RedirectBlog />
                 </Route>
-                <Route exact path="/privacy-and-policy">
-                  <PrivacyandPolicy />
+                <Route path="/tripadvisor">
+                  <RedirectTripAdv />
                 </Route>
-                <Route path="/beds24/:room">
-                  <RoomDetails />
+                <Route path="/payment">
+                  <>
+                    <Header
+                      top={top}
+                      setTop={setTop}
+                      right={right}
+                      setRight={setRight}
+                    />
+                    <PaymentPage />
+                  </>
                 </Route>
-                <Route exact path="/beds24">
-                  <RoomBooking />
+                <Route
+                  exact
+                  path={[
+                    "/",
+                    "/house-rules",
+                    "/about-us",
+                    "/privacy-and-policy",
+                    "/book",
+                    "/enquire",
+                    "/beds24",
+                    "/beds24/:room",
+                  ]}
+                >
+                  <Header
+                    top={top}
+                    setTop={setTop}
+                    right={right}
+                    setRight={setRight}
+                  />
+                  <div className="App">
+                    <ScrollToTop />
+                    <PageHeader />
+                    <Route exact path="/">
+                      <HomePage />
+                    </Route>
+                    <Route exact path="/house-rules">
+                      <HouseRules />
+                    </Route>
+                    <Route exact path="/about-us">
+                      <Aboutus />
+                    </Route>
+                    <Route exact path="/privacy-and-policy">
+                      <PrivacyandPolicyPage />
+                    </Route>
+                    <Route path="/beds24/:room">
+                      <RoomDetails />
+                    </Route>
+                    <Route exact path="/beds24">
+                      <RoomBooking />
+                    </Route>
+                  </div>
+                  <CookiesBanner />
+                  <NewMap />
+                  <Footer />
                 </Route>
-              </div>
-              <CookiesBanner />
-              <NewMap />
-              <Footer />
-            </Route>
-            <>
-              <Header
-                top={top}
-                setTop={setTop}
-                right={right}
-                setRight={setRight}
-              />
-              <Notfound />
-            </>
-          </Switch>
+                <>
+                  <Header
+                    top={top}
+                    setTop={setTop}
+                    right={right}
+                    setRight={setRight}
+                  />
+                  <Notfound />
+                </>
+              </Switch>
+            </LanguageProvider>
+          </HeaderProvider>
         </UserContext.Provider>
       </HelmetProvider>
     </ThemeProvider>
