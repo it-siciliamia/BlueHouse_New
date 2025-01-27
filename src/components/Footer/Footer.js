@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import useBreakpoints from "../../Styles/useBreakpoints";
 
 import s from "./Footer.module.scss";
+import ManagePreferencesFooter from "./ManagePreferencesFooter";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -268,6 +269,11 @@ function Footer() {
         <div className={classes.blueHouseContainer}>
           <span className={classes.blueHouse}>© Blue House 2024</span>
         </div>
+      </div>
+      <div className={classes.lineSeparator} style={{ marginTop: "2rem" }} />
+      <div className={classes.blueHouseContainer}>
+        <span className={classes.blueHouse}>© Blue House 2024</span>
+        <ManagePreferencesFooter />
       </div>
     </footer>
   );
