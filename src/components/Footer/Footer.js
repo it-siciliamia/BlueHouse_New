@@ -131,7 +131,7 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: theme.spacing(2),
     display: "flex",
     flexDirection: "row",
-    justifyContent: "center",
+    justifyContent: "space-between !important",
     alignItems: "center",
     "@media (min-width: 1280px) and (max-width: 2200px)": {
       display: "flex",
@@ -268,12 +268,8 @@ function Footer() {
         />
         <div className={classes.blueHouseContainer}>
           <span className={classes.blueHouse}>© Blue House 2024</span>
+          <ManagePreferencesFooter />
         </div>
-      </div>
-      <div className={classes.lineSeparator} style={{ marginTop: "2rem" }} />
-      <div className={classes.blueHouseContainer}>
-        <span className={classes.blueHouse}>© Blue House 2024</span>
-        <ManagePreferencesFooter />
       </div>
     </footer>
   );
