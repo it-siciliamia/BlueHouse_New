@@ -63,18 +63,15 @@ export const items = [
     title: "FOLLOW US",
     links: [
       {
-        name: "Instagram",
         icon: Insta,
         href: "https://www.instagram.com/bluehousebb/",
       },
       {
-        name: "Facebook",
         icon: Facebook,
         href: "https://www.facebook.com/bluehouseiceland",
       },
-      { name: "X(Twitter)", icon: X, href: "https://x.com/icelandbed" },
+      { icon: X, href: "https://x.com/icelandbed" },
       {
-        name: "YouTube",
         icon: Youtube,
         href: "https://youtube.com/@bluehousebbiceland1339?si=OCqKpXhElbK9J-SZ",
       },

@@ -178,7 +178,7 @@ function Footer() {
 
   return (
     <footer style={{ width: "100%" }}>
-      <div className={s.container}>
+      <div className={s.container} style={{color:"#39527A"}}>
         {!isMobile &&
           location.pathname !== "/" &&
           !location.pathname.startsWith("/beds24") && (
@@ -187,12 +187,12 @@ function Footer() {
               style={{ marginBottom: isDesktop ? "5rem" : "2.5rem" }}
             ></div>
           )}
-        <div className={classes.linkContainer}>
+          <div  style={{display:"flex",marginLeft:"10%"}}>
+          <div className={classes.linkContainer} style={{display:"grid",width:"100%",gridTemplateColumns:"repeat(2,100%)"}}>
           {items.map((item, index) => (
             <div
               className={classes.titleContainer}
               key={index}
-              style={{ gridArea: `item${index + 1}` }}
             >
               <h3 className={classes.title}>
                 <WithTransLate text={item.title} />
@@ -200,7 +200,7 @@ function Footer() {
               <div
                 className={`${classes.itemLinks} ${
                   index === 2 ? classes.socials : ""
-                }`}
+                }`} 
               >
                 {item.links.map((link, idx) => (
                   <React.Fragment key={idx}>
@@ -259,6 +259,17 @@ function Footer() {
             </div>
           ))}
         </div>
+        <div className={classes.linkContainer} style={{display:"flex", flexDirection:"column",marginLeft:"600px", height:"fit"}}>
+          <div style={{fontWeight:"bold"}}>OUR NEWSLETTER</div>
+          <div style={{fontWeight:"bold"}}>Sign up for our newsletter</div>
+          <form style={{display:"flex",flexDirection:"column", marginBottom:"30%"}}>
+          <input style={{width:"30%", marginBottom:"3%"}}></input>
+          <input style={{width:"30%"}}></input>
+          </form>
+        </div>
+        </div>
+        
+        
         <div
           className={classes.lineSeparator}
           style={{
@@ -266,11 +277,14 @@ function Footer() {
             marginTop: isDesktop ? "4.5rem" : isMobile ? "1rem" : "2.5rem",
           }}
         />
+        
         <div className={classes.blueHouseContainer}>
           <span className={classes.blueHouse}>© Blue House 2024</span>
           <ManagePreferencesFooter />
         </div>
+        
       </div>
+      
     </footer>
   );
 }

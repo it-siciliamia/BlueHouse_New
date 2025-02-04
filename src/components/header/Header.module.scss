@@ -5,6 +5,8 @@
   width: 100%;
   height: auto;
   background-color: transparent;
+  padding-left: 10%;
+  padding-right: 10%;
   z-index: 3;
   backdrop-filter: blur(3px);
   background-color: rgba(255, 255, 255, 0.7);
@@ -15,6 +17,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  
   @media (min-width: 320px) and (max-width: 599.99px) {
     padding: 0px 25px;
     width: 100%;
@@ -24,14 +27,14 @@
     margin-left: auto;
     margin-right: auto;
     padding: 10px 20px;
-    max-width: 600px;
+    min-width: 600px;
     height: 81px;
   }
   @media (min-width: 960px) and (max-width: 1279.99px) {
     margin-left: auto;
     margin-right: auto;
     padding: 10px 20px;
-    max-width: 960px;
+    min-width: 960px;
     height: 81px;
   }
   @media (min-width: 1280px) and (max-width: 2200px) {
@@ -42,6 +45,7 @@
     min-width: 1280px;
     height: 110px;
   }
+
 }
 
 .imgLogo {
