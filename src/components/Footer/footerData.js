@@ -58,7 +58,11 @@ export const items = [
       },
     ],
   },
-
+  ,
+  {
+    title: "NEWSLETTER",
+    subTitle:"Sign up for our newsletter!"
+  },
   {
     title: "FOLLOW US",
     links: [
@@ -76,5 +80,5 @@ export const items = [
         href: "https://youtube.com/@bluehousebbiceland1339?si=OCqKpXhElbK9J-SZ",
       },
     ],
-  },
+  }
 ];
