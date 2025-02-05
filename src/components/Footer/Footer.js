@@ -192,7 +192,7 @@ function Footer() {
           {items.map((item, index) => (
             <div
               className={classes.titleContainer}
-              key={index}
+              key={index} 
             >
               <h3 className={classes.title} style={{color:"#1D3967"}}>
                 <WithTransLate text={item.title} />
@@ -218,6 +218,7 @@ function Footer() {
                             src={link.icon}
                             className={classes.icon}
                             alt={`Go to ${link.name}`}
+                            style={{backgroundColor:"blue"}}
                           />
                         )}
                         <span className={index === 2 ? classes.socialName : ""}>
@@ -249,7 +250,7 @@ function Footer() {
                     )}
                   </React.Fragment>
                 )):<div>
-                      <div style={{fontWeight:"bold",marginBottom:"20%",marginTop:"20%"}}>{item.subTitle}</div>
+                      <div style={{fontWeight:"bold",marginBottom:"20%",marginTop:"10%"}}>{item.subTitle}</div>
                       <form style={{display:"flex",flexDirection:"column"}}>
                       <input style={{width:"120%", marginBottom:"10%"}} placeholder="Your full name"></input>
                       <input style={{width:"120%"}} placeholder="Your email adress"></input>

@@ -23,7 +23,8 @@
   display: grid;
   width: 100%;
   grid-template-columns: repeat(3,1fr);
-  justify-items: center;
+  justify-items: baseline;
+  margin-left: 10%;
   @media (min-width: 320px) and (max-width: 599.99px) {
     grid-template-columns: repeat(1,1fr);
   }

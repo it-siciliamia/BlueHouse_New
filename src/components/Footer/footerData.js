@@ -63,7 +63,7 @@ export const items = [
     title: "NEWSLETTER",
     subTitle:"Sign up for our newsletter!"
   },
-  {
+  { 
     title: "FOLLOW US",
     links: [
       {
