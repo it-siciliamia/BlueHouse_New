@@ -3,12 +3,32 @@
   font-weight: bold;
   src: url("../../fonts/Oblik-Bold.otf") format("opentype");
 }
-.booking-container {
-  max-width: 1275px;
+
+.roomBooking {
+  @media (min-width: 320px) and (max-width: 599.99px) {
+    padding: 0 20px;
+    width: 100%;
+  }
+  @media (min-width: 600px) and (max-width: 1279.99px) {
+    padding: 0 20px;
+  }
+  @media (min-width: 1280px) and (max-width: 2200px) {
+    padding: 0 50px;
+  }
 }
+
 .hero {
-  gap: 55px;
-  display: flex;
+  @media (min-width: 960px) and (max-width: 1279.99px) {
+    margin-left: 15px;
+    width: 100%;
+    display: flex;
+    gap: 25px;
+  }
+  @media (min-width: 1280px) and (max-width: 2200px) {
+    width: 100%;
+    display: flex;
+    gap: 45px;
+  }
 }
 .social-app-icons {
   display: flex;
@@ -20,22 +40,51 @@
   width: 24px;
   height: 24px;
 }
-.search-wrapper {
-  background-image: url("../../images/roombooking/image1.jpg");
+
+.search-component {
+  position: relative;
+  width: 100%;
+  background-image: url("../../images/roombooking/image1.webp");
   background-repeat: no-repeat;
   background-size: cover;
+  @media (min-width: 960px) and (max-width: 1279.99px) {
+    width: calc(100% - 63px);
+    height: 400px;
+  }
+  @media (min-width: 1280px) and (max-width: 2200px) {
+    height: 510px;
+  }
 }
+
+.search-wrapper {
+  width: 100%;
+  position: absolute;
+  bottom: 60px;
+}
+
 .booking-title {
   text-align: center;
   font-family: "Oblik";
-  padding-top: 278px;
-  font-size: 46px;
   font-weight: bold;
   color: white;
   text-transform: uppercase;
+  @media (min-width: 960px) and (max-width: 1279.99px) {
+    font-size: 38px;
+  }
+  @media (min-width: 1280px) and (max-width: 2200px) {
+    font-size: 46px;
+  }
 }
 .content {
-  padding: 30px 100px 60px;
+  @media (min-width: 960px) and (max-width: 1279.99px) {
+    padding: 30px 30px 0px;
+  }
+  @media (min-width: 1280px) and (max-width: 1479.99px) {
+    padding: 30px 30px 0px;
+  }
+  @media (min-width: 1480px) and (max-width: 2200px) {
+    padding: 30px 100px 0px;
+  }
 }
 .search {
   position: relative;
@@ -47,8 +96,8 @@
   background-color: white;
   display: flex;
   justify-content: space-between;
-  min-width: 225px;
-  padding: 12px;
+  min-width: 25%;
+  height: 48px;
   border: 1px solid lightgrey;
   position: relative;
 }
@@ -67,9 +116,118 @@
   padding: 0;
   border: none;
 }
+
+.date-range__input {
+  border: none;
+  outline: none;
+  padding: 10px;
+  font-size: 16px;
+  @media (min-width: 320px) and (max-width: 599.99px) {
+    margin-top: 3px;
+    margin-bottom: -3px;
+    font-size: 16px;
+  }
+  @media (min-width: 960px) and (max-width: 1279.99px) {
+    font-size: 15px;
+  }
+  @media (min-width: 1280px) and (max-width: 2200px) {
+    padding-top: 11px;
+    padding-bottom: 9px;
+    font-size: 18px;
+  }
+}
+
+.react-datepicker {
+  border: 1px solid #ccc;
+  background-color: white;
+  border-radius: 0px;
+  padding: 10px;
+}
+
+.react-datepicker__header {
+  background-color: white;
+  border-bottom: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+}
+
+.react-datepicker__current-month {
+  margin-top: -15px;
+  font-weight: 500;
+  font-size: 16px;
+  @media (min-width: 960px) and (max-width: 1279.99px) {
+    font-size: 15px;
+  }
+}
+
+.react-datepicker__day {
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  margin: 2px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 300;
+  border: 1px solid rgba(0, 0, 0, 0.294);
+  border-radius: 5px;
+  @media (min-width: 960px) and (max-width: 1279.99px) {
+    width: 28px;
+    height: 28px;
+    line-height: 28px;
+    font-size: 14px;
+  }
+}
+
+.react-datepicker__day-name {
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  margin: 2px;
+  font-size: 15px;
+  font-weight: 500;
+  @media (min-width: 960px) and (max-width: 1279.99px) {
+    width: 28px;
+    height: 28px;
+    line-height: 28px;
+    font-size: 14px;
+  }
+}
+
+.react-datepicker__day--today {
+  font-weight: 500;
+}
+.react-datepicker__day--selected {
+  font-weight: 500;
+}
+
+.search-container-text {
+  padding-left: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 300px;
+  line-height: 1.2;
+  @media (min-width: 320px) and (max-width: 599.99px) {
+    font-size: 16px;
+    font-weight: 300px;
+    line-height: 1.2;
+  }
+  @media (min-width: 960px) and (max-width: 1279.99px) {
+    font-size: 15px;
+  }
+}
+
 .search-btn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
   color: white;
-  background-color: #455c80;
+  background-color: #3b5998;
+  border: 1px solid #3b5998;
   text-transform: uppercase;
   height: 100%;
   width: 100%;
@@ -86,12 +244,15 @@
   position: relative;
 }
 .quantity-container {
-  min-width: 390px;
-  background-color: #f5f5f5;
-  top: 55px;
-  right: 0;
   position: absolute;
-  padding: 24px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 20px;
+  top: 48px;
+  right: 0;
+  width: 100%;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.294);
 }
 .quantity-element {
   padding: 16px 0;
@@ -101,13 +262,11 @@
   justify-content: space-between;
 }
 .quantity-content {
-  width: 119px;
-  align-items: baseline;
-  padding: 6px 12px;
-  justify-content: space-between;
   display: flex;
-  background-color: white;
-  border: 1px solid lightgray;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 110px;
 }
 .count-person {
   padding: 2px 5px;
@@ -116,28 +275,42 @@
   color: #14202b;
   margin: 0;
 }
+.submit-amount-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
 .submit-amount {
   color: white;
   font-weight: 600;
   padding: 14.5px 0;
-  width: 100%;
-  background-color: #073762;
+  height: 48px;
+  background-color: #3b5998;
+  border: 1px solid #3b5998;
 }
-.increment-btn {
-  cursor: pointer;
-  transition: all ease-in-out 0.1s;
-}
+.increment-btn,
 .decrement-btn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
   cursor: pointer;
   transition: all ease-in-out 0.1s;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.294);
+  background-color: white;
 }
 .increment-btn:active {
   background-color: #f5f5f5;
-  border-radius: 25%;
+  border: 1px solid rgba(0, 0, 0, 0.514);
 }
 .decrement-btn:active {
   background-color: #f5f5f5;
-  border-radius: 25%;
+  border: 1px solid rgba(0, 0, 0, 0.514);
 }
 .quantity-container-toggle-btn {
   border: none;
@@ -145,25 +318,164 @@
 }
 
 .bh_advantages-wrapper {
-  padding: 63px 60px 63px 80px;
+  @media (min-width: 320px) and (max-width: 599.99px) {
+    margin-top: 50px;
+    margin-bottom: -20px;
+  }
+  @media (min-width: 1280px) and (max-width: 2200px) {
+    padding: 63px 0px 63px 70px;
+  }
 }
 .bh_advantages-list {
-  margin: 0;
-  padding: 0;
-  display: flex;
-  list-style: none;
-  justify-content: space-between;
-  align-items: flex-end;
-  gap: 60px;
+  @media (min-width: 320px) and (max-width: 599.99px) {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    list-style: none;
+    gap: 15px;
+    width: 100%;
+  }
+  @media (min-width: 1280px) and (max-width: 2200px) {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 60px;
+  }
 }
 .bh_advantages-item {
-  text-align: center;
-  transition: all 0.2s;
+  @media (min-width: 320px) and (max-width: 599.99px) {
+    padding-top: 15px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 15px;
+    border-top: 1px solid #cdd7e2;
+  }
+  @media (min-width: 1280px) and (max-width: 2200px) {
+    text-align: center;
+    width: 140px;
+  }
 }
-.bh_advantages-item:hover {
-  transform: scale(1.05);
+.bh_advantages-item:last-child {
+  @media (min-width: 320px) and (max-width: 599.99px) {
+    padding-bottom: 15px;
+    border-bottom: 1px solid #cdd7e2;
+  }
 }
+.bh_advantages-icons {
+  @media (min-width: 320px) and (max-width: 599.99px) {
+    width: 23px;
+    height: auto;
+  }
+  @media (min-width: 1280px) and (max-width: 2200px) {
+    width: 56px;
+    height: auto;
+  }
+}
+
 .bh_advantages-text {
-  margin-top: 15px;
-  margin-bottom: 0;
+  @media (min-width: 320px) and (max-width: 599.99px) {
+    margin: 0;
+    margin-top: 5px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #14202b;
+  }
+  @media (min-width: 1280px) and (max-width: 2200px) {
+    margin-top: 15px;
+    margin-bottom: 0;
+  }
+}
+.bh_advantages-title {
+  @media (min-width: 320px) and (max-width: 599.99px) {
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: 500;
+    color: #1d3967;
+  }
+}
+.bh_advantages-title-text {
+  @media (min-width: 320px) and (max-width: 599.99px) {
+    margin-top: 50px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: 600;
+    color: black;
+    text-transform: uppercase;
+  }
+}
+.bh_advantages-link {
+  @media (min-width: 320px) and (max-width: 599.99px) {
+    margin-top: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #14202b;
+    cursor: pointer;
+    text-decoration: underline;
+    transition: all 0.3s ease;
+  }
+}
+.bh_advantages-link:hover {
+  font-weight: 600;
+}
+
+.search-component-mobile {
+  width: 100%;
+}
+.search-hero-mobile {
+  width: 100%;
+}
+.booking-title-mobile {
+  margin-top: 25px;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 22px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: black;
+}
+.content-mobile {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.datePart-mobile {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+.search-container-mobile {
+  padding-top: 1px;
+  padding-bottom: 1px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  width: 49%;
+  height: 50px;
+  background-color: white;
+  border: 1px solid lightgrey;
+  z-index: 2;
+}
+.booking-text-mobile {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+.search-hero-photo-mobile {
+  @media (min-width: 320px) and (max-width: 1279.99px) {
+    width: calc(100% + 40px);
+    min-height: 250px;
+    max-height: 350px;
+    margin-right: -20px;
+    margin-left: -20px;
+  }
 }

@@ -6,21 +6,29 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 30px 15px;
+  padding: 40px 30px;
   gap: 20px;
-  //   border: 1px solid #243864;
   border: 1px solid #d8dfe7;
-
-  @media (max-width: 768px) {
+  @media (min-width: 320px) and (max-width: 599.99px) {
     width: 90%;
-    padding: 15px;
+    padding: 40px 20px;
+    margin-top: 0px;
     margin-bottom: 50px;
   }
-
-  @media (min-width: 768px) and (max-width: 1024px) {
+  @media (min-width: 600px) and (max-width: 959.99px) {
     width: 90%;
-    padding: 20px 15px;
-    margin-bottom: 50px;
+    padding: 40px 55px;
+    margin-top: 50px;
+  }
+  @media (min-width: 960px) and (max-width: 1279.99px) {
+    width: 90%;
+    padding: 50px 15px;
+    margin-top: 90px;
+  }
+  @media (min-width: 1280px) and (max-width: 2200px) {
+    width: 90%;
+    padding: 50px 15px;
+    margin-top: 90px;
   }
 }
 
@@ -32,13 +40,19 @@
   text-align: center;
   font-family: "Oblik", sans-serif;
   font-size: 24px;
-
-  @media (max-width: 768px) {
-    width: 100%;
+  @media (min-width: 320px) and (max-width: 599.99px) {
+    width: 80%;
     font-size: 18px;
   }
-
-  @media (min-width: 768px) and (max-width: 1024px) {
+  @media (min-width: 600px) and (max-width: 959.99px) {
+    width: 80%;
+    font-size: 18px;
+  }
+  @media (min-width: 960px) and (max-width: 1279.99px) {
+    width: 70%;
+    font-size: 20px;
+  }
+  @media (min-width: 1280px) and (max-width: 2200px) {
     width: 70%;
     font-size: 20px;
   }
@@ -51,14 +65,22 @@
   align-items: center;
   justify-content: space-between;
 
-  @media (max-width: 768px) {
+  @media (min-width: 320px) and (max-width: 599.99px) {
     width: 100%;
     flex-direction: column;
     align-items: flex-start;
     gap: -5px;
   }
-
-  @media (min-width: 768px) and (max-width: 1024px) {
+  @media (min-width: 600px) and (max-width: 959.99px) {
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: -5px;
+  }
+  @media (min-width: 960px) and (max-width: 1279.99px) {
+    width: 650px;
+  }
+  @media (min-width: 1280px) and (max-width: 2200px) {
     width: 650px;
   }
 }
@@ -69,11 +91,16 @@
   text-align: center;
   font-family: "Oblik", sans-serif;
   font-size: 18px;
-  @media (max-width: 768px) {
+  @media (min-width: 320px) and (max-width: 599.99px) {
     font-size: 14px;
   }
-
-  @media (min-width: 768px) and (max-width: 1024px) {
+  @media (min-width: 600px) and (max-width: 959.99px) {
+    font-size: 14px;
+  }
+  @media (min-width: 960px) and (max-width: 1279.99px) {
+    font-size: 16px;
+  }
+  @media (min-width: 1280px) and (max-width: 2200px) {
     font-size: 16px;
   }
 }
@@ -83,13 +110,19 @@
   margin-bottom: 16px;
   margin-right: 200px;
   width: 350px;
-
-  @media (max-width: 768px) {
+  @media (min-width: 320px) and (max-width: 599.99px) {
     margin-right: 0px;
     width: 100%;
   }
-
-  @media (min-width: 768px) and (max-width: 1024px) {
+  @media (min-width: 600px) and (max-width: 959.99px) {
+    margin-right: 0px;
+    width: 100%;
+  }
+  @media (min-width: 960px) and (max-width: 1279.99px) {
+    margin-right: 120px;
+    width: 350px;
+  }
+  @media (min-width: 1280px) and (max-width: 2200px) {
     margin-right: 150px;
     width: 350px;
   }
@@ -122,12 +155,16 @@ input.error {
   width: 750px;
   display: flex;
   align-items: flex-start;
-
-  @media (max-width: 768px) {
+  @media (min-width: 320px) and (max-width: 599.99px) {
     width: 100%;
   }
-
-  @media (min-width: 768px) and (max-width: 1024px) {
+  @media (min-width: 600px) and (max-width: 959.99px) {
+    width: 90%;
+  }
+  @media (min-width: 960px) and (max-width: 1279.99px) {
+    width: 650px;
+  }
+  @media (min-width: 1280px) and (max-width: 2200px) {
     width: 650px;
   }
 }
@@ -178,7 +215,7 @@ input.error {
   font-weight: 600;
   font-size: 14px;
   line-height: 1.5;
-  color: #8969af;
+  color: blue;
 }
 
 .humanVerification {
@@ -190,7 +227,7 @@ input.error {
 
 .btn {
   margin-top: 15px;
-  background-color: #3b5998;
+  background-color: #1d3967;
   font-size: 15px;
   color: #fff;
   font-size: 16px;
@@ -199,10 +236,10 @@ input.error {
   width: 280px;
   text-transform: uppercase;
   transition: border-color 0.3s ease;
-  border: 1px solid #3b5998;
+  border: 1px solid #1d3967;
   cursor: pointer;
 
-  @media (max-width: 768px) {
+  @media (min-width: 320px) and (max-width: 599.99px) {
     width: 232px;
   }
 }

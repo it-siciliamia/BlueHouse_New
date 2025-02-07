@@ -3,7 +3,7 @@ import PopUpVariationLayoutServices from "./popUpVariationLayoutServices";
 import logo from "../../images/stampLogo.png";
 import originalSideImage from "../../images/popUpVariations/CHEAPESTPRICE.png";
 import replaceImage from "../../images/popUpVariations/replace/CHEAPESTPRICE.svg";
-import { WithTransLate } from "../../translating/index";
+import { WithTransLate } from "../helpers/translating/index";
 
 const useStyles = makeStyles((theme) => ({
   intro: {
@@ -49,9 +49,9 @@ const useStyles = makeStyles((theme) => ({
       marginTop: "0px",
       marginBottom: "0px",
     },
-    "& li":{
-      marginBottom:"20px"
-    }
+    "& li": {
+      marginBottom: "20px",
+    },
   },
   outro: {
     fontSize: "18px",
@@ -109,12 +109,14 @@ export default function CheapestPrice({ handleClose }) {
       </ul>
       <Typography className={outro}>
         <WithTransLate text="Feel free to contact us at " />
-        <br/><br/>
+        <br />
+        <br />
         <u>
           <b> info@bluehouse.is </b>
         </u>
-        <br/><br/>
-        </Typography>
+        <br />
+        <br />
+      </Typography>
     </>
   );
 

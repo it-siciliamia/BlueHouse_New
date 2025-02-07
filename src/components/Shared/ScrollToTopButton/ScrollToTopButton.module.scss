@@ -1,0 +1,69 @@
+.scrollToTopButton {
+  position: fixed;
+  bottom: 25px;
+  right: 30px;
+  z-index: 3;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  cursor: pointer;
+  @media (max-width: 768px) {
+    bottom: 25px;
+    right: 10px;
+  }
+  @media (min-width: 768px) and (max-width: 1024px) {
+    bottom: 25px;
+    right: 20px;
+  }
+}
+
+.scrollToTopButton:focus,
+.scrollToTopButton:active {
+  outline: none;
+  border: none;
+}
+
+.imgWrapper {
+  padding: 2px;
+  border-radius: 50%;
+  background: linear-gradient(to bottom, #1b646d, #314a6f);
+}
+
+.arrowIcon {
+  width: 65px;
+  height: 65px;
+  @media (max-width: 768px) {
+    width: 55px;
+    height: 55px;
+  }
+  @media (min-width: 768px) and (max-width: 1024px) {
+    width: 55px;
+    height: 55px;
+  }
+}
+
+.arrowUp {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #073762;
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: opacity 0.5s ease;
+}
+
+.blinking {
+  animation: blink 1s infinite alternate;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

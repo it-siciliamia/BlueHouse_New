@@ -1,0 +1,80 @@
+.paymentPanel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  @media (min-width: 320px) and (max-width: 599.99px) {
+    padding: 0 20px;
+    min-width: 280px;
+    max-width: 500px;
+  }
+  @media (min-width: 600px) and (max-width: 959.99px) {
+    margin-right: auto;
+    margin-left: auto;
+    padding: 0 40px;
+    width: 500px;
+  }
+  @media (min-width: 960px) and (max-width: 1279.99px) {
+    margin-right: auto;
+    margin-left: auto;
+    padding: 0 40px;
+    width: 500px;
+  }
+  @media (min-width: 1280px) and (max-width: 2200px) {
+    padding: 0;
+    width: 500px;
+  }
+}
+
+.circle {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  border: 1px solid #000;
+  border-radius: 50%;
+  color: #000;
+  background-color: #fff;
+  font-size: 19px;
+  font-weight: 700;
+  z-index: 2;
+  transition: background-color 0.3s, color 0.3s;
+
+  &.active {
+    background-color: #1d3967;
+    color: #fff;
+    font-weight: 700;
+  }
+
+  .label {
+    position: absolute;
+    top: 60px;
+    font-weight: 400;
+    color: #000;
+    text-align: center;
+    white-space: nowrap;
+    &.active {
+      font-weight: 700;
+    }
+    @media (min-width: 320px) and (max-width: 374.99px) {
+      font-size: 13px;
+    }
+    @media (min-width: 375px) {
+      font-size: 16px;
+    }
+  }
+}
+
+.line {
+  flex-grow: 1;
+  height: 1px;
+  background-color: #000;
+  margin: 0 -10px;
+  transition: background-color 0.3s;
+
+  &.activeLine {
+    background-color: #1d3967;
+  }
+}

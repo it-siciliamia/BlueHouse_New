@@ -1,0 +1,76 @@
+.slick-prev,
+.slick-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background: rgba(245, 245, 245, 0.269);
+}
+
+.slick-prev:before,
+.slick-next:before {
+  display: none;
+}
+
+.slick-prev:hover,
+.slick-next:hover {
+  opacity: 1;
+  background-color: rgba(245, 245, 245, 0.634);
+}
+
+.slick-prev:hover .btnIconLeft,
+.slick-next:hover .btnIconRight {
+  color: #073762;
+}
+
+.slick-prev,
+.slick-next {
+  opacity: 1;
+  transition: none;
+}
+
+.slick-prev {
+  left: 20px;
+}
+
+.slick-next {
+  right: 20px;
+}
+
+.btnIconLeft {
+  color: white;
+  font-size: 35px;
+  margin-right: 4px;
+}
+
+.btnIconRight {
+  color: white;
+  font-size: 35px;
+  margin-left: 4px;
+}
+
+.custom-dots {
+  position: absolute;
+  bottom: 50px;
+  width: 100%;
+  display: flex !important;
+  justify-content: center;
+  z-index: 2;
+}
+
+.custom-dots li button:before {
+  font-size: 9px;
+  color: #073762;
+  opacity: 0.2; /* Customize the color of the dots */
+}
+
+.custom-dots li.slick-active button:before {
+  color: #073762;
+}

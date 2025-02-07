@@ -1,5 +1,6 @@
-import { WithTransLate } from "../../../translating/index";
-
+import React from "react";
+import PropTypes from "prop-types";
+import { WithTransLate } from "../../helpers/translating/index";
 import "./ReviewSlide.css";
 
 const ReviewSlide = ({ quote }) => {
@@ -17,6 +18,13 @@ const ReviewSlide = ({ quote }) => {
       </div>
     </div>
   );
+};
+
+ReviewSlide.propTypes = {
+  quote: PropTypes.shape({
+    text: PropTypes.string.isRequired,
+    customerName: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default ReviewSlide;

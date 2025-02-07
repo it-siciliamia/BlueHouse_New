@@ -6,11 +6,11 @@ import reportWebVitals from "./reportWebVitals";
 import { PersistGate } from "redux-persist/integration/react";
 import { Provider } from "react-redux";
 import { store, persistor } from "./redux/store";
-import "./index.css";
+import PropTypes from "prop-types";
 
 const isGitHubPages = window.location.hostname.includes("github.io");
 
-const basename = isGitHubPages ? "/BlueHouse_New" : "/";
+const basename = "/";
 
 const Router = ({ children }) =>
   isGitHubPages ? (
@@ -19,10 +19,14 @@ const Router = ({ children }) =>
     <BrowserRouter>{children}</BrowserRouter>
   );
 
+Router.propTypes = {
+  children: PropTypes.node.isRequired,
+};
+
 ReactDOM.render(
   <Router>
     <Provider store={store}>
-      <PersistGate persistor={persistor}>
+      <PersistGate loading={null} persistor={persistor}>
         <App basename={basename} />
       </PersistGate>
     </Provider>
@@ -30,7 +34,4 @@ ReactDOM.render(
   document.getElementById("root")
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();

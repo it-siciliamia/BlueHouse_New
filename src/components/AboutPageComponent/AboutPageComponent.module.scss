@@ -1,0 +1,233 @@
+.about {
+  @media (min-width: 320px) and (max-width: 599.99px) {
+    padding: 0 20px;
+    width: 100%;
+  }
+  @media (min-width: 600px) and (max-width: 1279.99px) {
+    padding: 0 20px;
+  }
+  @media (min-width: 1280px) and (max-width: 2200px) {
+    margin-top: 25px;
+    padding: 0 50px;
+  }
+}
+
+.titleWrapper {
+  @media (min-width: 1280px) and (max-width: 2200px) {
+    width: 0px;
+    position: relative;
+  }
+}
+
+.titleWrapperSecond {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.title {
+  white-space: nowrap;
+  font-family: "Oblik", Arial, sans-serif;
+  letter-spacing: 0.1em;
+  color: #00366e;
+  @media (min-width: 320px) and (max-width: 1279.99px) {
+    margin: 20px 0;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+  @media (min-width: 1280px) and (max-width: 2200px) {
+    position: absolute;
+    top: 165px;
+    left: -175px;
+    margin-bottom: 0;
+    height: fit-content;
+    font-size: 24px;
+    font-weight: 900;
+    transform: rotate(-90deg);
+  }
+}
+
+.titleSecond {
+  top: 185px;
+  left: -190px;
+  white-space: nowrap;
+  font-family: "Oblik", Arial, sans-serif;
+  letter-spacing: 0.1em;
+  color: #00366e;
+  @media (min-width: 320px) and (max-width: 1279.99px) {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+  @media (min-width: 1280px) and (max-width: 2200px) {
+    position: absolute;
+    top: 165px;
+    left: -175px;
+    margin-bottom: 0;
+    height: fit-content;
+    font-size: 24px;
+    font-weight: 900;
+    transform: rotate(-270deg);
+  }
+}
+
+.sectionWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  @media (min-width: 1280px) and (max-width: 2200px) {
+    gap: 100px;
+  }
+}
+
+.sectionContent {
+  display: flex;
+  flex-direction: column;
+  @media (min-width: 320px) and (max-width: 599.99px) {
+    gap: 40px;
+  }
+  @media (min-width: 600px) and (max-width: 959.99px) {
+    gap: 40px;
+  }
+  @media (min-width: 960px) and (max-width: 1279.99px) {
+    gap: 40px;
+  }
+  @media (min-width: 1280px) and (max-width: 2200px) {
+    margin-left: 65px;
+    gap: 50px;
+  }
+}
+
+.sectionPart {
+  width: 100%;
+  display: flex;
+  @media (min-width: 320px) and (max-width: 599.99px) {
+    flex-direction: column;
+  }
+  @media (min-width: 600px) and (max-width: 959.99px) {
+    flex-direction: column;
+  }
+  @media (min-width: 960px) and (max-width: 1279.99px) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  @media (min-width: 1280px) and (max-width: 2200px) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.partTextWripper {
+  display: flex;
+  @media (min-width: 320px) and (max-width: 599.99px) {
+    width: 100%;
+    flex-direction: column;
+  }
+  @media (min-width: 600px) and (max-width: 959.99px) {
+    width: 100%;
+    flex-direction: column;
+  }
+  @media (min-width: 960px) and (max-width: 1279.99px) {
+    width: 50%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+  @media (min-width: 1280px) and (max-width: 2200px) {
+    width: 50%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.partText {
+  display: flex;
+  width: 100%;
+  @media (min-width: 320px) and (max-width: 959.99px) {
+    padding: 0 20px;
+    flex-direction: column;
+    font-size: 16px;
+    line-height: 30px;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+  }
+  @media (min-width: 960px) and (max-width: 1279.99px) {
+    padding: 0 30px;
+    flex-direction: column;
+    font-size: 18px;
+    line-height: 30px;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+  }
+  @media (min-width: 1280px) and (max-width: 2200px) {
+    padding: 0 40px;
+    flex-direction: column;
+    font-size: 18px;
+    line-height: 30px;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+  }
+}
+
+.partImage {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  @media (min-width: 320px) and (max-width: 599.99px) {
+    margin-bottom: 40px;
+    width: 100%;
+  }
+  @media (min-width: 600px) and (max-width: 959.99px) {
+    margin-bottom: 40px;
+    width: 100%;
+  }
+  @media (min-width: 960px) and (max-width: 1279.99px) {
+    width: 50%;
+  }
+  @media (min-width: 1280px) and (max-width: 2200px) {
+    width: 50%;
+  }
+}
+
+.imageFirst {
+  background-image: url("../../images/aboutus/house02.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 450px;
+}
+
+.imageSecond {
+  background-image: url("../../images/aboutus/house01.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 450px;
+}
+
+.imageZeno {
+  background-image: url("../../images/aboutus/message.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  @media (min-width: 320px) and (max-width: 599.99px) {
+    margin-top: 40px;
+    height: 400px;
+  }
+  @media (min-width: 600px) and (max-width: 959.99px) {
+    margin-top: 40px;
+    height: 500px;
+  }
+  @media (min-width: 960px) and (max-width: 1279.99px) {
+    height: 580px;
+  }
+  @media (min-width: 1280px) and (max-width: 2200px) {
+    height: 650px;
+  }
+}

@@ -1,14 +1,17 @@
 import { useState, useRef } from "react";
 import s from "./NewsLetter.module.scss";
 import { useForm, Controller } from "react-hook-form";
+import useBreakpoints from "../../Styles/useBreakpoints";
 import { Link } from "react-router-dom";
-import { WithTransLate } from "../../translating";
-import HumanVerification from "../HumanVerification/HumanVerification";
+import { WithTransLate } from "../helpers/translating";
+import Button from "../Shared/Button/Button";
+// import HumanVerification from "../HumanVerification/HumanVerification";
 
 const NewsletterComponent = () => {
-  const [isHumanVerified, setIsHumanVerified] = useState(false);
+  // const [isHumanVerified, setIsHumanVerified] = useState(false);
   const [aproveSendData, setAproveSendData] = useState(false);
   const checkboxRef = useRef(null);
+  const { isMobile } = useBreakpoints();
 
   const {
     control,
@@ -18,7 +21,7 @@ const NewsletterComponent = () => {
   } = useForm({
     defaultValues: {
       FIRSTNAME: "",
-      LASTNAME: "Enpty",
+      LASTNAME: "_",
       CONTACT_EMAIL: "",
     },
     mode: "onChange",
@@ -69,12 +72,12 @@ const NewsletterComponent = () => {
       checkboxRef.current.checked = false;
     }
     setAproveSendData(false);
-    setIsHumanVerified(false);
+    // setIsHumanVerified(false);
   };
 
-  const handleVerification = (isVerified) => {
-    setIsHumanVerified(isVerified);
-  };
+  // const handleVerification = (isVerified) => {
+  //   setIsHumanVerified(isVerified);
+  // };
 
   const handleAproveSendData = (event) => {
     setAproveSendData(event.target.checked);
@@ -82,11 +85,11 @@ const NewsletterComponent = () => {
 
   return (
     <div className={s.newsletterContainer}>
-      <h4 className={s.newsletterHeading}>
+      <h2 className={s.newsletterHeading}>
         <WithTransLate
           text={" Sign up to the BH newsletter to get our updates from Iceland"}
         />
-      </h4>
+      </h2>
       <div
         style={{ display: "none" }}
         dangerouslySetInnerHTML={{
@@ -97,7 +100,7 @@ const NewsletterComponent = () => {
               /*Before submit, if you want to trigger your event, "include your code here"*/
           </script>
 
-<meta content="width=device-width,initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+<meta content="width=device-width,initial-scale=1.0 name="viewport">
 <div id="sf3zf5b83c701f03b01a7fdb0983b13eede0fa276bd78b1c824573c795f1545b492a" data-type="signupform">
     <input type="hidden" id="recapTheme" value="2">
     <input type="hidden" id="isRecapIntegDone" value="false">
@@ -210,7 +213,7 @@ const NewsletterComponent = () => {
         </div>
         <input type="hidden" id="isCaptchaNeeded" value="true">
         <input type="hidden" id="superAdminCap" value="0">
-        <img src="https://oqix-zcmp.maillist-manage.eu/images/spacer.gif" onload="referenceSetter(this)" id="refImage" style="display:none;">
+        <img src="https://oqix-zcmp.maillist-manage.eu/images/spacer.gif" id="refImage" style="display:none;">
     </div>
 </div>
 <div id="zcOptinOverLay" oncontextmenu="return false" style="display:none;text-align: center; background-color: rgb(0, 0, 0); opacity: 0.5; z-index: 100; position: fixed; width: 100%; top: 0px; left: 0px; height: 988px;"></div>
@@ -245,6 +248,8 @@ const NewsletterComponent = () => {
               <div className={s.formGroup}>
                 <input
                   {...field}
+                  id="FIRSTNAME"
+                  aria-label="Your Name"
                   type="text"
                   // placeholder="First Name"
                   className={fieldState.invalid ? s.error : ""}
@@ -279,6 +284,8 @@ const NewsletterComponent = () => {
                 <input
                   {...field}
                   type="text"
+                  id="LASTNAME"
+                  aria-label="Your Lastname"
                   // placeholder="Last Name"
                   className={fieldState.invalid ? s.error : ""}
                 />
@@ -310,6 +317,8 @@ const NewsletterComponent = () => {
               <div className={s.formGroup}>
                 <input
                   {...field}
+                  id="CONTACT_EMAIL"
+                  aria-label="Contact Email"
                   type="email"
                   // placeholder="Contact Email"
                   className={fieldState.invalid ? s.error : ""}
@@ -346,19 +355,18 @@ const NewsletterComponent = () => {
           </p>
         </div>
 
-        <div className={s.humanVerification}>
+        {/* <div className={s.humanVerification}>
           <HumanVerification onVerify={handleVerification} />
-        </div>
+        </div> */}
 
         <div className={s.humanVerification}>
-          <button
-            className={s.btn}
+          <Button
+            text="Sign Up"
             type="submit"
-            disabled={!isHumanVerified || !isValid || !aproveSendData}
-            // disabled={!isValid || !aproveSendData}
-          >
-            <WithTransLate text={"Sign Up"} />
-          </button>
+            btnClass="btnDark"
+            disabled={!isValid || !aproveSendData}
+            width={isMobile ? "218px" : "280px"}
+          />
         </div>
       </form>
     </div>

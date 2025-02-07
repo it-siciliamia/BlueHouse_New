@@ -1,4 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
+import React from "react";
 import { Grid, makeStyles } from "@material-ui/core";
 import React, { useState, useEffect } from "react";
 import logo from "../images/logo.svg";
@@ -403,7 +404,7 @@ const BookingPage = ({
       userDetails[5] &&
       userDetails[6] &&
       userDetails[7] &&
-      userDetails[8] 
+      userDetails[8]
     ) {
       setRequiredInfo(true);
     } else {
@@ -456,7 +457,7 @@ const BookingPage = ({
           <div style={{ display: "flex", alignItems: "center" }}>
             <p className={classes.Info}>{name}</p>
             <p className={classes.Info2}>Occupancy</p>
-            <img src={people} className={classes.people} alt="" />
+            <img src={people} className={classes.people} alt="Occupancy" />
           </div>
           <p className={classes.Info}>€{price}</p>
         </div>

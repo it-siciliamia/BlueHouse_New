@@ -1,37 +1,41 @@
-import "./App.css";
-import Header from "./components/header";
-import HomePage from "./views/homePage";
-import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
+import React, { useState, createContext } from "react";
+import PropTypes from "prop-types";
+import { Route, Switch } from "react-router-dom";
 import { HelmetProvider, Helmet } from "react-helmet-async";
-import schema from "./components/helpers/SchemaOrg/schema.js";
-import Cookies from "./components/Cookies";
 import { ThemeProvider } from "@material-ui/styles";
-import theme from "./theme";
-import HouseRules from "./views/houseRules";
-import Footer from "./components/Footer/Footer";
-import Notfound from "./views/Notfound";
-import Aboutus from "./views/AboutUs";
-import ViewGalery from "./views/viewGalery";
-import PrivacyandPolicy from "./views/ImportAndP&P";
-import ScrollToTop from "./ScrollToTop";
-// import Map from "./components/map/Map";
-import SliderPhoto from "./components/SliderPhoto";
-import NewsLetter from "./components/NewsLetter/NewsLetter.jsx";
-import { useState, useEffect } from "react";
-import { createContext } from "react";
-//import Home from "./components/Home/Home/Home";
-//import BookingPage from "./components/BookingPage/BookingPage";
-import EnquirePage from "./components/BookingPage/EnquirePage";
-//import Payment from "./components/PaymentPage/Payment";
-import ThankYou from "./thankyou/index.js";
-import { RedirectBlog, RedirectTripAdv } from "./redirect/Redirect";
-import FindMore from "./components/FindMore/FindMore.jsx";
-import NewMap from "./components/map/NewMap.js";
+import ScrollToTopButton from "./components/Shared/ScrollToTopButton/ScrollToTopButton.jsx";
+import ZohoChat from "./components/helpers/ZohoChat/ZohoChat.jsx";
+import combinedSchema from "./components/helpers/SchemaOrg/schema.js";
+import CookiesBanner from "./components/CookiesBanner/CookiesBanner.js";
+import { HeaderProvider } from "./components/helpers/HeaderContext/HeaderContext";
+import { LanguageProvider } from "./components/helpers/translating/LanguageContext.js";
+import Header from "./components/header/Header.jsx";
+import HomePage from "./views/HomePage/HomePage.jsx";
+import Aboutus from "./views/AboutUsPage/AboutUs.jsx";
+import PrivacyandPolicyPage from "./views/PrivacyPolicyPage/PrivacyPolicyPage.jsx";
+import PageHeader from "./components/Shared/PageHeader/PageHeader.jsx";
+import ScrollToTop from "./components/helpers/ScrollToTop.js";
+import HouseRules from "./views/HouseRulesPage/HouseRules.jsx";
+import Footer from "./components/Footer/Footer.js";
+import Notfound from "./views/NotFoundPage/Notfound.js";
 import RoomBooking from "./views/roombooking/RoomBooking.jsx";
-// import Carousel from "./Carousel.js";
-// import Galary from "./components/Mobile Galary Section/Galary.js";
+import RoomDetails from "./views/RoomDetails/RoomDetails.jsx";
+import EnquirePage from "./components/BookingPage/EnquirePage.js";
+import ThankYou from "./thankyou/index.js";
+import NewMap from "./components/map/NewMap";
+import {
+  RedirectBlog,
+  RedirectTripAdv,
+} from "./components/helpers/redirect/Redirect.js";
+import theme from "./Styles/theme.js";
+import "./Styles/App.css";
+import PaymentPage from "./views/PaymentPage/PaymentPage.jsx";
 
 export const UserContext = createContext();
+
+App.propTypes = {
+  basename: PropTypes.string,
+};
 
 function App({ basename }) {
   const [modalState, setModal] = useState({
@@ -39,132 +43,103 @@ function App({ basename }) {
     index: 0,
   });
   const [room, setRoom] = useState(false);
-
   const [right, setRight] = useState("-6000px");
   const [top, setTop] = useState("-200%");
-
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
-
-    window.addEventListener("resize", handleResize);
-
-    // Clean up the event listener on component unmount
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
 
   return (
     <ThemeProvider theme={theme}>
       <HelmetProvider>
         <Helmet>
-          <script type="application/ld+json">{schema}</script>
+          <script type="application/ld+json">{combinedSchema}</script>
         </Helmet>
         <UserContext.Provider value={[modalState, setModal, room, setRoom]}>
-          <Router basename={basename}>
-            <Switch>
-              {/*  <Route exact path="/beds24">
-              <Home />
-            </Route> 
+          <HeaderProvider>
+            <LanguageProvider>
+              <ScrollToTop />
+              <ScrollToTopButton />
+              <ZohoChat />
 
-            <Route path="/book">
-              <BookingPage />
-            </Route> 
-
-            <Route path="/payment">
-              <Payment /> 
-            </Route>
-            */}
-              <Route exact path="/enquire">
-                <EnquirePage />
-              </Route>
-              <Route path="/thankyou">
-                <ThankYou />
-              </Route>
-              <Route path="/blog">
-                <RedirectBlog />
-              </Route>
-              <Route path="/tripadvisor">
-                <RedirectTripAdv />
-              </Route>
-              <Route
-                exact
-                path={[
-                  "/",
-                  "/house-rules",
-                  "/view-gallery",
-                  "/about-us",
-                  "/privacy-and-policy",
-                  "/slider-photo",
-                  "/book",
-                  "/enquire",
-                  "/beds24",
-                ]}
-              >
-                <div className="App">
+              <Switch>
+                <Route exact path="/enquire">
+                  <EnquirePage />
+                </Route>
+                <Route path="/thankyou">
+                  <ThankYou />
+                </Route>
+                <Route path="/blog">
+                  <RedirectBlog />
+                </Route>
+                <Route path="/tripadvisor">
+                  <RedirectTripAdv />
+                </Route>
+                <Route path="/payment">
+                  <>
+                    <Header
+                      top={top}
+                      setTop={setTop}
+                      right={right}
+                      setRight={setRight}
+                    />
+                    <PaymentPage />
+                  </>
+                </Route>
+                <Route
+                  exact
+                  path={[
+                    "/",
+                    "/house-rules",
+                    "/about-us",
+                    "/privacy-and-policy",
+                    "/book",
+                    "/enquire",
+                    "/beds24",
+                    "/beds24/:room",
+                  ]}
+                >
                   <Header
                     top={top}
                     setTop={setTop}
                     right={right}
                     setRight={setRight}
                   />
-                  <ScrollToTop />
-                  <Switch>
+                  <div className="App">
+                    <ScrollToTop />
+                    <PageHeader />
                     <Route exact path="/">
                       <HomePage />
                     </Route>
-                    <Route exact path="/beds24">
-                      <RoomBooking />
-                    </Route>
                     <Route exact path="/house-rules">
                       <HouseRules />
-                    </Route>
-                    <Route exact path="/view-gallery">
-                      <ViewGalery />
-                      {/* <Galary /> */}
                     </Route>
                     <Route exact path="/about-us">
                       <Aboutus />
                     </Route>
                     <Route exact path="/privacy-and-policy">
-                      <PrivacyandPolicy />
+                      <PrivacyandPolicyPage />
                     </Route>
-                    <Route exact path="/slider-photo">
-                      <SliderPhoto />
+                    <Route path="/beds24/:room">
+                      <RoomDetails />
                     </Route>
-                  </Switch>
-                </div>
-                <Cookies />
-                <FindMore />
-                {/* <Galary/> */}
-                {isMobile ? (
-                  <>
-                    <NewMap />
-                    <NewsLetter />
-                  </>
-                ) : (
-                  <>
-                    <NewsLetter />
-                    <NewMap />
-                  </>
-                )}
-                <Footer />
-              </Route>
-              <>
-                <Header
-                  top={top}
-                  setTop={setTop}
-                  right={right}
-                  setRight={setRight}
-                />
-                <Notfound />
-              </>
-            </Switch>
-          </Router>
+                    <Route exact path="/beds24">
+                      <RoomBooking />
+                    </Route>
+                  </div>
+                  <CookiesBanner />
+                  <NewMap />
+                  <Footer />
+                </Route>
+                <>
+                  <Header
+                    top={top}
+                    setTop={setTop}
+                    right={right}
+                    setRight={setRight}
+                  />
+                  <Notfound />
+                </>
+              </Switch>
+            </LanguageProvider>
+          </HeaderProvider>
         </UserContext.Provider>
       </HelmetProvider>
     </ThemeProvider>

@@ -1,12 +1,12 @@
-import React, {useState, useEffect, useRef} from "react";
+import React, { useState, useEffect, useRef } from "react";
 
-export default function PayPal({price}) {
+export default function PayPal({ price }) {
   const [paid, setPaid] = useState(false);
   const [error, setError] = useState(null);
   const paypalRef = useRef();
 
   // To show PayPal buttons once the component loads
-    useEffect(() => {
+  useEffect(() => {
     window.paypal
       .Buttons({
         createOrder: (data, actions) => {
@@ -26,15 +26,14 @@ export default function PayPal({price}) {
         onApprove: async (data, actions) => {
           const order = await actions.order.capture();
           setPaid(true);
-          console.log(order);
         },
         onError: (err) => {
-            setError(err);
-            console.error(err);
+          setError(err);
+          console.error(err);
         },
       })
       .render(paypalRef.current);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (paid) {
