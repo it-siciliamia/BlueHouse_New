@@ -12,15 +12,13 @@ const useStyles = makeStyles((theme) => ({
   root: (props) => ({
     display: "flex",
     marginTop: "100px",
-    justifyContent: "space-between",
-    width: "83vw",
+    width:"95%",
+    paddingLeft:"3%",
     [theme.breakpoints.down("md")]: {
-      display: "none",
-      width: "115vw",
+      display: "none"
     },
     [theme.breakpoints.down("xs")]: {
       display: "none",
-      width: "100%",
       marginTop: "40px",
       overflow: "auto",
       ...props.rootStyleInPhoneSize,
@@ -28,7 +26,6 @@ const useStyles = makeStyles((theme) => ({
   }),
   photoWrapper: (props) => ({
     position: "relative",
-    width: props.unitWidth,
     maxWidth: props.maxWidth,
     minWidth: props.minWidth,
     backgroundSize: "cover",
@@ -36,8 +33,6 @@ const useStyles = makeStyles((theme) => ({
     flexWrap: "wrap",
     fontFamily: "Josefin Sans",
     flexDirection: "column",
-    justifyContent: "space-evenly",
-    alignItems: "center",
     height: "fit-content",
     "& div": {
       visibility: "hidden",
@@ -61,13 +56,9 @@ const useStyles = makeStyles((theme) => ({
 
   imagesRoot: (props) => ({
     display: "flex",
-    justifyContent: "space-between",
-    gap: "10px",
+    justifyContent:"space-between",
     flexGrow: 1,
-    marginLeft: "30px",
-    // marginRight: "70px",
     flexWrap: "wrap",
-
     [theme.breakpoints.down("md")]: {
       flexWrap: "wrap",
       justifyContent: "space-evenly",
@@ -81,6 +72,7 @@ const useStyles = makeStyles((theme) => ({
   }),
   titleStyle: (props) => ({
     whiteSpace: "nowrap",
+    color:"#1D3967",
     transform: "rotate(-90deg)",
     height: "fit-content",
     fontFamily: "Oblik",
@@ -90,6 +82,7 @@ const useStyles = makeStyles((theme) => ({
     letterSpacing: "0.1em",
     marginLeft: "0px",
     marginTop: "5rem",
+    marginRight:"1%",
     [theme.breakpoints.down("xs")]: {
       margin: "53px -30px  0 20px",
       fontSize: "18px",
@@ -248,8 +241,8 @@ export default function PhotoGallery({
 
   return (
     <div id={id} onClick={() => openSliderOnClick && openSliderOnClick(true)}>
-      <Element name={id}>
-        <div className={root} style={{ width: "100%" }}>
+      <Element name={id} >
+        <div className={root}>
           <h2 className={titleStyle}>
             <WithTransLate text={title} />
           </h2>
@@ -315,13 +308,23 @@ export default function PhotoGallery({
                       </div>
                     )}
                     <img alt="ph" src={background} className={hoverImage} />
-                    <Typography className={clsx(styling, category)}>
+                    <Typography className={clsx(styling, category)} style={{color:"#1D3967"}}>
                       <WithTransLate text={title} />
                     </Typography>
                   </div>
                 );
               }
             )}
+            <div style={{display:"flex",justifyContent:"center", width:"100%"}}>
+              <Button
+                text="VIEW GALLERY"
+                btnClass="btnLightWithOut"
+                handleClick={() =>
+                  window.open("https://www.instagram.com/bluehousebb/", "_blank")
+                }
+              />
+            </div>
+              
           </Box>
         </div>
         <div>

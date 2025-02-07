@@ -11,6 +11,7 @@ import restd from "../../images/RECOMMENDATIONS/Geysers01.webp";
 import rest from "../../images/RECOMMENDATIONS/Geysers.webp";
 
 import s from "./Recommendations.module.scss";
+import Button from "../Shared/Button/Button";
 
 const Recommendations = () => {
   const { isTablet, isDesktop } = useBreakpoints();
@@ -78,7 +79,18 @@ const Recommendations = () => {
             </div>
           ))}
         </div>
+        
       </div>
+      <div style={{display:"flex",justifyContent:"center", width:"100%", marginTop:"5%"}} >
+        <Button
+            text="DISCOVER MORE"
+            btnClass="btnLightWithOut"
+            handleClick={() =>
+              window.open("https://www.instagram.com/bluehousebb/", "_blank")
+            }
+        />
+      </div>
+      
     </div>
   );
 };

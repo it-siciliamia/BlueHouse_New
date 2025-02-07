@@ -24,7 +24,7 @@ const Button = ({
     >
       <div
         className={s.textWrapper}
-        style={{ textTransform: icon ? "capitalize" : "uppercase" }}
+        style={{ textTransform: icon ? "capitalize" : "uppercase"}}
       >
         {icon && (
           <span className={s.iconWrapper}>

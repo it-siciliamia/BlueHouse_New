@@ -89,8 +89,8 @@ export default function HomePage() {
   const { isMobile, isTablet } = useBreakpoints();
 
   const customGALLERYTitleStyle = {
-    marginTop: "95px",
-    marginTopXs: "52px",
+    // marginTop: "95px",
+    // marginTopXs: "52px",
   };
 
   const descrip1 = [
@@ -100,7 +100,7 @@ export default function HomePage() {
   ];
 
   return (
-    <div className={s.home}>
+    <div className={s.home} style={{color: "#1D3967"}}>
       <HomeHeader />
       <BookingWrapper />
       <OurServices />
