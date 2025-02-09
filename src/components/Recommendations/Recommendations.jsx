@@ -15,7 +15,8 @@ import Button from "../Shared/Button/Button";
 
 const Recommendations = () => {
   const { isTablet, isDesktop } = useBreakpoints();
-
+  const prevSlide = {}
+  const nextSlide = {}
   const recommendationsData = [
     {
       name: "Northern Lights",
@@ -57,6 +58,20 @@ const Recommendations = () => {
           <h2 className={s.title}>
             <WithTransLate text="RECOMMENDATIONS" />
           </h2>
+          <div className={s.sliderBtnWrapper}>
+        <div className={s.navigation}>
+          <button
+            onClick={prevSlide}
+            className={`${s.arrow} ${s.buttonPrev}`}
+            title="Previous review"
+          ></button>
+          <button
+            onClick={nextSlide}
+            className={`${s.arrow} ${s.buttonNext}`}
+            title="Next review"
+          ></button>
+        </div>
+      </div>
         </div>
         <div className={s.sectionContent}>
           {displayedCards.map(({ image, imageD, name, link }) => (

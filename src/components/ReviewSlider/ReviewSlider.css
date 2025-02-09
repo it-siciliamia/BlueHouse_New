@@ -6,7 +6,8 @@
   width: 97%;
   
   @media (min-width: 320px) and (max-width: 599.99px) {
-    padding-top: 40px !important;
+    
+    display: none;
   }
   @media (max-width: 600px) {
     padding: 50px 20px 50px;

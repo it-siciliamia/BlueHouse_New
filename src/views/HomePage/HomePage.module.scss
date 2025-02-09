@@ -7,6 +7,12 @@
   margin-right: auto;
   padding-left: 20px;
   padding-right: 20px;
+  @media (max-width: 960px) {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    // gap: 35px;
+  }
   // @media (min-width: 320px) and (max-width: 599.99px) {
   //   width: 100%;
   //   padding: 0;
@@ -27,9 +33,15 @@
   justify-content: center;
   margin-top: 20px;
   margin-left: 3%;
-  
+  @media (max-width: 960px) {
+    margin: 0;
+    padding: 0;
+    flex-direction: column;
+    // gap: 35px;
+  }
   @media (min-width: 960px) and (max-width: 1279.99px) {
-    gap: 35px;
+    margin: 0;
+    // gap: 35px;
   }
   @media (min-width: 1280px) and (max-width: 2200px) {
     gap: 40px;

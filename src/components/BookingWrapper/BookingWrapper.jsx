@@ -2,24 +2,36 @@ import React from "react";
 import Button from "../../components/Shared/Button/Button";
 import "./BookingWrapper.css";
 import { WithTransLate } from "../../components/helpers/translating";
+import useBreakpoints from "../../Styles/useBreakpoints";
+import { Typography } from "@mui/material";
 
 const BookingWrapper = () => {
+  const { isMobile, isTablet } = useBreakpoints();
   return (
     <div className="BookingWrapper_container">
-      <p>
-        <span>
-          <WithTransLate text="Blue House Bed and Breakfast" />
-        </span>{" "}
-        <WithTransLate text="welcomes you to your home away from home in" />{" "}
-        <span>
-          <WithTransLate text="Reykjavik, Iceland." />
-        </span>{" "}
-        <WithTransLate
-          text="Simply put, we are a small team of
-        globetrotters, passionate about unforgettable travel experiences."
-        />
-      </p>
-      <div className="buttons">
+      {isMobile || isTablet?
+        <div style={{width:"100%"}}>
+          <Typography
+            gutterBottom
+            variant="h2"
+            sx={{
+              display:"flex",
+              fontSize: "20px",
+              fontFamily: "Oblik",
+            }}
+          >
+        <WithTransLate sx={{}} text="BOOK YOUR ROOM" />
+      </Typography>
+          <form style={{display:"flex",flexDirection:"column",width:"100%",margin:"auto"}}>
+            <input style={{borderColor:"#1D3967",borderRadius:"0px",borderBottom:"none",height:"50px"}} placeholder="Check in - Check out"/>
+            <input style={{borderColor:"#1D3967",borderRadius:"0px",height:"50px"}} placeholder="Travellers"/>
+            <div style={{marginTop:"5%"}}>
+              <Button text="Search" btnClass="btnDark" width="100%"/>
+            </div>
+            
+          </form>
+        </div>
+        :<div className="buttons">
         <a href="https://beds24.com/booking2.php?propid=3578&layout=1">
           <Button text="BOOK YOUR ROOM" btnClass="btnDark" width="218px" />
         </a>
@@ -33,7 +45,8 @@ const BookingWrapper = () => {
         <a href="https://bluehouse.tourdesk.is/Tour">
           <Button text="Book Day Tours" btnClass="btnLight" width="218px" />
         </a>
-      </div>
+      </div>}
+      
     </div>
   );
 };

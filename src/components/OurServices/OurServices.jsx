@@ -13,15 +13,15 @@ import s from "./OurServices.module.scss";
 const servicesData = [
   {
     icon: money,
-    text: "CHEAPEST PRICE GUARANTEED IF BOOKED DIRECTLY",
+    text: "Cheapest price guaranteed if booked directly",
   },
   {
     icon: clock,
-    text: "SELF-CHECK-IN & SELF-SERVICE BREAKFAST TO OFFER THE GREATEST FLEXIBILITY",
+    text: "Self Check-in/Breakfast to offer greatest flexibility",
   },
   {
     icon: house,
-    text: "3 DIFFERENT LOCATIONS ON A SCENIC PENINSULA 10 MINUTES FROM DOWNTOWN",
+    text: "3 different locations at Scenic Peninsula 10 minutes from downtown",
   },
 ];
 
@@ -67,7 +67,7 @@ const OurServices = () => {
                   icon === money && isDesktop
                     ? "78px"
                     : icon === money && !isDesktop
-                    ? "58px"
+                    ? "38px"
                     : icon !== money && isDesktop
                     ? "58px"
                     : "48px",
@@ -75,10 +75,10 @@ const OurServices = () => {
                   icon === money && isDesktop
                     ? "78px"
                     : icon === money && !isDesktop
-                    ? "58px"
+                    ? "38px"
                     : icon !== money && isDesktop
                     ? "58px"
-                    : "48px",
+                    : "38px",
               }}
             >
               <img src={icon} alt="Service Icon" className={s.icon} />
