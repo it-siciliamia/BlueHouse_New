@@ -1,6 +1,6 @@
 .recommendations {
   width: 100%;
-  padding: 0px 20px;
+  // padding: 0px 20px;
   
   @media (min-width: 320px) and (max-width: 599.99px) {
     width: 100%;
@@ -32,7 +32,7 @@
   display: flex;
   width: 94%;
   flex-direction: column;
-  margin-left: 20px;
+  margin-left: 10px;
   margin-right: 20px;
   padding-left:1%;
   @media (min-width: 1280px) and (max-width: 2200px) {
@@ -66,7 +66,7 @@
   @media (min-width: 1280px) and (max-width: 2200px) {
     width: 100%;
     display: flex;
-    display: row;
+    display: row; 
     justify-content: space-between;
   }
 }
@@ -140,20 +140,53 @@
 }
 
 .image {
-  @media (min-width: 320px) and (max-width: 599.99px) {
     width: 100%;
     height: auto;
+}
+.sliderBtnWrapper {
+  display: none;
+  @media (max-width: 960px) {
+    display: flex;  
+  position: absolute;
+  margin-bottom: -40px;
+  width: fit-content;
+  height: fit-content;
+  justify-content: flex-end;
+  right: 0;
   }
-  @media (min-width: 600px) and (max-width: 959.99px) {
-    width: 100%;
-    height: auto;
-  }
-  @media (min-width: 960px) and (max-width: 1279.99px) {
-    width: 100%;
-    height: auto;
-  }
-  @media (min-width: 1280px) and (max-width: 2200px) {
-    width: 100%;
-    height: auto;
-  }
+  
+}
+.navigation{
+  display: none;
+  @media (max-width: 600px) {
+  display: flex;
+  position: absolute;
+  
+}
+}
+.arrow {
+  display: flex;
+  
+  width: 34px;
+  height: 24px;
+  border: none;
+  padding: 0 12.5px;
+  background: none;
+  background: url("../../images/ReviewSlider/shevron-right.svg") center / auto
+    no-repeat;
+  outline: none;
+  cursor: pointer;
+}
+
+.arrow:hover {
+  border: 1px solid darkgray;
+}
+
+.arrow:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.buttonPrev {
+  transform: rotate(180deg);
 }

@@ -104,8 +104,7 @@ export default function HomePage() {
       <HomeHeader />
       <BookingWrapper />
       <OurServices />
-      {(isMobile || isTablet) && <Galary />}
-      <PhotoGallery
+      {(isMobile || isTablet)? <Galary />:<PhotoGallery
         id="GALLERY_DESCTOP"
         actionType="VIEW GALLERY"
         action={<button className={galleryButton}>DISCOVER MORE</button>}
@@ -116,7 +115,8 @@ export default function HomePage() {
         unitWidth={"21vw"}
         maxWidth={"514px"}
         minWidth={"220px"}
-      />
+      />}
+      
       <AboutUs />
       <ReviewSlider />
       <Recommendations />

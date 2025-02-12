@@ -11,11 +11,11 @@ import Button from "../../Shared/Button/Button";
 const useStyles = makeStyles((theme) => ({
   root: (props) => ({
     display: "flex",
-    marginTop: "100px",
+    
     width:"95%",
     paddingLeft:"3%",
     [theme.breakpoints.down("md")]: {
-      display: "none"
+      flexDirection:"column"
     },
     [theme.breakpoints.down("xs")]: {
       display: "none",
@@ -30,10 +30,9 @@ const useStyles = makeStyles((theme) => ({
     minWidth: props.minWidth,
     backgroundSize: "cover",
     display: "flex",
-    flexWrap: "wrap",
     fontFamily: "Josefin Sans",
-    flexDirection: "column",
-    height: "fit-content",
+    flexDirection: "column", 
+    
     "& div": {
       visibility: "hidden",
     },
@@ -57,11 +56,12 @@ const useStyles = makeStyles((theme) => ({
   imagesRoot: (props) => ({
     display: "flex",
     justifyContent:"space-between",
-    flexGrow: 1,
-    flexWrap: "wrap",
+    width:"100%",
+    height:"auto",
+    gap: "20px",
     [theme.breakpoints.down("md")]: {
-      flexWrap: "wrap",
-      justifyContent: "space-evenly",
+      width:"100%", 
+      justifyContent: "space-between",
     },
     [theme.breakpoints.down("xs")]: {
       gap: "0%",
@@ -73,7 +73,6 @@ const useStyles = makeStyles((theme) => ({
   titleStyle: (props) => ({
     whiteSpace: "nowrap",
     color:"#1D3967",
-    transform: "rotate(-90deg)",
     height: "fit-content",
     fontFamily: "Oblik",
     width: "36px",
@@ -83,6 +82,10 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: "0px",
     marginTop: "5rem",
     marginRight:"1%",
+    transform: "rotate(-90deg)",
+    [theme.breakpoints.down("md")]: {
+      transform:"none"
+      },
     [theme.breakpoints.down("xs")]: {
       margin: "53px -30px  0 20px",
       fontSize: "18px",
@@ -315,7 +318,12 @@ export default function PhotoGallery({
                 );
               }
             )}
-            <div style={{display:"flex",justifyContent:"center", width:"100%"}}>
+            
+              
+          </Box>
+          
+        </div>
+        <div style={{display:"flex",justifyContent:"center", width:"100%"}}>
               <Button
                 text="VIEW GALLERY"
                 btnClass="btnLightWithOut"
@@ -324,9 +332,6 @@ export default function PhotoGallery({
                 }
               />
             </div>
-              
-          </Box>
-        </div>
         <div>
           <CustomModal />
         </div>

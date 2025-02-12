@@ -10,7 +10,7 @@
 .image {
   position: absolute;
   top: 0;
-  left: 0;
+  left: 1%;
   width: 92%;
   height: 100%;
   opacity: 0;
@@ -18,7 +18,6 @@
   transition: opacity 1s ease-in-out;
   @media (max-width: 960px) {
     width: 100%;
-    // gap: 35px;
   }
 }
 
@@ -99,17 +98,18 @@
   top: 47%;
   left: 0;
   z-index: 2;
-  background-color: red;
 }
 
 .arrowButtonRight {
   position: absolute;
-  margin-right: 20px;
   top: 47%;
   right: 0;
-  margin-right: 10%;
+  margin-right: 20px;
   z-index: 2;
-  background-color: red;
+  @media (min-width: 960px) {
+    
+    margin-right: 10%;
+  }
 }
 
 .placeholder {
