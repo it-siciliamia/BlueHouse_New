@@ -105,6 +105,7 @@
 }
 
 .description {
+  display: flex;
   font-size: 24px;
   font-weight: 300;
   font-family: "Josefin Sans";
@@ -118,6 +119,7 @@
   @media (min-width: 600px) and (max-width: 959.99px) {
     margin-bottom: -10px;
     font-size: 16px;
+    width: 100%;
   }
   @media (min-width: 960px) and (max-width: 1279.99px) {
     margin-bottom: -10px;

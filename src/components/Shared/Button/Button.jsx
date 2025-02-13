@@ -20,7 +20,7 @@ const Button = ({
       onClick={handleClick}
       type={type}
       disabled={disabled}
-      style={{ width: width }}
+      style={{ width: "240px" }}
     >
       <div
         className={s.textWrapper}

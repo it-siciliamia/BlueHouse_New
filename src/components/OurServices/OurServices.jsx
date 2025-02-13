@@ -47,7 +47,7 @@ const OurServices = () => {
             className={s.serviceCard}
             onClick={() => handleOpenModal(icon)}
             style={{
-              paddingTop: icon === money ? "10px" : "20px",
+              paddingTop: icon === money ? (isDesktop?"10px":"30px") : "20px",
               gap:
                 icon === money && isDesktop
                   ? "30px"
