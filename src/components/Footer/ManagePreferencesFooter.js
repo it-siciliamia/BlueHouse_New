@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("sm")]: {
       padding:'2px',
       fontSize:'14px',
-      width:"60%"
+      width:"100%"
     },
   }
 })) 
