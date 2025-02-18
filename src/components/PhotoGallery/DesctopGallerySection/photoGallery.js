@@ -19,7 +19,6 @@ const useStyles = makeStyles((theme) => ({
       flexDirection:"column"
     },
     [theme.breakpoints.down("xs")]: {
-      overflow: "auto",
       ...props.rootStyleInPhoneSize,
     },
   }),
@@ -45,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
     },
     [theme.breakpoints.down("xs")]: {
       flexDirection:"column",
-      minWidth: "100vw",
+      minWidth: "360px",
     },
   }),
 
@@ -61,7 +60,11 @@ const useStyles = makeStyles((theme) => ({
     },
     [theme.breakpoints.down("xs")]: {
       flexDirection:"row",
-      
+      overflow: "hidden", 
+      padding: "4px",
+      width: "100%",
+      gap:"60px",
+      marginLeft:"5px"
       // gap: "0%",
       // flexWrap: "nowrap",
       // justifyContent: "space-evenly",
@@ -237,8 +240,15 @@ export default function PhotoGallery({
   const [open, setOpen] = useState(false);
   const [tabIndex, setTabIndex] = useState(0);
   const rootStyleInPhoneSize = removeInPhoneSize ? { display: "none" } : {};
-  const prevSlide = {}
-  const nextSlide = {}
+  
+  const prevSlide = ()=>{
+    const section = document.getElementById('imagesContainer')
+    section.scrollBy(-440,0)
+  }
+  const nextSlide = (e)=>{
+    const section = document.getElementById('imagesContainer')
+    section.scrollBy(440,0)
+  }
   const {
     hoverPart,
     descriptionOfGallaryStyle,
@@ -293,7 +303,7 @@ export default function PhotoGallery({
   return (
     <div id={id} onClick={() => openSliderOnClick && openSliderOnClick(true)}>
       <Element name={id} >
-        <div className={root}>
+        <div  className={root}>
           <h2 className={titleStyle}>
             <WithTransLate text={title} />
             <div className={sliderBtnWrapper}>
@@ -311,8 +321,7 @@ export default function PhotoGallery({
               </div>
             </div>
           </h2>
-
-          <Box className={imagesRoot}>
+          <Box id="imagesContainer" className={imagesRoot}>
             {backgroundImagesUrlAndTitles.map(
               ({ background, title }, index) => {
                 return (
@@ -383,7 +392,6 @@ export default function PhotoGallery({
             
               
           </Box>
-          
         </div>
         <div style={{display:"flex",justifyContent:"center", width:"100%"}}>
               <Button

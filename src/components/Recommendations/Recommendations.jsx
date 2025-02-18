@@ -15,8 +15,14 @@ import Button from "../Shared/Button/Button";
 
 const Recommendations = () => {
   const { isTablet, isDesktop } = useBreakpoints();
-  const prevSlide = {}
-  const nextSlide = {}
+  const prevSlide = ()=>{
+    const section = document.getElementById('imagesSection')
+    section.scrollBy(-440,0)
+  }
+  const nextSlide = (e)=>{
+    const section = document.getElementById('imagesSection')
+    section.scrollBy(440,0)
+  }
   const recommendationsData = [
     {
       name: "Northern Lights",
@@ -60,7 +66,7 @@ const Recommendations = () => {
           </h2>
           
         </div>
-        <div className={s.sectionContent}>
+        <div id="imagesSection" className={s.sectionContent}>
           {displayedCards.map(({ image, imageD, name, link }) => (
             <div key={name} className={s.recommendationItem}>
               <a
