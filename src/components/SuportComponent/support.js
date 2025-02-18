@@ -50,7 +50,7 @@ export default function Support() {
           rel="noopener noreferrer"
         >
           <SupportCard
-            description={"Check previous guest requests."}
+            description={"Guest Information Portal"}
             title={"FAQ"}
             image={faqImage}
           />
@@ -74,7 +74,7 @@ export default function Support() {
           rel="noopener noreferrer"
         >
           <SupportCard
-            description={"Connect, Explore, and Share Your Journey!"}
+            description={"Your opinion is important to us."}
             title={"FORUM"}
             image={forumImage}
           />

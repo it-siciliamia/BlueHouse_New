@@ -63,7 +63,6 @@
   text-align: center;
   color: #1D3967;
   font-family: "Josefin Sans";
-  text-transform: uppercase !important;
   transition: all 0.3s ease-in-out;
   cursor: pointer;
 
@@ -88,7 +87,7 @@
     line-height: 1.5;
   }
   @media (min-width: 1280px) and (max-width: 2200px) {
-    width: 33% !important;
+    width: 20% !important;
     font-weight: 300;
     line-height: 1.5;
   }
