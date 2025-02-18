@@ -104,7 +104,7 @@ export default function HomePage() {
       <HomeHeader />
       <BookingWrapper />
       <OurServices />
-      {(isMobile || isTablet)? <Galary />:<PhotoGallery
+      <PhotoGallery
         id="GALLERY_DESCTOP"
         actionType="VIEW GALLERY"
         action={<button className={galleryButton}>DISCOVER MORE</button>}
@@ -113,9 +113,9 @@ export default function HomePage() {
         backgroundImagesUrlAndTitles={GALLERY_BACKGROUND_IMAGES_AND_TITLES}
         customTitleStyle={customGALLERYTitleStyle}
         unitWidth={"21vw"}
-        maxWidth={"514px"}
+        maxWidth={"100vw"}
         minWidth={"220px"}
-      />}
+      />
       
       <AboutUs />
       <ReviewSlider />

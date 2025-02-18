@@ -25,8 +25,8 @@ const BookingWrapper = () => {
           <form style={{display:"flex",flexDirection:"column",width:"100%",margin:"auto"}}>
             <input style={{borderColor:"#1D3967",borderRadius:"0px",borderBottom:"none",height:"50px"}} placeholder="Check in - Check out"/>
             <input style={{borderColor:"#1D3967",borderRadius:"0px",height:"50px"}} placeholder="Travellers"/>
-            <div style={{marginTop:"5%"}}>
-              <Button text="Search" btnClass="btnDark" width="100%"/>
+            <div style={{marginTop:"5%",display:"flex",justifyContent:"center"}}>
+              <Button text="Search" btnClass="btnDark"/>
             </div>
             
           </form>

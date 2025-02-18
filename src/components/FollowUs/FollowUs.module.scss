@@ -1,13 +1,14 @@
 .followus {
   width: 96%;
+  @media (min-width: 320px) and (max-width: 599.99px) {
+    display: none;
+  }
 }
 
 .sectionWrapper {
   margin-left: 3%;
   @media (min-width: 320px) and (max-width: 599.99px) {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
+    display: none;
   }
   @media (min-width: 600px) and (max-width: 1279.99px) {
     width: 100%;

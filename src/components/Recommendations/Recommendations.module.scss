@@ -1,5 +1,5 @@
 .recommendations {
-  width: 100%;
+  width: 94%;
   // padding: 0px 20px;
   
   @media (min-width: 320px) and (max-width: 599.99px) {
@@ -19,15 +19,6 @@
     padding-right: 0px;
   }
 }
-.buttonNext{
-
-}
-.buttonPrev{
-
-}
-.arrow{
-  
-}
 .sectionWrapper {
   display: flex;
   width: 94%;
@@ -45,8 +36,12 @@
   @media (min-width: 320px) and (max-width: 599.99px) {
     margin-top: 20px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     gap: 40px;
+    overflow: hidden;
+    padding: 2px;
+    width: 100%;
+    gap:60px;
   }
   @media (min-width: 600px) and (max-width: 959.99px) {
     margin-top: 20px;
@@ -78,6 +73,7 @@
   @media (min-width: 1280px) and (max-width: 2200px) {
     width: 27%;
   }
+  
 }
 
 .titleWrapper {
@@ -142,6 +138,9 @@
 .image {
     width: 100%;
     height: auto;
+    @media(max-width:600px) {
+      min-width: 100vw;
+    }
 }
 .sliderBtnWrapper {
   display: none;
