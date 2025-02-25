@@ -3,9 +3,10 @@
   @media (min-width: 320px) and (max-width: 599.99px) {
     margin-top: 50px;
     margin-bottom: 50px;
-    padding: 0px 20px;
     width: 100%;
-    display: none;
+    height: 217px;
+    align-content: center;
+    background-color: #FBFBFB;
   }
   @media (min-width: 600px) and (max-width: 959.99px) {
     margin-top: 50px;
@@ -20,9 +21,9 @@
     width: 100%;
   }
   @media (min-width: 1280px) and (max-width: 2200px) {
-    margin-top: 100px;
-    margin-bottom: 100px;
+    margin:  100px auto; 
     width: 100%;
+    max-width: 938px;
   }
 }
 
@@ -40,16 +41,11 @@
     gap: 10px;
   }
   @media (min-width: 960px) and (max-width: 1279.99px) {
-    padding-left: 30px;
-    padding-right: 30px;
     flex-direction: row;
     justify-content: space-between;
     align-items: stretch;
   }
   @media (min-width: 1280px) and (max-width: 2200px) {
-    margin-left: 65px;
-    padding-left: 60px;
-    padding-right: 60px;
     flex-direction: row;
     justify-content: space-between;
     align-items: stretch;
@@ -87,7 +83,8 @@
     line-height: 1.5;
   }
   @media (min-width: 1280px) and (max-width: 2200px) {
-    width: 20% !important;
+    width: 33% !important;
+    max-width: 210px !important;
     font-weight: 300;
     line-height: 1.5;
   }
@@ -98,8 +95,7 @@
   flex-direction: column;
   align-items: center;
   gap: 10px;
-  padding: 0px 25px;
-  width: 100%;
+  width: 210px;
   flex: 1;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
@@ -112,10 +108,10 @@
     padding-top: 20px;
   }
   @media (min-width: 960px) and (max-width: 1279.99px) {
-    padding: 0px 25px;
+    padding: 0px 0px;
   }
   @media (min-width: 1280px) and (max-width: 2200px) {
-    padding: 0px 25px;
+    padding: 0px 0px;
   }
 
   &:hover {
@@ -124,13 +120,14 @@
 }
 
 .icon {
-  width: 70px;
-  height: 70px;
+  width: 50px;
+  height: 50px;
 }
 
 .cardTitle {
   font-weight: 500;
   text-transform: uppercase;
+  margin: 12.5px 0px;
   @media (min-width: 600px) and (max-width: 959.99px) {
     margin-bottom: 0px;
   }
@@ -140,10 +137,37 @@
 }
 
 .cardText {
-  margin-bottom: 16px;
   flex-grow: 1;
+  text-transform: lowercase;
 }
 
 .cardText::first-letter {
   text-transform: capitalize;
+}
+
+.mobileSupport{
+  display: flex;
+  justify-content: center;
+  width: 100% !important;
+}
+
+.contactLink{
+  display: flex;
+  flex-direction: column;
+  margin: auto !important;
+  justify-content: center !important;
+  align-items: center;
+}
+
+.contactLink p{
+  color: #1D3967;
+  text-decoration: none;
+}
+
+.contactLink p:nth-child(2){
+  margin-top: 10px !important;
+}
+
+.contactLink p:nth-child(3){
+  font-weight:300;
 }
