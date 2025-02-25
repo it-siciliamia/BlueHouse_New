@@ -112,12 +112,11 @@ export default function Header({ right, setRight, top, setTop }) {
               ) : (
                 <>
                   <a
-                    href="https://beds24.com/booking2.php?propid=3578&layout=1"
-                    target="_blank"
+                    href="/"
                     rel="noreferrer"
                   >
                     <Button
-                      text="BOOK YOUR ROOM"
+                      text="Main page"
                       btnClass="btnDark"
                       width={isLaptop ? "240px" : "280px"}
                     />

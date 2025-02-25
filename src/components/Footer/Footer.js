@@ -178,7 +178,7 @@ function Footer() {
 
   return (
     <footer style={{ width: "100%" }}>
-      <div className={s.container}>
+      <div className={s.container} style={{color:"#39527A", maxWidth:"100%"}}>
         {!isMobile &&
           location.pathname !== "/" &&
           !location.pathname.startsWith("/beds24") && (
@@ -187,22 +187,23 @@ function Footer() {
               style={{ marginBottom: isDesktop ? "5rem" : "2.5rem" }}
             ></div>
           )}
-        <div className={classes.linkContainer}>
+          <div  style={{display:"flex"}}>
+          <div className={s.footerSection}>
           {items.map((item, index) => (
             <div
               className={classes.titleContainer}
-              key={index}
-              style={{ gridArea: `item${index + 1}` }}
+              key={index} 
             >
-              <h3 className={classes.title}>
+              <h3 className={classes.title} style={{color:"#1D3967"}}>
                 <WithTransLate text={item.title} />
               </h3>
               <div
                 className={`${classes.itemLinks} ${
                   index === 2 ? classes.socials : ""
-                }`}
+                }`} 
+                style={item.title=="FOLLOW US"?{display:"flex",flexDirection:"row"}:{}}
               >
-                {item.links.map((link, idx) => (
+                {item.links?item.links.map((link, idx) => (
                   <React.Fragment key={idx}>
                     {isInternalLink(link.href) ? (
                       <Link
@@ -210,12 +211,14 @@ function Footer() {
                         className={`${classes.link} ${
                           index === 2 ? classes.socialLink : ""
                         }`}
+                        style={{width:"80%"}}
                       >
                         {link.icon && (
                           <img
                             src={link.icon}
                             className={classes.icon}
                             alt={`Go to ${link.name}`}
+                            style={{backgroundColor:"blue"}}
                           />
                         )}
                         <span className={index === 2 ? classes.socialName : ""}>
@@ -230,12 +233,14 @@ function Footer() {
                         }`}
                         target="_blank"
                         rel="noopener noreferrer"
+                        
                       >
                         {link.icon && (
                           <img
                             src={link.icon}
                             className={classes.icon}
                             alt={`Go to ${link.name}`}
+                            
                           />
                         )}
                         <span className={index === 2 ? classes.socialName : ""}>
@@ -244,7 +249,13 @@ function Footer() {
                       </a>
                     )}
                   </React.Fragment>
-                ))}
+                )):<div>
+                      <div style={{fontWeight:"bold",marginBottom:"20%",marginTop:"10%"}}>{item.subTitle}</div>
+                      <form style={{display:"flex",flexDirection:"column"}}>
+                      <input style={{width:"120%", marginBottom:"10%"}} placeholder="Your full name"></input>
+                      <input style={{width:"120%"}} placeholder="Your email adress"></input>
+                      </form>
+                  </div>}
               </div>
               {index < items.length - 1 && isMobile && (
                 <div
@@ -259,6 +270,9 @@ function Footer() {
             </div>
           ))}
         </div>
+        </div>
+        
+        
         <div
           className={classes.lineSeparator}
           style={{
@@ -266,11 +280,14 @@ function Footer() {
             marginTop: isDesktop ? "4.5rem" : isMobile ? "1rem" : "2.5rem",
           }}
         />
+        
         <div className={classes.blueHouseContainer}>
           <span className={classes.blueHouse}>© Blue House 2024</span>
           <ManagePreferencesFooter />
         </div>
+        
       </div>
+      
     </footer>
   );
 }

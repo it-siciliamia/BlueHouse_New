@@ -1,6 +1,6 @@
 .scrollToTopButton {
   position: fixed;
-  bottom: 25px;
+  bottom: 55px;
   right: 30px;
   z-index: 3;
   border: none;
@@ -8,11 +8,11 @@
   background-color: transparent;
   cursor: pointer;
   @media (max-width: 768px) {
-    bottom: 25px;
-    right: 10px;
+    bottom: 45px;
+    right: 15px;
   }
   @media (min-width: 768px) and (max-width: 1024px) {
-    bottom: 25px;
+    bottom: 55px;
     right: 20px;
   }
 }

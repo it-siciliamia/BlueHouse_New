@@ -89,8 +89,8 @@ export default function HomePage() {
   const { isMobile, isTablet } = useBreakpoints();
 
   const customGALLERYTitleStyle = {
-    marginTop: "95px",
-    marginTopXs: "52px",
+    // marginTop: "95px",
+    // marginTopXs: "52px",
   };
 
   const descrip1 = [
@@ -100,11 +100,10 @@ export default function HomePage() {
   ];
 
   return (
-    <div className={s.home}>
+    <div className={s.home} style={{color: "#1D3967"}}>
       <HomeHeader />
       <BookingWrapper />
       <OurServices />
-      {(isMobile || isTablet) && <Galary />}
       <PhotoGallery
         id="GALLERY_DESCTOP"
         actionType="VIEW GALLERY"
@@ -114,9 +113,10 @@ export default function HomePage() {
         backgroundImagesUrlAndTitles={GALLERY_BACKGROUND_IMAGES_AND_TITLES}
         customTitleStyle={customGALLERYTitleStyle}
         unitWidth={"21vw"}
-        maxWidth={"514px"}
+        maxWidth={"100vw"}
         minWidth={"220px"}
       />
+      
       <AboutUs />
       <ReviewSlider />
       <Recommendations />
@@ -124,7 +124,6 @@ export default function HomePage() {
       <FollowUs />
       <FindMore />
       <Support />
-      <NewsLetter />
     </div>
   );
 }

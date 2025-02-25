@@ -24,3 +24,50 @@
     display: none;
   }
 }
+.sliderBtnWrapper {
+  display: none;
+  @media (max-width: 960px) {
+    display: flex;  
+  position: absolute;
+  margin-bottom: -40px;
+  width: fit-content;
+  height: fit-content;
+  justify-content: flex-end;
+  right: 0;
+  }
+  
+}
+.navigation{
+  display: none;
+  @media (max-width: 600px) {
+  display: flex;
+  position: absolute;
+  
+}
+}
+.arrow {
+  display: flex;
+  
+  width: 34px;
+  height: 24px;
+  border: none;
+  padding: 0 12.5px;
+  background: none;
+  /* background: url("../../images/ReviewSlider/shevron-right.svg") center / auto */
+    /* no-repeat; */
+  outline: none;
+  cursor: pointer;
+}
+
+.arrow:hover {
+  border: 1px solid darkgray;
+}
+
+.arrow:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.buttonPrev {
+  transform: rotate(180deg);
+}

@@ -20,11 +20,11 @@ const Button = ({
       onClick={handleClick}
       type={type}
       disabled={disabled}
-      style={{ width: width }}
+      style={{width:"240px" }}
     >
       <div
         className={s.textWrapper}
-        style={{ textTransform: icon ? "capitalize" : "uppercase" }}
+        style={{ textTransform: icon ? "capitalize" : "uppercase"}}
       >
         {icon && (
           <span className={s.iconWrapper}>

@@ -11,10 +11,18 @@ import restd from "../../images/RECOMMENDATIONS/Geysers01.webp";
 import rest from "../../images/RECOMMENDATIONS/Geysers.webp";
 
 import s from "./Recommendations.module.scss";
+import Button from "../Shared/Button/Button";
 
 const Recommendations = () => {
   const { isTablet, isDesktop } = useBreakpoints();
-
+  const prevSlide = ()=>{
+    const section = document.getElementById('imagesSection')
+    section.scrollBy(-440,0)
+  }
+  const nextSlide = (e)=>{
+    const section = document.getElementById('imagesSection')
+    section.scrollBy(440,0)
+  }
   const recommendationsData = [
     {
       name: "Northern Lights",
@@ -56,8 +64,9 @@ const Recommendations = () => {
           <h2 className={s.title}>
             <WithTransLate text="RECOMMENDATIONS" />
           </h2>
+          
         </div>
-        <div className={s.sectionContent}>
+        <div id="imagesSection" className={s.sectionContent}>
           {displayedCards.map(({ image, imageD, name, link }) => (
             <div key={name} className={s.recommendationItem}>
               <a
@@ -78,7 +87,31 @@ const Recommendations = () => {
             </div>
           ))}
         </div>
+        <div className={s.sliderBtnWrapper}>
+        <div className={s.navigation}>
+          <button
+            onClick={prevSlide}
+            className={`${s.arrow} ${s.buttonPrev}`}
+            title="Previous review"
+          ></button>
+          <button
+            onClick={nextSlide}
+            className={`${s.arrow} ${s.buttonNext}`}
+            title="Next review"
+          ></button>
+        </div>
       </div>
+      </div>
+      <div style={{display:"flex",justifyContent:"center", width:"100%", marginTop:"5%"}} >
+        <Button
+            text="DISCOVER MORE"
+            btnClass="btnLightWithOut"
+            handleClick={() =>
+              window.open("https://www.instagram.com/bluehousebb/", "_blank")
+            }
+        />
+      </div>
+      
     </div>
   );
 };
