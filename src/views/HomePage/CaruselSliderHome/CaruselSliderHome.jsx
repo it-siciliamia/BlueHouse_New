@@ -34,8 +34,8 @@ const CaruselSliderHome = () => {
   const dynamicWidth = isDesktop
     ? Math.round(width - 365)
     : isLaptop
-    ? Math.round(width - 115)
-    : width;
+      ? Math.round(width - 115)
+      : width;
 
   const dynamicHeigth = Math.round(dynamicWidth * 0.66);
 
@@ -130,13 +130,14 @@ const CaruselSliderHome = () => {
   return (
     <div
       className={s.container}
-      style={{
-        width: isDesktop
-          ? `${dynamicWidth}px`
-          : isLaptop
-          ? `${dynamicWidth}px`
-          : "100%",
-      }}
+      style={{ width: '100%' }}
+    // style={{
+    //   width: isDesktop
+    //     ? `${dynamicWidth}px`
+    //     : isLaptop
+    //     ? `${dynamicWidth}px`
+    //     : "100%",
+    // }}
     >
       <div
         className={s.imageBox}
@@ -144,10 +145,10 @@ const CaruselSliderHome = () => {
           height: isMobile
             ? `${dynamicHeigth}px`
             : isTablet
-            ? "400px"
-            : isLaptop
-            ? "500px"
-            : "550px",
+              ? "400px"
+              : isLaptop
+                ? "500px"
+                : "550px",
           overflow: "hidden",
         }}
       >
@@ -167,9 +168,8 @@ const CaruselSliderHome = () => {
           <img
             src={placeholder}
             alt="Placeholder"
-            className={`${s.placeholder} ${
-              fadeOutPlaceholder ? s.fadeOut : ""
-            }`}
+            className={`${s.placeholder} ${fadeOutPlaceholder ? s.fadeOut : ""
+              }`}
           />
         )}
         {images.map((image, index) =>
@@ -177,9 +177,8 @@ const CaruselSliderHome = () => {
             <video
               key={index}
               ref={videoRef}
-              className={`${s.image} ${
-                index === currentIndex ? s.currentImage : ""
-              }`}
+              className={`${s.image} ${index === currentIndex ? s.currentImage : ""
+                }`}
               style={{ display: index === currentIndex ? "block" : "none" }}
               src={image}
               muted
@@ -187,9 +186,8 @@ const CaruselSliderHome = () => {
           ) : (
             <img
               key={index}
-              className={`${s.image} ${
-                index === currentIndex ? s.currentImage : ""
-              }`}
+              className={`${s.image} ${index === currentIndex ? s.currentImage : ""
+                }`}
               src={image}
               alt="Carousel"
               style={{ zIndex: index === currentIndex ? 1 : 0 }}
