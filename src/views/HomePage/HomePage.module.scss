@@ -28,11 +28,11 @@
 
 .homeHeader {
   display: flex;
-    flex-direction: row;
+  flex-direction: row;
   width: 100%;
   justify-content: center;
   margin-top: 20px;
-  margin-left: 3%;
+  // margin-left: 3%;
   @media (max-width: 960px) {
     margin: 0;
     padding: 0;

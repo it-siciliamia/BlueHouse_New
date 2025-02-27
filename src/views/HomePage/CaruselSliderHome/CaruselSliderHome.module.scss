@@ -18,6 +18,8 @@
   transition: opacity 1s ease-in-out;
   @media (max-width: 960px) {
     width: 100%;
+    position: absolute;
+    left: 0% !important;
   }
 }
 

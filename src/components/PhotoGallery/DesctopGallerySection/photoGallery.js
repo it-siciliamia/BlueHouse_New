@@ -19,7 +19,10 @@ const useStyles = makeStyles((theme) => ({
       flexDirection:"column"
     },
     [theme.breakpoints.down("xs")]: {
-      ...props.rootStyleInPhoneSize,
+      // ...props.rootStyleInPhoneSize,
+      width:"329px",
+      margin:"auto",
+      padding:"0px"
     },
   }),
   photoWrapper: (props) => ({
@@ -44,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
     },
     [theme.breakpoints.down("xs")]: {
       flexDirection:"column",
-      minWidth: "360px",
+      minWidth: "380px",
     },
   }),
 
@@ -61,10 +64,10 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("xs")]: {
       flexDirection:"row",
       overflow: "hidden", 
-      padding: "4px",
+      // padding: "4px",
       width: "100%",
       gap:"60px",
-      marginLeft:"5px"
+      // marginLeft:"5px" 
       // gap: "0%",
       // flexWrap: "nowrap",
       // justifyContent: "space-evenly",
