@@ -143,6 +143,8 @@ const useStyles = makeStyles((theme) => ({
   blueHouse: {
     fontSize: "14px",
     fontWeight: 300,
+    marginTop: "-50px",
+    marginLeft: "100px",
   },
   right: {
     display: "flex",
@@ -273,14 +275,15 @@ function Footer() {
         </div>
         
         
-        <div
+        {/* <div
           className={classes.lineSeparator}
           style={{
             marginBottom: isDesktop ? "0.5rem" : isLaptop ? "0.5rem" : "0.5rem",
             marginTop: isDesktop ? "4.5rem" : isMobile ? "1rem" : "2.5rem",
           }}
-        />
+        /> */}
         
+        <hr/>
         <div className={classes.blueHouseContainer}>
           <span className={classes.blueHouse}>© Blue House 2024</span>
           <ManagePreferencesFooter />
