@@ -130,14 +130,14 @@ const CaruselSliderHome = () => {
   return (
     <div
       className={s.container}
-      style={{ width: '100%' }}
-    // style={{
-    //   width: isDesktop
-    //     ? `${dynamicWidth}px`
-    //     : isLaptop
-    //     ? `${dynamicWidth}px`
-    //     : "100%",
-    // }}
+      // style={{ width: '100%' }}
+    style={{
+      width: isDesktop
+        ? `${dynamicWidth}px`
+        : isLaptop
+        ? `${dynamicWidth}px`
+        : "100%",
+    }}
     >
       <div
         className={s.imageBox}

@@ -11,7 +11,7 @@
   @media (min-width: 600px) and (max-width: 959.99px) {
     margin-top: 50px;
     margin-bottom: 50px;
-    padding: 0px 20px;
+    // padding: 0px 20px;
     width: 100%;
   }
   @media (min-width: 960px) and (max-width: 1279.99px) {
@@ -36,9 +36,10 @@
     gap: 20px;
   }
   @media (min-width: 600px) and (max-width: 959.99px) {
-    align-items: center;
+    // align-items: center;
     width: 100%;
     gap: 10px;
+    flex-direction: row;
   }
   @media (min-width: 960px) and (max-width: 1279.99px) {
     flex-direction: row;
@@ -95,7 +96,7 @@
   flex-direction: column;
   align-items: center;
   gap: 10px;
-  width: 210px;
+  // width: 210px;
   flex: 1;
   cursor: pointer;
   transition: all 0.3s ease-in-out;

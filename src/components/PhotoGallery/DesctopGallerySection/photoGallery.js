@@ -27,8 +27,8 @@ const useStyles = makeStyles((theme) => ({
   }),
   photoWrapper: (props) => ({
     position: "relative",
-    maxWidth: props.maxWidth,
-    minWidth: props.minWidth,
+    // maxWidth: props.maxWidth,
+    // minWidth: props.minWidth,
     backgroundSize: "cover",
     display: "flex",
     fontFamily: "Josefin Sans",
