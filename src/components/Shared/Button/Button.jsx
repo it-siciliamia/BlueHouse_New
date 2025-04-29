@@ -26,12 +26,12 @@ const Button = ({
         className={s.textWrapper}
         style={{ textTransform: icon ? "capitalize" : "uppercase"}}
       >
+        <WithTransLate text={text} />
         {icon && (
           <span className={s.iconWrapper}>
-            {React.cloneElement(icon, { size: size })}
+            {React.cloneElement(icon, { size })}
           </span>
         )}
-        <WithTransLate text={text} />
       </div>
     </button>
   );

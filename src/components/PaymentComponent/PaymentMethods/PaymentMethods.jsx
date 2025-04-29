@@ -310,35 +310,34 @@ const PaymentMethods = () => {
 
           <p className={s.termsWrapper}>
             <span className={s.textTerms} style={{ marginRight: "5px" }}>
-              <WithTransLate text="Your booking is with Blue House B&B directly and by completing this booking you agree to the" />
+              <WithTransLate text="Your booking is with Blue House B&B directly and by completing this booking you agree to the general terms, and Privacy Policy." />
             </span>
-            <button
-              className={s.btn}
-              style={{ marginRight: "5px" }}
-              onClick={() => history.push("/privacy-and-policy")}
-            >
-              <WithTransLate text="general terms" />
-            </button>
-            <span className={s.textTerms} style={{ marginRight: "5px" }}>
-              <WithTransLate text="and" />
-            </span>
-            <button
-              className={s.btn}
-              onClick={() => history.push("/privacy-and-policy")}
-            >
-              <WithTransLate text="Privacy Policy." />
-            </button>
           </p>
 
           <div className={s.buttonWrapper}>
-            <Button text="Proceed to Payment" btnClass="btnDark" />
+            <Button
+              text="PROCEED TO PAYMENT"
+              btnClass="customBtn"
+              icon={
+                <span
+                  className="material-symbols-outlined"
+                  style={{
+                    fontVariationSettings: "'wght' 200",
+                    marginLeft: "8px",
+                    fontSize: "20px",
+                  }}
+                >
+                  arrow_forward_ios
+                </span>
+              }
+            />
           </div>
         </form>
       </div>
 
       <div className={s.partPrint}>
         <h3 className={s.titlePart}>
-          <WithTransLate text="The fine print" />
+          <WithTransLate text="THINGS TO NOTE" />
         </h3>
         <div className={s.textWrapper}>
           <p className={s.text}>

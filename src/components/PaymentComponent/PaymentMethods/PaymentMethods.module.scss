@@ -19,14 +19,16 @@
 
 .titlePart {
   margin: 0;
-  font-size: 24px;
+  font-size: 20px;
   font-weight: bold;
   line-height: 1.1;
+  color: #1D3967;
 }
 
 .partMethods {
   padding: 50px 45px;
-  width: 52.5%;
+  width: 52%;
+  height: fit-content !important;
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -42,10 +44,10 @@
 }
 
 .partPrint {
-  padding: 50px 45px;
+  padding: 43px 40px;
   display: flex;
   flex-direction: column;
-  width: 47.5%;
+  width: 48%;
   border: 1px solid lightgray;
   @media (min-width: 320px) and (max-width: 599.99px) {
     padding: 20px 20px;
@@ -65,14 +67,15 @@
 
 .text {
   margin: 0;
-  font-weight: 500;
+  font-weight: 300;
   font-size: 16px;
   line-height: 1.1;
+  color: #1D3967;
 }
 
 .methodContainer {
   padding: 20 0px;
-  border-bottom: 1px solid lightgray;
+  border-bottom: 1px solid #1D3967;
 }
 
 .methodSelection {
@@ -158,6 +161,7 @@
   font-size: 16px;
   font-weight: 500;
   line-height: 1;
+  color: #1D3967 !important;
 }
 
 .btn {
