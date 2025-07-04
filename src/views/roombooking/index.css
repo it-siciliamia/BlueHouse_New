@@ -350,7 +350,6 @@
   }
 }
 .bh_advantages-item {
- 
   @media (min-width: 320px) and (max-width: 599.99px) {
     padding-top: 15px;
     width: 100%;
@@ -360,17 +359,27 @@
     align-items: center;
     gap: 15px;
     border-top: 1px solid #cdd7e2;
-
   }
   @media (min-width: 1280px) and (max-width: 2200px) {
     text-align: center;
     width: 140px;
+  }
+     &:nth-child(3){
+    height: 121px;
   }
 }
 .bh_advantages-item:last-child {
   @media (min-width: 320px) and (max-width: 599.99px) {
     padding-bottom: 15px;
     border-bottom: 1px solid #cdd7e2;
+  }
+}
+
+.bh_advantages-item:nth-child(3) {
+  @media (min-width: 320px) and (max-width: 599.99px) {
+    padding-top: 30px ;
+    padding-bottom: 15px;
+    height: 24px;
   }
 }
 .bh_advantages-icons {
