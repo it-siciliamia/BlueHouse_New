@@ -271,9 +271,16 @@
   font-size: 13.82px;
   font-weight: 500;
   line-height: 1.2;
-  color: #1d3967;
+  color:#4C5A65;
+  @media (min-width: 320px) and (max-width: 599.99px) {
+    font-size: 16px;
+    font-weight: 300px;
+    line-height: 1.2;
+  }
+  @media (min-width: 960px) and (max-width: 1279.99px) {
+    font-size: 15px;
+  }
 
-}
 
 .search-btn {
   display: flex;
@@ -281,12 +288,14 @@
   align-items: center;
   justify-content: center;
   color: white;
-  background-color: #1d3967;
+  background-color:#1D3967;;
+  border: 1px solid #3b5998;
   text-transform: uppercase;
   height: 100%;
   width: 100%;
   border: none;
   transition: all 0.2s;
+  
 }
 .search-btn:focus {
   outline: none;
@@ -446,6 +455,9 @@
     text-align: center;
     width: 140px;
   }
+     &:nth-child(3){
+    height: 121px;
+  }
 }
 .bh_advantages-item:last-child {
   @media (min-width: 320px) and (max-width: 599.99px) {
@@ -453,7 +465,16 @@
     border-bottom: 1px solid #cdd7e2;
   }
 }
+
+.bh_advantages-item:nth-child(3) {
+  @media (min-width: 320px) and (max-width: 599.99px) {
+    padding-top: 30px ;
+    padding-bottom: 15px;
+    height: 24px;
+  }
+}
 .bh_advantages-icons {
+  filter: brightness(0) saturate(100%) invert(14%) sepia(41%) saturate(1203%) hue-rotate(194deg) brightness(91%) contrast(89%);
   @media (min-width: 320px) and (max-width: 599.99px) {
     width: 23px;
     height: auto;
@@ -462,15 +483,21 @@
     width: 56px;
     height: auto;
   }
+  &:nth-child(1) {
+    filter: none;
+  }
+  &:nth-child(2) {
+     filter: brightness(0) saturate(100%) invert(14%) sepia(41%) saturate(1203%) hue-rotate(194deg) brightness(91%) contrast(89%);
+  }
 }
 
 .bh_advantages-text {
+  color:#1D3967;
   @media (min-width: 320px) and (max-width: 599.99px) {
     margin: 0;
     margin-top: 5px;
     font-size: 16px;
     font-weight: 500;
-    color: #14202b;
   }
   @media (min-width: 1280px) and (max-width: 2200px) {
     margin-top: 15px;
@@ -523,7 +550,7 @@
   font-size: 22px;
   font-weight: bold;
   text-transform: uppercase;
-  color: #1d3967;
+  color: #1D3967;
 }
 .content-mobile {
   width: 100%;
@@ -555,6 +582,7 @@
   font-size: 15px;
   font-weight: 500;
   line-height: 1.2;
+  color:#1D3967;
 }
 .search-hero-photo-mobile {
   @media (min-width: 320px) and (max-width: 1279.99px) {

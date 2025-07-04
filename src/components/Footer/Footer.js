@@ -235,6 +235,7 @@ function Footer() {
                         }`}
                         target="_blank"
                         rel="noopener noreferrer"
+                     
                         
                       >
                         {link.icon && (

@@ -119,6 +119,7 @@ export default function Header({ right, setRight, top, setTop }) {
                       text="Main page"
                       btnClass="btnDark"
                       width={isLaptop ? "240px" : "280px"}
+                      color='#1D3967'
                     />
                   </a>
                   <a
