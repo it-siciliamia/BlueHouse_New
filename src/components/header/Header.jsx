@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import useBreakpoints from "../../Styles/useBreakpoints";
 import SideNavbar from "../SideNavbar/SideNavbar";
 import SideNavbarMobile from "../SideNavbar/SideNavbarMobile";
@@ -7,7 +7,7 @@ import Button from "../Shared/Button/Button";
 import Search from "./search";
 import MenuIcon from "../../images/MenuIcon_Header.svg";
 import SearchIcon from "../../images/SearchIcon_Header.svg";
-import logo from "../../images/logoBlue.png";
+import logo from "../../images/logo.svg";
 import ProcessPaymentPanel from "../PaymentComponent/ProcessPaymentPanel/ProcessPaymentPanel";
 
 import s from "./Header.module.scss";
@@ -21,9 +21,9 @@ export default function Header({ right, setRight, top, setTop }) {
 
   const [rightSearch, setRightSearch] = useState("-200%");
   const [topSearch, setTopSearch] = useState("-200%");
-
   const [searchInput, setSearchInput] = useState("");
   const [searchResult, setSearchResult] = useState([]);
+  const [hasSearchbar, setHasSearchbar] = useState(false);
 
   const searchTop = "75px";
 
@@ -52,8 +52,6 @@ export default function Header({ right, setRight, top, setTop }) {
         handleOpenAndCloseSideNavbar={handleOpenAndCloseSideNavbar}
       />
     );
-
-  const [hasSearchbar, setHasSearchbar] = useState(false);
 
   const handleShowSearchInput = (value) => {
     setHasSearchbar(true);
@@ -88,22 +86,12 @@ export default function Header({ right, setRight, top, setTop }) {
 
       <header className={s.headerContainer}>
         <div id="header" className={s.header}>
-          {/* <span
-            style={{
-              position: "absolute",
-              top: "10px",
-              left: "10px",
-              color: "violet",
-              fontWeight: "700",
-            }}
-          >
-            {width}
-          </span> */}
-          <div>
-            <Link to="/" className={s.logo} color="inherit" aria-label="logo">
-              <img src={logo} alt="logo" className={s.imgLogo} />
-            </Link>
-          </div>
+          <img
+            src={logo}
+            alt="logo"
+            className={s.logoImage}
+            onClick={() => (window.location.href = "/")}
+          />
 
           {(isDesktop || isLaptop) && (
             <div className={s.bookingButtonsWrapper}>
@@ -117,7 +105,7 @@ export default function Header({ right, setRight, top, setTop }) {
                     rel="noreferrer"
                   >
                     <Button
-                      text="BOOK YOUR ROOM"
+                      text="MAIN PAGE"
                       btnClass="btnDark"
                       width={isLaptop ? "240px" : "280px"}
                     />
@@ -142,7 +130,7 @@ export default function Header({ right, setRight, top, setTop }) {
             <button
               className={s.menuIcon}
               onClick={() => handleShowSearchInput(isMobile ? searchTop : 0)}
-              aria-label="menu"
+              aria-label="search"
             >
               <img
                 src={SearchIcon}
