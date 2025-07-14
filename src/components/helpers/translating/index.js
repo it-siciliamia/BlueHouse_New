@@ -2,76 +2,40 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import languagesAndCodes from "./languagesAndCodes.json";
-import { makeStyles, Button } from "@material-ui/core";
+import {
+  Button,
+  Menu,
+  MenuItem,
+  IconButton,
+  TextField,
+  Typography,
+  Fade,
+} from "@material-ui/core";
+import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
+import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
+import ExpandLessIcon from "@material-ui/icons/ExpandLess";
 import Select from "../../../images/select.svg";
 import translate from "translate";
-import Menu from "@material-ui/core/Menu";
-import MenuItem from "@material-ui/core/MenuItem";
+import useStyles from "./translateStyles";
 
 translate.key = "AIzaSyA-LWuIlquldSBDqQWlgr3nJE8h3AMTDCE";
 
-const useStyles = makeStyles((theme) => ({
-  dropDownButton: {
-    paddingInline: "0",
-    fontSize: "18px",
-    fontWeight: "400",
-    display: "flex",
-    alignItems: "center",
-    height: "21px",
-    backgroundColor: "inherit",
-    border: "none",
-    color: "#fff",
-    justifyContent: "start",
-    textTransform: "none",
-
-    "&:focus": {
-      outline: "none",
-    },
-  },
-
-  menu: {
-    "& .MuiPaper-root": {
-      left: "unset !important",
-      right: "17px",
-      width: "735px",
-      maxWidth: "calc(90vw - 18px)",
-      padding: "35px",
-      [theme.breakpoints.down("xs")]: {
-        left: "0",
-        right: "unset !important",
-        width: "70%",
-        padding: "10px",
-      },
-      "& ul": {
-        display: "flex",
-        [theme.breakpoints.down("xs")]: {
-          flexDirection: "column",
-        },
-        flexWrap: "wrap",
-        justifyContent: "center",
-        "& li": {
-          border: "1px solid rgba(5, 56, 112, 0.2)",
-          boxSizing: "border-box",
-          "&:hover": {
-            background: "#053870",
-            color: "#fff",
-          },
-        },
-      },
-    },
-  },
-}));
-
 export default function TranslateMe({ scroll }) {
-  const { dropDownButton, menu } = useStyles();
-  const [selectedLanguage, setLanguage] = useState(0);
+  const {
+    dropDownButton,
+    menu,
+    searchInput,
+    navButtons,
+    pageInfo,
+    searchRow,
+    closeIcon,
+  } = useStyles();
 
-  const handleChang = (index) => {
-    scroll();
-    setLanguage(index);
-    localStorage.setItem("languageIndex", index);
-  };
+  const [selectedLanguage, setLanguage] = useState(0);
   const [anchorEl, setAnchorEl] = useState(null);
+  const [search, setSearch] = useState("");
+  const [page, setPage] = useState(0);
+  const pageSize = 10;
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -79,21 +43,37 @@ export default function TranslateMe({ scroll }) {
 
   const handleClose = () => {
     setAnchorEl(null);
+    setSearch("");
+    setPage(0);
   };
+
+  const handleChange = (index) => {
+    scroll();
+    setLanguage(index);
+    localStorage.setItem("languageIndex", index);
+    handleClose();
+  };
+
   useEffect(() => {
-    const getSelectedLanguageIndex = JSON.parse(
-      localStorage.getItem("languageIndex")
-    );
-    if (!getSelectedLanguageIndex)
-      return localStorage.setItem("languageIndex", selectedLanguage);
-    return setLanguage(getSelectedLanguageIndex);
-  }, [setLanguage, selectedLanguage]);
+    const savedIndex = JSON.parse(localStorage.getItem("languageIndex"));
+    if (savedIndex === null) {
+      localStorage.setItem("languageIndex", selectedLanguage);
+    } else {
+      setLanguage(savedIndex);
+    }
+  }, [selectedLanguage]);
+
+  const filtered = languagesAndCodes.languages.filter((item) =>
+    item.lang.toLowerCase().includes(search.toLowerCase())
+  );
+  const currentLanguages = filtered.slice(page * pageSize, (page + 1) * pageSize);
+  const pageCount = Math.ceil(filtered.length / pageSize);
 
   return (
     <div>
       <Button
         className={dropDownButton}
-        aria-controls="simple-menu"
+        aria-controls="language-menu"
         aria-haspopup="true"
         onClick={handleClick}
       >
@@ -102,25 +82,68 @@ export default function TranslateMe({ scroll }) {
           : languagesAndCodes.languages[selectedLanguage].lang}
         <img alt="down arrow" src={Select} />
       </Button>
+
       <Menu
         className={menu}
-        id="simple-menu"
+        id="language-menu"
         anchorEl={anchorEl}
         keepMounted
         open={Boolean(anchorEl)}
         onClose={handleClose}
+        TransitionComponent={Fade}
+        transitionDuration={300}
       >
-        {languagesAndCodes.languages.map(({ lang }, index) => (
-          <MenuItem
-            key={index}
-            onClick={() => {
-              handleClose();
-              handleChang(index);
+        <div className={searchRow}>
+          <TextField
+            placeholder="Search language"
+            variant="outlined"
+            size="small"
+            className={searchInput}
+            value={search}
+            onChange={(e) => {
+              setSearch(e.target.value);
+              setPage(0);
             }}
+          />
+          <IconButton size="small" onClick={handleClose}>
+            <ExpandLessIcon className={closeIcon} />
+          </IconButton>
+        </div>
+
+        {currentLanguages.map(({ lang }, index) => (
+          <MenuItem
+            key={index + page * pageSize}
+            onClick={() => handleChange(filtered.indexOf(currentLanguages[index]))}
           >
             {lang}
           </MenuItem>
         ))}
+
+        <div className={navButtons}>
+          <IconButton
+            size="small"
+            onClick={() => setPage((p) => Math.max(p - 1, 0))}
+            disabled={page === 0}
+          >
+            <ArrowBackIosIcon fontSize="small" />
+          </IconButton>
+
+          <Typography className={pageInfo}>
+            {page + 1} / {pageCount || 1}
+          </Typography>
+
+          <IconButton
+            size="small"
+            onClick={() =>
+              setPage((p) =>
+                (p + 1) * pageSize < filtered.length ? p + 1 : p
+              )
+            }
+            disabled={(page + 1) * pageSize >= filtered.length}
+          >
+            <ArrowForwardIosIcon fontSize="small" />
+          </IconButton>
+        </div>
       </Menu>
     </div>
   );
