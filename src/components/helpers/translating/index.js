@@ -66,7 +66,10 @@ export default function TranslateMe({ scroll }) {
   const filtered = languagesAndCodes.languages.filter((item) =>
     item.lang.toLowerCase().includes(search.toLowerCase())
   );
-  const currentLanguages = filtered.slice(page * pageSize, (page + 1) * pageSize);
+  const currentLanguages = filtered.slice(
+    page * pageSize,
+    (page + 1) * pageSize
+  );
   const pageCount = Math.ceil(filtered.length / pageSize);
 
   return (
@@ -113,7 +116,9 @@ export default function TranslateMe({ scroll }) {
         {currentLanguages.map(({ lang }, index) => (
           <MenuItem
             key={index + page * pageSize}
-            onClick={() => handleChange(filtered.indexOf(currentLanguages[index]))}
+            onClick={() =>
+              handleChange(filtered.indexOf(currentLanguages[index]))
+            }
           >
             {lang}
           </MenuItem>
@@ -135,9 +140,7 @@ export default function TranslateMe({ scroll }) {
           <IconButton
             size="small"
             onClick={() =>
-              setPage((p) =>
-                (p + 1) * pageSize < filtered.length ? p + 1 : p
-              )
+              setPage((p) => ((p + 1) * pageSize < filtered.length ? p + 1 : p))
             }
             disabled={(page + 1) * pageSize >= filtered.length}
           >

@@ -4,12 +4,11 @@ import useBreakpoints from "../../Styles/useBreakpoints";
 import SideNavbar from "../SideNavbar/SideNavbar";
 import SideNavbarMobile from "../SideNavbar/SideNavbarMobile";
 import Button from "../Shared/Button/Button";
-import Search from "./search";
-import MenuIcon from "../../images/MenuIcon_Header.svg";
-import SearchIcon from "../../images/SearchIcon_Header.svg";
 import logo from "../../images/logo.svg";
-import ProcessPaymentPanel from "../PaymentComponent/ProcessPaymentPanel/ProcessPaymentPanel";
+import MenuIcon from "../../images/MenuIcon_Header.svg";
+import Search from "./search";
 
+import ProcessPaymentPanel from "../PaymentComponent/ProcessPaymentPanel/ProcessPaymentPanel";
 import s from "./Header.module.scss";
 
 const userDeviceWidth = window.innerWidth;
@@ -18,14 +17,6 @@ const mobileBreakpoint = 600;
 export default function Header({ right, setRight, top, setTop }) {
   const { isMobile, isTablet, isLaptop, isDesktop } = useBreakpoints();
   const location = useLocation();
-
-  const [rightSearch, setRightSearch] = useState("-200%");
-  const [topSearch, setTopSearch] = useState("-200%");
-  const [searchInput, setSearchInput] = useState("");
-  const [searchResult, setSearchResult] = useState([]);
-  const [hasSearchbar, setHasSearchbar] = useState(false);
-
-  const searchTop = "75px";
 
   const handleToggleSideNavbarDesktop = (rightValue) => {
     setRight(rightValue);
@@ -53,36 +44,9 @@ export default function Header({ right, setRight, top, setTop }) {
       />
     );
 
-  const handleShowSearchInput = (value) => {
-    setHasSearchbar(true);
-
-    setTimeout(() => {
-      setRightSearch(value);
-      setTopSearch(value);
-
-      if (searchInput) {
-        setSearchInput("");
-        setSearchResult([]);
-      }
-    }, 1);
-  };
-
   return (
     <>
       {navBar}
-
-      {hasSearchbar && (
-        <Search
-          setHasSearchbar={setHasSearchbar}
-          rightSearch={rightSearch}
-          topSearch={topSearch}
-          searchInput={searchInput}
-          setSearchInput={setSearchInput}
-          searchResult={searchResult}
-          setSearchResult={setSearchResult}
-          showSearchInputHandler={handleShowSearchInput}
-        />
-      )}
 
       <header className={s.headerContainer}>
         <div id="header" className={s.header}>
@@ -127,21 +91,12 @@ export default function Header({ right, setRight, top, setTop }) {
           )}
 
           <div className={s.rightPart}>
-            <button
-              className={s.menuIcon}
-              onClick={() => handleShowSearchInput(isMobile ? searchTop : 0)}
-              aria-label="search"
-            >
-              <img
-                src={SearchIcon}
-                alt="SearchIcon"
-                width={isTablet || isMobile ? "25px" : "30"}
-                height={isTablet || isMobile ? "25px" : "30"}
-              />
-            </button>
+            <Search />
 
             <button
               className={s.menuIcon}
+              type="button"
+              tabIndex={-1}
               onClick={() => handleOpenAndCloseSideNavbar(0)}
               aria-label="menu"
             >
@@ -150,6 +105,7 @@ export default function Header({ right, setRight, top, setTop }) {
                 alt="MenuIcon"
                 width={isTablet || isMobile ? "30px" : "40"}
                 height={isTablet || isMobile ? "25px" : "30"}
+                draggable="false"
               />
             </button>
           </div>
