@@ -4,9 +4,11 @@
   justify-content: center;
   align-items: flex-end;
   width: 100%;
+
   @media (max-width: 600px) {
     width: 100%;
   }
+
   @media (min-width: 600px) and (max-width: 1279.99px) {
     width: 100%;
   }
@@ -31,9 +33,11 @@
   margin-bottom: 30px;
   position: absolute;
   z-index: 2;
+
   @media (max-width: 600px) {
     margin-bottom: 10px;
   }
+
   @media (min-width: 600px) and (max-width: 959.99px) {
     margin-bottom: 20px;
   }
@@ -44,6 +48,7 @@
   flex-direction: row;
   justify-content: space-between;
   width: 150px;
+
   @media (max-width: 600px) {
     width: 120px;
   }
@@ -55,10 +60,16 @@
   background-color: white;
   width: 10px;
   height: 10px;
+  transition: background-color 0.3s ease;
+
   @media (min-width: 320px) and (max-width: 1279.99px) {
     width: 8px;
     height: 8px;
   }
+}
+
+.paginationDotActive {
+  background-color: #1d3967;
 }
 
 .arrowButton {
@@ -66,46 +77,36 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 54px;
-  height: 54px;
+  width: 60px;
+  height: 60px;
   background-color: transparent;
   border-radius: 50%;
   transition: all 0.3s ease-in-out;
 }
 
-.arrowButton svg {
-  color: rgba(245, 245, 245, 0.634);
-}
-
 .arrowButton:hover {
-  background-color: rgba(245, 245, 245, 0.269);
+  background-color: rgba(255, 255, 255, 0.015);
 }
 
-.arrowButton:hover svg {
-  color: #1d3967;
-}
-
-.arrowlinkRigth {
-  margin-left: 6px;
-}
-
-.arrowlinkLeft {
-  margin-right: 6px;
+.arrowButton:active {
+  background-color: rgba(29, 57, 103, 0.08);
 }
 
 .arrowButtonLeft {
   position: absolute;
-  margin-left: 20px;
-  top: 47%;
   left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-left: 20px;
   z-index: 2;
 }
 
 .arrowButtonRight {
   position: absolute;
-  margin-right: 20px;
-  top: 47%;
   right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-right: 20px;
   z-index: 2;
 }
 
@@ -124,4 +125,36 @@
 .placeholder.fadeOut {
   opacity: 0;
   pointer-events: none;
+}
+
+/* STABLE ARROWS — WITH ACTIVE COLOR EFFECT */
+.customArrowLeft,
+.customArrowRight {
+  position: relative;
+  width: 18px;
+  height: 18px;
+}
+
+.customArrowLeft::before,
+.customArrowRight::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 16px;
+  height: 16px;
+  border-right: 2px solid white;
+  border-bottom: 2px solid white;
+  transform: translate(-50%, -50%) rotate(135deg);
+  transition: border-color 0.2s ease;
+}
+
+.customArrowRight::before {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+/* ACTIVE STATE: ARROW TURNS BLUE */
+.arrowButton:active .customArrowLeft::before,
+.arrowButton:active .customArrowRight::before {
+  border-color: #1d3967;
 }
