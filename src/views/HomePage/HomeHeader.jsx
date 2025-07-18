@@ -48,7 +48,7 @@ const useStyles = makeStyles((theme) => ({
     root: {
       marginTop: "10vh",
       marginRight: "0px",
-      width: "100vw",
+      width: "100%",
     },
   },
   gridList: {

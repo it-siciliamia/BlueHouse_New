@@ -12,7 +12,7 @@
 }
 
 .backButton {
-  margin-left: -50px;
+  margin-left: -174px;
 }
 
 .sliderPart {
@@ -24,6 +24,7 @@
   @media (min-width: 960px) and (max-width: 2200px) {
     display: flex;
     flex-direction: row;
+    margin-right: 40px;
   }
 }
 
@@ -36,6 +37,7 @@
     padding-left: 50px;
     padding-right: 50px;
   }
+  
 }
 
 .mainPart {
@@ -66,6 +68,7 @@
 }
 
 .partCalendar {
+  color: #1d3967;
   @media (min-width: 320px) and (max-width: 959.99px) {
     width: 100%;
   }
@@ -75,6 +78,7 @@
 }
 
 .addInfoContent {
+  color:#1d3967;
   @media (min-width: 320px) and (max-width: 959.99px) {
     padding-left: 20px;
     padding-right: 20px;
@@ -92,6 +96,7 @@
 }
 
 .titleText {
+  color: #1d3967 !important;
   @media (min-width: 320px) and (max-width: 599.99px) {
     margin-top: 50px;
     margin-bottom: 20px;

@@ -4,12 +4,13 @@
   justify-content: center;
   align-items: flex-end;
   width: 100%;
+  height: 100%;
 
-  @media (max-width: 600px) {
+  @media (min-width: 600px) {
     width: 100%;
   }
 
-  @media (min-width: 600px) and (max-width: 1279.99px) {
+  @media (min-width: 960px) and (max-width: 1279.99px) {
     width: 100%;
   }
 }
@@ -17,12 +18,17 @@
 .image {
   position: absolute;
   top: 0;
-  left: 0;
-  width: 100%;
+  left: 1%;
+  width: 92%;
   height: 100%;
   opacity: 0;
   object-fit: cover;
   transition: opacity 1s ease-in-out;
+  @media (max-width: 960px) {
+    width: 100%;
+    position: absolute;
+    left: 0% !important;
+  }
 }
 
 .currentImage {
@@ -47,17 +53,18 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 150px;
+  width: 100%;
+  margin-right: 120px;
 
   @media (max-width: 600px) {
-    width: 120px;
+    // width: 120px;
   }
 }
 
 .paginationDot {
   cursor: pointer;
   border-radius: 50%;
-  background-color: white;
+  background-color: #ffffff;
   width: 10px;
   height: 10px;
   transition: background-color 0.3s ease;
@@ -104,22 +111,32 @@
 .arrowButtonRight {
   position: absolute;
   right: 0;
-  top: 50%;
+  top: 47%;
   transform: translateY(-50%);
   margin-right: 20px;
   z-index: 2;
+
+  @media (min-width: 960px) {
+    margin-right: 10%;
+  }
 }
+
+
 
 .placeholder {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 90%;
   height: 100%;
   z-index: 2;
   opacity: 1;
   object-fit: cover;
   transition: opacity 2s ease-in-out;
+
+  @media (max-width: 960px) {
+    width: 100%;
+  }
 }
 
 .placeholder.fadeOut {

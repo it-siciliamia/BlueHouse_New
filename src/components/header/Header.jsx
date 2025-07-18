@@ -64,14 +64,14 @@ export default function Header({ right, setRight, top, setTop }) {
               ) : (
                 <>
                   <a
-                    href="https://beds24.com/booking2.php?propid=3578&layout=1"
-                    target="_blank"
+                    href="/"
                     rel="noreferrer"
                   >
                     <Button
                       text="MAIN PAGE"
                       btnClass="btnDark"
                       width={isLaptop ? "240px" : "280px"}
+                      color='#1D3967'
                     />
                   </a>
                   <a

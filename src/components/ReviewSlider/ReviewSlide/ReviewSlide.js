@@ -5,7 +5,7 @@ import "./ReviewSlide.css";
 
 const ReviewSlide = ({ quote }) => {
   return (
-    <div className="review-card">
+    <div className="review-card" style={{color: "#1D3967"}}>
       <p className="review-card__quote">
         <WithTransLate text={quote.text} />
       </p>

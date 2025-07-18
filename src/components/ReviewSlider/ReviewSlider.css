@@ -1,9 +1,13 @@
 .review {
-  padding: 58px 15px 14px;
+  /* padding: 58px 15px 14px; */
   display: flex;
   flex-direction: column;
+  padding-left:4%;
+  width: 97%;
+  
   @media (min-width: 320px) and (max-width: 599.99px) {
-    padding-top: 40px !important;
+    
+    display: none;
   }
   @media (max-width: 600px) {
     padding: 50px 20px 50px;
@@ -67,7 +71,7 @@
 
   .review__section {
     display: flex;
-    gap: 7%;
+    /* gap: 7%; */
   }
 
   .review__title {

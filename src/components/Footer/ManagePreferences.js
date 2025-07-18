@@ -1,8 +1,25 @@
 import React, { useState } from "react";
 import CookieConsent from "../CookieConsent";
+import { makeStyles } from "@material-ui/core";
+
+const useStyles = makeStyles((theme) => ({
+  button:{
+    textTransform:"uppercase",
+    padding : "8px 12px ",
+    width:"250px",
+    [theme.breakpoints.down("sm")]: {
+      padding:'4px 0px !important',
+      fontSize:'14px !important',
+      width:"107px !important",
+      lineHeight: "15px",
+      textTransform: "uppercase" 
+    },
+  },
+})) 
 
 const ManagePreferences = () => {
   const [showConsentModal, setShowConsentModal] = useState(false);
+  const classes = useStyles();
 
   const handleClose = () => {
     setShowConsentModal(false);
@@ -10,8 +27,8 @@ const ManagePreferences = () => {
 
   return (
     <div>
-      <button onClick={() => setShowConsentModal(true)} style={{backgroundColor:"#fff", color:"#1d3967", border: "1px solid #1d3967", padding: "8px 12px", width:"200px", height:"46px"
-       }}>
+      <button onClick={() => setShowConsentModal(true)} style={{backgroundColor:"#fff", color:"#1d3967", border: "1px solid #1d3967"
+       }} className={classes.button}>
         Manage Preferences
       </button>
       {showConsentModal && (

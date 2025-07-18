@@ -1,47 +1,26 @@
 .about {
   display: flex;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
   @media (min-width: 320px) and (max-width: 599.99px) {
-    margin-top: 50px;
-    padding: 0 20px;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-  }
-  @media (min-width: 600px) and (max-width: 959.99px) {
-    margin: 50px 0px 0px;
-    padding: 0 20px;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-  }
-  @media (min-width: 960px) and (max-width: 1279.99px) {
-    margin: 50px 0px 0px;
-    padding: 0 20px;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
+    
+    display: none;
   }
   @media (min-width: 1280px) and (max-width: 2200px) {
     margin-top: 100px;
     margin-bottom: 50px;
-    padding: 0px;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
   }
 }
 
 .sectionWrapper {
+  width: 95%;
+  padding-left:3%;
   @media (min-width: 320px) and (max-width: 599.99px) {
-    width: 100%;
+    
     display: flex;
     flex-direction: column;
-  }
-  @media (min-width: 600px) and (max-width: 959.99px) {
-    width: 100%;
-  }
-  @media (min-width: 960px) and (max-width: 1279.99px) {
-    width: 100%;
   }
   @media (min-width: 1280px) and (max-width: 2200px) {
     display: flex;
@@ -80,36 +59,20 @@
 .sectionContent {
   display: flex;
   justify-content: space-between;
-  @media (min-width: 320px) and (max-width: 599.99px) {
-    flex-direction: column;
-    gap: 40px;
-  }
-  @media (min-width: 600px) and (max-width: 959.99px) {
-    flex-direction: column;
-    gap: 40px;
-  }
-  @media (min-width: 960px) and (max-width: 1279.99px) {
-    flex-direction: column;
-    gap: 40px;
-  }
+  flex-direction: column;
+  width: 100%;
   @media (min-width: 1280px) and (max-width: 2200px) {
-    display: flex;
     flex-direction: row;
-    gap: 40px;
-    justify-content: space-between;
-    width: 100%;
+    // justify-content: space-between;
+    
   }
 }
 
 .imageWrapper {
-  @media (min-width: 1280px) and (max-width: 2200px) {
-    margin-left: -20px;
-    width: 50%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-  }
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
 }
 
 .selfieStyle {
@@ -142,6 +105,7 @@
 }
 
 .description {
+  display: flex;
   font-size: 24px;
   font-weight: 300;
   font-family: "Josefin Sans";
@@ -155,6 +119,7 @@
   @media (min-width: 600px) and (max-width: 959.99px) {
     margin-bottom: -10px;
     font-size: 16px;
+    width: 100%;
   }
   @media (min-width: 960px) and (max-width: 1279.99px) {
     margin-bottom: -10px;
@@ -168,26 +133,6 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  @media (min-width: 320px) and (max-width: 599.99px) {
-    margin-right: 0%;
-    padding: 0px 20px;
-    width: 100%;
-  }
-  @media (min-width: 600px) and (max-width: 959.99px) {
-    margin-top: 40px;
-    margin-right: 0%;
-    padding: 0px 20px;
-    width: 100%;
-  }
-  @media (min-width: 960px) and (max-width: 1279.99px) {
-    margin-top: 40px;
-    margin-right: 0%;
-    padding: 0px 20px;
-    width: 100%;
-  }
-  @media (min-width: 1280px) and (max-width: 2200px) {
-    width: 50%;
-    margin-right: auto;
-    margin-left: auto;
-  }
+  margin-top: 40px;
+  width: 90%;
 }

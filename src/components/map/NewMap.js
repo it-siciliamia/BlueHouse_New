@@ -55,7 +55,8 @@ const NewMap = () => {
           style={{
             display:
               location.pathname === "/" ||
-              location.pathname.startsWith("/beds24")
+              location.pathname.startsWith("/beds24") ||
+              location.pathname.startsWith("/about-us") 
                 ? "block"
                 : "none",
             position: "relative",

@@ -9,16 +9,16 @@ import s from "./BlogPart.module.scss";
 
 function BlogPart() {
   const { isMobile, isTablet, isLaptop, isDesktop } = useBreakpoints();
-  console.log(
-    "isMobile:",
-    isMobile,
-    "isTablet:",
-    isTablet,
-    "isLaptop",
-    isLaptop,
-    "isDesktop",
-    isDesktop
-  );
+  // console.log(
+  //   "isMobile:",
+  //   isMobile,
+  //   "isTablet:",
+  //   isTablet,
+  //   "isLaptop",
+  //   isLaptop,
+  //   "isDesktop",
+  //   isDesktop
+  // );
   const handleBlogButtonClick = () => {
     window.open("https://blog.bluehouse.is", "_blank");
   };

@@ -8,37 +8,32 @@ import { WithTransLate } from "../../helpers/translating/index";
 import MyModal from "./Mymodal";
 import "./PhotoGallery.css";
 import Button from "../../Shared/Button/Button";
+import img from "../../../images/ReviewSlider/shevron-right.svg"
 const useStyles = makeStyles((theme) => ({
   root: (props) => ({
     display: "flex",
-    marginTop: "100px",
-    justifyContent: "space-between",
-    width: "83vw",
+    
+    width:"95%",
+    paddingLeft:"3%",
     [theme.breakpoints.down("md")]: {
-      display: "none",
-      width: "115vw",
+      flexDirection:"column"
     },
     [theme.breakpoints.down("xs")]: {
-      display: "none",
-      width: "100%",
-      marginTop: "40px",
-      overflow: "auto",
-      ...props.rootStyleInPhoneSize,
+      // ...props.rootStyleInPhoneSize,
+      width:"329px",
+      margin:"auto",
+      padding:"0px"
     },
   }),
   photoWrapper: (props) => ({
     position: "relative",
-    width: props.unitWidth,
-    maxWidth: props.maxWidth,
-    minWidth: props.minWidth,
+    // maxWidth: props.maxWidth,
+    // minWidth: props.minWidth,
     backgroundSize: "cover",
     display: "flex",
-    flexWrap: "wrap",
     fontFamily: "Josefin Sans",
-    flexDirection: "column",
-    justifyContent: "space-evenly",
-    alignItems: "center",
-    height: "fit-content",
+    flexDirection: "column", 
+    
     "& div": {
       visibility: "hidden",
     },
@@ -51,37 +46,37 @@ const useStyles = makeStyles((theme) => ({
       width: "100%",
     },
     [theme.breakpoints.down("xs")]: {
-      width: "50vw",
-      "& img": {
-        height: "269px",
-        width: "221px",
-      },
+      flexDirection:"column",
+      minWidth: "380px",
     },
   }),
 
   imagesRoot: (props) => ({
     display: "flex",
-    justifyContent: "space-between",
-    gap: "10px",
-    flexGrow: 1,
-    marginLeft: "30px",
-    // marginRight: "70px",
-    flexWrap: "wrap",
-
+    justifyContent:"space-between",
+    width:"100%",
+    height:"100%",
+    gap: "20px",
     [theme.breakpoints.down("md")]: {
-      flexWrap: "wrap",
-      justifyContent: "space-evenly",
+      width:"100%", 
+      justifyContent: "space-between",
     },
     [theme.breakpoints.down("xs")]: {
-      gap: "0%",
-      flexWrap: "nowrap",
-      justifyContent: "space-evenly",
-      marginLeft: "10%",
+      flexDirection:"row",
+      overflow: "hidden", 
+      // padding: "4px",
+      width: "100%",
+      gap:"60px",
+      // marginLeft:"5px" 
+      // gap: "0%",
+      // flexWrap: "nowrap",
+      // justifyContent: "space-evenly",
+      // paddingLeft: "3%",
     },
   }),
   titleStyle: (props) => ({
     whiteSpace: "nowrap",
-    transform: "rotate(-90deg)",
+    color:"#1D3967",
     height: "fit-content",
     fontFamily: "Oblik",
     width: "36px",
@@ -90,11 +85,13 @@ const useStyles = makeStyles((theme) => ({
     letterSpacing: "0.1em",
     marginLeft: "0px",
     marginTop: "5rem",
+    marginRight:"1%",
+    transform: "rotate(-90deg)",
+    [theme.breakpoints.down("md")]: {
+      transform:"none"
+      },
     [theme.breakpoints.down("xs")]: {
-      margin: "53px -30px  0 20px",
-      fontSize: "18px",
-      fontWeight: 700,
-      lineHeight: "50px",
+      marginLeft:"3%"
     },
   }),
   category: {
@@ -108,7 +105,7 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("xs")]: {
       fontSize: "14px",
       fontWeight: 400,
-      marginLeft: "14px",
+      // marginLeft: "14px",
     },
   },
   actionStyle: {
@@ -144,7 +141,7 @@ const useStyles = makeStyles((theme) => ({
       gap: "25px",
       fontSize: "9px",
       marginTop: "30px",
-      marginRight: "unset",
+      // marginRight: "unset",
       textAlign: "left",
     },
   },
@@ -177,6 +174,54 @@ const useStyles = makeStyles((theme) => ({
       width: "100%",
     },
   },
+  
+  sliderBtnWrapper: {
+    display: "none",
+    marginTop:"-7%",
+    [theme.breakpoints.down("xs")]: {
+        display: "flex",
+        position: "absolute",
+        marginButton:"-40px",
+        width:"fit-content",
+        height:"fit-content",
+        justifyContent:"flex-end",
+        right:"2%"
+    },
+    
+  },
+  navigation: {
+    display: "none",
+    [theme.breakpoints.down("xs")]: {
+      display: "flex",
+      position:"absolute"
+    },
+  },
+  arrow: {
+    display:"flex",
+    width:"34px",
+    height:"24px",
+    border:"none",
+    padding:"0 12.5px",  
+    background:"none",
+    backgroundImage: `url(${img})`,
+    backgroundPosition: "center",
+    backgroundSize: "auto",
+    backgroundRepeat: "no-repeat",
+    outline:"none",
+    cursor:"pointer",
+    "&:hover": {
+      border:"1px solid darkgray"
+    },
+    "&:foces":{
+      outline: "none",
+      boxShadow: "none",
+    }
+  },
+  buttonPrev: {
+    transform: "rotate(180deg)",
+  },
+  buttonNext: {},
+
 }));
 
 export default function PhotoGallery({
@@ -198,7 +243,15 @@ export default function PhotoGallery({
   const [open, setOpen] = useState(false);
   const [tabIndex, setTabIndex] = useState(0);
   const rootStyleInPhoneSize = removeInPhoneSize ? { display: "none" } : {};
-
+  
+  const prevSlide = ()=>{
+    const section = document.getElementById('imagesContainer')
+    section.scrollBy(-440,0)
+  }
+  const nextSlide = (e)=>{
+    const section = document.getElementById('imagesContainer')
+    section.scrollBy(440,0)
+  }
   const {
     hoverPart,
     descriptionOfGallaryStyle,
@@ -208,7 +261,11 @@ export default function PhotoGallery({
     titleStyle,
     category,
     actionStyle,
-
+    buttonNext,
+    buttonPrev,
+    arrow,
+    navigation,
+    sliderBtnWrapper,
     hoverImage,
   } = useStyles({ rootStyleInPhoneSize, ...props });
 
@@ -248,13 +305,26 @@ export default function PhotoGallery({
 
   return (
     <div id={id} onClick={() => openSliderOnClick && openSliderOnClick(true)}>
-      <Element name={id}>
-        <div className={root} style={{ width: "100%" }}>
+      <Element name={id} >
+        <div  className={root}>
           <h2 className={titleStyle}>
             <WithTransLate text={title} />
+            <div className={sliderBtnWrapper}>
+              <div className={navigation}>
+                <button
+                  onClick={prevSlide}
+                  className={`${arrow} ${buttonPrev}`}
+                  title="Previous review"
+                ></button>
+                <button
+                  onClick={nextSlide}
+                  className={`${arrow} ${buttonNext}`}
+                  title="Next review"
+                ></button>
+              </div>
+            </div>
           </h2>
-
-          <Box className={imagesRoot}>
+          <Box id="imagesContainer" className={imagesRoot}>
             {backgroundImagesUrlAndTitles.map(
               ({ background, title }, index) => {
                 return (
@@ -315,19 +385,32 @@ export default function PhotoGallery({
                       </div>
                     )}
                     <img alt="ph" src={background} className={hoverImage} />
-                    <Typography className={clsx(styling, category)}>
+                    <Typography className={clsx(styling, category)} style={{color:"#1D3967"}}>
                       <WithTransLate text={title} />
                     </Typography>
                   </div>
                 );
               }
             )}
+            
+              
           </Box>
         </div>
+        <div style={{display:"flex",justifyContent:"center", width:"100%"}}>
+              <Button
+                text="VIEW GALLERY"
+                btnClass="btnLightWithOut"
+                handleClick={() =>
+                  window.open("https://www.instagram.com/bluehousebb/", "_blank")
+                }
+              />
+            </div>
         <div>
           <CustomModal />
         </div>
+        
       </Element>
+      
     </div>
   );
 }
