@@ -1,5 +1,14 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
+<<<<<<< HEAD
+import supportIcon from "../../images/support/support.svg";
+import faqIcon from "../../images/support/faq.svg";
+import forumIcon from "../../images/support/forum.svg";
+import { WithTransLate } from "../helpers/translating/index";
+import s from "./Support.module.scss";
+
+function SupportCard({ description, title, icon }) {
+=======
 import supportImage from "../../images/support/support.png";
 import faqImage from "../../images/support/faq.png";
 import forumImage from "../../images/support/feedback.png";
@@ -22,9 +31,10 @@ function useIsMobile() {
 }
 
 function SupportCard({ description, title, image }) {
+>>>>>>> origin/Minella-Branch
   return (
     <div className={s.supportCard}>
-      <img alt="icon" className={s.icon} src={image} />
+      <img alt="icon" className={s.icon} src={icon} />
       <p className={s.cardTitle}>
         <WithTransLate text={title} />
       </p>
@@ -38,7 +48,7 @@ function SupportCard({ description, title, image }) {
 SupportCard.propTypes = {
   description: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired,
+  icon: PropTypes.string.isRequired,
 };
 
 export default function Support() {
@@ -46,6 +56,46 @@ export default function Support() {
 
   return (
     <div id="SUPPORT" className={s.support}>
+<<<<<<< HEAD
+      <div className={s.sectionContent}>
+        <a
+          className={s.description}
+          href="https://bluehouseis.zohodesk.eu/portal/en/newticket?departmentId=135604000000205173&layoutId=135604000000214460"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <SupportCard
+            description={"Get personal support from our team."}
+            title={"SUPPORT"}
+            icon={supportIcon}
+          />
+        </a>
+        <a
+          className={s.description}
+          href="https://bluehouseis.zohodesk.eu/portal/en/home"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <SupportCard
+            description={"Check previous guest requests."}
+            title={"FAQ"}
+            icon={faqIcon}
+          />
+        </a>
+        <a
+          className={s.description}
+          href="https://bluehouseis.zohodesk.eu/portal/en/community/guestforum"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <SupportCard
+            description={"Connect, Explore, and Share Your Journey!"}
+            title={"FORUM"}
+            icon={forumIcon}
+          />
+        </a>
+      </div>
+=======
       {isMobile ? ( // ✅ Show Mobile Layout
         <div className={s.mobileSupport}>
           <a href="tel:+3547756480" className={s.contactLink}>
@@ -99,6 +149,7 @@ export default function Support() {
           </a>
         </div>
       )}
+>>>>>>> origin/Minella-Branch
     </div>
   );
 }

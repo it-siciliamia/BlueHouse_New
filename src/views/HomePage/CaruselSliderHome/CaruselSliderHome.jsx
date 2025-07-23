@@ -12,7 +12,6 @@ import slide06 from "../../../images/homePageSlider/slide6.webp";
 import placeholder from "../../../images/homePageSlider/placeholder.webp";
 import videoSrc from "../../../videos/intro.mp4";
 import { useHeaderSize } from "../../../components/helpers/HeaderContext/HeaderContext.js";
-import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
 import s from "./CaruselSliderHome.module.scss";
 
@@ -116,10 +115,9 @@ const CaruselSliderHome = () => {
             <div
               key={index}
               onClick={() => handleIndicatorClick(index)}
-              style={{
-                opacity: index === currentIndex ? 1 : 0.3,
-              }}
-              className={s.paginationDot}
+              className={`${s.paginationDot} ${
+                index === currentIndex ? s.paginationDotActive : ""
+              }`}
             />
           ))}
         </div>
@@ -153,15 +151,8 @@ const CaruselSliderHome = () => {
         }}
       >
         {!isMobile && (
-          <div
-            className={`${s.arrowButton} ${s.arrowButtonLeft}`}
-            onClick={goToPreviousSlide}
-          >
-            <FiChevronLeft
-              size={60}
-              strokeWidth={1}
-              className={s.arrowlinkLeft}
-            />
+          <div className={`${s.arrowButton} ${s.arrowButtonLeft}`} onClick={goToPreviousSlide}>
+            <div className={s.customArrowLeft} />
           </div>
         )}
         {showPlaceholder && !isPlaceholderShown && (
@@ -195,15 +186,8 @@ const CaruselSliderHome = () => {
           )
         )}
         {!isMobile && (
-          <div
-            className={`${s.arrowButton} ${s.arrowButtonRight}`}
-            onClick={goToNextSlide}
-          >
-            <FiChevronRight
-              size={60}
-              strokeWidth={1}
-              className={s.arrowlinkRigth}
-            />
+          <div className={`${s.arrowButton} ${s.arrowButtonRight}`} onClick={goToNextSlide}>
+            <div className={s.customArrowRight} />
           </div>
         )}
         {renderPagination()}

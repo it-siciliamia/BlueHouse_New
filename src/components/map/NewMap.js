@@ -2,8 +2,7 @@ import React, { useState, useRef } from "react";
 import useBreakpoints from "../../Styles/useBreakpoints";
 import { useLocation } from "react-router-dom";
 import WeatherCard from "./WeatherCard";
-import { WithTransLate } from "../helpers/translating/index";
-import { AiOutlineFullscreen } from "react-icons/ai";
+import { FiMaximize, FiX } from "react-icons/fi";
 import "./WeatherMap.css";
 
 const NewMap = () => {
@@ -11,7 +10,6 @@ const NewMap = () => {
 
   const location = useLocation();
   const [mapType, setMapType] = useState("roadmap");
-  const [isOverlayVisible, setOverlayVisible] = useState(false);
   const [isFullScreen, setIsFullScreen] = useState(false);
   const iframeRef = useRef(null);
 
@@ -37,6 +35,18 @@ const NewMap = () => {
     setIsFullScreen(false);
   };
 
+  const buttonStyles = (active) => ({
+    backgroundColor: active ? "#f0f0f0" : "#fff",
+    color: "#222",
+    border: "none",
+    borderRadius: "0px",
+    padding: "10px 24px",
+    fontSize: "15px",
+    fontWeight: 500,
+    cursor: "pointer",
+    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.15)",
+  });
+
   return (
     <>
       {!isFullScreen && (
@@ -50,128 +60,74 @@ const NewMap = () => {
                 ? "block"
                 : "none",
             position: "relative",
-            margin: isMobile || isTablet ? "50px 0 50px 0" : "90px 0",
-            padding: "-2px",
-            paddingBottom: "-1px",
+            margin: isMobile || isTablet ? "50px 0" : "90px 0",
             width: "100%",
             height: !isDesktop ? "490px" : "590px",
             overflow: "hidden",
           }}
         >
+          {/* Map Type Buttons */}
           <div
             style={{
               position: "absolute",
-              top: !isMobile ? 30 : 20,
-              left: !isMobile ? 55 : 25,
+              top: "30px",
+              left: "20px",
               display: "flex",
-              flexDirection: !isMobile ? "row" : "column",
-              gap: "5px",
-              zIndex: 2,
+              gap: "10px",
+              zIndex: 1,
             }}
           >
             <button
               onClick={() => handleButtonClick("roadmap")}
-              style={{
-                display: "flex",
-                flexDirection: "row",
-                alignItems: "center",
-                justifyContent: "center",
-                width: "100px",
-                height: "38px",
-                cursor: "pointer",
-                border:
-                  mapType === "roadmap"
-                    ? "1px solid white"
-                    : "1px solid #314a6f6b",
-                borderRadius: "10px",
-                backgroundColor:
-                  mapType === "roadmap" ? "rgba(0, 0, 0, 0.28)" : "#fff",
-                color: mapType === "roadmap" ? "#fff" : "#000",
-                outline: "none",
-              }}
+              style={buttonStyles(mapType === "roadmap")}
             >
-              <span className="btnText">
-                <WithTransLate text="Roadmap" />
-              </span>
+              Map
             </button>
             <button
               onClick={() => handleButtonClick("satellite")}
-              style={{
-                display: "flex",
-                flexDirection: "row",
-                alignItems: "center",
-                justifyContent: "center",
-                width: "100px",
-                height: "38px",
-                cursor: "pointer",
-                border:
-                  mapType === "satellite"
-                    ? "1px solid white"
-                    : "1px solid #314a6f6b",
-                borderRadius: "10px",
-                backgroundColor:
-                  mapType === "satellite" ? "rgba(0, 0, 0, 0.28)" : "#fff",
-                color: mapType === "satellite" ? "#fff" : "#000",
-                outline: "none",
-              }}
+              style={buttonStyles(mapType === "satellite")}
             >
-              <span className="btnText">
-                <WithTransLate text="Satellite" />
-              </span>
+              Satellite
             </button>
           </div>
 
+          {/* Fullscreen Button */}
           {!isMobile && (
             <button
               onClick={handleFullScreen}
-              aria-label={
-                !isFullScreen
-                  ? "Map full screen mode"
-                  : "Close map full screen mode"
-              }
+              aria-label="Map full screen mode"
               style={{
                 position: "absolute",
                 top: "30px",
-                right: "50px",
-                width: "60px",
-                backgroundColor: "rgba(0, 0, 0, 0.28)",
-                color: "white",
-                border: "1px solid white",
-                borderRadius: "10px",
-                zIndex: 2,
-                outline: "none",
+                right: "20px",
+                backgroundColor: "#fff",
+                border: "none",
+                borderRadius: "0px",
+                padding: "10px",
+                boxShadow: "0 4px 8px rgba(0, 0, 0, 0.15)",
+                zIndex: 1,
                 cursor: "pointer",
               }}
             >
-              <AiOutlineFullscreen style={{ width: "30px", height: "30px" }} />
+              <FiMaximize
+                style={{ width: "22px", height: "22px", color: "#0c0c31ff" }}
+              />
             </button>
           )}
 
+          {/* Weather Card */}
           <div
             style={{
               position: "absolute",
               bottom: isMobile ? "20px" : "30px",
-              ...(isMobile ? { left: "10px" } : { left: "50px" }),
+              left: isMobile ? "10px" : "-200px",
               zIndex: 1,
             }}
           >
             <WeatherCard />
           </div>
 
-          <div
-            style={{
-              position: "absolute",
-              top: 0,
-              left: 0,
-              width: "100%",
-              height: "100%",
-              zIndex: 1,
-              backgroundColor: "rgba(0, 0, 0, 0)",
-              cursor: "pointer",
-              display: isOverlayVisible ? "none" : "block",
-            }}
-            onClick={() => setOverlayVisible(true)}
-          ></div>
+          {/* Map Iframe */}
           <iframe
             ref={iframeRef}
             title="Google Maps"
@@ -183,144 +139,106 @@ const NewMap = () => {
               top: "-70px",
               left: 0,
               outline: "none",
+              border: "none",
             }}
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
             allowFullScreen
             aria-hidden="false"
             tabIndex="0"
-            onMouseLeave={() => setOverlayVisible(false)}
           ></iframe>
         </div>
       )}
+
+      {/* Fullscreen Mode */}
       {isFullScreen && (
         <div
           style={{
             position: "fixed",
             top: 0,
             left: 0,
-            width: "100%",
-            height: "100%",
-            backgroundColor: "rgba(0, 0, 0, 0.8)",
-            zIndex: 1000,
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
+            width: "100vw",
+            height: "100vh",
+            zIndex: 9999,
+            backgroundColor: "#fff",
           }}
         >
+          {/* Exit fullscreen */}
           <button
             onClick={handleCloseFullScreen}
-            aria-label={
-              !isFullScreen
-                ? "Map full screen mode"
-                : "Close map full screen mode"
-            }
+            aria-label="Close full screen mode"
             style={{
               position: "absolute",
-              top: "30px",
-              right: "50px",
-              width: "60px",
-              backgroundColor: "rgba(0, 0, 0, 0.28)",
-              color: "white",
-              border: "1px solid white",
-              borderRadius: "10px",
-              zIndex: 2,
-              outline: "none",
+              top: "80px",
+              right: "20px",
+              backgroundColor: "#fff",
+              border: "none",
+              borderRadius: "4px",
+              padding: "10px",
+              boxShadow: "0 4px 8px rgba(0, 0, 0, 0.15)",
+              zIndex: 10000,
               cursor: "pointer",
             }}
           >
-            <AiOutlineFullscreen style={{ width: "30px", height: "30px" }} />
+            <FiX
+              style={{ width: "22px", height: "22px", color: "#202030ff" }}
+            />
           </button>
 
+          {/* Map Type Buttons */}
           <div
             style={{
               position: "absolute",
-              bottom: isMobile ? "20px" : "30px",
-              ...(isMobile ? { left: "10px" } : { left: "50px" }),
-              zIndex: 1,
+              top: "80px",
+              left: "20px",
+              display: "flex",
+              gap: "10px",
+              zIndex: 10000,
+            }}
+          >
+            <button
+              onClick={() => handleButtonClick("roadmap")}
+              style={buttonStyles(mapType === "roadmap")}
+            >
+              Map
+            </button>
+            <button
+              onClick={() => handleButtonClick("satellite")}
+              style={buttonStyles(mapType === "satellite")}
+            >
+              Satellite
+            </button>
+          </div>
+
+          {/* Weather Card */}
+          <div
+            style={{
+              position: "absolute",
+              bottom: "30px",
+              left: "-200px",
+              zIndex: 10000,
             }}
           >
             <WeatherCard />
           </div>
 
-          <div
-            style={{
-              position: "absolute",
-              top: !isMobile ? 30 : 20,
-              left: !isMobile ? 55 : 25,
-              display: "flex",
-              flexDirection: !isMobile ? "row" : "column",
-              gap: "5px",
-              zIndex: 2,
-            }}
-          >
-            <button
-              onClick={() => handleButtonClick("roadmap")}
-              style={{
-                display: "flex",
-                flexDirection: "row",
-                alignItems: "center",
-                justifyContent: "center",
-                width: "100px",
-                height: "38px",
-                cursor: "pointer",
-                border:
-                  mapType === "roadmap"
-                    ? "1px solid white"
-                    : "1px solid #314a6f6b",
-                borderRadius: "10px",
-                backgroundColor:
-                  mapType === "roadmap" ? "rgba(0, 0, 0, 0.28)" : "#fff",
-                color: mapType === "roadmap" ? "#fff" : "#000",
-                outline: "none",
-              }}
-            >
-              <span className="btnText">
-                <WithTransLate text="Roadmap" />
-              </span>
-            </button>
-            <button
-              onClick={() => handleButtonClick("satellite")}
-              style={{
-                display: "flex",
-                flexDirection: "row",
-                alignItems: "center",
-                justifyContent: "center",
-                width: "100px",
-                height: "38px",
-                cursor: "pointer",
-                border:
-                  mapType === "satellite"
-                    ? "1px solid white"
-                    : "1px solid #314a6f6b",
-                borderRadius: "10px",
-                backgroundColor:
-                  mapType === "satellite" ? "rgba(0, 0, 0, 0.28)" : "#fff",
-                color: mapType === "satellite" ? "#fff" : "#000",
-                outline: "none",
-              }}
-            >
-              <span className="btnText">
-                <WithTransLate text="Satellite" />
-              </span>
-            </button>
-          </div>
-
+          {/* Map Iframe */}
           <iframe
             ref={iframeRef}
-            title="Google Maps"
+            title="Google Maps Fullscreen"
             src={mapSrc}
+            width="100%"
+            height="100%"
             style={{
-              position: "fixed",
-              bottom: 0,
+              position: "absolute",
+              top: 0,
               left: 0,
-              width: "100%",
-              height: "109%",
               border: "none",
+              outline: "none",
             }}
             loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
             allowFullScreen
+            referrerPolicy="no-referrer-when-downgrade"
             aria-hidden="false"
             tabIndex="0"
           ></iframe>

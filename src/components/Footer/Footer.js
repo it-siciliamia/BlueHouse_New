@@ -286,7 +286,7 @@ function Footer() {
         
         <hr/>
         <div className={classes.blueHouseContainer}>
-          <span className={classes.blueHouse}>© Blue House 2024</span>
+          <span className={classes.blueHouse}>© Blue House 2025</span>
           <ManagePreferencesFooter />
         </div>
         
