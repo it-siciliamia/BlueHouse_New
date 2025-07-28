@@ -1,151 +1,13 @@
 // ✅ Search.js
 import React, { useState, useRef, useEffect } from "react";
 import { InputBase } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
 import { useClickOutside } from "../../hooks/useClickOutside";
 import SearchIcon from "../../images/SearchIcon_Header.svg";
 import CloseIcon from "../../images/close-white.svg";
 import keywords from "./keywords.json";
-
-const useStyles = makeStyles(() => ({
-  searchContainer: {
-    position: "relative",
-    zIndex: 2000,
-  },
-  searchToggle: {
-    background: "none",
-    border: "none",
-    padding: 0,
-    cursor: "pointer",
-    "& img": {
-      width: "28px",
-      height: "28px",
-    },
-  },
-  // DESKTOP STYLE (>=1280px)
-  inputWrapperDesktop: {
-    display: "flex",
-    alignItems: "center",
-    backgroundColor: "#fff",
-    borderRadius: "4px",
-    height: "46px",
-    width: "0",
-    overflow: "hidden",
-    transition: "width 0.4s ease-in-out", // Slower, smoother transition
-    position: "absolute",
-    right: "50px",
-    top: "50%",
-    transform: "translateY(-50%)",
-    zIndex: 2001,
-    border: "none",
-    "&.active": {
-      border: "1.2px solid #073762",
-      "@media (min-width: 1280px) and (max-width: 1344px)": {
-        width: "200px", // Reduced width for narrow range
-      },
-      "@media (min-width: 1345px)": {
-        width: "260px", // Reduced width for large screens
-      },
-    },
-  },
-  // MOBILE STYLE (<1280px) for various devices
-  inputWrapperMobile: {
-    display: "none",
-    flexDirection: "row",
-    alignItems: "center",
-    backgroundColor: "#fff",
-    borderRadius: "4px",
-    boxShadow: "0 2px 12px rgba(0,0,0,0.2)",
-    padding: "8px 10px",
-    zIndex: 1000,
-    transition: "all 0.3s ease",
-    "@media (max-width: 1279px)": {
-      position: "fixed",
-      top: "78px",
-      left: "clamp(16px, 6vw, 40px)",
-      right: "clamp(16px, 6vw, 40px)",
-      width: "auto",
-      display: "none",
-      "&.active": {
-        display: "flex",
-      },
-    },
-    // 🔽 Nest Hub (1024x600)
-    "@media (max-width: 1025px) and (min-height: 599px)": {
-      left: "10vw",
-      right: "10vw",
-    },
-    // 🔽 Surface Pro 7 (912x1368) and iPad Pro (1024x1366)
-    "@media (max-width: 913px) and (min-height: 1367px)": {
-      left: "10vw",
-      right: "10vw",
-    },
-    // 🔽 Specific fix for iPad Pro 12.9"
-    "@media (width: 1024px) and (height: 1366px)": {
-      left: "10vw",
-      right: "10vw",
-    },
-  },
-  input: {
-    flex: 1,
-    fontSize: "15px",
-    fontFamily: "Josefin Sans",
-    border: "none",
-    outline: "none",
-    padding: "4px 10px",
-  },
-  closeBtn: {
-    background: "none",
-    border: "none",
-    padding: 0,
-    marginLeft: "8px",
-    cursor: "pointer",
-    "& img": {
-      width: "20px",
-      height: "20px",
-    },
-  },
-  results: {
-    maxHeight: "300px",
-    overflowY: "auto",
-    backgroundColor: "#fff",
-    borderRadius: "4px",
-    boxShadow: "0 2px 12px rgba(0,0,0,0.2)",
-    zIndex: 1000,
-    "@media (max-width: 1279px)": {
-      position: "fixed",
-      top: "118px",
-      left: "clamp(16px, 6vw, 40px)",
-      right: "clamp(16px, 6vw, 40px)",
-      width: "auto",
-    },
-    // 🔽 Nest Hub (1024x600)
-    "@media (max-width: 1025px) and (min-height: 599px)": {
-      left: "10vw",
-      right: "10vw",
-    },
-    // 🔽 Surface Pro 7 (912x1368) and iPad Pro (1024x1366)
-    "@media (max-width: 913px) and (min-height: 1367px)": {
-      left: "10vw",
-      right: "10vw",
-    },
-    "@media (width: 1024px) and (height: 1366px)": {
-      left: "10vw",
-      right: "10vw",
-    },
-  },
-  resultItem: {
-    padding: "10px",
-    borderBottom: "1px solid #eee",
-    cursor: "pointer",
-    "&:hover": {
-      backgroundColor: "#f5f5f5",
-    },
-  },
-}));
+import s from "../../components/header/search.module.scss";
 
 export default function Search({ onSearchToggle }) {
-  const classes = useStyles();
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);
@@ -227,16 +89,16 @@ export default function Search({ onSearchToggle }) {
   // Determine class for input wrapper based on screen size
   const getInputWrapperClass = () => {
     if (isDesktop) {
-      return `${classes.inputWrapperDesktop} ${open ? "active" : ""}`;
+      return `${s.inputWrapperDesktop} ${open ? s.active : ""}`;
     } else {
-      return `${classes.inputWrapperMobile} ${open ? "active" : ""}`;
+      return `${s.inputWrapperMobile} ${open ? s.active : ""}`;
     }
   };
 
   return (
-    <div className={classes.searchContainer} ref={ref}>
+    <div className={s.searchContainer} ref={ref}>
       <button
-        className={classes.searchToggle}
+        className={s.searchToggle}
         onClick={handleToggle}
         aria-label="Toggle search"
       >
@@ -249,12 +111,12 @@ export default function Search({ onSearchToggle }) {
           value={query}
           onChange={(e) => handleSearch(e.target.value)}
           onKeyDown={handleKeyDown}
-          className={classes.input}
+          className={s.input}
         />
         {!isDesktop && (
           <button
             onClick={handleToggle}
-            className={classes.closeBtn}
+            className={s.closeBtn}
             aria-label="Close"
           >
             <img src={CloseIcon} alt="Close" />
@@ -263,13 +125,13 @@ export default function Search({ onSearchToggle }) {
       </div>
 
       {open && results.length > 0 && (
-        <div className={classes.results}>
+        <div className={s.results}>
           {results.map(({ key, links }, i) =>
             Array.isArray(links)
               ? links.map((url, j) => (
                   <div
                     key={`${i}-${j}`}
-                    className={classes.resultItem}
+                    className={s.resultItem}
                     onClick={() => handleSelect(url)}
                   >
                     {key} ({j + 1})
@@ -278,7 +140,7 @@ export default function Search({ onSearchToggle }) {
               : links.trim() && (
                   <div
                     key={i}
-                    className={classes.resultItem}
+                    className={s.resultItem}
                     onClick={() => handleSelect(links)}
                   >
                     {key}
