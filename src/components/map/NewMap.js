@@ -47,6 +47,29 @@ const NewMap = () => {
     boxShadow: "0 4px 8px rgba(0, 0, 0, 0.15)",
   });
 
+  // Get weather card positioning based on screen size
+  const getWeatherCardPosition = () => {
+    if (window.innerWidth <= 599) {
+      // Mobile: align with MAP button left edge
+      return {
+        bottom: "20px",
+        left: "20px", // Same as MAP button left position
+      };
+    } else if (window.innerWidth <= 1279) {
+      // Tablet: align with MAP button left edge
+      return {
+        bottom: "30px",
+        left: "20px", // Same as MAP button left position
+      };
+    } else {
+      // Desktop: position next to legend area
+      return {
+        bottom: "30px",
+        left: "70px", // Position after legend area
+      };
+    }
+  };
+
   return (
     <>
       {!isFullScreen && (
@@ -56,7 +79,7 @@ const NewMap = () => {
             display:
               location.pathname === "/" ||
               location.pathname.startsWith("/beds24") ||
-              location.pathname.startsWith("/about-us") 
+              location.pathname.startsWith("/about-us")
                 ? "block"
                 : "none",
             position: "relative",
@@ -91,36 +114,33 @@ const NewMap = () => {
             </button>
           </div>
 
-          {/* Fullscreen Button */}
-          {!isMobile && (
-            <button
-              onClick={handleFullScreen}
-              aria-label="Map full screen mode"
-              style={{
-                position: "absolute",
-                top: "30px",
-                right: "20px",
-                backgroundColor: "#fff",
-                border: "none",
-                borderRadius: "0px",
-                padding: "10px",
-                boxShadow: "0 4px 8px rgba(0, 0, 0, 0.15)",
-                zIndex: 1,
-                cursor: "pointer",
-              }}
-            >
-              <FiMaximize
-                style={{ width: "22px", height: "22px", color: "#0c0c31ff" }}
-              />
-            </button>
-          )}
+          {/* Fullscreen Button - show on all screen sizes */}
+          <button
+            onClick={handleFullScreen}
+            aria-label="Map full screen mode"
+            style={{
+              position: "absolute",
+              top: "30px",
+              right: "20px",
+              backgroundColor: "#fff",
+              border: "none",
+              borderRadius: "0px",
+              padding: "10px",
+              boxShadow: "0 4px 8px rgba(0, 0, 0, 0.15)",
+              zIndex: 1,
+              cursor: "pointer",
+            }}
+          >
+            <FiMaximize
+              style={{ width: "22px", height: "22px", color: "#0c0c31ff" }}
+            />
+          </button>
 
           {/* Weather Card */}
           <div
             style={{
               position: "absolute",
-              bottom: isMobile ? "20px" : "30px",
-              left: isMobile ? "10px" : "-200px",
+              ...getWeatherCardPosition(),
               zIndex: 1,
             }}
           >
@@ -210,12 +230,12 @@ const NewMap = () => {
             </button>
           </div>
 
-          {/* Weather Card */}
+          {/* Weather Card in fullscreen */}
           <div
             style={{
               position: "absolute",
               bottom: "30px",
-              left: "-200px",
+              left: "60px", // Align with MAP button in fullscreen too
               zIndex: 10000,
             }}
           >
