@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import useBreakpoints from "../../Styles/useBreakpoints";
 import { useLocation } from "react-router-dom";
 import WeatherCard from "./WeatherCard";
@@ -13,18 +13,37 @@ const NewMap = () => {
   const [isFullScreen, setIsFullScreen] = useState(false);
   const iframeRef = useRef(null);
 
+  // ✅ FIX: Add error handling for async response errors
+  useEffect(() => {
+    const handleUnhandledRejection = (event) => {
+      if (event.reason && event.reason.message && 
+          event.reason.message.includes('message channel closed')) {
+        // Suppress this specific error from browser extensions
+        event.preventDefault();
+        console.warn('Suppressed message channel error (likely from browser extension)');
+      }
+    };
+
+    window.addEventListener('unhandledrejection', handleUnhandledRejection);
+    
+    return () => {
+      window.removeEventListener('unhandledrejection', handleUnhandledRejection);
+    };
+  }, []);
+
   const handleButtonClick = (newMapType) => {
     setMapType(newMapType);
   };
 
+  // ✅ FIX 1: Added &loading=async to all map URLs
   const mapSrc =
     !isMobile && mapType === "roadmap"
-      ? "https://www.google.com/maps/d/u/0/embed?mid=1rJb5xtEAOs1UJpXOanRKSOKsj1DWeaA&output=embed&ll=64.15066066039589%2C-21.95341584912111&z=13"
+      ? "https://www.google.com/maps/d/u/0/embed?mid=1rJb5xtEAOs1UJpXOanRKSOKsj1DWeaA&output=embed&ll=64.15066066039589%2C-21.95341584912111&z=13&loading=async"
       : isMobile && mapType === "roadmap"
-      ? "https://www.google.com/maps/d/u/0/embed?mid=1rJb5xtEAOs1UJpXOanRKSOKsj1DWeaA&output=embed&ll=64.14332483909587%2C-21.983799912841814&z=12"
+      ? "https://www.google.com/maps/d/u/0/embed?mid=1rJb5xtEAOs1UJpXOanRKSOKsj1DWeaA&output=embed&ll=64.14332483909587%2C-21.983799912841814&z=12&loading=async"
       : !isMobile && mapType === "satellite"
-      ? "https://www.google.com/maps/d/u/0/embed?mid=15LpDDItfBNP1Bo9lK9bPlP8PYblE1nw&ehbc=2E312F&ll=64.15066066039589%2C-21.95341584912111&z=13"
-      : "https://www.google.com/maps/d/u/0/embed?mid=15LpDDItfBNP1Bo9lK9bPlP8PYblE1nw&ehbc=2E312F&ll=64.14332483909587%2C-21.983799912841814&z=12";
+      ? "https://www.google.com/maps/d/u/0/embed?mid=15LpDDItfBNP1Bo9lK9bPlP8PYblE1nw&ehbc=2E312F&ll=64.15066066039589%2C-21.95341584912111&z=13&loading=async"
+      : "https://www.google.com/maps/d/u/0/embed?mid=15LpDDItfBNP1Bo9lK9bPlP8PYblE1nw&ehbc=2E312F&ll=64.14332483909587%2C-21.983799912841814&z=12&loading=async";
 
   const handleFullScreen = () => {
     setIsFullScreen(true);
@@ -47,7 +66,7 @@ const NewMap = () => {
     boxShadow: "0 4px 8px rgba(0, 0, 0, 0.15)",
   });
 
-  // Get weather card positioning based on screen size
+  // Get weather card positioning based on screen size (keeping your settings)
   const getWeatherCardPosition = () => {
     if (window.innerWidth <= 599) {
       // Mobile: align with MAP button left edge
@@ -65,7 +84,7 @@ const NewMap = () => {
       // Desktop: position next to legend area
       return {
         bottom: "30px",
-        left: "70px", // Position after legend area
+        left: "70px", // Position after legend area (your setting)
       };
     }
   };
@@ -136,7 +155,7 @@ const NewMap = () => {
             />
           </button>
 
-          {/* Weather Card */}
+          {/* Weather Card (keeping your positioning) */}
           <div
             style={{
               position: "absolute",
@@ -230,12 +249,12 @@ const NewMap = () => {
             </button>
           </div>
 
-          {/* Weather Card in fullscreen */}
+          {/* Weather Card in fullscreen (keeping your positioning) */}
           <div
             style={{
               position: "absolute",
               bottom: "30px",
-              left: "60px", // Align with MAP button in fullscreen too
+              left: "60px", // Your setting
               zIndex: 10000,
             }}
           >
