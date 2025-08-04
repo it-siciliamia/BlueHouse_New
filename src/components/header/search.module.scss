@@ -1,0 +1,156 @@
+.searchContainer {
+  position: relative;
+  z-index: 2000;
+}
+
+.searchToggle {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  
+  img {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+// DESKTOP STYLE (>=1280px)
+.inputWrapperDesktop {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 4px;
+  height: 46px;
+  width: 0;
+  overflow: hidden;
+  transition: width 0.4s ease-in-out; // Slower, smoother transition
+  position: absolute;
+  right: 50px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2001;
+  border: none;
+  
+  &.active {
+    border: 1.2px solid #073762;
+    
+    @media (min-width: 1280px) and (max-width: 1344px) {
+      width: 200px; // Reduced width for narrow range
+    }
+    
+    @media (min-width: 1345px) {
+      width: 260px; // Reduced width for large screens
+    }
+  }
+}
+
+// MOBILE STYLE (<1280px) for various devices
+.inputWrapperMobile {
+  display: none;
+  flex-direction: row;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+  padding: 8px 10px;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  
+  @media (max-width: 1279px) {
+    position: fixed;
+    top: 78px;
+    left: clamp(16px, 6vw, 40px);
+    right: clamp(16px, 6vw, 40px);
+    width: auto;
+    display: none;
+    
+    &.active {
+      display: flex;
+    }
+  }
+  
+  // 🔽 Nest Hub (1024x600)
+  @media (max-width: 1025px) and (min-height: 599px) {
+    left: 10vw;
+    right: 10vw;
+  }
+  
+  // 🔽 Surface Pro 7 (912x1368) and iPad Pro (1024x1366)
+  @media (max-width: 913px) and (min-height: 1367px) {
+    left: 10vw;
+    right: 10vw;
+  }
+  
+  // 🔽 Specific fix for iPad Pro 12.9"
+  @media (width: 1024px) and (height: 1366px) {
+    left: 10vw;
+    right: 10vw;
+  }
+}
+
+.input {
+  flex: 1;
+  font-size: 15px;
+  font-family: "Josefin Sans";
+  border: none;
+  outline: none;
+  padding: 4px 10px;
+}
+
+.closeBtn {
+  background: none;
+  border: none;
+  padding: 0;
+  margin-left: 8px;
+  cursor: pointer;
+  
+  img {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.results {
+  max-height: 300px;
+  overflow-y: auto;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+  z-index: 1000;
+  
+  @media (max-width: 1279px) {
+    position: fixed;
+    top: 118px;
+    left: clamp(16px, 6vw, 40px);
+    right: clamp(16px, 6vw, 40px);
+    width: auto;
+  }
+  
+  // 🔽 Nest Hub (1024x600)
+  @media (max-width: 1025px) and (min-height: 599px) {
+    left: 10vw;
+    right: 10vw;
+  }
+  
+  // 🔽 Surface Pro 7 (912x1368) and iPad Pro (1024x1366)
+  @media (max-width: 913px) and (min-height: 1367px) {
+    left: 10vw;
+    right: 10vw;
+  }
+  
+  @media (width: 1024px) and (height: 1366px) {
+    left: 10vw;
+    right: 10vw;
+  }
+}
+
+.resultItem {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+  
+  &:hover {
+    background-color: #f5f5f5;
+  }
+}

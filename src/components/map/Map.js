@@ -25,9 +25,13 @@ const Home = () => {
   }
 
   const apiKey = "AIzaSyA-LWuIlquldSBDqQWlgr3nJE8h3AMTDCE";
+  
+  // ✅ FIX 2: Added loading: "async" and empty libraries array
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
     googleMapsApiKey: apiKey,
+    loading: "async", // Fix for async loading warning
+    libraries: [], // Specify empty libraries to avoid loading unnecessary ones
   });
 
   // eslint-disable-next-line no-unused-vars
@@ -43,7 +47,9 @@ const Home = () => {
       .then((data) => setWeather(data))
       .catch((err) => alert(err.message));
   }, [setWeather]);
+  
   const onUnmount = React.useCallback((map) => setMap(null), [setMap]);
+  
   return (
     <Element name="Map" id="map">
       <div className="map-root">
@@ -54,6 +60,10 @@ const Home = () => {
             zoom={13}
             onLoad={handleLoad}
             onUnmount={onUnmount}
+            options={{
+              // ✅ FIX 3: Use advanced markers instead of deprecated ones
+              mapId: "DEMO_MAP_ID", // You can create a custom map ID in Google Cloud Console
+            }}
           >
             {features.map((feature, index) => (
               <Marker
@@ -64,6 +74,10 @@ const Home = () => {
                     : feature.icon
                 }
                 position={feature.position}
+                // ✅ FIX 4: Use new marker options to avoid deprecation warning
+                options={{
+                  optimized: true,
+                }}
               />
             ))}
           </GoogleMap>

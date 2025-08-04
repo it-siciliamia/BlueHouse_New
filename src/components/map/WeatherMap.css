@@ -1,8 +1,6 @@
 /* Wrapper positions the weather card absolutely */
 .weather-wrapper {
-  position: absolute;
-  bottom: 30px;
-  left: 280px; /* adjust this to leave space for the Legend on the left */
+  position: relative; /* Changed from absolute to relative for better control */
   z-index: 10;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
   border-radius: 0px;
@@ -49,4 +47,53 @@
   font-size: 60px;
   margin: 10px 0;
   color: #333;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 1279px) {
+  .weather-card {
+    width: 150px; /* Slightly smaller on tablets */
+    padding: 12px 16px;
+  }
+  
+  .weather-temp {
+    font-size: 22px;
+  }
+  
+  .weather-location {
+    font-size: 12px;
+  }
+  
+  .weather-icon {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .weather-icon-static {
+    font-size: 50px;
+  }
+}
+
+@media (max-width: 599px) {
+  .weather-card {
+    width: 130px; /* Even smaller on mobile */
+    padding: 10px 14px;
+  }
+  
+  .weather-temp {
+    font-size: 20px;
+  }
+  
+  .weather-location {
+    font-size: 11px;
+  }
+  
+  .weather-icon {
+    width: 45px;
+    height: 45px;
+  }
+  
+  .weather-icon-static {
+    font-size: 45px;
+  }
 }
