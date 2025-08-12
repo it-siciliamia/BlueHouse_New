@@ -4,12 +4,12 @@ import { Link as ScrollLink, scroller } from "react-scroll";
 import { Link as RouterLink, useLocation, useHistory } from "react-router-dom";
 import { Button, Divider, Grid, makeStyles } from "@material-ui/core";
 import TranslateMe, { WithTransLate } from "../helpers/translating";
+
 import Logo from "../../images/Bluehouse.svg";
 import Escape from "../../images/escape.svg";
 import Door from "../../images/door.svg";
 import Tour from "../../images/tour.svg";
 import Gallery from "../../images/gallery.svg";
-import supportImage from "../../images/support/whiteBackground_support.svg";
 import Car from "../../images/car.svg";
 import Bag from "../../images/bag.svg";
 import Info from "../../images/info.svg";
@@ -20,24 +20,9 @@ import Facebook from "../../images/facebook.svg";
 import Whatsapp from "../../images/whatsApp.svg";
 
 const bookingsList = [
-  {
-    id: 1,
-    src: Door,
-    href: "https://beds24.com/booking2.php?propid=3578&layout=1",
-    text: "Book a Room",
-  },
-  {
-    id: 2,
-    src: Tour,
-    href: "https://bluehouse.tourdesk.is/Tour",
-    text: "Book Day Tours",
-  },
-  {
-    id: 3,
-    src: Car,
-    href: "https://bluehouse.tourdesk.is/CarRental",
-    text: "Rent a Car",
-  },
+  { id: 1, src: Door, href: "https://beds24.com/booking2.php?propid=3578&layout=1", text: "Book a Room" },
+  { id: 2, src: Tour, href: "https://bluehouse.tourdesk.is/Tour", text: "Book Day Tours" },
+  { id: 3, src: Car, href: "https://bluehouse.tourdesk.is/CarRental", text: "Rent a Car" },
 ];
 
 const useStyles = makeStyles((theme) => ({
@@ -58,9 +43,7 @@ const useStyles = makeStyles((theme) => ({
     overflowY: "auto",
     display: "flex",
     flexDirection: "column",
-    "@media (min-width: 661px)": {
-      display: "none",
-    },
+    "@media (min-width: 661px)": { display: "none" },
     "&::before": {
       maxWidth: "100vw",
       position: "fixed",
@@ -84,6 +67,8 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "16px",
     fontWeight: "400",
     lineHeight: "1",
+    color: "inherit",
+    textDecoration: "inherit",
   },
   horizontalLine: {
     width: "117%",
@@ -98,46 +83,34 @@ const useStyles = makeStyles((theme) => ({
     margin: "10px 0",
     color: "white",
   },
-  sliderLogo: {
-    width: "110px",
-    marginBottom: "26px",
-  },
-  sliderHeader: {
-    display: "flex",
-    alignItems: "flex-start",
-    justifyContent: "space-between",
-  },
+  sliderLogo: { width: "110px", marginBottom: "26px" },
+  sliderHeader: { display: "flex", alignItems: "flex-start", justifyContent: "space-between" },
   sliderEscape: {
     transition: "all 1s",
     width: "fit-content",
     padding: 0,
-    "&:focus": {
-      outline: "none",
-    },
+    "&:focus": { outline: "none" },
   },
-  groupIcons: {
-    display: "flex",
-    justifyContent: "space-between",
-    width: "120px",
-    marginBottom: "13px",
-  },
-  sliderIconss: {
-    margin: "0",
-    marginLeft: "-3px",
-    marginRight: "-8px",
-  },
+  groupIcons: { display: "flex", justifyContent: "space_between", width: "120px", marginBottom: "13px" },
+  sliderIconss: { margin: "0", marginLeft: "-3px", marginRight: "-8px" },
+
+  // Links remain WHITE; underline on hover/focus/active.
   highlightedColor: {
     color: "white",
-    "&:hover": {
-      color: "#1E90FF !important",
+    textDecoration: "none",
+    "&:link, &:visited": { color: "white", textDecoration: "none" },
+    "&:hover, &:focus, &:active": {
+      color: "white !important",
+      textDecoration: "underline",
+      textDecorationThickness: "from-font",
+      textUnderlineOffset: "2px",
     },
+    "& p": { color: "inherit", textDecoration: "inherit" },
+    "&:hover p, &:focus p, &:active p": { color: "inherit", textDecoration: "inherit" },
   },
-  socialIcons: {
-    transform: "scale(.9)",
-  },
-  linksWrapper: {
-    padding: "17px 1vw 0",
-  },
+
+  socialIcons: { transform: "scale(.9)" },
+  linksWrapper: { padding: "17px 1vw 0" },
   linksList: {
     margin: "0",
     padding: "0 0 21px 0",
@@ -149,16 +122,10 @@ const useStyles = makeStyles((theme) => ({
       display: "flex",
       justifyContent: "start",
       gap: "15px",
-      "& img": {
-        objectFit: "contain",
-      },
+      "& img": { objectFit: "contain" },
     },
   },
-  [theme.breakpoints.down("sm")]: {
-    sliderEscape: {
-      minWidth: "20px",
-    },
-  },
+  [theme.breakpoints.down("sm")]: { sliderEscape: { minWidth: "20px" } },
 }));
 
 function SideNavbarMobile(props) {
@@ -178,6 +145,7 @@ function SideNavbarMobile(props) {
     horizontalLine,
     highlightedColor,
   } = useStyles(props);
+
   const { handleOpenAndCloseSideNavbar } = props;
   const location = useLocation();
   const history = useHistory();
@@ -231,18 +199,8 @@ function SideNavbarMobile(props) {
         <ul className={linksList}>
           {bookingsList.map((item) => (
             <li key={item.id}>
-              <img
-                className={sliderIcons}
-                style={{ marginRight: "-3px" }}
-                src={item.src}
-                alt="Bookings List"
-              />
-              <a
-                href={item.href}
-                target="_blank"
-                rel="noreferrer"
-                className={highlightedColor}
-              >
+              <img className={sliderIcons} style={{ marginRight: "-3px" }} src={item.src} alt="Bookings List" />
+              <a href={item.href} target="_blank" rel="noreferrer" className={highlightedColor}>
                 <WithTransLate text={item.text} />
               </a>
             </li>
@@ -255,47 +213,22 @@ function SideNavbarMobile(props) {
 
         <ul className={linksList}>
           <li>
-            <img
-              className={sliderIconss}
-              src={Gallery}
-              alt="Scroll to Gallery"
-            />
-            <RouterLink
-              className={highlightedColor}
-              to="/#GALLERY"
-              onClick={() => navigateAndScroll("GALLERY")}
-            >
+            <img className={sliderIconss} src={Gallery} alt="Scroll to Gallery" />
+            <RouterLink className={highlightedColor} to="/#GALLERY" onClick={() => navigateAndScroll("GALLERY")}>
               <WithTransLate text="Gallery" />
             </RouterLink>
           </li>
 
           <li>
-            <img
-              className={sliderIconss}
-              src={Bag}
-              alt="Scroll to Recommendations"
-            />
-            <RouterLink
-              className={highlightedColor}
-              to="/#RECOMMENDATIONS"
-              onClick={() => navigateAndScroll("RECOMMENDATIONS")}
-            >
+            <img className={sliderIconss} src={Bag} alt="Scroll to Recommendations" />
+            <RouterLink className={highlightedColor} to="/#RECOMMENDATIONS" onClick={() => navigateAndScroll("RECOMMENDATIONS")}>
               <WithTransLate text="Recommendations" />
             </RouterLink>
           </li>
 
           <li>
-            <img
-              className={sliderIconss}
-              style={{ marginLeft: "-2px" }}
-              src={aboutus}
-              alt="Scroll to About Us"
-            />
-            <RouterLink
-              className={highlightedColor}
-              to="/about-us"
-              onClick={scroll}
-            >
+            <img className={sliderIconss} style={{ marginLeft: "-2px" }} src={aboutus} alt="Scroll to About Us" />
+            <RouterLink className={highlightedColor} to="/about-us" onClick={scroll}>
               <WithTransLate text="About us" />
             </RouterLink>
           </li>
@@ -306,51 +239,17 @@ function SideNavbarMobile(props) {
         </p>
 
         <ul className={linksList}>
+          {/* Support removed per Figma */}
           <li>
-            <img
-              className={sliderIconss}
-              style={{ height: "19px", marginLeft: "0", paddingRight: "5px" }}
-              src={supportImage}
-              alt="Scroll to Support"
-            />
-            <RouterLink
-              className={highlightedColor}
-              to="/#SUPPORT"
-              onClick={() => navigateAndScroll("SUPPORT")}
-            >
-              <WithTransLate text="Support" />
-            </RouterLink>
-          </li>
-
-          <li>
-            <img
-              className={sliderIconss}
-              style={{ marginLeft: "-3px", paddingRight: "4px" }}
-              src={Info}
-              alt="Slider Info"
-            />
-            <a
-              href="https://bluehouseis.zohodesk.eu/portal/en/home"
-              target="_blank"
-              rel="noreferrer"
-              className={highlightedColor}
-            >
+            <img className={sliderIconss} style={{ marginLeft: "-3px", paddingRight: "4px" }} src={Info} alt="Slider Info" />
+            <a href="https://bluehouseis.zohodesk.eu/portal/en/home" target="_blank" rel="noreferrer" className={highlightedColor}>
               <WithTransLate text="FAQ" />
             </a>
           </li>
 
           <li>
-            <img
-              className={sliderIconss}
-              style={{ height: "19px", marginLeft: "0", paddingRight: "5px" }}
-              src={Location}
-              alt="Scroll to Map"
-            />
-            <RouterLink
-              className={highlightedColor}
-              to="/#MAP"
-              onClick={() => navigateAndScroll("MAP")}
-            >
+            <img className={sliderIconss} style={{ height: "19px", marginLeft: "0", paddingRight: "5px" }} src={Location} alt="Scroll to Map" />
+            <RouterLink className={highlightedColor} to="/#MAP" onClick={() => navigateAndScroll("MAP")}>
               <WithTransLate text="Map" />
             </RouterLink>
           </li>
@@ -363,28 +262,13 @@ function SideNavbarMobile(props) {
         </p>
 
         <div className={groupIcons}>
-          <a
-            onClick={() => navigateAndScroll("CONTACT US")}
-            href="https://www.instagram.com/bluehousebb/"
-            target="_blank"
-            rel="noreferrer"
-          >
+          <a onClick={() => navigateAndScroll("CONTACT US")} href="https://www.instagram.com/bluehousebb/" target="_blank" rel="noreferrer">
             <img className={socialIcons} src={Instagram} alt="Social Network" />
           </a>
-          <a
-            onClick={scroll}
-            href="https://www.facebook.com/bluehouseiceland"
-            target="_blank"
-            rel="noreferrer"
-          >
+          <a onClick={scroll} href="https://www.facebook.com/bluehouseiceland" target="_blank" rel="noreferrer">
             <img className={socialIcons} src={Facebook} alt="Facebook" />
           </a>
-          <a
-            onClick={scroll}
-            href="https://api.whatsapp.com/send?phone=3547756480&text=&source=&data="
-            target="_blank"
-            rel="noreferrer"
-          >
+          <a onClick={scroll} href="https://api.whatsapp.com/send?phone=3547756480&text=&source=&data=" target="_blank" rel="noreferrer">
             <img className={socialIcons} src={Whatsapp} alt="Whatsapp" />
           </a>
         </div>
@@ -392,14 +276,8 @@ function SideNavbarMobile(props) {
         <Divider className={horizontalLine} />
 
         <p className={sliderInfo}>Blue House B&B</p>
-        <a
-          onClick={scroll}
-          href="mailto:info@bluehouse.is"
-          target="_blank"
-          rel="noreferrer"
-          className={highlightedColor}
-        >
-          <p className={sliderInfo}>info@bluehouse.is</p>{" "}
+        <a onClick={scroll} href="mailto:info@bluehouse.is" target="_blank" rel="noreferrer" className={highlightedColor}>
+          <p className={sliderInfo}>info@bluehouse.is</p>
         </a>
         <a onClick={scroll} href="tel:+3547756480">
           <p className={sliderInfo}>+354 775 6480</p>

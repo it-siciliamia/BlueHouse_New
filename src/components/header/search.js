@@ -107,7 +107,7 @@ export default function Search({ onSearchToggle }) {
 
       <div className={getInputWrapperClass()}>
         <InputBase
-          placeholder="Search"
+          placeholder="SEARCH"
           value={query}
           onChange={(e) => handleSearch(e.target.value)}
           onKeyDown={handleKeyDown}
