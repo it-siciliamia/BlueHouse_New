@@ -1,5 +1,16 @@
+/* ===== CaruselSliderHome.module.scss =====
+   Full stylesheet (ready to paste).
+   - Keeps your original layout (sizes/positions).
+   - Arrows: 40×40, white fill, blue stroke, slight darken on press.
+   - Dots: inactive blue, active white with blue ring; pinned slightly above bottom.
+   - Symmetric arrow offsets relative to visible image (left:1%, width:92%).
+   - Safe z-index: controls above media, behind side drawer when it’s open.
+*/
+
+/* --- Base hero layout (unchanged) --- */
 .imageBox {
-  position: relative;
+  position: relative;         /* local stacking context */
+  z-index: 1;                 /* media sits below global overlays */
   display: flex;
   justify-content: center;
   align-items: flex-end;
@@ -24,6 +35,7 @@
   opacity: 0;
   object-fit: cover;
   transition: opacity 1s ease-in-out;
+
   @media (max-width: 960px) {
     width: 100%;
     position: absolute;
@@ -31,21 +43,23 @@
   }
 }
 
-.currentImage {
-  opacity: 1;
-}
+.currentImage { opacity: 1; }
 
+/* --- Pagination (layout kept; pinned a bit higher) --- */
 .pagination {
-  margin-bottom: 30px;
   position: absolute;
-  z-index: 2;
+  z-index: 3;             /* above media, below global overlays */
+  bottom: 16px;           /* closer to bottom per design */
+  margin-bottom: 0;
 
   @media (max-width: 600px) {
-    margin-bottom: 10px;
+    bottom: 12px;
   }
-
   @media (min-width: 600px) and (max-width: 959.99px) {
-    margin-bottom: 20px;
+    bottom: 14px;
+  }
+  @media (min-width: 960px) {
+    bottom: 16px;
   }
 }
 
@@ -57,17 +71,21 @@
   margin-right: 120px;
 
   @media (max-width: 600px) {
-    // width: 120px;
+    /* keep original spacing */
   }
 }
 
+/* Dots: inactive = blue, active = white with blue ring */
 .paginationDot {
   cursor: pointer;
   border-radius: 50%;
-  background-color: #ffffff;
+  background-color: #153a5b;      /* blue (inactive) */
   width: 10px;
   height: 10px;
-  transition: background-color 0.3s ease;
+  border: 0;
+  transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.12s ease;
+
+  &:hover { transform: scale(1.12); }
 
   @media (min-width: 320px) and (max-width: 1279.99px) {
     width: 8px;
@@ -76,53 +94,68 @@
 }
 
 .paginationDotActive {
-  background-color: #1d3967;
+  background-color: #ffffff;       /* white (active) */
+  border: 2px solid #153a5b;       /* blue ring */
 }
 
+/* --- Arrows: visuals updated; positions equalized and responsive --- */
 .arrowButton {
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 60px;
-  height: 60px;
-  background-color: transparent;
+
+  width: 40px;
+  height: 40px;
+  background-color: #ffffff;       /* white fill */
+  border: 1px solid #153a5b;       /* blue stroke */
   border-radius: 50%;
-  transition: all 0.3s ease-in-out;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+  z-index: 3;                      /* above media, below overlays */
+
+  /* remove motion on press; leave slight darken only */
+  transition: background-color 0.12s ease, box-shadow 0.16s ease;
 }
 
 .arrowButton:hover {
-  background-color: rgba(255, 255, 255, 0.015);
+  background-color: #f7f9fc;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.12);
 }
 
 .arrowButton:active {
-  background-color: rgba(29, 57, 103, 0.08);
+  background-color: rgba(21, 58, 91, 0.08); /* slight darken on press */
 }
 
-.arrowButtonLeft {
-  position: absolute;
-  left: 0;
+/* Keep hooks; alignment overrides below */
+.arrowButtonLeft  { position: absolute; z-index: 3; }
+.arrowButtonRight { position: absolute; z-index: 3; }
+
+/* Equal vertical centering for both arrows */
+.arrowButtonLeft,
+.arrowButtonRight {
   top: 50%;
   transform: translateY(-50%);
-  margin-left: 20px;
-  z-index: 2;
 }
 
-.arrowButtonRight {
-  position: absolute;
-  right: 0;
-  top: 47%;
-  transform: translateY(-50%);
-  margin-right: 20px;
-  z-index: 2;
-
-  @media (min-width: 960px) {
-    margin-right: 10%;
+/* Desktop/tablet: image has left:1%, width:92% => right gap is 7% */
+@media (min-width: 960px) {
+  .arrowButtonLeft  {
+    left: calc(1% + 20px);    /* 20px from image's left edge */
+    margin-left: 0;
+  }
+  .arrowButtonRight {
+    right: calc(7% + 20px);   /* 20px from image's right edge */
+    margin-right: 0;
   }
 }
 
+/* Mobile: image is full width => symmetric offsets */
+@media (max-width: 959.98px) {
+  .arrowButtonLeft  { left: 20px;  margin-left: 0; }
+  .arrowButtonRight { right: 20px; margin-right: 0; }
+}
 
-
+/* --- Placeholder (unchanged) --- */
 .placeholder {
   position: absolute;
   top: 0;
@@ -144,12 +177,12 @@
   pointer-events: none;
 }
 
-/* STABLE ARROWS — WITH ACTIVE COLOR EFFECT */
+/* --- Chevron glyphs (blue; no active recolor) --- */
 .customArrowLeft,
 .customArrowRight {
   position: relative;
-  width: 18px;
-  height: 18px;
+  width: 12px;
+  height: 12px;
 }
 
 .customArrowLeft::before,
@@ -158,20 +191,31 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 16px;
-  height: 16px;
-  border-right: 2px solid white;
-  border-bottom: 2px solid white;
+  width: 12px;
+  height: 12px;
+  border-right: 2px solid #153a5b;  /* blue */
+  border-bottom: 2px solid #153a5b; /* blue */
   transform: translate(-50%, -50%) rotate(135deg);
   transition: border-color 0.2s ease;
 }
 
+/* Right chevron rotation */
 .customArrowRight::before {
   transform: translate(-50%, -50%) rotate(-45deg);
 }
 
-/* ACTIVE STATE: ARROW TURNS BLUE */
-.arrowButton:active .customArrowLeft::before,
-.arrowButton:active .customArrowRight::before {
-  border-color: #1d3967;
+/* --- Drawer/side panel safety:
+       When a global menu/drawer opens, keep slider controls behind it. --- */
+.menu-open .imageBox .arrowButton,
+.menu-open .imageBox .pagination,
+.drawer-open .imageBox .arrowButton,
+.drawer-open .imageBox .pagination,
+.navOpen .imageBox .arrowButton,
+.navOpen .imageBox .pagination,
+.sidePanelOpen .imageBox .arrowButton,
+.sidePanelOpen .imageBox .pagination,
+.is-drawer-open .imageBox .arrowButton,
+.is-drawer-open .imageBox .pagination {
+  z-index: 0;              /* behind the side panel */
+  pointer-events: none;    /* prevent clicks through the panel */
 }
