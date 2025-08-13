@@ -153,9 +153,9 @@ export default function Header({ right, setRight, top, setTop }) {
                 <ProcessPaymentPanel />
               ) : (
                 <>
-                  <a href="/" rel="noreferrer">
+                  <a href="https://beds24.com/booking2.php?propid=3578&layout=1&_gl=1*1m5j7wv*_ga*MTkzNDM4MTM5NS4xNzMxNjYzNTQ2*_ga_6QGX4YP9SF*czE3NTUwMzA0NDAkbzExMCRnMSR0MTc1NTAzMjQ5MCRqNTIkbDAkaDA." rel="noreferrer">
                     <Button
-                      text="MAIN PAGE"
+                      text="BOOK YOUR ROOM"
                       btnClass="btnDark"
                       width={
                         isDesktopRange && isSearchOpen && windowWidth >= 1280 && windowWidth <= 1344
@@ -171,12 +171,11 @@ export default function Header({ right, setRight, top, setTop }) {
                   </a>
                   <a
                     href="https://bluehouse.tourdesk.is/Tour"
-                    target="_blank"
                     rel="noreferrer"
                     className={`${isDesktopRange ? s.bookTourButton : ''}`}
                   >
                     <Button
-                      text="BOOK DAY TOUR"
+                      text="BOOK DAY TOURS"
                       btnClass="btnLight"
                       width={
                         windowWidth < 1000 && windowWidth >= 960
