@@ -1,5 +1,4 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import { WithTransLate } from "../helpers/translating/index";
 import useBreakpoints from "../../Styles/useBreakpoints";
 import DifferentLocations from "./ServicesType/DifferentLocations";
@@ -10,44 +9,43 @@ import clock from "../../images/services/clock.svg";
 import house from "../../images/services/house.svg";
 import s from "./OurServices.module.scss";
 
+// Titles + subtitles exactly as in the design
 const servicesData = [
   {
     icon: money,
-    text: "Cheapest price guaranteed if booked directly",
+    title: "CHEAPEST PRICE GUARANTEED",
+    subtitle: "If you book through our website",
   },
   {
     icon: clock,
-    text: "Self Check-in/Breakfast to offer greatest flexibility",
+    title: "GREATEST FLEXIBILITY",
+    subtitle: "Self check-in and self-service breakfast",
   },
   {
     icon: house,
-    text: "3 different locations at Scenic Peninsula 10 minutes from downtown",
+    title: "3 LOCATIONS",
+    subtitle: "On one of the best spots for catching Northern Lights",
   },
 ];
 
 const OurServices = () => {
   const { isMobile, isDesktop } = useBreakpoints();
-
   const [activeModal, setActiveModal] = useState(null);
 
-  const handleOpenModal = (componentName) => {
-    setActiveModal(componentName);
-  };
-
-  const handleClose = () => {
-    setActiveModal(null);
-  };
+  const handleOpenModal = (componentName) => setActiveModal(componentName);
+  const handleClose = () => setActiveModal(null);
 
   return (
     <div className={s.ourServices}>
       <div className={s.sectionContent}>
-        {servicesData.map(({ icon, text }, index) => (
+        {servicesData.map(({ icon, title, subtitle }, index) => (
           <div
             key={index}
             className={s.serviceCard}
             onClick={() => handleOpenModal(icon)}
             style={{
-              paddingTop: icon === money ? (isDesktop?"10px":"30px") : "20px",
+              // keep your original adaptive paddings/gaps
+              paddingTop: icon === money ? (isDesktop ? "10px" : "30px") : "20px",
               gap:
                 icon === money && isDesktop
                   ? "30px"
@@ -63,6 +61,7 @@ const OurServices = () => {
             <div
               className={s.imageContainer}
               style={{
+                // keep your original adaptive icon sizing
                 height:
                   icon === money && isDesktop
                     ? "78px"
@@ -83,9 +82,16 @@ const OurServices = () => {
             >
               <img src={icon} alt="Service Icon" className={s.icon} />
             </div>
-            <p className={s.description}>
-              <WithTransLate text={text} />
-            </p>
+
+            {/* Title + subtitle with stable height for perfect alignment */}
+            <div className={s.textBlock}>
+              <p className={s.cardTitle}>
+                <WithTransLate text={title} />
+              </p>
+              <p className={s.cardSubtitle}>
+                <WithTransLate text={subtitle} />
+              </p>
+            </div>
           </div>
         ))}
 
@@ -108,6 +114,7 @@ const OurServices = () => {
                 </div>
               )}
             </div>
+            {/* overlay handled in your modal implementation if used */}
           </div>
         )}
       </div>
