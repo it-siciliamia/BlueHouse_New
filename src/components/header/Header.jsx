@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import useBreakpoints from "../../Styles/useBreakpoints";
 import SideNavbar from "../SideNavbar/SideNavbar";
@@ -7,7 +7,6 @@ import Button from "../Shared/Button/Button";
 import logo from "../../images/logo.svg";
 import MenuIcon from "../../images/MenuIcon_Header.svg";
 import Search from "./search";
-
 import ProcessPaymentPanel from "../PaymentComponent/ProcessPaymentPanel/ProcessPaymentPanel";
 import s from "./Header.module.scss";
 
@@ -16,24 +15,28 @@ const mobileBreakpoint = 600;
 
 export default function Header({ right, setRight, top, setTop }) {
   const { isMobile, isTablet, isLaptop, isDesktop } = useBreakpoints();
+  const isHandset = isMobile || isTablet; // mobile & tablet behavior
   const location = useLocation();
+
+  // UI state
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
 
+  // Hide/show state
+  const [isHidden, setIsHidden] = useState(false);
+  const lastYRef = useRef(0);
+  const rafId = useRef(0);
+
+  // Keep window width updated
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
-    window.addEventListener("resize", handleResize);
+    window.addEventListener("resize", handleResize, { passive: true });
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const handleToggleSideNavbarDesktop = (rightValue) => {
-    setRight(rightValue);
-  };
-
-  const handleToggleSideNavbarMobile = (topValue) => {
-    setTop(topValue);
-  };
-
+  // SideNav toggles (unchanged)
+  const handleToggleSideNavbarDesktop = (rightValue) => setRight(rightValue);
+  const handleToggleSideNavbarMobile = (topValue) => setTop(topValue);
   const handleOpenAndCloseSideNavbar =
     userDeviceWidth > mobileBreakpoint
       ? handleToggleSideNavbarDesktop
@@ -52,76 +55,117 @@ export default function Header({ right, setRight, top, setTop }) {
       />
     );
 
-  // Callback to handle search state changes
+  // Search open/close effects (unchanged)
   const handleSearchToggle = (searchOpen) => {
     setIsSearchOpen(searchOpen);
-    
     const buttonWrapper = document.querySelector(`.${s.bookingButtonsWrapper}`);
     if (!buttonWrapper) return;
 
     if (searchOpen && windowWidth >= 1280) {
-      // Calculate offset for ALL desktop sizes to prevent overlap
       let offset = 0;
       if (windowWidth <= 1485) {
-        // Progressive offset from 1485px down to 1280px
         if (windowWidth >= 1400) {
-          // 1485px to 1400px: gentle start -20px to -50px
-          offset = -20 - ((1485 - windowWidth) * 0.35);
+          offset = -20 - (1485 - windowWidth) * 0.35;
         } else if (windowWidth >= 1344) {
-          // 1400px to 1344px: moderate -50px to -80px
-          offset = -50 - ((1400 - windowWidth) * 0.54);
+          offset = -50 - (1400 - windowWidth) * 0.54;
         } else if (windowWidth >= 1300) {
-          // 1344px to 1300px: more aggressive -80px to -110px
-          offset = -80 - ((1344 - windowWidth) * 0.68);
+          offset = -80 - (1344 - windowWidth) * 0.68;
         } else {
-          // 1300px to 1280px: careful approach to avoid logo overlap -110px to -120px
-          offset = -110 - ((1300 - windowWidth) * 0.5);
+          offset = -110 - (1300 - windowWidth) * 0.5;
         }
-        offset = Math.max(offset, -120); // Cap at -120px to avoid logo overlap
+        offset = Math.max(offset, -120);
       }
-      buttonWrapper.style.setProperty('--button-offset', `${offset}px`);
+      buttonWrapper.style.setProperty("--button-offset", `${offset}px`);
     } else {
-      // Always reset offset when search is closed
-      buttonWrapper.style.setProperty('--button-offset', '0px');
+      buttonWrapper.style.setProperty("--button-offset", "0px");
     }
   };
 
-  // Update offset when window size changes, only if search is open
   useEffect(() => {
     const buttonWrapper = document.querySelector(`.${s.bookingButtonsWrapper}`);
     if (!buttonWrapper) return;
 
     if (isSearchOpen && windowWidth >= 1280) {
-      // Only if search is open and we're on desktop - same logic as handleSearchToggle
       let offset = 0;
       if (windowWidth <= 1485) {
         if (windowWidth >= 1400) {
-          offset = -20 - ((1485 - windowWidth) * 0.35);
+          offset = -20 - (1485 - windowWidth) * 0.35;
         } else if (windowWidth >= 1344) {
-          offset = -50 - ((1400 - windowWidth) * 0.54);
+          offset = -50 - (1400 - windowWidth) * 0.54;
         } else if (windowWidth >= 1300) {
-          offset = -80 - ((1344 - windowWidth) * 0.68);
+          offset = -80 - (1344 - windowWidth) * 0.68;
         } else {
-          offset = -110 - ((1300 - windowWidth) * 0.5);
+          offset = -110 - (1300 - windowWidth) * 0.5;
         }
         offset = Math.max(offset, -120);
       }
-      buttonWrapper.style.setProperty('--button-offset', `${offset}px`);
+      buttonWrapper.style.setProperty("--button-offset", `${offset}px`);
     } else {
-      // If search is closed or not on desktop - reset offset
-      buttonWrapper.style.setProperty('--button-offset', '0px');
+      buttonWrapper.style.setProperty("--button-offset", "0px");
     }
   }, [windowWidth, isSearchOpen]);
 
-  // Determine whether to show buttons and how to style them
-  const shouldShowButtons = (isDesktop || isLaptop || (windowWidth >= 960 && windowWidth <= 1279));
+  const shouldShowButtons =
+    isDesktop || isLaptop || (windowWidth >= 960 && windowWidth <= 1279);
   const isDesktopRange = windowWidth >= 1280;
+
+  // === Hide/show logic ===
+  useEffect(() => {
+    const onScroll = () => {
+      cancelAnimationFrame(rafId.current);
+      rafId.current = requestAnimationFrame(() => {
+        if (isSearchOpen) {
+          // If search is open, keep header visible
+          setIsHidden(false);
+          lastYRef.current = window.scrollY || 0;
+          return;
+        }
+
+        const y = window.scrollY || 0;
+
+        if (isHandset) {
+          // Mobile/tablet: hide on down, show on up or at top
+          const diff = y - lastYRef.current;
+          const DOWN_DELTA = 5;
+          const UP_DELTA = -5;
+
+          if (y <= 0) {
+            setIsHidden(false); // at top always visible
+          } else if (diff > DOWN_DELTA) {
+            setIsHidden(true); // scrolling down -> hide
+          } else if (diff < UP_DELTA) {
+            setIsHidden(false); // scrolling up -> show
+          }
+          lastYRef.current = y;
+        } else {
+          // Desktop/laptop: visible only at the very top
+          setIsHidden(y > 0);
+        }
+      });
+    };
+
+    // init on mount
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      cancelAnimationFrame(rafId.current);
+      window.removeEventListener("scroll", onScroll);
+    };
+  }, [isHandset, isSearchOpen]);
 
   return (
     <>
       {navBar}
 
-      <header className={s.headerContainer}>
+      {/* Animate WHOLE header so translucent bg hides with it */}
+      <header
+        className={s.headerContainer}
+        style={{
+          transform: isHidden ? "translateY(-100%)" : "translateY(0)",
+          transition: "transform 0.35s ease",
+          willChange: "transform",
+        }}
+      >
         <div id="header" className={s.header}>
           <img
             src={logo}
@@ -132,33 +176,36 @@ export default function Header({ right, setRight, top, setTop }) {
 
           {shouldShowButtons && (
             <div
-              className={`${s.bookingButtonsWrapper} ${isDesktopRange && isSearchOpen ? s.searchActive : ''}`}
+              className={`${s.bookingButtonsWrapper} ${
+                isDesktopRange && isSearchOpen ? s.searchActive : ""
+              }`}
               style={{
                 gap:
-                  windowWidth < 1030 && windowWidth >= 960
-                    ? "16px"
-                    : "40px",
+                  windowWidth < 1030 && windowWidth >= 960 ? "16px" : "40px",
                 marginLeft:
-                  windowWidth < 1030 && windowWidth >= 960
-                    ? "auto"
-                    : "0",
+                  windowWidth < 1030 && windowWidth >= 960 ? "auto" : "0",
                 marginRight:
-                  windowWidth < 1030 && windowWidth >= 960
-                    ? "auto"
-                    : "0",
-                transition: "gap 0.3s ease-in-out, margin 0.3s ease-in-out, transform 0.3s ease-in-out"
+                  windowWidth < 1030 && windowWidth >= 960 ? "auto" : "0",
+                transition:
+                  "gap 0.3s ease-in-out, margin 0.3s ease-in-out, transform 0.3s ease-in-out",
               }}
             >
               {location.pathname === "/payment" ? (
                 <ProcessPaymentPanel />
               ) : (
                 <>
-                  <a href="https://beds24.com/booking2.php?propid=3578&layout=1&_gl=1*1m5j7wv*_ga*MTkzNDM4MTM5NS4xNzMxNjYzNTQ2*_ga_6QGX4YP9SF*czE3NTUwMzA0NDAkbzExMCRnMSR0MTc1NTAzMjQ5MCRqNTIkbDAkaDA." rel="noreferrer">
+                  <a
+                    href="https://beds24.com/booking2.php?propid=3578&layout=1&_gl=1*1m5j7wv*_ga*MTkzNDM4MTM5NS4xNzMxNjYzNTQ2*_ga_6QGX4YP9SF*czE3NTUwMzA0NDAkbzExMCRnMSR0MTc1NTAzMjQ5MCRqNTIkbDAkaDA."
+                    rel="noreferrer"
+                  >
                     <Button
                       text="BOOK YOUR ROOM"
                       btnClass="btnDark"
                       width={
-                        isDesktopRange && isSearchOpen && windowWidth >= 1280 && windowWidth <= 1344
+                        isDesktopRange &&
+                        isSearchOpen &&
+                        windowWidth >= 1280 &&
+                        windowWidth <= 1344
                           ? "180px"
                           : windowWidth < 1000 && windowWidth >= 960
                           ? "180px"
@@ -172,7 +219,7 @@ export default function Header({ right, setRight, top, setTop }) {
                   <a
                     href="https://bluehouse.tourdesk.is/Tour"
                     rel="noreferrer"
-                    className={`${isDesktopRange ? s.bookTourButton : ''}`}
+                    className={`${isDesktopRange ? s.bookTourButton : ""}`}
                   >
                     <Button
                       text="BOOK DAY TOURS"
@@ -213,7 +260,7 @@ export default function Header({ right, setRight, top, setTop }) {
         </div>
       </header>
 
-      {/* Container that shifts down when search is open */}
+      {/* Anchor for potential layout shifts when search opens (kept) */}
       <div id="searchShiftTarget"></div>
     </>
   );
