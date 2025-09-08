@@ -67,20 +67,13 @@ const Recommendations = () => {
           
         </div>
         <div id="imagesSection" className={s.sectionContent}>
-          {displayedCards.map(({ image, imageD, name, link }) => (
+          {displayedCards.map(({ image, imageD, name }) => (
             <div key={name} className={s.recommendationItem}>
-              <a
-                href={link}
-                rel="noreferrer"
-                target="_blank"
-                style={{ width: "100%" }}
-              >
                 <img
                   alt={name}
                   src={isDesktop ? imageD : image}
                   className={s.image}
                 />
-              </a>
               <span className={s.text}>
                 <WithTransLate text={name} />
               </span>
