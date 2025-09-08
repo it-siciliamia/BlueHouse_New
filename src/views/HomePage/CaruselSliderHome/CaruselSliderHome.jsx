@@ -12,6 +12,7 @@ import slide06 from "../../../images/homePageSlider/slide6.webp";
 import placeholder from "../../../images/homePageSlider/placeholder.webp";
 import videoSrc from "../../../videos/intro.mp4";
 import { useHeaderSize } from "../../../components/helpers/HeaderContext/HeaderContext.js";
+import { HiOutlineChevronLeft, HiOutlineChevronRight } from "react-icons/hi";
 
 import s from "./CaruselSliderHome.module.scss";
 
@@ -151,9 +152,12 @@ const CaruselSliderHome = () => {
         }}
       >
         {!isMobile && (
-          <div className={`${s.arrowButton} ${s.arrowButtonLeft}`} onClick={goToPreviousSlide}>
-            <div className={s.customArrowLeft} />
-          </div>
+          <button
+            className={`${s.arrowButton} ${s.arrowButtonLeft}`}
+            onClick={goToPreviousSlide}
+          >
+            <HiOutlineChevronLeft size={24} />
+          </button>
         )}
         {showPlaceholder && !isPlaceholderShown && (
           <img
@@ -186,9 +190,12 @@ const CaruselSliderHome = () => {
           )
         )}
         {!isMobile && (
-          <div className={`${s.arrowButton} ${s.arrowButtonRight}`} onClick={goToNextSlide}>
-            <div className={s.customArrowRight} />
-          </div>
+          <button
+            className={`${s.arrowButton} ${s.arrowButtonRight}`}
+            onClick={goToNextSlide}
+          >
+            <HiOutlineChevronRight size={24} />
+          </button>
         )}
         {renderPagination()}
       </div>

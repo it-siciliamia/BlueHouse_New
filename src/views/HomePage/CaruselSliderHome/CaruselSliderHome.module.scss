@@ -105,7 +105,9 @@
 
 /* --- Arrows: visuals updated; positions equalized and responsive --- */
 .arrowButton {
-  cursor: pointer;
+  position: absolute;
+  top: 50%;
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -120,32 +122,16 @@
 
   /* remove motion on press; leave slight darken only */
   transition: background-color 0.12s ease, box-shadow 0.16s ease;
-}
-
-.arrowButton:hover {
-  background-color: #f7f9fc;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
-}
-
-.arrowButton:active {
-  background-color: rgba(21, 58, 91, 0.08); /* slight darken on press */
-}
-
-/* Keep hooks; alignment overrides below */
-.arrowButtonLeft {
-  position: absolute;
-  z-index: 3;
-}
-.arrowButtonRight {
-  position: absolute;
-  z-index: 3;
-}
-
-/* Equal vertical centering for both arrows */
-.arrowButtonLeft,
-.arrowButtonRight {
-  top: 50%;
   transform: translateY(-50%);
+
+  &:hover {
+    background-color: #f7f9fc;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+  }
+
+  &:active {
+    background-color: rgba(21, 58, 91, 0.08); /* slight darken on press */
+  }
 }
 
 /* Desktop/tablet: image has left:1%, width:92% => right gap is 7% */
@@ -200,25 +186,6 @@
   position: relative;
   width: 12px;
   height: 12px;
-}
-
-.customArrowLeft::before,
-.customArrowRight::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 12px;
-  height: 12px;
-  border-right: 2px solid #153a5b; /* blue */
-  border-bottom: 2px solid #153a5b; /* blue */
-  transform: translate(-50%, -50%) rotate(135deg);
-  transition: border-color 0.2s ease;
-}
-
-/* Right chevron rotation */
-.customArrowRight::before {
-  transform: translate(-50%, -50%) rotate(-45deg);
 }
 
 /* --- Drawer/side panel safety:
