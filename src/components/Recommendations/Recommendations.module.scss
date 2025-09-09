@@ -2,65 +2,57 @@
   width: 100%;
   margin:auto;
   
-  @media (min-width: 320px) and (max-width: 599.99px) {
+  @media (min-width: 320px) {
     width: 329px;
     margin-bottom: 50px;
-    margin-top: 50px;;
+    margin-top: 50px;
   }
-  @media (min-width: 600px) and (max-width: 959.99px) {
+  @media (min-width: 600px) {
     width: 100%;
+    padding: 1.6rem;
     margin-bottom: 50px;
   }
-  @media (min-width: 960px) and (max-width: 1279.99px) {
+  @media (min-width: 960px) {
     margin-top: 30px;
     width: 660px;
   }
-  @media (min-width: 1280px) and (max-width: 2200px) {
+  @media (min-width: 1280px) {
     width: 94%;
     padding-left: 0;
     padding-top: 50px;
     padding-right: 0px;
   }
 }
+
 .sectionWrapper {
   display: flex;
   flex-direction: column;
-  @media (min-width: 1280px) and (max-width: 2200px) {
+  gap: 1rem;
+
+  @media (min-width: 1280px) {
     gap:50px;
     flex-direction: row;
   }
 }
 
 .sectionContent {
-  @media (min-width: 320px) and (max-width: 599.99px) {
-    margin-top: 20px;
-    display: flex;
-    flex-direction: row;
-    gap: 40px;
-    overflow: hidden;
-    padding: 2px;
-    width: 100%;
-    gap:60px;
-  }
-  @media (min-width: 600px) and (max-width: 959.99px) {
-    margin-top: 20px;
-    width: 100%;
+  overflow: hidden; 
+
+  display: flex;
+  flex-direction: row;
+  gap: 3.75rem;
+
+  /* ≥ 600px */
+  @media (min-width: 37.5em) {
     display: grid;
-    gap: 20px;
+    gap: 1.25rem;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: repeat(2, auto);
   }
-  @media (min-width: 960px) and (max-width: 1279.99px) {
-    width: 100%;
-    display: flex;
-    display: row;
-    justify-content: space-between;
-    gap: 20px;
-  }
-  @media (min-width: 1280px) and (max-width: 2200px) {
-    width: 100%;
-    display: flex; 
-    justify-content: space-between;
+
+  /* ≥ 960px */
+  @media (min-width: 60em) {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 3.2rem;
   }
 }
 
@@ -84,7 +76,7 @@
     height: 100%;
 
     @media(min-width: 37.5em) {
-    width: 100%;
+      width: 100%;
     }
   }
 
@@ -112,20 +104,20 @@
 }
 
 .titleWrapper {
-  @media (min-width: 1280px) and (max-width: 2200px) {
+  @media (min-width: 1280px) {
     position: relative;
   }
 }
 
 .title {
-  @media (min-width: 320px) and (max-width: 1279.99px) {
+  @media (min-width: 320px) {
     white-space: nowrap;
     font-family: "Oblik", Arial, sans-serif;
     font-size: 20px;
     font-weight: 900;
     letter-spacing: 0.1em;
   }
-  @media (min-width: 1280px) and (max-width: 2200px) {
+  @media (min-width: 1280px) {
     position: absolute;
     white-space: nowrap;
     top: 124px;
