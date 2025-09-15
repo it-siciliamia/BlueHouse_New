@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper";
 import { WithTransLate } from "../helpers/translating/index";
 import "swiper/swiper.css";
-import ReviewCard from "./ReviewSlide/ReviewSlide";
+import ReviewCard from "./ReviewCard";
 import "./ReviewSlider.css";
 
 const QUOTES = [
