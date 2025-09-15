@@ -1,0 +1,146 @@
+// Media Queries variables
+$desktop: 80rem; // ~1280px
+$tablet: 48rem; // ~768px
+
+.section {
+  padding: 1rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  overflow: hidden;
+
+  @media (min-width: $tablet) {
+    padding: 1rem 2rem;
+  }
+
+  @media (min-width: $desktop) {
+    height: 22.75rem;
+
+    flex-direction: row;
+    gap: 1rem;
+  }
+
+  h3 {
+    font-family: Oblik;
+    font-size: 1.25rem;
+    font-weight: 600;
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+    white-space: nowrap;
+
+    @media (min-width: $desktop) {
+      font-size: 1.5rem;
+
+      writing-mode: vertical-rl;
+      text-orientation: sideways;
+      transform: rotate(180deg);
+    }
+  }
+
+  .sectionWrapper {
+    background-color: var(--color-neutral-200);
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 2rem;
+
+    @media (min-width: $tablet) {
+      padding: 4rem;
+    }
+
+    @media (min-width: $desktop) {
+      overflow: hidden;
+
+      flex-direction: row;
+      padding: 4rem 0rem 4rem 3rem;
+      gap: 6rem;
+    }
+
+  }
+
+}
+
+.reviewSponsor {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+
+  padding: 1rem;
+
+  @media (min-width: $desktop) {
+    padding: 0;
+  }
+
+  .sponsorContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    p {
+      font-size: 1.12rem;
+      font-weight: 300;
+      line-height: 1.2;
+      text-align: center;
+      color: var(--color-primary-400);
+
+      margin: 0; // Workaround: overwrites bootstrap styling
+
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+
+    }
+
+    span {
+      display: block;
+      text-align: center;
+    }
+
+    img {
+      width: 12.5rem;
+    }
+  }
+}
+
+.btn {
+  --btn-bg-primary: var(--color-primary-500);
+  --btn-text-primary: var(--color-neutral-100);
+  --btn-hover-bg-primary: var(--color-neutral-100);
+  --btn-hover-text-primary: var(--color-primary-500);
+  --btn-disabled-bg: var(--color-neutral-200);
+  --btn-disabled-text: var(--color-neutral-400);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: .5rem .8rem;
+  background-color: var(--btn-bg-primary);
+  border: 2px solid var(--btn-bg-primary);
+  color: var(--btn-text-primary);
+  text-decoration: none;
+
+  &:hover {
+    background-color: var(--btn-hover-bg-primary);
+    color: var(--btn-hover-text-primary);
+  }
+
+  &:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 3px;
+  }
+
+  span {
+    font-size: 0.9rem;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+}

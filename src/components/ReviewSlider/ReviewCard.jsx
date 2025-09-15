@@ -5,7 +5,7 @@ import "./ReviewCard.scss";
 
 const ReviewCard = ({ quote }) => {
   return (
-    <div className="review-card" style={{color: "#1D3967"}}>
+    <div className="review-card">
       <p className="review-card__quote">
         <WithTransLate text={quote.text} />
       </p>

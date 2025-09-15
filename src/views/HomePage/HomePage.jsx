@@ -19,6 +19,7 @@ import NewsLetter from "../../components/NewsLetter/NewsLetter.jsx";
 import FindMore from "../../components/FindMore/FindMore.jsx";
 
 import s from "./HomePage.module.scss";
+import ReviewSection from "../../components/ReviewSlider/ReviewSection.jsx";
 
 const useStyles = makeStyles((theme) => ({
   galleryButton: {
@@ -118,8 +119,8 @@ export default function HomePage() {
       />
       
       <AboutUs />
-      <ReviewSlider />
       <Recommendations />
+      <ReviewSection />
       <BlogPart />
       <FollowUs />
       <FindMore />
