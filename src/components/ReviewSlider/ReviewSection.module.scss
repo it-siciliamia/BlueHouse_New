@@ -40,6 +40,7 @@ $tablet: 48rem; // ~768px
   }
 
   .sectionWrapper {
+    position: relative;
     background-color: var(--color-neutral-200);
     width: 100%;
     height: 100%;
@@ -58,7 +59,7 @@ $tablet: 48rem; // ~768px
 
       flex-direction: row;
       padding: 4rem 0rem 4rem 3rem;
-      gap: 6rem;
+      gap: 4rem;
     }
 
   }
@@ -76,6 +77,7 @@ $tablet: 48rem; // ~768px
 
   @media (min-width: $desktop) {
     padding: 0;
+    min-width: 20rem;
   }
 
   .sponsorContent {
@@ -107,6 +109,22 @@ $tablet: 48rem; // ~768px
     img {
       width: 12.5rem;
     }
+  }
+}
+
+.sliderNavigation {
+  z-index: 2;
+  position: absolute;
+  
+
+  display: flex;
+  gap: 1.2rem;
+  justify-content: flex-end;
+  align-self: flex-end;
+
+  @media (min-width: $desktop) {
+    bottom: 2rem;
+    right: 2%;
   }
 }
 
@@ -142,5 +160,23 @@ $tablet: 48rem; // ~768px
     font-size: 0.9rem;
     font-weight: 400;
     text-transform: uppercase;
+  }
+}
+
+.chevronButton {
+  background-color: var(--color-neutral-100);
+  border: 1px solid var(--color-neutral-500);
+  border-radius: 50%;
+
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  &:hover {
+    background-color: var(--color-neutral-300);
+  }
+ 
+  &:active {
+    background-color: var(--color-neutral-300);
   }
 }

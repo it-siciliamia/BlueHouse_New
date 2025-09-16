@@ -1,45 +1,118 @@
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Navigation } from "swiper";
 import { WithTransLate } from "../helpers/translating/index";
-import tripAdvisor from "../../images/findMore/TripadvisorLogo.png";
+import { HiOutlineChevronDown, HiOutlineChevronLeft, HiOutlineChevronRight, HiOutlineChevronUp } from "react-icons/hi";
 
-import s from "./ReviewSection.module.scss";
 import ReviewCard from "./ReviewCard";
 
+import tripAdvisor from "../../images/findMore/TripadvisorLogo.png";
+import s from "./ReviewSection.module.scss";
+
+const quotes = [
+  {
+    customerName: "LESLEY",
+    text: "The location offered an amazing view of the sea.",
+  },
+  {
+    customerName: "JAMES",
+    text: "The Blue House B&B was everything our family of 7 hoped for!",
+  },
+  {
+    customerName: "PRATEEK",
+    text: "Great place to stay. The look and feel of the place was quite cozy.",
+  },
+  {
+    customerName: "PAULS",
+    text: "One of the best features: freshly home-baked bread for breakfast.",
+  },
+  {
+    customerName: "JODY",
+    text: "Superb location and an exciting atmosphere around the area!",
+  },
+];
+
+// Chevron Button
+function ChevronButton({ direction, width = 35, height = 35, color = "var(--color-neutral-500)", iconSize = 24, className = "" }) {
+  return (
+    <button style={{ width, height, color }} className={`${className} ${s.chevronButton}`}>
+      {direction === 'left' && <HiOutlineChevronLeft size={iconSize}/>}
+      {direction === 'right' && <HiOutlineChevronRight size={iconSize}/>}
+      {direction === 'up' && <HiOutlineChevronUp size={iconSize}/>}
+      {direction === 'down' && <HiOutlineChevronDown size={iconSize}/>}
+    </button>
+  );
+}
+
 // CTA Button
-function Button({children}) {
+function Button({ children }) {
   return (
     <button className={s.btn}>
       <span>{children}</span>
     </button>
-  )
+  );
 }
 
 // Tripadvisor
-function ReviewSponsor({sponsorImage}) {
+function ReviewSponsor({ sponsorImage }) {
   return (
     <div className={s.reviewSponsor}>
       <div className={s.sponsorContent}>
-        <p><WithTransLate text="#2 of 71 houses in Reykjavik" /> {" "}
-        <span><WithTransLate text="on" /></span></p>
-        <img
-            src={sponsorImage}
-            alt="sponsor-logo"
-          />
+        <p>
+          <WithTransLate text="#2 of 71 houses in Reykjavik" />
+          <span>
+            <WithTransLate text="on" />
+          </span>
+        </p>
+        <img src={sponsorImage} alt="sponsor-logo" />
       </div>
-      <Button><WithTransLate text='read more reviews' /></Button>
+      <Button>
+        <WithTransLate text="read more reviews" />
+      </Button>
     </div>
-  )
+  );
 }
 
 function ReviewSection() {
   return (
     <section className={s.section}>
-      <h3><WithTransLate text="Reviews" /></h3>
+      <h3>
+        <WithTransLate text="Reviews" />
+      </h3>
       <div className={s.sectionWrapper}>
-        <ReviewSponsor sponsorImage={tripAdvisor}/>
-          <ReviewCard quote={{text: "The location offered an amazing view of the sea", customerName: "Lesley"}}/>
+        <ReviewSponsor sponsorImage={tripAdvisor} />
+
+        <Swiper
+          modules={[Navigation, Autoplay]}
+          slidesPerView={2}
+          spaceBetween={200}
+          loop={true}
+          autoplay={{
+            delay: 5000,
+            disableOnInteraction: true,
+            pauseOnMouseEnter: true,
+          }}
+          navigation={{
+            prevEl: ".swiper-prev",
+            nextEl: ".swiper-next",
+          }}
+        >
+          {quotes.map((quote, i) => (
+            <SwiperSlide key={i}>
+              <ReviewCard quote={quote} />
+            </SwiperSlide>
+          ))}
+
+        </Swiper>
+
+          <div className={s.sliderNavigation}>
+            <ChevronButton className="swiper-prev" direction={'left'} size={24}/>
+
+            <ChevronButton className="swiper-next" direction={'right'} size={24}/>
+          </div>
+
       </div>
     </section>
-  )
+  );
 }
 
-export default ReviewSection
+export default ReviewSection;
