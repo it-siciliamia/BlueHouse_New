@@ -1,9 +1,15 @@
+// Media Queries variables
+$desktop: 80em; // ~1280px
+$smallScreen: 60em; // ~960px
+$tablet: 48em; // ~768px
+
 .review-card {
   background-color: var(--color-neutral-100);
   
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  // gap: 1.8rem;
 
   width: 100%;
   height: 10rem;
@@ -22,15 +28,28 @@
   }
 
   &::before {
-    top: 2rem;
-    left: 1rem;
     background-image: url("../../images/ReviewSlider/quotes-open-icon.svg");
+
+    top: 1rem;
+    left: 1rem;
+
+    @media (min-width: $smallScreen) {
+      top: 2rem;
+      left: 1rem;
+    }
+      
   }
 
   &::after {
-    bottom: 1.6rem;
-    right: 2rem;
     background-image: url("../../images/ReviewSlider/quotes-close-icon.svg");
+    bottom: 1.2rem;
+    right: 2.5rem;
+
+
+    @media (min-width: $smallScreen) {
+      bottom: 1.6rem;
+      right: 1rem;
+    }
   }
 }
 
@@ -39,17 +58,21 @@
   margin-bottom: 0rem; // Workaround: overwrites bootstrap styling 
   padding-left: 2.5rem;
 
-  font-size: 1.12rem;
+  font-size: 1rem;
   font-weight: 300;
   line-height: 24px;
 }
 
 .review-card__author {
-  padding-right: 3rem;
+  padding: 1.4rem 3rem 0 0;
 
   display: flex;
   justify-content: end;
   align-items: flex-end;
+
+  @media (min-width: $smallScreen) {
+    padding-right: 2rem;
+  }
 }
 
 .review-card__hr {
@@ -68,7 +91,7 @@
 }
 
 
-@media (min-width: 60em) {
+@media (min-width: $smallScreen) {
   .review-card {
     width: 25rem;
   }
