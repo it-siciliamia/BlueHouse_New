@@ -9,7 +9,6 @@ import roomsImage from "../../images/gallery/rooms.svg";
 import housesImage from "../../images/gallery/houseBB2.svg";
 import surroundingsImage from "../../images/gallery/surroundings.svg";
 import Galary from "../../components/PhotoGallery/MobileGallerySection/Galary.js";
-import ReviewSlider from "../../components/ReviewSlider/ReviewSlider.js";
 import Support from "../../components/SuportComponent/support.js";
 import Recommendations from "../../components/Recommendations/Recommendations.jsx";
 import AboutUs from "../../components/AboutUs/AboutUs.jsx";
@@ -19,6 +18,7 @@ import NewsLetter from "../../components/NewsLetter/NewsLetter.jsx";
 import FindMore from "../../components/FindMore/FindMore.jsx";
 
 import s from "./HomePage.module.scss";
+import ReviewSection from "../../components/ReviewSlider/ReviewSection.jsx";
 
 const useStyles = makeStyles((theme) => ({
   galleryButton: {
@@ -118,8 +118,8 @@ export default function HomePage() {
       />
       
       <AboutUs />
-      <ReviewSlider />
       <Recommendations />
+      <ReviewSection />
       <BlogPart />
       <FollowUs />
       <FindMore />
