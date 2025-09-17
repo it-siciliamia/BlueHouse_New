@@ -9,7 +9,6 @@ import roomsImage from "../../images/gallery/rooms.svg";
 import housesImage from "../../images/gallery/houseBB2.svg";
 import surroundingsImage from "../../images/gallery/surroundings.svg";
 import Galary from "../../components/PhotoGallery/MobileGallerySection/Galary.js";
-import ReviewSlider from "../../components/ReviewSlider/ReviewSlider.js";
 import Support from "../../components/SuportComponent/support.js";
 import Recommendations from "../../components/Recommendations/Recommendations.jsx";
 import AboutUs from "../../components/AboutUs/AboutUs.jsx";
