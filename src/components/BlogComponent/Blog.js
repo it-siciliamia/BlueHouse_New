@@ -32,16 +32,6 @@ function BlogPart() {
 
   return (
     <div className={s.blogPart}>
-      <div className={s.container}>
-        <h3 className={s.title}>
-          <WithTransLate text="FIND MORE ABOUT US" />
-        </h3>
-        <img
-          src={tripAdvisor}
-          alt="trip-advisor-logo"
-          onClick={handleTripAdvisorClick}
-        />
-      </div>
       <div className={s.blog}>
         <div className={s.blogImage}>
           <img src={island} alt="Island" />
