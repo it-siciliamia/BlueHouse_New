@@ -6,7 +6,9 @@ import { HiOutlineChevronDown, HiOutlineChevronLeft, HiOutlineChevronRight, HiOu
 import ReviewCard from "./ReviewCard";
 
 import tripAdvisor from "../../images/findMore/TripadvisorLogo.png";
+
 import s from "./ReviewSection.module.scss";
+// import "swiper/swiper.css";
 
 const quotes = [
   {
@@ -32,9 +34,9 @@ const quotes = [
 ];
 
 // Chevron Button
-function ChevronButton({ direction, width = 35, height = 35, color = "var(--color-neutral-500)", iconSize = 24, className = "" }) {
+function ChevronButton({ id, direction, width = 35, height = 35, color = "var(--color-neutral-500)", iconSize = 24, className = "" }) {
   return (
-    <button style={{ width, height, color }} className={`${className} ${s.chevronButton}`}>
+    <button id={id} style={{ width, height, color }} className={`${s[className]} ${s.chevronButton}`}>
       {direction === 'left' && <HiOutlineChevronLeft size={iconSize}/>}
       {direction === 'right' && <HiOutlineChevronRight size={iconSize}/>}
       {direction === 'up' && <HiOutlineChevronUp size={iconSize}/>}
@@ -82,9 +84,10 @@ function ReviewSection() {
         <ReviewSponsor sponsorImage={tripAdvisor} />
 
         <Swiper
+          className={s.slider}
           modules={[Navigation, Autoplay]}
-          slidesPerView={2}
-          spaceBetween={200}
+          slidesPerView={1}
+          spaceBetween={0}
           loop={true}
           autoplay={{
             delay: 5000,
@@ -92,12 +95,26 @@ function ReviewSection() {
             pauseOnMouseEnter: true,
           }}
           navigation={{
-            prevEl: ".swiper-prev",
-            nextEl: ".swiper-next",
+            prevEl: "#swiper-prev",
+            nextEl: "#swiper-next",
           }}
+          breakpoints={{
+            640: {
+              slidesPerView: 1,
+              spaceBetween: 0,
+            },
+            768: {
+              slidesPerView: 1,
+              spaceBetween: 0,
+            },
+            1280: {
+              slidesPerView: 'auto',
+              spaceBetween: 60,
+            },
+        }}
         >
           {quotes.map((quote, i) => (
-            <SwiperSlide key={i}>
+            <SwiperSlide key={i} className={s.swiperSlide}>
               <ReviewCard quote={quote} />
             </SwiperSlide>
           ))}
@@ -105,9 +122,9 @@ function ReviewSection() {
         </Swiper>
 
           <div className={s.sliderNavigation}>
-            <ChevronButton className="swiper-prev" direction={'left'} size={24}/>
+            <ChevronButton id="swiper-prev" className="alignChevronLeft" direction={'left'} size={24}/>
 
-            <ChevronButton className="swiper-next" direction={'right'} size={24}/>
+            <ChevronButton id="swiper-next" className="alignChevronRight" direction={'right'} size={24}/>
           </div>
 
       </div>
