@@ -181,7 +181,7 @@ export default function Header({ right, setRight, top, setTop }) {
               }`}
               style={{
                 gap:
-                  windowWidth < 1030 && windowWidth >= 960 ? "16px" : "40px",
+                  windowWidth < 1030 && windowWidth >= 960 ? "16px" : "30px",
                 marginLeft:
                   windowWidth < 1030 && windowWidth >= 960 ? "auto" : "0",
                 marginRight:
@@ -210,9 +210,10 @@ export default function Header({ right, setRight, top, setTop }) {
                           : windowWidth < 1000 && windowWidth >= 960
                           ? "180px"
                           : isLaptop
-                          ? "220px"
-                          : "260px"
+                          ? "218px"
+                          : "218px"
                       }
+                      
                       color="#1D3967"
                     />
                   </a>
@@ -228,8 +229,8 @@ export default function Header({ right, setRight, top, setTop }) {
                         windowWidth < 1000 && windowWidth >= 960
                           ? "180px"
                           : isLaptop
-                          ? "220px"
-                          : "260px"
+                          ? "218px"
+                          : "218px"
                       }
                     />
                   </a>
