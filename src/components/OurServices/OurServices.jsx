@@ -40,7 +40,7 @@ const OurServices = () => {
             className={s.serviceCard}
             // Cards are non-interactive: no onClick, no modal
             style={{
-              paddingTop: "20px", // same padding for all cards
+              // paddingTop: "20px", // same padding for all cards
               gap: isDesktop ? "20px" : isMobile ? "15px" : "20px", // unified spacing logic
             }}
           >

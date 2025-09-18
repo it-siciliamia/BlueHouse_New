@@ -32,9 +32,9 @@ const CaruselSliderHome = () => {
   const intervalRef = useRef(null);
 
   const dynamicWidth = isDesktop
-    ? Math.round(width - 365)
+    ? Math.round(width )
     : isLaptop
-      ? Math.round(width - 115)
+      ? Math.round(width - 70)
       : width;
 
   const dynamicHeigth = Math.round(dynamicWidth * 0.66);
