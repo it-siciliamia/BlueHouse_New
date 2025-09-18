@@ -4,7 +4,7 @@ import useBreakpoints from "../../Styles/useBreakpoints";
 //import DifferentLocations from "./ServicesType/DifferentLocations"; //! muted
 //import SelfCheckIn from "./ServicesType/selfCheckIn"; //! muted
 //import CheapestPrice from "./ServicesType/CheapestPrice"; //! muted
-import money from "../../images/services/money.png";
+import money from "../../images/services/money.svg";
 import clock from "../../images/services/clock.svg";
 import house from "../../images/services/house.svg";
 import s from "./OurServices.module.scss";
