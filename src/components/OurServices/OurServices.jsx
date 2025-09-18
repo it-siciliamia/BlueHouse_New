@@ -4,7 +4,7 @@ import useBreakpoints from "../../Styles/useBreakpoints";
 //import DifferentLocations from "./ServicesType/DifferentLocations"; //! muted
 //import SelfCheckIn from "./ServicesType/selfCheckIn"; //! muted
 //import CheapestPrice from "./ServicesType/CheapestPrice"; //! muted
-import money from "../../images/services/money.svg";
+import money from "../../images/services/money.png";
 import clock from "../../images/services/clock.svg";
 import house from "../../images/services/house.svg";
 import s from "./OurServices.module.scss";
@@ -40,7 +40,7 @@ const OurServices = () => {
             className={s.serviceCard}
             // Cards are non-interactive: no onClick, no modal
             style={{
-              paddingTop: "20px", // same padding for all cards
+              // paddingTop: "20px", // same padding for all cards
               gap: isDesktop ? "20px" : isMobile ? "15px" : "20px", // unified spacing logic
             }}
           >
