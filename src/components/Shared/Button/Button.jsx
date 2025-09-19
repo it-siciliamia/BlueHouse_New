@@ -4,6 +4,10 @@ import { WithTransLate } from "../../helpers/translating/index";
 
 import s from "./Button.module.scss";
 
+/**
+ * @deprecated This Button component is deprecated.
+ * Please use the Button component from Shared/ui/Button instead.
+ */
 const Button = ({
   text = "",
   icon = null,
