@@ -115,16 +115,6 @@ const Recommendations = () => {
         </div>
       </div>
       </div>
-      <div style={{display:"flex",justifyContent:"center", width:"100%", marginTop:"5%"}} >
-        <Button
-            text="DISCOVER MORE"
-            btnClass="btnLightWithOut"
-            handleClick={() =>
-              window.open("https://www.instagram.com/bluehousebb/", "_blank")
-            }
-        />
-      </div>
-      
     </div>
   );
 };
