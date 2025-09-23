@@ -104,46 +104,19 @@
   border: 2px solid #153a5b; /* blue ring */
 }
 
-/* --- Arrows: visuals updated; positions equalized and responsive --- */
-.arrowButton {
-  position: absolute;
-  top: 50%;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  width: 40px;
-  height: 40px;
-  background-color: #ffffff; /* white fill */
-  border: 1px solid #153a5b; /* blue stroke */
-  border-radius: 50%;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
-  z-index: 3; /* above media, below overlays */
-
-  /* remove motion on press; leave slight darken only */
-  transition: background-color 0.12s ease, box-shadow 0.16s ease;
-  transform: translateY(-50%);
-
-  &:hover {
-    background-color: #f7f9fc;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
-  }
-
-  &:active {
-    background-color: rgba(21, 58, 91, 0.08); /* slight darken on press */
-  }
-}
-
 /* Desktop/tablet: image has left:1%, width:92% => right gap is 7% */
 @media (min-width: 960px) {
+  .arrowButtonLeft,
+  .arrowButtonRight {
+    position: absolute;
+    top: 50%;
+    z-index: 99;
+  }
   .arrowButtonLeft {
     left: calc(1% + 20px); /* 20px from image's left edge */
-    margin-left: 0;
   }
   .arrowButtonRight {
     right: calc(7% + 20px); /* 20px from image's right edge */
-    margin-right: 0;
   }
 }
 
@@ -151,11 +124,9 @@
 @media (max-width: 959.98px) {
   .arrowButtonLeft {
     left: 20px;
-    margin-left: 0;
   }
   .arrowButtonRight {
     right: 20px;
-    margin-right: 0;
   }
 }
 
@@ -179,14 +150,6 @@
 .placeholder.fadeOut {
   opacity: 0;
   pointer-events: none;
-}
-
-/* --- Chevron glyphs (blue; no active recolor) --- */
-.customArrowLeft,
-.customArrowRight {
-  position: relative;
-  width: 12px;
-  height: 12px;
 }
 
 /* --- Drawer/side panel safety:

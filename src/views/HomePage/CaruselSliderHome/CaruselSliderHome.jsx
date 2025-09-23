@@ -15,6 +15,7 @@ import { useHeaderSize } from "../../../components/helpers/HeaderContext/HeaderC
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from "react-icons/hi";
 
 import s from "./CaruselSliderHome.module.scss";
+import IconButton from "../../../components/Shared/ui/IconButton.jsx";
 
 const images = [videoSrc, slide01, slide02, slide03, slide04, slide05, slide06];
 
@@ -152,12 +153,7 @@ const CaruselSliderHome = () => {
         }}
       >
         {!isMobile && (
-          <button
-            className={`${s.arrowButton} ${s.arrowButtonLeft}`}
-            onClick={goToPreviousSlide}
-          >
-            <HiOutlineChevronLeft size={24} />
-          </button>
+          <IconButton icon="chevronLeft" size="lg" onClick={goToPreviousSlide} className={s.arrowButtonLeft} />
         )}
         {showPlaceholder && !isPlaceholderShown && (
           <img
@@ -189,13 +185,7 @@ const CaruselSliderHome = () => {
             />
           )
         )}
-        {!isMobile && (
-          <button
-            className={`${s.arrowButton} ${s.arrowButtonRight}`}
-            onClick={goToNextSlide}
-          >
-            <HiOutlineChevronRight size={24} />
-          </button>
+        {!isMobile && (<IconButton icon="chevronRight" size="lg" onClick={goToNextSlide} className={s.arrowButtonRight} />
         )}
         {renderPagination()}
       </div>

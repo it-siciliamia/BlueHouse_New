@@ -148,27 +148,8 @@
    CTA button (kept from your final file)
    =============================== */
 .bh-cta {
-  width: 218px;
-  height: 50px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  font-family: "Josefin Sans", sans-serif;
-  font-weight: 400;
-  font-size: 16px;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  color: #fff;
-  background: #1d3967;
-  border: 2px solid #1d3967;
-  transition: 0.25s;
   margin-top: auto;
-  align-self: flex-start;
-}
-.bh-cta:hover {
-  background: #fff;
-  color: #1d3967;
+  max-width: 13rem;
 }
 
 /* ===============================
@@ -225,51 +206,6 @@
 }
 .bh-nav-zone--prev { left: 16px; }
 .bh-nav-zone--next { right: 16px; }
-
-/* ===============================
-  Arrow buttons (circle, border persists)
-   =============================== */
-.bh-nav-btn {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: #ffffff;
-  border: 1px solid #212529;          /* Always visible border */
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  -webkit-tap-highlight-color: transparent;
-  appearance: none;
-  -webkit-appearance: none;
-  line-height: 0;
-  user-select: none;
-  transition: background 0.2s ease, border-color 0.2s ease;
-  outline: none;
-}
-.bh-nav-btn:hover {
-  background: #f6f7f9;
-  border-color: #1d3967;              /* Subtle brand accent on hover */
-}
-.bh-nav-btn:active,
-.bh-nav-btn:focus,
-.bh-nav-btn:focus-visible {
-  background: #ffffff;
-  border: 1px solid #212529 !important; /* Keep border on click/focus */
-  transform: none !important;
-  box-shadow: none !important;
-}
-.bh-nav-btn::before {
-  content: "";
-  width: 10px;
-  height: 10px;
-  border-top: 2px solid #212529;     /* Arrow glyph color */
-  border-right: 2px solid #212529;
-  transform: rotate(225deg);
-}
-.bh-nav-btn--next::before {
-  transform: rotate(45deg);
-}
 
 /* ===============================
    Dot pagination
