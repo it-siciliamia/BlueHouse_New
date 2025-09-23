@@ -1,37 +1,45 @@
+/* ===== Section root: desktop-only block, spaced from previous section ===== */
 .section {
   width: 100%;
   box-sizing: border-box;
-  margin-top: 38px;
+  margin-top: 28px; 
 
+  /* Hide this desktop-only section below 1280px */
   @media (max-width: 1279.99px) {
     display: none;
   }
 }
 
+/* ===== Center the content to the page container ===== */
 .wrapper {
   display: flex;
-  justify-content: center;
+  justify-content: center; /* centers the fixed-width .container */
   width: 100%;
 }
 
+/* ===== Fixed inner width to match Figma grid: 1152px =====
+   1152 = 368*3 columns + 24px*2 gaps */
 .container {
-  width: 1152px;
+  width: 1152px; 
   box-sizing: border-box;
 }
 
+/* ===== Row with title/subtitle on the left and stamp on the right ===== */
 .headingRow {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: 24px;
+  gap: 24px; /* space between text block and stamp */
 }
 
+/* ===== Left side block: title + subtitle stacked ===== */
 .titleBlock {
   display: flex;
   flex-direction: column;
-  min-width: 0;
+  min-width: 0; /* allows text to shrink without overflow */
 }
 
+/* ===== Main heading (H1/H2) styles per Figma ===== */
 .title {
   margin: 0;
   font-family: "Oblik", Arial, sans-serif;
@@ -43,8 +51,9 @@
   color: #1d3967;
 }
 
+/* ===== Subtitle just below the title ===== */
 .subtitle {
-  margin: 24px 0 0 0; 
+  margin: 24px 0 0 0; /* space under title */
   font-family: "Josefin Sans", Arial, sans-serif;
   font-weight: 600;
   font-size: 18px;
@@ -52,6 +61,7 @@
   color: #212529;
 }
 
+/* ===== Right side: circular stamp image, fixed 100x100 ===== */
 .stampImg {
   flex: 0 0 auto;
   width: 100px;
@@ -60,55 +70,69 @@
   display: block;
 }
 
+/* ===== Divider line under heading area (no bottom line under button) ===== */
 .topRule {
   width: 1152px;
   height: 1px;
   background-color: #edf1f4;
-  margin-top: 16px;
+  margin-top: 16px; /* spacing below subtitle */
 }
 
+/* ===== Wrapper for the 3 columns + button area =====
+   min-height keeps the block tall enough to match Figma */
 .textWrapper {
   width: 1152px;
   box-sizing: border-box;
   margin-top: 16px;
+  min-height: 154px; 
 }
 
+/* ===== Three equal columns EXACT 368px each (Figma spec) =====
+   Column gap is 24px, so 368*3 + 24*2 = 1152px total */
 .list {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  column-gap: 24px;
-  row-gap: 16px;
+  grid-template-columns: 368px 368px 368px;
+  column-gap: 24px;  
+  row-gap: 0;
 }
 
+/* ===== One bullet row: number + paragraph ===== */
 .listItem {
   display: flex;
   align-items: flex-start;
+  padding-top: 8px;   /* vertical padding per item (Figma) */
+  padding-bottom: 8px;
 }
 
+/* ===== Leading number styling (fixed width to align paragraphs) ===== */
 .num {
-  width: 14px;
+  width: 14px;      /* per Figma */
   flex: 0 0 14px;
-  margin-right: 8px;
+  margin-right: 8px; /* space between number and text */
   font-family: "Josefin Sans", Arial, sans-serif;
   font-weight: 600;
   font-size: 18px;
   line-height: 24px;
   color: #212529;
+  text-align: left;
 }
 
+/* ===== Paragraph text for each bullet ===== */
 .desc {
   margin: 0;
   font-family: "Josefin Sans", Arial, sans-serif;
-  font-weight: 300;
+  font-weight: 300;  /* Light */
   font-size: 18px;
   line-height: 24px;
   color: #212529;
 }
 
+/* ===== Row for the CTA button, spaced from list ===== */
 .buttonRow {
-  margin-top: 24px;
+  margin-top: 16px; 
 }
 
+/* ===== Enforce Figma button size (we use shared Button component) ===== */
 .btnOverride {
   width: 218px !important;
   height: 50px !important;
