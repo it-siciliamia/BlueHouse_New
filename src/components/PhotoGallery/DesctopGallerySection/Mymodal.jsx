@@ -4,6 +4,8 @@ import { createPortal } from "react-dom";
 import "./MyModal.css";
 import customModalData from "../../Shared/CustomModal/customModalData";
 import { WithTransLate } from "../../helpers/translating";
+import Link from "../../Shared/ui/Link";
+import IconButton from "../../Shared/ui/IconButton"
 
 /* Figma sizes (Content = 1008px: 592 + 32 + 384) */
 const HERO_W = 592;
@@ -351,20 +353,11 @@ function GenericLightbox({ open, onClose, dataIndex, initialTitle }) {
                 {pictures.length > 1 && (
                   <>
                     <div className="bh-nav-zone bh-nav-zone--prev">
-                      <button
-                        type="button"
-                        className="bh-nav-btn bh-nav-btn--prev"
-                        onClick={onPrev}
-                        aria-label="Prev"
-                      />
+                      <IconButton icon="chevronLeft" size="lg" onClick={onPrev} onMouseDown={(e) => {
+                       e.preventDefault()}} />
                     </div>
                     <div className="bh-nav-zone bh-nav-zone--next">
-                      <button
-                        type="button"
-                        className="bh-nav-btn bh-nav-btn--next"
-                        onClick={onNext}
-                        aria-label="Next"
-                      />
+                      <IconButton icon="chevronRight" size="lg" onClick={onNext} onMouseDown={(e) => {e.preventDefault()}} />
                     </div>
                   </>
                 )}
@@ -422,13 +415,8 @@ function GenericLightbox({ open, onClose, dataIndex, initialTitle }) {
                 ))}
               </div>
 
-              <a
-                className="bh-cta"
-                href="https://beds24.com/booking2.php?propid=3578&layout=1"
-                aria-label="Book now"
-              >
-                <span>BOOK NOW</span>
-              </a>
+              <Link href="https://beds24.com/booking2.php?propid=3578&layout=1" className="bh-cta"><WithTransLate text="Book now"/></Link>
+
             </div>
           </div>
         </div>
