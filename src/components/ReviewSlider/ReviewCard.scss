@@ -9,7 +9,6 @@ $tablet: 48em; // ~768px
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  // gap: 1.8rem;
 
   width: 100%;
   height: 10rem;
@@ -67,7 +66,7 @@ $tablet: 48em; // ~768px
   padding: 1.4rem 3rem 0 0;
 
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   align-items: flex-end;
 
   @media (min-width: $smallScreen) {

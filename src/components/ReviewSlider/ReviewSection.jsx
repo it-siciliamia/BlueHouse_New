@@ -1,14 +1,10 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper";
 import { WithTransLate } from "../helpers/translating/index";
-import {
-  HiOutlineChevronDown,
-  HiOutlineChevronLeft,
-  HiOutlineChevronRight,
-  HiOutlineChevronUp,
-} from "react-icons/hi";
 
 import ReviewCard from "./ReviewCard";
+import Link from "../Shared/ui/Link";
+import IconButton from "../Shared/ui/IconButton";
 
 import tripAdvisor from "../../images/findMore/TripadvisorLogo.png";
 
@@ -37,38 +33,6 @@ const quotes = [
   },
 ];
 
-// Chevron Button
-function ChevronButton({
-  id,
-  direction,
-  width = 35,
-  height = 35,
-  color = "var(--color-neutral-500)",
-  iconSize = 24,
-}) {
-  return (
-    <button
-      id={id}
-      style={{ width, height, color }}
-      className={s.chevronButton}
-    >
-      {direction === "left" && <HiOutlineChevronLeft size={iconSize} />}
-      {direction === "right" && <HiOutlineChevronRight size={iconSize} />}
-      {direction === "up" && <HiOutlineChevronUp size={iconSize} />}
-      {direction === "down" && <HiOutlineChevronDown size={iconSize} />}
-    </button>
-  );
-}
-
-// CTA Button
-function Button({ children }) {
-  return (
-    <button className={s.btn}>
-      <span>{children}</span>
-    </button>
-  );
-}
-
 // Tripadvisor
 function ReviewSponsor({ sponsorImage }) {
   return (
@@ -82,16 +46,16 @@ function ReviewSponsor({ sponsorImage }) {
         </p>
         <img src={sponsorImage} alt="sponsor-logo" />
       </div>
-      <Button>
+      <Link href="https://www.tripadvisor.com/Hotel_Review-g189970-d1915669-Reviews-Blue_House_B_B-Reykjavik_Capital_Region.html" target="_blank">
         <WithTransLate text="read more reviews" />
-      </Button>
+      </Link>
     </div>
   );
 }
 
 function ReviewSection() {
   return (
-    <section className={s.section}>
+    <section id="REVIEWS" className={s.section}>
       <h3>
         <WithTransLate text="Reviews" />
       </h3>
@@ -128,8 +92,8 @@ function ReviewSection() {
           </Swiper>
 
           <div className={s.sliderNavigation}>
-            <ChevronButton id="swiper-prev" direction="left" size={24} />
-            <ChevronButton id="swiper-next" direction="right" size={24} />
+            <IconButton id="swiper-prev" icon="chevronLeft" />
+            <IconButton id="swiper-next" icon="chevronRight" />
           </div>
         </div>
       </div>
