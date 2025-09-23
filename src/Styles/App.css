@@ -47,7 +47,14 @@
   /* Borders & Dividers */
   --border-default: var(--color-neutral-300); /* Inputs, separators, cards */
   --border-strong:  var(--color-neutral-400); /* Emphasized borders and separators */
+
+
+  /* Focus */ 
+  --focus-ring-color: var(--color-primary-500);
+  --focus-ring-width: 2px;
+  --focus-ring-offset: 3px;
 }
+
 
 @font-face {
   font-family: Oblik;
@@ -134,6 +141,24 @@ a {
 .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
   border-color: rgba(0, 0, 0, 0.23) !important;
   border-width: 1px !important;
+}
+
+/* Focus rings and accessibility */
+*:focus:not(:focus-visible) {
+  outline: none;
+  box-shadow: none;
+}
+
+/* Show focus ring for keyboard users (accessibility) */
+:is(button,
+  a[href],
+  input:not([type="hidden"]),
+  select,
+  textarea,
+  [role="button"],
+  [tabindex]:not([tabindex="-1"])):focus-visible {
+  outline: var(--focus-ring-width) solid var(--focus-ring-color);
+  outline-offset: var(--focus-ring-offset);
 }
 
 .App {
