@@ -109,9 +109,9 @@ export default function HomePage() {
       />
 
       <SaveUpTo10 />
+      <BlogPart />
       <Recommendations />
       <ReviewSection />
-      <BlogPart />
       <FollowUs />
       <FindMore />
       <Support />
