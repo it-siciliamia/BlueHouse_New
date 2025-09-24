@@ -151,7 +151,6 @@ export default function Header({ right, setRight, top, setTop }) {
                 height={isTablet || isMobile ? "25px" : "30"}
               />
             </button>
-
             <button
               className={s.menuIcon}
               onClick={() => handleOpenAndCloseSideNavbar(0)}

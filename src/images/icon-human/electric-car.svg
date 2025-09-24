@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
-<svg height="800px" width="800px" version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
-	 viewBox="0 0 512 512"  xml:space="preserve">
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "//www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Uploaded  SVG Repo, www.svgrepo.com,  SVG Repo Mixer Tools -->
+<svg height="800px" width="800px" version="1.1" id="_x32_" 
+	 viewBox="0 0 512 512"  space="preserve">
 <g fill="currentColor">
 	<path class="st0" d="M94.02,267.524c-5.225,0-9.46,4.243-9.46,9.476c0,5.21,4.236,9.438,9.46,9.438
 		c5.232,0,9.468-4.228,9.468-9.438C103.488,271.767,99.252,267.524,94.02,267.524z"/>
