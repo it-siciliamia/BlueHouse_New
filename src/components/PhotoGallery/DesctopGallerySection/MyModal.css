@@ -21,11 +21,22 @@
   max-width: calc(100vw - 64px);
   background: #fff;
   border: 1px solid rgba(0, 0, 0, 0.08);
-  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.18);
+  box-shadow: none;
   padding: 32px 104px;
   outline: none;
   -webkit-tap-highlight-color: transparent;
   cursor: default;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+.bh-modal::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.18);
 }
 
 /* Disable background interactions while modal is open */
@@ -40,14 +51,11 @@
   pointer-events: auto !important;
 }
 
-/* Guard against unwanted global active/transform effects */
-.bh-modal-open,
-.bh-modal-open *:active,
-.bh-modal-open .bh-backdrop:active,
-.bh-modal-open .bh-modal:active {
+/* Guard against unwanted transform/filter interactions */
+.bh-modal-open .bh-modal *:active,
+.bh-modal-open .bh-backdrop *:active {
   transform: none !important;
   filter: none !important;
-  box-shadow: none !important;
 }
 .bh-modal-open .bh-modal,
 .bh-modal-open .bh-modal * {
