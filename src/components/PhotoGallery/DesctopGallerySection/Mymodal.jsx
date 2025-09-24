@@ -193,12 +193,10 @@ html.bh-modal-open .bh-modal {
   transform: none !important;
   filter: none !important;
 }
-html.bh-modal-open *:active,
-html.bh-modal-open .bh-modal:active,
-html.bh-modal-open .bh-backdrop:active {
+html.bh-modal-open .bh-modal *:active,
+html.bh-modal-open .bh-backdrop *:active {
   transform: none !important;
   filter: none !important;
-  box-shadow: none !important;
 }
 html.bh-modal-open .bh-modal,
 html.bh-modal-open .bh-modal * {
