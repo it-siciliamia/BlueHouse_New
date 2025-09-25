@@ -8,13 +8,11 @@ import BookingWrapper from "../../components/BookingWrapper/BookingWrapper.jsx";
 import roomsImage from "../../images/gallery/rooms.svg";
 import housesImage from "../../images/gallery/houseBB2.svg";
 import surroundingsImage from "../../images/gallery/surroundings.svg";
-import Galary from "../../components/PhotoGallery/MobileGallerySection/Galary.js";
 import Support from "../../components/SuportComponent/support.js";
 import Recommendations from "../../components/Recommendations/Recommendations.jsx";
-import AboutUs from "../../components/AboutUs/AboutUs.jsx";
+import SaveUpTo10 from "../../components/SaveUpTo10/SaveUpTo10.jsx";
 import BlogPart from "../../components/BlogComponent/Blog.js";
 import FollowUs from "../../components/FollowUs/FollowUs.jsx";
-import NewsLetter from "../../components/NewsLetter/NewsLetter.jsx";
 import FindMore from "../../components/FindMore/FindMore.jsx";
 
 import s from "./HomePage.module.scss";
@@ -70,23 +68,14 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const GALLERY_BACKGROUND_IMAGES_AND_TITLES = [
-  {
-    background: roomsImage,
-    title: "Rooms",
-  },
-  {
-    background: housesImage,
-    title: "Houses",
-  },
-  {
-    background: surroundingsImage,
-    title: "Surroundings",
-  },
+  { background: roomsImage, title: "Rooms" },
+  { background: housesImage, title: "Houses" },
+  { background: surroundingsImage, title: "Surroundings" },
 ];
 
 export default function HomePage() {
-  const { root, galleryButton } = useStyles();
-  const { isMobile, isTablet } = useBreakpoints();
+  const { galleryButton } = useStyles();
+  useBreakpoints(); // kept if theme breakpoints are needed elsewhere
 
   const customGALLERYTitleStyle = {
     // marginTop: "95px",
@@ -100,27 +89,29 @@ export default function HomePage() {
   ];
 
   return (
-    <div className={s.home} style={{color: "#1D3967"}}>
+    <div className={s.home} style={{ color: "#1D3967" }}>
       <HomeHeader />
       <BookingWrapper />
       <OurServices />
+
+      {/* Accommodation Options (ex-Gallery) */}
       <PhotoGallery
-        id="GALLERY_DESCTOP"
+        id="ACCOMMODATION_OPTIONS"
         actionType="VIEW GALLERY"
         action={<button className={galleryButton}>DISCOVER MORE</button>}
         description={descrip1}
-        title="GALLERY"
+        title="ACCOMMODATION OPTIONS"
         backgroundImagesUrlAndTitles={GALLERY_BACKGROUND_IMAGES_AND_TITLES}
         customTitleStyle={customGALLERYTitleStyle}
         unitWidth={"21vw"}
         maxWidth={"100vw"}
         minWidth={"220px"}
       />
-      
-      <AboutUs />
+
+      <SaveUpTo10 />
+      <BlogPart />
       <Recommendations />
       <ReviewSection />
-      <BlogPart />
       <FollowUs />
       <FindMore />
       <Support />
