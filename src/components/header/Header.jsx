@@ -240,20 +240,8 @@ export default function Header({ right, setRight, top, setTop }) {
           )}
 
           <div className={s.rightPart}>
-            <button
-              className={s.menuIcon}
-              onClick={() => handleShowSearchInput(isMobile ? searchTop : 0)}
-              aria-label="menu"
-            >
-              <img
-                src={SearchIcon}
-                alt="SearchIcon"
-                width={isTablet || isMobile ? "25px" : "30"}
-                height={isTablet || isMobile ? "25px" : "30"}
-              />
-            </button>
-=======
             <Search onSearchToggle={handleSearchToggle} />
+
             <button
               className={s.menuIcon}
               type="button"
