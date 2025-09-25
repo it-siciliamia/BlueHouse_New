@@ -1,0 +1,211 @@
+.searchContainer {
+  position: relative;
+  z-index: 2000;
+}
+
+.searchToggle {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+
+  img {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+/* DESKTOP STYLE (>=1280px) */
+.inputWrapperDesktop {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 0;
+  height: 46px;
+  width: 0;
+  overflow: hidden;
+  transition: width 0.4s ease-in-out;
+  position: absolute;
+  right: 50px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2001;
+  border: none;
+
+  &.active {
+    border: 1.2px solid #cdcfcf;
+
+    @media (min-width: 1280px) and (max-width: 1344px) {
+      width: 200px; /* Smaller input on narrow desktop */
+    }
+
+    @media (min-width: 1345px) {
+      width: 260px; /* Larger input on wide desktop */
+    }
+  }
+}
+
+/* MOBILE STYLE (<1280px) */
+.inputWrapperMobile {
+  display: none;
+  flex-direction: row;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+  padding: 8px 10px;
+  z-index: 1000;
+  transition: all 0.3s ease;
+
+  @media (max-width: 1279px) {
+    position: fixed;
+    top: 78px;
+    left: clamp(16px, 6vw, 40px);
+    right: clamp(16px, 6vw, 40px);
+    width: auto;
+    display: none;
+
+    &.active {
+      display: flex;
+    }
+  }
+
+  /* Nest Hub (1024x600) */
+  @media (max-width: 1025px) and (min-height: 599px) {
+    left: 10vw;
+    right: 10vw;
+  }
+
+  /* Surface Pro 7 / iPad Pro tall */
+  @media (max-width: 913px) and (min-height: 1367px) {
+    left: 10vw;
+    right: 10vw;
+  }
+
+  /* iPad Pro 12.9" */
+  @media (width: 1024px) and (height: 1366px) {
+    left: 10vw;
+    right: 10vw;
+  }
+}
+
+.input {
+  flex: 1;
+  font-size: 15px;
+  font-family: "Josefin Sans";
+  border: none;
+  outline: none;
+  padding: 4px 10px;
+}
+
+.closeBtn {
+  background: none;
+  border: none;
+  padding: 0;
+  margin-left: 8px;
+  cursor: pointer;
+
+  img {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.results {
+  max-height: 300px;
+  overflow-y: auto;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+
+  /* ADDED: smooth width change */
+  transition: width 0.4s ease-in-out; /* ADDED */
+  will-change: width; /* ADDED */
+
+  @media (max-width: 1279px) {
+    position: fixed;
+    top: 118px;
+    left: clamp(16px, 6vw, 40px);
+    right: clamp(16px, 6vw, 40px);
+    width: auto;
+  }
+
+  /* Nest Hub (1024x600) */
+  @media (max-width: 1025px) and (min-height: 599px) {
+    left: 10vw;
+    right: 10vw;
+  }
+
+  /* Surface Pro 7 / iPad Pro tall */
+  @media (max-width: 913px) and (min-height: 1367px) {
+    left: 10vw;
+    right: 10vw;
+  }
+
+  /* iPad Pro 12.9" */
+  @media (width: 1024px) and (height: 1366px) {
+    left: 10vw;
+    right: 10vw;
+  }
+}
+
+/* Desktop hover for items */
+.resultItem {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #f5f5f5;
+  }
+}
+
+/* ADDED: align + animate dropdown under the input on desktop 1280–1344px */
+@media (min-width: 1280px) and (max-width: 1344px) {
+  .results {
+    position: absolute;
+    top: 40px;
+    right: 50px;
+    left: auto;
+    width: 200px;
+
+    /* On appearance — smoothly grows to 200px */
+    animation: grow200 0.4s ease-in-out both; /* ADDED */
+    overflow: hidden; /* ADDED */
+  }
+}
+
+/* ADDED: align + animate dropdown under the input on desktop >=1345px */
+@media (min-width: 1345px) {
+  .results {
+    position: absolute;
+    top: 40px;
+    right: 50px;
+    left: auto;
+    width: 260px;
+
+    /* On appearance — smoothly grows to 260px */
+    animation: grow260 0.4s ease-in-out both; /* ADDED */
+    overflow: hidden; /* ADDED */
+  }
+}
+
+/* ADDED: keyframes for mount animation */
+@keyframes grow200 {
+  from {
+    width: 0;
+  }
+  to {
+    width: 200px;
+  }
+}
+
+@keyframes grow260 {
+  from {
+    width: 0;
+  }
+  to {
+    width: 260px;
+  }
+}

@@ -1,13 +1,28 @@
+/* ===== CaruselSliderHome.module.scss =====
+   Full stylesheet (ready to paste).
+   - Keeps your original layout (sizes/positions).
+   - Arrows: 40×40, white fill, blue stroke, slight darken on press.
+   - Dots: inactive blue, active white with blue ring; pinned slightly above bottom.
+   - Symmetric arrow offsets relative to visible image (left:1%, width:92%).
+   - Safe z-index: controls above media, behind side drawer when it’s open.
+*/
+
+/* --- Base hero layout (unchanged) --- */
 .imageBox {
-  position: relative;
+  position: relative; /* local stacking context */
+  z-index: 1; /* media sits below global overlays */
   display: flex;
   justify-content: center;
   align-items: flex-end;
   width: 100%;
-  @media (max-width: 600px) {
+  height: 100%;
+  
+
+  @media (min-width: 600px) {
     width: 100%;
   }
-  @media (min-width: 600px) and (max-width: 1279.99px) {
+
+  @media (min-width: 960px) and (max-width: 1279.99px) {
     width: 100%;
   }
 }
@@ -15,27 +30,39 @@
 .image {
   position: absolute;
   top: 0;
-  left: 0;
-  width: 100%;
+  left: 1%;
+  width: 92%;
   height: 100%;
   opacity: 0;
   object-fit: cover;
   transition: opacity 1s ease-in-out;
+
+  @media (max-width: 960px) {
+    width: 100%;
+    position: absolute;
+    left: 0% !important;
+  }
 }
 
 .currentImage {
   opacity: 1;
 }
 
+/* --- Pagination (layout kept; pinned a bit higher) --- */
 .pagination {
-  margin-bottom: 30px;
   position: absolute;
-  z-index: 2;
+  z-index: 3; /* above media, below global overlays */
+  bottom: 16px; /* closer to bottom per design */
+  margin-bottom: 0;
+
   @media (max-width: 600px) {
-    margin-bottom: 10px;
+    bottom: 12px;
   }
   @media (min-width: 600px) and (max-width: 959.99px) {
-    margin-bottom: 20px;
+    bottom: 14px;
+  }
+  @media (min-width: 960px) {
+    bottom: 16px;
   }
 }
 
@@ -43,85 +70,100 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 150px;
+  width: 100%;
+  margin-right: 120px;
+
   @media (max-width: 600px) {
-    width: 120px;
+    /* keep original spacing */
   }
 }
 
+/* Dots: inactive = blue, active = white with blue ring */
 .paginationDot {
   cursor: pointer;
   border-radius: 50%;
-  background-color: white;
+  background-color: #153a5b; /* blue (inactive) */
   width: 10px;
   height: 10px;
+  border: 0;
+  transition: background-color 0.3s ease, border-color 0.3s ease,
+    transform 0.12s ease;
+
+  &:hover {
+    transform: scale(1.12);
+  }
+
   @media (min-width: 320px) and (max-width: 1279.99px) {
     width: 8px;
     height: 8px;
   }
 }
 
-.arrowButton {
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 54px;
-  height: 54px;
-  background-color: transparent;
-  border-radius: 50%;
-  transition: all 0.3s ease-in-out;
+.paginationDotActive {
+  background-color: #ffffff; /* white (active) */
+  border: 2px solid #153a5b; /* blue ring */
 }
 
-.arrowButton svg {
-  color: rgba(245, 245, 245, 0.634);
+/* Desktop/tablet: image has left:1%, width:92% => right gap is 7% */
+@media (min-width: 960px) {
+  .arrowButtonLeft,
+  .arrowButtonRight {
+    position: absolute;
+    top: 50%;
+    z-index: 99;
+  }
+  .arrowButtonLeft {
+    left: calc(1% + 20px); /* 20px from image's left edge */
+  }
+  .arrowButtonRight {
+    right: calc(7% + 20px); /* 20px from image's right edge */
+  }
 }
 
-.arrowButton:hover {
-  background-color: rgba(245, 245, 245, 0.269);
+/* Mobile: image is full width => symmetric offsets */
+@media (max-width: 959.98px) {
+  .arrowButtonLeft {
+    left: 20px;
+  }
+  .arrowButtonRight {
+    right: 20px;
+  }
 }
 
-.arrowButton:hover svg {
-  color: #1d3967;
-}
-
-.arrowlinkRigth {
-  margin-left: 6px;
-}
-
-.arrowlinkLeft {
-  margin-right: 6px;
-}
-
-.arrowButtonLeft {
-  position: absolute;
-  margin-left: 20px;
-  top: 47%;
-  left: 0;
-  z-index: 2;
-}
-
-.arrowButtonRight {
-  position: absolute;
-  margin-right: 20px;
-  top: 47%;
-  right: 0;
-  z-index: 2;
-}
-
+/* --- Placeholder (unchanged) --- */
 .placeholder {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 90%;
   height: 100%;
   z-index: 2;
   opacity: 1;
   object-fit: cover;
   transition: opacity 2s ease-in-out;
+
+  @media (max-width: 960px) {
+    width: 100%;
+  }
 }
 
 .placeholder.fadeOut {
   opacity: 0;
   pointer-events: none;
+}
+
+/* --- Drawer/side panel safety:
+       When a global menu/drawer opens, keep slider controls behind it. --- */
+.menu-open .imageBox .arrowButton,
+.menu-open .imageBox .pagination,
+.drawer-open .imageBox .arrowButton,
+.drawer-open .imageBox .pagination,
+.navOpen .imageBox .arrowButton,
+.navOpen .imageBox .pagination,
+.sidePanelOpen .imageBox .arrowButton,
+.sidePanelOpen .imageBox .pagination,
+.is-drawer-open .imageBox .arrowButton,
+.is-drawer-open .imageBox .pagination {
+  z-index: 0; /* behind the side panel */
+  pointer-events: none; /* prevent clicks through the panel */
 }

@@ -103,8 +103,8 @@ function App({ basename }) {
                     setRight={setRight}
                   />
                   <div className="App">
-                    <ScrollToTop />
-                    <PageHeader />
+                    {/* <ScrollToTop /> */}
+                    {/* <PageHeader /> */}
                     <Route exact path="/">
                       <HomePage />
                     </Route>

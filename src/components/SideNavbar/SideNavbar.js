@@ -1,17 +1,17 @@
 /* eslint-disable react/jsx-no-duplicate-props */
 import React from "react";
 import { Button, Divider, Grid, makeStyles } from "@material-ui/core";
-import { Link as ScrollLink, scroller } from "react-scroll";
-import { useLocation, useHistory } from "react-router-dom";
+import { scroller } from "react-scroll";
+import { useLocation, useHistory, Link as RouterLink } from "react-router-dom";
+
+/* images */
 import Logo from "../../images/Bluehouse.svg";
 import Bus from "../../images/shuttle.svg";
 import Escape from "../../images/escape.svg";
 import Aboutus from "../../images/aboutus.svg";
 import Door from "../../images/door.svg";
 import Tour from "../../images/tour.svg";
-import Gallery from "../../images/gallery.svg";
-import supportImage from "../../images/support/whiteBackground_support.svg";
-import forumImage from "../../images/support/whiteBackground_forum.svg";
+import Accommodation from "../../images/gallery.svg";
 import Car from "../../images/car.svg";
 import Bag from "../../images/bag.svg";
 import Info from "../../images/info.svg";
@@ -19,14 +19,20 @@ import Location from "../../images/location.svg";
 import Instagram from "../../images/instagram.svg";
 import Facebook from "../../images/facebook.svg";
 import Whatsapp from "../../images/whatsApp.svg";
-import { Link as RouterLink } from "react-router-dom";
+import Email from "../../images/email.svg";
+/* support icons */
+import supportImage from "../../images/support/whiteBackground_support.svg";
+import forumImage from "../../images/support/whiteBackground_forum.svg";
+import feedbackImage from "../../images/support/whiteBackground_feedback.svg";
+
+/* language block */
 import TranslateMe, { WithTransLate } from "../helpers/translating";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     transitionDuration: "0.5s",
     position: "fixed",
-    zIndex: "5",
+    zIndex: 5,
     top: 0,
     right: (props) => props.right,
     bottom: 0,
@@ -38,116 +44,99 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     maxWidth: "22vw",
-    gap: "0px",
-    [theme.breakpoints.down("md")]: {
-      width: "48.9%",
-      maxWidth: "none",
-    },
-    "@media (max-width: 601px)": {
-      display: "none",
-    },
-    "&::before": {
-      position: "fixed",
-      top: "0",
-      left: "0",
-      width: "100vw",
-      height: "100vh",
-      backgroundColor: "black",
-    },
+    gap: 0,
+    [theme.breakpoints.down("md")]: { width: "48.9%", maxWidth: "none" },
+    "@media (max-width: 601px)": { display: "none" },
   },
+
+  /* ВЕРХНЯЯ ЛИНИЯ — идентична нижней */
+  languageDivider: {
+    width: "117%",
+    margin: "20px 0 20px -25px",
+    border: "0px solid rgba(255, 255, 255, 0.17)",
+    background: "rgba(255, 255, 255, 0.17)",
+    [theme.breakpoints.down("sm")]: { margin: "20px 0 10px -35px" },
+  },
+
   sliderTitle: {
-    fontSize: "16px",
-    fontWeight: "700",
+    fontSize: 16,
+    fontWeight: 700,
     lineHeight: "2px",
-    padding: "10px 0 20px 0",
-    marginTop: "5px",
+    padding: "10px 0 20px",
+    marginTop: 5,
   },
   sliderLink: {
-    fontSize: "16px",
-    fontWeight: "400",
+    fontSize: 16,
+    fontWeight: 400,
     lineHeight: "5px",
     cursor: "pointer",
+    color: "inherit",
+    textDecoration: "inherit",
   },
   sliderTitle2: {
-    fontSize: "16px",
-    fontWeight: "400",
+    fontSize: 16,
+    fontWeight: 400,
     display: "flex",
     alignItems: "center",
-    marginBottom: "5px",
+    marginBottom: 5,
   },
+
+  /* lower devider */
   horizontalLine: {
     width: "117%",
     margin: "20px 0 20px -35px",
     border: "0px solid rgba(255, 255, 255, 0.17)",
     background: "rgba(255, 255, 255, 0.17)",
-    [theme.breakpoints.down("sm")]: {
-      margin: "20px 0 10px -35px",
-    },
+    [theme.breakpoints.down("sm")]: { margin: "20px 0 10px -35px" },
   },
+
   sliderInfo: {
-    fontSize: "15px",
-    fontWeight: "400",
+    fontSize: 15,
+    fontWeight: 400,
     lineHeight: "10px",
     margin: "10px 0",
     color: "white",
   },
-  sliderLogo: {
-    width: "144px",
-    marginBottom: "20px",
-  },
+  sliderLogo: { width: 144, marginBottom: 20 },
   sliderEscape: {
     position: "fixed",
     transition: "all 1s",
     right: (props) => (props.right === 0 ? "20px" : "-100px"),
     width: "fit-content",
     padding: 0,
-    "&:focus": {
-      outline: "none",
-    },
+    "&:focus": { outline: "none" },
   },
   groupIcons: {
     display: "flex",
     justifyContent: "space-between",
-    width: "120px",
-    marginBottom: "20px",
-    [theme.breakpoints.down("sm")]: {
-      marginBottom: "0px",
-    },
+    width: 120,
+    marginBottom: 20,
+    [theme.breakpoints.down("sm")]: { marginBottom: 0 },
   },
   sliderIcons: {
     transform: "scale(1.2)",
-    marginTop: "-22px",
-    marginLeft: "-5px",
+    marginTop: -22,
+    marginLeft: -5,
   },
   sliderIconss: {
     transform: "scale(1.0)",
-    marginTop: "-26px",
-    marginLeft: "-5px",
+    marginTop: -26,
+    marginLeft: -5,
   },
   highlightedColor: {
     color: "white",
-    "&:hover": {
-      color: "#1E90FF !important",
+    textDecoration: "none",
+    "&:link, &:visited": { color: "white", textDecoration: "none" },
+    "&:hover, &:focus, &:active": {
+      color: "white !important",
+      textDecoration: "underline",
+      textDecorationThickness: "from-font",
+      textUnderlineOffset: "2px",
     },
   },
-  socialIcons: {
-    transform: "scale(.9)",
-  },
-  linksWrapper: {
-    padding: "25px 1vw",
-  },
-  contactus: {
-    marginLeft: "10px",
-  },
-  feedback: {
-    display: "none",
-  },
-  support: {
-    display: "none",
-  },
-  forum: {
-    display: "none",
-  },
+  socialIcons: { transform: "scale(.9)" },
+  linksWrapper: { padding: "25px 1vw" },
+  contactus: { marginLeft: 10 },
 }));
 
 function SideNavbar(props) {
@@ -167,8 +156,10 @@ function SideNavbar(props) {
     horizontalLine,
     contactus,
     highlightedColor,
+    languageDivider,
     bg,
   } = useStyles(props);
+
   const { handleOpenAndCloseSideNavbar } = props;
   const location = useLocation();
   const history = useHistory();
@@ -208,9 +199,15 @@ function SideNavbar(props) {
       <Button className={sliderEscape} onClick={scroll}>
         <img src={Escape} alt="Close" />
       </Button>
+
+      {/* Language */}
       <TranslateMe scroll={scroll} />
-      <Divider className={horizontalLine} />
+      {/* upper divider */}
+      <Divider className={languageDivider} />
+
+      {/* CONTENT */}
       <Grid className={linksWrapper} container spacing={3}>
+        {/* BOOKINGS AND RENTAL */}
         <Grid
           container
           item
@@ -222,6 +219,7 @@ function SideNavbar(props) {
             <WithTransLate text="BOOKINGS AND RENTAL" />
           </p>
         </Grid>
+
         <Grid
           component="a"
           href="https://bluehouse.tourdesk.is/Transportation"
@@ -242,6 +240,7 @@ function SideNavbar(props) {
             </p>
           </Grid>
         </Grid>
+
         <Grid
           component="a"
           href="https://beds24.com/booking2.php?propid=3578&layout=1"
@@ -262,6 +261,7 @@ function SideNavbar(props) {
             </p>
           </Grid>
         </Grid>
+
         <Grid
           component="a"
           href="https://bluehouse.tourdesk.is/Tour"
@@ -282,6 +282,7 @@ function SideNavbar(props) {
             </p>
           </Grid>
         </Grid>
+
         <Grid
           component="a"
           href="https://bluehouse.tourdesk.is/CarRental"
@@ -302,6 +303,8 @@ function SideNavbar(props) {
             </p>
           </Grid>
         </Grid>
+
+        {/* GENERAL INFORMATION */}
         <Grid
           container
           item
@@ -316,8 +319,8 @@ function SideNavbar(props) {
 
         <Grid
           component={RouterLink}
-          onClick={() => navigateAndScroll("GALLERY_DESCTOP")}
-          to="/#GALLERY_DESCTOP"
+          onClick={() => navigateAndScroll("ACCOMMODATION_DESKTOP")}
+          to="/#ACCOMMODATION_DESKTOP"
           container
           item
           spacing={2}
@@ -328,13 +331,13 @@ function SideNavbar(props) {
           <Grid item>
             <img
               className={sliderIconss}
-              src={Gallery}
+              src={Accommodation}
               alt="Scroll to Gallery"
             />
           </Grid>
           <Grid item>
             <p className={sliderLink}>
-              <WithTransLate text="Gallery" />
+              <WithTransLate text="Accommodation Options" />
             </p>
           </Grid>
         </Grid>
@@ -380,6 +383,8 @@ function SideNavbar(props) {
             </p>
           </Grid>
         </Grid>
+
+        {/* HELP AND SUPPORT (FAQ → Support → Forum → Feedback → Map) */}
         <Grid
           container
           item
@@ -391,6 +396,7 @@ function SideNavbar(props) {
             <WithTransLate text="HELP AND SUPPORT" />
           </p>
         </Grid>
+
         <Grid
           onClick={scroll}
           container
@@ -405,8 +411,6 @@ function SideNavbar(props) {
           <Grid item>
             <a
               href="https://bluehouseis.zohodesk.eu/portal/en/home"
-              target="_blank"
-              rel="noreferrer"
               className={highlightedColor}
             >
               <p className={sliderLink}>
@@ -415,6 +419,7 @@ function SideNavbar(props) {
             </a>
           </Grid>
         </Grid>
+
         <Grid
           onClick={scroll}
           container
@@ -433,8 +438,6 @@ function SideNavbar(props) {
           <Grid item>
             <a
               href="https://bluehouseis.zohodesk.eu/portal/en/newticket?departmentId=135604000000205173&layoutId=135604000000214460"
-              target="_blank"
-              rel="noreferrer"
               className={highlightedColor}
             >
               <p className={sliderLink}>
@@ -443,6 +446,7 @@ function SideNavbar(props) {
             </a>
           </Grid>
         </Grid>
+
         <Grid
           onClick={scroll}
           container
@@ -457,8 +461,6 @@ function SideNavbar(props) {
           <Grid item>
             <a
               href="https://bluehouseis.zohodesk.eu/portal/en/community/guestforum"
-              target="_blank"
-              rel="noreferrer"
               className={highlightedColor}
             >
               <p className={sliderLink}>
@@ -467,7 +469,8 @@ function SideNavbar(props) {
             </a>
           </Grid>
         </Grid>
-        {/* <Grid
+
+        <Grid
           onClick={scroll}
           container
           item
@@ -477,16 +480,14 @@ function SideNavbar(props) {
         >
           <Grid item>
             <img
-              className={sliderIconss}
+              className={sliderIcons}
               src={feedbackImage}
               alt="Slider Feedback"
             />
           </Grid>
           <Grid item>
             <a
-              href="https://gnl.ladesk.com/219394-Feedback"
-              target="_blank"
-              rel="noreferrer"
+              href="https://bluehouseis.zohodesk.eu/portal/en/community/guestforum"
               className={highlightedColor}
             >
               <p className={sliderLink}>
@@ -494,7 +495,7 @@ function SideNavbar(props) {
               </p>
             </a>
           </Grid>
-        </Grid> */}
+        </Grid>
 
         <Grid
           component={RouterLink}
@@ -522,58 +523,36 @@ function SideNavbar(props) {
         </Grid>
       </Grid>
 
+      {/* CONTACTS */}
       <Grid container direction="column" className={contactus}>
         <p className={sliderTitle2}>
           <WithTransLate text="Contact us" />
         </p>
         <div className={groupIcons}>
-          <a
-            onClick={scroll}
-            href="https://www.instagram.com/bluehousebb/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <img
-              className={socialIcons}
-              src={Instagram}
-              alt="Slider Instagram"
-            />
+          <a onClick={scroll} href="https://www.instagram.com/bluehousebb/">
+            <img className={socialIcons} src={Instagram} alt="Instagram" />
           </a>
-          <a
-            onClick={scroll}
-            href="https://www.facebook.com/bluehouseiceland"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <img className={socialIcons} src={Facebook} alt="Slider Facebook" />
+          <a onClick={scroll} href="https://www.facebook.com/bluehouseiceland">
+            <img className={socialIcons} src={Facebook} alt="Facebook" />
           </a>
           <a
             onClick={scroll}
             href="https://api.whatsapp.com/send?phone=3547756480&text=&source=&data="
-            target="_blank"
-            rel="noreferrer"
           >
-            <img className={socialIcons} src={Whatsapp} alt="Slider Whatsapp" />
+            <img className={socialIcons} src={Whatsapp} alt="Whatsapp" />
           </a>
-          {/* <a
-            onClick={scroll}
-            href="https://gnl.ladesk.com/submit_ticket"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <img className={socialIcons} src={Email} alt="Slider Email" />
-          </a> */}
+          <a onClick={scroll} href="mailto:info@bluehouse.is">
+            <img className={socialIcons} src={Email} alt="Email" />
+          </a>
         </div>
         <Divider className={horizontalLine} />
         <p className={sliderInfo}>Blue House B&B</p>
         <a
           onClick={scroll}
           href="mailto:info@bluehouse.is"
-          target="_blank"
-          rel="noreferrer"
           className={highlightedColor}
         >
-          <p className={sliderInfo}>info@bluehouse.is</p>{" "}
+          <p className={sliderInfo}>info@bluehouse.is</p>
         </a>
         <a onClick={scroll} href="tel:+3547756480">
           <p className={sliderInfo}>+354 775 6480</p>

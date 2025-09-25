@@ -1,0 +1,74 @@
+.iconButton {
+  /* Default */
+  --ib-size: 35px;
+  --ib-fg: var(--color-neutral-500);
+  --ib-bg: var(--color-neutral-100);
+  --ib-border: var(--color-neutral-500);
+  --ib-bg-hover: var(--color-neutral-300);
+  --ib-fg-hover: var(--color-neutral-500);
+
+  background-color: var(--ib-bg);
+  border: 1px solid var(--ib-border);
+  border-radius: 50%;
+  color: var(--ib-fg);
+
+  width: var(--ib-size);
+  height: var(--ib-size);
+
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  pointer-events: auto;
+  transition: background-color .15s ease, color .15s ease, border-color .15s ease;
+
+  /* Sizes */
+  &--sm {
+    --ib-size: 28px;
+  }
+
+  &--md {
+    --ib-size: 35px;
+  }
+
+  // default
+  &--lg {
+    --ib-size: 40px;
+  }
+
+  /* Variants */
+  &--neutral {
+    --ib-fg: var(--color-neutral-500);
+    --ib-bg: var(--color-neutral-100);
+    --ib-border: var(--color-neutral-500);
+    --ib-bg-hover: var(--color-neutral-300);
+    --ib-fg-hover: var(--color-neutral-500);
+  }
+
+  &--inverse {
+    --ib-fg: var(--color-neutral-100);
+    --ib-bg: var(--color-primary-500);
+    --ib-border: var(--color-primary-500);
+    --ib-bg-hover: var(--color-neutral-100);
+    --ib-fg-hover: var(--color-primary-500)
+  }
+
+  &:hover,
+  &:active {
+    background-color: var(--ib-bg-hover);
+    color: var(--ib-fg-hover);
+  }
+
+
+  &:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 3px;
+  }
+
+
+  &:disabled {
+    opacity: .5;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+}

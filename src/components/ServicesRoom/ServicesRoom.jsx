@@ -76,11 +76,11 @@ const ServicesRoom = () => {
                       <div className={s.servicesColumn}>
                         {firstColumn.map((service, idx) => (
                           <div key={idx} className={s.serviceItem}>
-                            <img
+                            {/* <img
                               src={service.icon}
                               alt={service.name}
                               style={{ width: "24px", height: "24px" }}
-                            />
+                            /> */}
                             <span className={s.servicesText}>
                               <WithTransLate text={service.name} />
                             </span>

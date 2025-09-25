@@ -1,66 +1,51 @@
 import React from "react";
-import Button from "../Shared/Button/Button";
+import Link from "../Shared/ui/Link";
 import useBreakpoints from "../../Styles/useBreakpoints";
-import island from "../../images/Blog/island.webp";
-import tripAdvisor from "../../images/findMore/TripadvisorLogo.png";
+import blogHero from "../../images/Blog/BlogSection.png";
 import { WithTransLate } from "../helpers/translating";
 
 import s from "./BlogPart.module.scss";
 
 function BlogPart() {
-  const { isMobile, isTablet, isLaptop, isDesktop } = useBreakpoints();
-  console.log(
-    "isMobile:",
-    isMobile,
-    "isTablet:",
-    isTablet,
-    "isLaptop",
-    isLaptop,
-    "isDesktop",
-    isDesktop
-  );
-  const handleBlogButtonClick = () => {
-    window.open("https://blog.bluehouse.is", "_blank");
-  };
-
-  const handleTripAdvisorClick = () => {
-    window.open(
-      "https://www.tripadvisor.com/Hotel_Review-g189970-d1915669-Reviews-Blue_House_B_B-Reykjavik_Capital_Region.html",
-      "_blank"
-    );
-  };
+  const { isDesktop } = useBreakpoints();
 
   return (
-    <div className={s.blogPart}>
-      <div className={s.container}>
-        <h3 className={s.title}>
-          <WithTransLate text="FIND MORE ABOUT US" />
-        </h3>
-        <img
-          src={tripAdvisor}
-          alt="trip-advisor-logo"
-          onClick={handleTripAdvisorClick}
-        />
-      </div>
-      <div className={s.blog}>
-        <div className={s.blogImage}>
-          <img src={island} alt="Island" />
-        </div>
-        <div className={s.blog_content}>
-          <div className={s.blog_content_text}>
-            <h3>
-              <WithTransLate text="FOR USEFUL RECOMMENDATIONS & ADVENTURES READ AMAZING STORIES IN OUR BLOG" />
-            </h3>
+    <section
+      className={s.section}
+      aria-labelledby="blog-title"
+      data-bp={isDesktop ? "desktop" : "other"}
+    >
+      <div className={s.frame}>
+        <div
+          className={s.hero}
+          style={{ backgroundImage: `url(${blogHero})` }}
+          role="img"
+          aria-label="Aurora over Icelandic landscape"
+        >
+          <div className={s.content}>
+            <div className={s.textBlock}>
+              <h1 id="blog-title" className={s.title}>
+                <WithTransLate text="EXCITED ABOUT YOUR TRIP BUT YOU DON’T KNOW WHERE TO BEGIN?" />
+              </h1>
+              <p className={s.paragraph}>
+                <WithTransLate text="No problem! Our blog is your ultimate guide, packed with tips about iconic attractions as well as some hidden gems in Reykjavik." />
+              </p>
+            </div>
+
+            <div className={s.buttonWrap}>
+              <Link
+                variant="secondary"
+                href="https://bluehouse.is/blog"
+                rel="noopener"
+                className={s.cta}
+              >
+                READ BLOG
+              </Link>
+            </div>
           </div>
-          <Button
-            text="READ BLOG"
-            btnClass="btnLightWithOut"
-            handleClick={handleBlogButtonClick}
-            width="218px"
-          />
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 

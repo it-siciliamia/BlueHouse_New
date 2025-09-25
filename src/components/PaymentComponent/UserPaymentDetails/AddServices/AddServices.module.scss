@@ -33,7 +33,9 @@
     gap: 20px;
   }
 }
-
+.serviceItem img{
+  color: #1D3967 !important;
+}
 .servicesColumn {
   width: 50%;
   @media (min-width: 320px) and (max-width: 959.99px) {
@@ -59,7 +61,7 @@
   width: 100%;
   font-size: 18px;
   line-height: 1.3;
-  color: black;
+  color: #1D3967;
   white-space: nowrap;
 }
 

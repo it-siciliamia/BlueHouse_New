@@ -6,6 +6,7 @@ import Facebook from "../../images/Header_icons/headerSocialIcons/facebook.svg";
 import instaIcon from "../../images/Header_icons/headerSocialIcons/insta.svg";
 import houserules_mobile from "../../images/houserules_mobile.png";
 import Email from "../../images/Header_icons/headerSocialIcons/email.svg";
+import Tripadvisor from "../../images/Header_icons/headerSocialIcons/tripadvisor_icon2.svg";
 import Whatsapp from "../../images/Header_icons/headerSocialIcons/whats.svg";
 import { WithTransLate } from "../../components/helpers/translating/index";
 import CaruselSliderHome from "./CaruselSliderHome/CaruselSliderHome";
@@ -48,7 +49,7 @@ const useStyles = makeStyles((theme) => ({
     root: {
       marginTop: "10vh",
       marginRight: "0px",
-      width: "100vw",
+      width: "100%",
     },
   },
   gridList: {
@@ -278,6 +279,20 @@ export default function Header({ title, titleMargins }) {
               src={Whatsapp}
               title="Whatsapp"
               alt="whatsapp"
+              className={classes.iconzImg}
+            />
+          </a>
+          {/* Added Tripadvisor icon */}
+          <a
+            href="https://www.tripadvisor.com/Hotel_Review-g189970-d1915669-Reviews-Blue_House_B_B-Reykjavik_Capital_Region.html"
+            target="_blank"
+            rel="noreferrer"
+            className={classes.iconz}
+          >
+            <img
+              src={Tripadvisor}
+              title="Tripadvisor"
+              alt="tripadvisor"
               className={classes.iconzImg}
             />
           </a>

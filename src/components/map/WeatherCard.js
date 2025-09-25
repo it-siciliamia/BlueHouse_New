@@ -53,9 +53,7 @@ const WeatherCard = () => {
     }
   };
 
-  if (!weather) {
-    return <div>Loading...</div>;
-  }
+  if (!weather) return null;
 
   const { main } = weather.weather[0];
   const temperature = weather.main.temp;
@@ -63,28 +61,20 @@ const WeatherCard = () => {
   const iconGoogle = `https://openweathermap.org/img/wn/${weather.weather[0]["icon"]}@2x.png`;
 
   return (
-    <div className="container" style={{ display: weather ? "block" : "none" }}>
-      <div
-        className="card"
-        style={{
-          background: "rgba(0, 0, 0, 0.25)",
-          border: "1px solid white",
-          borderRadius: "10px",
-          backdropFilter: "blur(30px)",
-        }}
-      >
-        <p className="temp">{Math.round(temperature)} °C</p>
+    <div className="weather-wrapper">
+      <div className="weather-card">
+        <p className="weather-temp">{Math.round(temperature)} C</p>
         {iconError ? (
-          <div className="static-icon">{iconStatic}</div>
+          <div className="weather-icon-static">{iconStatic}</div>
         ) : (
           <img
-            className="city-icon"
+            className="weather-icon"
             src={iconGoogle}
             alt="weather icon"
             onError={() => setIconError(true)}
           />
         )}
-        <p className="city">Reykjavik, Iceland</p>
+        <p className="weather-location">Reykjavik, Iceland</p>
       </div>
     </div>
   );
