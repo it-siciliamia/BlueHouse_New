@@ -178,30 +178,18 @@
 
 // Styles for BOOK DAY TOUR button
 .bookTourButton {
-  transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out,
-    max-width 0.4s ease-in-out, padding 0.4s ease-in-out,
-    margin 0.4s ease-in-out;
-  overflow: hidden;
-  max-width: 300px; // Set initial max-width
+  display: none;
 }
 
-// Class applied to button wrapper when search is open
-.searchActive {
-  @media (min-width: 1280px) {
-    .bookTourButton {
-      opacity: 0;
-      transform: scale(0.8);
-      max-width: 0 !important; // Smoothly animate max-width instead of width
-      padding: 0 !important; // Remove padding smoothly
-      margin: 0 !important; // Remove margins smoothly
-      pointer-events: none;
+.btnCorrection {
+  font-size: 0.8rem;
 
-      // Hide button content smoothly
-      > * {
-        opacity: 0;
-        transform: scale(0.8);
-        transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
-      }
-    }
+  @media (min-width: 60rem) {
+  width: 11.25rem;
+  }
+
+  @media (min-width: 62.5rem) {
+  font-size: 1rem;
+  width: 13.62rem;
   }
 }

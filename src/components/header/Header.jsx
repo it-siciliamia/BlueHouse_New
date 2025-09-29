@@ -9,9 +9,8 @@ import MenuIcon from "../../images/MenuIcon_Header.svg";
 import Search from "./search";
 import ProcessPaymentPanel from "../PaymentComponent/ProcessPaymentPanel/ProcessPaymentPanel";
 import s from "./Header.module.scss";
-
-const userDeviceWidth = window.innerWidth;
-const mobileBreakpoint = 600;
+import Link from "../Shared/ui/Link";
+import { WithTransLate } from "../helpers/translating";
 
 export default function Header({ right, setRight, top, setTop }) {
   const { isMobile, isTablet, isLaptop, isDesktop } = useBreakpoints();
@@ -20,6 +19,7 @@ export default function Header({ right, setRight, top, setTop }) {
 
   // UI state
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const MOBILE_BP = 600;
   const [isSearchOpen, setIsSearchOpen] = useState(false);
 
   // Hide/show state
@@ -38,12 +38,12 @@ export default function Header({ right, setRight, top, setTop }) {
   const handleToggleSideNavbarDesktop = (rightValue) => setRight(rightValue);
   const handleToggleSideNavbarMobile = (topValue) => setTop(topValue);
   const handleOpenAndCloseSideNavbar =
-    userDeviceWidth > mobileBreakpoint
+    windowWidth > MOBILE_BP
       ? handleToggleSideNavbarDesktop
       : handleToggleSideNavbarMobile;
 
   const navBar =
-    userDeviceWidth > mobileBreakpoint ? (
+    windowWidth > MOBILE_BP ? (
       <SideNavbar
         right={right}
         handleOpenAndCloseSideNavbar={handleOpenAndCloseSideNavbar}
@@ -194,46 +194,25 @@ export default function Header({ right, setRight, top, setTop }) {
                 <ProcessPaymentPanel />
               ) : (
                 <>
-                  <a
-                    href="https://beds24.com/booking2.php?propid=3578&layout=1&_gl=1*1m5j7wv*_ga*MTkzNDM4MTM5NS4xNzMxNjYzNTQ2*_ga_6QGX4YP9SF*czE3NTUwMzA0NDAkbzExMCRnMSR0MTc1NTAzMjQ5MCRqNTIkbDAkaDA."
+                  <Link
+                    variant="primary"
+                    href="https://beds24.com/booking2.php?propid=3578&layout=1&_gl=1*1m5j7wv*_ga*MTkzNDM4MTM5NS4xNzMxNjYzNTQ2*_ga_6QGX4YP9SF*czE3NTUwMzA0NDAkbzExMCRnMSR0MTc1NTAzMjQ5MCRqNTIkbDAkaDA"
                     rel="noreferrer"
+                    className={s.btnCorrection}
                   >
-                    <Button
-                      text="BOOK YOUR ROOM"
-                      btnClass="btnDark"
-                      width={
-                        isDesktopRange &&
-                        isSearchOpen &&
-                        windowWidth >= 1280 &&
-                        windowWidth <= 1344
-                          ? "180px"
-                          : windowWidth < 1000 && windowWidth >= 960
-                          ? "180px"
-                          : isLaptop
-                          ? "218px"
-                          : "218px"
-                      }
-                      
-                      color="#1D3967"
-                    />
-                  </a>
-                  <a
+                    <WithTransLate text="book your room" />
+                  </Link>
+
+                  <Link
+                    variant="secondary"
                     href="https://bluehouse.tourdesk.is/Tour"
                     rel="noreferrer"
-                    className={`${isDesktopRange ? s.bookTourButton : ""}`}
+                    className={`${s.btnCorrection} ${
+                      isSearchOpen && isDesktop && s.bookTourButton
+                    }`}
                   >
-                    <Button
-                      text="BOOK DAY TOURS"
-                      btnClass="btnLight"
-                      width={
-                        windowWidth < 1000 && windowWidth >= 960
-                          ? "180px"
-                          : isLaptop
-                          ? "218px"
-                          : "218px"
-                      }
-                    />
-                  </a>
+                    <WithTransLate text="book day tours" />
+                  </Link>
                 </>
               )}
             </div>
