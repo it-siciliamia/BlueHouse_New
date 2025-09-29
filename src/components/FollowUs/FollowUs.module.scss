@@ -1,197 +1,98 @@
-.followus {
-  // width: 100%;
-  margin: auto;
-  @media (min-width: 320px) and (max-width: 599.99px) {
-    display: none;
-  }
-  @media (min-width: 600px) and (max-width: 1279.99px) {
-    width: 100%;
-  }
-}
-
-.sectionWrapper {
-  margin: auto;
-  @media (min-width: 320px) and (max-width: 599.99px) {
-    display: none;
-  }
-  @media (min-width: 600px) and (max-width: 1279.99px) {
-    width: 90%;
-  }
-  @media (min-width: 1280px) and (max-width: 2200px) {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 996px;
-  }
-}
-
-.sectionContent {
-  @media (min-width: 320px) and (max-width: 599.99px) {
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-  }
-  @media (min-width: 600px) and (max-width: 1279.99px) {
-    margin-top: 20px;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    gap: 10px;
-  }
-  @media (min-width: 1280px) and (max-width: 2200px) {
-    display: flex;
-    justify-content: space-between;
-    gap: 40px;
-    // width: 800px;
-    margin: auto;
-  }
-}
-
-.recommendationItem {
-  display: flex;
-  flex-direction: column;
+.section {
   width: 100%;
-  @media (min-width: 1280px) and (max-width: 2200px) {
-    width: 285px;
-  }
+  display: flex;
+  justify-content: center;
+  margin-top: 80px; // top spacing from previous block
+  margin-bottom: 30px; // extra bottom spacing so it doesn't stick
 }
 
-.titleWrapper {
-  @media (min-width: 1280px) and (max-width: 2200px) {
-    width: 100%;
-    position: relative;
-  }
+.container {
+  width: 1152px; // design container width
+  display: flex;
+  align-items: flex-start;
+  gap: 32px; // space between vertical title and grid
 }
 
 .title {
-  @media (min-width: 320px) and (max-width: 1279.99px) {
-    white-space: nowrap;
-    font-family: "Oblik", Arial, sans-serif;
-    font-size: 20px;
-    font-weight: 900;
-    letter-spacing: 0.1em;
-  }
-  @media (min-width: 1280px) and (max-width: 2200px) {
-    position: absolute;
-    white-space: nowrap;
-    top: 64px;
-    left: -62px;
-    height: fit-content;
-    font-family: "Oblik", Arial, sans-serif;
-    font-size: 24px;
-    font-weight: 900;
-    letter-spacing: 0.1em;
-    transform: rotate(-90deg);
-  }
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-family: "Oblik", Arial, sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: -1px;
+  text-transform: uppercase;
+  color: #1d3967;
+  margin: 0;
 }
 
-.text {
-  @media (min-width: 320px) and (max-width: 599.99px) {
-    margin-top: 5px;
-    font-family: Josefin Sans;
-    font-size: 20px;
-    font-weight: 300;
-    line-height: 1.5;
-    letter-spacing: 0em;
-    margin-right: auto;
-  }
-  @media (min-width: 600px) and (max-width: 1279.99px) {
-    margin-top: 5px;
-    font-family: Josefin Sans;
-    font-size: 18px;
-    font-weight: 300;
-    line-height: 1.5;
-    letter-spacing: 0em;
-    text-align: center;
-  }
-  @media (min-width: 1280px) and (max-width: 2200px) {
-    margin-top: 10px;
-    font-family: Josefin Sans;
-    font-size: 22px;
-    font-weight: 300;
-    line-height: 1.5;
-    letter-spacing: 0em;
-    text-align: left;
-  }
+/* Grid: fixed 1054px, anchored to the right so the right card matches Figma */
+.grid {
+  flex: 0 0 1054px; // exact grid width from Figma
+  margin-left: auto; // align the whole grid to the container's right edge
+  display: flex;
+  justify-content: space-between;
+  gap: 32px; // consistent gaps between cards
+}
+
+.card {
+  width: 270px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Image area 270x382 */
+.imageBox {
+  width: 270px;
+  height: 382px;
+  flex-shrink: 0;
 }
 
 .image {
-  @media (min-width: 320px) and (max-width: 599.99px) {
-    width: 100%;
-    height: auto;
-  }
-  @media (min-width: 600px) and (max-width: 1279.99px) {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-  }
-  @media (min-width: 1280px) and (max-width: 2200px) {
-    width: 100%;
-    height: 462px;
-    object-fit: cover;
-  }
-}
-
-.btnWrapper {
-  @media (min-width: 320px) and (max-width: 599.99px) {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-  }
-  @media (min-width: 600px) and (max-width: 959.99px) {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-  }
-  @media (min-width: 960px) and (max-width: 1279.99px) {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-  }
-  @media (min-width: 1280px) and (max-width: 2200px) {
-    margin-left: 60px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-  }
-}
-
-.sliderBtnWrapper {
-  margin-top: 40px;
-  margin-bottom: -40px;
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-}
-
-.arrow {
-  width: 34px;
-  height: 24px;
-  border: none;
-  padding: 0 12.5px;
-  background: none;
-  background: url("../../images/ReviewSlider/shevron-right.svg") center / auto
-    no-repeat;
-  outline: none;
+  width: 270px;
+  height: 382px;
+  object-fit: cover;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
   cursor: pointer;
+
+  &:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 16px rgba(29, 57, 103, 0.2), inset 0 0 40px rgba(0, 0, 0, 0.3);
+    filter: brightness(0.95);
+  }
 }
 
-.arrow:hover {
-  border: 1px solid darkgray;
+/* Bottom area under each photo: 270x104 (empty for 1st/3rd; button at bottom for middle) */
+.bottom {
+  width: 270px;
+  height: 104px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
 }
 
-.arrow:focus {
-  outline: none;
-  box-shadow: none;
-}
+/* Button styling per Figma (Josefin Sans, outline) */
+.button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 218px;
+  height: 50px;
+  padding: 0; // size is fixed by width/height
+  font-family: "Josefin Sans", Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  text-transform: uppercase;
+  color: #1d3967;
+  background: #ffffff;
+  border: 1px solid #1d3967;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
 
-.buttonPrev {
-  transform: rotate(180deg);
+  &:hover {
+    background: #1d3967;
+    color: #ffffff;
+  }
 }
