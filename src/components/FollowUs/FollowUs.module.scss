@@ -2,15 +2,15 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  margin-top: 80px; // top spacing from previous block
-  margin-bottom: 30px; // extra bottom spacing so it doesn't stick
+  margin-top: 80px; 
+  margin-bottom: 30px; 
 }
 
 .container {
-  width: 1152px; // design container width
+  width: 1152px; 
   display: flex;
   align-items: flex-start;
-  gap: 32px; // space between vertical title and grid
+  gap: 32px; 
 }
 
 .title {
@@ -26,13 +26,13 @@
   margin: 0;
 }
 
-/* Grid: fixed 1054px, anchored to the right so the right card matches Figma */
+
 .grid {
-  flex: 0 0 1054px; // exact grid width from Figma
-  margin-left: auto; // align the whole grid to the container's right edge
+  flex: 0 0 1054px; 
+  margin-left: auto; 
   display: flex;
   justify-content: space-between;
-  gap: 32px; // consistent gaps between cards
+  gap: 32px; 
 }
 
 .card {
@@ -41,7 +41,7 @@
   flex-direction: column;
 }
 
-/* Image area 270x382 */
+
 .imageBox {
   width: 270px;
   height: 382px;
@@ -57,12 +57,13 @@
 
   &:hover {
     transform: scale(1.02);
-    box-shadow: 0 4px 16px rgba(29, 57, 103, 0.2), inset 0 0 40px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 16px rgba(29, 57, 103, 0.2),
+      inset 0 0 40px rgba(0, 0, 0, 0.3);
     filter: brightness(0.95);
   }
 }
 
-/* Bottom area under each photo: 270x104 (empty for 1st/3rd; button at bottom for middle) */
+
 .bottom {
   width: 270px;
   height: 104px;
@@ -71,14 +72,14 @@
   justify-content: center;
 }
 
-/* Button styling per Figma (Josefin Sans, outline) */
+
 .button {
   display: inline-flex;
   justify-content: center;
   align-items: center;
   width: 218px;
   height: 50px;
-  padding: 0; // size is fixed by width/height
+  padding: 0; 
   font-family: "Josefin Sans", Arial, sans-serif;
   font-size: 16px;
   font-weight: 400;
