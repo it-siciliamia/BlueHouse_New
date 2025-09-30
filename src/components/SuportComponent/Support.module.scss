@@ -1,17 +1,15 @@
 .support {
-  
   @media (min-width: 320px) and (max-width: 599.99px) {
     margin-top: 50px;
     margin-bottom: 50px;
     width: 100%;
-    height: 217px;
+    height: auto;
     align-content: center;
-    background-color: #FBFBFB;
+    background-color: #fbfbfb;
   }
   @media (min-width: 600px) and (max-width: 959.99px) {
     margin-top: 50px;
     margin-bottom: 50px;
-    // padding: 0px 20px;
     width: 100%;
   }
   @media (min-width: 960px) and (max-width: 1279.99px) {
@@ -21,9 +19,9 @@
     width: 100%;
   }
   @media (min-width: 1280px) and (max-width: 2200px) {
-    margin:  100px auto; 
+    margin: 60px auto;
     width: 100%;
-    max-width: 938px;
+    max-width: 1152px;
   }
 }
 
@@ -37,33 +35,36 @@
     gap: 20px;
   }
   @media (min-width: 600px) and (max-width: 959.99px) {
-    // align-items: center;
     width: 100%;
     gap: 10px;
     flex-direction: row;
+    flex-wrap: wrap;
   }
   @media (min-width: 960px) and (max-width: 1279.99px) {
     flex-direction: row;
     justify-content: space-between;
     align-items: stretch;
+    flex-wrap: wrap;
+    gap: 24px;
   }
   @media (min-width: 1280px) and (max-width: 2200px) {
     flex-direction: row;
     justify-content: space-between;
     align-items: stretch;
+    gap: 24px;
   }
 }
 
 .description {
-  font-size: 17px;
-  font-weight: 300;
-  line-height: 1.5;
+  font-size: 16px; 
+  font-weight: 300; 
+  line-height: 24px;
   text-align: center;
-  color: #1D3967;
-  font-family: "Josefin Sans";
+  color: #1d3967;
+  font-family: "Josefin Sans", Arial, sans-serif;
   transition: all 0.3s ease-in-out;
   cursor: pointer;
-  width: 100%;
+  text-decoration: none;
 
   &:hover {
     color: #243864;
@@ -71,24 +72,16 @@
   }
 
   @media (min-width: 320px) and (max-width: 599.99px) {
-    text-transform: lowercase;
     width: 80%;
   }
-
   @media (min-width: 600px) and (max-width: 959.99px) {
-    text-transform: lowercase;
-    width: 70%;
+    width: 48%;
   }
   @media (min-width: 960px) and (max-width: 1279.99px) {
-    width: 33% !important;
-    font-weight: 300;
-    line-height: 1.5;
+    width: calc(25% - 18px);
   }
   @media (min-width: 1280px) and (max-width: 2200px) {
-    width: 33% !important;
-    max-width: 210px !important;
-    font-weight: 300;
-    line-height: 1.5;
+    width: 270px;
   }
 }
 
@@ -97,42 +90,47 @@
   flex-direction: column;
   align-items: center;
   gap: 10px;
-  // width: 210px;
   flex: 1;
   cursor: pointer;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.4s ease;
+  border: 1px solid transparent;
+
   @media (min-width: 320px) and (max-width: 599.99px) {
-    padding: 0px 10px;
-    padding-top: 20px;
+    padding: 20px 10px;
   }
   @media (min-width: 600px) and (max-width: 959.99px) {
-    padding: 0px 10px;
-    padding-top: 20px;
+    padding: 20px 10px;
   }
   @media (min-width: 960px) and (max-width: 1279.99px) {
-    padding: 0px 0px;
+    padding: 24px 16px;
   }
   @media (min-width: 1280px) and (max-width: 2200px) {
-    padding: 0px 0px;
+    padding: 24px 16px;
   }
 
   &:hover {
-    box-shadow: 0px 4px 4px rgba(7, 55, 98, 0.249);
+    box-shadow: 0px 4px 12px rgba(29, 57, 103, 0.15);
+    transform: translateY(-2px);
   }
 }
 
 .icon {
-  filter: brightness(0) saturate(100%) invert(14%) sepia(41%) saturate(1203%) hue-rotate(194deg) brightness(91%) contrast(89%);
-  width: 50px;
-  height: 50px;
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
 }
 
 .cardTitle {
-  font-weight: 500;
+  font-family: "Josefin Sans", Arial, sans-serif;
+  font-weight: 700; 
+  font-size: 18px;
+  line-height: 24px;
   text-transform: uppercase;
-  margin: 12.5px 0px;
+  margin: 12px 0;
+  color: #1d3967;
+
   @media (min-width: 600px) and (max-width: 959.99px) {
-    margin-bottom: 0px;
+    margin-bottom: 0;
   }
   @media (min-width: 960px) and (max-width: 1280px) {
     margin-bottom: 5px;
@@ -140,21 +138,28 @@
 }
 
 .cardText {
-  flex-grow: 1;
-  text-transform: lowercase;
+  font-family: "Josefin Sans", Arial, sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 24px;
+  margin: 0;
+  color: #1d3967;
 }
 
-.cardText::first-letter {
-  text-transform: capitalize;
+.phoneNumber {
+  font-weight: 400;
+  font-size: 16px;
+  color: #1d3967;
+  margin: 8px 0 0 0;
 }
 
-.mobileSupport{
+.mobileSupport {
   display: flex;
   justify-content: center;
   width: 100% !important;
 }
 
-.contactLink{
+.contactLink {
   display: flex;
   flex-direction: column;
   margin: auto !important;
@@ -162,15 +167,15 @@
   align-items: center;
 }
 
-.contactLink p{
-  color: #1D3967;
+.contactLink p {
+  color: #1d3967;
   text-decoration: none;
 }
 
-.contactLink p:nth-child(2){
+.contactLink p:nth-child(2) {
   margin-top: 10px !important;
 }
 
-.contactLink p:nth-child(3){
-  font-weight:300;
+.contactLink p:nth-child(3) {
+  font-weight: 300;
 }
