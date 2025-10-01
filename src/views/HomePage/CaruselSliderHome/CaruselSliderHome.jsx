@@ -12,7 +12,6 @@ import slide06 from "../../../images/homePageSlider/slide6.webp";
 import placeholder from "../../../images/homePageSlider/placeholder.webp";
 import videoSrc from "../../../videos/intro.mp4";
 import { useHeaderSize } from "../../../components/helpers/HeaderContext/HeaderContext.js";
-import { HiOutlineChevronLeft, HiOutlineChevronRight } from "react-icons/hi";
 
 import s from "./CaruselSliderHome.module.scss";
 import IconButton from "../../../components/Shared/ui/IconButton.jsx";
@@ -128,31 +127,9 @@ const CaruselSliderHome = () => {
   };
 
   return (
-    <div
-      className={s.container}
-      // style={{ width: '100%' }}
-    style={{
-      width: isDesktop
-        ? `${dynamicWidth}px`
-        : isLaptop
-        ? `${dynamicWidth}px`
-        : "100%",
-    }}
-    >
       <div
-        className={s.imageBox}
-        style={{
-          height: isMobile
-            ? `${dynamicHeigth}px`
-            : isTablet
-              ? "400px"
-              : isLaptop
-                ? "500px"
-                : "550px",
-          overflow: "hidden",
-        }}
-      >
-        {!isMobile && (
+        className={s.imageBox}>
+        {(isLaptop || isDesktop) && (
           <IconButton icon="chevronLeft" size="lg" onClick={goToPreviousSlide} className={s.arrowButtonLeft} />
         )}
         {showPlaceholder && !isPlaceholderShown && (
@@ -185,11 +162,10 @@ const CaruselSliderHome = () => {
             />
           )
         )}
-        {!isMobile && (<IconButton icon="chevronRight" size="lg" onClick={goToNextSlide} className={s.arrowButtonRight} />
+        {(isLaptop || isDesktop) && (<IconButton icon="chevronRight" size="lg" onClick={goToNextSlide} className={s.arrowButtonRight} />
         )}
         {renderPagination()}
       </div>
-    </div>
   );
 };
 

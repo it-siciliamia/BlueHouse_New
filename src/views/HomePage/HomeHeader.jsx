@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Box, Typography } from "@material-ui/core";
+import { Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import Facebook from "../../images/Header_icons/headerSocialIcons/facebook.svg";
 import instaIcon from "../../images/Header_icons/headerSocialIcons/insta.svg";
@@ -242,7 +242,7 @@ export default function Header({ title, titleMargins }) {
           <WithTransLate text={title} />
         </Typography>
       ) : (
-        <Box className={classes.socialIcons}>
+        <div className={classes.socialIcons}>
           <a
             href="https://www.instagram.com/bluehousebb/"
             target="_blank"
@@ -309,11 +309,9 @@ export default function Header({ title, titleMargins }) {
               className={classes.iconzImg}
             />
           </a>
-        </Box>
+        </div>
       )}
-      <Box>
-        <CaruselSliderHome />
-      </Box>
+      <CaruselSliderHome />
     </div>
   );
 }

@@ -18,54 +18,54 @@ import FindMore from "../../components/FindMore/FindMore.jsx";
 import s from "./HomePage.module.scss";
 import ReviewSection from "../../components/ReviewSlider/ReviewSection.jsx";
 
-const useStyles = makeStyles((theme) => ({
-  galleryButton: {
-    width: "150px",
-    height: "40px",
-    background: "transparent",
-    fontSize: "14px",
-    lineHeight: "20px",
-    border: "1px solid #073865",
-    borderColor: "#fff",
-    borderRadius: "0px",
-    cursor: "pointer",
-    color: "#fff",
-    "&:hover": {
-      background:
-        "linear-gradient( 180deg,#04376f 99.99%,rgba(255, 255, 255, 0) 100%), #ffffff",
-      color: "#ffffff",
-      borderColor: "#04376f !important",
-    },
-    [theme.breakpoints.down("md")]: {
-      width: "150px",
-      height: "25px",
-      fontSize: "14px",
-      marginTop: "-65px",
-    },
-    [theme.breakpoints.down("xs")]: {
-      width: "100px",
-      height: "25px",
-      fontSize: "10px",
-      marginTop: "-65px",
-    },
-  },
-  recommendationButton: {
-    position: "absolute",
-    width: "20.963541666666668vw",
-    height: "65vh",
-    background: "transparent",
-    marginTop: "-47vh",
-    border: "0px solid rgba(255,255,255,.5)",
-    cursor: "pointer",
-    color:
-      "linear-gradient(180deg, rgba(0, 0, 0, 0.52) 0%, rgba(0, 0, 0, 0.25) 100%)",
-    [theme.breakpoints.down("xs")]: {
-      width: "49vw",
-      height: "54vh",
-      marginTop: "-47vh",
-    },
-  },
-}));
+// const useStyles = makeStyles((theme) => ({
+//   galleryButton: {
+//     width: "150px",
+//     height: "40px",
+//     background: "transparent",
+//     fontSize: "14px",
+//     lineHeight: "20px",
+//     border: "1px solid #073865",
+//     borderColor: "#fff",
+//     borderRadius: "0px",
+//     cursor: "pointer",
+//     color: "#fff",
+//     "&:hover": {
+//       background:
+//         "linear-gradient( 180deg,#04376f 99.99%,rgba(255, 255, 255, 0) 100%), #ffffff",
+//       color: "#ffffff",
+//       borderColor: "#04376f !important",
+//     },
+//     [theme.breakpoints.down("md")]: {
+//       width: "150px",
+//       height: "25px",
+//       fontSize: "14px",
+//       marginTop: "-65px",
+//     },
+//     [theme.breakpoints.down("xs")]: {
+//       width: "100px",
+//       height: "25px",
+//       fontSize: "10px",
+//       marginTop: "-65px",
+//     },
+//   },
+//   recommendationButton: {
+//     position: "absolute",
+//     width: "20.963541666666668vw",
+//     height: "65vh",
+//     background: "transparent",
+//     marginTop: "-47vh",
+//     border: "0px solid rgba(255,255,255,.5)",
+//     cursor: "pointer",
+//     color:
+//       "linear-gradient(180deg, rgba(0, 0, 0, 0.52) 0%, rgba(0, 0, 0, 0.25) 100%)",
+//     [theme.breakpoints.down("xs")]: {
+//       width: "49vw",
+//       height: "54vh",
+//       marginTop: "-47vh",
+//     },
+//   },
+// }));
 
 const GALLERY_BACKGROUND_IMAGES_AND_TITLES = [
   { background: roomsImage, title: "Rooms" },
@@ -74,13 +74,6 @@ const GALLERY_BACKGROUND_IMAGES_AND_TITLES = [
 ];
 
 export default function HomePage() {
-  const { galleryButton } = useStyles();
-  useBreakpoints(); // kept if theme breakpoints are needed elsewhere
-
-  const customGALLERYTitleStyle = {
-    // marginTop: "95px",
-    // marginTopXs: "52px",
-  };
 
   const descrip1 = [
     ["DOUBLE / TWIN", "TRIPLE / QUADRUPLE", "FAMILY ROOM", "APARTMENTS"],
@@ -98,11 +91,9 @@ export default function HomePage() {
       <PhotoGallery
         id="ACCOMMODATION_OPTIONS"
         actionType="VIEW GALLERY"
-        action={<button className={galleryButton}>DISCOVER MORE</button>}
         description={descrip1}
         title="ACCOMMODATION OPTIONS"
         backgroundImagesUrlAndTitles={GALLERY_BACKGROUND_IMAGES_AND_TITLES}
-        customTitleStyle={customGALLERYTitleStyle}
         unitWidth={"21vw"}
         maxWidth={"100vw"}
         minWidth={"220px"}
