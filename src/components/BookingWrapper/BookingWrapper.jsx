@@ -9,7 +9,7 @@ const BookingWrapper = () => {
   const { isMobile, isTablet } = useBreakpoints();
   return (
     <div className="BookingWrapper_container">
-      {isMobile || isTablet?
+      {(isMobile || isTablet) &&
         <div style={{width:"100%"}}>
           <Typography
             gutterBottom
@@ -30,8 +30,10 @@ const BookingWrapper = () => {
             </div>
             
           </form>
-        </div>
-        :<div className="buttons">
+        </div> }
+        
+       { /* TODO - This component shoud be refactored and moved to a different section */}
+        {/* <div className="buttons">
         <a href="https://beds24.com/booking2.php?propid=3578&layout=1">
           <Button text="BOOK YOUR ROOM" btnClass="btnDark" width="218px" />
         </a>
@@ -45,7 +47,7 @@ const BookingWrapper = () => {
         <a href="https://bluehouse.tourdesk.is/Tour">
           <Button text="Book Day Tours" btnClass="btnLight" width="218px" />
         </a>
-      </div>}
+      </div> */}
       
     </div>
   );
