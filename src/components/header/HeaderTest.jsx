@@ -8,11 +8,15 @@ import MenuIcon from "../../images/MenuIcon_Header.svg";
 import { WithTransLate } from "../helpers/translating";
 
 import s from "./HeaderTest.module.scss";
+import SideNavbar from "../SideNavbar/SideNavbar.jsx";
 
 function HeaderTest() {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [isNavOpen, setIsNavOpen] = useState(false);
 
   const handleSearchToggle = (searchOpen) => setIsSearchOpen(searchOpen);
+  const handleMenuOpen = () => setIsNavOpen(true);
+  const handleMenuClose = () => setIsNavOpen(false);
 
   return (
     <header className={s.headerContainer}>
@@ -42,15 +46,24 @@ function HeaderTest() {
 
       <div className={s.iconsWrapper}>
         <Search onSearchToggle={handleSearchToggle} />
-        <button className={s.menuBtn}>
-          <img
-            src={MenuIcon}
-            alt="MenuIcon"
-            draggable="false"
-            className={s.menuImg}
-          />
-        </button>
+        {!isNavOpen && (
+          <button
+            className={s.menuBtn}
+            type="button"
+            onClick={handleMenuOpen}
+            aria-label="Open navigation"
+          >
+            <img
+              src={MenuIcon}
+              alt="MenuIcon"
+              draggable="false"
+              className={s.menuImg}
+            />
+          </button>
+        )}
       </div>
+
+      <SideNavbar isOpen={isNavOpen} onClose={handleMenuClose} />
     </header>
   );
 }
