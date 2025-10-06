@@ -11,7 +11,7 @@ function Layout({children}) {
     <div className={s.container}>
       <HeaderTest />
       <div className={s.childrenWrap}>{children}</div>
-      <NewMap />
+      <div className={s.fullWidthSection}><NewMap /></div>
       <CookiesBanner />
       <Footer />
     </div>
