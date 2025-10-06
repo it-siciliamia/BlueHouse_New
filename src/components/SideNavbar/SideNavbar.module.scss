@@ -2,6 +2,7 @@ $sidebar-bg: var(--color-primary-500);
 $sidebar-text: var(--color-neutral-100);
 $divider-color: var(--color-primary-400);
 $sidebar-width: min(22vw, 360px);
+$sidebar-width-mobile: 100vw;
 
 $tablet: 37.5em; // 600px
 $laptop: 60em; // 960px
@@ -14,7 +15,9 @@ $desktop: 90em; // 1280px
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.3s ease;
-  z-index: 4;
+  z-index: 1000;
+  touch-action: none;
+  overscroll-behavior: contain;
 
   &--active {
     opacity: 1;
@@ -30,45 +33,62 @@ $desktop: 90em; // 1280px
 }
 
 .sideNav {
-  --padding-inline: clamp(1.25rem, 2vw, 2rem);
+  --padding-inline: clamp(1.25rem, 6vw, 2rem);
 
   position: fixed;
   top: 0;
+  left: 0;
   right: 0;
-  bottom: 0;
-  width: $sidebar-width;
-  max-width: $sidebar-width;
-  padding: 1.75rem var(--padding-inline);
+  width: $sidebar-width-mobile;
+  height: 100vh;
+  padding: 1.5rem var(--padding-inline);
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
   background-color: $sidebar-bg;
   color: $sidebar-text;
-  transform: translateX(100%);
-  transition: transform 0.35s ease;
+  transform: translateY(-105%);
+  transform-origin: top;
   overflow-y: auto;
-  box-shadow: -1.5rem 0 3rem rgba(0, 0, 0, 0.2);
-  z-index: 5;
+  overscroll-behavior: contain;
+  box-shadow: none;
+  z-index: 1001;
+  visibility: hidden;
+  pointer-events: none;
+  transition: transform 0.35s ease, box-shadow 0.35s ease, visibility 0s linear 0.35s;
+  will-change: transform;
+
+  &--open {
+    transform: translateY(0);
+    box-shadow: 0 1.25rem 2.5rem rgba(0, 0, 0, 0.35);
+    visibility: visible;
+    pointer-events: auto;
+    transition: transform 0.35s ease, box-shadow 0.35s ease, visibility 0s linear 0s;
+  }
 
   @media (min-width: $tablet) {
+    left: auto;
+    right: 0;
     width: min(48.9%, 420px);
     max-width: none;
+    height: 100vh;
+    padding: 1.75rem var(--padding-inline);
+    transform: translateX(105%);
+    box-shadow: none;
+
+    &--open {
+      transform: translateX(0);
+      box-shadow: -1.5rem 0 3rem rgba(0, 0, 0, 0.2);
+    }
   }
 
   @media (min-width: $desktop) {
     width: $sidebar-width;
     max-width: $sidebar-width;
   }
-
-  // TODO: delete when implement mobile sidebar
-  @media (max-width: 600px) {
-    display: none;
-  }
-
-  &--open {
-    transform: translateX(0);
-  }
 }
+
 
 .closeButton {
   align-self: flex-start;
