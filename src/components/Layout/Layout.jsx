@@ -1,4 +1,4 @@
-import HeaderTest from "../header/HeaderTest.jsx";
+import Header from "../header/Header.jsx";
 import NewMap from "../map/NewMap";
 import CookiesBanner from "../CookiesBanner/CookiesBanner.js";
 import Footer from "../Footer/Footer.js";
@@ -9,7 +9,7 @@ function Layout({children}) {
 
   return (
     <div className={s.container}>
-      <HeaderTest />
+      <Header />
       <div className={s.childrenWrap}>{children}</div>
       <div className={s.fullWidthSection}><NewMap /></div>
       <CookiesBanner />
