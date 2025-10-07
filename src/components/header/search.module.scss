@@ -1,6 +1,6 @@
 .searchContainer {
   position: relative;
-  z-index: 2000;
+  z-index: 50;
 }
 
 .searchToggle {
@@ -29,7 +29,7 @@
   right: 50px;
   top: 50%;
   transform: translateY(-50%);
-  z-index: 2001;
+  z-index: 51;
   border: none;
 
   &.active {
@@ -54,12 +54,12 @@
   border-radius: 4px;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
   padding: 8px 10px;
-  z-index: 1000;
+  z-index: 51;
   transition: all 0.3s ease;
 
   @media (max-width: 1279px) {
     position: fixed;
-    top: 78px;
+    top: 85px;
     left: clamp(16px, 6vw, 40px);
     right: clamp(16px, 6vw, 40px);
     width: auto;
@@ -117,7 +117,7 @@
   background-color: #fff;
   border-radius: 4px;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
-  z-index: 1000;
+  z-index: 100;
 
   /* ADDED: smooth width change */
   transition: width 0.4s ease-in-out; /* ADDED */

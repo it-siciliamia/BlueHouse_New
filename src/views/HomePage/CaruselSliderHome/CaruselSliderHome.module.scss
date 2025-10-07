@@ -7,7 +7,11 @@
    - Safe z-index: controls above media, behind side drawer when it’s open.
 */
 
-/* --- Base hero layout (unchanged) --- */
+$tablet: 37.5em; // 600px
+$laptop: 60em; // 960px
+$desktop: 80em; // 1280px
+
+/* --- Base hero layout --- */
 .imageBox {
   position: relative; /* local stacking context */
   z-index: 1; /* media sits below global overlays */
@@ -15,33 +19,22 @@
   justify-content: center;
   align-items: flex-end;
   width: 100%;
-  height: 100%;
-  
+  aspect-ratio: 375 / 300; // Figma's aspect ratio for mobile
 
-  @media (min-width: 600px) {
-    width: 100%;
-  }
-
-  @media (min-width: 960px) and (max-width: 1279.99px) {
-    width: 100%;
+  @media (min-width: $tablet) {
+    aspect-ratio: 1054 / 556; // Figma's aspect ratio standard
   }
 }
 
 .image {
   position: absolute;
   top: 0;
-  left: 1%;
-  width: 92%;
+  width: 100%;
   height: 100%;
   opacity: 0;
   object-fit: cover;
+  object-position: center;
   transition: opacity 1s ease-in-out;
-
-  @media (max-width: 960px) {
-    width: 100%;
-    position: absolute;
-    left: 0% !important;
-  }
 }
 
 .currentImage {
@@ -52,15 +45,13 @@
 .pagination {
   position: absolute;
   z-index: 3; /* above media, below global overlays */
-  bottom: 16px; /* closer to bottom per design */
+  bottom: 12px; 
   margin-bottom: 0;
 
-  @media (max-width: 600px) {
-    bottom: 12px;
-  }
-  @media (min-width: 600px) and (max-width: 959.99px) {
+  @media (min-width: 600px){
     bottom: 14px;
   }
+
   @media (min-width: 960px) {
     bottom: 16px;
   }
@@ -73,9 +64,6 @@
   width: 100%;
   margin-right: 120px;
 
-  @media (max-width: 600px) {
-    /* keep original spacing */
-  }
 }
 
 /* Dots: inactive = blue, active = white with blue ring */
@@ -116,17 +104,7 @@
     left: calc(1% + 20px); /* 20px from image's left edge */
   }
   .arrowButtonRight {
-    right: calc(7% + 20px); /* 20px from image's right edge */
-  }
-}
-
-/* Mobile: image is full width => symmetric offsets */
-@media (max-width: 959.98px) {
-  .arrowButtonLeft {
-    left: 20px;
-  }
-  .arrowButtonRight {
-    right: 20px;
+    right: calc(1% + 20px); /* 20px from image's right edge */
   }
 }
 

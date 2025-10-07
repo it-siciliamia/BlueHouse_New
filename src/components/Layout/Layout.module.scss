@@ -1,0 +1,26 @@
+$tablet: 37.5em;
+$laptop: 60em;
+$desktop: 90em;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 72rem; // 1152px
+  margin: auto;
+}
+
+.childrenWrap {
+  width: 100%;
+}
+
+.fullWidthSection {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+}
+
+.header {
+  max-width: 72rem;
+  margin: auto;
+}

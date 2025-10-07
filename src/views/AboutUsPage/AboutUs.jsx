@@ -20,7 +20,8 @@ const Quote = ({ side }) => {
   )
 }
 
-
+// TODO: this component should be refactored. 
+// Replace this JS-based resize handler with CSS media queries. This would let the browser handle responsive layout natively and avoid re-renders on every window resize event.
 function Aboutus() {
   const imgSources = [
     '/assets/images/aboutus-1.webp',
