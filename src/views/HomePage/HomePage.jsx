@@ -1,6 +1,3 @@
-import React from "react";
-import useBreakpoints from "../../Styles/useBreakpoints.js";
-import { makeStyles } from "@material-ui/core";
 import HomeHeader from "./HomeHeader.jsx";
 import PhotoGallery from "../../components/PhotoGallery/DesctopGallerySection/photoGallery.js";
 import OurServices from "../../components/OurServices/OurServices.jsx";
@@ -17,55 +14,6 @@ import FindMore from "../../components/FindMore/FindMore.jsx";
 
 import s from "./HomePage.module.scss";
 import ReviewSection from "../../components/ReviewSlider/ReviewSection.jsx";
-
-// const useStyles = makeStyles((theme) => ({
-//   galleryButton: {
-//     width: "150px",
-//     height: "40px",
-//     background: "transparent",
-//     fontSize: "14px",
-//     lineHeight: "20px",
-//     border: "1px solid #073865",
-//     borderColor: "#fff",
-//     borderRadius: "0px",
-//     cursor: "pointer",
-//     color: "#fff",
-//     "&:hover": {
-//       background:
-//         "linear-gradient( 180deg,#04376f 99.99%,rgba(255, 255, 255, 0) 100%), #ffffff",
-//       color: "#ffffff",
-//       borderColor: "#04376f !important",
-//     },
-//     [theme.breakpoints.down("md")]: {
-//       width: "150px",
-//       height: "25px",
-//       fontSize: "14px",
-//       marginTop: "-65px",
-//     },
-//     [theme.breakpoints.down("xs")]: {
-//       width: "100px",
-//       height: "25px",
-//       fontSize: "10px",
-//       marginTop: "-65px",
-//     },
-//   },
-//   recommendationButton: {
-//     position: "absolute",
-//     width: "20.963541666666668vw",
-//     height: "65vh",
-//     background: "transparent",
-//     marginTop: "-47vh",
-//     border: "0px solid rgba(255,255,255,.5)",
-//     cursor: "pointer",
-//     color:
-//       "linear-gradient(180deg, rgba(0, 0, 0, 0.52) 0%, rgba(0, 0, 0, 0.25) 100%)",
-//     [theme.breakpoints.down("xs")]: {
-//       width: "49vw",
-//       height: "54vh",
-//       marginTop: "-47vh",
-//     },
-//   },
-// }));
 
 const GALLERY_BACKGROUND_IMAGES_AND_TITLES = [
   { background: roomsImage, title: "Rooms" },
