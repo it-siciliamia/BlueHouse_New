@@ -100,20 +100,6 @@ const Recommendations = () => {
                 />
           ))}
         </div>
-        <div className={s.sliderBtnWrapper}>
-        <div className={s.navigation}>
-          <button
-            onClick={prevSlide}
-            className={`${s.arrow} ${s.buttonPrev}`}
-            title="Previous review"
-          ></button>
-          <button
-            onClick={nextSlide}
-            className={`${s.arrow} ${s.buttonNext}`}
-            title="Next review"
-          ></button>
-        </div>
-      </div>
       </div>
     </div>
   );
