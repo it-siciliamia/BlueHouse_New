@@ -59,7 +59,7 @@ export default function Support() {
         </a>
         <a
           className={s.description}
-          href="https://wa.me/3548647444"
+          href="https://wa.me/3547756480"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -67,7 +67,7 @@ export default function Support() {
             description={"Send us a message"}
             title={"WHATSAPP"}
             icon={whatsapp}
-            phoneNumber="+354 864 7444"
+            phoneNumber="+354 775 6480"
           />
         </a>
         <a
