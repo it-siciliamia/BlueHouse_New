@@ -70,6 +70,7 @@ const Recommendations = () => {
     {
       name: "Valley of Geysers",
       link: "https://blog.bluehouse.is/?s=Valley+of+Geysers",
+      description: '',
       image: rest,
       imageD: restd,
     },
