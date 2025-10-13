@@ -1,8 +1,9 @@
+import React from "react";
 import PropTypes from "prop-types";
-import { WithTransLate } from "../helpers/translating/index";
-import "./ReviewCard.scss";
+import { WithTransLate } from "../../helpers/translating/index";
+import "./ReviewSlide.css";
 
-const ReviewCard = ({ quote }) => {
+const ReviewSlide = ({ quote }) => {
   return (
     <div className="review-card">
       <p className="review-card__quote">
@@ -19,11 +20,11 @@ const ReviewCard = ({ quote }) => {
   );
 };
 
-ReviewCard.propTypes = {
+ReviewSlide.propTypes = {
   quote: PropTypes.shape({
     text: PropTypes.string.isRequired,
     customerName: PropTypes.string.isRequired,
   }).isRequired,
 };
 
-export default ReviewCard;
+export default ReviewSlide;

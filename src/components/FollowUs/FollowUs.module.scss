@@ -1,99 +1,192 @@
-.section {
+.followus {
   width: 100%;
-  display: flex;
-  justify-content: center;
-  margin-top: 80px; 
-  margin-bottom: 30px; 
+  padding: 0px 20px;
+  @media (min-width: 1280px) and (max-width: 2200px) {
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
 
-.container {
-  width: 1152px; 
+.sectionWrapper {
+  @media (min-width: 320px) and (max-width: 599.99px) {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  @media (min-width: 600px) and (max-width: 1279.99px) {
+    width: 100%;
+  }
+  @media (min-width: 1280px) and (max-width: 2200px) {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+.sectionContent {
+  @media (min-width: 320px) and (max-width: 599.99px) {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+  @media (min-width: 600px) and (max-width: 1279.99px) {
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 40px;
+  }
+  @media (min-width: 1280px) and (max-width: 2200px) {
+    width: 100%;
+    display: flex;
+    display: row;
+    justify-content: space-between;
+    gap: 60px;
+  }
+}
+
+.recommendationItem {
   display: flex;
-  align-items: flex-start;
-  gap: 32px; 
+  flex-direction: column;
+  width: 100%;
+  @media (min-width: 1280px) and (max-width: 2200px) {
+    width: 27%;
+  }
+}
+
+.titleWrapper {
+  @media (min-width: 1280px) and (max-width: 2200px) {
+    width: 70px;
+    position: relative;
+  }
 }
 
 .title {
-  writing-mode: vertical-rl;
-  transform: rotate(180deg);
-  font-family: "Oblik", Arial, sans-serif;
-  font-weight: 700;
-  font-size: 24px;
-  line-height: 32px;
-  letter-spacing: -1px;
-  text-transform: uppercase;
-  color: #1d3967;
-  margin: 0;
+  @media (min-width: 320px) and (max-width: 1279.99px) {
+    white-space: nowrap;
+    font-family: "Oblik", Arial, sans-serif;
+    font-size: 20px;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+  }
+  @media (min-width: 1280px) and (max-width: 2200px) {
+    position: absolute;
+    white-space: nowrap;
+    top: 64px;
+    left: -62px;
+    height: fit-content;
+    font-family: "Oblik", Arial, sans-serif;
+    font-size: 24px;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+    transform: rotate(-90deg);
+  }
 }
 
-
-.grid {
-  flex: 0 0 1054px; 
-  margin-left: auto; 
-  display: flex;
-  justify-content: space-between;
-  gap: 32px; 
-}
-
-.card {
-  width: 270px;
-  display: flex;
-  flex-direction: column;
-}
-
-
-.imageBox {
-  width: 270px;
-  height: 382px;
-  flex-shrink: 0;
+.text {
+  @media (min-width: 320px) and (max-width: 599.99px) {
+    margin-top: 5px;
+    font-family: Josefin Sans;
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 1.5;
+    letter-spacing: 0em;
+    margin-right: auto;
+  }
+  @media (min-width: 600px) and (max-width: 1279.99px) {
+    margin-top: 5px;
+    font-family: Josefin Sans;
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1.5;
+    letter-spacing: 0em;
+    text-align: center;
+  }
+  @media (min-width: 1280px) and (max-width: 2200px) {
+    margin-top: 10px;
+    font-family: Josefin Sans;
+    font-size: 22px;
+    font-weight: 300;
+    line-height: 1.5;
+    letter-spacing: 0em;
+    text-align: left;
+  }
 }
 
 .image {
-  width: 270px;
-  height: 382px;
-  object-fit: cover;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
-  cursor: pointer;
-
-  &:hover {
-    transform: scale(1.02);
-    box-shadow: 0 4px 16px rgba(29, 57, 103, 0.2),
-      inset 0 0 40px rgba(0, 0, 0, 0.3);
-    filter: brightness(0.95);
+  @media (min-width: 320px) and (max-width: 599.99px) {
+    width: 100%;
+    height: auto;
+  }
+  @media (min-width: 600px) and (max-width: 1279.99px) {
+    width: 100%;
+    height: auto;
+  }
+  @media (min-width: 1280px) and (max-width: 2200px) {
+    width: 100%;
+    height: auto;
   }
 }
 
+.btnWrapper {
+  @media (min-width: 320px) and (max-width: 599.99px) {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+  @media (min-width: 600px) and (max-width: 959.99px) {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+  @media (min-width: 960px) and (max-width: 1279.99px) {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+  @media (min-width: 1280px) and (max-width: 2200px) {
+    margin-left: 60px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+}
 
-.bottom {
-  width: 270px;
-  height: 104px;
+.sliderBtnWrapper {
+  margin-top: 40px;
+  margin-bottom: -40px;
+  width: 100%;
   display: flex;
-  align-items: flex-end;
-  justify-content: center;
+  justify-content: flex-end;
+  align-items: center;
 }
 
-
-.button {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  width: 218px;
-  height: 50px;
-  padding: 0; 
-  font-family: "Josefin Sans", Arial, sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 24px;
-  text-transform: uppercase;
-  color: #1d3967;
-  background: #ffffff;
-  border: 1px solid #1d3967;
-  text-decoration: none;
+.arrow {
+  width: 34px;
+  height: 24px;
+  border: none;
+  padding: 0 12.5px;
+  background: none;
+  background: url("../../images/ReviewSlider/shevron-right.svg") center / auto
+    no-repeat;
+  outline: none;
   cursor: pointer;
-  transition: background 0.2s ease, color 0.2s ease;
+}
 
-  &:hover {
-    background: #1d3967;
-    color: #ffffff;
-  }
+.arrow:hover {
+  border: 1px solid darkgray;
+}
+
+.arrow:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.buttonPrev {
+  transform: rotate(180deg);
 }

@@ -55,7 +55,7 @@ function ZohoChat() {
       <style>
         {`
           .zsiq_custommain {
-            display: none !important; 
+            display: none !important; /* Ховаємо віджет */
           }
         `}
       </style>

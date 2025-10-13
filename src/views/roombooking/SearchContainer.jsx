@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLanguage } from "../../components/helpers/translating/LanguageContext";
 import DatePicker from "react-datepicker";
@@ -52,11 +52,6 @@ const SearchContainer = () => {
   const handleDecrement = (setter, value) => value > 0 && setter(value - 1);
 
   const toggleHandle = () => setContainerToggle(!containerToggle);
-  /*manages the state of the "search container" to change the fontweight instead of using a placeholder*/
-  const [searchContainerClicked, setSearchContainerClicked] = useState(false);
-
-  // Ref for the quantity-container behavior
-  const quantityContainerRef = useRef(null);
 
   useEffect(() => {
     const fetchPlaceholders = async () => {
@@ -73,25 +68,6 @@ const SearchContainer = () => {
     fetchPlaceholders();
   }, [languageIndex]);
 
-  // Close quantity-container when clicking outside
-  useEffect(() => {
-    if (!containerToggle) return;
-
-    const handleClickOutside = (event) => {
-      if (
-        quantityContainerRef.current &&
-        !quantityContainerRef.current.contains(event.target)
-      ) {
-        setContainerToggle(false);
-      }
-    };
-
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [containerToggle]);
-
   return (
     <div className="search-component">
       <div className="search-wrapper">
@@ -100,7 +76,7 @@ const SearchContainer = () => {
         </h2>
         <div className="content">
           <div className="search">
-            <div className="search-container checkin-desktop">
+            <div className="search-container">
               <DatePicker
                 selected={startDate}
                 onChange={(date) => {
@@ -112,21 +88,10 @@ const SearchContainer = () => {
                 endDate={endDate}
                 placeholderText={placeholderText1}
                 className="date-range__input"
-                minDate={new Date()}
-                dateFormat="dd MMM, yyyy"
-                calendarStartDay={1}
-                showDisabledMonthNavigation
-                formatWeekDay={(nameOfDay) => nameOfDay.substring(0, 3)}
-                popperModifiers={[
-                  {
-                    /*prevents the calendar from flipping*/ name: "flip",
-                    enabled: false,
-                  },
-                ]}
               />
               <span className="calendar-icon"></span>
             </div>
-            <div className="search-container checkout-desktop">
+            <div className="search-container">
               <DatePicker
                 selected={endDate}
                 onChange={(date) => {
@@ -136,48 +101,18 @@ const SearchContainer = () => {
                 selectsEnd
                 startDate={startDate}
                 endDate={endDate}
+                minDate={startDate}
                 placeholderText={placeholderText2}
                 className="date-range__input"
-                minDate={startDate || new Date()}
-                dateFormat="dd MMM, yyyy"
-                calendarStartDay={1}
-                showDisabledMonthNavigation
-                formatWeekDay={(nameOfDay) => nameOfDay.substring(0, 3)}
-                /*positions the calendar aligned to the input`s end*/
-                popperPlacement="bottom-end"
-                popperModifiers={[
-                  {
-                    /*prevents the calendar from flipping*/
-                    name: "flip",
-                    enabled: false,
-                  },
-                ]}
               />
               <span className="calendar-icon"></span>
             </div>
-            <div
-              className="search-container quantity"
-              ref={quantityContainerRef}
-              onClick={() => {
-                setSearchContainerClicked(true);
-                /*opens the quantity-container when the search-container is clicked*/
-                if (!containerToggle) {
-                  toggleHandle();
-                }
-              }}
-            >
-              <div
-                className="search-container-text"
-                style={
-                  searchContainerClicked
-                    ? { fontWeight: "500" }
-                    : { fontWeight: "300" }
-                }
-              >
+            <div className="search-container quantity">
+              <div className="search-container-text">
                 <WithTransLate
                   text={`${adultsAmount} adults, ${
-                    (childrenAmount && childrenAmount + " child(ren),") || ""
-                  } ${roomsAmount} room(s)`}
+                    childrenAmount || "no"
+                  } child, ${roomsAmount} room(s)`}
                 />
               </div>
               <button
@@ -187,10 +122,11 @@ const SearchContainer = () => {
                 <img src={containerToggle ? arrowUp : arrowDown} alt="Toggle" />
               </button>
               {containerToggle && (
-                <div
-                  className="quantity-container"
-                >
-                  <div className="quantity-element">
+                <div className="quantity-container">
+                  <div
+                    className="quantity-element"
+                    style={{ borderTop: "none" }}
+                  >
                     <span style={{ textTransform: "capitalize" }}>
                       <WithTransLate text="Adults" />
                     </span>
@@ -203,7 +139,7 @@ const SearchContainer = () => {
                       >
                         <img src={minusIcon} alt="Minus" />
                       </button>
-                      <span className="amount-display">{adultsAmount}</span>
+                      <span>{adultsAmount}</span>
                       <button
                         onClick={() =>
                           handleIncrement(setAdultsAmount, adultsAmount)
@@ -227,7 +163,7 @@ const SearchContainer = () => {
                       >
                         <img src={minusIcon} alt="Minus" />
                       </button>
-                      <span className="amount-display">{childrenAmount}</span>
+                      <span>{childrenAmount}</span>
                       <button
                         onClick={() =>
                           handleIncrement(setChildrenAmount, childrenAmount)
@@ -251,7 +187,7 @@ const SearchContainer = () => {
                       >
                         <img src={minusIcon} alt="Minus" />
                       </button>
-                      <span className="amount-display">{roomsAmount}</span>
+                      <span>{roomsAmount}</span>
                       <button
                         onClick={() =>
                           handleIncrement(setRoomsAmount, roomsAmount)
@@ -277,7 +213,7 @@ const SearchContainer = () => {
                         );
                       }}
                     >
-                      <WithTransLate text="DONE" />
+                      <WithTransLate text="UPDATE" />
                     </button>
                   </div>
                 </div>
@@ -288,12 +224,6 @@ const SearchContainer = () => {
                 <WithTransLate text="SEARCH" />
               </button>
             </div>
-            {(startDate && endDate && startDate >= endDate) && (<div className="search-container-error-message">
-              <p>
-                <WithTransLate text="The Check-in date must be prior to the Check-out date"/>
-                </p>
-            </div>)}
-            
           </div>
         </div>
       </div>

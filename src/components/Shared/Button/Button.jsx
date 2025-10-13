@@ -4,10 +4,6 @@ import { WithTransLate } from "../../helpers/translating/index";
 
 import s from "./Button.module.scss";
 
-/**
- * @deprecated This Button component is deprecated.
- * Please use the Button component from Shared/ui/Button instead.
- */
 const Button = ({
   text = "",
   icon = null,
@@ -24,18 +20,18 @@ const Button = ({
       onClick={handleClick}
       type={type}
       disabled={disabled}
-      style={{width:width }}
+      style={{ width: width }}
     >
       <div
         className={s.textWrapper}
-        style={{ textTransform: icon ? "capitalize" : "uppercase"}}
+        style={{ textTransform: icon ? "capitalize" : "uppercase" }}
       >
-        <WithTransLate text={text} />
         {icon && (
           <span className={s.iconWrapper}>
-            {React.cloneElement(icon, { size })}
+            {React.cloneElement(icon, { size: size })}
           </span>
         )}
+        <WithTransLate text={text} />
       </div>
     </button>
   );

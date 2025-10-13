@@ -1,5 +1,4 @@
 .findMoreContainer {
-  
   @media (min-width: 599.99px) and (max-width: 2200px) {
     display: none !important;
   }
@@ -9,7 +8,6 @@
   .findMoreContainer {
     margin: 50px 0;
     display: flex;
-    display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -25,7 +23,6 @@
 
   .link {
     width: 50vw;
-    display: none;
   }
   .image {
     width: 50vw;

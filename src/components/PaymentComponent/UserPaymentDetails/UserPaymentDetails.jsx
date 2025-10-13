@@ -92,7 +92,6 @@ const UserPaymentDetails = () => {
               }}
               render={({ field: { onChange, value }, fieldState }) => (
                 <TextField
-                
                   value={value}
                   handleChange={onChange}
                   error={fieldState.error}
@@ -118,7 +117,6 @@ const UserPaymentDetails = () => {
               }}
               render={({ field: { onChange, value }, fieldState }) => (
                 <TextField
-                  color={'#1D3967'}
                   value={value}
                   handleChange={onChange}
                   error={fieldState.error}
@@ -340,7 +338,7 @@ const UserPaymentDetails = () => {
             render={({ field: { onChange, value }, fieldState }) => (
               <div className={s.textAreaPart}>
                 <label htmlFor="additionalRequests" className={s.label}>
-                  <WithTransLate text="Special Requests" />
+                  <WithTransLate text="Special Reguests" />
                 </label>
                 <p className={s.textDescription}>
                   <WithTransLate text="Special requests cannot be guaranteed – but the property will do its best to meet your needs. You can always make a special request after your booking is complete!" />
@@ -426,15 +424,15 @@ const UserPaymentDetails = () => {
                       }),
                       input: (provided) => ({
                         ...provided,
-                        color: "#1D3967",
+                        color: "black",
                       }),
                       placeholder: (provided) => ({
                         ...provided,
-                        color: "#1D3967",
+                        color: "black",
                       }),
                       singleValue: (provided) => ({
                         ...provided,
-                        color: "#1D3967",
+                        color: "black",
                       }),
                       menu: (provided) => ({
                         ...provided,
@@ -447,7 +445,7 @@ const UserPaymentDetails = () => {
                         backgroundColor: state.isFocused
                           ? "lightgray"
                           : "white",
-                        color: "#1D3967",
+                        color: "black",
                       }),
                     }}
                   />
@@ -462,7 +460,7 @@ const UserPaymentDetails = () => {
           />
         </div>
         <div className={s.wrapper}>
-          <Button text="Proceed to payment" btnClass="customBtn" className="payment-part-2-btn"/>
+          <Button text="Proceed to payment" btnClass="btnDark" />
         </div>
       </div>
     </form>

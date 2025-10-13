@@ -1,473 +1,333 @@
-/* eslint-disable react/jsx-no-bind */
-import React, {
-  useEffect,
-  useLayoutEffect,
-  useMemo,
-  useRef,
-  useState,
-  useCallback,
-} from "react";
-import { Element } from "react-scroll"; // Anchor for react-scroll navigation
-import "./PhotoGallery.css";
+import React, { useContext, useState } from "react";
+import { Box, makeStyles, Typography } from "@material-ui/core";
+import clsx from "clsx";
+import { Element } from "react-scroll";
+import { UserContext } from "../../../App";
+import CustomModal from "../../Shared/CustomModal/CustomModal";
+import { WithTransLate } from "../../helpers/translating/index";
 import MyModal from "./Mymodal";
-import customModalData from "../../Shared/CustomModal/customModalData";
-
-/** Tabs (visual order and indices) */
-const TABS = ["Houses", "Rooms", "Surroundings"];
-const TAB_TO_INDEX = { Houses: 0, Rooms: 1, Surroundings: 2 };
-
-/** LocalStorage state (read once per tab render, not per item) */
-const STORE_KEY = "bh_lightbox_state_v1";
-function readStateSnapshot() {
-  try {
-    const raw = localStorage.getItem(STORE_KEY);
-    return raw ? JSON.parse(raw) : {};
-  } catch {
-    return {};
-  }
-}
-
-/** Minimized idle callback */
-const fastRIC = (cb) => setTimeout(cb, 8);
-
-/** Simplified image preloader with immediate cleanup */
-const imagePreloader = (() => {
-  const preloadedUrls = new Set();
-  let activeRequests = 0;
-  const MAX_CONCURRENT = 2;
-
-  return {
-    preload(src) {
-      if (!src || preloadedUrls.has(src) || activeRequests >= MAX_CONCURRENT)
-        return;
-
-      activeRequests++;
-      preloadedUrls.add(src);
-
-      const link = document.createElement("link");
-      link.rel = "preload";
-      link.as = "image";
-      link.href = src;
-      link.onload = link.onerror = () => {
-        activeRequests = Math.max(0, activeRequests - 1);
-      };
-      document.head.appendChild(link);
+import "./PhotoGallery.css";
+import Button from "../../Shared/Button/Button";
+const useStyles = makeStyles((theme) => ({
+  root: (props) => ({
+    display: "flex",
+    marginTop: "100px",
+    justifyContent: "space-between",
+    width: "83vw",
+    [theme.breakpoints.down("md")]: {
+      display: "none",
+      width: "115vw",
     },
-
-    clear() {
-      preloadedUrls.clear();
-      activeRequests = 0;
-      // Remove preload links
-      document
-        .querySelectorAll('link[rel="preload"][as="image"]')
-        .forEach((l) => l.remove());
+    [theme.breakpoints.down("xs")]: {
+      display: "none",
+      width: "100%",
+      marginTop: "40px",
+      overflow: "auto",
+      ...props.rootStyleInPhoneSize,
     },
-  };
-})();
+  }),
+  photoWrapper: (props) => ({
+    position: "relative",
+    width: props.unitWidth,
+    maxWidth: props.maxWidth,
+    minWidth: props.minWidth,
+    backgroundSize: "cover",
+    display: "flex",
+    flexWrap: "wrap",
+    fontFamily: "Josefin Sans",
+    flexDirection: "column",
+    justifyContent: "space-evenly",
+    alignItems: "center",
+    height: "fit-content",
+    "& div": {
+      visibility: "hidden",
+    },
+    "&:hover": {
+      "& div": {
+        visibility: "visible",
+      },
+    },
+    "& img": {
+      width: "100%",
+    },
+    [theme.breakpoints.down("xs")]: {
+      width: "50vw",
+      "& img": {
+        height: "269px",
+        width: "221px",
+      },
+    },
+  }),
 
-/** Optimized SmartImg with faster intersection detection */
-const BLANK_1x1 = "data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=";
+  imagesRoot: (props) => ({
+    display: "flex",
+    justifyContent: "space-between",
+    gap: "10px",
+    flexGrow: 1,
+    marginLeft: "30px",
+    // marginRight: "70px",
+    flexWrap: "wrap",
 
-function SmartImg({ src, alt, width, height, priority, fetchpriority }) {
-  const [loaded, setLoaded] = useState(priority);
-  const [visible, setVisible] = useState(priority);
-  const ref = useRef(null);
-  const observerRef = useRef(null);
+    [theme.breakpoints.down("md")]: {
+      flexWrap: "wrap",
+      justifyContent: "space-evenly",
+    },
+    [theme.breakpoints.down("xs")]: {
+      gap: "0%",
+      flexWrap: "nowrap",
+      justifyContent: "space-evenly",
+      marginLeft: "10%",
+    },
+  }),
+  titleStyle: (props) => ({
+    whiteSpace: "nowrap",
+    transform: "rotate(-90deg)",
+    height: "fit-content",
+    fontFamily: "Oblik",
+    width: "36px",
+    fontSize: "24px",
+    fontWeight: "700",
+    letterSpacing: "0.1em",
+    marginLeft: "0px",
+    marginTop: "5rem",
+    [theme.breakpoints.down("xs")]: {
+      margin: "53px -30px  0 20px",
+      fontSize: "18px",
+      fontWeight: 700,
+      lineHeight: "50px",
+    },
+  }),
+  category: {
+    fontFamily: "Josefin Sans",
+    fontSize: "22px",
+    fontWeight: 300,
+    paddingLeft: "5px",
+    lineHeight: "50px",
+    letterSpacing: "0em",
+    marginRight: "auto",
+    [theme.breakpoints.down("xs")]: {
+      fontSize: "14px",
+      fontWeight: 400,
+      marginLeft: "14px",
+    },
+  },
+  actionStyle: {
+    margin: " 50px  auto 0px auto",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  descriptionOfGallaryStyle: {
+    fontFamily: "Oblik",
+    fontSize: "16px",
+    fontWeight: "700",
+    lineHeight: "25px",
+    letterSpacing: "0.1em",
+    color: "#fff",
+    width: "100%",
+    height: "100%",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "flex-start",
+    justifyContent: "center",
+    textAlign: "left",
+    gap: "25px",
+    paddingLeft: "20%",
+    marginTop: "40%",
+    [theme.breakpoints.down("md")]: {
+      gap: "35px",
+      fontSize: "14px",
+      marginTop: "40px",
+    },
+    [theme.breakpoints.down("xs")]: {
+      width: "40vw",
+      gap: "25px",
+      fontSize: "9px",
+      marginTop: "30px",
+      marginRight: "unset",
+      textAlign: "left",
+    },
+  },
+  hoverPart: {
+    position: "absolute",
+    width: "100%",
+    height: "calc(100% - 50px)",
+    top: "0",
+    right: "auto",
+    marginBottom: "calc(50px - 100%)",
+    gap: "30px",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    flexDirection: "column",
+    background:
+      "linear-gradient(180deg, rgba(0, 0, 0, 0.52) 0%, rgba(0, 0, 0, 0.25) 100%)",
 
-  useEffect(() => {
-    if (priority || visible) return;
+    [theme.breakpoints.down("md")]: {
+      "& div:first-child": {
+        width: "100%",
+        height: "calc(80% - 100px)",
+      },
+    },
+    "@media(max-width:426px)": {
+      width: "83%",
+      maxHeight: "100%",
+    },
+    "& img": {
+      width: "100%",
+    },
+  },
+}));
 
-    const element = ref.current;
-    if (!element) return;
-
-    let cancelled = false;
-
-    const activate = () => {
-      if (cancelled) return;
-      setVisible(true);
-      setLoaded(true);
-    };
-
-    if ("IntersectionObserver" in window) {
-      observerRef.current = new IntersectionObserver(
-        (entries) => {
-          if (entries[0].isIntersecting) {
-            activate();
-            observerRef.current?.disconnect();
-          }
-        },
-        { rootMargin: "200px", threshold: 0.1 }
-      );
-      observerRef.current.observe(element);
-    } else {
-      fastRIC(activate);
-    }
-
-    return () => {
-      cancelled = true;
-      observerRef.current?.disconnect();
-    };
-  }, [src, priority, visible]);
-
-  const handleLoad = useCallback(() => {
-    setLoaded(true);
-  }, []);
-
-  const handleError = useCallback(() => {
-    setLoaded(false);
-  }, []);
-
-  if (!visible) {
-    return (
-      <div
-        ref={ref}
-        style={{
-          backgroundColor: "#f6f7f9",
-          width: width,
-          height: height,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      />
-    );
-  }
-
-  return (
-    <img
-      ref={ref}
-      src={loaded ? src : BLANK_1x1}
-      alt={alt}
-      width={width}
-      height={height}
-      decoding="async"
-      loading={priority ? "eager" : "lazy"}
-      fetchpriority={fetchpriority}
-      style={{ backgroundColor: loaded ? "transparent" : "#f6f7f9" }}
-      draggable="false"
-      onLoad={handleLoad}
-      onError={handleError}
-    />
-  );
-}
-
-/**
- * Picks a stable cover image for a card.
- */
-function pickCover(title, arr, explicitCover) {
-  if (explicitCover) return explicitCover;
-  const list = Array.isArray(arr) ? arr : [];
-  const lcTitle = String(title || "").toLowerCase();
-  if (lcTitle.includes("blue")) {
-    const hints = ["stair", "stairs", "interior", "inside", "hall"];
-    const hit = list.find((src) =>
-      hints.some((h) => String(src).toLowerCase().includes(h))
-    );
-    if (hit) return hit;
-  }
-  return list[0] || "";
-}
-
-/** Map raw data into UI cards using a single state snapshot */
-function mapDataFor(tabName, stateSnapshot) {
-  const idx = TAB_TO_INDEX[tabName];
-  const src = customModalData[idx] || [];
-  return src.map((item) => {
-    const bgs = Array.isArray(item.backgrounds) ? item.backgrounds : [];
-    const saved =
-      Number(stateSnapshot?.[`${idx}|${String(item.title || "")}`]) || 0;
-    const hero =
-      bgs.length > 0
-        ? bgs[((saved % bgs.length) + bgs.length) % bgs.length]
-        : "";
-    const cover = pickCover(item.title, bgs, item.cover);
-    return {
-      id: String(item.title)
-        .toLowerCase()
-        .replace(/[^\w]+/g, "-"),
-      title: item.title,
-      excerpt: typeof item.description === "string" ? item.description : "",
-      cover,
-      hero,
-      modalTabIndex: idx,
-    };
-  });
-}
-
-/** Memoized Card Component */
-const Card = React.memo(function Card({
-  card,
-  index,
-  active,
-  onCardClick,
-  onCardKeyDown,
-  onCardInteraction,
+export default function PhotoGallery({
+  id,
+  backgroundImagesUrlAndTitles,
+  action,
+  styling,
+  description,
+  title,
+  actionType,
+  removeInPhoneSize,
+  openSliderOnClick,
+  openSliderOnClickKnowMore,
+  isClickable,
+  ...props
 }) {
-  const isPriority = index === 0; // Only first card priority
+  // eslint-disable-next-line
+  const [modalState, setModal, room, setRoom] = useContext(UserContext);
+  const [open, setOpen] = useState(false);
+  const [tabIndex, setTabIndex] = useState(0);
+  const rootStyleInPhoneSize = removeInPhoneSize ? { display: "none" } : {};
+
+  const {
+    hoverPart,
+    descriptionOfGallaryStyle,
+    photoWrapper,
+    imagesRoot,
+    root,
+    titleStyle,
+    category,
+    actionStyle,
+
+    hoverImage,
+  } = useStyles({ rootStyleInPhoneSize, ...props });
+
+  const clickableParClassNames = isClickable
+    ? clsx(photoWrapper, "clickable")
+    : photoWrapper;
+
+  const getDescriptions = (title) => {
+    switch (title) {
+      case "Rooms":
+        return description[0];
+      case "Houses":
+        return description[1];
+      case "Surroundings":
+        return description[2];
+      default:
+        return [];
+    }
+  };
+
+  const renderListItems = (title) => {
+    const descriptions = getDescriptions(title);
+
+    return descriptions.map((desc, index) => {
+      if ((title === "Houses" || title === "Surroundings") && index > 2)
+        return null;
+
+      return (
+        <li key={index}>
+          <WithTransLate
+            text={desc.toString().split(",").join(" ").toUpperCase()}
+          />
+        </li>
+      );
+    });
+  };
 
   return (
-    <article
-      className="accom__card"
-      role="button"
-      tabIndex={0}
-      onMouseEnter={() => onCardInteraction(card)}
-      onFocus={() => onCardInteraction(card)}
-      onClick={() => onCardClick(card)}
-      onKeyDown={(e) => onCardKeyDown(e, card)}
-    >
-      <div className="accom__media">
-        <SmartImg
-          src={card.cover}
-          alt={card.title}
-          width={active === "Rooms" ? 466 : 368}
-          height={368}
-          priority={isPriority}
-          fetchpriority={isPriority ? "high" : "low"}
-        />
-      </div>
-      <div className="accom__body">
-        <h3 className="accom__card-title">{card.title}</h3>
-        <div className="accom__divider" />
-        <p className="accom__text">
-          {(() => {
-            if (
-              active === "Surroundings" &&
-              /northern\s+lights/i.test(card.title)
-            ) {
-              const text = card.excerpt || "";
-              const key = " the best place to ";
-              const idx = text.toLowerCase().indexOf(key);
-              if (idx !== -1) {
-                const cut = idx + key.length;
-                const head = text.slice(0, cut);
-                const tail = text.slice(cut);
+    <div id={id} onClick={() => openSliderOnClick && openSliderOnClick(true)}>
+      <Element name={id}>
+        <div className={root} style={{ width: "100%" }}>
+          <h2 className={titleStyle}>
+            <WithTransLate text={title} />
+          </h2>
+
+          <Box className={imagesRoot}>
+            {backgroundImagesUrlAndTitles.map(
+              ({ background, title }, index) => {
                 return (
-                  <>
-                    {head}
-                    <span className="nowrap">{tail}</span>
-                  </>
+                  <div
+                    key={index}
+                    className={clickableParClassNames}
+                    // Implement click function here ->
+                    onClick={() => {
+                      title === "Double/Twin"
+                        ? setRoom({ double: true })
+                        : title === "Triple / Quadruple"
+                        ? setRoom({ triple: true })
+                        : title === "Family Room"
+                        ? setRoom({ family: true })
+                        : title === "Apartments"
+                        ? setRoom({ apartments: true })
+                        : title === "Blue House"
+                        ? setRoom({ blueHouse: true })
+                        : title === "Green House"
+                        ? setRoom({ greenHouse: true })
+                        : title === "Grótta Northern Lights"
+                        ? setRoom({ gNorthernLights: true })
+                        : title === "Northern Lights"
+                        ? setRoom({ northernLights: true })
+                        : title === "Neighborhood"
+                        ? setRoom({ neighborhood: true })
+                        : title === "Activities"
+                        ? setRoom({ activities: true })
+                        : setRoom(false);
+                    }}
+                  >
+                    {(description || action) && (
+                      <div className={hoverPart}>
+                        <ul className={descriptionOfGallaryStyle}>
+                          {renderListItems(title)}
+                        </ul>
+
+                        <div style={{ position: "absolute", bottom: 50 }}>
+                          <Button
+                            type="button"
+                            text="Know More"
+                            width="180px"
+                            btnClass="inBox"
+                            handleClick={() => {
+                              setOpen(true);
+                              setTabIndex(index);
+                            }}
+                          />
+                        </div>
+
+                        <div className={actionStyle}></div>
+                        <MyModal
+                          index={tabIndex}
+                          open={open}
+                          setOpen={setOpen}
+                          setTabIndex={setTabIndex}
+                        />
+                      </div>
+                    )}
+                    <img alt="ph" src={background} className={hoverImage} />
+                    <Typography className={clsx(styling, category)}>
+                      <WithTransLate text={title} />
+                    </Typography>
+                  </div>
                 );
               }
-              return <span className="nowrap">{text}</span>;
-            }
-            return card.excerpt;
-          })()}
-        </p>
-      </div>
-    </article>
-  );
-});
-
-export default function PhotoGallery() {
-  const [active, setActive] = useState("Houses");
-  const [open, setOpen] = useState(false);
-  const [tabIndex, setTabIndex] = useState(TAB_TO_INDEX.Houses);
-  const [initialTitle, setInitialTitle] = useState("");
-
-  // Tab UI refs
-  const tablistRef = useRef(null);
-  const tabsRef = useRef([]);
-  const labelsRef = useRef([]);
-  const indicatorRef = useRef(null);
-
-  // Simple tab data cache - keep all tabs loaded after first visit
-  const [tabDataCache] = useState(() => new Map());
-
-  // Memoized data with persistent caching
-  const list = useMemo(() => {
-    if (tabDataCache.has(active)) {
-      return tabDataCache.get(active);
-    }
-
-    const stateSnap = readStateSnapshot();
-    const data = mapDataFor(active, stateSnap);
-    tabDataCache.set(active, data);
-    return data;
-  }, [active, tabDataCache]);
-
-  // Track preloaded images
-  const preloadedRef = useRef(new Set());
-
-  // Keyboard navigation
-  const onTabsKeyDown = useCallback(
-    (e) => {
-      const i = TABS.indexOf(active);
-      if (e.key === "ArrowRight") {
-        const n = (i + 1) % TABS.length;
-        setActive(TABS[n]);
-        tabsRef.current[n]?.focus();
-        e.preventDefault();
-      } else if (e.key === "ArrowLeft") {
-        const p = (i - 1 + TABS.length) % TABS.length;
-        setActive(TABS[p]);
-        tabsRef.current[p]?.focus();
-        e.preventDefault();
-      } else if (e.key === "Home") {
-        setActive(TABS[0]);
-        tabsRef.current[0]?.focus();
-        e.preventDefault();
-      } else if (e.key === "End") {
-        const last = TABS.length - 1;
-        setActive(TABS[last]);
-        tabsRef.current[last]?.focus();
-        e.preventDefault();
-      }
-    },
-    [active]
-  );
-
-  // Fast indicator positioning
-  const positionIndicator = useCallback(() => {
-    const i = TABS.indexOf(active);
-    const label = labelsRef.current[i];
-    const wrap = tablistRef.current;
-    const ind = indicatorRef.current;
-    if (!label || !wrap || !ind) return;
-
-    const r = label.getBoundingClientRect();
-    const w = wrap.getBoundingClientRect();
-    const maxKnob = 56;
-    const knobWidth = Math.min(r.width, maxKnob);
-    const left = r.left - w.left + r.width / 2 - knobWidth / 2;
-
-    ind.style.setProperty("--i-left", `${left}px`);
-    ind.style.setProperty("--i-width", `${knobWidth}px`);
-  }, [active]);
-
-  useLayoutEffect(() => {
-    fastRIC(positionIndicator);
-  }, [active, positionIndicator]);
-
-  useEffect(() => {
-    let raf = 0;
-    const onResize = () => {
-      cancelAnimationFrame(raf);
-      raf = requestAnimationFrame(positionIndicator);
-    };
-    window.addEventListener("resize", onResize, { passive: true });
-    return () => {
-      cancelAnimationFrame(raf);
-      window.removeEventListener("resize", onResize);
-    };
-  }, [positionIndicator]);
-
-  // Minimal cleanup - only clear image preloader
-  useEffect(() => {
-    imagePreloader.clear();
-    preloadedRef.current.clear();
-  }, [active]);
-
-  // Preload first image only
-  useEffect(() => {
-    const firstCard = list[0];
-    if (firstCard?.cover && !preloadedRef.current.has(firstCard.cover)) {
-      preloadedRef.current.add(firstCard.cover);
-      imagePreloader.preload(firstCard.cover);
-    }
-  }, [list]);
-
-  // Card interaction handlers
-  const handleCardClick = useCallback((card) => {
-    setTabIndex(card.modalTabIndex);
-    setInitialTitle(card.title);
-    setOpen(true);
-  }, []);
-
-  const handleCardKeyDown = useCallback(
-    (e, card) => {
-      if (e.key === "Enter") {
-        handleCardClick(card);
-      }
-    },
-    [handleCardClick]
-  );
-
-  const handleCardInteraction = useCallback((card) => {
-    const src = card.cover;
-    if (src && !preloadedRef.current.has(src)) {
-      preloadedRef.current.add(src);
-      imagePreloader.preload(src);
-    }
-  }, []);
-
-  return (
-    // react-scroll anchor wrapper to enable SideNavbar scrolling
-    <Element name="ACCOMMODATION_DESKTOP">
-      <section className="accom" id="ACCOMMODATION_DESKTOP">
-        <div className="accom__container">
-          <div className="accom__heading">
-            <h2 className="accom__title">ACCOMMODATION OPTIONS</h2>
-            <p className="accom__subtitle">
-              Enjoy a relaxing stay 10 minutes from downtown
-            </p>
-          </div>
-
-          <div
-            className="accom__tabs"
-            role="tablist"
-            aria-label="Accommodation categories"
-            onKeyDown={onTabsKeyDown}
-            ref={tablistRef}
-          >
-            {TABS.map((t, i) => (
-              <button
-                key={t}
-                ref={(el) => (tabsRef.current[i] = el)}
-                id={`tab-${t}`}
-                role="tab"
-                aria-selected={active === t}
-                aria-controls={`panel-${t}`}
-                type="button"
-                className={active === t ? "accom__tab is-active" : "accom__tab"}
-                onClick={() => setActive(t)}
-                data-width={t === "Houses" ? 176 : t === "Rooms" ? 176 : 208}
-              >
-                <span
-                  className="accom__tab-label"
-                  ref={(el) => (labelsRef.current[i] = el)}
-                >
-                  {t}
-                </span>
-              </button>
-            ))}
-            <span className="accom__indicator" ref={indicatorRef} />
-          </div>
-
-          <div
-            id={`panel-${active}`}
-            role="tabpanel"
-            aria-labelledby={`tab-${active}`}
-          >
-            <div
-              className={`accom__grid ${
-                active === "Rooms" ? "accom__grid--rooms" : ""
-              } ${active === "Surroundings" ? "accom__grid--sur" : ""}`}
-            >
-              {list.map((card, i) => (
-                <Card
-                  key={card.id}
-                  card={card}
-                  index={i}
-                  active={active}
-                  onCardClick={handleCardClick}
-                  onCardKeyDown={handleCardKeyDown}
-                  onCardInteraction={handleCardInteraction}
-                />
-              ))}
-            </div>
-          </div>
+            )}
+          </Box>
         </div>
-
-        {open && (
-          <MyModal
-            index={tabIndex}
-            open={open}
-            setOpen={setOpen}
-            setTabIndex={setTabIndex}
-            initialTitle={initialTitle}
-          />
-        )}
-      </section>
-    </Element>
+        <div>
+          <CustomModal />
+        </div>
+      </Element>
+    </div>
   );
 }

@@ -23,7 +23,6 @@
     width: 100%;
     display: flex;
     gap: 25px;
-    position: relative
   }
   @media (min-width: 1280px) and (max-width: 2200px) {
     width: 100%;
@@ -48,7 +47,6 @@
   background-image: url("../../images/roombooking/image1.webp");
   background-repeat: no-repeat;
   background-size: cover;
-  z-index: 2;
   @media (min-width: 960px) and (max-width: 1279.99px) {
     width: calc(100% - 63px);
     height: 400px;
@@ -109,10 +107,9 @@
 
 .calendar-icon {
   position: absolute;
-  right: 12px;
-  top: 12px;
-  width: 23px;
-  height: 23px;
+  right: 5px;
+  width: 24px;
+  height: 24px;
   background-image: url("../../images/roombooking/calendarIcon.svg");
 }
 .search-btn-container {
@@ -124,22 +121,20 @@
   border: none;
   outline: none;
   padding: 10px;
-  font-weight: 400;
-  color: #1d3967;
+  font-size: 16px;
   @media (min-width: 320px) and (max-width: 599.99px) {
     margin-top: 3px;
     margin-bottom: -3px;
-    font-size: 13.45px;
+    font-size: 16px;
   }
-
+  @media (min-width: 960px) and (max-width: 1279.99px) {
+    font-size: 15px;
+  }
   @media (min-width: 1280px) and (max-width: 2200px) {
     padding-top: 11px;
     padding-bottom: 9px;
+    font-size: 18px;
   }
-}
-.date-range__input::placeholder {
-  font-weight: 300;
-  color: #1d3967;
 }
 
 .react-datepicker {
@@ -147,26 +142,6 @@
   background-color: white;
   border-radius: 0px;
   padding: 10px;
-}
-/* makes the calendar popper stick to the input */
-.react-datepicker-popper[data-placement^="bottom"] {
-  padding-top: 1px;
-  
-  z-index: 2000 !important; /* or any value you need */
-
-}
-/* all 4 of this make the calendar popper align properly with the design*/
-.checkin-mobile .react-datepicker-popper[data-placement^="bottom"] {
-  transform: translate(-1px, 47px) !important;
-}
-.checkout-mobile .react-datepicker-popper[data-placement^="bottom"] {
-  transform: translate(1px, 47px) !important;
-}
-.checkin-desktop .react-datepicker-popper[data-placement^="bottom"] {
-  transform: translate(-1px, 46px) !important;
-}
-.checkout-desktop .react-datepicker-popper[data-placement^="bottom"] {
-  transform: translate(1px, 46px) !important;
 }
 
 .react-datepicker__header {
@@ -180,7 +155,6 @@
   margin-top: -15px;
   font-weight: 500;
   font-size: 16px;
-  color: #1d3967;
   @media (min-width: 960px) and (max-width: 1279.99px) {
     font-size: 15px;
   }
@@ -194,8 +168,9 @@
   margin: 2px;
   cursor: pointer;
   font-size: 15px;
-  font-weight: 400;
-  color: #1d3967;
+  font-weight: 300;
+  border: 1px solid rgba(0, 0, 0, 0.294);
+  border-radius: 5px;
   @media (min-width: 960px) and (max-width: 1279.99px) {
     width: 28px;
     height: 28px;
@@ -203,21 +178,15 @@
     font-size: 14px;
   }
 }
-.react-datepicker__day--disabled {
-  color: #ccc !important; /* Gray out disabled days */
-  background: none !important; /* Optional: remove background */
-  cursor: not-allowed;
-}
 
 .react-datepicker__day-name {
-  color: #1d3967;
   width: 30px;
   height: 30px;
   line-height: 30px;
   text-align: center;
   margin: 2px;
   font-size: 15px;
-  font-weight: 300;
+  font-weight: 500;
   @media (min-width: 960px) and (max-width: 1279.99px) {
     width: 28px;
     height: 28px;
@@ -225,42 +194,12 @@
     font-size: 14px;
   }
 }
-/*this here is for removing the default styling in the days range*/
-.react-datepicker__day--in-range {
-  border-radius: 0;
-  color: white;
-  background-color: #1d3967;
-}
-/*"today" style*/
+
 .react-datepicker__day--today {
   font-weight: 500;
-  background-color: #bad9f1;
-  color: black;
-  border-radius: 0;
 }
-/*style the days range after choosing firts date but before choosing last date*/
-.react-datepicker__day--selected,
-.react-datepicker__day--in-selecting-range,
-.react-datepicker__day--in-range,
-.react-datepicker__month-text--selected,
-.react-datepicker__month-text--in-selecting-range,
-.react-datepicker__month-text--in-range,
-.react-datepicker__quarter-text--selected,
-.react-datepicker__quarter-text--in-selecting-range,
-.react-datepicker__quarter-text--in-range,
-.react-datepicker__year-text--selected,
-.react-datepicker__year-text--in-selecting-range,
-.react-datepicker__year-text--in-range {
-  border-radius: 0rem;
-}
-
-/* Hides the default triangle that separates the calendar from the input */
-.react-datepicker__triangle {
-  display: none;
-}
-
-.react-datepicker__day:hover {
-  border-radius: 0;
+.react-datepicker__day--selected {
+  font-weight: 500;
 }
 
 .search-container-text {
@@ -268,10 +207,9 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  font-size: 13.82px;
-  font-weight: 500;
+  font-size: 16px;
+  font-weight: 300px;
   line-height: 1.2;
-  color:#4C5A65;
   @media (min-width: 320px) and (max-width: 599.99px) {
     font-size: 16px;
     font-weight: 300px;
@@ -282,21 +220,19 @@
   }
 }
 
-
 .search-btn {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   color: white;
-  background-color:#1D3967;;
+  background-color: #3b5998;
   border: 1px solid #3b5998;
   text-transform: uppercase;
   height: 100%;
   width: 100%;
   border: none;
   transition: all 0.2s;
-  
 }
 .search-btn:focus {
   outline: none;
@@ -309,18 +245,14 @@
 }
 .quantity-container {
   position: absolute;
-  z-index: 2000;
-  padding: 6px 5px;
-  top: 47px;
-  width: 130%;
-  right: -1px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 20px;
+  top: 48px;
+  right: 0;
+  width: 100%;
   background-color: white;
-  @media screen and (min-width: 320px) and (max-width: 959.99px) {
-    left: 50%;
-    transform: translateX(-50%);
-    width: 82%;
-    padding-top: 0;
-  }
+  border: 1px solid rgba(0, 0, 0, 0.294);
 }
 .quantity-element {
   padding: 16px 0;
@@ -328,17 +260,13 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-weight: 300;
-  color: #1d3967;
 }
-
 .quantity-content {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
   width: 110px;
-  border: 1px solid lightgray;
 }
 .count-person {
   padding: 2px 5px;
@@ -353,17 +281,14 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  border-top: 1px solid lightgray;
-  padding-top: 10px;
 }
 .submit-amount {
-  width: 100%;
   color: white;
   font-weight: 600;
   padding: 14.5px 0;
   height: 48px;
-  background-color: #1d3967;
-  border: none;
+  background-color: #3b5998;
+  border: 1px solid #3b5998;
 }
 .increment-btn,
 .decrement-btn {
@@ -375,7 +300,8 @@
   height: 30px;
   cursor: pointer;
   transition: all ease-in-out 0.1s;
-  border: none;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.294);
   background-color: white;
 }
 .increment-btn:active {
@@ -386,29 +312,9 @@
   background-color: #f5f5f5;
   border: 1px solid rgba(0, 0, 0, 0.514);
 }
-.amount-display {
-  font-weight: 500;
-  color: #1d3967;
-}
 .quantity-container-toggle-btn {
   border: none;
   background: none;
-  margin-right: 13px;
-}
-
-.search-container-error-message{
-  position: absolute;
-  bottom: -20px;
-  left: 0;
-  width: 100%;
-  text-align: center;
-  color: rgb(233, 66, 44);
-  font-size: 16px;
-  font-weight: 600;
-  @media (min-width: 320px) and (max-width: 959.99px) {
-    /* bottom: -65px     */
-    top: 170px
-  }
 }
 
 .bh_advantages-wrapper {
@@ -456,9 +362,6 @@
     text-align: center;
     width: 140px;
   }
-     &:nth-child(3){
-    height: 121px;
-  }
 }
 .bh_advantages-item:last-child {
   @media (min-width: 320px) and (max-width: 599.99px) {
@@ -466,16 +369,7 @@
     border-bottom: 1px solid #cdd7e2;
   }
 }
-
-.bh_advantages-item:nth-child(3) {
-  @media (min-width: 320px) and (max-width: 599.99px) {
-    padding-top: 30px ;
-    padding-bottom: 15px;
-    height: 24px;
-  }
-}
 .bh_advantages-icons {
-  filter: brightness(0) saturate(100%) invert(14%) sepia(41%) saturate(1203%) hue-rotate(194deg) brightness(91%) contrast(89%);
   @media (min-width: 320px) and (max-width: 599.99px) {
     width: 23px;
     height: auto;
@@ -484,21 +378,15 @@
     width: 56px;
     height: auto;
   }
-  &:nth-child(1) {
-    filter: none;
-  }
-  &:nth-child(2) {
-     filter: brightness(0) saturate(100%) invert(14%) sepia(41%) saturate(1203%) hue-rotate(194deg) brightness(91%) contrast(89%);
-  }
 }
 
 .bh_advantages-text {
-  color:#1D3967;
   @media (min-width: 320px) and (max-width: 599.99px) {
     margin: 0;
     margin-top: 5px;
     font-size: 16px;
     font-weight: 500;
+    color: #14202b;
   }
   @media (min-width: 1280px) and (max-width: 2200px) {
     margin-top: 15px;
@@ -546,19 +434,18 @@
 }
 .booking-title-mobile {
   margin-top: 25px;
-  text-align: start;
+  text-align: center;
   margin-bottom: 20px;
   font-size: 22px;
   font-weight: bold;
   text-transform: uppercase;
-  color: #1D3967;
+  color: black;
 }
 .content-mobile {
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: 10px;
-  position: relative;
 }
 .datePart-mobile {
   width: 100%;
@@ -579,11 +466,9 @@
   z-index: 2;
 }
 .booking-text-mobile {
-  color: #1d3967;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 500;
   line-height: 1.2;
-  color:#1D3967;
 }
 .search-hero-photo-mobile {
   @media (min-width: 320px) and (max-width: 1279.99px) {

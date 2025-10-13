@@ -169,7 +169,6 @@
 }
 
 .roomInfo {
-  color: #1D3967;
   @media (min-width: 320px) and (max-width: 959.99px) {
     width: 100%;
   }
@@ -191,7 +190,7 @@
 
 .roomInfoTitle {
   @media (min-width: 320px) and (max-width: 759.99px) {
-    margin: 10px 10px 10px 21px !important;
+    margin: 0 !important;
   }
   @media (min-width: 760px) and (max-width: 1279.99px) {
     margin-top: 0 !important;
@@ -246,9 +245,7 @@
   font-weight: 300;
   font-size: 17px;
 }
-.serviceItem > img {
- filter: brightness(0) saturate(100%) invert(14%) sepia(41%) saturate(1203%) hue-rotate(194deg) brightness(91%) contrast(89%);
-}
+
 .servicesColumn {
   width: 50%;
   @media (min-width: 320px) and (max-width: 959.99px) {
@@ -336,14 +333,10 @@
     justify-content: center;
     gap: 40px;
   }
-  > button {
-    background-color: #1D3967 !important;
-  }
 }
 
 .priceWrapper {
   width: 100%;
-  color:#1D3967;
   @media (min-width: 320px) and (max-width: 1279.99px) {
     width: 100%;
     margin-top: 20px;
@@ -371,5 +364,4 @@
   flex-direction: column;
   align-items: center;
   gap: 5px;
-  color: #1D3967;
 }

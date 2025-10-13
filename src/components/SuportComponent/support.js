@@ -1,16 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
-import supportIcon from "../../images/support/support.svg";
-import faqIcon from "../../images/support/faq.svg";
-import forumIcon from "../../images/support/forum.svg";
-import whatsapp from "../../images/support/whatsapp_new.svg";
+import supportImage from "../../images/support/support.png";
+import faqImage from "../../images/support/faq.png";
+import forumImage from "../../images/support/forum.png";
+// import feedbackImage from "../../images/support/feedback.png";
 import { WithTransLate } from "../helpers/translating/index";
 import s from "./Support.module.scss";
 
-function SupportCard({ description, title, icon }) {
+function SupportCard({ description, title, image }) {
   return (
     <div className={s.supportCard}>
-      <img alt="icon" className={s.icon} src={icon} />
+      <img alt="icon" className={s.icon} src={image} />
       <p className={s.cardTitle}>
         <WithTransLate text={title} />
       </p>
@@ -24,14 +24,13 @@ function SupportCard({ description, title, icon }) {
 SupportCard.propTypes = {
   description: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  icon: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
 };
 
 export default function Support() {
   return (
     <div id="SUPPORT" className={s.support}>
       <div className={s.sectionContent}>
-        {/* SUPPORT link updated */}
         <a
           className={s.description}
           href="https://bluehouseis.zohodesk.eu/portal/en/newticket?departmentId=135604000000205173&layoutId=135604000000214460"
@@ -39,37 +38,35 @@ export default function Support() {
           rel="noopener noreferrer"
         >
           <SupportCard
-            description={"Send us your questions"}
+            description={"Get personal support from our team."}
             title={"SUPPORT"}
-            icon={supportIcon}
+            image={supportImage}
           />
         </a>
-        {/* FAQ link updated */}
         <a
           className={s.description}
-          href="https://bluehouseis.zohodesk.eu/portal/en/kb/iceland"
+          href="https://bluehouseis.zohodesk.eu/portal/en/home"
           target="_blank"
           rel="noopener noreferrer"
         >
           <SupportCard
-            description={"Find the answers you need"}
+            description={"Check previous guest requests."}
             title={"FAQ"}
-            icon={faqIcon}
+            image={faqImage}
           />
         </a>
-        <a
-          className={s.description}
-          href="https://wa.me/3547756480"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <SupportCard
-            description={"Send us a message"}
-            title={"WHATSAPP"}
-            icon={whatsapp}
-            phoneNumber="+354 775 6480"
-          />
-        </a>
+        {/* <a
+        className={s.description}
+        href="https://gnl.ladesk.com/219394-Feedback"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <SupportCard
+          description={"Your opinion is important to us."}
+          title={"FEEDBACK"}
+          image={feedbackImage}
+        />
+      </a> */}
         <a
           className={s.description}
           href="https://bluehouseis.zohodesk.eu/portal/en/community/guestforum"
@@ -77,9 +74,9 @@ export default function Support() {
           rel="noopener noreferrer"
         >
           <SupportCard
-            description={"Your opinion is important to us"}
-            title={"FEEDBACK"}
-            icon={forumIcon}
+            description={"Connect, Explore, and Share Your Journey!"}
+            title={"FORUM"}
+            image={forumImage}
           />
         </a>
       </div>

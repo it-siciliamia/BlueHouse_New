@@ -1,5 +1,5 @@
 .goodToKnowWrapper {
-  padding: 0 20px;
+  padding: 0 40px;
   display: flex;
   flex-direction: column;
   gap: 26px;
@@ -12,7 +12,6 @@
   margin: 0;
   font-size: 24px;
   font-weight: bold;
-  color: #1D3967;
   @media (min-width: 320px) and (max-width: 599.99px) {
     font-size: 18px;
   }
@@ -34,7 +33,6 @@
   margin-bottom: 8px;
   font-size: 18px;
   line-height: 1.1;
-  color: #1D3967;
   @media (min-width: 320px) and (max-width: 599.99px) {
     margin: 0;
     font-size: 16px;

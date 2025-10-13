@@ -1,24 +1,14 @@
 import { useState, useEffect } from "react";
-import { makeStyles } from "@material-ui/core";
 
-const useStyles = makeStyles((theme) => ({
+const styles = {
   modal: {
     backgroundColor: "#fff",
-    marginTop: "10px !important",
+    marginTop: "10px",
     fontFamily: "Arial, sans-serif",
-
   },
   form: {
     display: "flex",
-    marginBottom: "20px !important",
-    marginTop:"20px !important",
-    marginLeft:"-60px !important",
-    [theme.breakpoints.down("sm")]: {
-      display: "flex !important",
-      flexDirection:"row !important",
-      marginLeft:"-230px !important",
-      
-    },
+    marginBottom: "15px",
   },
   label: {
     alignItems: "center",
@@ -28,11 +18,7 @@ const useStyles = makeStyles((theme) => ({
   },
   buttonContainer: {
     display: "flex",
-    gap : "10px",
-    marginLeft:"10px !important",
-    [theme.breakpoints.down("sm")]: {
-      marginLeft:"-170px !important",
-    },
+    gap : "10px"
   },
   button: {
     backgroundColor: "#3B5998",
@@ -52,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
     cursor: "pointer",
     fontSize: "14px",
   },
-}));
+};
 
 const removeScript = (src) => {
   const script = document.querySelector(`script[src="${src}"]`);
@@ -86,7 +72,6 @@ const loadScripts = (consent) => {
 };
 
 const CookieConsent = ({onClose}) => {
-  const styles = useStyles();
   const [consent, setConsent] = useState({
     necessary: true,
     analytical: true,
@@ -115,13 +100,13 @@ const CookieConsent = ({onClose}) => {
   };
 
   return (
-    <div className={styles.modal}>
-      <form className={styles.form}>
-        <label className={styles.label}>
+    <div style={styles.modal}>
+      <form>
+        <label style={styles.label}>
           <input type="checkbox" checked={consent.necessary} disabled />
           Necessary (Required)
         </label>
-        <label className={styles.label}>
+        <label style={styles.label}>
           <input
             type="checkbox"
             checked={consent.analytical}
@@ -129,7 +114,7 @@ const CookieConsent = ({onClose}) => {
           />
           Analytical
         </label>
-        <label className={styles.label}>
+        <label style={styles.label}>
           <input
             type="checkbox"
             checked={consent.marketing}
@@ -138,11 +123,11 @@ const CookieConsent = ({onClose}) => {
           Marketing
         </label>
       </form>
-      <div className={styles.buttonContainer}>
-        <button className={styles.button} onClick={savePreferences}>
+      <div style={styles.buttonContainer}>
+        <button style={styles.button} onClick={savePreferences}>
           Save Preferences
         </button>
-        <button className={styles.cancelButton} onClick={onClose}>
+        <button style={styles.cancelButton} onClick={onClose}>
           Cancel
         </button>
       </div>

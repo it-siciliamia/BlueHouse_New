@@ -62,7 +62,7 @@ const PhotoSlider = ({ photos, width = "100%", height = "auto" }) => {
               src={photo}
               alt={`Photo ${index + 1}`}
               className={s.sliderImage}
-              style={{ width: "100%", height, objectFit: "cover"}}
+              style={{ width: "100%", height, objectFit: "cover" }}
             />
           </div>
         ))}

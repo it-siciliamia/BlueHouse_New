@@ -49,7 +49,6 @@
   font-family: Josefin Sans, sans-serif;
   font-size: 18px;
   font-weight: 500;
-  color: #1d3967 !important;
 }
 
 .button {
@@ -61,8 +60,7 @@
   font-family: Josefin Sans, sans-serif;
   font-size: 18px;
   font-weight: 500;
-  color: #1d3967;
-  text-decoration: underline;
+  color: #14202b;
   transition: all 0.3s ease;
 }
 
@@ -107,14 +105,14 @@
     margin-bottom: 20px;
     width: 100%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     gap: 10px;
   }
   @media (min-width: 960px) and (max-width: 1279.99px) {
     width: 390px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     gap: 5px;
   }
@@ -135,9 +133,10 @@
   height: 85px;
   background-color: lightgray;
   @media (min-width: 320px) and (max-width: 599.99px) {
-      height: 100px;
-      background-color: #1d3967;
-      margin: auto !important;
+    margin: 0 auto;
+    min-width: 230px;
+    max-width: 500px;
+    height: 1px;
   }
 }
 
@@ -208,7 +207,6 @@
   gap: 10px;
   font-size: 18px;
   margin-bottom: 10px;
-  color: #1d3967 !important;
 }
 
 .ratingDetail {
@@ -222,7 +220,7 @@
   font-size: 18px;
   line-height: 1.1;
   font-weight: 700;
-  color: #1d3967 !important;
+  color: black;
 }
 
 .regularText {
@@ -230,7 +228,6 @@
   font-size: 16px;
   font-weight: 500;
   line-height: 1.4;
-  color: #1d3967 !important;
 }
 
 .services {
@@ -267,14 +264,12 @@
   font-weight: 700;
   font-size: 18px;
   line-height: 1.1;
-  color: #1d3967 !important;
 }
 
 .textRegular {
   font-weight: 500;
   font-size: 18px;
   line-height: 1.1;
-  color: #1d3967 !important;
   @media (min-width: 320px) and (max-width: 599.99px) {
     text-align: center;
   }
@@ -302,9 +297,6 @@
   }
 }
 
-.priceWrapper p {
-  color: #1d3967 !important;
-}
 .leftPartWrapper {
   margin-right: 40px;
   width: 25%;

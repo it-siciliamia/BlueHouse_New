@@ -1,154 +1,484 @@
-// ✅ Search.js
-import React, { useState, useRef, useEffect } from "react";
-import { InputBase } from "@material-ui/core";
+import React, { useRef } from "react";
+import useBreakpoints from "../../Styles/useBreakpoints";
+import { Link as RouterLink } from "react-router-dom";
+import { IconButton, MenuItem, makeStyles, Link } from "@material-ui/core";
+import PropTypes from "prop-types";
 import { useClickOutside } from "../../hooks/useClickOutside";
-import SearchIcon from "../../images/SearchIcon_Header.svg";
-import CloseIcon from "../../images/close-white.svg";
 import keywords from "./keywords.json";
-import s from "../../components/header/search.module.scss";
+import SearchImage from "../../images/SearchIcon_Header.svg";
+import CloseSearchIcon from "../../images/Header_icons/icon-close-search.svg";
 
-export default function Search({ onSearchToggle }) {
-  const [open, setOpen] = useState(false);
-  const [query, setQuery] = useState("");
-  const [results, setResults] = useState([]);
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  const ref = useRef();
+const useStyles = makeStyles(() => ({
+  wrapper: {
+    position: "relative",
+  },
 
-  useEffect(() => {
-    const handleResize = () => setWindowWidth(window.innerWidth);
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  searchBarIcon: {
+    pointerEvents: "none",
+    position: "absolute",
+    top: "20%",
+    right: "30px",
+    padding: 0,
+    width: "10px",
 
-  useClickOutside(ref, () => {
-    setOpen(false);
-    setQuery("");
-    setResults([]);
-    shiftDown(false);
-    if (onSearchToggle) onSearchToggle(false);
-  });
+    "&:focus": {
+      outline: "none",
+    },
+  },
 
-  const isDesktop = windowWidth >= 1280;
-  const isMobile = windowWidth < 1280;
+  searchBar: {
+    marginRight: "42px",
+    top: "37px",
+    right: (props) => props.rightSearch,
+    width: "272px",
+    height: "46px",
+    border: "1.2px solid #073762",
+    position: "fixed",
+    zIndex: 4,
+    display: "flex",
+    backgroundColor: "#fff",
+    transitionDuration: "0.5s",
 
-  const handleSearch = (value) => {
-    setQuery(value);
-    if (!value) return setResults([]);
+    "& input": {
+      padding: "5px  16px",
+      width: "100%",
+      height: "100%",
+      display: "block",
+      boxSizing: "border-box",
+      fontSize: "18px",
+      fontFamily: "Josefin Sans",
+      fontWeight: 400,
+      lineHeight: "20px",
+      letterSpacing: "0em",
+      border: "none",
 
-    const matches = Object.entries(keywords)
-      .filter(([key]) => key.toLowerCase().includes(value.toLowerCase()))
-      .map(([key, links]) => ({ key, links }));
+      "&:focus-visible": {
+        outline: "none",
+      },
+    },
 
-    setResults(matches);
-  };
+    "& button": {
+      border: "none",
+      margin: "0",
+    },
+    "@media @media (min-width: 320px) and (max-width: 599.99px)": {
+      display: "none",
+    },
+    "@media (min-width: 600px) and (max-width: 1279.99px)": {
+      marginRight: "25px !important",
+      top: "18px !important",
+      height: "46px",
+    },
+    "@media (min-width: 1280px) and (max-width: 2200px)": {
+      top: "32px",
+      marginRight: "30px !important",
+    },
+  },
 
-  const handleSelect = (url) => {
-    if (typeof url === "string") {
-      if (url.startsWith("http")) window.open(url, "_blank");
-      else window.location.href = url;
-    }
-  };
+  searchMobileBar: {
+    display: "none",
 
-  const handleKeyDown = (e) => {
-    if (e.key === "Enter" && results.length > 0) {
-      const first = results[0].links;
-      if (typeof first === "string") handleSelect(first);
-      else if (Array.isArray(first) && first[0]) handleSelect(first[0]);
-    }
-  };
+    "& label": {
+      margin: "0 35px 0 0",
+      padding: "0 25px 10px 5px",
+      width: "100%",
+      display: "flex",
+      alignItems: "center",
+      borderBottom: "1px solid rgba(125 121 135 / 34%)",
+      zIndex: "1",
+    },
 
-  const shiftDown = (expand) => {
-    const shiftTarget = document.getElementById("searchShiftTarget");
-    if (shiftTarget) {
-      // Smooth transition for layout shift
-      shiftTarget.style.transition = "margin-top 0.3s ease";
+    "& input": {
+      padding: "0 0 0 5px",
+      width: "100%",
+      height: "100%",
+      display: "inline-block",
+      boxSizing: "border-box",
+      fontSize: "20px",
+      fontWeight: 400,
+      lineHeight: "20px",
+      letterSpacing: "0em",
+      border: "none",
+      backgroundColor: "transparent",
 
-      // Apply vertical space below the header when search is open
-      shiftTarget.style.marginTop = expand
-        ? window.innerWidth < 600
-          ? "65px" // More space for small mobile screens (e.g., iPhone)
-          : "65px" // Slightly less space for tablets and small laptops
-        : "0px"; // Reset when search is closed
-    }
-  };
+      "&:focus": {
+        outline: "none",
+      },
 
-  const handleToggle = () => {
-    const next = !open;
-    setOpen(next);
-    
-    // Call callback to notify parent component
-    if (onSearchToggle) onSearchToggle(next);
-    
-    if (isMobile) shiftDown(next);
-    if (!next) {
-      setQuery("");
-      setResults([]);
-    }
-  };
+      "&::placeholder": {
+        fontSize: "14px",
+        fontWeight: 300,
+      },
+    },
 
-  // Determine class for input wrapper based on screen size
-  const getInputWrapperClass = () => {
-    if (isDesktop) {
-      return `${s.inputWrapperDesktop} ${open ? s.active : ""}`;
-    } else {
-      return `${s.inputWrapperMobile} ${open ? s.active : ""}`;
-    }
-  };
+    "& button": {
+      border: "none",
+      margin: "0",
+    },
+
+    "@media (max-width: 660px)": {
+      padding: "20px 16px 21px",
+      top: (props) => props.topSearch,
+      right: "0",
+      width: "100%",
+      position: "fixed",
+      display: "flex",
+      alignItems: "center",
+      border: "none",
+      boxShadow: "inset 0 4px 15px rgba(0, 0, 0, 0.15)",
+      zIndex: 2,
+      backgroundColor: "#fff",
+      transitionDuration: "0.3s",
+    },
+  },
+
+  inputSearchIcon: {
+    padding: "7px",
+    height: "24px",
+    width: "24px",
+    display: "inline-flex",
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "transparent",
+
+    "&:focus": {
+      outline: "none",
+    },
+
+    "& img": {
+      height: "15px",
+    },
+  },
+
+  inputCloseIcon: {
+    padding: 0,
+    height: "35px",
+    width: "35px",
+    backgroundColor: "transparent",
+    cursor: "none",
+
+    "&:focus": {
+      outline: "none",
+    },
+
+    "& span": {
+      height: "20px",
+      width: "20px",
+      aspectRatio: 1,
+      display: "inline-flex",
+      backgroundColor: "#04376f",
+      justifyContent: "center",
+      alignItems: "center",
+      borderRadius: "50%",
+    },
+
+    "& img": {
+      height: "10px",
+    },
+  },
+
+  searchResultStyle: {
+    top: "calc(100% + 2px)",
+    right: "-2px",
+    width: "calc(100% + 2px)",
+    position: "absolute",
+    background: "#fff",
+    paddingTop: "5px",
+    borderRadius: "5px",
+    boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
+    padding: "15px 0 !important",
+    maxHeight: "70vh",
+    overflow: "auto",
+    "& .link": {
+      color: "#000 !important",
+      "& :hover": {
+        textDecoration: "none",
+        background: "#073762",
+        color: "#fff",
+      },
+    },
+  },
+
+  searchResultMobileStyle: {
+    top: "99%",
+    left: "0",
+    width: "100%",
+    position: "absolute",
+    background: "#fff",
+    paddingTop: "5px",
+    boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
+    padding: "15px 0 !important",
+    maxHeight: "70vh",
+    overflow: "auto",
+    "& .link": {
+      color: "#000 !important",
+      "& :hover": {
+        textDecoration: "none",
+        background: "#073762",
+        color: "#fff",
+      },
+    },
+  },
+}));
+
+function SearchResult({ pageUrl, text }) {
+  const Component = pageUrl.includes("http") ? Link : RouterLink;
 
   return (
-    <div className={s.searchContainer} ref={ref}>
-      <button
-        className={s.searchToggle}
-        onClick={handleToggle}
-        aria-label="Toggle search"
-      >
-        <img src={SearchIcon} alt="Search" />
-      </button>
+    <Link
+      className="link"
+      component={Component}
+      href={pageUrl}
+      to={pageUrl}
+      target="_blank"
+    >
+      <MenuItem>{text}</MenuItem>
+    </Link>
+  );
+}
 
-      <div className={getInputWrapperClass()}>
-        <InputBase
-          placeholder="SEARCH"
-          value={query}
-          onChange={(e) => handleSearch(e.target.value)}
-          onKeyDown={handleKeyDown}
-          className={s.input}
-        />
-        {!isDesktop && (
-          <button
-            onClick={handleToggle}
-            className={s.closeBtn}
-            aria-label="Close"
+SearchResult.propTypes = {
+  pageUrl: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+};
+
+export default function Search(props) {
+  const { isTablet } = useBreakpoints();
+  const {
+    searchInput,
+    searchResult,
+    setSearchInput,
+    setSearchResult,
+    showSearchInputHandler,
+    setHasSearchbar,
+  } = {
+    ...props,
+  };
+
+  const {
+    wrapper,
+    searchBar,
+    searchResultStyle,
+    searchBarIcon,
+    searchMobileBar,
+    inputSearchIcon,
+    inputCloseIcon,
+    searchResultMobileStyle,
+  } = useStyles(props);
+
+  const searchFor = () => {
+    if (searchInput.length < 3) {
+      setSearchResult("please write a complete \n word");
+      return;
+    }
+
+    const searchInputToUpperCase = searchInput.toUpperCase();
+    const seperatedWords = searchInputToUpperCase.split(" ");
+    const identicalResult = [];
+    const almosTheSame = [];
+    const containsSomeKeywords = [];
+    let FsearcshResult = [];
+
+    Object.keys(keywords).forEach((keyword) => {
+      const keywordToUpperCase = keyword.toUpperCase();
+      if (keywordToUpperCase === searchInputToUpperCase) {
+        identicalResult.push(keyword);
+
+        return true;
+      }
+
+      if (
+        searchInputToUpperCase.includes(keywordToUpperCase) ||
+        keywordToUpperCase.includes(searchInputToUpperCase)
+      ) {
+        almosTheSame.push(keyword);
+
+        return true;
+      }
+
+      for (let index = 0; index < seperatedWords.length; index++) {
+        if (
+          seperatedWords[index].includes(keywordToUpperCase) ||
+          keywordToUpperCase.includes(seperatedWords[index])
+        ) {
+          containsSomeKeywords.push(keyword);
+
+          return true;
+        }
+      }
+
+      return false;
+    });
+
+    if (identicalResult.length > 0) {
+      FsearcshResult = identicalResult;
+    } else if (almosTheSame.length > 0) {
+      FsearcshResult = almosTheSame;
+    } else if (containsSomeKeywords.length > 0) {
+      FsearcshResult = containsSomeKeywords;
+    } else {
+      FsearcshResult = "Not Found";
+    }
+
+    setSearchResult(FsearcshResult);
+  };
+
+  const searchRef = useRef(null);
+
+  const closeSearchbar = (e) => {
+    e?.preventDefault();
+    showSearchInputHandler("-200%");
+
+    setTimeout(() => {
+      setHasSearchbar(false);
+    }, 400);
+  };
+
+  useClickOutside(searchRef, () => {
+    closeSearchbar();
+  });
+
+  const userDeviceWidth = window.innerWidth;
+  const mobileBreakpoint = 600;
+
+  const isDesktopSearchbarVisible = userDeviceWidth > mobileBreakpoint;
+
+  return (
+    <div className={wrapper}>
+      {isDesktopSearchbarVisible && (
+        <form className={searchBar} id="searchBar" ref={searchRef}>
+          <input
+            onChange={(e) => {
+              setSearchInput(e.target.value);
+            }}
+            placeholder="SEARCH"
+            value={searchInput}
+          />
+
+          <IconButton
+            onClick={(e) => {
+              e.preventDefault();
+              searchFor();
+            }}
+            type="submit"
+            className={searchBarIcon}
+            color="inherit"
+            aria-label="menu"
           >
-            <img src={CloseIcon} alt="Close" />
-          </button>
-        )}
-      </div>
+            <img
+              src={SearchImage}
+              alt="SearchIcon"
+              width={isTablet ? "25px" : "30"}
+              height={isTablet ? "25px" : "30"}
+            />
+          </IconButton>
 
-      {open && results.length > 0 && (
-        <div className={s.results}>
-          {results.map(({ key, links }, i) =>
-            Array.isArray(links)
-              ? links.map((url, j) => (
-                  <div
-                    key={`${i}-${j}`}
-                    className={s.resultItem}
-                    onClick={() => handleSelect(url)}
-                  >
-                    {key} ({j + 1})
-                  </div>
-                ))
-              : links.trim() && (
-                  <div
-                    key={i}
-                    className={s.resultItem}
-                    onClick={() => handleSelect(links)}
-                  >
-                    {key}
-                  </div>
-                )
+          {!!searchResult.length && (
+            <div className={searchResultStyle}>
+              {Array.isArray(searchResult) ? (
+                searchResult.map((item, i) => {
+                  if (Array.isArray(keywords[item]))
+                    return keywords[item].map((link, index) => {
+                      return (
+                        <SearchResult
+                          pageUrl={link}
+                          key={index}
+                          text={item + " : " + ++index}
+                        />
+                      );
+                    });
+                  return (
+                    <SearchResult
+                      pageUrl={keywords[item]}
+                      text={item}
+                      key={i}
+                    />
+                  );
+                })
+              ) : (
+                <>{searchResult}</>
+              )}
+            </div>
           )}
-        </div>
+        </form>
+      )}
+
+      {!isDesktopSearchbarVisible && (
+        <form className={searchMobileBar} id="searchMobileBar" ref={searchRef}>
+          <label>
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+                searchFor();
+              }}
+              type="submit"
+              className={inputSearchIcon}
+              color="inherit"
+              aria-label="menu"
+            >
+              <img src={SearchImage} alt="SearchIcon" />
+            </button>
+
+            <input
+              onChange={(e) => {
+                setSearchInput(e.target.value);
+              }}
+              placeholder="SEARCH"
+              value={searchInput}
+            />
+          </label>
+
+          <button
+            onClick={closeSearchbar}
+            type="button"
+            className={inputCloseIcon}
+            color="inherit"
+            aria-label="menu"
+          >
+            <span>
+              <img src={CloseSearchIcon} alt="CloseSearchIcon" />
+            </span>
+          </button>
+
+          {!!searchResult.length && (
+            <div className={searchResultMobileStyle}>
+              {Array.isArray(searchResult) ? (
+                searchResult.map((item, i) => {
+                  if (Array.isArray(keywords[item]))
+                    return keywords[item].map((link, index) => {
+                      return (
+                        <SearchResult
+                          pageUrl={link}
+                          key={index}
+                          text={item + " : " + ++index}
+                        />
+                      );
+                    });
+                  return (
+                    <SearchResult
+                      pageUrl={keywords[item]}
+                      text={item}
+                      key={i}
+                    />
+                  );
+                })
+              ) : (
+                <>{searchResult}</>
+              )}
+            </div>
+          )}
+        </form>
       )}
     </div>
   );
 }
+
+Search.propTypes = {
+  searchInput: PropTypes.string.isRequired,
+  searchResult: PropTypes.oneOfType([PropTypes.array, PropTypes.string])
+    .isRequired,
+  setSearchInput: PropTypes.func.isRequired,
+  setSearchResult: PropTypes.func.isRequired,
+  showSearchInputHandler: PropTypes.func.isRequired,
+  setHasSearchbar: PropTypes.func.isRequired,
+};

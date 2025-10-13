@@ -4,7 +4,6 @@ import { WithTransLate } from "../helpers/translating/index";
 import signature from "../../images/aboutus/signature.png";
 
 import s from "./AboutPageComponent.module.scss";
-import NewMap from "../map/NewMap";
 
 function AboutPageComponent() {
   const { isMobile, isTablet, isLaptop, isDesktop } = useBreakpoints();
@@ -175,7 +174,6 @@ function AboutPageComponent() {
           </div>
         </div>
       </div>
-      <NewMap />
     </section>
   );
 }

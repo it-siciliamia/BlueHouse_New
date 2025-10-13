@@ -43,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
 
   textClass: {
     marginTop: "5px",
-    fontSize: "23px",
+    fontSize: "18px",
     lineHeight: "24px",
     fontWeight: 300,
     letterSpacing: "0em",
@@ -57,7 +57,6 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 
-
   articleWrapper: {
     marginBottom: "20px",
     [theme.breakpoints.down("md")]: {
@@ -69,7 +68,7 @@ const useStyles = makeStyles((theme) => ({
   },
 
   definitionList: {
-    paddingLeft: "30px",
+    paddingLeft: "15px",
     "& li": {
       paddingBottom: "10px",
     },
@@ -84,7 +83,8 @@ const useStyles = makeStyles((theme) => ({
 
   link: {
     color: "#1D3967",
-    textDecoration: "none",
+    fontWeight: 600,
+    textDecoration: "underline",
   },
 
   linkWrapper: {
@@ -93,14 +93,12 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     borderBottom: "1px solid #e5e5e5",
     color: "#1D3967",
-    paddingBottom: "20px",
-    marginBottom: "10px", 
   },
 
   subtitle: {
     marginBottom: "10px",
     fontWeight: 400,
-    fontSize: "23px",
+    fontSize: "18px",
     [theme.breakpoints.down("md")]: {
       fontSize: "16px",
     },
@@ -110,9 +108,7 @@ const useStyles = makeStyles((theme) => ({
   },
 
   typesOfDataItem: {
-    display: "flex",
-    flexDirection: "column",
-    gap: "10px",
+    marginBottom: "20px",
   },
 }));
 
@@ -142,7 +138,7 @@ const COOKIES_FUNCTIONAL = [
 const COOKIES_NECESSARY = [
   { id: 1, text: "LS_CSRF_TOKEN", link: "salesiq.zoho.eu" },
   { id: 2, text: "zfccn", link: "pagesense-collect.zoho.eu" },
-  // { id: 3, text: "JSESSIONID", link: "maillist-manage.eu" },
+  { id: 3, text: "JSESSIONID", link: "maillist-manage.eu" },
 ];
 
 export default function CookiePolicy() {
@@ -162,82 +158,49 @@ export default function CookiePolicy() {
     <Box className={root}>
       <div className={titleInfo}>
         <p className={textClass}>
-          <WithTransLate text="In order to provide you with a more personalized and responsive service we need to" />
-          <br/>
-          <WithTransLate text="remember and store information about how you use this website. This is done using small text" />
-          <br/>
-          <WithTransLate text="files called cookies. Cookies contain small amounts of information and are downloaded to" />
-          <br/>
-          <WithTransLate text="your computer or other device by a server for this website. Your web browser then sends" />
-          <br/>
-          <WithTransLate text="these cookies back to this Website on each subsequent visit so that it can recognise you and" />
-          <br/>
-          <WithTransLate text="remember things like your user preferences. A cookie is a small file of letters and numbers" />
-          <br/>
-          <WithTransLate text="that we store on your browser and hard drive of your computer. Cookies contain information" />
-          <br/>
-          <WithTransLate text="that is transferred to your computer’s hard drive. By browsing our sites you are accepting our" />
-          <br/>
-          <WithTransLate text="use of cookies. You can close the cookie notification by clicking “OK” button." />
+          <WithTransLate text="In order to provide you with a more personalized and responsive service we need to remember and store information about how you use this website. This is done using small text files called cookies. Cookies contain small amounts of information and are downloaded to your computer or other device by a server for this website. Your web browser then sends these cookies back to this Website on each subsequent visit so that it can recognise you and remember things like your user preferences. A cookie is a small file of letters and numbers that we store on your browser and hard drive of your computer. Cookies contain information that is transferred to your computer’s hard drive. By browsing our sites you are accepting our use of cookies. You can close the cookie notification by clicking “OK” button." />
         </p>
 
         <div className={textClass}>
           <ul className={definitionList}>
             <li>
               <span className={definition}>
-                <WithTransLate text="Necessary cookies: " />
+                <WithTransLate text="Necessary cookies " />
               </span>
 
               <span>
-                <WithTransLate text="These are cookies that are required for the operation of our website." />
-                <br/>
-                <WithTransLate text="They include cookies that enable you to log into secure areas of our website as well as" />
-                <br/>
-                <WithTransLate text="placing products in your cart." />
+                <WithTransLate text="These are cookies that are required for the operation of our website. They include cookies that enable you to log into secure areas of our website as well as placing products in your cart." />
               </span>
             </li>
 
             <li>
               <span className={definition}>
-                <WithTransLate text="Preference settings cookies: " />
+                <WithTransLate text="Preference settings cookies " />
               </span>
-              <WithTransLate text="These are cookies that are required for the operation of" />
-              <br/>
-              <WithTransLate text="some features our website. They include cookies that enable changes of some settings on" />
-              <br/>
-              <WithTransLate text="our websites." />
+
+              <WithTransLate text="These are cookies that are required for the operation of some features our website. They include cookies that enable changes of some settings on our websites." />
             </li>
 
             <li>
               <span className={definition}>
-                <WithTransLate text="Statistics, analytical and performance cookies: " />
+                <WithTransLate text="Statistics, analytical and performance cookies " />
               </span>
-              <WithTransLate text="They allow us to recognise and count" />
-              <br/>
-              <WithTransLate text="the number of visitors and to see how visitors move around our website when they are" />
-              <br/>
-              <WithTransLate text="using it." />
+
+              <WithTransLate text="They allow us to recognise and count the number of visitors and to see how visitors move around our website when they are using it." />
             </li>
 
             <li>
               <span className={definition}>
-                <WithTransLate text="Marketing cookies: " />
+                <WithTransLate text="Marketing cookies " />
               </span>
-              <WithTransLate text="These cookies can be connected to your social accounts to display" />
-              <br/>
-              <WithTransLate text="advertisements to your social accounts." />
+
+              <WithTransLate text="These cookies can be connected to your social accounts to display advertisements to your social accounts." />
             </li>
           </ul>
         </div>
 
         <p className={textClass}>
-          <WithTransLate text="Most browsers will allow you to see what cookies you have and delete them on an individual" />
-          <br/>
-          <WithTransLate text="basis or block cookies from particular or all websites. Be aware that any preference you have" />
-          <br/>
-          <WithTransLate text="set will be lost if you delete all cookies, including your preference to close the cookie" />
-          <br/>
-          <WithTransLate text="notification." />
+          <WithTransLate text="Most browsers will allow you to see what cookies you have and delete them on an individual basis or block cookies from particular or all websites. Be aware that any preference you have set will be lost if you delete all cookies, including your preference to close the cookie notification." />
         </p>
 
         <p className={textClass}>
@@ -250,15 +213,13 @@ export default function CookiePolicy() {
       <div className={articleWrapper}>
         <div className={typesOfDataItem}>
           <p className={`${textClass} ${subtitle}`}>
-            <br/>
             <WithTransLate text="Advertisement" />
           </p>
-          <hr/>
 
           {COOKIES_ADVERTISEMENT.map((data) => (
             <p
               key={data.id}
-              className={`${textClass} ${linkWrapper}`}
+              className={`${textClass} ${subtitle} ${linkWrapper}`}
             >
               <WithTransLate text={data.text} />
 
@@ -271,16 +232,13 @@ export default function CookiePolicy() {
 
         <div className={typesOfDataItem}>
           <p className={`${textClass} ${subtitle}`}>
-            <br/>
-            <br/>
             <WithTransLate text="Analytics" />
           </p>
-          <hr/>
 
           {COOKIES_ANALITICS.map((data) => (
             <p
               key={data.id}
-              className={`${textClass} ${linkWrapper}`}
+              className={`${textClass} ${subtitle} ${linkWrapper}`}
             >
               <WithTransLate text={data.text} />
 
@@ -290,19 +248,16 @@ export default function CookiePolicy() {
             </p>
           ))}
         </div>
-    
+
         <div className={typesOfDataItem}>
           <p className={`${textClass} ${subtitle}`}>
-            <br/>
-            <br/>
             <WithTransLate text="Functional" />
           </p>
-          <hr/>
 
           {COOKIES_FUNCTIONAL.map((data) => (
             <p
               key={data.id}
-              className={`${textClass} ${linkWrapper}`}
+              className={`${textClass} ${subtitle} ${linkWrapper}`}
             >
               <WithTransLate text={data.text} />
 
@@ -315,16 +270,13 @@ export default function CookiePolicy() {
 
         <div className={typesOfDataItem}>
           <p className={`${textClass} ${subtitle}`}>
-            <br/>
-            <br/>
             <WithTransLate text="Necessary" />
           </p>
-          <hr/>
 
           {COOKIES_NECESSARY.map((data) => (
             <p
               key={data.id}
-              className={`${textClass} ${linkWrapper}`}
+              className={`${textClass} ${subtitle} ${linkWrapper}`}
             >
               <WithTransLate text={data.text} />
 
@@ -334,9 +286,10 @@ export default function CookiePolicy() {
             </p>
           ))}
         </div>
-
-        <p style={{ fontSize: "25.4px", marginTop: "20px", fontWeight: "300"}}>
+        <p className={textClass}>
+          <span className={definition}>
             <WithTransLate text="For further information on how we handle your data please read our privacy policy." />
+          </span>
         </p>
       </div>
     </Box>
