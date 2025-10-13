@@ -1,172 +1,71 @@
-import React, { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
-import useBreakpoints from "../../Styles/useBreakpoints";
-import SideNavbar from "../SideNavbar/SideNavbar";
-import SideNavbarMobile from "../SideNavbar/SideNavbarMobile";
-import Button from "../Shared/Button/Button";
-import Search from "./search";
+import { Link } from "react-router-dom";
+import { useState } from "react";
+
+import logo from "../../images/logo.svg";
+import Search from "./search.js";
+import LinkButton from "../Shared/ui/Link.jsx";
 import MenuIcon from "../../images/MenuIcon_Header.svg";
-import SearchIcon from "../../images/SearchIcon_Header.svg";
-import logo from "../../images/logoBlue.png";
-import ProcessPaymentPanel from "../PaymentComponent/ProcessPaymentPanel/ProcessPaymentPanel";
+import { WithTransLate } from "../helpers/translating/index.js";
 
 import s from "./Header.module.scss";
+import SideNavbar from "../SideNavbar/SideNavbar.jsx";
 
-const userDeviceWidth = window.innerWidth;
-const mobileBreakpoint = 600;
+function Header() {
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [isNavOpen, setIsNavOpen] = useState(false);
 
-export default function Header({ right, setRight, top, setTop }) {
-  const { isMobile, isTablet, isLaptop, isDesktop } = useBreakpoints();
-  const location = useLocation();
-
-  const [rightSearch, setRightSearch] = useState("-200%");
-  const [topSearch, setTopSearch] = useState("-200%");
-
-  const [searchInput, setSearchInput] = useState("");
-  const [searchResult, setSearchResult] = useState([]);
-
-  const searchTop = "75px";
-
-  const handleToggleSideNavbarDesktop = (rightValue) => {
-    setRight(rightValue);
-  };
-
-  const handleToggleSideNavbarMobile = (topValue) => {
-    setTop(topValue);
-  };
-
-  const handleOpenAndCloseSideNavbar =
-    userDeviceWidth > mobileBreakpoint
-      ? handleToggleSideNavbarDesktop
-      : handleToggleSideNavbarMobile;
-
-  const navBar =
-    userDeviceWidth > mobileBreakpoint ? (
-      <SideNavbar
-        right={right}
-        handleOpenAndCloseSideNavbar={handleOpenAndCloseSideNavbar}
-      />
-    ) : (
-      <SideNavbarMobile
-        top={top}
-        handleOpenAndCloseSideNavbar={handleOpenAndCloseSideNavbar}
-      />
-    );
-
-  const [hasSearchbar, setHasSearchbar] = useState(false);
-
-  const handleShowSearchInput = (value) => {
-    setHasSearchbar(true);
-
-    setTimeout(() => {
-      setRightSearch(value);
-      setTopSearch(value);
-
-      if (searchInput) {
-        setSearchInput("");
-        setSearchResult([]);
-      }
-    }, 1);
-  };
+  const handleSearchToggle = (searchOpen) => setIsSearchOpen(searchOpen);
+  const handleMenuOpen = () => setIsNavOpen(true);
+  const handleMenuClose = () => setIsNavOpen(false);
 
   return (
-    <>
-      {navBar}
+    <header className={s.headerContainer}>
+      <Link to="/">
+        <img src={logo} alt="logo" className={s.logoImage} />
+      </Link>
 
-      {hasSearchbar && (
-        <Search
-          setHasSearchbar={setHasSearchbar}
-          rightSearch={rightSearch}
-          topSearch={topSearch}
-          searchInput={searchInput}
-          setSearchInput={setSearchInput}
-          searchResult={searchResult}
-          setSearchResult={setSearchResult}
-          showSearchInputHandler={handleShowSearchInput}
-        />
-      )}
+      <div className={s.btnsWrapper}>
+        <LinkButton
+          variant="primary"
+          href="https://beds24.com/booking2.php?propid=3578&layout=1&_gl=1*1m5j7wv*_ga*MTkzNDM4MTM5NS4xNzMxNjYzNTQ2*_ga_6QGX4YP9SF*czE3NTUwMzA0NDAkbzExMCRnMSR0MTc1NTAzMjQ5MCRqNTIkbDAkaDA"
+          rel="noreferrer"
+          className={s.btnCorrection}
+        >
+          <WithTransLate text="book your room" />
+        </LinkButton>
 
-      <header className={s.headerContainer}>
-        <div id="header" className={s.header}>
-          {/* <span
-            style={{
-              position: "absolute",
-              top: "10px",
-              left: "10px",
-              color: "violet",
-              fontWeight: "700",
-            }}
+        <LinkButton
+          variant="secondary"
+          href="https://bluehouse.tourdesk.is/Tour"
+          rel="noreferrer"
+          className={`${s.btnCorrection} ${isSearchOpen ? s['btnCorrection--hidden'] : ''}`}
+        >
+          <WithTransLate text="book day tours" />
+        </LinkButton>
+      </div>
+
+      <div className={s.iconsWrapper}>
+        <Search onSearchToggle={handleSearchToggle} />
+        {!isNavOpen && (
+          <button
+            className={s.menuBtn}
+            type="button"
+            onClick={handleMenuOpen}
+            aria-label="Open navigation"
           >
-            {width}
-          </span> */}
-          <div>
-            <Link to="/" className={s.logo} color="inherit" aria-label="logo">
-              <img src={logo} alt="logo" className={s.imgLogo} />
-            </Link>
-          </div>
+            <img
+              src={MenuIcon}
+              alt="MenuIcon"
+              draggable="false"
+              className={s.menuImg}
+            />
+          </button>
+        )}
+      </div>
 
-          {(isDesktop || isLaptop) && (
-            <div className={s.bookingButtonsWrapper}>
-              {location.pathname === "/payment" ? (
-                <ProcessPaymentPanel />
-              ) : (
-                <>
-                  <a
-                    href="https://beds24.com/booking2.php?propid=3578&layout=1"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <Button
-                      text="BOOK YOUR ROOM"
-                      btnClass="btnDark"
-                      width={isLaptop ? "240px" : "280px"}
-                    />
-                  </a>
-                  <a
-                    href="https://bluehouse.tourdesk.is/Tour"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <Button
-                      text="BOOK DAY TOUR"
-                      btnClass="btnLight"
-                      width={isLaptop ? "240px" : "280px"}
-                    />
-                  </a>
-                </>
-              )}
-            </div>
-          )}
-
-          <div className={s.rightPart}>
-            <button
-              className={s.menuIcon}
-              onClick={() => handleShowSearchInput(isMobile ? searchTop : 0)}
-              aria-label="menu"
-            >
-              <img
-                src={SearchIcon}
-                alt="SearchIcon"
-                width={isTablet || isMobile ? "25px" : "30"}
-                height={isTablet || isMobile ? "25px" : "30"}
-              />
-            </button>
-
-            <button
-              className={s.menuIcon}
-              onClick={() => handleOpenAndCloseSideNavbar(0)}
-              aria-label="menu"
-            >
-              <img
-                src={MenuIcon}
-                alt="MenuIcon"
-                width={isTablet || isMobile ? "30px" : "40"}
-                height={isTablet || isMobile ? "25px" : "30"}
-              />
-            </button>
-          </div>
-        </div>
-      </header>
-    </>
+      <SideNavbar isOpen={isNavOpen} onClose={handleMenuClose} />
+    </header>
   );
 }
+
+export default Header;

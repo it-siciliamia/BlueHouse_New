@@ -1,52 +1,68 @@
-import axios from "axios";
-// import qs from "qs";
+// frontend/services/apiService.js
+ const API_URL = "http://localhost:3001/api"; // Backend server URL
 
-const REACT_APP_API_URL = "http://localhost:3001/api";
-// const REACT_APP_API_URL = "https://beds24.com/api/ajax/";
+// Get authentication headers
+const getAuthHeaders = () => {
+    return {
+        "Content-Type": "application/json",
+        token: localStorage.getItem("authToken"), // Ensure token is stored after login
+    };
+};
 
-export const instance = axios.create({
-  baseURL: REACT_APP_API_URL,
-});
-
-//This is a test of the site's access to the existing https://beds24.com/ - access rights from http://localhost:3000/ are not permitted.
-// export const axiosGetRoomsData = async () => {
-//   const params = qs.stringify({
-//     ci: "2025-2-1", // Check-in date
-//     co: "2025-2-5", // Check-out date
-//     na: "undefined", // Number of adults
-//     nc: "undefined", // Number of children
-//     pt: "08", // Property type
-//     la: "en", // Language
-//     cu: "EUR", // Currency
-//   });
-
-//   const { data } = await instance.post("/getroomprice.php", params, {
-//     headers: {
-//       "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
-//     },
-//   });
-
-//   return data;
-// };
-
+// Fetch room descriptions from the backend API
 export const axiosGetRoomsData = async () => {
-  const { data } = await instance.get("/rooms");
-  return data;
+    try {
+        const response = await fetch(`${API_URL}/properties`, { headers: getAuthHeaders() });
+        if (!response.ok) throw new Error("Failed to fetch rooms");
+        return await response.json();
+    } catch (error) {
+        console.error("Error fetching rooms:", error);
+        return { success: false, message: error.message };
+    }
 };
 
-export const axiosCreateNewBooking = async (bookingData) => {
-  const { data } = await instance.post("/bookings", bookingData);
-  return data;
+// Fetch room availability from the backend API
+export const axiosGetAvailableRooms = async (roomId, startDate, endDate) => {
+    try {
+        const response = await fetch(`${API_URL}/inventory?roomId=${roomId}&startDate=${startDate}&endDate=${endDate}`, { headers: getAuthHeaders() });
+        if (!response.ok) throw new Error("Failed to fetch availability");
+        return await response.json();
+    } catch (error) {
+        console.error("Error fetching availability:", error);
+        return { success: false, message: error.message };
+    }
 };
 
-export const axiosGetAvailableRooms = async (userData) => {
-  const { data } = await instance.get("/availability", {
-    params: userData,
-  });
-  return data;
+// Create a new booking
+export const axiosCreateNewBooking = async (roomId, guestDetails, checkIn, checkOut) => {
+    try {
+        const response = await fetch(`${API_URL}/bookings`, {
+            method: "POST",
+            body: JSON.stringify({ roomId, guestDetails, checkIn, checkOut }),
+            headers: getAuthHeaders(),
+        });
+
+        if (!response.ok) throw new Error("Failed to create booking");
+        return await response.json();
+    } catch (error) {
+        console.error("Error creating booking:", error);
+        return { success: false, message: error.message };
+    }
 };
 
-export const axiosCreateStripeSession = async (userData) => {
-  const { data } = await instance.post("/create-stripe-session", userData);
-  return data;
+// Create a  Stripe session for payment
+export const axiosCreateStripeSession = async (price, currency, bookingId) => {
+    try {
+        const response = await fetch(`${API_URL}/create-stripe-session`, {
+            method: "POST",
+            body: JSON.stringify({ price, currency, bookingId }),
+            headers: getAuthHeaders(),
+        });
+
+        if (!response.ok) throw new Error("Failed to create Stripe session");
+        return await response.json();
+    } catch (error) {
+        console.error("Error creating Stripe session:", error);
+        return { success: false, message: error.message };
+    }
 };

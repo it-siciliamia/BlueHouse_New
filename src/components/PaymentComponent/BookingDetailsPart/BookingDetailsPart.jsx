@@ -59,29 +59,6 @@ const BookingDetailsPart = () => {
           <WithTransLate text="Your Booking Details" />
         </h2>
 
-        <div className={s.bookingWrapper} style={{ position: "relative" }}>
-          <p className={s.text} style={{ margin: "0" }}>
-            <WithTransLate
-              text={`Total length of stay: ${dayDifference} ${
-                dayDifference === 1 ? "night" : "nights"
-              }`}
-            />
-          </p>
-          <div className={s.leftPartWrapper}>
-            <button
-              className={s.button}
-              onClick={() => setIsCalendarOpen(!isCalendarOpen)}
-            >
-              <WithTransLate text="Edit" />
-            </button>
-          </div>
-          {isCalendarOpen && (
-            <div className={s.modalCalendar}>
-              <PartCalendar onEditClick={handleEditClick} />
-            </div>
-          )}
-        </div>
-
         <div className={s.dateWrapper}>
           <div className={s.partDate}>
             <p className={s.text} style={{ margin: "0", fontSize: "20px" }}>
@@ -106,6 +83,29 @@ const BookingDetailsPart = () => {
               10:00 - 12-00
             </p>
           </div>
+        </div>
+
+        <div className={s.bookingWrapper} style={{ position: "relative" }}>
+          <p className={s.text} style={{ margin: "0" }}>
+            <WithTransLate
+              text={`Total length of stay: ${dayDifference} ${
+                dayDifference === 1 ? "night" : "nights"
+              }`}
+            />
+          </p>
+          <div className={s.leftPartWrapper}>
+            <button
+              className={s.button}
+              onClick={() => setIsCalendarOpen(!isCalendarOpen)}
+            >
+              <WithTransLate text="Edit" />
+            </button>
+          </div>
+          {isCalendarOpen && (
+            <div className={s.modalCalendar}>
+              <PartCalendar onEditClick={handleEditClick} />
+            </div>
+          )}
         </div>
 
         <p className={s.textMain}>
@@ -162,10 +162,10 @@ const BookingDetailsPart = () => {
           title={appartmentName ? appartmentName : "Economy Double Room"}
         />
       </div>
-      <div className={s.btnWrapper}>
+      <div className={s.btnWrapper} >
         <Button
           text="Proceed to payment details"
-          btnClass="btnDark"
+          btnClass="customBtn"
           handleClick={() => dispatch(setPaymentStage(2))}
         />
       </div>

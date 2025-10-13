@@ -1,84 +1,97 @@
-.headerContainer {
-  position: fixed;
-  flex-grow: 1;
-  top: 0;
-  width: 100%;
-  height: auto;
-  background-color: transparent;
-  z-index: 3;
-  backdrop-filter: blur(3px);
-  background-color: rgba(255, 255, 255, 0.7);
-}
+// Media Queries variables
+$tablet: 37.5em;
+$laptop: 60em;
+$desktop: 80em;
 
-.header {
+.headerContainer {
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  @media (min-width: 320px) and (max-width: 599.99px) {
-    padding: 0px 25px;
-    width: 100%;
-    height: 75px;
-  }
-  @media (min-width: 600px) and (max-width: 959.99px) {
-    margin-left: auto;
-    margin-right: auto;
-    padding: 10px 20px;
-    max-width: 600px;
-    height: 81px;
-  }
-  @media (min-width: 960px) and (max-width: 1279.99px) {
-    margin-left: auto;
-    margin-right: auto;
-    padding: 10px 20px;
-    max-width: 960px;
-    height: 81px;
-  }
-  @media (min-width: 1280px) and (max-width: 2200px) {
-    margin-left: auto;
-    margin-right: auto;
-    padding: 20px 107px 20px 130px;
-    width: 100%;
-    min-width: 1280px;
-    height: 110px;
+
+  padding: 0 1rem;
+  width: 100%;
+  height: 6.25rem;
+
+  background-color: transparent;
+  z-index: 3;
+
+  @media (min-width: $desktop) {
+    padding: 0;
   }
 }
 
-.imgLogo {
-  @media (min-width: 320px) and (max-width: 599.99px) {
-    width: 156px;
-  }
-  @media (min-width: 600px) and (max-width: 959.99px) {
-    width: 156px;
-  }
-  @media (min-width: 960px) and (max-width: 1279.99px) {
-    width: 156px;
-  }
-  @media (min-width: 1280px) and (max-width: 2200px) {
-    width: 180px;
-  }
-}
-
-.menuIcon {
-  background: none;
-  border: none;
+.logoImage {
+  width: 179px;
+  height: 70px;
+  object-fit: contain;
   cursor: pointer;
+  user-select: none;
 }
 
-.menuIcon:focus {
-  outline: none;
-  box-shadow: none;
-}
-
-.bookingButtonsWrapper {
-  margin-right: 25px;
+.btnsWrapper {
   display: flex;
-  flex-direction: row;
-  gap: 40px;
+  gap: 1rem;
+
+  @media (min-width: 62.5em) {
+    gap: 2rem;
+  }
 }
 
-.rightPart {
+.iconsWrapper {
   display: flex;
-  flex-direction: row;
-  gap: 10px;
+  gap: 1rem;
+  align-items: center;
+  justify-self: center;
+
+  @media (min-width: $laptop) {
+    gap: 2rem;
+  }
+}
+
+.menuBtn {
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: none;
+}
+
+.menuImg {
+  width: 30px;
+  height: 25px;
+
+  @media (min-width: $laptop) {
+      width: 40px;
+      height: 30px
+    }
+}
+
+.btnCorrection {
+  display: none;
+
+  @media (min-width: 43.75em) { 
+    display: flex; 
+    font-size: 0.8rem;
+    width: 11.25rem;
+  }
+
+  @media (min-width: 62.5em) {
+  font-size: 1rem;
+  width: 13.62rem;
+  height: 3.12rem;
+  }
+
+  /* Only hide on desktop when isSearchOpern state is true */
+  @media (min-width: $desktop) {
+    &--hidden {
+      opacity: 0;
+      transform: translateX(-1rem) scale(.98);
+      max-width: 0;
+      padding-left: 0;
+      padding-right: 0;
+      margin-left: 0;
+      margin-right: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+}
 }

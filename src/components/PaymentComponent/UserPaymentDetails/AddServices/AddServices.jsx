@@ -49,7 +49,7 @@ const AddServices = () => {
             <img
               src={service.icon}
               alt={service.name}
-              style={{ width: "22px", height: "22px" }}
+              style={{ width: "22px", height: "22px", color: "#1D3967" }}
             />
             <span className={s.servicesText}>
               <WithTransLate text={service.description} />
@@ -63,7 +63,7 @@ const AddServices = () => {
             <img
               src={service.icon}
               alt={service.name}
-              style={{ width: "22px", height: "22px" }}
+              style={{ width: "22px", height: "22px", color: "#1D3967" }}
             />
             <span className={s.servicesText}>
               <WithTransLate text={service.description} />
