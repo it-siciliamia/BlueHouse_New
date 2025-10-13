@@ -1,4 +1,4 @@
-import React, { useState, createContext, useMemo } from "react";
+import React, { useState, createContext, lazy, Suspense } from "react";
 import PropTypes from "prop-types";
 import { Route, Switch } from "react-router-dom";
 import { HelmetProvider, Helmet } from "react-helmet-async";
@@ -22,6 +22,9 @@ import "./Styles/App.css";
 import Layout from "./components/Layout/Layout.jsx";
 import HeaderOnlyLayout from "./components/Layout/HeaderOnlyLayout.jsx";
 import MainRoutes from "./components/Layout/MainRoutes.jsx";
+const ThirdPartyScriptsLoader = lazy(() =>
+  import("./marketing/ThirdPartyScriptsLoader.jsx")
+);
 
 export const UserContext = createContext();
 
@@ -48,6 +51,9 @@ function App({ basename }) {
               <ScrollToTop />
               <ScrollToTopButton />
               <ZohoChat />
+              <Suspense fallback={null}>
+                <ThirdPartyScriptsLoader />
+              </Suspense>
 
               <Switch>
                 <Route exact path="/enquire" component={EnquirePage} />
