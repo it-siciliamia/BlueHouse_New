@@ -7,8 +7,6 @@ import busSign from "../../images/roombooking/busSign.svg";
 import carSign from "../../images/roombooking/carSign.svg";
 import planeSign from "../../images/roombooking/planeSign.svg";
 import timeSign from "../../images/roombooking/timeSign.svg";
-import wifiSign from "../../images/roombooking/wifiSign.svg";
-import coinSign from "../../images/roombooking/coinSign.svg";
 
 const Advantages = () => {
   const { isMobile } = useBreakpoints();
@@ -23,7 +21,7 @@ const Advantages = () => {
         <ul className="bh_advantages-list">
           <li className="bh_advantages-item">
             <img
-              src={coinSign}
+              src={dollarSign}
               alt="dollar icon"
               className="bh_advantages-icons"
             />
@@ -39,16 +37,6 @@ const Advantages = () => {
             />
             <p className="bh_advantages-text">
               <WithTransLate text="Popular Spot for Northern Lights" />
-            </p>
-          </li>
-              <li className="bh_advantages-item">
-            <img
-              src={wifiSign}
-              alt="wifi icon"
-              className="bh_advantages-icons"
-            />
-            <p className="bh_advantages-text">
-              <WithTransLate text="Free WiFi" />
             </p>
           </li>
           <li className="bh_advantages-item">

@@ -2,86 +2,93 @@
   @media (min-width: 320px) and (max-width: 599.99px) {
     margin-top: 50px;
     margin-bottom: 50px;
+    padding: 0px 20px;
     width: 100%;
-    height: auto;
-    align-content: center;
-    background-color: #fbfbfb;
   }
   @media (min-width: 600px) and (max-width: 959.99px) {
     margin-top: 50px;
     margin-bottom: 50px;
+    padding: 0px 20px;
     width: 100%;
   }
   @media (min-width: 960px) and (max-width: 1279.99px) {
     margin-top: 50px;
     margin-bottom: 50px;
-    padding: 0 20px;
+    padding: 0px 20px;
     width: 100%;
   }
   @media (min-width: 1280px) and (max-width: 2200px) {
-    margin: 60px auto;
+    margin-top: 100px;
+    margin-bottom: 100px;
     width: 100%;
-    max-width: 1152px;
   }
 }
 
 .sectionContent {
   display: flex;
   flex-direction: column;
-
   @media (min-width: 320px) and (max-width: 599.99px) {
     align-items: center;
     width: 100%;
     gap: 20px;
   }
   @media (min-width: 600px) and (max-width: 959.99px) {
+    align-items: center;
     width: 100%;
     gap: 10px;
-    flex-direction: row;
-    flex-wrap: wrap;
   }
   @media (min-width: 960px) and (max-width: 1279.99px) {
+    padding-left: 30px;
+    padding-right: 30px;
     flex-direction: row;
     justify-content: space-between;
     align-items: stretch;
-    flex-wrap: wrap;
-    gap: 24px;
   }
   @media (min-width: 1280px) and (max-width: 2200px) {
+    margin-left: 65px;
+    padding-left: 60px;
+    padding-right: 60px;
     flex-direction: row;
     justify-content: space-between;
     align-items: stretch;
-    gap: 24px;
   }
 }
 
 .description {
-  font-size: 16px; 
-  font-weight: 300; 
-  line-height: 24px;
+  font-size: 17px;
+  font-weight: 300;
+  line-height: 1.5;
   text-align: center;
-  color: #1d3967;
-  font-family: "Josefin Sans", Arial, sans-serif;
+  color: #14202b;
+  font-family: "Josefin Sans";
+  text-transform: uppercase !important;
   transition: all 0.3s ease-in-out;
   cursor: pointer;
-  text-decoration: none;
 
   &:hover {
-    color: #243864;
+    font-size: 17px;
     font-weight: 500;
+    line-height: 1.5;
+    color: #243864;
   }
 
   @media (min-width: 320px) and (max-width: 599.99px) {
+    text-transform: lowercase !important;
     width: 80%;
   }
   @media (min-width: 600px) and (max-width: 959.99px) {
-    width: 48%;
+    text-transform: lowercase !important;
+    width: 70%;
   }
   @media (min-width: 960px) and (max-width: 1279.99px) {
-    width: calc(25% - 18px);
+    width: 33% !important;
+    font-weight: 300;
+    line-height: 1.5;
   }
   @media (min-width: 1280px) and (max-width: 2200px) {
-    width: 270px;
+    width: 33% !important;
+    font-weight: 300;
+    line-height: 1.5;
   }
 }
 
@@ -90,47 +97,41 @@
   flex-direction: column;
   align-items: center;
   gap: 10px;
+  padding: 0px 25px;
+  width: 100%;
   flex: 1;
   cursor: pointer;
-  transition: all 0.4s ease;
-  border: 1px solid transparent;
-
+  transition: all 0.3s ease-in-out;
   @media (min-width: 320px) and (max-width: 599.99px) {
-    padding: 20px 10px;
+    padding: 0px 10px;
+    padding-top: 20px;
   }
   @media (min-width: 600px) and (max-width: 959.99px) {
-    padding: 20px 10px;
+    padding: 0px 10px;
+    padding-top: 20px;
   }
   @media (min-width: 960px) and (max-width: 1279.99px) {
-    padding: 24px 16px;
+    padding: 0px 25px;
   }
   @media (min-width: 1280px) and (max-width: 2200px) {
-    padding: 24px 16px;
+    padding: 0px 25px;
   }
 
   &:hover {
-    box-shadow: 0px 4px 12px rgba(29, 57, 103, 0.15);
-    transform: translateY(-2px);
+    box-shadow: 0px 4px 4px rgba(7, 55, 98, 0.249);
   }
 }
 
 .icon {
-  width: 48px;
-  height: 48px;
-  object-fit: contain;
+  width: 70px;
+  height: 70px;
 }
 
 .cardTitle {
-  font-family: "Josefin Sans", Arial, sans-serif;
-  font-weight: 700; 
-  font-size: 18px;
-  line-height: 24px;
+  font-weight: 500;
   text-transform: uppercase;
-  margin: 12px 0;
-  color: #1d3967;
-
   @media (min-width: 600px) and (max-width: 959.99px) {
-    margin-bottom: 0;
+    margin-bottom: 0px;
   }
   @media (min-width: 960px) and (max-width: 1280px) {
     margin-bottom: 5px;
@@ -138,44 +139,10 @@
 }
 
 .cardText {
-  font-family: "Josefin Sans", Arial, sans-serif;
-  font-weight: 300;
-  font-size: 16px;
-  line-height: 24px;
-  margin: 0;
-  color: #1d3967;
+  margin-bottom: 16px;
+  flex-grow: 1;
 }
 
-.phoneNumber {
-  font-weight: 400;
-  font-size: 16px;
-  color: #1d3967;
-  margin: 8px 0 0 0;
-}
-
-.mobileSupport {
-  display: flex;
-  justify-content: center;
-  width: 100% !important;
-}
-
-.contactLink {
-  display: flex;
-  flex-direction: column;
-  margin: auto !important;
-  justify-content: center !important;
-  align-items: center;
-}
-
-.contactLink p {
-  color: #1d3967;
-  text-decoration: none;
-}
-
-.contactLink p:nth-child(2) {
-  margin-top: 10px !important;
-}
-
-.contactLink p:nth-child(3) {
-  font-weight: 300;
+.cardText::first-letter {
+  text-transform: capitalize;
 }

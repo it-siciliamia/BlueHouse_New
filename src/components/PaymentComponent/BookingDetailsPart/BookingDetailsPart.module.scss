@@ -1,16 +1,11 @@
-html,
-body {
-  overflow-x: hidden;
-}
-
 .container {
   display: flex;
   flex-direction: column;
   gap: 23px;
-  max-width: 657px;
 }
 
 .partContent {
+  padding: 50px 0;
   width: 100%;
   border: 1px solid lightgray;
   @media (min-width: 320px) and (max-width: 599.99px) {
@@ -20,16 +15,11 @@ body {
     padding: 30px 0;
   }
   @media (min-width: 1280px) and (max-width: 2200px) {
-    padding: 20px 0;
-    width: 462px;
+    padding: 50px 0;
+    width: 100%;
   }
 }
 
-.partContent p,
-h2,
-button {
-  color: #1d3967;
-}
 .title {
   margin: 0 40px;
   margin-bottom: 20px;
@@ -44,7 +34,7 @@ button {
 }
 
 .bookingWrapper {
-  padding: 0 20px;
+  padding: 0 40px;
   height: 70px;
   display: flex;
   flex-direction: row;
@@ -70,12 +60,13 @@ button {
   font-size: 18px;
   font-weight: 500;
   @media (min-width: 320px) and (max-width: 599.99px) {
-    font-size: 15px !important;
+    font-size: 16px;
   }
 }
 
 .textMain {
-  margin: 0 20px;
+  margin: 0;
+  margin: 0 40px;
   margin-bottom: 30px;
   font-size: 18px;
   font-weight: 700;
@@ -97,7 +88,6 @@ button {
   font-weight: 500;
   color: #14202b;
   transition: all 0.3s ease;
-  text-decoration: underline;
 }
 
 .button:hover {
@@ -125,7 +115,6 @@ button {
   display: flex;
   flex-direction: column;
   align-items: center;
-  // width: 150px !important;
   gap: 5px;
 }
 
@@ -140,16 +129,18 @@ button {
   gap: 10px;
   @media (min-width: 320px) and (max-width: 599.99px) {
     margin-bottom: 20px;
+    width: 100%;
     display: flex;
-    width: 328px;
-    gap: 5px;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
   }
   @media (min-width: 960px) and (max-width: 1279.99px) {
-    width: 400px;
+    width: 390px;
     gap: 5px;
   }
   @media (min-width: 1280px) and (max-width: 2200px) {
-    margin-left: auto;
+    argin-left: auto;
     margin-right: auto;
     margin-bottom: 30px;
     width: 420px;
@@ -165,9 +156,10 @@ button {
   height: 85px;
   background-color: lightgray;
   @media (min-width: 320px) and (max-width: 599.99px) {
-    height: 100px;
-    background-color: #1d3967;
-    margin: auto !important;
+    margin: 0 auto;
+    min-width: 230px;
+    max-width: 500px;
+    height: 1px;
   }
 }
 
@@ -192,6 +184,7 @@ button {
 }
 
 .photoWrapper {
+  padding: 0 40px;
   display: flex;
   flex-direction: row;
   gap: 30px;
@@ -202,19 +195,19 @@ button {
     gap: 20px;
   }
   @media (min-width: 600px) and (max-width: 959.99px) {
-    padding: 0 20px;
+    padding: 0 40px;
     display: flex;
     flex-direction: row;
     gap: 30px;
   }
   @media (min-width: 960px) and (max-width: 1279.99px) {
-    padding: 0 20px;
+    padding: 0 40px;
     display: flex;
     flex-direction: column;
     gap: 20px;
   }
   @media (min-width: 1280px) and (max-width: 2200px) {
-    padding: 0 20px;
+    padding: 0 40px;
     display: flex;
     flex-direction: row;
     gap: 30px;
@@ -228,7 +221,6 @@ button {
   gap: 10px;
   font-size: 18px;
   margin-bottom: 10px;
-  color: #1D3967 !important;
 }
 
 .ratingDetail {
@@ -260,16 +252,11 @@ button {
   gap: 10px;
   font-size: 18px;
   line-height: 24px;
-  color: #1D3967 !important;
 }
 
 .btnWrapper {
   display: flex;
   flex-direction: row;
   align-items: center;
-  width: 100%;
-}
-
-.services>img{
-  color: #1D3967 !important;
+  justify-content: center;
 }

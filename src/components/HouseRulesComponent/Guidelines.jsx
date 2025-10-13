@@ -32,7 +32,7 @@ function Guidelines() {
         text="Be sure to have breakfast included before taking it from the kitchen or the fridge.
                                                 Breakfast time is between 8 and 10:30 am. For direct bookers we offer breakfast for free.
                                                 Depending on the room you book, you will receive self-service cereal or continental
-                                                breakfast. For all channel bookers breakfast is 15€ per person per night. Just tell us that
+                                                breakfast. For all channel bookers breakfast is 10€ per person per night. Just tell us that
                                                 you wish to add it to your booking and we will send you the pay link."
       />
       <Rule

@@ -200,8 +200,8 @@ const PriceSummaryPart = () => {
               }}
             >
               <WithTransLate
-                text={`(in ${getCurrencySymbol(selectedCurrency)} for ${adult} ${
-                  adult === 1 ? "guest" : "guests"
+                text={`(in ${selectedCurrency} for ${adult} ${
+                  adult === 1 ? "adult" : "adults"
                 } ${
                   children === 0
                     ? ""
@@ -263,7 +263,7 @@ const PriceSummaryPart = () => {
         </div>
       </div>
 
-      <div>
+      <div style={{ padding: isMobile ? "0 20px" : "0 40px" }}>
         {selectedCurrency !== "EUR" && (
           <p
             style={{
@@ -283,10 +283,9 @@ const PriceSummaryPart = () => {
             margin: "0",
             fontSize: isMobile ? "16px" : "18px",
             fontWeight: "500",
-            color: "#1D3967",
           }}
         >
-          <WithTransLate  text="Your card issuer may charge a foreign transaction fee." />
+          <WithTransLate text="Your card issuer may charge a foreign transaction fee." />
         </p>
       </div>
 
@@ -298,7 +297,6 @@ const PriceSummaryPart = () => {
       >
         <p
           style={{
-            color:"#1D3967",
             margin: "0",
             paddingTop: "20px",
             paddingLeft: isMobile ? "20px" : "40px",
@@ -309,25 +307,23 @@ const PriceSummaryPart = () => {
         >
           <WithTransLate text="How much would it cost to cancel" />
         </p>
-        <div className={s.priceWrapper1}>
+        <div className={s.priceWrapper}>
           <p
             style={{
               margin: "0",
               fontSize: isMobile ? "16px" : "20px",
               fontWeight: "500",
-              color: "#1D3967"
             }}
           >
             <WithTransLate text="If you cancel, you’ll pay:" />
           </p>
-          <div className={s.leftPartWrapper1}>
+          <div className={s.leftPartWrapper}>
             <p
               style={{
                 margin: "0",
                 fontSize: isMobile ? "18px" : "20px",
-                fontWeight: "800",
-                color: "#1D3967",
-                textAlign: "center"
+                fontWeight: "500",
+                textAlign: "center",
               }}
             >
               <WithTransLate

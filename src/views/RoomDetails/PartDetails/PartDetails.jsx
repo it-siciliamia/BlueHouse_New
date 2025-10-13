@@ -123,7 +123,7 @@ const PartDetails = ({ data }) => {
       )}
 
       <div>
-        <h4 style={{ marginBottom: isMobile ? "20px" : "10px", color: "#1d3967" }}>
+        <h4 style={{ marginBottom: isMobile ? "20px" : "10px" }}>
           <WithTransLate text="Description" />
         </h4>
         <p className={s.textWrapper}>
@@ -131,7 +131,7 @@ const PartDetails = ({ data }) => {
         </p>
       </div>
       <div>
-        <h4 style={{color: "#1d3967"}}>
+        <h4>
           <WithTransLate text="Amenities" />
         </h4>
       </div>
@@ -166,7 +166,7 @@ const PartDetails = ({ data }) => {
         </div>
       </div>
       <div style={{ marginTop: "20px" }}>
-        <h4 style={{color: "#1d3967"}}>
+        <h4>
           <WithTransLate text="Price" />
         </h4>
       </div>

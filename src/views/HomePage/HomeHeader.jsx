@@ -1,12 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Typography } from "@material-ui/core";
+import { Box, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import Facebook from "../../images/Header_icons/headerSocialIcons/facebook.svg";
 import instaIcon from "../../images/Header_icons/headerSocialIcons/insta.svg";
 import houserules_mobile from "../../images/houserules_mobile.png";
 import Email from "../../images/Header_icons/headerSocialIcons/email.svg";
-import Tripadvisor from "../../images/Header_icons/headerSocialIcons/tripadvisor_icon2.svg";
 import Whatsapp from "../../images/Header_icons/headerSocialIcons/whats.svg";
 import { WithTransLate } from "../../components/helpers/translating/index";
 import CaruselSliderHome from "./CaruselSliderHome/CaruselSliderHome";
@@ -49,7 +48,7 @@ const useStyles = makeStyles((theme) => ({
     root: {
       marginTop: "10vh",
       marginRight: "0px",
-      width: "100%",
+      width: "100vw",
     },
   },
   gridList: {
@@ -172,7 +171,6 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     alignItems: "center",
     gap: "31px",
-    paddingTop : "12px" ,
     [theme.breakpoints.down("sm")]: {
       display: "none",
     },
@@ -243,7 +241,7 @@ export default function Header({ title, titleMargins }) {
           <WithTransLate text={title} />
         </Typography>
       ) : (
-        <div className={classes.socialIcons}>
+        <Box className={classes.socialIcons}>
           <a
             href="https://www.instagram.com/bluehousebb/"
             target="_blank"
@@ -283,20 +281,6 @@ export default function Header({ title, titleMargins }) {
               className={classes.iconzImg}
             />
           </a>
-          {/* Added Tripadvisor icon */}
-          <a
-            href="https://www.tripadvisor.com/Hotel_Review-g189970-d1915669-Reviews-Blue_House_B_B-Reykjavik_Capital_Region.html"
-            target="_blank"
-            rel="noreferrer"
-            className={classes.iconz}
-          >
-            <img
-              src={Tripadvisor}
-              title="Tripadvisor"
-              alt="tripadvisor"
-              className={classes.iconzImg}
-            />
-          </a>
           <a
             href="https://bluehouseis.zohodesk.eu/portal/en/newticket?departmentId=135604000000205173&layoutId=135604000000214460"
             target="_blank"
@@ -310,9 +294,11 @@ export default function Header({ title, titleMargins }) {
               className={classes.iconzImg}
             />
           </a>
-        </div>
+        </Box>
       )}
-      <CaruselSliderHome />
+      <Box>
+        <CaruselSliderHome />
+      </Box>
     </div>
   );
 }

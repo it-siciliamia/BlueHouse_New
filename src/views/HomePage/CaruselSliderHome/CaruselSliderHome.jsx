@@ -12,9 +12,9 @@ import slide06 from "../../../images/homePageSlider/slide6.webp";
 import placeholder from "../../../images/homePageSlider/placeholder.webp";
 import videoSrc from "../../../videos/intro.mp4";
 import { useHeaderSize } from "../../../components/helpers/HeaderContext/HeaderContext.js";
+import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
 import s from "./CaruselSliderHome.module.scss";
-import IconButton from "../../../components/Shared/ui/IconButton.jsx";
 
 const images = [videoSrc, slide01, slide02, slide03, slide04, slide05, slide06];
 
@@ -32,10 +32,10 @@ const CaruselSliderHome = () => {
   const intervalRef = useRef(null);
 
   const dynamicWidth = isDesktop
-    ? Math.round(width )
+    ? Math.round(width - 365)
     : isLaptop
-      ? Math.round(width - 70)
-      : width;
+    ? Math.round(width - 115)
+    : width;
 
   const dynamicHeigth = Math.round(dynamicWidth * 0.66);
 
@@ -116,9 +116,10 @@ const CaruselSliderHome = () => {
             <div
               key={index}
               onClick={() => handleIndicatorClick(index)}
-              className={`${s.paginationDot} ${
-                index === currentIndex ? s.paginationDotActive : ""
-              }`}
+              style={{
+                opacity: index === currentIndex ? 1 : 0.3,
+              }}
+              className={s.paginationDot}
             />
           ))}
         </div>
@@ -127,17 +128,48 @@ const CaruselSliderHome = () => {
   };
 
   return (
+    <div
+      className={s.container}
+      style={{
+        width: isDesktop
+          ? `${dynamicWidth}px`
+          : isLaptop
+          ? `${dynamicWidth}px`
+          : "100%",
+      }}
+    >
       <div
-        className={s.imageBox}>
-        {(isLaptop || isDesktop) && (
-          <IconButton icon="chevronLeft" size="lg" onClick={goToPreviousSlide} className={s.arrowButtonLeft} />
+        className={s.imageBox}
+        style={{
+          height: isMobile
+            ? `${dynamicHeigth}px`
+            : isTablet
+            ? "400px"
+            : isLaptop
+            ? "500px"
+            : "550px",
+          overflow: "hidden",
+        }}
+      >
+        {!isMobile && (
+          <div
+            className={`${s.arrowButton} ${s.arrowButtonLeft}`}
+            onClick={goToPreviousSlide}
+          >
+            <FiChevronLeft
+              size={60}
+              strokeWidth={1}
+              className={s.arrowlinkLeft}
+            />
+          </div>
         )}
         {showPlaceholder && !isPlaceholderShown && (
           <img
             src={placeholder}
             alt="Placeholder"
-            className={`${s.placeholder} ${fadeOutPlaceholder ? s.fadeOut : ""
-              }`}
+            className={`${s.placeholder} ${
+              fadeOutPlaceholder ? s.fadeOut : ""
+            }`}
           />
         )}
         {images.map((image, index) =>
@@ -145,8 +177,9 @@ const CaruselSliderHome = () => {
             <video
               key={index}
               ref={videoRef}
-              className={`${s.image} ${index === currentIndex ? s.currentImage : ""
-                }`}
+              className={`${s.image} ${
+                index === currentIndex ? s.currentImage : ""
+              }`}
               style={{ display: index === currentIndex ? "block" : "none" }}
               src={image}
               muted
@@ -154,18 +187,30 @@ const CaruselSliderHome = () => {
           ) : (
             <img
               key={index}
-              className={`${s.image} ${index === currentIndex ? s.currentImage : ""
-                }`}
+              className={`${s.image} ${
+                index === currentIndex ? s.currentImage : ""
+              }`}
               src={image}
               alt="Carousel"
               style={{ zIndex: index === currentIndex ? 1 : 0 }}
             />
           )
         )}
-        {(isLaptop || isDesktop) && (<IconButton icon="chevronRight" size="lg" onClick={goToNextSlide} className={s.arrowButtonRight} />
+        {!isMobile && (
+          <div
+            className={`${s.arrowButton} ${s.arrowButtonRight}`}
+            onClick={goToNextSlide}
+          >
+            <FiChevronRight
+              size={60}
+              strokeWidth={1}
+              className={s.arrowlinkRigth}
+            />
+          </div>
         )}
         {renderPagination()}
       </div>
+    </div>
   );
 };
 

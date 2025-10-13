@@ -1,74 +1,94 @@
 import React from "react";
+import { useState } from "react";
 import { WithTransLate } from "../helpers/translating/index";
 import useBreakpoints from "../../Styles/useBreakpoints";
-//import DifferentLocations from "./ServicesType/DifferentLocations"; //! muted
-//import SelfCheckIn from "./ServicesType/selfCheckIn"; //! muted
-//import CheapestPrice from "./ServicesType/CheapestPrice"; //! muted
+import DifferentLocations from "./ServicesType/DifferentLocations";
+import SelfCheckIn from "./ServicesType/selfCheckIn";
+import CheapestPrice from "./ServicesType/CheapestPrice";
 import money from "../../images/services/money.svg";
 import clock from "../../images/services/clock.svg";
 import house from "../../images/services/house.svg";
 import s from "./OurServices.module.scss";
 
-// Titles + subtitles exactly as in the design
 const servicesData = [
   {
     icon: money,
-    title: "CHEAPEST PRICE GUARANTEED",
-    subtitle: "If you book through our website",
+    text: "CHEAPEST PRICE GUARANTEED IF BOOKED DIRECTLY",
   },
   {
     icon: clock,
-    title: "GREATEST FLEXIBILITY",
-    subtitle: "Self check-in and self-service breakfast",
+    text: "SELF-CHECK-IN & SELF-SERVICE BREAKFAST TO OFFER THE GREATEST FLEXIBILITY",
   },
   {
     icon: house,
-    title: "3 LOCATIONS",
-    subtitle: "On one of the best spots for catching Northern Lights",
+    text: "3 DIFFERENT LOCATIONS ON A SCENIC PENINSULA 10 MINUTES FROM DOWNTOWN",
   },
 ];
 
 const OurServices = () => {
   const { isMobile, isDesktop } = useBreakpoints();
 
+  const [activeModal, setActiveModal] = useState(null);
+
+  const handleOpenModal = (componentName) => {
+    setActiveModal(componentName);
+  };
+
+  const handleClose = () => {
+    setActiveModal(null);
+  };
+
   return (
     <div className={s.ourServices}>
       <div className={s.sectionContent}>
-        {servicesData.map(({ icon, title, subtitle }, index) => (
+        {servicesData.map(({ icon, text }, index) => (
           <div
             key={index}
             className={s.serviceCard}
-            // Cards are non-interactive: no onClick, no modal
+            onClick={() => handleOpenModal(icon)}
             style={{
-              // paddingTop: "20px", // same padding for all cards
-              gap: isDesktop ? "20px" : isMobile ? "15px" : "20px", // unified spacing logic
+              paddingTop: icon === money ? "10px" : "20px",
+              gap:
+                icon === money && isDesktop
+                  ? "30px"
+                  : icon !== money && isDesktop
+                  ? "40px"
+                  : icon === money && isMobile
+                  ? "10px"
+                  : icon !== money && isMobile
+                  ? "20px"
+                  : "40px",
             }}
           >
             <div
               className={s.imageContainer}
               style={{
-                // same sizing logic for all icons
-                height: isDesktop ? "58px" : "48px",
-                width: isDesktop ? "58px" : "38px",
+                height:
+                  icon === money && isDesktop
+                    ? "78px"
+                    : icon === money && !isDesktop
+                    ? "58px"
+                    : icon !== money && isDesktop
+                    ? "58px"
+                    : "48px",
+                width:
+                  icon === money && isDesktop
+                    ? "78px"
+                    : icon === money && !isDesktop
+                    ? "58px"
+                    : icon !== money && isDesktop
+                    ? "58px"
+                    : "48px",
               }}
             >
               <img src={icon} alt="Service Icon" className={s.icon} />
             </div>
-
-            {/* Text block with title + subtitle */}
-            <div className={s.textBlock}>
-              <p className={s.cardTitle}>
-                <WithTransLate text={title} />
-              </p>
-              <p className={s.cardSubtitle}>
-                <WithTransLate text={subtitle} />
-              </p>
-            </div>
+            <p className={s.description}>
+              <WithTransLate text={text} />
+            </p>
           </div>
         ))}
 
-        {/* Modal logic removed by request */}
-        {/*
         {activeModal && (
           <div className={s.modal}>
             <div className={s.modalContent}>
@@ -90,7 +110,6 @@ const OurServices = () => {
             </div>
           </div>
         )}
-        */}
       </div>
     </div>
   );
