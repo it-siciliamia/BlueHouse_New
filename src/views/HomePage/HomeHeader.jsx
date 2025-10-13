@@ -172,6 +172,7 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     alignItems: "center",
     gap: "31px",
+    paddingTop : "12px" ,
     [theme.breakpoints.down("sm")]: {
       display: "none",
     },
