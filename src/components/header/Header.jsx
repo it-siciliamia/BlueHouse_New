@@ -46,7 +46,6 @@ function Header() {
 
       <div className={s.iconsWrapper}>
         <Search onSearchToggle={handleSearchToggle} />
-        {!isNavOpen && (
           <button
             className={s.menuBtn}
             type="button"
@@ -60,7 +59,6 @@ function Header() {
               className={s.menuImg}
             />
           </button>
-        )}
       </div>
 
       <SideNavbar isOpen={isNavOpen} onClose={handleMenuClose} />
