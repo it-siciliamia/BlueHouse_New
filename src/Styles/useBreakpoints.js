@@ -1,5 +1,8 @@
 import { useState, useEffect } from "react";
 
+/**
+ * @deprecated Use useBreakpointsNew hook instead
+ */
 const useBreakpoints = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [isTablet, setIsTablet] = useState(false);

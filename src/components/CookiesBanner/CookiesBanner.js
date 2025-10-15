@@ -4,7 +4,7 @@ import useBreakpoints from "../../Styles/useBreakpoints";
 import { WithTransLate } from "../helpers/translating/index";
 import Button from "../Shared/Button/Button";
 import { makeStyles } from "@material-ui/core";
-import ManagePreferences from "../Footer/ManagePreferences";
+import ManagePreferences from "./ManagePreferences";
 
 const useStyles = makeStyles((theme) => ({
   "@keyframes showUp": {

@@ -1,7 +1,7 @@
 import Header from "../header/Header.jsx";
 import NewMap from "../map/NewMap";
 import CookiesBanner from "../CookiesBanner/CookiesBanner.js";
-import Footer from "../Footer/Footer.js";
+import Footer from "../Footer/Footer.jsx";
 
 import s from "./Layout.module.scss";
 

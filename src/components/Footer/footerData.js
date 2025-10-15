@@ -1,100 +1,137 @@
-import Map from "../../images/footer/map.svg";
-import Mail from "../../images/footer/mail.svg";
-import Phone from "../../images/footer/phone.svg";
-import Youtube from "../../images/footer/youtube.svg";
-import Insta from "../../images/footer/instagram.svg";
-import Whatsapp from "../../images/footer/whatsapp.svg";
 import Facebook from "../../images/footer/facebook.svg";
-// import X from "../../images/footer/x.svg";
-import Pinterest from "../../images/footer/pinterest.svg";
+import Instagram from "../../images/footer/instagram.svg";
+import Mail from "../../images/footer/mail.svg";
+import Map from "../../images/footer/map.svg";
+import Phone from "../../images/footer/phone.svg";
+import Whatsapp from "../../images/footer/whatsapp.svg";
+import XIcon from "../../images/footer/x.svg";
+import Youtube from "../../images/footer/youtube.svg";
 
-export const items = [
+const SOCIAL_LINKS = Object.freeze([
   {
-    title: "CONTACT US",
-    links: [
-      { name: "+354 775 6480", icon: Phone, href: "tel:+3547756480" },
-      {
-        name: "Whatsapp",
-        icon: Whatsapp,
-        href: "https://api.whatsapp.com/send?phone=3547756480&text=&source=&data=",
-      },
-      {
-        name: "info@bluehouse.is",
-        icon: Mail,
-        href: "mailto:info@bluehouse.is",
-      },
-      {
-        name: "Valhúsabraut 19, 170 Seltjarnarnes, Iceland",
-        icon: Map,
-        href: "https://www.google.com/maps?cid=1655029609091171155",
-      },
-    ],
+    id: "instagram",
+    name: "Instagram",
+    icon: Instagram,
+    type: "external",
+    href: "https://www.instagram.com/bluehousebb/",
+    newTab: true
   },
   {
-    title: "ABOUT US",
-    links: [
-      {
-        name: "House Rules & Cancellation Policy",
-        href: "/house-rules",
-      },
-      {
-        name: "Blue House Blog",
-        href: "https://blog.bluehouse.is/",
-      },
-      {
-        name: "Northern Lights",
-        href: "https://bluehouse.tourdesk.is/Tour/Item/18676/1/Northern_lights_-_Minibus?_gl=1*1rskche*_ga*NjgzMTExMTM0LjE3NDEwOTM1MjY.*_ga_6QGX4YP9SF*MTc0MTQ3Mzk3OC4zLjAuMTc0MTQ3NDAyNi4xMi4wLjA.",
-      },
-      {
-        name: "Airport Shuttle",
-        href: "https://bluehouse.tourdesk.is/Transportation",
-      },
-      {
-        name: "Feedback",
-        href: "https://gnl.ladesk.com/219394-Feedback",
-      },
-      // {
-      //   name: "Tours and Activities",
-      //   href: "https://bluehouse.tourdesk.is/Tour/Item/18676/1/Northern_lights_-_Minibus",
-      // },      
-      {
-        name: "Imprint & Privacy Policy",
-        href: "/privacy-and-policy",
-      },
-    ],
+    id: "facebook",
+    name: "Facebook",
+    icon: Facebook,
+    type: "external",
+    href: "https://www.facebook.com/bluehouseiceland",
+    newTab: true
   },
   {
-    title: "OUR NEWSLETTER",
-    subTitle: "Sign up for our newsletter!"
+    id: "x",
+    name: "X (Twitter)",
+    icon: XIcon,
+    type: "external",
+    href: "https://x.com/icelandbed",
+    newTab: true
   },
-  { 
-    title: "FOLLOW US",
-    links: [
-      {
-        name: "Instagram",
-        icon: Insta,
-        href: "https://www.instagram.com/bluehousebb/",
-      },
-      {
-        name: "Facebook",
-        icon: Facebook,
-        href: "https://www.facebook.com/bluehouseiceland",
-      },
-      // { 
-      //   name: "X",
-      //   icon: X, 
-      //   href: "https://x.com/icelandbed"
-      // },
-      { 
-        name: "Pinterest",
-        icon: Pinterest, 
-        href: "www.pinterest.com"
-      },
-      {
-        name: "Youtube",
-        icon: Youtube,
-        href: "https://youtube.com/@bluehousebbiceland1339?si=OCqKpXhElbK9J-SZ",
-      },
-    ],
-  }
-];
+  {
+    id:"youtube",
+    name: "Youtube",
+    icon: Youtube,
+    type: "external",
+    href: "https://youtube.com/@bluehousebbiceland1339?si=OCqKpXhElbK9J-SZ",
+    newTab: true
+  },
+]);
+
+
+const BLUE_HOUSE_LINKS = Object.freeze([
+  { id: "house-rules", name: "House Rules", type: "route", to: "/house-rules" },
+  {
+    id: 'bluehouseblog',
+    name: "Blue House Blog",
+    type: "external",
+    href: "https://blog.bluehouse.is/",
+    newTab: true,
+  },
+  {
+    id: "northern-lights",
+    name: "Northern Lights",
+    type: "external",
+    href: "https://bluehouse.tourdesk.is/Tour/Item/18676/1/Northern_lights_-_Minibus?_gl=1*1rskche*_ga*NjgzMTExMTM0LjE3NDEwOTM1MjY.*_ga_6QGX4YP9SF*MTc0MTQ3Mzk3OC4zLjAuMTc0MTQ3NDAyNi4xMi4wLjA.",
+    newTab: true,
+  },
+  {
+    id: "airport-shuttle",
+    name: "Airport Shuttle",
+    type: "external",
+    href: "https://bluehouse.tourdesk.is/Transportation",
+    newTab: true,
+  },
+  {
+    id: "support",
+    name: "Support",
+    type: "external",
+    href: "https://gnl.ladesk.com/219394-Feedback",
+    newTab: true,
+  },
+  {
+    id: "faq",
+    name: "FAQ",
+    type: "external",
+    href: "https://bluehouseis.zohodesk.eu/portal/en/kb/iceland",
+    newTab: true,
+  },
+  {
+    id: "privacy-policy",
+    name: "Imprint & Privacy Policy",
+    type: "route",
+    to: "/privacy-and-policy",
+  },
+  {
+    id: "cancellation-policy",
+    name: "Cancellation Policy",
+    type: "route",
+    to: "/", // TODO add the route to Cancellation Policy
+  },
+]);
+
+
+const CONTACT_LINKS = Object.freeze([
+  { id: "phone",
+    name: "+354 775 6480",
+    type: "external",
+    icon: Phone,
+    href: "tel:+3547756480",
+    newTab: false },
+  { id: "e-mail",
+    name: "info@bluehouse.is",
+    type: "external",
+    icon: Mail, href: "mailto:info@bluehouse.is",
+    newTab: false },
+  {
+    id: "whatsapp",
+    name: "WhatsApp",
+    type: "external",
+    icon: Whatsapp,
+    href: "https://api.whatsapp.com/send?phone=3547756480&text=&source=&data=",
+    newTab: true
+  },
+  {
+    id: "map",
+    name: "Valhúsabraut 19, Seltjarnarnes, 170, Iceland",
+    type: "external",
+    icon: Map,
+    href: "https://www.google.com/maps?cid=1655029609091171155",
+    newTab: true
+  },
+]);
+
+
+export const footerSections = Object.freeze({
+  social: SOCIAL_LINKS,
+  blueHouse: BLUE_HOUSE_LINKS,
+  contact: CONTACT_LINKS,
+});
+
+export const socialLinks = SOCIAL_LINKS;
+export const blueHouseLinks = BLUE_HOUSE_LINKS;
+export const contactLinks = CONTACT_LINKS;

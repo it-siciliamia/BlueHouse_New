@@ -22,10 +22,10 @@ function Card({ title, imageSrc, description }) {
 
       <figcaption>
         <h3>
-          <WithTransLate text={title} />
+          <WithTransLate text={title ?? ""} />
         </h3>
         <p>
-          <WithTransLate text={description} />
+          <WithTransLate text={description ?? ""} />
         </p>
       </figcaption>
     </figure>
