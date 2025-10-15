@@ -8,6 +8,19 @@ $desktop: 90em;
   align-items: center;
   max-width: 72rem; // 1152px
   margin: auto;
+  min-width: 100vw;
+}
+
+@media (min-width: 1440px) {
+    .container {
+        padding: 0px 200px 0px 185px;
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1440px) {
+    .container {
+        padding: 0px 80px 0px 70px;
+    }
 }
 
 .childrenWrap {
