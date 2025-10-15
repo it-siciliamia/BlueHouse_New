@@ -271,7 +271,7 @@ function SideNavbar({ isOpen, onClose }) {
     [isOpen]
   );
 
-  const renderLink = (link) => {
+  const RenderLink = (link) => {
     const icon = (
         <img src={link.icon} alt="" className={styles.iconImage} />
     );
@@ -361,7 +361,7 @@ function SideNavbar({ isOpen, onClose }) {
               <p className={styles.sectionHeading}>
                 <WithTransLate text={section.title} />
               </p>
-              <ul className={styles.linkList}>{section.links.map(renderLink)}</ul>
+              <ul className={styles.linkList}>{section.links.map(RenderLink)}</ul>
             </section>
           ))}
         </nav>
