@@ -10,7 +10,6 @@ import Recommendations from "../../components/Recommendations/Recommendations.js
 import SaveUpTo10 from "../../components/SaveUpTo10/SaveUpTo10.jsx";
 import BlogPart from "../../components/BlogComponent/Blog.js";
 import FollowUs from "../../components/FollowUs/FollowUs.jsx";
-import FindMore from "../../components/FindMore/FindMore.jsx";
 
 import s from "./HomePage.module.scss";
 import ReviewSection from "../../components/ReviewSlider/ReviewSection.jsx";
@@ -52,7 +51,6 @@ export default function HomePage() {
       <Recommendations />
       <ReviewSection />
       <FollowUs />
-      <FindMore />
       <Support />
     </div>
   );
