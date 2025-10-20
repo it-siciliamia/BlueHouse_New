@@ -171,19 +171,19 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    gap: "31px",
+    gap: "50px",
     paddingTop : "12px" ,
     [theme.breakpoints.down("sm")]: {
       display: "none",
     },
   },
   iconz: {
-    width: "24px",
-    height: "24px",
+    width: "20px",
+    height: "20px",
   },
   whats: {
-    width: "24px",
-    height: "24px",
+    width: "20px",
+    height: "20px",
   },
   trip: {
     width: "100%",
