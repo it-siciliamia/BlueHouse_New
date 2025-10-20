@@ -1,6 +1,6 @@
 import React from "react";
 import Slider from "react-slick";
-import useBreakpoints from "../../../Styles/useBreakpoints";
+import useBreakpoints from "../../../Styles/useBreakpointsNew";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
@@ -8,7 +8,7 @@ import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import s from "./SliderSlick.module.scss";
 
 const PhotoSlider = ({ photos, width = "100%", height = "auto" }) => {
-  const { isLaptop, isDesktop } = useBreakpoints();
+  const { isSmallScreen, isDesktop } = useBreakpoints();
 
   const CustomPrevArrow = (props) => {
     const { className, style, onClick } = props;
@@ -37,13 +37,13 @@ const PhotoSlider = ({ photos, width = "100%", height = "auto" }) => {
   };
 
   const settings = {
-    dots: isDesktop || isLaptop ? true : false,
+    dots: isDesktop || isSmallScreen ? true : false,
     infinite: true,
     speed: 600,
     autoplay: true,
     slidesToShow: 1,
     slidesToScroll: 1,
-    arrows: isDesktop || isLaptop ? true : false,
+    arrows: isDesktop || isSmallScreen ? true : false,
     dotsClass: `slick-dots ${s.customDots}`,
     nextArrow: <CustomNextArrow />,
     prevArrow: <CustomPrevArrow />,
