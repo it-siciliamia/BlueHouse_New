@@ -4,20 +4,20 @@
   align-items: center;
   justify-content: center;
 
-  padding: .6rem .8rem;
-  border: 2px solid transparent;
+  padding: .75rem .8rem;
+  border: 1px solid transparent;
   text-decoration: none;
   cursor: pointer;
 
   transition: background-color .15s ease, color .15s ease, border-color .15s ease;
 
   /* Typography */
-  font-size: .9rem;
+  font-size: 1rem;
   font-weight: 400;
   text-transform: uppercase;
 
   &:focus-visible {
-    outline: 2px solid currentColor;
+    outline: 1px solid currentColor;
     outline-offset: 3px;
   }
 
