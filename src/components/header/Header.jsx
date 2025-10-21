@@ -52,6 +52,7 @@ function Header() {
             type="button"
             onClick={handleMenuOpen}
             aria-label="Open navigation"
+            aria-hidden={isNavOpen ? "true" : "false"}
           >
             <img
               src={MenuIcon}
