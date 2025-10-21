@@ -59,6 +59,10 @@ $desktop: 90em; // 1280px
   transition: transform 0.35s ease, box-shadow 0.35s ease, visibility 0s linear 0.35s;
   will-change: transform;
 
+  scrollbar-width: none; /*Firefox*/
+  &::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Edge */
+}
   &--open {
     transform: translateY(0);
     box-shadow: 0 1.25rem 2.5rem rgba(0, 0, 0, 0.35);
