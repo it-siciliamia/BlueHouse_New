@@ -46,9 +46,9 @@ function Header() {
 
       <div className={s.iconsWrapper}>
         <Search onSearchToggle={handleSearchToggle} />
-        {!isNavOpen && (
+        
           <button
-            className={s.menuBtn}
+            className={`${s.menuBtn} ${isNavOpen ? s['menuBtn--hidden'] : ''}`}
             type="button"
             onClick={handleMenuOpen}
             aria-label="Open navigation"
@@ -60,7 +60,7 @@ function Header() {
               className={s.menuImg}
             />
           </button>
-        )}
+        
       </div>
 
       <SideNavbar isOpen={isNavOpen} onClose={handleMenuClose} />
