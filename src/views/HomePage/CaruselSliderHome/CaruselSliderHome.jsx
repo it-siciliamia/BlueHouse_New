@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import useBreakpoints from "../../../Styles/useBreakpoints.js";
+import useBreakpoints from "../../../Styles/useBreakpointsNew.js";
 import { useSelector, useDispatch } from "react-redux";
 import { getIsPlaceholderShown } from "../../../redux/technitial/technical-selectors.js";
 import { setPlaceholderShown } from "../../../redux/technitial/technical-slice.js";
@@ -19,7 +19,7 @@ import IconButton from "../../../components/Shared/ui/IconButton.jsx";
 const images = [videoSrc, slide01, slide02, slide03, slide04, slide05, slide06];
 
 const CaruselSliderHome = () => {
-  const { isMobile, isTablet, isLaptop, isDesktop } = useBreakpoints();
+  const { isMobile, isTablet, isSmallScreen, isDesktop } = useBreakpoints();
 
   const isPlaceholderShown = useSelector(getIsPlaceholderShown);
   const dispatch = useDispatch();
@@ -33,7 +33,7 @@ const CaruselSliderHome = () => {
 
   const dynamicWidth = isDesktop
     ? Math.round(width )
-    : isLaptop
+    : isSmallScreen
       ? Math.round(width - 70)
       : width;
 
@@ -129,7 +129,7 @@ const CaruselSliderHome = () => {
   return (
       <div
         className={s.imageBox}>
-        {(isLaptop || isDesktop) && (
+        {(isSmallScreen || isDesktop) && (
           <IconButton icon="chevronLeft" size="lg" onClick={goToPreviousSlide} className={s.arrowButtonLeft} />
         )}
         {showPlaceholder && !isPlaceholderShown && (
@@ -162,7 +162,7 @@ const CaruselSliderHome = () => {
             />
           )
         )}
-        {(isLaptop || isDesktop) && (<IconButton icon="chevronRight" size="lg" onClick={goToNextSlide} className={s.arrowButtonRight} />
+        {(isSmallScreen || isDesktop) && (<IconButton icon="chevronRight" size="lg" onClick={goToNextSlide} className={s.arrowButtonRight} />
         )}
         {renderPagination()}
       </div>

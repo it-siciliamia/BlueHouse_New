@@ -55,7 +55,7 @@ $desktop: 80em;
   background: none;
 }
 .menuBtn--hidden {
-visibility: hidden;
+  visibility: hidden;
 }
 
 .menuImg {
@@ -63,31 +63,32 @@ visibility: hidden;
   height: 25px;
 
   @media (min-width: $laptop) {
-      width: 40px;
-      height: 30px
-    }
+    width: 40px;
+    height: 30px;
+  }
 }
 
 .btnCorrection {
   display: none;
 
-  @media (min-width: 43.75em) { 
-    display: flex; 
+  @media (min-width: 43.75em) {
+    display: flex;
     font-size: 0.8rem;
-    width: 11.25rem;
+    min-inline-size: 11.25rem;
+    inline-size: auto;
   }
 
   @media (min-width: 62.5em) {
-  font-size: 1rem;
-  width: 13.62rem;
-  height: 3.12rem;
+    font-size: 1rem;
+    min-inline-size: 13.62rem;
   }
 
   /* Only hide on desktop when isSearchOpern state is true */
   @media (min-width: $desktop) {
+    transition: all 0.3s ease-in-out;
     &--hidden {
       opacity: 0;
-      transform: translateX(-1rem) scale(.98);
+      transform: translateX(-1rem) scale(0.98);
       max-width: 0;
       padding-left: 0;
       padding-right: 0;
@@ -96,5 +97,5 @@ visibility: hidden;
       visibility: hidden;
       pointer-events: none;
     }
-}
+  }
 }
