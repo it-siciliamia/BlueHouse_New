@@ -71,13 +71,13 @@ $desktop: 80em;
   @media (min-width: 43.75em) { 
     display: flex; 
     font-size: 0.8rem;
-    width: 11.25rem;
+    min-inline-size: 11.25rem;
+    inline-size: auto;
   }
 
   @media (min-width: 62.5em) {
-  font-size: 1rem;
-  width: 13.62rem;
-  height: 3.12rem;
+    font-size: 1rem;
+    min-inline-size: 13.62rem;
   }
 
   /* Only hide on desktop when isSearchOpern state is true */
