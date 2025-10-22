@@ -171,27 +171,28 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    gap: "50px",
+    gap: "16px",
     paddingTop : "12px" ,
     [theme.breakpoints.down("sm")]: {
       display: "none",
     },
   },
-  iconz: {
-    width: "20px",
-    height: "20px",
+  iconBox: {
+    width: 48,
+    height: 48,
+    display: "grid",
+    placeItems: "center",
+    flex: "0 0 auto",
   },
   whats: {
     width: "20px",
     height: "20px",
   },
-  trip: {
-    width: "100%",
-    height: "100%",
-  },
-  iconzImg: {
-    width: "100%",
-    height: "100%",
+  iconImg: {
+    width: 20,
+    height: 20,
+    objectFit: "contain",
+    display: "block",
   },
   titleStyle: {
     fontFamily: "Oblik",
@@ -248,39 +249,39 @@ export default function Header({ title, titleMargins }) {
             href="https://www.instagram.com/bluehousebb/"
             target="_blank"
             rel="noreferrer"
-            className={classes.iconz}
+            className={classes.iconBox}
           >
             <img
               src={instaIcon}
               title="Instagram"
               alt="instagram"
-              className={classes.iconzImg}
+              className={classes.iconImg}
             />
           </a>
           <a
             href="https://www.facebook.com/bluehouseiceland"
             target="_blank"
             rel="noreferrer"
-            className={classes.iconz}
+            className={classes.iconBox}
           >
             <img
               src={Facebook}
               title="facebook"
               alt="facebook"
-              className={classes.iconzImg}
+              className={classes.iconImg}
             />
           </a>
           <a
             href="https://api.whatsapp.com/send?phone=3547756480&text=&source=&data="
             target="_blank"
             rel="noreferrer"
-            className={classes.whats}
+            className={classes.iconBox}
           >
             <img
               src={Whatsapp}
               title="Whatsapp"
               alt="whatsapp"
-              className={classes.iconzImg}
+              className={classes.iconImg}
             />
           </a>
           {/* Added Tripadvisor icon */}
@@ -288,26 +289,26 @@ export default function Header({ title, titleMargins }) {
             href="https://www.tripadvisor.com/Hotel_Review-g189970-d1915669-Reviews-Blue_House_B_B-Reykjavik_Capital_Region.html"
             target="_blank"
             rel="noreferrer"
-            className={classes.iconz}
+            className={classes.iconBox}
           >
             <img
               src={Tripadvisor}
               title="Tripadvisor"
               alt="tripadvisor"
-              className={classes.iconzImg}
+              className={classes.iconImg}
             />
           </a>
           <a
             href="https://bluehouseis.zohodesk.eu/portal/en/newticket?departmentId=135604000000205173&layoutId=135604000000214460"
             target="_blank"
             rel="noreferrer"
-            className={classes.iconz}
+            className={classes.iconBox}
           >
             <img
               src={Email}
               title="Email"
               alt="Email"
-              className={classes.iconzImg}
+              className={classes.iconImg}
             />
           </a>
         </div>
