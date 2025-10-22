@@ -219,22 +219,15 @@ function SideNavbar({ isOpen, onClose }) {
       return;
     }
 
-    const { style: bodyStyle } = document.body;
-    const { style: rootStyle } = document.documentElement;
-    const previous = {
-      bodyOverflow: bodyStyle.overflow,
-      bodyTouchAction: bodyStyle.touchAction,
-      rootOverflow: rootStyle.overflow,
-    };
+    const body = document.body;
+    const root = document.documentElement;
 
-    bodyStyle.overflow = "hidden";
-    bodyStyle.touchAction = "none";
-    rootStyle.overflow = "hidden";
+    body.classList.add("side-nav-lock");
+    root.classList.add("side-nav-lock");
 
     return () => {
-      bodyStyle.overflow = previous.bodyOverflow;
-      bodyStyle.touchAction = previous.bodyTouchAction;
-      rootStyle.overflow = previous.rootOverflow;
+      body.classList.remove("side-nav-lock");
+      root.classList.remove("side-nav-lock");
     };
   }, [isOpen]);
 

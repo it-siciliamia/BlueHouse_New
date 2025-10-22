@@ -8,6 +8,19 @@ $tablet: 37.5em; // 600px
 $laptop: 60em; // 960px
 $desktop: 90em; // 1280px
 
+:global(html) {
+  scrollbar-gutter: stable;
+}
+
+:global(html.side-nav-lock) {
+  overflow: hidden;
+}
+
+:global(body.side-nav-lock) {
+  overflow: hidden;
+  touch-action: none;
+}
+
 .overlay {
   position: fixed;
   inset: 0;
@@ -59,10 +72,6 @@ $desktop: 90em; // 1280px
   transition: transform 0.35s ease, box-shadow 0.35s ease, visibility 0s linear 0.35s;
   will-change: transform;
 
-  scrollbar-width: none; /*Firefox*/
-  &::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Edge */
-}
   &--open {
     transform: translateY(0);
     box-shadow: 0 1.25rem 2.5rem rgba(0, 0, 0, 0.35);
