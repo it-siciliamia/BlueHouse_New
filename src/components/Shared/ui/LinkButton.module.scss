@@ -1,8 +1,10 @@
 .btn {
-
   display: flex;
   align-items: center;
   justify-content: center;
+
+  text-align: center;
+  hyphens: auto;
 
   padding: .75rem .8rem;
   border: 1px solid transparent;
