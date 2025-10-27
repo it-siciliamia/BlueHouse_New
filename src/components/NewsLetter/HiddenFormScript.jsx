@@ -166,17 +166,6 @@ const fillZohoFields = (form, values) =>
     return input;
   });
 
-const clearZohoFields = (inputs) => {
-  inputs.forEach((input) => {
-    if (!input) {
-      return;
-    }
-
-    input.value = "";
-    dispatchValueEvents(input);
-  });
-};
-
 const HiddenFormScript = forwardRef(function HiddenFormScript(_, ref) {
   const containerRef = useRef(null);
   const formRef = useRef(null);
@@ -215,40 +204,36 @@ const HiddenFormScript = forwardRef(function HiddenFormScript(_, ref) {
   useImperativeHandle(
     ref,
     () => ({
-      async submitWithData({ email, firstName, lastName }) {
-        // Guard against submissions before the Zoho script has hydrated the form.
-        const form = formRef.current;
+      submitWithData({ email, firstName, lastName }) {
+        return new Promise((resolve, reject) => {
+          try {
+            // Guard against submissions before the Zoho script has hydrated the form.
+            const form = formRef.current;
 
-        if (!form) {
-          throw new Error("Zoho form is not ready yet.");
-        }
+            if (!form) {
+              throw new Error("Zoho form is not ready yet.");
+            }
 
-        // Populate Zoho inputs so the outgoing payload mirrors the React form data.
-        const filledInputs = fillZohoFields(
-          form,
-          toZohoFieldValues({ email, firstName, lastName })
-        );
-
-        const formData = new FormData(form);
-
-        try {
-          const response = await fetch(ZOHO_FORM_ACTION, {
-            method: "POST",
-            body: formData,
-            mode: "cors",
-            credentials: "omit",
-          });
-
-          if (!response.ok) {
-            throw new Error(
-              `Newsletter signup failed with status ${response.status}`
+            // Populate Zoho inputs so the outgoing payload mirrors the React form data.
+            fillZohoFields(
+              form,
+              toZohoFieldValues({ email, firstName, lastName })
             );
-          }
 
-          return response;
-        } finally {
-          clearZohoFields(filledInputs);
-        }
+            // Set form to submit in a new tab
+            form.setAttribute("action", ZOHO_FORM_ACTION);
+            form.setAttribute("method", "POST");
+            form.setAttribute("target", "_blank");
+
+            // Submit the form - browser will open response in new tab
+            form.submit();
+
+            // Resolve after a brief delay to ensure submission was queued
+            setTimeout(() => resolve(), 100);
+          } catch (error) {
+            reject(error);
+          }
+        });
       },
     }),
     []

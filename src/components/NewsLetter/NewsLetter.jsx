@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { WithTransLate } from "../helpers/translating";
 import { useForm } from "react-hook-form";
 import useTranslateString from "../helpers/translating/useTranslateString";
@@ -8,8 +8,6 @@ import { HiOutlineExclamationCircle } from "react-icons/hi";
 
 function Newsletter() {
   const hiddenFormRef = useRef(null);
-  const [submitMessage, setSubmitMessage] = useState("");
-  const [submitError, setSubmitError] = useState("");
   const firstNamePlaceholder = useTranslateString("First name");
   const lastNamePlaceholder = useTranslateString("Last name");
   const emailPlaceholder = useTranslateString("Contact email");
@@ -17,8 +15,6 @@ function Newsletter() {
   const lastNameRequiredMessage = useTranslateString("Last name is required");
   const emailRequiredMessage = useTranslateString("Email is required");
   const emailInvalidMessage = useTranslateString("Enter a valid email");
-  const successMessage = useTranslateString("Thanks for signing up! Please, check your inbox soon.");
-  const fallbackMessage = useTranslateString("We couldn't submit your signup. Please, try again later.");
 
   const {
     register,
@@ -28,27 +24,19 @@ function Newsletter() {
   } = useForm();
 
   const onSubmit = async (data) => {
-    try {
-      if (!hiddenFormRef.current) {
-        throw new Error("Hidden form is not ready yet.");
-      }
-
-      setSubmitMessage("");
-      setSubmitError("");
-
-      const response = await hiddenFormRef.current.submitWithData({
-        email: data.email,
-        firstName: data.firstName,
-        lastName: data.lastName,
-      });
-
-      reset();
-      setSubmitMessage(successMessage);
-    } catch (error) {
-      // Surface the issue for debugging; consider surfacing a user-facing error.
-      console.error("Failed to submit newsletter signup", error);
-      setSubmitError(fallbackMessage);
+    if (!hiddenFormRef.current) {
+      console.error("Hidden form is not ready yet.");
+      return;
     }
+
+    await hiddenFormRef.current.submitWithData({
+      email: data.email,
+      firstName: data.firstName,
+      lastName: data.lastName,
+    });
+
+    // Reset form after submission - response will be shown in new tab
+    reset();
   };
 
   return (
@@ -145,20 +133,9 @@ function Newsletter() {
           </div>
 
           <div className={s.submitWrapper}>
-            {!submitMessage ? (
-              <>
             <button type="submit" disabled={isSubmitting} className={s.submit}>
               <WithTransLate text="Sign up" />
-                </button>
-            {submitError ? (
-              <p className={`${s.feedback} ${s.feedbackError}`}>
-                {submitError}
-              </p>
-            ) : null}
-              </>
-            ) : (
-              <p className={s.feedback}>{submitMessage}</p>
-            )}
+            </button>
           </div>
         </div>
       </form>
