@@ -10,29 +10,63 @@ $desktop: 80em;
   width: 100%;
 
   h2 {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
+    line-height: 1.625rem;
+    letter-spacing: -0.0625rem;
     font-weight: 700;
     text-transform: uppercase;
+    font-family: Oblik;
     color: var(--color-primary-500);
     text-align: center;
-  
-    @media (min-width: $smallScreen) {
-      width: 35rem;
+    max-width: 21.4375rem;
+    margin: 0 auto;
+  }
+
+  @media (min-width: $smallScreen) {
+    h2 {
+      font-size: 1.5rem;
+      line-height: 2rem;
+      max-width: 29.25rem;
     }
   }
 }
 
 .inputWrapper {
   display: flex;
-  gap: 2.6rem;
-  align-items: flex-start;
+  flex-direction: column;
+  align-items: center;
+  align-self: stretch;
+
+  inline-size: 90%;
+  margin-inline: auto;
+
+  padding: 0 1rem;
+
+  @media (min-width: $tablet) {
+    inline-size: 70%;
+  }
+
+  @media (min-width: $smallScreen) {
+    padding: 0;
+    flex-direction: row;
+    align-items: stretch;
+    gap: 2.6rem;
+
+    inline-size: 100%; 
+    margin-inline: auto;
+  }
 }
 
 .field {
   display: flex;
   flex-direction: column;
+  width: 100%;
   gap: 0.5rem;
-  width: 16.87rem;
+  align-self: stretch;
+
+  @media (min-width: $smallScreen) {
+    flex: 1 1 0;
+  }
 }
 
 .input {
@@ -43,6 +77,8 @@ $desktop: 80em;
   color: var(--color-primary-500);
   border: 1px solid var(--color-neutral-300);
   background-color: var(--color-neutral-100);
+  border-radius: 0;
+  appearance: none;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 
   &::placeholder {
@@ -71,8 +107,11 @@ $desktop: 80em;
 
 .errorMessage {
   color: var(--color-error-500);
-  font-size: 0.875rem;
-  line-height: 1.2;
+  font-size: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.2rem;
+
 }
 
 .errorSpace {
@@ -82,13 +121,23 @@ $desktop: 80em;
   color: transparent;
 }
 
+.submitWrapper {
+  width: 100%;
+
+  @media (min-width: $smallScreen) {
+    flex: 1 1 0;
+    max-inline-size: 13.62rem;
+  }
+}
+
 .submit {
   display: flex;
   align-items: center;
   justify-content: center;
+  align-self: stretch;
 
-  width: 13.62rem;
   height: 3rem;
+  width: 100%;
   border: 1px solid transparent;
   text-decoration: none;
   cursor: pointer;
@@ -101,6 +150,12 @@ $desktop: 80em;
 
   background-color: var(--color-primary-500);
   color: var(--color-neutral-100);
+
+  @media (min-width: $smallScreen) {
+    flex: 1 1 0;
+    max-inline-size: 13.62rem;
+  }
+
 
   &:focus-visible {
     outline: 2px solid currentColor;
@@ -118,9 +173,25 @@ $desktop: 80em;
     color: var(--color-neutral-400);
     border-color: var(--color-neutral-200);
   }
+
 }
 
+.feedback {
+  font-size: 1rem;
+  text-align: center;
+  margin-bottom: 0; // Workaround: overwrites bootstrap styling
+  color: var(--color-primary-500);
 
+  @media (min-width: $smallScreen) {
+    flex: 1 1 0;
+    max-inline-size: 13.62rem;
+  }
+}
+
+.feedbackError {
+  color: var(--color-error-500);
+  padding-top: .5rem;
+}
 
 /* Visually hidden but accessibl for screen readers */
 .sr-only {
