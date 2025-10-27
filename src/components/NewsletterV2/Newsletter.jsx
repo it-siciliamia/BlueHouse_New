@@ -13,6 +13,10 @@ function Newsletter() {
   const firstNamePlaceholder = useTranslateString("First name");
   const lastNamePlaceholder = useTranslateString("Last name");
   const emailPlaceholder = useTranslateString("Contact email");
+  const firstNameRequiredMessage = useTranslateString("First name is required");
+  const lastNameRequiredMessage = useTranslateString("Last name is required");
+  const emailRequiredMessage = useTranslateString("Email is required");
+  const emailInvalidMessage = useTranslateString("Enter a valid email");
   const successMessage = useTranslateString("Thanks for signing up! Please, check your inbox soon.");
   const fallbackMessage = useTranslateString("We couldn't submit your signup. Please, try again later.");
 
@@ -72,7 +76,7 @@ function Newsletter() {
               aria-describedby={
                 errors.firstName ? "firstName-error" : undefined
               }
-              {...register("firstName", { required: "First name is required" })}
+              {...register("firstName", { required: firstNameRequiredMessage })}
               className={
                 errors.firstName ? `${s.input} ${s.inputError}` : s.input
               }
@@ -96,7 +100,7 @@ function Newsletter() {
               autoComplete="family-name"
               aria-invalid={!!errors.lastName || undefined}
               aria-describedby={errors.lastName ? "lastName-error" : undefined}
-              {...register("lastName", { required: "Last name is required" })}
+              {...register("lastName", { required: lastNameRequiredMessage })}
               className={
                 errors.lastName ? `${s.input} ${s.inputError}` : s.input
               }
@@ -123,8 +127,11 @@ function Newsletter() {
               aria-invalid={!!errors.email || undefined}
               aria-describedby={errors.email ? "email-error" : undefined}
               {...register("email", {
-                required: "Email is required",
-                pattern: { value: /^\S+@\S+$/, message: "Enter a valid email" },
+                required: emailRequiredMessage,
+                pattern: {
+                  value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                  message: emailInvalidMessage,
+                },
               })}
               className={errors.email ? `${s.input} ${s.inputError}` : s.input}
             />
