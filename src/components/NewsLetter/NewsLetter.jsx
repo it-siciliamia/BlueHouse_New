@@ -15,6 +15,12 @@ function Newsletter() {
   const lastNameRequiredMessage = useTranslateString("Last name is required");
   const emailRequiredMessage = useTranslateString("Email is required");
   const emailInvalidMessage = useTranslateString("Enter a valid email");
+  const firstNameTooShortMessage = useTranslateString(
+    "First name: min 2 characters"
+  );
+  const lastNameTooShortMessage = useTranslateString(
+    "Last name: min 2 characters"
+  );
 
   const {
     register,
@@ -64,7 +70,15 @@ function Newsletter() {
               aria-describedby={
                 errors.firstName ? "firstName-error" : undefined
               }
-              {...register("firstName", { required: firstNameRequiredMessage })}
+              {...register("firstName", {
+                required: firstNameRequiredMessage,
+                validate: {
+                  notBlank: (value) =>
+                    value.trim() !== "" || firstNameRequiredMessage,
+                  minLength: (value) =>
+                    value.trim().length >= 2 || firstNameTooShortMessage,
+                },
+              })}
               className={
                 errors.firstName ? `${s.input} ${s.inputError}` : s.input
               }
@@ -88,7 +102,15 @@ function Newsletter() {
               autoComplete="family-name"
               aria-invalid={!!errors.lastName || undefined}
               aria-describedby={errors.lastName ? "lastName-error" : undefined}
-              {...register("lastName", { required: lastNameRequiredMessage })}
+              {...register("lastName", {
+                required: lastNameRequiredMessage,
+                validate: {
+                  notBlank: (value) =>
+                    value.trim() !== "" || lastNameRequiredMessage,
+                  minLength: (value) =>
+                    value.trim().length >= 2 || lastNameTooShortMessage,
+                },
+              })}
               className={
                 errors.lastName ? `${s.input} ${s.inputError}` : s.input
               }
