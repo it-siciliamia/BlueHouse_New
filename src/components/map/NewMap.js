@@ -11,12 +11,13 @@ const NewMap = () => {
   const location = useLocation();
   const [mapType, setMapType] = useState("roadmap");
   const [isFullScreen, setIsFullScreen] = useState(false);
+  const [isMapActive, setIsMapActive] = useState(false);
   const iframeRef = useRef(null);
 
   // ✅ FIX: Add error handling for async response errors
   useEffect(() => {
     const handleUnhandledRejection = (event) => {
-      if (event.reason && event.reason.message && 
+      if (event.reason && event.reason.message &&
           event.reason.message.includes('message channel closed')) {
         // Suppress this specific error from browser extensions
         event.preventDefault();
@@ -25,11 +26,37 @@ const NewMap = () => {
     };
 
     window.addEventListener('unhandledrejection', handleUnhandledRejection);
-    
+
     return () => {
       window.removeEventListener('unhandledrejection', handleUnhandledRejection);
     };
   }, []);
+
+  // Deactivate map on scroll/click outside to prevent zoom while scrolling page
+  useEffect(() => {
+    const handleInteraction = (event) => {
+      if (isMapActive) {
+        const mapContainer = document.getElementById('MAP');
+        if (mapContainer && !mapContainer.contains(event.target)) {
+          setIsMapActive(false);
+        }
+      }
+    };
+
+    const handleScroll = () => {
+      if (isMapActive) {
+        setIsMapActive(false);
+      }
+    };
+
+    document.addEventListener('click', handleInteraction);
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      document.removeEventListener('click', handleInteraction);
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [isMapActive]);
 
   const handleButtonClick = (newMapType) => {
     setMapType(newMapType);
@@ -52,6 +79,10 @@ const NewMap = () => {
 
   const handleCloseFullScreen = () => {
     setIsFullScreen(false);
+  };
+
+  const handleMapClick = () => {
+    setIsMapActive(true);
   };
 
   const buttonStyles = (active) => ({
@@ -186,6 +217,23 @@ const NewMap = () => {
             aria-hidden="false"
             tabIndex="0"
           ></iframe>
+
+          {/* Overlay to prevent scroll zoom / click to activate map */}
+          <div
+            onClick={handleMapClick}
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              width: "100%",
+              height: "100%",
+              zIndex: 2,
+              cursor: isMapActive ? "default" : "pointer",
+              backgroundColor: "transparent",
+              pointerEvents: isMapActive ? "none" : "auto",
+            }}
+            title={isMapActive ? "" : "Click to interact with map"}
+          />
         </div>
       )}
 
