@@ -8,6 +8,11 @@ $desktop: 80em;
   align-items: center;
   gap: 2rem;
   width: 100%;
+  margin-bottom: 4rem;
+
+  @media (min-width: $smallScreen) {
+    margin-bottom: 0;
+  }
 
   h2 {
     font-size: 1.25rem;
