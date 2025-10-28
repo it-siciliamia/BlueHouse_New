@@ -2,7 +2,7 @@ import { useRef } from "react";
 import { WithTransLate } from "../helpers/translating";
 import { useForm } from "react-hook-form";
 import useTranslateString from "../helpers/translating/useTranslateString";
-import s from "./NewsLetter.module.scss";
+import s from "./Newsletter.module.scss";
 import HiddenFormScript from "./HiddenFormScript";
 import { HiOutlineExclamationCircle } from "react-icons/hi";
 
