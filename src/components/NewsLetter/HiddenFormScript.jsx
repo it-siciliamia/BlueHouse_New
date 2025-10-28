@@ -1,0 +1,249 @@
+import {
+  forwardRef,
+  useEffect,
+  useImperativeHandle,
+  useRef,
+} from "react";
+
+const ZOHO_OPTIN_FORM_SELECTOR = "#zcampaignOptinForm";
+const ZOHO_FORM_ACTION = "https://oqix-zcmp.maillist-manage.eu/weboptin.zc";
+
+const HIDDEN_FORM_HTML = `
+          <script type="text/javascript" src="https://oqix-zcmp.maillist-manage.eu/js/optin.min.js" onload="setupSF('sf3zf5b83c701f03b01a7fdb0983b13eede0fa276bd78b1c824573c795f1545b492a','ZCFORMVIEW',false,'acc',false,'2')"></script>
+          <script type="text/javascript">
+            function runOnFormSubmit_sf3zf5b83c701f03b01a7fdb0983b13eede0fa276bd78b1c824573c795f1545b492a(th){
+              /*Before submit, if you want to trigger your event, "include your code here"*/
+          </script>
+
+<meta content="width=device-width,initial-scale=1.0 name="viewport">
+<div id="sf3zf5b83c701f03b01a7fdb0983b13eede0fa276bd78b1c824573c795f1545b492a" data-type="signupform">
+    <input type="hidden" id="recapTheme" value="2">
+    <input type="hidden" id="isRecapIntegDone" value="false">
+    <input type="hidden" id="signupFormType" value="LargeForm_Vertical">
+    <div id="customForm">
+        <div name="SIGNUP_PAGE" class="large_form_7_css" id="SIGNUP_PAGE">
+            <div name="" changeid="" changename="">
+                <div id="imgBlock" name="LOGO_DIV" logo="true"></div>
+            </div>
+            <br>
+            <div id="signupMainDiv" name="SIGNUPFORM" changeid="SIGNUPFORM" changename="SIGNUPFORM">
+                <div>
+                    <div class="" style="position:relative;">
+                        <div id="Zc_SignupSuccess" style="display:none;position:absolute;margin-left:4%;width:90%;background-color: white; padding: 3px; border: 3px solid rgb(194, 225, 154); margin-top: 10px;margin-bottom:10px;word-break:break-all ">
+                            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                                <tbody>
+                                    <tr>
+                                        <td width="10%">
+                                            <img class="successicon" src="https://oqix-zcmp.maillist-manage.eu/images/challangeiconenable.jpg" align="absmiddle">
+                                        </td>
+                                        <td>
+                                            <span id="signupSuccessMsg" style="color: rgb(73, 140, 132); font-family: sans-serif; font-size: 14px;word-break:break-word"> Thank you for Signing Up</span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <form class="newsletterForm"  id="zcampaignOptinForm">
+                        <div id="SIGNUP_BODY_ALL" name="SIGNUP_BODY_ALL">
+                            <h1 id="SIGNUP_HEADING" name="SIGNUP_HEADING" changeid="SIGNUP_MSG" changetype="SIGNUP_HEADER">
+                                <span></span>
+                            </h1>
+                            <div  id="SIGNUP_BODY" name="SIGNUP_BODY">
+                                <div>
+                                    <div class="" changeid="SIGNUP_MSG" id="SIGNUP_DESCRIPTION" changetype="SIGNUP_DESCRIPTION"></div>
+                                    <div id="errorMsgDiv"></div>
+                                    <div class="wrapper">
+                                        <div  name="fieldsdivSf" class="zcsffieldsdiv newsletter_form">
+                                            <div class="zcsffield inputWrapper" fieldid="62644000000000015">
+                                                <div><!-- check to mark emailid field as type email, and other mandatory fields as type required -->
+                                                    <input maxlength="100" placeholder="Contact Email" name="CONTACT_EMAIL" changeitem="SIGNUP_FORM_FIELD" type="email">
+                                                    <span name="SIGNUP_REQUIRED"></span>
+                                                    <span style="display:none" id="dt_CONTACT_EMAIL">1,true,6,Contact Email,2</span>
+                                                </div>
+
+                                        <div></div>
+
+                                            
+                                            </div>
+                                             <div class="zcsffield inputWrapper" fieldid="62644000000000021">
+                                                <div><!-- check to mark emailid field as type email, and other mandatory fields as type required -->
+                                                    <input maxlength="50" placeholder="Last Name" name="LASTNAME" changeitem="SIGNUP_FORM_FIELD" type="text">
+                                                      <span name="SIGNUP_REQUIRED"></span>
+                                                    <span style="display:none" id="dt_LASTNAME">1,false,1,Last Name,2</span>
+                                                </div><div></div></div>
+                                            <div  class="zcsffield inputWrapper" fieldid="62644000000000019">
+                                                <div><!-- check to mark emailid field as type email, and other mandatory fields as type required -->
+                                                    <input maxlength="50"
+
+                                                    
+
+                                                    
+
+                                                    
+
+                                                    name="FIRSTNAME" changeitem="SIGNUP_FORM_FIELD" type="text">
+                                                      <span name="SIGNUP_REQUIRED"></span>
+                                                    <span style="display:none" id="dt_FIRSTNAME">1,false,1,First Name,2</span>
+                                                </div><div></div></div>
+
+                                        </div><!-- Captcha for Signup -->
+                                        <div style="padding: 10px 0px 10px 10px;display:none " id="captchaOld" name="captchaContainer">
+                                            <div>
+                                                <div id="captchaParent">
+                                                    <img src="//campaigns.zoho.eu/images/refresh_icon.png" onclick="loadCaptcha('https://campaigns.zoho.eu/campaigns/CaptchaVerify.zc?mode=generate',this,'#sf3zf5b83c701f03b01a7fdb0983b13eede0fa276bd78b1c824573c795f1545b492a');" id="relCaptcha">
+                                                    <div id="captchaDiv" captcha="true" name=""></div>
+                                                    <input placeholder="Captcha" id="captchaText" name="captchaText" changeitem="SIGNUP_FORM_FIELD" maxlength="100" type="text">
+                                                    <span name="SIGNUP_REQUIRED" id="capRequired">*</span>
+                                                </div>
+                                            </div><div></div></div>
+                                        <input type="hidden" id="secretid" value="6LdNeDUUAAAAAG5l7cJfv1AA5OKLslkrOa_xXxLs"><!-- Captcha for Signup End--><!-- Other Lists Subscription Start--><div></div>
+                                        <div id="REQUIRED_FIELD_TEXT" changetype="REQUIRED_FIELD_TEXT" name="SIGNUP_REQUIRED"></div>
+                                        <div class="inputWrapper">
+                                            <input class="newsletter_button" type="button" action="Save" id="zcWebOptin" name="SIGNUP_SUBMIT_BUTTON" changetype="SIGNUP_SUBMIT_BUTTON_TEXT" value="Sign Up">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!-- Do not edit the below Zoho Campaigns hidden tags -->
+                            <input type="hidden" id="fieldBorder" value="rgb(238, 238, 238)">
+                            <input type="hidden" name="zc_trackCode" id="zc_trackCode" value="ZCFORMVIEW" onload="">
+                            <input type="hidden" name="viewFrom" id="viewFrom" value="URL_ACTION">
+                            <input type="hidden" id="submitType" name="submitType" value="optinCustomView">
+                            <input type="hidden" id="lD" name="lD" value="1de8e62d757f2bf">
+                            <input type="hidden" name="emailReportId" id="emailReportId" value="">
+                            <input type="hidden" name="zx" id="cmpZuid" value="14acf032a4">
+                            <input type="hidden" name="zcvers" value="2.0">
+                            <input type="hidden" name="oldListIds" id="allCheckedListIds" value="">
+                            <input type="hidden" id="mode" name="mode" value="OptinCreateView">
+                            <input type="hidden" id="zcld" name="zcld" value="1de8e62d757f2bf">
+                            <input type="hidden" id="zctd" name="zctd" value="1de8e62d74f99d9">
+                            <input type="hidden" id="document_domain" value="campaigns.zoho.eu">
+                            <input type="hidden" id="zc_Url" value="oqix-zcmp.maillist-manage.eu">
+                            <input type="hidden" id="new_optin_response_in" value="0">
+                            <input type="hidden" id="duplicate_optin_response_in" value="0">
+                            <input type="hidden" id="zc_formIx" name="zc_formIx" value="3zf5b83c701f03b01a7fdb0983b13eede0fa276bd78b1c824573c795f1545b492a"><!-- End of the campaigns hidden tags --></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <input type="hidden" id="isCaptchaNeeded" value="true">
+        <input type="hidden" id="superAdminCap" value="0">
+        <img src="https://oqix-zcmp.maillist-manage.eu/images/spacer.gif" id="refImage" style="display:none;">
+    </div>
+</div>
+<div id="zcOptinOverLay" oncontextmenu="return false" style="display:none;text-align: center; background-color: rgb(0, 0, 0); opacity: 0.5; z-index: 100; position: fixed; width: 100%; top: 0px; left: 0px; height: 988px;"></div>
+<div id="zcOptinSuccessPopup" style="display:none;z-index: 9999;width: 800px; height: 40%;top: 84px;position: fixed; left: 26%;background-color: #FFFFFF;border-color: #E6E6E6; border-style: solid; border-width: 1px; box-shadow: 0 1px 10px #424242;padding: 35px;">
+    <span style="position: absolute;top: -16px;right:-14px;z-index:99999;cursor: pointer;" id="closeSuccess">
+        <img src="https://oqix-zcmp.maillist-manage.eu/images/videoclose.png">
+    </span>
+    <div id="zcOptinSuccessPanel"></div>
+</div>
+          `;
+
+// Map React form values to the Zoho field names that the injected form expects
+const toZohoFieldValues = ({ email, firstName, lastName }) => ({
+  CONTACT_EMAIL: email,
+  FIRSTNAME: firstName,
+  LASTNAME: lastName,
+});
+
+// Trigger the events that Zoho's scripts listen to after programmatic value changes
+const dispatchValueEvents = (input) => {
+  input.dispatchEvent(new Event("input", { bubbles: true }));
+  input.dispatchEvent(new Event("change", { bubbles: true }));
+};
+
+// Fill the visible Zoho fields with the React values and return the touched inputs
+const fillZohoFields = (form, values) =>
+  Object.entries(values).map(([name, value]) => {
+    const input = form.querySelector(`[name="${name}"]`);
+    if (!input) {
+      return null;
+    }
+
+    input.value = value ?? "";
+    dispatchValueEvents(input);
+    return input;
+  });
+
+const HiddenFormScript = forwardRef(function HiddenFormScript(_, ref) {
+  const containerRef = useRef(null);
+  const formRef = useRef(null);
+
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) {
+      return;
+    }
+
+    const assignFormRef = () => {
+      // The hidden form is injected by Zoho's script; grab it once it exists.
+      const form = container.querySelector(ZOHO_OPTIN_FORM_SELECTOR);
+      if (!form) {
+        return false;
+      }
+      formRef.current = form;
+      return true;
+    };
+
+    if (assignFormRef()) {
+      return;
+    }
+
+    const observer = new MutationObserver(() => {
+      if (assignFormRef()) {
+        observer.disconnect();
+      }
+    });
+
+    observer.observe(container, { childList: true, subtree: true });
+
+    return () => observer.disconnect();
+  }, []);
+
+  useImperativeHandle(
+    ref,
+    () => ({
+      submitWithData({ email, firstName, lastName }) {
+        return new Promise((resolve, reject) => {
+          try {
+            // Guard against submissions before the Zoho script has hydrated the form.
+            const form = formRef.current;
+
+            if (!form) {
+              throw new Error("Zoho form is not ready yet.");
+            }
+
+            // Populate Zoho inputs so the outgoing payload mirrors the React form data.
+            fillZohoFields(
+              form,
+              toZohoFieldValues({ email, firstName, lastName })
+            );
+
+            // Set form to submit in a new tab
+            form.setAttribute("action", ZOHO_FORM_ACTION);
+            form.setAttribute("method", "POST");
+            form.setAttribute("target", "_blank");
+
+            // Submit the form - browser will open response in new tab
+            form.submit();
+
+            // Resolve after a brief delay to ensure submission was queued
+            setTimeout(() => resolve(), 100);
+          } catch (error) {
+            reject(error);
+          }
+        });
+      },
+    }),
+    []
+  );
+
+  return (
+    <div ref={containerRef} style={{ display: "none" }}>
+      <div dangerouslySetInnerHTML={{ __html: HIDDEN_FORM_HTML }} />
+    </div>
+  );
+});
+
+export default HiddenFormScript;

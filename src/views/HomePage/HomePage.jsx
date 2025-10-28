@@ -13,6 +13,7 @@ import FollowUs from "../../components/FollowUs/FollowUs.jsx";
 
 import s from "./HomePage.module.scss";
 import ReviewSection from "../../components/ReviewSlider/ReviewSection.jsx";
+import Newsletter from "../../components/Newsletter/Newsletter.jsx";
 
 const GALLERY_BACKGROUND_IMAGES_AND_TITLES = [
   { background: roomsImage, title: "Rooms" },
@@ -52,6 +53,7 @@ export default function HomePage() {
       <ReviewSection />
       <FollowUs />
       <Support />
+      <Newsletter />
     </div>
   );
 }
