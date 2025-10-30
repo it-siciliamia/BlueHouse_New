@@ -37,7 +37,7 @@ const SOCIAL_LINKS = Object.freeze([
     name: "Youtube",
     icon: Youtube,
     type: "external",
-    href: "https://youtube.com/@bluehousebbiceland1339?si=OCqKpXhElbK9J-SZ",
+    href: "https://www.youtube.com/channel/UCHwb5_DHT9B3iysOexwyH9A",
     newTab: true
   },
 ]);
