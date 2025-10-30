@@ -5,6 +5,7 @@ $tablet: 48em; // ~768px
 
 .section {
   padding: 1rem 2rem;
+  margin-bottom: 2.5rem;
 
   display: flex;
   flex-direction: column;
@@ -19,6 +20,7 @@ $tablet: 48em; // ~768px
 
   @media (min-width: $smallScreen) {
     padding: 1rem 0;
+    margin-bottom: 6.5rem;
   }
 
   @media (min-width: $desktop) {

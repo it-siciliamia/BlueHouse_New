@@ -3,6 +3,11 @@
   display: flex;
   justify-content: center;
   margin-top: 80px;
+  margin-bottom: 2.5rem;
+
+  @media (min-width: 60em) {
+    margin-bottom: 4.5rem;
+  }
 }
 
 .frame {
