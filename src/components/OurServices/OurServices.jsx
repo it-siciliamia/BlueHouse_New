@@ -1,6 +1,6 @@
 import React from "react";
 import { WithTransLate } from "../helpers/translating/index";
-import useBreakpoints from "../../Styles/useBreakpoints";
+import useBreakpoints from "../../Styles/useBreakpointsNew";
 //import DifferentLocations from "./ServicesType/DifferentLocations"; //! muted
 //import SelfCheckIn from "./ServicesType/selfCheckIn"; //! muted
 //import CheapestPrice from "./ServicesType/CheapestPrice"; //! muted
@@ -48,8 +48,8 @@ const OurServices = () => {
               className={s.imageContainer}
               style={{
                 // same sizing logic for all icons
-                height: isDesktop ? "58px" : "48px",
-                width: isDesktop ? "58px" : "48px",
+                height: "34.3px",
+                width: "34.3px" 
               }}
             >
               <img src={icon} alt="Service Icon" className={s.icon} />
