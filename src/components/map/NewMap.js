@@ -133,7 +133,7 @@ const NewMap = () => {
                 ? "block"
                 : "none",
             position: "relative",
-            margin: isMobile || isTablet ? "50px 0" : "90px 0",
+            margin: isMobile || isTablet ? "50px 0" : "0 0 2.5rem 0",
             width: "100%",
             height: !isDesktop ? "490px" : "590px",
             overflow: "hidden",

@@ -115,6 +115,7 @@ $tablet: 48em; // ~768px
   color: var(--color-primary-400);
   width: 1.1rem;
   height: 1.1rem;
+  flex-shrink: 0;
 }
 
 .link {
@@ -139,7 +140,18 @@ $tablet: 48em; // ~768px
   @media (min-width: $laptop) {
     flex-direction: row;
     justify-content: flex-start;
-    align-items: center;
+    align-items: flex-start;
+    text-align: left;
+    gap: 0.75rem;
+  }
+}
+
+.addressText {
+  @media (min-width: $laptop) {
+    display: block;
+    text-align: left;
+    line-height: 1.4;
+    max-width: 13rem;
   }
 }
 

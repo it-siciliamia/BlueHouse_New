@@ -9,12 +9,13 @@ import useBreakpoints from "../../Styles/useBreakpointsNew";
 
 function SiteMap({ title, data }) {
   const RenderLink = (metadata) => {
+    const isMapLink = metadata?.id === "map";
     const icon = metadata?.icon ? (
       <img src={metadata.icon} alt="" className={s.image} />
     ) : null;
 
     const label = (
-      <span>
+      <span className={isMapLink ? s.addressText : undefined}>
         <WithTransLate text={metadata?.name ?? ""} />
       </span>
     );
