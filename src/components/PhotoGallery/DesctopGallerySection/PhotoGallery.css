@@ -4,7 +4,7 @@
 
 .accom {
   background: #fff;
-  padding: 56px 0 72px;
+  padding: 45px 0 72px;
   /* Force hardware acceleration */
   transform: translate3d(0, 0, 0);
   /* Paint optimization */

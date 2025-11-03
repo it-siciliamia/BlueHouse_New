@@ -1,6 +1,6 @@
 import React from "react";
 import { WithTransLate } from "../helpers/translating/index";
-import useBreakpoints from "../../Styles/useBreakpoints";
+import useBreakpoints from "../../Styles/useBreakpointsNew";
 //import DifferentLocations from "./ServicesType/DifferentLocations"; //! muted
 //import SelfCheckIn from "./ServicesType/selfCheckIn"; //! muted
 //import CheapestPrice from "./ServicesType/CheapestPrice"; //! muted
@@ -41,16 +41,11 @@ const OurServices = () => {
             // Cards are non-interactive: no onClick, no modal
             style={{
               // paddingTop: "20px", // same padding for all cards
-              gap: isDesktop ? "20px" : isMobile ? "15px" : "20px", // unified spacing logic
+              gap: isDesktop ? "14.84px" : isMobile ? "15px" : "14.84px", // unified spacing logic
             }}
           >
             <div
               className={s.imageContainer}
-              style={{
-                // same sizing logic for all icons
-                height: isDesktop ? "58px" : "48px",
-                width: isDesktop ? "58px" : "38px",
-              }}
             >
               <img src={icon} alt="Service Icon" className={s.icon} />
             </div>
