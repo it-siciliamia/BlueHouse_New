@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 
 import logo from "../../images/logo.svg";
-import Search from "./search.js";
+import Search from "./Search.jsx";
 import LinkButton from "../Shared/ui/Link.jsx";
 import MenuIcon from "../../images/MenuIcon_Header.svg";
 import { WithTransLate } from "../helpers/translating/index.js";
