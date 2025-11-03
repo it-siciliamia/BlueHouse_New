@@ -46,11 +46,6 @@ const OurServices = () => {
           >
             <div
               className={s.imageContainer}
-              style={{
-                // same sizing logic for all icons
-                height: "34.3px",
-                width: "34.3px" 
-              }}
             >
               <img src={icon} alt="Service Icon" className={s.icon} />
             </div>
