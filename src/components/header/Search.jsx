@@ -1,7 +1,6 @@
-import React, { useState, useRef, useCallback, useMemo, useEffect } from "react";
+import { useState, useRef, useCallback, useMemo, useEffect } from "react";
 import { InputBase } from "@material-ui/core";
-import { useClickOutside } from "../../hooks/useClickOutside";
-import useBreakpointsNew from "../../Styles/useBreakpointsNew";
+import useBreakpoints from "../../Styles/useBreakpointsNew";
 import SearchIcon from "../../images/SearchIcon_Header.svg";
 import CloseIcon from "../../images/close-white.svg";
 import keywords from "./keywords.json";
@@ -12,7 +11,7 @@ export default function Search({ onSearchToggle }) {
   const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);
   const ref = useRef();
-  const { isDesktop } = useBreakpointsNew();
+  const { isDesktop } = useBreakpoints();
 
   const handleSearch = useCallback((value) => {
     setQuery(value);
@@ -53,6 +52,13 @@ export default function Search({ onSearchToggle }) {
     [results, handleSelect]
   );
 
+  const closeSearch = useCallback(() => {
+    setOpen(false);
+    setQuery("");
+    setResults([]);
+    if (onSearchToggle) onSearchToggle(false);
+  }, [onSearchToggle]);
+
   const handleToggle = useCallback(() => {
     setOpen((prev) => !prev);
   }, []);
@@ -67,12 +73,21 @@ export default function Search({ onSearchToggle }) {
     }
   }, [open, onSearchToggle]);
 
-  useClickOutside(ref, () => {
-    setOpen(false);
-    setQuery("");
-    setResults([]);
-    if (onSearchToggle) onSearchToggle(false);
-  });
+  // Close search when clicking outside
+  useEffect(() => {
+    if (!open) {
+      return;
+    }
+
+    const handleClickOutside = (event) => {
+      if (ref.current && !ref.current.contains(event.target)) {
+        closeSearch();
+      }
+    };
+
+    document.addEventListener("click", handleClickOutside);
+    return () => document.removeEventListener("click", handleClickOutside);
+  }, [open, closeSearch]);
 
   const inputWrapperClass = useMemo(() => {
     const baseClass = isDesktop ? s.inputWrapperDesktop : s.inputWrapperMobile;
