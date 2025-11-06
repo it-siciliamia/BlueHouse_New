@@ -50,22 +50,19 @@ $desktop: 80em;
 
 .menuBtn {
   padding: 0;
-  margin: 9.39px 3.31px;
+  margin: 0;
   border: none;
   background: none;
+  width: 48px;
+  height: 48px;
 }
 .menuBtn--hidden {
   visibility: hidden;
 }
 
 .menuImg {
-  width: 30px;
-  height: 25px;
-
-  @media (min-width: $laptop) {
-    width: 40px;
-    height: 30px;
-  }
+  width: 48px;
+  height: 48px;
 }
 
 .btnCorrection {
