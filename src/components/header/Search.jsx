@@ -1,4 +1,4 @@
-import { useState, useRef, useCallback, useMemo, useEffect } from "react";
+import { useState, useCallback, useMemo, useEffect, useRef } from "react";
 import { InputBase } from "@material-ui/core";
 import useBreakpoints from "../../Styles/useBreakpointsNew";
 import SearchIcon from "../../images/SearchIcon_Header.svg";
@@ -10,7 +10,7 @@ export default function Search({ onSearchToggle }) {
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);
-  const ref = useRef();
+  const containerRef = useRef(null);
   const { isDesktop } = useBreakpoints();
 
   const handleSearch = useCallback((value) => {
@@ -52,42 +52,50 @@ export default function Search({ onSearchToggle }) {
     [results, handleSelect]
   );
 
+  // Close search (used by close button in the mobile version)
   const closeSearch = useCallback(() => {
     setOpen(false);
     setQuery("");
     setResults([]);
-    if (onSearchToggle) onSearchToggle(false);
-  }, [onSearchToggle]);
+  }, []);
 
   const handleToggle = useCallback(() => {
     setOpen((prev) => !prev);
   }, []);
 
+  // Handle `open` state
   useEffect(() => {
-    if (onSearchToggle) {
-      onSearchToggle(open);
-    }
+    onSearchToggle?.(open);
+
     if (!open) {
+      // Clear search state when closing
       setQuery("");
       setResults([]);
-    }
-  }, [open, onSearchToggle]);
-
-  // Close search when clicking outside
-  useEffect(() => {
-    if (!open) {
       return;
     }
 
+    // Setup listeners when opening
     const handleClickOutside = (event) => {
-      if (ref.current && !ref.current.contains(event.target)) {
-        closeSearch();
+      if (containerRef.current && !containerRef.current.contains(event.target)) {
+        setOpen(false);
+      }
+    };
+
+    const handleEscapeKey = (event) => {
+      if (event.key === "Escape") {
+        setOpen(false);
       }
     };
 
     document.addEventListener("click", handleClickOutside);
-    return () => document.removeEventListener("click", handleClickOutside);
-  }, [open, closeSearch]);
+    document.addEventListener("keydown", handleEscapeKey);
+
+    // Cleanup listeners
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+      document.removeEventListener("keydown", handleEscapeKey);
+    };
+  }, [open, onSearchToggle]);
 
   const inputWrapperClass = useMemo(() => {
     const baseClass = isDesktop ? s.inputWrapperDesktop : s.inputWrapperMobile;
@@ -95,7 +103,7 @@ export default function Search({ onSearchToggle }) {
   }, [isDesktop, open]);
 
   return (
-    <div className={s.searchContainer} ref={ref}>
+    <div className={s.searchContainer} ref={containerRef}>
       <button
         className={s.searchToggle}
         onClick={handleToggle}
@@ -116,11 +124,7 @@ export default function Search({ onSearchToggle }) {
         />
 
         {!isDesktop && (
-          <button
-            onClick={handleToggle}
-            className={s.closeBtn}
-            aria-label="Close search"
-          >
+          <button onClick={closeSearch} className={s.closeBtn} aria-label="Close search">
             <img src={CloseIcon} alt="Close" />
           </button>
         )}
