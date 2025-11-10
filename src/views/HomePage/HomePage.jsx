@@ -1,5 +1,5 @@
 import HomeHeader from "./HomeHeader.jsx";
-import PhotoGallery from "../../components/PhotoGallery/DesctopGallerySection/photoGallery.js";
+import PhotoGallery from "../../components/PhotoGallery/DesctopGallerySection/photoGallery.jsx";
 import OurServices from "../../components/OurServices/OurServices.jsx";
 import BookingWrapper from "../../components/BookingWrapper/BookingWrapper.jsx";
 import roomsImage from "../../images/gallery/rooms.svg";

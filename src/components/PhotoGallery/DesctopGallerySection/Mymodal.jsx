@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useCallback, useState } from "react";
 import PropTypes from "prop-types";
 import { createPortal } from "react-dom";
-import "./MyModal.css";
+import "./MyModal.scss";
 import customModalData from "../../Shared/CustomModal/customModalData";
 import { WithTransLate } from "../../helpers/translating";
 import Link from "../../Shared/ui/Link";
