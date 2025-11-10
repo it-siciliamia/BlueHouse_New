@@ -5,10 +5,10 @@ import BookingWrapper from "../../components/BookingWrapper/BookingWrapper.jsx";
 import roomsImage from "../../images/gallery/rooms.svg";
 import housesImage from "../../images/gallery/houseBB2.svg";
 import surroundingsImage from "../../images/gallery/surroundings.svg";
-import Support from "../../components/SuportComponent/support.js";
+import Support from "../../components/SuportComponent/support.jsx";
 import Recommendations from "../../components/Recommendations/Recommendations.jsx";
 import SaveUpTo10 from "../../components/SaveUpTo10/SaveUpTo10.jsx";
-import BlogPart from "../../components/BlogComponent/Blog.js";
+import BlogPart from "../../components/BlogComponent/Blog.jsx";
 import FollowUs from "../../components/FollowUs/FollowUs.jsx";
 
 import s from "./HomePage.module.scss";

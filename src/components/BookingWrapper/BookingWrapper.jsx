@@ -1,8 +1,8 @@
 import React from "react";
-import Button from "../../components/Shared/Button/Button";
+import Button from "../../components/Shared/Button/Button.jsx";
 import "./BookingWrapper.css";
 import { WithTransLate } from "../../components/helpers/translating";
-import useBreakpoints from "../../Styles/useBreakpoints";
+import useBreakpoints from "../../Styles/useBreakpoints.js";
 import { Typography } from "@mui/material";
 
 const BookingWrapper = () => {

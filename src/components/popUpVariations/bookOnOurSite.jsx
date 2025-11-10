@@ -1,9 +1,9 @@
 import { makeStyles, Typography , Grid } from "@material-ui/core";
-import PopUpVariationMainLayout from "./popUpVariationMainLayout";
+import PopUpVariationMainLayout from "./popUpVariationMainLayout.jsx";
 import originalSideImage from "../../images/popUpVariations/BOOKONOURSITE.jpg";
 import BHlogo from "../../images/popUpVariations/bluehouse.svg";
 import replaceImage from "../../images/popUpVariations/replace/BOOKONOURSITE.svg";
-import { WithTransLate } from "../helpers/translating/index";
+import { WithTransLate } from "../helpers/translating/index.jsx";
 
 
 const useStyles = makeStyles((theme) => ({

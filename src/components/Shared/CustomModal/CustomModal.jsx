@@ -1,11 +1,11 @@
 import React, { useState, useContext } from "react";
 import "../../../Styles/CustomModal.css";
 import { Modal, makeStyles } from "@material-ui/core";
-import { UserContext } from "../../../App";
+import { UserContext } from "../../../App.jsx";
 import LinearProgress from "@material-ui/core/LinearProgress";
 import Typography from "@material-ui/core/Typography";
-import customModalData from "./customModalData";
-import { WithTransLate } from "../../helpers/translating/index";
+import customModalData from "./customModalData.js";
+import { WithTransLate } from "../../helpers/translating/index.jsx";
 import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({

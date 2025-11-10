@@ -4,7 +4,7 @@ import supportIcon from "../../images/support/support.svg";
 import faqIcon from "../../images/support/faq.svg";
 import forumIcon from "../../images/support/forum.svg";
 import whatsapp from "../../images/support/whatsapp_new.svg";
-import { WithTransLate } from "../helpers/translating/index";
+import { WithTransLate } from "../helpers/translating/index.jsx";
 import s from "./Support.module.scss";
 
 function SupportCard({ description, title, icon }) {

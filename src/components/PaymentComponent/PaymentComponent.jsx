@@ -1,18 +1,18 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { WithTransLate } from "../helpers/translating";
-import useBreakpoints from "../../Styles/useBreakpoints";
+import useBreakpoints from "../../Styles/useBreakpoints.js";
 import {
   getPaymentStage,
   getBookingConfirmed,
-} from "../../redux/technitial/technical-selectors";
-import { setPaymentStage } from "../../redux/technitial/technical-slice";
-import PriceSummaryPart from "./PriceSummaryPart/PriceSummaryPart";
-import BookingDetailsPart from "./BookingDetailsPart/BookingDetailsPart";
-import UserPaymentDetails from "./UserPaymentDetails/UserPaymentDetails";
-import PaymentMethods from "./PaymentMethods/PaymentMethods";
-import ProcessPaymentPanel from "./ProcessPaymentPanel/ProcessPaymentPanel";
-import Button from "../Shared/Button/Button";
+} from "../../redux/technitial/technical-selectors.js";
+import { setPaymentStage } from "../../redux/technitial/technical-slice.js";
+import PriceSummaryPart from "./PriceSummaryPart/PriceSummaryPart.jsx";
+import BookingDetailsPart from "./BookingDetailsPart/BookingDetailsPart.jsx";
+import UserPaymentDetails from "./UserPaymentDetails/UserPaymentDetails.jsx";
+import PaymentMethods from "./PaymentMethods/PaymentMethods.jsx";
+import ProcessPaymentPanel from "./ProcessPaymentPanel/ProcessPaymentPanel.jsx";
+import Button from "../Shared/Button/Button.jsx";
 import { IoIosArrowBack } from "react-icons/io";
 
 import s from "./PaymentComponent.module.scss";

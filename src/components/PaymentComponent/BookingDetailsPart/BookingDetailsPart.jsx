@@ -6,14 +6,14 @@ import {
   getCheckInDay,
   getCheckOutDay,
   getAppartmentName,
-} from "../../../redux/dataSearch/dataSearch-selectors";
-import { setPaymentStage } from "../../../redux/technitial/technical-slice";
-import PartCalendar from "../../../views/RoomDetails/PartCalendar/PartCalendar";
-import GoodToKnow from "./GoodToKnow/GoodToKnow";
-import Button from "../../Shared/Button/Button";
-import { items } from "../../ServicesRoom/ServicesRoomData";
+} from "../../../redux/dataSearch/dataSearch-selectors.js";
+import { setPaymentStage } from "../../../redux/technitial/technical-slice.js";
+import PartCalendar from "../../../views/RoomDetails/PartCalendar/PartCalendar.jsx";
+import GoodToKnow from "./GoodToKnow/GoodToKnow.jsx";
+import Button from "../../Shared/Button/Button.jsx";
+import { items } from "../../ServicesRoom/ServicesRoomData.js";
 import placeholder from "../../../images/homePageSlider/placeholder.webp";
-import { googleRatings } from "../../../views/roombooking/RoomBooking";
+import { googleRatings } from "../../../views/roombooking/RoomBooking.jsx";
 import google from "../../../images/google.png";
 import parking from "../../../images/parking.svg";
 import moment from "moment";

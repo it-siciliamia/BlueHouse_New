@@ -1,9 +1,9 @@
 import { makeStyles, Typography } from "@material-ui/core";
-import PopUpVariationLayoutServices from "../../popUpVariations/popUpVariationLayoutServices";
-import logo from "../../../images/stampLogo.png";
-import originalSideImage from "../../../images/popUpVariations/CHEAPESTPRICE.png";
-import replaceImage from "../../../images/popUpVariations/replace/CHEAPESTPRICE.svg";
-import { WithTransLate } from "../../helpers/translating/index";
+import PopUpVariationLayoutServices from "./popUpVariationLayoutServices.jsx";
+import logo from "../../images/stampLogo.png";
+import originalSideImage from "../../images/popUpVariations/CHEAPESTPRICE.png";
+import replaceImage from "../../images/popUpVariations/replace/CHEAPESTPRICE.svg";
+import { WithTransLate } from "../helpers/translating/index.jsx";
 
 const useStyles = makeStyles((theme) => ({
   intro: {

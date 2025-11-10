@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import { makeStyles } from "@material-ui/core/styles";
 import { Link } from "react-router-dom";
-import * as moment from "moment";
-import Paypal from "./PayPal";
-import StripeCheckout from "../StripeCheckout/StripeCheckout";
+import moment from "moment";
+import Paypal from "./PayPal.jsx";
+import StripeCheckout from "../StripeCheckout/StripeCheckout.jsx";
 
 function Payment({ price, userInfo, checkIn, checkOut, name, quantity }) {
   const {

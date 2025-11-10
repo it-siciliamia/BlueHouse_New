@@ -1,11 +1,11 @@
 import React, { useRef } from "react";
 import { GoogleMap, useJsApiLoader, Marker } from "@react-google-maps/api";
-import { legandItemsData, features } from "./Elements";
+import { legandItemsData, features } from "./Elements.js";
 import upArrow from "../../images/map/upArrow.svg";
 import "./Home.css";
-import "./Home.scssHome.scss";
+import "./Home.scss";
 import { Element } from "react-scroll";
-import { WithTransLate } from "../helpers/translating/index";
+import { WithTransLate } from "../helpers/translating/index.jsx";
 
 const containerStyle = {
   width: "100%",

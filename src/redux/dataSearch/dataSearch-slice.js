@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import * as moment from "moment";
+import moment from "moment";
 import { getAvailableRooms } from "./dataSearch-operations";
 
 const newDate = moment().format("YYYYMMDD");

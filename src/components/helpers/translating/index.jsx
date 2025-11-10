@@ -15,8 +15,8 @@ import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
 import ExpandLessIcon from "@material-ui/icons/ExpandLess";
 import Select from "../../../images/select.svg";
 import translate from "translate";
-import useStyles from "./translateStyles";
-import { useLanguage } from "./LanguageContext";
+import useStyles from "./translateStyles.js";
+import { useLanguage } from "./LanguageContext.jsx";
 
 translate.key = "AIzaSyA-LWuIlquldSBDqQWlgr3nJE8h3AMTDCE";
 

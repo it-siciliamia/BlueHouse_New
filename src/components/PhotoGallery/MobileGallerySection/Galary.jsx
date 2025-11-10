@@ -1,6 +1,6 @@
 import * as React from "react";
 import PropTypes from "prop-types";
-import useBreakpoints from "../../../Styles/useBreakpoints";
+import useBreakpoints from "../../../Styles/useBreakpoints.js";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
@@ -9,10 +9,10 @@ import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
-import { Rooms, Houses, Surroundings } from "./Galary-information";
+import { Rooms, Houses, Surroundings } from "./Galary-information.js";
 
 import { WithTransLate } from "../../helpers/translating";
-import ImageSlider from "./ImageSlider/ImageSlider";
+import ImageSlider from "./ImageSlider/ImageSlider.jsx";
 
 function CustomTabPanel(props) {
   const { isMobile } = useBreakpoints();

@@ -1,6 +1,6 @@
 import { useState, useCallback, useMemo, useEffect, useRef } from "react";
 import { InputBase } from "@material-ui/core";
-import useBreakpoints from "../../Styles/useBreakpointsNew";
+import useBreakpoints from "../../Styles/useBreakpointsNew.js";
 import SearchIcon from "../../images/SearchIcon_Header.svg";
 import CloseIcon from "../../images/close-white.svg";
 import keywords from "./keywords.json";

@@ -1,6 +1,6 @@
 import React from "react";
 import Slider from "react-slick";
-import useBreakpoints from "../../../Styles/useBreakpointsNew";
+import useBreakpoints from "../../../Styles/useBreakpointsNew.js";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";

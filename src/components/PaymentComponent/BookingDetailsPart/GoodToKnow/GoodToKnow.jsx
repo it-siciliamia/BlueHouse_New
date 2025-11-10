@@ -1,5 +1,5 @@
 import React from "react";
-import { goodToKnowData } from "../goodToKnowData";
+import { goodToKnowData } from "../goodToKnowData.js";
 import { WithTransLate } from "../../../helpers/translating";
 
 import s from "./GoodToKnow.module.scss";

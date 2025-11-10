@@ -1,9 +1,9 @@
 import { makeStyles, Typography } from "@material-ui/core";
-import PopUpVariationLayoutServices from "./popUpVariationLayoutServices";
+import PopUpVariationLayoutServices from "./popUpVariationLayoutServices.jsx";
 import logo from "../../images/stampLogo.png";
 import originalSideImage from "../../images/popUpVariations/CHEAPESTPRICE.png";
 import replaceImage from "../../images/popUpVariations/replace/CHEAPESTPRICE.svg";
-import { WithTransLate } from "../helpers/translating/index";
+import { WithTransLate } from "../helpers/translating/index.jsx";
 
 const useStyles = makeStyles((theme) => ({
   intro: {
@@ -49,8 +49,9 @@ const useStyles = makeStyles((theme) => ({
       marginTop: "0px",
       marginBottom: "0px",
     },
+
     "& li": {
-      marginBottom: "15px",
+      marginBottom: "10px",
     },
   },
   outro: {
@@ -64,33 +65,46 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function CheapestPrice({ handleClose }) {
-  const { intro, infoList, smallSizeFont, stampLogo, outro } = useStyles();
+  const { intro, infoList, smallSizeFont, stampLogo } = useStyles();
 
   const largContent = (
     <>
       <Typography className={intro}>
-        <WithTransLate text="Here at the Blue House we want to" />
+        <WithTransLate
+          text="In the unlikely event that you happen to find your reservation cheaper
+        on another website, we will offer a price match, refunding the
+        difference when appropriate,"
+        />
+
         <b>
-          <WithTransLate text="give you the greatest flexibility." />
+          <WithTransLate text=" providing you meet the following requirements:" />
         </b>
-        <WithTransLate text="That’s why we have a self-check-in system with a self-service breakfast." />
       </Typography>
       <ul className={infoList}>
         <li>
           <WithTransLate
-            text=" Two days before your arrival, you will receive an email with the information you will need to    
-   check in from 4 pm."
+            text=" You contact us within 24-hours after you have made the booking with
+        us (for a difference refund) or before you have made the booking
+        with the third party."
           />
         </li>
         <li>
-          <WithTransLate text="We offer a full continental breakfast that includes our home-baked bread." />
+          <WithTransLate
+            text="You provide us with a link to the same rate which is still online
+        and available."
+          />
         </li>
         <li>
-          <WithTransLate text="You can enjoy our breakfast as early as you need until 10:30 am." />
+          <WithTransLate
+            text="The other offer must be for the same property and accommodation
+        type, for the same check-in and check-out dates and for the same
+        cancellation policy and conditions."
+          />
         </li>
       </ul>
       <Typography className={intro}>
         <WithTransLate text="Feel free to contact us at" />
+
         <u>
           <b> info@bluehouse.is </b>
         </u>
@@ -101,25 +115,40 @@ export default function CheapestPrice({ handleClose }) {
   const smallContent = (
     <>
       <Typography className={smallSizeFont}>
-        <WithTransLate text="At the Grótta Northern Lights Apartment and Rooms we want to" />
+        <WithTransLate
+          text="In the unlikely event that you happen to find your reservation cheaper
+        on another website, we will offer a price match, refunding the
+        difference when appropriate,"
+        />
+
         <b>
-          <WithTransLate text="give you the greatest flexibility." />
+          <WithTransLate text=" providing you meet the following requirements:" />
         </b>
-        <WithTransLate text="That’s why we created our self-service check-in and breakfast at our partner location, the Blue House." />
       </Typography>
       <ul className={smallSizeFont}>
         <li>
-          <WithTransLate text="Two days before your arrival, you will receive an email with all details which allows you to check-in from 4PM." />
+          <WithTransLate
+            text="You contact us within 24-hours after you have made the booking with
+        us (for a difference refund) or before you have made the booking
+        with the third party."
+          />
         </li>
         <li>
-          <WithTransLate text="You can enjoy our breakfast as early as you need until 10.30 am at our partner location, the Blue House only 150 meters on foot." />
+          <WithTransLate
+            text=" You provide us with a link to the same rate which is still online
+        and available."
+          />
         </li>
         <li>
-          <WithTransLate text="We offer a full breakfast selection with our home-baked bread." />
+          <WithTransLate
+            text=" The other offer must be for the same property and accommodation
+        type, for the same check-in and check-out dates and for the same
+        cancellation policy and conditions."
+          />
         </li>
       </ul>
-      <Typography className={outro}>
-        <WithTransLate text="Feel free to contact us at " />
+      <Typography className={intro}>
+        <WithTransLate text="Feel free to contact us at" />
         <br />
         <br />
         <u>
@@ -135,10 +164,10 @@ export default function CheapestPrice({ handleClose }) {
     <PopUpVariationLayoutServices
       popUpLargeContetn={largContent}
       popUpSmallContetn={smallContent}
-      title={"SELF CHECK-IN"}
-      imageSrcReplace={replaceImage}
+      title={"CHEAPEST PRICE"}
       imgSrc={originalSideImage}
-      originalSideImageWidth={"165%"}
+      imageSrcReplace={replaceImage}
+      originalSideImageWidth={"173%"}
       handleClose={handleClose}
     />
   );

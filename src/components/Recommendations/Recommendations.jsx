@@ -1,6 +1,6 @@
 import React from "react";
-import useBreakpoints from "../../Styles/useBreakpoints";
-import { WithTransLate } from "../helpers/translating/index";
+import useBreakpoints from "../../Styles/useBreakpoints.js";
+import { WithTransLate } from "../helpers/translating/index.jsx";
 import nl from "../../images/RECOMMENDATIONS/Northernlights.webp";
 import bl from "../../images/RECOMMENDATIONS/Blue-lagoon.webp";
 import gc from "../../images/RECOMMENDATIONS/Glacier-Caves.webp";
@@ -11,7 +11,7 @@ import restd from "../../images/RECOMMENDATIONS/Geysers01.webp";
 import rest from "../../images/RECOMMENDATIONS/Geysers.webp";
 
 import s from "./Recommendations.module.scss";
-import Button from "../Shared/Button/Button";
+import Button from "../Shared/Button/Button.jsx";
 
 function Card({ title, imageSrc, description }) {
   return (

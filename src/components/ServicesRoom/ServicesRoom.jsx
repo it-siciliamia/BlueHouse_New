@@ -1,16 +1,16 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
-import useBreakpoints from "../../Styles/useBreakpoints";
-import { WithTransLate } from "..//helpers/translating/index";
-import SliderPreviewPhoto from "./SliderPreviewPhoto/SliderPreviewPhoto";
-import SliderPreviewPhotoM from "./SliderPreviewPhotoM/SliderPreviewPhotoM";
-import Button from "../Shared/Button/Button";
-import { items, price } from "./ServicesRoomData";
+import useBreakpoints from "../../Styles/useBreakpoints.js";
+import { WithTransLate } from "..//helpers/translating/index.jsx";
+import SliderPreviewPhoto from "./SliderPreviewPhoto/SliderPreviewPhoto.jsx";
+import SliderPreviewPhotoM from "./SliderPreviewPhotoM/SliderPreviewPhotoM.jsx";
+import Button from "../Shared/Button/Button.jsx";
+import { items, price } from "./ServicesRoomData.js";
 import {
   getDayDifference,
   getAddParams,
-} from "../../redux/dataSearch/dataSearch-selectors";
+} from "../../redux/dataSearch/dataSearch-selectors.js";
 
 import s from "./ServicesRoom.module.scss";
 

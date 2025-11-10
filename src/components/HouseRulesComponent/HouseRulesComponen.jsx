@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { WithTransLate } from "../../components/helpers/translating/index";
+import { WithTransLate } from "../../components/helpers/translating/index.jsx";
 import Guidelines from "./Guidelines.jsx";
 
 import s from "./HouseRulesComponent.module.scss";

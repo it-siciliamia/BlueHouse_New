@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import useBreakpoints from "../../../Styles/useBreakpoints";
+import useBreakpoints from "../../../Styles/useBreakpoints.js";
 import { useSelector, useDispatch } from "react-redux";
 import { WithTransLate } from "../../helpers/translating";
 import {
@@ -9,11 +9,11 @@ import {
   getPaymentType,
   getTotalAmountEuro,
   getTotalAmountCurrency,
-} from "../../../redux/dataSearch/dataSearch-selectors";
+} from "../../../redux/dataSearch/dataSearch-selectors.js";
 import {
   setCurrency,
   setExchangeRate,
-} from "../../../redux/dataSearch/dataSearch-slice";
+} from "../../../redux/dataSearch/dataSearch-slice.js";
 
 import s from "./PriceSummaryPart.module.scss";
 

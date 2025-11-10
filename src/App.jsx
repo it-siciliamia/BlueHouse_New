@@ -6,16 +6,16 @@ import { ThemeProvider } from "@material-ui/styles";
 import ScrollToTopButton from "./components/Shared/ScrollToTopButton/ScrollToTopButton.jsx";
 import ZohoChat from "./components/helpers/ZohoChat/ZohoChat.jsx";
 import combinedSchema from "./components/helpers/SchemaOrg/schema.js";
-import { LanguageProvider } from "./components/helpers/translating/LanguageContext.js";
+import { LanguageProvider } from "./components/helpers/translating/LanguageContext.jsx";
 import HomePage from "./views/HomePage/HomePage.jsx";
 import ScrollToTop from "./components/helpers/ScrollToTop.js";
-import Notfound from "./views/NotFoundPage/Notfound.js";
-import EnquirePage from "./components/BookingPage/EnquirePage.js";
-import ThankYou from "./thankyou/index.js";
+import Notfound from "./views/NotFoundPage/Notfound.jsx";
+import EnquirePage from "./components/BookingPage/EnquirePage.jsx";
+import ThankYou from "./thankyou/index.jsx";
 import {
   RedirectBlog,
   RedirectTripAdv,
-} from "./components/helpers/redirect/Redirect.js";
+} from "./components/helpers/redirect/Redirect.jsx";
 import theme from "./Styles/theme.js";
 import "./Styles/App.css";
 import Layout from "./components/Layout/Layout.jsx";

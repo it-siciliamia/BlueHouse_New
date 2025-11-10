@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import Cookies from "js-cookie";
-import useBreakpoints from "../../Styles/useBreakpoints";
-import { WithTransLate } from "../helpers/translating/index";
-import Button from "../Shared/Button/Button";
+import useBreakpoints from "../../Styles/useBreakpoints.js";
+import { WithTransLate } from "../helpers/translating/index.jsx";
+import Button from "../Shared/Button/Button.jsx";
 import { makeStyles } from "@material-ui/core";
-import ManagePreferences from "./ManagePreferences";
+import ManagePreferences from "./ManagePreferences.jsx";
 
 const useStyles = makeStyles((theme) => ({
   "@keyframes showUp": {

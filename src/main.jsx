@@ -1,11 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter, HashRouter } from "react-router-dom";
-import App from "./App";
-import reportWebVitals from "./reportWebVitals";
+import App from "./App.jsx";
+import reportWebVitals from "./reportWebVitals.js";
 import { PersistGate } from "redux-persist/integration/react";
 import { Provider } from "react-redux";
-import { store, persistor } from "./redux/store";
+import { store, persistor } from "./redux/store.js";
 import PropTypes from "prop-types";
 
 const isGitHubPages = window.location.hostname.includes("github.io");

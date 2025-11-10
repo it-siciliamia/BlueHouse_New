@@ -5,7 +5,7 @@ import logo from "../../images/logo.svg";
 import Search from "./Search.jsx";
 import LinkButton from "../Shared/ui/Link.jsx";
 import MenuIcon from "../../images/MenuIcon_Header.svg";
-import { WithTransLate } from "../helpers/translating/index.js";
+import { WithTransLate } from "../helpers/translating/index.jsx";
 
 import s from "./Header.module.scss";
 import SideNavbar from "../SideNavbar/SideNavbar.jsx";

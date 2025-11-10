@@ -1,30 +1,30 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
-import { useLanguage } from "../../../components/helpers/translating/LanguageContext";
+import { useLanguage } from "../../../components/helpers/translating/LanguageContext.jsx";
 import DatePicker from "react-datepicker";
 import {
   WithTransLate,
   translateMyText,
-} from "../../../components/helpers/translating/index";
+} from "../../../components/helpers/translating/index.jsx";
 import {
   setCheckIn,
   setCheckOut,
   setAddParams,
-} from "../../../redux/dataSearch/dataSearch-slice";
+} from "../../../redux/dataSearch/dataSearch-slice.js";
 import {
   getCheckInDay,
   getCheckOutDay,
   getAddParams,
-} from "../../../redux/dataSearch/dataSearch-selectors";
-import Button from "../../../components/Shared/Button/Button";
+} from "../../../redux/dataSearch/dataSearch-selectors.js";
+import Button from "../../../components/Shared/Button/Button.jsx";
 import "react-datepicker/dist/react-datepicker.css";
 import minusIcon from "../../../images/roombooking/minus.svg";
 import plusIcon from "../../../images/roombooking/plus.svg";
 import arrowDown from "../../../images/roombooking/ArrowDown.svg";
 import arrowUp from "../../../images/roombooking/ArrowUp.svg";
 import alert from "../../../images/roombooking/alert.svg";
-import * as moment from "moment";
+import moment from "moment";
 
 import s from "./PartCalendar.module.scss";
 

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import CookieConsent from "../CookieConsent";
+import CookieConsent from "../CookieConsent.jsx";
 import { makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({

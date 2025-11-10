@@ -1,5 +1,5 @@
 import { Route, Switch } from "react-router-dom";
-import Layout from "./Layout";
+import Layout from "./Layout.jsx";
 
 import Aboutus from "../../views/AboutUsPage/AboutUs.jsx";
 import HouseRules from "../../views/HouseRulesPage/HouseRules.jsx";

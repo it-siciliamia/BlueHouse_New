@@ -1,6 +1,6 @@
 import React from "react";
-import Link from "../Shared/ui/Link";
-import useBreakpoints from "../../Styles/useBreakpoints";
+import Link from "../Shared/ui/Link.jsx";
+import useBreakpoints from "../../Styles/useBreakpoints.js";
 import blogHero from "../../images/Blog/BlogSection.png";
 import { WithTransLate } from "../helpers/translating";
 

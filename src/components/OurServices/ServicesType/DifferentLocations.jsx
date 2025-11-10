@@ -1,9 +1,9 @@
 import { makeStyles, Typography } from "@material-ui/core";
-import PopUpVariationLayoutServices from "../../popUpVariations/popUpVariationLayoutServices";
+import PopUpVariationLayoutServices from "../../popUpVariations/popUpVariationLayoutServices.jsx";
 import logo from "../../../images/stampLogo.png";
 import originalSideImage from "../../../images/popUpVariations/CHEAPESTPRICE.png";
 import replaceImage from "../../../images/popUpVariations/replace/CHEAPESTPRICE.svg";
-import { WithTransLate } from "../../helpers/translating/index";
+import { WithTransLate } from "../../helpers/translating/index.jsx";
 
 const useStyles = makeStyles((theme) => ({
   intro: {
@@ -50,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
       marginBottom: "0px",
     },
     "& li": {
-      marginBottom: "15px",
+      marginBottom: "20px",
     },
   },
   outro: {
@@ -69,28 +69,21 @@ export default function CheapestPrice({ handleClose }) {
   const largContent = (
     <>
       <Typography className={intro}>
-        <WithTransLate text="Here at the Blue House we want to" />
-        <b>
-          <WithTransLate text="give you the greatest flexibility." />
-        </b>
-        <WithTransLate text="That’s why we have a self-check-in system with a self-service breakfast." />
+        <WithTransLate text="The Blue House, the Green House, and the Grótta Northern Lights Apartment and Rooms are located on our wonderful peninsula." />
       </Typography>
       <ul className={infoList}>
         <li>
-          <WithTransLate
-            text=" Two days before your arrival, you will receive an email with the information you will need to    
-   check in from 4 pm."
-          />
+          <WithTransLate text="Voted as one of the best locations for catching Northern Lights" />
         </li>
         <li>
-          <WithTransLate text="We offer a full continental breakfast that includes our home-baked bread." />
+          <WithTransLate text="Enjoy the beautiful scenery right from your window" />
         </li>
         <li>
-          <WithTransLate text="You can enjoy our breakfast as early as you need until 10:30 am." />
+          <WithTransLate text="Amazing view and amenities" />
         </li>
       </ul>
       <Typography className={intro}>
-        <WithTransLate text="Feel free to contact us at" />
+        <WithTransLate text="Feel free to contact us at " />
         <u>
           <b> info@bluehouse.is </b>
         </u>
@@ -101,21 +94,17 @@ export default function CheapestPrice({ handleClose }) {
   const smallContent = (
     <>
       <Typography className={smallSizeFont}>
-        <WithTransLate text="At the Grótta Northern Lights Apartment and Rooms we want to" />
-        <b>
-          <WithTransLate text="give you the greatest flexibility." />
-        </b>
-        <WithTransLate text="That’s why we created our self-service check-in and breakfast at our partner location, the Blue House." />
+        <WithTransLate text="The Blue House, the Green House, and the Grótta Northern Lights Apartment and Rooms are located on our wonderful peninsula." />
       </Typography>
       <ul className={smallSizeFont}>
         <li>
-          <WithTransLate text="Two days before your arrival, you will receive an email with all details which allows you to check-in from 4PM." />
+          <WithTransLate text="Voted as one of the best locations for catching Northern Lights" />
         </li>
         <li>
-          <WithTransLate text="You can enjoy our breakfast as early as you need until 10.30 am at our partner location, the Blue House only 150 meters on foot." />
+          <WithTransLate text="Enjoy the beautiful scenery right from your window" />
         </li>
         <li>
-          <WithTransLate text="We offer a full breakfast selection with our home-baked bread." />
+          <WithTransLate text="Amazing view and amenities" />
         </li>
       </ul>
       <Typography className={outro}>
@@ -135,10 +124,10 @@ export default function CheapestPrice({ handleClose }) {
     <PopUpVariationLayoutServices
       popUpLargeContetn={largContent}
       popUpSmallContetn={smallContent}
-      title={"SELF CHECK-IN"}
+      title={"3 DIFFERENT lOCATIONS"}
       imageSrcReplace={replaceImage}
       imgSrc={originalSideImage}
-      originalSideImageWidth={"165%"}
+      originalSideImageWidth={"73%"}
       handleClose={handleClose}
     />
   );

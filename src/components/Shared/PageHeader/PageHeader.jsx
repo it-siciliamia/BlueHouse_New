@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useMemo } from "react";
 import { useLocation } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import { translateMyText } from "../../helpers/translating/index";
+import { translateMyText } from "../../helpers/translating/index.jsx";
 import languagesAndCodes from "../../helpers/translating/languagesAndCodes.json";
 
 import s from "./PageHeader.module.scss";

@@ -3,7 +3,7 @@ import { makeStyles } from "@material-ui/core";
 import notFound from "../../images/notFound.webp";
 import logo from "../../images/notFoundBlueHouseLogo.svg";
 import { Link } from "react-router-dom";
-import { WithTransLate } from "../../components/helpers/translating/index";
+import { WithTransLate } from "../../components/helpers/translating/index.jsx";
 
 const useStyles = makeStyles((theme) => ({
   root: {

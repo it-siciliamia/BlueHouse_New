@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
-import useBreakpoints from "../../Styles/useBreakpointsNew";
+import useBreakpoints from "../../Styles/useBreakpointsNew.js";
 import { useLocation } from "react-router-dom";
-import WeatherCard from "./WeatherCard";
+import WeatherCard from "./WeatherCard.jsx";
 import { FiMaximize, FiX } from "react-icons/fi";
 import "./WeatherMap.css";
 

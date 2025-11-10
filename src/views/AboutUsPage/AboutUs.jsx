@@ -1,12 +1,12 @@
 import './AboutUs.css';
 import { useEffect, useState } from 'react';
-import CaruselSliderHome from '../HomePage/CaruselSliderHome/CaruselSliderHome.jsx';
+import CaruselSliderHome from "../HomePage/CaruselSliderHome/CaruselSliderHome.jsx";
 import Facebook from "../../images/Header_icons/headerSocialIcons/facebook.svg";
 import instaIcon from "../../images/Header_icons/headerSocialIcons/insta.svg";
 import Email from "../../images/Header_icons/headerSocialIcons/email.svg";
 import Whatsapp from "../../images/Header_icons/headerSocialIcons/whats.svg";
-import Support from './Support.jsx'
-import NewMap from '../../components/map/NewMap.js';
+import Support from "./Support.jsx"
+import NewMap from "../../components/map/NewMap.jsx";
 // import AboutPageComponent from "../../components/AboutPageComponent/AboutPageComponent.jsx";
 
 

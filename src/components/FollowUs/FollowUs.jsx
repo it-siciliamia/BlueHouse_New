@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./FollowUs.module.scss";
-import Link from "../Shared/ui/Link";
+import Link from "../Shared/ui/Link.jsx";
 
 // images in required order: 20, 5, 11
 import insta05 from "../../images/instagramSVG/insta05.webp";

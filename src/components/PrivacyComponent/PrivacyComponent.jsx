@@ -1,6 +1,6 @@
 import React from "react";
 import Privacy from "./Privacy.jsx";
-import { WithTransLate } from "../helpers/translating/index";
+import { WithTransLate } from "../helpers/translating/index.jsx";
 import CookiePolicy from "./CookiePolicy.jsx";
 
 import s from "./PrivacyComponent.module.scss";

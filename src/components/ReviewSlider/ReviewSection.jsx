@@ -1,10 +1,10 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper";
-import { WithTransLate } from "../helpers/translating/index";
+import { WithTransLate } from "../helpers/translating/index.jsx";
 
-import ReviewCard from "./ReviewCard";
-import Link from "../Shared/ui/Link";
-import IconButton from "../Shared/ui/IconButton";
+import ReviewCard from "./ReviewCard.jsx";
+import Link from "../Shared/ui/Link.jsx";
+import IconButton from "../Shared/ui/IconButton.jsx";
 
 import tripAdvisor from "../../images/findMore/TripadvisorLogo.png";
 

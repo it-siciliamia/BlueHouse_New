@@ -6,7 +6,7 @@ import logo from "../images/logo.svg";
 import secure from "../images/secure.svg";
 import people from "../images/people.svg";
 import { connect } from "react-redux";
-import * as moment from "moment";
+import moment from "moment";
 import { Link } from "react-router-dom";
 import { setUserInfo } from "../../redux/userInfo/userInfo.action";
 
