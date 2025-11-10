@@ -1,0 +1,325 @@
+/* ===============================
+   Backdrop overlay
+   =============================== */
+.bh-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: saturate(140%) blur(1.5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9990;
+}
+
+/* ===============================
+   Modal container
+   =============================== */
+.bh-modal {
+  position: relative;
+  width: 1216px;
+  max-width: calc(100vw - 64px);
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: none;
+  padding: 32px 104px;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+  cursor: default;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+.bh-modal::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.18);
+}
+
+/* Disable background interactions while modal is open */
+.bh-modal-open .accom * {
+  pointer-events: none !important;
+}
+.bh-modal-open .accom {
+  user-select: none;
+}
+.bh-modal-open .bh-backdrop,
+.bh-modal-open .bh-backdrop * {
+  pointer-events: auto !important;
+}
+
+/* Guard against unwanted transform/filter interactions */
+.bh-modal-open .bh-modal *:active,
+.bh-modal-open .bh-backdrop *:active {
+  transform: none !important;
+  filter: none !important;
+}
+.bh-modal-open .bh-modal,
+.bh-modal-open .bh-modal * {
+  transition-property: none !important;
+  animation: none !important;
+}
+
+/* ===============================
+   Header with close button
+   =============================== */
+.bh-header {
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-bottom: 32px;
+}
+.bh-closeX {
+  width: 24px;
+  height: 24px;
+  position: relative;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+.bh-closeX:hover {
+  opacity: 0.7;
+}
+.bh-closeX::before,
+.bh-closeX::after {
+  content: "";
+  position: absolute;
+  left: 3px;
+  top: 11px;
+  width: 18px;
+  height: 2px;
+  background: #1d3967;
+}
+.bh-closeX::before {
+  transform: rotate(45deg);
+}
+.bh-closeX::after {
+  transform: rotate(-45deg);
+}
+
+/* ===============================
+   Content layout
+   =============================== */
+.bh-content {
+  width: 1008px;
+  margin: 0 auto;
+  cursor: default;
+}
+.bh-layout {
+  display: grid;
+  grid-template-columns: 592px 32px 384px;
+  align-items: start;
+}
+.bh-col-left {
+  grid-column: 1 / span 1;
+}
+.bh-col-right {
+  grid-column: 3 / span 1;
+  height: 382px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===============================
+   Text content (Figma-accurate)
+   =============================== */
+.bh-title {
+  margin: 0 0 24px 0;                 /* 24px gap to description */
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 700;
+  font-size: 24px;                    /* H3/Desktop */
+  line-height: 32px;
+  color: #1d3967;
+}
+.bh-desc {
+  margin: 0;
+  width: 384px;
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 300;
+  font-size: 18px;                    /* Paragraph Regular */
+  line-height: 24px;
+  color: #212529;                     /* Neutral/05 per Figma */
+}
+.bh-desc p {
+  margin: 0 0 8px 0;                  /* Paragraph spacing 8px */
+}
+.bh-desc p:last-child {
+  margin-bottom: 0;
+}
+
+/* ===============================
+   CTA button (kept from your final file)
+   =============================== */
+.bh-cta {
+  margin-top: auto;
+  max-width: 13rem;
+}
+
+/* ===============================
+   Hero image area
+   =============================== */
+.bh-hero {
+  position: relative;
+  overflow: hidden;
+  background: #f6f7f9;
+  border: 1px solid #e4e8ef;
+  width: 592px;
+  height: 382px;
+  user-select: none;
+}
+.bh-hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.bh-hero-fallback {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+}
+
+/* Disable clicks on hero content */
+.bh-hero * {
+  pointer-events: none;
+}
+
+/* Keep navigation and controls clickable */
+.bh-nav-zone,
+.bh-nav-zone *,
+.bh-dotbar,
+.bh-dotbar *,
+.bh-thumbs,
+.bh-thumbs * {
+  pointer-events: auto;
+}
+
+/* ===============================
+  Navigation zones
+   =============================== */
+.bh-nav-zone {
+  position: absolute;
+  top: calc(50% - 20px);
+  width: 40px;
+  height: 40px;
+  z-index: 5;
+}
+.bh-nav-zone--prev { left: 16px; }
+.bh-nav-zone--next { right: 16px; }
+
+/* ===============================
+   Dot pagination
+   =============================== */
+.bh-dotbar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 34px;
+  padding: 6px 10px;
+  background: rgba(255, 255, 255, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  z-index: 4;
+}
+.bh-dot {
+  display: block;
+  box-sizing: content-box;
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  background: #1d3967;
+  opacity: 0.9;
+  cursor: pointer;
+  transition: opacity 120ms ease, box-shadow 120ms ease;
+}
+.bh-dot:hover { opacity: 1; }
+.bh-dot.is-active {
+  width: 10px;
+  height: 10px;
+  background: #fff;
+  border-color: #1d3967;
+  opacity: 1;
+}
+.bh-dot:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(7, 55, 98, 0.35);
+}
+
+/* ===============================
+   Thumbnails strip
+   =============================== */
+.bh-thumbs {
+  width: 592px;
+  margin-top: 16px;
+  display: flex;
+  gap: 16px;
+}
+.bh-thumbs--six { justify-content: space-between; }
+.bh-thumbs--auto { justify-content: center; }
+.bh-thumb {
+  width: 72px;
+  height: 72px;
+  border: 2px solid #e4e8ef;
+  background: #fff;
+  padding: 0;
+  cursor: pointer;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.2s, opacity 0.2s;
+  -webkit-tap-highlight-color: transparent;
+}
+.bh-thumb:hover {
+  border-color: #073762;
+  opacity: 0.9;
+}
+.bh-thumb.is-active {
+  border-color: #073762;
+  border-width: 3px;
+}
+.bh-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ===============================
+   Responsive adjustments
+   =============================== */
+@media (max-width: 1280px) {
+  .bh-modal {
+    width: 1024px;
+    padding: 28px 44px;
+  }
+}
+@media (max-width: 1024px) {
+  .bh-modal {
+    width: 92vw;
+    padding: 24px;
+  }
+  .bh-header {
+    height: 28px;
+    margin-bottom: 24px;
+  }
+  .bh-content { width: 100%; }
+  .bh-layout { grid-template-columns: 1fr; row-gap: 24px; }
+  .bh-col-right { height: auto; display: block; }
+  .bh-col-left { width: 100% !important; }
+  .bh-hero { width: 100% !important; height: 300px !important; }
+  .bh-thumbs { width: 100% !important; justify-content: center; }
+}
