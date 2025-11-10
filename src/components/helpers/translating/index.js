@@ -1,5 +1,4 @@
-/* eslint-disable no-unused-vars */
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import languagesAndCodes from "./languagesAndCodes.json";
 import {
@@ -17,6 +16,7 @@ import ExpandLessIcon from "@material-ui/icons/ExpandLess";
 import Select from "../../../images/select.svg";
 import translate from "translate";
 import useStyles from "./translateStyles";
+import { useLanguage } from "./LanguageContext";
 
 translate.key = "AIzaSyA-LWuIlquldSBDqQWlgr3nJE8h3AMTDCE";
 
@@ -31,7 +31,7 @@ export default function TranslateMe({ scroll }) {
     closeIcon,
   } = useStyles();
 
-  const [selectedLanguage, setLanguage] = useState(0);
+  const { languageIndex, setLanguageIndex } = useLanguage();
   const [anchorEl, setAnchorEl] = useState(null);
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(0);
@@ -49,19 +49,10 @@ export default function TranslateMe({ scroll }) {
 
   const handleChange = (index) => {
     scroll();
-    setLanguage(index);
-    localStorage.setItem("languageIndex", index);
+    // Update LanguageContext (which also saves to localStorage)
+    setLanguageIndex(index);
     handleClose();
   };
-
-  useEffect(() => {
-    const savedIndex = JSON.parse(localStorage.getItem("languageIndex"));
-    if (savedIndex === null) {
-      localStorage.setItem("languageIndex", selectedLanguage);
-    } else {
-      setLanguage(savedIndex);
-    }
-  }, [selectedLanguage]);
 
   const filtered = languagesAndCodes.languages.filter((item) =>
     item.lang.toLowerCase().includes(search.toLowerCase())
@@ -80,9 +71,9 @@ export default function TranslateMe({ scroll }) {
         aria-haspopup="true"
         onClick={handleClick}
       >
-        {selectedLanguage === 0
+        {languageIndex === 0
           ? "Select Language"
-          : languagesAndCodes.languages[selectedLanguage].lang}
+          : languagesAndCodes.languages[languageIndex].lang}
         <img alt="down arrow" src={Select} />
       </Button>
 
@@ -156,26 +147,59 @@ TranslateMe.propTypes = {
   scroll: PropTypes.func.isRequired,
 };
 
-export async function translateMyText(text = "") {
+export async function translateMyText(text = "", languageIndex = 0) {
   const { languages } = languagesAndCodes;
-  const langIndex = localStorage.getItem("languageIndex");
-  const lang = languages[langIndex];
-  const result = await translate(text, lang.code);
-  return result;
+  const lang = languages[languageIndex];
+
+  if (!lang) {
+    console.warn(`Language index ${languageIndex} not found`);
+    return text;
+  }
+
+  try {
+    const result = await translate(text, lang.code);
+    return result;
+  } catch (err) {
+    if (err.name !== "AbortError") {
+      console.error("Translation error:", err);
+    }
+    return text;
+  }
 }
 
-export function WithTransLate({ text, isFunction }) {
+export function WithTransLate({ text, returnRaw = false }) {
   const [translatedText, setTranslatedText] = useState(text);
-  translateMyText(text)
-    .then((res) => {
-      setTranslatedText(res);
-    })
-    .catch((err) => console.log(err));
+  const { languageIndex } = useLanguage() || { languageIndex: 0 };
 
-  return isFunction ? translatedText : <>{translatedText}</>;
+  useEffect(() => {
+    const abortController = new AbortController();
+
+    translateMyText(text, languageIndex)
+      .then((res) => {
+        // Only update if component hasn't unmounted
+        if (!abortController.signal.aborted) {
+          setTranslatedText(res);
+        }
+      })
+      .catch((err) => {
+        // Handle AbortError gracefully
+        if (err.name !== "AbortError" && !abortController.signal.aborted) {
+          console.error("Translation failed:", err);
+          setTranslatedText(text); // Fallback to original text
+        }
+      });
+
+    // Cleanup: cancel request if component unmounts or dependencies change
+    return () => {
+      abortController.abort();
+    };
+  }, [text, languageIndex]); // Re-translate when text or language changes
+
+  // Return raw string if requested, otherwise wrap in fragment for JSX
+  return returnRaw ? translatedText : <>{translatedText}</>;
 }
 
 WithTransLate.propTypes = {
   text: PropTypes.string.isRequired,
-  isFunction: PropTypes.bool,
+  returnRaw: PropTypes.bool,
 };

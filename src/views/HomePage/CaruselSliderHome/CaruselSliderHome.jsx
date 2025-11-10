@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useRef } from "react";
-import useBreakpoints from "../../../Styles/useBreakpointsNew.js";
+import { useState, useEffect, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import useBreakpoints from "../../../Styles/useBreakpointsNew.js";
 import { getIsPlaceholderShown } from "../../../redux/technitial/technical-selectors.js";
 import { setPlaceholderShown } from "../../../redux/technitial/technical-slice.js";
 import slide01 from "../../../images/homePageSlider/slide1.webp";
@@ -11,33 +11,22 @@ import slide05 from "../../../images/homePageSlider/slide5.webp";
 import slide06 from "../../../images/homePageSlider/slide6.webp";
 import placeholder from "../../../images/homePageSlider/placeholder.webp";
 import videoSrc from "../../../videos/intro.mp4";
-import { useHeaderSize } from "../../../components/helpers/HeaderContext/HeaderContext.js";
 
 import s from "./CaruselSliderHome.module.scss";
 import IconButton from "../../../components/Shared/ui/IconButton.jsx";
 
 const images = [videoSrc, slide01, slide02, slide03, slide04, slide05, slide06];
 
-const CaruselSliderHome = () => {
-  const { isMobile, isTablet, isSmallScreen, isDesktop } = useBreakpoints();
-
+export default function CaruselSliderHome() {
+  const { isSmallScreen, isDesktop } = useBreakpoints();
   const isPlaceholderShown = useSelector(getIsPlaceholderShown);
   const dispatch = useDispatch();
-  const { width } = useHeaderSize();
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [showPlaceholder, setShowPlaceholder] = useState(true);
   const [fadeOutPlaceholder, setFadeOutPlaceholder] = useState(false);
   const videoRef = useRef(null);
   const intervalRef = useRef(null);
-
-  const dynamicWidth = isDesktop
-    ? Math.round(width )
-    : isSmallScreen
-      ? Math.round(width - 70)
-      : width;
-
-  const dynamicHeigth = Math.round(dynamicWidth * 0.66);
 
   useEffect(() => {
     if (currentIndex === 0 && videoRef.current) {
@@ -167,6 +156,4 @@ const CaruselSliderHome = () => {
         {renderPagination()}
       </div>
   );
-};
-
-export default CaruselSliderHome;
+}

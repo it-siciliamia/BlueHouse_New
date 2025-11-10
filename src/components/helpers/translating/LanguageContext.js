@@ -1,23 +1,33 @@
-import React, { createContext, useContext, useState, useEffect } from "react";
+import React, { createContext, useContext, useState, useEffect, useMemo } from "react";
 
 const LanguageContext = createContext();
 
 export const LanguageProvider = ({ children }) => {
-  const [languageIndex, setLanguageIndex] = useState(
-    JSON.parse(localStorage.getItem("languageIndex")) || 0
-  );
+  const [languageIndex, setLanguageIndex] = useState(() => {
+    const stored = localStorage.getItem("languageIndex");
+    return stored ? JSON.parse(stored) : 0;
+  });
 
   useEffect(() => {
     localStorage.setItem("languageIndex", JSON.stringify(languageIndex));
   }, [languageIndex]);
 
+  const contextValue = useMemo(
+    () => ({ languageIndex, setLanguageIndex }),
+    [languageIndex]
+  );
+
   return (
-    <LanguageContext.Provider value={{ languageIndex, setLanguageIndex }}>
+    <LanguageContext.Provider value={contextValue}>
       {children}
     </LanguageContext.Provider>
   );
 };
 
 export const useLanguage = () => {
-  return useContext(LanguageContext);
+  const context = useContext(LanguageContext);
+  if (!context) {
+    console.warn("useLanguage must be used within LanguageProvider");
+  }
+  return context;
 };

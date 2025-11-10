@@ -8,6 +8,18 @@
   border: none;
   padding: 0;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s ease;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &:active {
+    opacity: 0.6;
+  }
 
   img {
     width: 28px;
@@ -17,30 +29,34 @@
 
 /* DESKTOP STYLE (>=1280px) */
 .inputWrapperDesktop {
-  display: flex;
-  align-items: center;
-  background-color: #fff;
-  border-radius: 0;
-  height: 46px;
-  width: 0;
-  overflow: hidden;
-  transition: width 0.4s ease-in-out;
-  position: absolute;
-  right: 50px;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 51;
-  border: none;
+  display: none;
 
-  &.active {
-    border: 1.2px solid #cdcfcf;
+  @media (min-width: 1280px) {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 0;
+    height: 46px;
+    width: 0;
+    overflow: hidden;
+    transition: width 0.4s ease-in-out, border 0.2s ease;
+    position: absolute;
+    right: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 51;
+    border: 1.2px solid transparent;
 
-    @media (min-width: 1280px) and (max-width: 1344px) {
-      width: 200px; /* Smaller input on narrow desktop */
-    }
+    &.active {
+      border-color: #cdcfcf;
 
-    @media (min-width: 1345px) {
-      width: 260px; /* Larger input on wide desktop */
+      @media (min-width: 1280px) and (max-width: 1344px) {
+        width: 200px; /* Smaller input on narrow desktop */
+      }
+
+      @media (min-width: 1345px) {
+        width: 260px; /* Larger input on wide desktop */
+      }
     }
   }
 }
@@ -48,14 +64,6 @@
 /* MOBILE STYLE (<1280px) */
 .inputWrapperMobile {
   display: none;
-  flex-direction: row;
-  align-items: center;
-  background-color: #fff;
-  border-radius: 4px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
-  padding: 8px 10px;
-  z-index: 51;
-  transition: all 0.3s ease;
 
   @media (max-width: 1279px) {
     position: fixed;
@@ -63,10 +71,21 @@
     left: clamp(16px, 6vw, 40px);
     right: clamp(16px, 6vw, 40px);
     width: auto;
-    display: none;
+    flex-direction: row;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+    padding: 8px 10px;
+    z-index: 51;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    opacity: 0;
+    visibility: hidden;
 
     &.active {
       display: flex;
+      opacity: 1;
+      visibility: visible;
     }
   }
 
@@ -96,6 +115,13 @@
   border: none;
   outline: none;
   padding: 4px 10px;
+  background-color: transparent;
+  color: inherit;
+
+  &::placeholder {
+    color: #999;
+    opacity: 0.7;
+  }
 }
 
 .closeBtn {
@@ -104,6 +130,18 @@
   padding: 0;
   margin-left: 8px;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s ease;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &:active {
+    opacity: 0.6;
+  }
 
   img {
     width: 20px;
@@ -118,14 +156,12 @@
   border-radius: 4px;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
   z-index: 100;
-
-  /* ADDED: smooth width change */
-  transition: width 0.4s ease-in-out; /* ADDED */
-  will-change: width; /* ADDED */
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  will-change: opacity;
 
   @media (max-width: 1279px) {
     position: fixed;
-    top: 118px;
+    top: 9rem;
     left: clamp(16px, 6vw, 40px);
     right: clamp(16px, 6vw, 40px);
     width: auto;
@@ -148,64 +184,65 @@
     left: 10vw;
     right: 10vw;
   }
-}
-
-/* Desktop hover for items */
-.resultItem {
-  padding: 10px;
-  border-bottom: 1px solid #eee;
-  cursor: pointer;
-
-  &:hover {
-    background-color: #f5f5f5;
-  }
-}
-
-/* ADDED: align + animate dropdown under the input on desktop 1280–1344px */
-@media (min-width: 1280px) and (max-width: 1344px) {
-  .results {
+  @media (min-width: 1280px) and (max-width: 1344px) {
     position: absolute;
     top: 40px;
     right: 50px;
     left: auto;
     width: 200px;
-
-    /* On appearance — smoothly grows to 200px */
-    animation: grow200 0.4s ease-in-out both; /* ADDED */
-    overflow: hidden; /* ADDED */
+    animation: grow200 0.4s ease-in-out both;
   }
-}
 
-/* ADDED: align + animate dropdown under the input on desktop >=1345px */
-@media (min-width: 1345px) {
-  .results {
+  @media (min-width: 1345px) {
     position: absolute;
     top: 40px;
     right: 50px;
     left: auto;
     width: 260px;
-
-    /* On appearance — smoothly grows to 260px */
-    animation: grow260 0.4s ease-in-out both; /* ADDED */
-    overflow: hidden; /* ADDED */
+    animation: grow260 0.4s ease-in-out both;
   }
 }
 
-/* ADDED: keyframes for mount animation */
+.resultItem {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+
+  &:hover,
+  &:focus {
+    background-color: #f5f5f5;
+    outline: none;
+  }
+
+  &:active {
+    background-color: #efefef;
+  }
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+/* Keyframes for results dropdown animation on desktop */
 @keyframes grow200 {
   from {
     width: 0;
+    opacity: 0;
   }
   to {
     width: 200px;
+    opacity: 1;
   }
 }
 
 @keyframes grow260 {
   from {
     width: 0;
+    opacity: 0;
   }
   to {
     width: 260px;
+    opacity: 1;
   }
 }

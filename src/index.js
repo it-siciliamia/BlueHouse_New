@@ -24,13 +24,15 @@ Router.propTypes = {
 };
 
 ReactDOM.render(
-  <Router>
-    <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
-        <App basename={basename} />
-      </PersistGate>
-    </Provider>
-  </Router>,
+  <React.StrictMode>
+    <Router>
+      <Provider store={store}>
+        <PersistGate loading={null} persistor={persistor}>
+          <App basename={basename} />
+        </PersistGate>
+      </Provider>
+    </Router>
+  </React.StrictMode>,
   document.getElementById("root")
 );
 
