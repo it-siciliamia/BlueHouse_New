@@ -1,5 +1,5 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core";
+import { makeStyles } from "@mui/styles";
 import notFound from "../../images/notFound.webp";
 import logo from "../../images/notFoundBlueHouseLogo.svg";
 import { Link } from "react-router-dom";

@@ -1,4 +1,6 @@
-import { makeStyles, Typography , Grid } from "@material-ui/core";
+import Typography from "@mui/material/Typography";
+import Grid from "@mui/material/Grid";
+import { makeStyles } from "@mui/styles";
 import PopUpVariationMainLayout from "./popUpVariationMainLayout.jsx";
 import originalSideImage from "../../images/popUpVariations/BOOKONOURSITE.jpg";
 import BHlogo from "../../images/popUpVariations/bluehouse.svg";

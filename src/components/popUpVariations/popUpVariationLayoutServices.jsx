@@ -1,7 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Box, makeStyles, Typography } from "@material-ui/core";
-import CloseIcon from "@material-ui/icons/Close";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import { makeStyles } from "@mui/styles";
+import CloseIcon from "@mui/icons-material/Close";
 import bleuHouseImage from "../../images/popUpVariations/bluehousepng.png";
 import { WithTransLate } from "../helpers/translating/index.jsx";
 

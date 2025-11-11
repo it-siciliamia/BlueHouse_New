@@ -2,7 +2,7 @@ import React, { useState, createContext, lazy, Suspense, useMemo } from "react";
 import PropTypes from "prop-types";
 import { Route, Routes } from "react-router-dom";
 import { HelmetProvider, Helmet } from "react-helmet-async";
-import { ThemeProvider } from "@material-ui/styles";
+import { ThemeProvider } from "@mui/material/styles";
 import ScrollToTopButton from "./components/Shared/ScrollToTopButton/ScrollToTopButton.jsx";
 import ZohoChat from "./components/helpers/ZohoChat/ZohoChat.jsx";
 import combinedSchema from "./components/helpers/SchemaOrg/schema.js";

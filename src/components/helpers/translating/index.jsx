@@ -9,10 +9,10 @@ import {
   TextField,
   Typography,
   Fade,
-} from "@material-ui/core";
-import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
-import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
-import ExpandLessIcon from "@material-ui/icons/ExpandLess";
+} from "@mui/material";
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import Select from "../../../images/select.svg";
 import translate from "translate";
 import useStyles from "./translateStyles.js";

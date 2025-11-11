@@ -40,7 +40,7 @@ export default defineConfig({
           'react-vendor': ['react', 'react-dom'],
           'router': ['react-router-dom'],
           'redux': ['redux', 'react-redux', '@reduxjs/toolkit'],
-          'material-ui': ['@material-ui/core', '@material-ui/icons'],
+          'material-ui': ['@mui/material', '@mui/icons-material'],
         },
       },
     },

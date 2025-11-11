@@ -3,7 +3,7 @@ import Cookies from "js-cookie";
 import useBreakpoints from "../../Styles/useBreakpoints.js";
 import { WithTransLate } from "../helpers/translating/index.jsx";
 import Button from "../Shared/Button/Button.jsx";
-import { makeStyles } from "@material-ui/core";
+import { makeStyles } from "@mui/styles";
 import ManagePreferences from "./ManagePreferences.jsx";
 
 const useStyles = makeStyles((theme) => ({
@@ -75,6 +75,11 @@ function CookiesBanner() {
   };
   const { root, cookiesDescription, coockieTitle, actions, moreInfo } =
     useStyles({ display });
+
+  if (display === "none") {
+    return null;
+  }
+  
   return (
     <div
       className={root}
@@ -130,13 +135,13 @@ function CookiesBanner() {
           handleClick={() => handleAcceptingAndDeclineCookies(true)}
           text="ACCEPT COOKIES"
           btnClass="btnDark"
-          width={isMobile ? "100pх" : "200px"}
+          width={isMobile ? "100px" : "200px"}
         />
         <Button
           handleClick={() => handleAcceptingAndDeclineCookies(false)}
           text="DECLINE COOKIES"
           btnClass="btnDark"
-          width={isMobile ? "100pх" : "200px"}
+          width={isMobile ? "100px" : "200px"}
         />
         <ManagePreferences />
       </div>

@@ -1,4 +1,5 @@
-import { makeStyles, Typography } from "@material-ui/core";
+import Typography from "@mui/material/Typography";
+import { makeStyles } from "@mui/styles";
 import PopUpVariationLayoutServices from "./popUpVariationLayoutServices.jsx";
 import logo from "../../images/stampLogo.png";
 import originalSideImage from "../../images/popUpVariations/CHEAPESTPRICE.png";

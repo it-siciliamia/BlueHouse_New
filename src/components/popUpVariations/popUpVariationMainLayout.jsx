@@ -1,6 +1,9 @@
 import React from "react";
-import { Box, Grid, makeStyles, Typography } from "@material-ui/core";
-import CloseIcon from "@material-ui/icons/Close";
+import Box from "@mui/material/Box";
+import Grid from "@mui/material/Grid";
+import Typography from "@mui/material/Typography";
+import { makeStyles } from "@mui/styles";
+import CloseIcon from "@mui/icons-material/Close";
 import { WithTransLate } from "../helpers/translating/index.jsx";
 
 const useStyles = makeStyles((theme) => ({
