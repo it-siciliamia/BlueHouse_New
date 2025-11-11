@@ -1,7 +1,7 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
-import "swiper/swiper-bundle.min.css";
-import "swiper/swiper.min.css";
+import "swiper/css";
+import "swiper/css/scrollbar";
 
 import s from "./SliderPreviewPhotoM.module.scss";
 

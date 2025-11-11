@@ -1,5 +1,7 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Navigation } from "swiper";
+import { Autoplay, Navigation } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
 import { WithTransLate } from "../helpers/translating/index.jsx";
 
 import ReviewCard from "./ReviewCard.jsx";
