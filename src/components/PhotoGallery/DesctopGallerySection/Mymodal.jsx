@@ -198,12 +198,14 @@ html.bh-modal-open .bh-backdrop *:active {
   transform: none !important;
   filter: none !important;
 }
-html.bh-modal-open .bh-modal,
-html.bh-modal-open .bh-modal * {
-  transition-property: none !important;
-  animation: none !important;
-}
+
 `;
+//removed this from the above chunck to fix transition animation in thumbnails
+// html.bh-modal-open .bh-modal,
+// html.bh-modal-open .bh-modal * {
+//   transition-property: none !important;
+//   animation: none !important;
+// }
 
 /* ---------------------------------------------------------------------------
    Generic lightbox (Houses / Rooms / Surroundings)
