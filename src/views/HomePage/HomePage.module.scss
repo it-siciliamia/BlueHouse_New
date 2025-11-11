@@ -23,7 +23,8 @@ $desktop: 80em; // 1280px
 
   @media (min-width: $desktop) {
     padding-left: 1rem;
-    gap: 4rem;
+    gap: 50px;
+    padding-left: 0;
   }
   
 }
