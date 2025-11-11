@@ -353,11 +353,11 @@ function GenericLightbox({ open, onClose, dataIndex, initialTitle }) {
                 {pictures.length > 1 && (
                   <>
                     <div className="bh-nav-zone bh-nav-zone--prev">
-                      <IconButton icon="chevronLeft" size="lg" onClick={onPrev} onMouseDown={(e) => {
+                      <IconButton icon="chevronLeft" size="lg" iconSize="20" onClick={onPrev} onMouseDown={(e) => {
                        e.preventDefault()}} />
                     </div>
                     <div className="bh-nav-zone bh-nav-zone--next">
-                      <IconButton icon="chevronRight" size="lg" onClick={onNext} onMouseDown={(e) => {e.preventDefault()}} />
+                      <IconButton icon="chevronRight" size="lg" iconSize="20" onClick={onNext} onMouseDown={(e) => {e.preventDefault()}} />
                     </div>
                   </>
                 )}

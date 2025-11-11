@@ -22,7 +22,7 @@
   background: #fff;
   border: 1px solid rgba(0, 0, 0, 0.08);
   box-shadow: none;
-  padding: 32px 104px ;
+  padding: 62px 104px;
   outline: none;
   -webkit-tap-highlight-color: transparent;
   cursor: default;
@@ -58,7 +58,6 @@
   filter: none !important;
 }
 
-
 /* ===============================
    Header with close button
    =============================== */
@@ -67,7 +66,7 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  margin-bottom: 32px;
+  margin-bottom: 24px;
 }
 .bh-closeX {
   width: 24px;
@@ -108,7 +107,7 @@
 }
 .bh-layout {
   display: grid;
-  grid-template-columns: 592px 32px 384px;
+  // grid-template-columns: 592px 32px 384px;
   align-items: start;
 }
 .bh-col-left {
@@ -269,11 +268,9 @@
   width: 72px;
   height: 72px;
   border: none;
-  box-shadow: transparent 0px 0px 0px 0px;
   background: #fff;
   padding: 0;
   cursor: pointer;
-  // overflow: hidden;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -281,20 +278,16 @@
   -webkit-tap-highlight-color: transparent;
 }
 .bh-thumb:hover {
-  // border-color: #073762;
-  opacity: 0.9;
-  
+  opacity: 0.8;
+  // box-shadow: inset #073762 0px 0px 0px 1px;
 }
 .bh-thumb:focus,
 .bh-thumb:focus-visible {
   outline: none;
-  box-shadow: #212529 0px 0px 0px 2px !important;
-} 
+  box-shadow: #073762 0px 0px 0px 2px !important;
+}
 .bh-thumb.is-active {
-  // border-color: #073762;
-  // border-width: 3px;
-  box-shadow: #212529 0px 0px 0px 2px;
-  
+  box-shadow: #073762 0px 0px 0px 2px;
 }
 .bh-thumb img {
   width: 100%;
@@ -312,6 +305,7 @@
     padding: 28px 44px;
   }
 }
+
 @media (max-width: 1024px) {
   .bh-modal {
     width: 92vw;
@@ -321,10 +315,5 @@
     height: 28px;
     margin-bottom: 24px;
   }
-  .bh-content { width: 100%; }
-  .bh-layout { grid-template-columns: 1fr; row-gap: 24px; }
-  .bh-col-right { height: auto; display: block; }
-  .bh-col-left { width: 100% !important; }
-  .bh-hero { width: 100% !important; height: 300px !important; }
-  .bh-thumbs { width: 100% !important; justify-content: center; }
+  
 }
