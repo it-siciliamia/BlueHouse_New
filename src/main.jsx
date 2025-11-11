@@ -8,6 +8,9 @@ import { Provider } from "react-redux";
 import { store, persistor } from "./redux/store.js";
 import PropTypes from "prop-types";
 
+// Initialize Firebase before rendering app
+import "./firebase/index.js";
+
 const isGitHubPages = window.location.hostname.includes("github.io");
 
 const basename = "/";
