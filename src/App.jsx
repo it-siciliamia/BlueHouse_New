@@ -1,6 +1,6 @@
 import React, { useState, createContext, lazy, Suspense, useMemo } from "react";
 import PropTypes from "prop-types";
-import { Route, Switch } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { HelmetProvider, Helmet } from "react-helmet-async";
 import { ThemeProvider } from "@material-ui/styles";
 import ScrollToTopButton from "./components/Shared/ScrollToTopButton/ScrollToTopButton.jsx";
@@ -60,27 +60,35 @@ function App({ basename }) {
               <ThirdPartyScriptsLoader />
             </Suspense>
 
-            <Switch>
-              <Route exact path="/enquire" component={EnquirePage} />
-              <Route exact path="/thankyou" component={ThankYou} />
-              <Route exact path="/blog" component={RedirectBlog} />
-              <Route exact path="/tripadvisor" component={RedirectTripAdv} />
-              <Route exact path="/"><Layout><HomePage /></Layout></Route>
+            <Routes>
+              <Route path="/enquire" element={<EnquirePage />} />
+              <Route path="/thankyou" element={<ThankYou />} />
+              <Route path="/blog" element={<RedirectBlog />} />
+              <Route path="/tripadvisor" element={<RedirectTripAdv />} />
               <Route
-                path={[
-                  "/house-rules",
-                  "/about-us",
-                  "/privacy-and-policy",
-                  "/book",
-                  "/beds24",
-                  "/beds24/:room",
-                  "/payment",
-                ]}
-                component={MainRoutes}
+                path="/"
+                element={
+                  <Layout>
+                    <HomePage />
+                  </Layout>
+                }
               />
-              <Route render={() => <HeaderOnlyLayout><Notfound /></HeaderOnlyLayout>} />
-            </Switch>
-
+              <Route path="/house-rules" element={<MainRoutes />} />
+              <Route path="/about-us" element={<MainRoutes />} />
+              <Route path="/privacy-and-policy" element={<MainRoutes />} />
+              <Route path="/book" element={<MainRoutes />} />
+              <Route path="/beds24" element={<MainRoutes />} />
+              <Route path="/beds24/:room" element={<MainRoutes />} />
+              <Route path="/payment" element={<MainRoutes />} />
+              <Route
+                path="*"
+                element={
+                  <HeaderOnlyLayout>
+                    <Notfound />
+                  </HeaderOnlyLayout>
+                }
+              />
+            </Routes>
           </LanguageProvider>
         </UserContext.Provider>
       </HelmetProvider>

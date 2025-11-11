@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import useBreakpoints from "../../Styles/useBreakpoints.js";
 import { useDispatch } from "react-redux";
 import { setPaymentStage } from "../../redux/technitial/technical-slice.js";
@@ -17,7 +17,7 @@ import s from "./RoomDetails.module.scss";
 
 const RoomDetails = () => {
   const { room } = useParams();
-  const history = useHistory();
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const { isLaptop, isDesktop } = useBreakpoints();
@@ -29,7 +29,7 @@ const RoomDetails = () => {
   }, [dispatch]);
 
   const handleBackClick = () => {
-    history.push("/beds24");
+    navigate("/beds24");
   };
 
   const calculatedWidth = isLaptop ? `calc(100% - 50px)` : `calc(100% - 70px)`;

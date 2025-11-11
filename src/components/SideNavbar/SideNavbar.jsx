@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useMemo } from "react";
 import PropTypes from "prop-types";
-import { Link as RouterLink, useHistory, useLocation } from "react-router-dom";
+import { Link as RouterLink, useLocation, useNavigate } from "react-router-dom";
 import { scroller } from "react-scroll";
 
 import TranslateMe, { WithTransLate } from "../helpers/translating";
@@ -189,9 +189,9 @@ const CONTACT_LINES = Object.freeze([
   },
 ]);
 
-function SideNavbar({ isOpen, onClose }) {
+function SideNavbar({ isOpen = false, onClose }) {
   const location = useLocation();
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const closeNav = useCallback(() => {
     if (typeof onClose === "function") {
@@ -243,13 +243,13 @@ function SideNavbar({ isOpen, onClose }) {
         return;
       }
 
-      history.push("/");
+      navigate("/");
       window.setTimeout(() => {
         scrollToTarget();
         closeNav();
       }, 400);
     },
-    [closeNav, history, isHomePage]
+    [closeNav, isHomePage, navigate]
   );
 
   const overlayClasses = useMemo(
@@ -404,11 +404,6 @@ function SideNavbar({ isOpen, onClose }) {
 SideNavbar.propTypes = {
   isOpen: PropTypes.bool,
   onClose: PropTypes.func,
-};
-
-SideNavbar.defaultProps = {
-  isOpen: false,
-  onClose: undefined,
 };
 
 export default SideNavbar;

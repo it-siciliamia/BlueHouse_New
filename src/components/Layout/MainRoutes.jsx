@@ -1,4 +1,4 @@
-import { Route, Switch } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Layout from "./Layout.jsx";
 
 import Aboutus from "../../views/AboutUsPage/AboutUs.jsx";
@@ -11,17 +11,14 @@ import RoomDetails from "../../views/RoomDetails/RoomDetails.jsx";
 function MainRoutes() {
   return (
     <Layout>
-      <Switch>
-        <Route exact path="/house-rules" component={HouseRules} />
-        <Route exact path="/about-us" component={Aboutus} />
-        <Route
-          exact
-          path="/privacy-and-policy"
-          component={PrivacyandPolicyPage} />
-        <Route path="/beds24/:room" component={RoomDetails} />
-        <Route exact path="/beds24" component={RoomBooking} />
-        <Route exact path="/payment" component={PaymentPage} />
-      </Switch>
+      <Routes>
+        <Route path="/house-rules" element={<HouseRules />} />
+        <Route path="/about-us" element={<Aboutus />} />
+        <Route path="/privacy-and-policy" element={<PrivacyandPolicyPage />} />
+        <Route path="/beds24/:room" element={<RoomDetails />} />
+        <Route path="/beds24" element={<RoomBooking />} />
+        <Route path="/payment" element={<PaymentPage />} />
+      </Routes>
     </Layout>
   );
 }

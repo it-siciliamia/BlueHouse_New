@@ -1,5 +1,5 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import { createRoot } from "react-dom/client";
 import { BrowserRouter, HashRouter } from "react-router-dom";
 import App from "./App.jsx";
 import reportWebVitals from "./reportWebVitals.js";
@@ -26,7 +26,14 @@ Router.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-ReactDOM.render(
+const rootElement = document.getElementById("root");
+if (!rootElement) {
+  throw new Error("Root element with id 'root' not found");
+}
+
+const root = createRoot(rootElement);
+
+root.render(
   <React.StrictMode>
     <Router>
       <Provider store={store}>
@@ -35,8 +42,7 @@ ReactDOM.render(
         </PersistGate>
       </Provider>
     </Router>
-  </React.StrictMode>,
-  document.getElementById("root")
+  </React.StrictMode>
 );
 
 reportWebVitals();

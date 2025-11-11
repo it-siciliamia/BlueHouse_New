@@ -1,5 +1,5 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { WithTransLate } from "../../helpers/translating";
 import Facebook from "../../../images/Header_icons/headerSocialIcons/facebook.svg";
 import instaIcon from "../../../images/Header_icons/headerSocialIcons/insta.svg";
@@ -9,17 +9,14 @@ import Whatsapp from "../../../images/Header_icons/headerSocialIcons/whats.svg";
 import s from "./FooterPayment.module.scss";
 
 const FooterPayment = () => {
-  const history = useHistory();
+  const navigate = useNavigate();
   return (
     <div className={s.footer}>
       <div className={s.footerCopyright}>
         <p className={s.сopyrightText}>
           <WithTransLate text="© 2022 Blue House B&B" />
         </p>
-        <button
-          className={s.btn}
-          onClick={() => history.push("/privacy-and-policy")}
-        >
+        <button className={s.btn} onClick={() => navigate("/privacy-and-policy")}>
           <WithTransLate text="Privacy Policy" />
         </button>
       </div>
