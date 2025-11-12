@@ -1,14 +1,11 @@
 import React, { useState, useRef, useEffect } from "react";
 import useBreakpoints from "../../Styles/useBreakpointsNew.js";
-import { useLocation } from "react-router-dom";
 import WeatherCard from "./WeatherCard.jsx";
 import { FiMaximize, FiX } from "react-icons/fi";
 import "./WeatherMap.css";
 
 const NewMap = () => {
   const { isMobile, isTablet, isDesktop } = useBreakpoints();
-
-  const location = useLocation();
   const [mapType, setMapType] = useState("roadmap");
   const [isFullScreen, setIsFullScreen] = useState(false);
   const [isMapActive, setIsMapActive] = useState(false);
@@ -126,12 +123,6 @@ const NewMap = () => {
         <div
           id="MAP"
           style={{
-            display:
-              location.pathname === "/" ||
-              location.pathname.startsWith("/beds24") ||
-              location.pathname.startsWith("/about-us")
-                ? "block"
-                : "none",
             position: "relative",
             margin: isMobile || isTablet ? "50px 0" : "0 0 2.5rem 0",
             width: "100%",

@@ -8,6 +8,12 @@ import ZohoChat from "./components/helpers/ZohoChat/ZohoChat.jsx";
 import combinedSchema from "./components/helpers/SchemaOrg/schema.js";
 import { LanguageProvider } from "./components/helpers/translating/LanguageContext.jsx";
 import HomePage from "./views/HomePage/HomePage.jsx";
+import Aboutus from "./views/AboutUsPage/AboutUs.jsx";
+import HouseRules from "./views/HouseRulesPage/HouseRules.jsx";
+import PaymentPage from "./views/PaymentPage/PaymentPage.jsx";
+import PrivacyandPolicyPage from "./views/PrivacyPolicyPage/PrivacyPolicyPage.jsx";
+import RoomBooking from "./views/roombooking/RoomBooking.jsx";
+import RoomDetails from "./views/RoomDetails/RoomDetails.jsx";
 import ScrollToTop from "./components/helpers/ScrollToTop.js";
 import Notfound from "./views/NotFoundPage/Notfound.jsx";
 import EnquirePage from "./components/BookingPage/EnquirePage.jsx";
@@ -20,16 +26,11 @@ import theme from "./Styles/theme.js";
 import "./Styles/App.css";
 import Layout from "./components/Layout/Layout.jsx";
 import HeaderOnlyLayout from "./components/Layout/HeaderOnlyLayout.jsx";
-import MainRoutes from "./components/Layout/MainRoutes.jsx";
 const ThirdPartyScriptsLoader = lazy(() =>
   import("./marketing/ThirdPartyScriptsLoader.jsx")
 );
 
 export const UserContext = createContext();
-
-App.propTypes = {
-  basename: PropTypes.string,
-};
 
 function App({ basename }) {
   const [modalState, setModal] = useState({
@@ -61,25 +62,23 @@ function App({ basename }) {
             </Suspense>
 
             <Routes>
+              <Route path="/" element={<Layout />}>
+                <Route index element={<HomePage />} />
+                <Route path="house-rules" element={<HouseRules />} />
+                <Route path="about-us" element={<Aboutus />} />
+                <Route
+                  path="privacy-and-policy"
+                  element={<PrivacyandPolicyPage />}
+                />
+                <Route path="book" element={<RoomBooking />} />
+                <Route path="beds24" element={<RoomBooking />} />
+                <Route path="beds24/:room" element={<RoomDetails />} />
+                <Route path="payment" element={<PaymentPage />} />
+              </Route>
               <Route path="/enquire" element={<EnquirePage />} />
               <Route path="/thankyou" element={<ThankYou />} />
               <Route path="/blog" element={<RedirectBlog />} />
               <Route path="/tripadvisor" element={<RedirectTripAdv />} />
-              <Route
-                path="/"
-                element={
-                  <Layout>
-                    <HomePage />
-                  </Layout>
-                }
-              />
-              <Route path="/house-rules" element={<MainRoutes />} />
-              <Route path="/about-us" element={<MainRoutes />} />
-              <Route path="/privacy-and-policy" element={<MainRoutes />} />
-              <Route path="/book" element={<MainRoutes />} />
-              <Route path="/beds24" element={<MainRoutes />} />
-              <Route path="/beds24/:room" element={<MainRoutes />} />
-              <Route path="/payment" element={<MainRoutes />} />
               <Route
                 path="*"
                 element={
