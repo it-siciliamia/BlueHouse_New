@@ -55,8 +55,7 @@ $desktop: 80em;
     padding: 0;
     flex-direction: row;
     align-items: stretch;
-    gap: 2.6rem;
-
+    gap: 1.5rem;
     inline-size: 100%; 
     margin-inline: auto;
   }
@@ -70,7 +69,23 @@ $desktop: 80em;
   align-self: stretch;
 
   @media (min-width: $smallScreen) {
-    flex: 1 1 0;
+    flex: 0 0 auto;              
+    width: 16.875rem;           
+  }
+}
+.submitWrapper {
+  @media (min-width: $smallScreen) {
+    flex: 0 0 auto;             
+    width: 13.625rem;           
+    max-inline-size: none;      
+    margin-left: 3.25rem;        
+  }
+}
+
+.submit {
+  @media (min-width: $smallScreen) {
+    flex: 0 0 auto;             
+    max-inline-size: none;      
   }
 }
 
