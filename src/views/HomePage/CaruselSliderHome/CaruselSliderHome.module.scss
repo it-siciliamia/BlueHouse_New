@@ -24,10 +24,6 @@ $desktop: 80em; // 1280px
   @media (min-width: $tablet) {
     aspect-ratio: 1054 / 556; // Figma's aspect ratio standard
   }
-  @media (min-width: $tablet) {
-    width: 65.875rem;
-    height: 34.75rem;
-  }
 }
 
 .image {
