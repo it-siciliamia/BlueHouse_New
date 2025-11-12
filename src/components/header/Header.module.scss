@@ -39,12 +39,12 @@ $desktop: 80em;
 
 .iconsWrapper {
   display: flex;
-  gap: 8px;
+  gap: 1rem;
   align-items: center;
   justify-self: center;
 
   @media (min-width: $laptop) {
-    gap: 16px;
+    gap: 1rem;
   }
 }
 
