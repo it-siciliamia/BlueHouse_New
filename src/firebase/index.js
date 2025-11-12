@@ -1,14 +1,24 @@
 // Firebase initialization module
-// Initializes Firebase app and analytics
+// Conditionally initializes Firebase app and analytics based on environment
 
 import { initializeApp } from 'firebase/app';
 import { getAnalytics } from 'firebase/analytics';
 import firebaseConfig from './config.js';
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
+let app = null;
+let analytics = null;
 
-// Initialize Analytics and get a reference to the service
-const analytics = getAnalytics(app);
+// Only initialize in production or when explicitly enabled
+// This prevents unnecessary Firebase initialization during local development
+if (import.meta.env.MODE === 'production' || import.meta.env.VITE_ENABLE_FIREBASE === 'true') {
+  try {
+    app = initializeApp(firebaseConfig);
+    analytics = getAnalytics(app);
+  } catch (error) {
+    console.warn('Firebase initialization failed:', error.message);
+  }
+} else {
+  console.log('Firebase initialization skipped in development mode');
+}
 
 export { app, analytics };
