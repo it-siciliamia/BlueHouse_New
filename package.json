@@ -43,10 +43,6 @@
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^5.1.0",
-    "eslint": "^7.32.0",
-    "eslint-plugin-import": "^2.31.0",
-    "eslint-plugin-react": "^7.37.2",
-    "eslint-plugin-react-hooks": "^4.6.2",
     "sass": "^1.81.0",
     "sharp": "^0.34.5",
     "svgo": "^4.0.0",
