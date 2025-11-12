@@ -5,7 +5,7 @@ import "./MyModal.scss";
 import customModalData from "../../Shared/CustomModal/customModalData";
 import { WithTransLate } from "../../helpers/translating";
 import Link from "../../Shared/ui/Link";
-import IconButton from "../../Shared/ui/IconButton"
+import IconButton from "../../Shared/ui/IconButton";
 
 /* Figma sizes (Content = 1008px: 592 + 32 + 384) */
 const HERO_W = 592;
@@ -326,13 +326,19 @@ function GenericLightbox({ open, onClose, dataIndex, initialTitle }) {
         <div className="bh-content">
           <div
             className="bh-layout"
-            style={{ gridTemplateColumns: `${HERO_W}px ${GAP}px ${ASIDE_W}px` }}
+            // style={{ gridTemplateColumns: `${HERO_W}px ${GAP}px ${ASIDE_W}px` }}
+            //this is now changed through css to make it responsive
           >
             {/* Left: hero + thumbnails */}
-            <div className="bh-col-left" style={{ width: HERO_W }}>
+            <div
+              className="bh-col-left"
+              // style={{ width: HERO_W }}
+              // //this is now changed through css to make it responsive
+            >
               <div
                 className="bh-hero"
-                style={{ width: HERO_W, height: HERO_H }}
+                // style={{ width: HERO_W, height: HERO_H }}
+                //this is now changed through css to make it responsive
               >
                 {pictures[idx] ? (
                   <img
@@ -353,11 +359,26 @@ function GenericLightbox({ open, onClose, dataIndex, initialTitle }) {
                 {pictures.length > 1 && (
                   <>
                     <div className="bh-nav-zone bh-nav-zone--prev">
-                      <IconButton icon="chevronLeft" size="lg" iconSize="20" onClick={onPrev} onMouseDown={(e) => {
-                       e.preventDefault()}} />
+                      <IconButton
+                        icon="chevronLeft"
+                        size="lg"
+                        iconSize="20"
+                        onClick={onPrev}
+                        onMouseDown={(e) => {
+                          e.preventDefault();
+                        }}
+                      />
                     </div>
                     <div className="bh-nav-zone bh-nav-zone--next">
-                      <IconButton icon="chevronRight" size="lg" iconSize="20" onClick={onNext} onMouseDown={(e) => {e.preventDefault()}} />
+                      <IconButton
+                        icon="chevronRight"
+                        size="lg"
+                        iconSize="20"
+                        onClick={onNext}
+                        onMouseDown={(e) => {
+                          e.preventDefault();
+                        }}
+                      />
                     </div>
                   </>
                 )}
@@ -377,7 +398,10 @@ function GenericLightbox({ open, onClose, dataIndex, initialTitle }) {
                 )}
               </div>
 
-              <div className={thumbsClass} style={{ width: HERO_W }}>
+              <div className={thumbsClass}
+              //  style={{ width: HERO_W }}
+              //this is now changed through css to make it responsive
+               >
                 {pictures.map((src, i) => (
                   <button
                     key={`thumb-${i}`}
@@ -402,7 +426,10 @@ function GenericLightbox({ open, onClose, dataIndex, initialTitle }) {
             </div>
 
             {/* Right: text + CTA */}
-            <div className="bh-col-right" style={{ width: ASIDE_W }}>
+            <div className="bh-col-right"
+            //  style={{ width: ASIDE_W }}
+            //this is now changed through css to make it responsive
+             >
               <h3 className="bh-title">
                 <WithTransLate text={entity.title || ""} />
               </h3>
@@ -415,8 +442,12 @@ function GenericLightbox({ open, onClose, dataIndex, initialTitle }) {
                 ))}
               </div>
 
-              <Link href="https://beds24.com/booking2.php?propid=3578&layout=1" className="bh-cta"><WithTransLate text="Book now"/></Link>
-
+              <Link
+                href="https://beds24.com/booking2.php?propid=3578&layout=1"
+                className="bh-cta"
+              >
+                <WithTransLate text="Book now" />
+              </Link>
             </div>
           </div>
         </div>
