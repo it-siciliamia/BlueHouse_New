@@ -200,12 +200,7 @@ html.bh-modal-open .bh-backdrop *:active {
 }
 
 `;
-//removed this from the above chunck to fix transition animation in thumbnails
-// html.bh-modal-open .bh-modal,
-// html.bh-modal-open .bh-modal * {
-//   transition-property: none !important;
-//   animation: none !important;
-// }
+
 
 /* ---------------------------------------------------------------------------
    Generic lightbox (Houses / Rooms / Surroundings)
@@ -326,19 +321,16 @@ function GenericLightbox({ open, onClose, dataIndex, initialTitle }) {
         <div className="bh-content">
           <div
             className="bh-layout"
-            // style={{ gridTemplateColumns: `${HERO_W}px ${GAP}px ${ASIDE_W}px` }}
-            //this is now changed through css to make it responsive
+        
           >
             {/* Left: hero + thumbnails */}
             <div
               className="bh-col-left"
-              // style={{ width: HERO_W }}
-              // //this is now changed through css to make it responsive
+   
             >
               <div
                 className="bh-hero"
-                // style={{ width: HERO_W, height: HERO_H }}
-                //this is now changed through css to make it responsive
+       
               >
                 {pictures[idx] ? (
                   <img
@@ -399,8 +391,7 @@ function GenericLightbox({ open, onClose, dataIndex, initialTitle }) {
               </div>
 
               <div className={thumbsClass}
-              //  style={{ width: HERO_W }}
-              //this is now changed through css to make it responsive
+
                >
                 {pictures.map((src, i) => (
                   <button
@@ -427,8 +418,7 @@ function GenericLightbox({ open, onClose, dataIndex, initialTitle }) {
 
             {/* Right: text + CTA */}
             <div className="bh-col-right"
-            //  style={{ width: ASIDE_W }}
-            //this is now changed through css to make it responsive
+ 
              >
               <h3 className="bh-title">
                 <WithTransLate text={entity.title || ""} />

@@ -138,7 +138,7 @@
   font-weight: 300;
   font-size: 18px; /* Paragraph Regular */
   line-height: 24px;
-  color: #212529; /* Neutral/05 per Figma */
+  color: var(--color-neutral-500); /* Neutral/05 per Figma */
 }
 .bh-desc p {
   margin: 0 0 8px 0; /* Paragraph spacing 8px */
@@ -284,12 +284,11 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  transition: box-shadow 0.2s, opacity 0.2s !important;
+  transition: box-shadow 0.2s, opacity 0.2s ;
   -webkit-tap-highlight-color: transparent;
 }
 .bh-thumb:hover {
   opacity: 0.8;
-  // box-shadow: inset #073762 0px 0px 0px 1px;
 }
 .bh-thumb:focus,
 .bh-thumb:focus-visible {
