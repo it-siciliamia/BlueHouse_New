@@ -8,7 +8,7 @@ import React, {
   useCallback,
 } from "react";
 import { Element } from "react-scroll"; // Anchor for react-scroll navigation
-import "./PhotoGallery.css";
+import "./PhotoGallery.scss";
 import MyModal from "./Mymodal";
 import customModalData from "../../Shared/CustomModal/customModalData";
 

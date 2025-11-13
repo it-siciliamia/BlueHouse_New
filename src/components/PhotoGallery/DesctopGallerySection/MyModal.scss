@@ -22,7 +22,7 @@
   background: #fff;
   border: 1px solid rgba(0, 0, 0, 0.08);
   box-shadow: none;
-  padding: 32px 104px;
+  padding: 62px 104px;
   outline: none;
   -webkit-tap-highlight-color: transparent;
   cursor: default;
@@ -57,11 +57,6 @@
   transform: none !important;
   filter: none !important;
 }
-.bh-modal-open .bh-modal,
-.bh-modal-open .bh-modal * {
-  transition-property: none !important;
-  animation: none !important;
-}
 
 /* ===============================
    Header with close button
@@ -71,7 +66,7 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  margin-bottom: 32px;
+  margin-bottom: 24px;
 }
 .bh-closeX {
   width: 24px;
@@ -129,10 +124,10 @@
    Text content (Figma-accurate)
    =============================== */
 .bh-title {
-  margin: 0 0 24px 0;                 /* 24px gap to description */
+  margin: 0 0 24px 0; /* 24px gap to description */
   font-family: "Josefin Sans", sans-serif;
   font-weight: 700;
-  font-size: 24px;                    /* H3/Desktop */
+  font-size: 24px; /* H3/Desktop */
   line-height: 32px;
   color: #1d3967;
 }
@@ -141,12 +136,12 @@
   width: 384px;
   font-family: "Josefin Sans", sans-serif;
   font-weight: 300;
-  font-size: 18px;                    /* Paragraph Regular */
+  font-size: 18px; /* Paragraph Regular */
   line-height: 24px;
-  color: #212529;                     /* Neutral/05 per Figma */
+  color: var(--color-neutral-500); /* Neutral/05 per Figma */
 }
 .bh-desc p {
-  margin: 0 0 8px 0;                  /* Paragraph spacing 8px */
+  margin: 0 0 8px 0; /* Paragraph spacing 8px */
 }
 .bh-desc p:last-child {
   margin-bottom: 0;
@@ -212,8 +207,12 @@
   height: 40px;
   z-index: 5;
 }
-.bh-nav-zone--prev { left: 16px; }
-.bh-nav-zone--next { right: 16px; }
+.bh-nav-zone--prev {
+  left: 16px;
+}
+.bh-nav-zone--next {
+  right: 16px;
+}
 
 /* ===============================
    Dot pagination
@@ -225,30 +224,32 @@
   bottom: 0;
   height: 34px;
   padding: 6px 10px;
-  background: rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.5);
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 12px;
   z-index: 4;
 }
 .bh-dot {
   display: block;
   box-sizing: content-box;
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
   padding: 0;
   border-radius: 50%;
-  border: 2px solid transparent;
+  border: 1px solid transparent;
   background: #1d3967;
   opacity: 0.9;
   cursor: pointer;
   transition: opacity 120ms ease, box-shadow 120ms ease;
 }
-.bh-dot:hover { opacity: 1; }
+.bh-dot:hover {
+  opacity: 1;
+}
 .bh-dot.is-active {
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
   background: #fff;
   border-color: #1d3967;
   opacity: 1;
@@ -262,34 +263,40 @@
    Thumbnails strip
    =============================== */
 .bh-thumbs {
-  width: 592px;
-  margin-top: 16px;
+  width: 590px;
+  margin-top: 8px;
   display: flex;
   gap: 16px;
 }
-.bh-thumbs--six { justify-content: space-between; }
-.bh-thumbs--auto { justify-content: center; }
+.bh-thumbs--six {
+  justify-content: space-between;
+}
+.bh-thumbs--auto {
+  justify-content: center;
+}
 .bh-thumb {
   width: 72px;
   height: 72px;
-  border: 2px solid #e4e8ef;
+  border: none;
   background: #fff;
   padding: 0;
   cursor: pointer;
-  overflow: hidden;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  transition: border-color 0.2s, opacity 0.2s;
+  transition: box-shadow 0.2s, opacity 0.2s ;
   -webkit-tap-highlight-color: transparent;
 }
 .bh-thumb:hover {
-  border-color: #073762;
-  opacity: 0.9;
+  opacity: 0.8;
+}
+.bh-thumb:focus,
+.bh-thumb:focus-visible {
+  outline: none;
+  box-shadow: #073762 0px 0px 0px 2px !important;
 }
 .bh-thumb.is-active {
-  border-color: #073762;
-  border-width: 3px;
+  box-shadow: #073762 0px 0px 0px 2px;
 }
 .bh-thumb img {
   width: 100%;
@@ -303,23 +310,44 @@
    =============================== */
 @media (max-width: 1280px) {
   .bh-modal {
-    width: 1024px;
-    padding: 28px 44px;
+    //min width until mobile/tablet layout is implemented
+    min-width: 880px;
+    //% to adjust better to smaller screens
+    padding: 5% 8.5%;
+    .bh-content {
+      width: 100%;
+      .bh-layout {
+        display: grid;
+        //changed to % to be more responsive
+        grid-template-columns: 58.7% 3.2% 38.1%;
+        align-items: start;
+        .bh-col-left {
+          max-width: 590px;
+          .bh-hero {
+            width: 100%;
+          }
+          .bh-thumbs {
+            width: 100%;
+          }
+        }
+        .bh-col-right {
+          height: 380px;
+          .bh-desc {
+            width: 100%;
+            height: auto;
+          }
+        }
+      }
+    }
   }
 }
+
 @media (max-width: 1024px) {
   .bh-modal {
     width: 92vw;
-    padding: 24px;
   }
   .bh-header {
     height: 28px;
     margin-bottom: 24px;
   }
-  .bh-content { width: 100%; }
-  .bh-layout { grid-template-columns: 1fr; row-gap: 24px; }
-  .bh-col-right { height: auto; display: block; }
-  .bh-col-left { width: 100% !important; }
-  .bh-hero { width: 100% !important; height: 300px !important; }
-  .bh-thumbs { width: 100% !important; justify-content: center; }
 }
