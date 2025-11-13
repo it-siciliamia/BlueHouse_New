@@ -68,9 +68,12 @@ $desktop: 80em;
   gap: 0.5rem;
   align-self: stretch;
 
-  @media (min-width: $smallScreen) {
+  @media (min-width: $desktop) {
     flex: 0 0 auto;              
     width: 16.875rem;           
+  }
+  @media (min-width: $smallScreen) {
+    flex: 1 1 0;                   
   }
 }
 .submitWrapper {
