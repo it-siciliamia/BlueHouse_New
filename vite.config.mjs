@@ -1,8 +1,13 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-import svgr from 'vite-plugin-svgr'
-import { ViteImageOptimizer } from 'vite-plugin-image-optimizer'
-import path from 'path'
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import svgr from "vite-plugin-svgr";
+import { ViteImageOptimizer } from "vite-plugin-image-optimizer";
+import path from "path";
+import process from "process";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -36,7 +41,7 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './src'),
+      "@": path.resolve(__dirname, "./src"),
     },
   },
   server: {
@@ -44,29 +49,29 @@ export default defineConfig({
     open: true,
     strictPort: false,
     proxy: {
-      '/api': {
-        target: 'http://localhost:3001',
+      "/api": {
+        target: "http://localhost:3001",
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, ''),
+        rewrite: (path) => path.replace(/^\/api/, ""),
       },
     },
   },
   build: {
-    outDir: 'dist',
+    outDir: "dist",
     sourcemap: false,
-    minify: 'terser',
+    minify: "terser",
     rollupOptions: {
       output: {
         manualChunks: {
-          'react-vendor': ['react', 'react-dom'],
-          'router': ['react-router-dom'],
-          'redux': ['redux', 'react-redux', '@reduxjs/toolkit'],
-          'material-ui': ['@mui/material', '@mui/icons-material'],
+          "react-vendor": ["react", "react-dom"],
+          router: ["react-router-dom"],
+          redux: ["redux", "react-redux", "@reduxjs/toolkit"],
+          "material-ui": ["@mui/material", "@mui/icons-material"],
         },
       },
     },
   },
   define: {
-    'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
+    "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV),
   },
-})
+});

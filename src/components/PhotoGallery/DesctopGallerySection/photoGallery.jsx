@@ -1,12 +1,5 @@
-/* eslint-disable react/jsx-no-bind */
-import React, {
-  useEffect,
-  useLayoutEffect,
-  useMemo,
-  useRef,
-  useState,
-  useCallback,
-} from "react";
+import PropTypes from "prop-types";
+import React, { useEffect, useLayoutEffect, useMemo, useRef, useState, useCallback } from "react";
 import { Element } from "react-scroll"; // Anchor for react-scroll navigation
 import "./PhotoGallery.scss";
 import MyModal from "./Mymodal";
@@ -38,8 +31,7 @@ const imagePreloader = (() => {
 
   return {
     preload(src) {
-      if (!src || preloadedUrls.has(src) || activeRequests >= MAX_CONCURRENT)
-        return;
+      if (!src || preloadedUrls.has(src) || activeRequests >= MAX_CONCURRENT) return;
 
       activeRequests++;
       preloadedUrls.add(src);
@@ -58,9 +50,7 @@ const imagePreloader = (() => {
       preloadedUrls.clear();
       activeRequests = 0;
       // Remove preload links
-      document
-        .querySelectorAll('link[rel="preload"][as="image"]')
-        .forEach((l) => l.remove());
+      document.querySelectorAll('link[rel="preload"][as="image"]').forEach((l) => l.remove());
     },
   };
 })();
@@ -68,7 +58,7 @@ const imagePreloader = (() => {
 /** Optimized SmartImg with faster intersection detection */
 const BLANK_1x1 = "data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=";
 
-function SmartImg({ src, alt, width, height, priority, fetchpriority }) {
+function SmartImg({ src, alt, width, height, priority }) {
   const [loaded, setLoaded] = useState(priority);
   const [visible, setVisible] = useState(priority);
   const ref = useRef(null);
@@ -142,7 +132,6 @@ function SmartImg({ src, alt, width, height, priority, fetchpriority }) {
       height={height}
       decoding="async"
       loading={priority ? "eager" : "lazy"}
-      fetchpriority={fetchpriority}
       style={{ backgroundColor: loaded ? "transparent" : "#f6f7f9" }}
       draggable="false"
       onLoad={handleLoad}
@@ -160,9 +149,7 @@ function pickCover(title, arr, explicitCover) {
   const lcTitle = String(title || "").toLowerCase();
   if (lcTitle.includes("blue")) {
     const hints = ["stair", "stairs", "interior", "inside", "hall"];
-    const hit = list.find((src) =>
-      hints.some((h) => String(src).toLowerCase().includes(h))
-    );
+    const hit = list.find((src) => hints.some((h) => String(src).toLowerCase().includes(h)));
     if (hit) return hit;
   }
   return list[0] || "";
@@ -174,12 +161,8 @@ function mapDataFor(tabName, stateSnapshot) {
   const src = customModalData[idx] || [];
   return src.map((item) => {
     const bgs = Array.isArray(item.backgrounds) ? item.backgrounds : [];
-    const saved =
-      Number(stateSnapshot?.[`${idx}|${String(item.title || "")}`]) || 0;
-    const hero =
-      bgs.length > 0
-        ? bgs[((saved % bgs.length) + bgs.length) % bgs.length]
-        : "";
+    const saved = Number(stateSnapshot?.[`${idx}|${String(item.title || "")}`]) || 0;
+    const hero = bgs.length > 0 ? bgs[((saved % bgs.length) + bgs.length) % bgs.length] : "";
     const cover = pickCover(item.title, bgs, item.cover);
     return {
       id: String(item.title)
@@ -193,6 +176,14 @@ function mapDataFor(tabName, stateSnapshot) {
     };
   });
 }
+
+SmartImg.propTypes = {
+  src: PropTypes.string.isRequired,
+  alt: PropTypes.string.isRequired,
+  width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  priority: PropTypes.bool,
+};
 
 /** Memoized Card Component */
 const Card = React.memo(function Card({
@@ -222,7 +213,6 @@ const Card = React.memo(function Card({
           width={active === "Rooms" ? 466 : 368}
           height={368}
           priority={isPriority}
-          fetchpriority={isPriority ? "high" : "low"}
         />
       </div>
       <div className="accom__body">
@@ -230,10 +220,7 @@ const Card = React.memo(function Card({
         <div className="accom__divider" />
         <p className="accom__text">
           {(() => {
-            if (
-              active === "Surroundings" &&
-              /northern\s+lights/i.test(card.title)
-            ) {
+            if (active === "Surroundings" && /northern\s+lights/i.test(card.title)) {
               const text = card.excerpt || "";
               const key = " the best place to ";
               const idx = text.toLowerCase().indexOf(key);
@@ -257,6 +244,22 @@ const Card = React.memo(function Card({
     </article>
   );
 });
+
+Card.propTypes = {
+  card: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    excerpt: PropTypes.string,
+    cover: PropTypes.string.isRequired,
+    hero: PropTypes.string,
+    modalTabIndex: PropTypes.number.isRequired,
+  }).isRequired,
+  index: PropTypes.number.isRequired,
+  active: PropTypes.oneOf(TABS).isRequired,
+  onCardClick: PropTypes.func.isRequired,
+  onCardKeyDown: PropTypes.func.isRequired,
+  onCardInteraction: PropTypes.func.isRequired,
+};
 
 export default function PhotoGallery() {
   const [active, setActive] = useState("Houses");
@@ -397,9 +400,7 @@ export default function PhotoGallery() {
         <div className="accom__container">
           <div className="accom__heading">
             <h2 className="accom__title">ACCOMMODATION OPTIONS</h2>
-            <p className="accom__subtitle">
-              Enjoy a relaxing stay 10 minutes from downtown
-            </p>
+            <p className="accom__subtitle">Enjoy a relaxing stay 10 minutes from downtown</p>
           </div>
 
           <div
@@ -422,10 +423,7 @@ export default function PhotoGallery() {
                 onClick={() => setActive(t)}
                 data-width={t === "Houses" ? 176 : t === "Rooms" ? 176 : 208}
               >
-                <span
-                  className="accom__tab-label"
-                  ref={(el) => (labelsRef.current[i] = el)}
-                >
+                <span className="accom__tab-label" ref={(el) => (labelsRef.current[i] = el)}>
                   {t}
                 </span>
               </button>
@@ -433,11 +431,7 @@ export default function PhotoGallery() {
             <span className="accom__indicator" ref={indicatorRef} />
           </div>
 
-          <div
-            id={`panel-${active}`}
-            role="tabpanel"
-            aria-labelledby={`tab-${active}`}
-          >
+          <div id={`panel-${active}`} role="tabpanel" aria-labelledby={`tab-${active}`}>
             <div
               className={`accom__grid ${
                 active === "Rooms" ? "accom__grid--rooms" : ""
@@ -458,7 +452,7 @@ export default function PhotoGallery() {
           </div>
         </div>
 
-        {open && (
+        {!!open && (
           <MyModal
             index={tabIndex}
             open={open}

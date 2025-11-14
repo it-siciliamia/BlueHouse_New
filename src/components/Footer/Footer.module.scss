@@ -54,7 +54,6 @@ $tablet: 48em; // ~768px
   }
 }
 
-
 //** SiteMap **//
 
 .siteMap {
@@ -135,7 +134,9 @@ $tablet: 48em; // ~768px
   border: none;
   padding: 0;
   cursor: pointer;
-  transition: color 0.2s ease, text-decoration-color 0.2s ease;
+  transition:
+    color 0.2s ease,
+    text-decoration-color 0.2s ease;
 
   @media (min-width: $laptop) {
     flex-direction: row;

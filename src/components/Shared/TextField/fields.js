@@ -4,8 +4,7 @@ export const fields = {
     name: "firstName",
     type: "text",
     placeholder: "First name*",
-    title:
-      "*The First Name field must be more than 2 and less than 20 characters",
+    title: "*The First Name field must be more than 2 and less than 20 characters",
     required: true,
   },
   lastName: {
@@ -13,8 +12,7 @@ export const fields = {
     name: "lastName",
     type: "text",
     placeholder: "Last name*",
-    title:
-      "*The Last Name field must be more than 2 and less than 20 characters",
+    title: "*The Last Name field must be more than 2 and less than 20 characters",
     required: true,
   },
   emailAddress: {

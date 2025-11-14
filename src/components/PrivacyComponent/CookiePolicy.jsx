@@ -1,6 +1,6 @@
-import React from "react";
 import { Box } from "@mui/material";
 import { makeStyles } from "@mui/styles";
+
 import { WithTransLate } from "../helpers/translating/index.jsx";
 
 const useStyles = makeStyles((theme) => ({
@@ -58,7 +58,6 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 
-
   articleWrapper: {
     marginBottom: "20px",
     [theme.breakpoints.down("md")]: {
@@ -95,7 +94,7 @@ const useStyles = makeStyles((theme) => ({
     borderBottom: "1px solid #e5e5e5",
     color: "#1D3967",
     paddingBottom: "20px",
-    marginBottom: "10px", 
+    marginBottom: "10px",
   },
 
   subtitle: {
@@ -164,21 +163,21 @@ export default function CookiePolicy() {
       <div className={titleInfo}>
         <p className={textClass}>
           <WithTransLate text="In order to provide you with a more personalized and responsive service we need to" />
-          <br/>
+          <br />
           <WithTransLate text="remember and store information about how you use this website. This is done using small text" />
-          <br/>
+          <br />
           <WithTransLate text="files called cookies. Cookies contain small amounts of information and are downloaded to" />
-          <br/>
+          <br />
           <WithTransLate text="your computer or other device by a server for this website. Your web browser then sends" />
-          <br/>
+          <br />
           <WithTransLate text="these cookies back to this Website on each subsequent visit so that it can recognise you and" />
-          <br/>
+          <br />
           <WithTransLate text="remember things like your user preferences. A cookie is a small file of letters and numbers" />
-          <br/>
+          <br />
           <WithTransLate text="that we store on your browser and hard drive of your computer. Cookies contain information" />
-          <br/>
+          <br />
           <WithTransLate text="that is transferred to your computer’s hard drive. By browsing our sites you are accepting our" />
-          <br/>
+          <br />
           <WithTransLate text="use of cookies. You can close the cookie notification by clicking “OK” button." />
         </p>
 
@@ -191,9 +190,9 @@ export default function CookiePolicy() {
 
               <span>
                 <WithTransLate text="These are cookies that are required for the operation of our website." />
-                <br/>
+                <br />
                 <WithTransLate text="They include cookies that enable you to log into secure areas of our website as well as" />
-                <br/>
+                <br />
                 <WithTransLate text="placing products in your cart." />
               </span>
             </li>
@@ -203,9 +202,9 @@ export default function CookiePolicy() {
                 <WithTransLate text="Preference settings cookies: " />
               </span>
               <WithTransLate text="These are cookies that are required for the operation of" />
-              <br/>
+              <br />
               <WithTransLate text="some features our website. They include cookies that enable changes of some settings on" />
-              <br/>
+              <br />
               <WithTransLate text="our websites." />
             </li>
 
@@ -214,9 +213,9 @@ export default function CookiePolicy() {
                 <WithTransLate text="Statistics, analytical and performance cookies: " />
               </span>
               <WithTransLate text="They allow us to recognise and count" />
-              <br/>
+              <br />
               <WithTransLate text="the number of visitors and to see how visitors move around our website when they are" />
-              <br/>
+              <br />
               <WithTransLate text="using it." />
             </li>
 
@@ -225,7 +224,7 @@ export default function CookiePolicy() {
                 <WithTransLate text="Marketing cookies: " />
               </span>
               <WithTransLate text="These cookies can be connected to your social accounts to display" />
-              <br/>
+              <br />
               <WithTransLate text="advertisements to your social accounts." />
             </li>
           </ul>
@@ -233,11 +232,11 @@ export default function CookiePolicy() {
 
         <p className={textClass}>
           <WithTransLate text="Most browsers will allow you to see what cookies you have and delete them on an individual" />
-          <br/>
+          <br />
           <WithTransLate text="basis or block cookies from particular or all websites. Be aware that any preference you have" />
-          <br/>
+          <br />
           <WithTransLate text="set will be lost if you delete all cookies, including your preference to close the cookie" />
-          <br/>
+          <br />
           <WithTransLate text="notification." />
         </p>
 
@@ -251,16 +250,13 @@ export default function CookiePolicy() {
       <div className={articleWrapper}>
         <div className={typesOfDataItem}>
           <p className={`${textClass} ${subtitle}`}>
-            <br/>
+            <br />
             <WithTransLate text="Advertisement" />
           </p>
-          <hr/>
+          <hr />
 
           {COOKIES_ADVERTISEMENT.map((data) => (
-            <p
-              key={data.id}
-              className={`${textClass} ${linkWrapper}`}
-            >
+            <p key={data.id} className={`${textClass} ${linkWrapper}`}>
               <WithTransLate text={data.text} />
 
               <a href={data.link} className={link}>
@@ -272,17 +268,14 @@ export default function CookiePolicy() {
 
         <div className={typesOfDataItem}>
           <p className={`${textClass} ${subtitle}`}>
-            <br/>
-            <br/>
+            <br />
+            <br />
             <WithTransLate text="Analytics" />
           </p>
-          <hr/>
+          <hr />
 
           {COOKIES_ANALITICS.map((data) => (
-            <p
-              key={data.id}
-              className={`${textClass} ${linkWrapper}`}
-            >
+            <p key={data.id} className={`${textClass} ${linkWrapper}`}>
               <WithTransLate text={data.text} />
 
               <a href={data.link} className={link}>
@@ -291,20 +284,17 @@ export default function CookiePolicy() {
             </p>
           ))}
         </div>
-    
+
         <div className={typesOfDataItem}>
           <p className={`${textClass} ${subtitle}`}>
-            <br/>
-            <br/>
+            <br />
+            <br />
             <WithTransLate text="Functional" />
           </p>
-          <hr/>
+          <hr />
 
           {COOKIES_FUNCTIONAL.map((data) => (
-            <p
-              key={data.id}
-              className={`${textClass} ${linkWrapper}`}
-            >
+            <p key={data.id} className={`${textClass} ${linkWrapper}`}>
               <WithTransLate text={data.text} />
 
               <a href={data.link} className={link}>
@@ -316,17 +306,14 @@ export default function CookiePolicy() {
 
         <div className={typesOfDataItem}>
           <p className={`${textClass} ${subtitle}`}>
-            <br/>
-            <br/>
+            <br />
+            <br />
             <WithTransLate text="Necessary" />
           </p>
-          <hr/>
+          <hr />
 
           {COOKIES_NECESSARY.map((data) => (
-            <p
-              key={data.id}
-              className={`${textClass} ${linkWrapper}`}
-            >
+            <p key={data.id} className={`${textClass} ${linkWrapper}`}>
               <WithTransLate text={data.text} />
 
               <a href={data.link} className={link}>
@@ -336,8 +323,8 @@ export default function CookiePolicy() {
           ))}
         </div>
 
-        <p style={{ fontSize: "25.4px", marginTop: "20px", fontWeight: "300"}}>
-            <WithTransLate text="For further information on how we handle your data please read our privacy policy." />
+        <p style={{ fontSize: "25.4px", marginTop: "20px", fontWeight: "300" }}>
+          <WithTransLate text="For further information on how we handle your data please read our privacy policy." />
         </p>
       </div>
     </Box>

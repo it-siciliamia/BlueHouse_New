@@ -1,13 +1,12 @@
-import React from "react";
-import { WithTransLate } from "../helpers/translating/index.jsx";
+import s from "./OurServices.module.scss";
+import clock from "../../images/services/clock.svg";
+import house from "../../images/services/house.svg";
+import money from "../../images/services/money.svg";
 import useBreakpoints from "../../Styles/useBreakpointsNew.js";
+import { WithTransLate } from "../helpers/translating/index.jsx";
 //import DifferentLocations from "./ServicesType/DifferentLocations.jsx"; //! muted
 //import SelfCheckIn from "./ServicesType/selfCheckIn.jsx"; //! muted
 //import CheapestPrice from "./ServicesType/CheapestPrice.jsx"; //! muted
-import money from "../../images/services/money.svg";
-import clock from "../../images/services/clock.svg";
-import house from "../../images/services/house.svg";
-import s from "./OurServices.module.scss";
 
 // Titles + subtitles exactly as in the design
 const servicesData = [
@@ -44,9 +43,7 @@ const OurServices = () => {
               gap: isDesktop ? "14.84px" : isMobile ? "15px" : "14.84px", // unified spacing logic
             }}
           >
-            <div
-              className={s.imageContainer}
-            >
+            <div className={s.imageContainer}>
               <img src={icon} alt="Service Icon" className={s.icon} />
             </div>
 

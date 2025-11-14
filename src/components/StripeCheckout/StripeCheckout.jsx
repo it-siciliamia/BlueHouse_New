@@ -1,12 +1,8 @@
-import React, { useState, useEffect } from "react";
-import { connect } from "react-redux";
+import { CardElement, Elements, useElements, useStripe } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
-import {
-  CardElement,
-  Elements,
-  useElements,
-  useStripe
-} from "@stripe/react-stripe-js";
+import PropTypes from "prop-types";
+import { useState, useEffect } from "react";
+import { connect } from "react-redux";
 import "./StripeCheckout.css";
 
 const CARD_OPTIONS = {
@@ -20,17 +16,17 @@ const CARD_OPTIONS = {
       fontSize: "16px",
       fontSmoothing: "antialiased",
       ":-webkit-autofill": {
-        color: "#fce883"
+        color: "#fce883",
       },
       "::placeholder": {
-        color: "#87bbfd"
-      }
+        color: "#87bbfd",
+      },
     },
     invalid: {
       iconColor: "#ffc7ee",
-      color: "#ffc7ee"
-    }
-  }
+      color: "#ffc7ee",
+    },
+  },
 };
 
 const CardField = ({ onChange }) => (
@@ -39,7 +35,9 @@ const CardField = ({ onChange }) => (
   </div>
 );
 
-
+CardField.propTypes = {
+  onChange: PropTypes.func.isRequired,
+};
 
 const SubmitButton = ({ processing, error, children, disabled }) => (
   <button
@@ -51,8 +49,17 @@ const SubmitButton = ({ processing, error, children, disabled }) => (
   </button>
 );
 
+SubmitButton.propTypes = {
+  processing: PropTypes.bool.isRequired,
+  error: PropTypes.shape({
+    message: PropTypes.string,
+  }),
+  children: PropTypes.node.isRequired,
+  disabled: PropTypes.bool,
+};
+
 const ErrorMessage = ({ children }) => (
-  <div className="ErrorMessage" role="alert" style={{color:"black"}}>
+  <div className="ErrorMessage" role="alert" style={{ color: "black" }}>
     <svg width="16" height="16" viewBox="0 0 17 17">
       <path
         fill="#FFF"
@@ -67,6 +74,10 @@ const ErrorMessage = ({ children }) => (
   </div>
 );
 
+ErrorMessage.propTypes = {
+  children: PropTypes.node,
+};
+
 const ResetButton = ({ onClick }) => (
   <button type="button" className="ResetButton" onClick={onClick}>
     <svg width="32px" height="32px" viewBox="0 0 32 32">
@@ -78,7 +89,11 @@ const ResetButton = ({ onClick }) => (
   </button>
 );
 
-const CheckoutForm = ({userInfo, price}) => {
+ResetButton.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
+
+const CheckoutForm = ({ userInfo, price }) => {
   const stripe = useStripe();
   const elements = useElements();
   const [error, setError] = useState(null);
@@ -88,14 +103,14 @@ const CheckoutForm = ({userInfo, price}) => {
   const [billingDetails, setBillingDetails] = useState({
     email: "",
     phone: "",
-    name: ""
+    name: "",
   });
-  const {Email, Mobile, firstName, Surname} = userInfo
+  const { Email, Mobile, firstName, Surname } = userInfo;
   useEffect(() => {
     setBillingDetails({
       email: Email,
       phone: Mobile,
-      name: firstName + " " + Surname
+      name: firstName + " " + Surname,
     });
   }, [Email, Mobile, firstName, Surname]);
 
@@ -116,11 +131,11 @@ const CheckoutForm = ({userInfo, price}) => {
     if (cardComplete) {
       setProcessing(true);
     }
-    
+
     const payload = await stripe.createPaymentMethod({
       type: "card",
       card: elements.getElement(CardElement),
-      billing_details: billingDetails
+      billing_details: billingDetails,
     });
 
     setProcessing(false);
@@ -139,7 +154,7 @@ const CheckoutForm = ({userInfo, price}) => {
     setBillingDetails({
       email: "",
       phone: "",
-      name: ""
+      name: "",
     });
   };
 
@@ -149,8 +164,8 @@ const CheckoutForm = ({userInfo, price}) => {
         Payment successful
       </div>
       <div className="ResultMessage">
-        Thanks for trying Stripe Elements. No money was charged, but we
-        generated a PaymentMethod: {paymentMethod.id}
+        Thanks for trying Stripe Elements. No money was charged, but we generated a PaymentMethod:{" "}
+        {paymentMethod.id}
       </div>
       <ResetButton onClick={reset} />
     </div>
@@ -164,10 +179,9 @@ const CheckoutForm = ({userInfo, price}) => {
           }}
         />
       </fieldset>
-      {error && <ErrorMessage>{error.message}</ErrorMessage>}
+      {!!error && <ErrorMessage>{error.message}</ErrorMessage>}
       <SubmitButton processing={processing} error={error} disabled={!stripe}>
         Pay € {price}
-        
       </SubmitButton>
     </form>
   );
@@ -176,28 +190,43 @@ const CheckoutForm = ({userInfo, price}) => {
 const ELEMENTS_OPTIONS = {
   fonts: [
     {
-      cssSrc: "https://fonts.googleapis.com/css?family=Roboto"
-    }
-  ]
+      cssSrc: "https://fonts.googleapis.com/css?family=Roboto",
+    },
+  ],
+};
+
+CheckoutForm.propTypes = {
+  userInfo: PropTypes.shape({
+    Email: PropTypes.string.isRequired,
+    Mobile: PropTypes.string.isRequired,
+    firstName: PropTypes.string.isRequired,
+    Surname: PropTypes.string.isRequired,
+  }).isRequired,
+  price: PropTypes.number.isRequired,
 };
 
 // Make sure to call `loadStripe` outside of a component’s render to avoid
 // recreating the `Stripe` object on every render.
 const stripePromise = loadStripe("acct_1DCiIHKcI4CLSsW9");
 
-const StripeCheckout = ({userInfo,price}) => {
+const StripeCheckout = ({ userInfo, price }) => {
   return (
     <div className="AppWrapper">
       <Elements stripe={stripePromise} options={ELEMENTS_OPTIONS}>
-        <CheckoutForm userInfo={userInfo} price={price}/>
+        <CheckoutForm userInfo={userInfo} price={price} />
       </Elements>
     </div>
   );
 };
 
+StripeCheckout.propTypes = {
+  userInfo: CheckoutForm.propTypes.userInfo,
+  price: PropTypes.number.isRequired,
+};
+
 const mapStateToProps = (state) => ({
   price: state.price.booking_price,
-  userInfo: state.userInfo.userInfo
+  userInfo: state.userInfo.userInfo,
 });
 
 export default connect(mapStateToProps)(StripeCheckout);

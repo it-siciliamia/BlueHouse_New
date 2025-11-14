@@ -23,7 +23,7 @@
     width: 100%;
     display: flex;
     gap: 25px;
-    position: relative
+    position: relative;
   }
   @media (min-width: 1280px) and (max-width: 2200px) {
     width: 100%;
@@ -151,9 +151,8 @@
 /* makes the calendar popper stick to the input */
 .react-datepicker-popper[data-placement^="bottom"] {
   padding-top: 1px;
-  
-  z-index: 2000 !important; /* or any value you need */
 
+  z-index: 2000 !important; /* or any value you need */
 }
 /* all 4 of this make the calendar popper align properly with the design*/
 .checkin-mobile .react-datepicker-popper[data-placement^="bottom"] {
@@ -271,7 +270,7 @@
   font-size: 13.82px;
   font-weight: 500;
   line-height: 1.2;
-  color:#4C5A65;
+  color: #4c5a65;
   @media (min-width: 320px) and (max-width: 599.99px) {
     font-size: 16px;
     font-weight: 300px;
@@ -282,21 +281,19 @@
   }
 }
 
-
 .search-btn {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   color: white;
-  background-color:#1D3967;;
+  background-color: #1d3967;
   border: 1px solid #3b5998;
   text-transform: uppercase;
   height: 100%;
   width: 100%;
   border: none;
   transition: all 0.2s;
-  
 }
 .search-btn:focus {
   outline: none;
@@ -396,7 +393,7 @@
   margin-right: 13px;
 }
 
-.search-container-error-message{
+.search-container-error-message {
   position: absolute;
   bottom: -20px;
   left: 0;
@@ -407,7 +404,7 @@
   font-weight: 600;
   @media (min-width: 320px) and (max-width: 959.99px) {
     /* bottom: -65px     */
-    top: 170px
+    top: 170px;
   }
 }
 
@@ -456,7 +453,7 @@
     text-align: center;
     width: 140px;
   }
-     &:nth-child(3){
+  &:nth-child(3) {
     height: 121px;
   }
 }
@@ -469,13 +466,14 @@
 
 .bh_advantages-item:nth-child(3) {
   @media (min-width: 320px) and (max-width: 599.99px) {
-    padding-top: 30px ;
+    padding-top: 30px;
     padding-bottom: 15px;
     height: 24px;
   }
 }
 .bh_advantages-icons {
-  filter: brightness(0) saturate(100%) invert(14%) sepia(41%) saturate(1203%) hue-rotate(194deg) brightness(91%) contrast(89%);
+  filter: brightness(0) saturate(100%) invert(14%) sepia(41%) saturate(1203%) hue-rotate(194deg)
+    brightness(91%) contrast(89%);
   @media (min-width: 320px) and (max-width: 599.99px) {
     width: 23px;
     height: auto;
@@ -488,12 +486,13 @@
     filter: none;
   }
   &:nth-child(2) {
-     filter: brightness(0) saturate(100%) invert(14%) sepia(41%) saturate(1203%) hue-rotate(194deg) brightness(91%) contrast(89%);
+    filter: brightness(0) saturate(100%) invert(14%) sepia(41%) saturate(1203%) hue-rotate(194deg)
+      brightness(91%) contrast(89%);
   }
 }
 
 .bh_advantages-text {
-  color:#1D3967;
+  color: #1d3967;
   @media (min-width: 320px) and (max-width: 599.99px) {
     margin: 0;
     margin-top: 5px;
@@ -551,7 +550,7 @@
   font-size: 22px;
   font-weight: bold;
   text-transform: uppercase;
-  color: #1D3967;
+  color: #1d3967;
 }
 .content-mobile {
   width: 100%;
@@ -583,7 +582,7 @@
   font-size: 15px;
   font-weight: 500;
   line-height: 1.2;
-  color:#1D3967;
+  color: #1d3967;
 }
 .search-hero-photo-mobile {
   @media (min-width: 320px) and (max-width: 1279.99px) {

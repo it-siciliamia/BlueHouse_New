@@ -1,4 +1,5 @@
-import React, { createContext, useContext, useState, useEffect, useMemo } from "react";
+import PropTypes from "prop-types";
+import { createContext, useContext, useState, useEffect, useMemo } from "react";
 
 const LanguageContext = createContext();
 
@@ -12,16 +13,13 @@ export const LanguageProvider = ({ children }) => {
     localStorage.setItem("languageIndex", JSON.stringify(languageIndex));
   }, [languageIndex]);
 
-  const contextValue = useMemo(
-    () => ({ languageIndex, setLanguageIndex }),
-    [languageIndex]
-  );
+  const contextValue = useMemo(() => ({ languageIndex, setLanguageIndex }), [languageIndex]);
 
-  return (
-    <LanguageContext.Provider value={contextValue}>
-      {children}
-    </LanguageContext.Provider>
-  );
+  return <LanguageContext.Provider value={contextValue}>{children}</LanguageContext.Provider>;
+};
+
+LanguageProvider.propTypes = {
+  children: PropTypes.node.isRequired,
 };
 
 export const useLanguage = () => {

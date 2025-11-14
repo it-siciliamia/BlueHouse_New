@@ -1,10 +1,10 @@
-import React, { useEffect, useState, useMemo } from "react";
-import { useLocation } from "react-router-dom";
+import { useEffect, useState, useMemo } from "react";
 import { Helmet } from "react-helmet-async";
-import { translateMyText } from "../../helpers/translating/index.jsx";
-import languagesAndCodes from "../../helpers/translating/languagesAndCodes.json";
+import { useLocation } from "react-router-dom";
 
 import s from "./PageHeader.module.scss";
+import { translateMyText } from "../../helpers/translating/index.jsx";
+import languagesAndCodes from "../../helpers/translating/languagesAndCodes.json";
 
 const pagesData = {
   "/": {
@@ -101,12 +101,11 @@ const PageHeader = () => {
   useEffect(() => {
     async function fetchTranslations() {
       try {
-        const [translatedTitle, translatedDescription, translatedKeywords] =
-          await Promise.all([
-            translateMyText(pageData.title),
-            translateMyText(pageData.description),
-            translateMyText(pageData.keywords),
-          ]);
+        const [translatedTitle, translatedDescription, translatedKeywords] = await Promise.all([
+          translateMyText(pageData.title),
+          translateMyText(pageData.description),
+          translateMyText(pageData.keywords),
+        ]);
 
         setTitle(translatedTitle);
         setDescription(translatedDescription);
@@ -126,10 +125,7 @@ const PageHeader = () => {
         <title>{title}</title>
         <meta name="description" content={description} />
         <meta name="keywords" content={keywords} />
-        <link
-          rel="canonical"
-          href={`https://bluehouse.is${location.pathname}`}
-        />
+        <link rel="canonical" href={`https://bluehouse.is${location.pathname}`} />
       </Helmet>
       <h1 className={s.mainTitle}>{title}</h1>
     </>

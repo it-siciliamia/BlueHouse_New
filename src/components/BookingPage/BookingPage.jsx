@@ -1,15 +1,16 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React from "react";
 import Grid from "@mui/material/Grid";
 import { makeStyles } from "@mui/styles";
-import React, { useState, useEffect } from "react";
-import logo from "../images/logo.svg";
-import secure from "../images/secure.svg";
-import people from "../images/people.svg";
-import { connect } from "react-redux";
 import moment from "moment";
+import PropTypes from "prop-types";
+import { useState, useEffect } from "react";
+import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+
 import { setUserInfo } from "../../redux/userInfo/userInfo.action";
+import logo from "../images/logo.svg";
+import people from "../images/people.svg";
+import secure from "../images/secure.svg";
 
 const useStyles = makeStyles((theme) => ({
   back: {
@@ -336,15 +337,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const BookingPage = ({
-  price,
-  checkIn,
-  checkOut,
-  name,
-  index,
-  setUserInfo,
-  userInfo,
-}) => {
+const BookingPage = ({ price, checkIn, checkOut, name, index, setUserInfo, userInfo }) => {
   const formItem = [
     "First Name",
     "Surname",
@@ -464,7 +457,7 @@ const BookingPage = ({
         </div>
         <p className={classes.cancellation}>14 Day Cancellation</p>
         <div className={classes.textContainer}>
-          {desc && <p className={classes.Text}> www.bluehouse.is</p>}
+          {!!desc && <p className={classes.Text}> www.bluehouse.is</p>}
           <p className={classes.Text2}>{desc}</p>
         </div>
         <div className={classes.roomName}>
@@ -494,9 +487,7 @@ const BookingPage = ({
                   value={userDetails[i]}
                   onChange={handleChange(i)}
                   className={
-                    item === "Country of Residence"
-                      ? classes.countryInput
-                      : classes.inputs
+                    item === "Country of Residence" ? classes.countryInput : classes.inputs
                   }
                 />
               </form>
@@ -520,6 +511,27 @@ const BookingPage = ({
       </div>
     </div>
   );
+};
+
+BookingPage.propTypes = {
+  price: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
+  checkIn: PropTypes.string.isRequired,
+  checkOut: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  index: PropTypes.number.isRequired,
+  setUserInfo: PropTypes.func.isRequired,
+  userInfo: PropTypes.shape({
+    firstName: PropTypes.string,
+    Surname: PropTypes.string,
+    Email: PropTypes.string,
+    Mobile: PropTypes.string,
+    Address: PropTypes.string,
+    Postcode: PropTypes.string,
+    City: PropTypes.string,
+    Country: PropTypes.string,
+    Arrival: PropTypes.string,
+    Comments: PropTypes.string,
+  }).isRequired,
 };
 
 const mapDispatchToProps = (dispatch) => ({

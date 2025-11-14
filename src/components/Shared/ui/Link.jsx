@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+
 import s from "./LinkButton.module.scss";
 
 function Link({
@@ -11,19 +12,12 @@ function Link({
   children,
   ...props
 }) {
-  const classes = [
-    s.btn,
-    s[`btn--${variant}`],
-    disabled ? s["is-disabled"] : "",
-    className,
-  ]
+  const classes = [s.btn, s[`btn--${variant}`], disabled ? s["is-disabled"] : "", className]
     .filter(Boolean)
     .join(" ");
 
   const finalRel =
-    target === "_blank"
-      ? [rel, "noopener", "noreferrer"].filter(Boolean).join(" ")
-      : rel;
+    target === "_blank" ? [rel, "noopener", "noreferrer"].filter(Boolean).join(" ") : rel;
 
   const handleClick = (e) => {
     if (disabled) {

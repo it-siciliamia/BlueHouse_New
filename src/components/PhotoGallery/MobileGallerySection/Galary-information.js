@@ -1,11 +1,11 @@
-import interpol from "../../../images/MobileGalary/interpol.webp";
-import grotta from "../../../images/MobileGalary/grotta.webp";
 import bluehouse_image from "../../../images/MobileGalary/20180808_164113.webp";
 import Activities from "../../../images/MobileGalary/Activities.webp";
+import greenhouse from "../../../images/MobileGalary/greenhouse.webp";
+import grotta from "../../../images/MobileGalary/grotta.webp";
+import threebedroom from "../../../images/MobileGalary/IMG_3846.webp";
+import interpol from "../../../images/MobileGalary/interpol.webp";
 import Northernlights from "../../../images/MobileGalary/NorthernLights.webp";
 import NeighbourHood from "../../../images/view-gallery/neighborhood.webp";
-import greenhouse from "../../../images/MobileGalary/greenhouse.webp";
-import threebedroom from "../../../images/MobileGalary/IMG_3846.webp";
 
 export const Rooms = [
   {
