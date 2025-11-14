@@ -3,31 +3,25 @@ export const goodToKnowData = [
     title: "Economy Double Room",
     goodToKnow: [
       {
-        description:
-          "📍 This property is in a good location. Guests have rated it 4.3!",
+        description: "📍 This property is in a good location. Guests have rated it 4.3!",
       },
       {
-        description:
-          "🛁 We have a shared bathroom available for your convenience.",
+        description: "🛁 We have a shared bathroom available for your convenience.",
       },
       {
-        description:
-          "📶 Free fast WiFi is available in all rooms and common areas!",
+        description: "📶 Free fast WiFi is available in all rooms and common areas!",
       },
       {
         description: "🛏 Enjoy a comfortable Queen-sized bed during your stay.",
       },
       {
-        description:
-          "📍 Conveniently located near popular attractions and amenities.",
+        description: "📍 Conveniently located near popular attractions and amenities.",
       },
       {
-        description:
-          "🕒 Late-night self-check-in is available for your convenience.",
+        description: "🕒 Late-night self-check-in is available for your convenience.",
       },
       {
-        description:
-          "🍳 Enjoy a self-service continental breakfast with your stay.",
+        description: "🍳 Enjoy a self-service continental breakfast with your stay.",
       },
       {
         description: "🚗 Free parking is available on-site for all guests.",
@@ -62,23 +56,19 @@ export const goodToKnowData = [
     title: "Double/Twin Room",
     goodToKnow: [
       {
-        description:
-          "📶 Free fast WiFi is available in all rooms and common areas!",
+        description: "📶 Free fast WiFi is available in all rooms and common areas!",
       },
       {
         description: "🛏 Enjoy a comfortable King or Twin bed during your stay.",
       },
       {
-        description:
-          "📍 Conveniently located near popular attractions and amenities.",
+        description: "📍 Conveniently located near popular attractions and amenities.",
       },
       {
-        description:
-          "🕒 Late-night self-check-in is available for your convenience.",
+        description: "🕒 Late-night self-check-in is available for your convenience.",
       },
       {
-        description:
-          "🍳 Enjoy a self-service continental breakfast with your stay.",
+        description: "🍳 Enjoy a self-service continental breakfast with your stay.",
       },
       {
         description: "🚗 Free parking is available on-site for all guests.",
@@ -119,16 +109,13 @@ export const goodToKnowData = [
     title: "Triple Room",
     goodToKnow: [
       {
-        description:
-          "📍 Conveniently located near popular attractions and amenities.",
+        description: "📍 Conveniently located near popular attractions and amenities.",
       },
       {
-        description:
-          "🕒 Late-night self-check-in is available for your convenience.",
+        description: "🕒 Late-night self-check-in is available for your convenience.",
       },
       {
-        description:
-          "🍳 Enjoy a self-service continental breakfast with your stay.",
+        description: "🍳 Enjoy a self-service continental breakfast with your stay.",
       },
       {
         description: "🚗 Free parking is available on-site for all guests.",
@@ -146,12 +133,10 @@ export const goodToKnowData = [
         description: "🌌 A popular spot for Northern Lights viewing.",
       },
       {
-        description:
-          "📶 Free fast WiFi is available in all rooms and common areas!",
+        description: "📶 Free fast WiFi is available in all rooms and common areas!",
       },
       {
-        description:
-          "🛏 Enjoy a comfortable Queen or Twin bed during your stay.",
+        description: "🛏 Enjoy a comfortable Queen or Twin bed during your stay.",
       },
       {
         description: "🛏 Spacious room with plenty of natural light.",
@@ -177,8 +162,7 @@ export const goodToKnowData = [
     title: "Quadruple Room",
     goodToKnow: [
       {
-        description:
-          "🍳 Enjoy a self-service continental breakfast with your stay.",
+        description: "🍳 Enjoy a self-service continental breakfast with your stay.",
       },
       {
         description: "🚗 Free parking is available on-site for all guests.",
@@ -196,19 +180,16 @@ export const goodToKnowData = [
         description: "🌌 A popular spot for Northern Lights viewing.",
       },
       {
-        description:
-          "📶 Free fast WiFi is available in all rooms and common areas!",
+        description: "📶 Free fast WiFi is available in all rooms and common areas!",
       },
       {
         description: "🛏 Enjoy a comfortable King or Twin bed during your stay.",
       },
       {
-        description:
-          "📍 Conveniently located near popular attractions and amenities.",
+        description: "📍 Conveniently located near popular attractions and amenities.",
       },
       {
-        description:
-          "🕒 Late-night self-check-in is available for your convenience.",
+        description: "🕒 Late-night self-check-in is available for your convenience.",
       },
       {
         description: "🛏 Spacious room with plenty of natural light.",
@@ -240,24 +221,19 @@ export const goodToKnowData = [
         description: "🛁 Enjoy a private bathroom exclusively for your family.",
       },
       {
-        description:
-          "📶 Free fast WiFi is available in all rooms and common areas!",
+        description: "📶 Free fast WiFi is available in all rooms and common areas!",
       },
       {
-        description:
-          "🛏 Enjoy a comfortable Queen bed and sofa bed during your stay.",
+        description: "🛏 Enjoy a comfortable Queen bed and sofa bed during your stay.",
       },
       {
-        description:
-          "📍 Conveniently located near popular attractions and amenities.",
+        description: "📍 Conveniently located near popular attractions and amenities.",
       },
       {
-        description:
-          "🕒 Late-night self-check-in is available for your convenience.",
+        description: "🕒 Late-night self-check-in is available for your convenience.",
       },
       {
-        description:
-          "🍳 Enjoy a self-service continental breakfast with your stay.",
+        description: "🍳 Enjoy a self-service continental breakfast with your stay.",
       },
       {
         description: "🚗 Free parking is available on-site for all guests.",
@@ -295,20 +271,16 @@ export const goodToKnowData = [
         description: "📶 Fast and reliable WiFi is included for all guests.",
       },
       {
-        description:
-          "🛏 Spacious bedrooms with comfortable beds for a relaxing stay.",
+        description: "🛏 Spacious bedrooms with comfortable beds for a relaxing stay.",
       },
       {
-        description:
-          "📍 Conveniently located near popular attractions and amenities.",
+        description: "📍 Conveniently located near popular attractions and amenities.",
       },
       {
-        description:
-          "🕒 Late-night self-check-in is available for your convenience.",
+        description: "🕒 Late-night self-check-in is available for your convenience.",
       },
       {
-        description:
-          "🍳 Enjoy a self-service continental breakfast with your stay.",
+        description: "🍳 Enjoy a self-service continental breakfast with your stay.",
       },
       {
         description: "🚗 Free parking is available on-site for all guests.",
@@ -352,19 +324,16 @@ export const goodToKnowData = [
         description: "📍 Close to the city center and other key locations.",
       },
       {
-        description:
-          "🍳 Start your day with a delicious breakfast served daily.",
+        description: "🍳 Start your day with a delicious breakfast served daily.",
       },
       {
-        description:
-          "📶 Free fast WiFi is available in all rooms and common areas!",
+        description: "📶 Free fast WiFi is available in all rooms and common areas!",
       },
       {
         description: "🛏 Enjoy comfortable beds in spacious bedrooms.",
       },
       {
-        description:
-          "🕒 Late-night self-check-in is available for your convenience.",
+        description: "🕒 Late-night self-check-in is available for your convenience.",
       },
       {
         description: "🚗 Free parking is available on-site for all guests.",

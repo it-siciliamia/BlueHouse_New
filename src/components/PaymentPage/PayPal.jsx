@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useRef } from "react";
+import PropTypes from "prop-types";
+import { useState, useEffect, useRef } from "react";
 
 export default function PayPal({ price }) {
   const [paid, setPaid] = useState(false);
@@ -24,7 +25,7 @@ export default function PayPal({ price }) {
           });
         },
         onApprove: async (data, actions) => {
-          const order = await actions.order.capture();
+          await actions.order.capture();
           setPaid(true);
         },
         onError: (err) => {
@@ -51,3 +52,7 @@ export default function PayPal({ price }) {
     </div>
   );
 }
+
+PayPal.propTypes = {
+  price: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
+};

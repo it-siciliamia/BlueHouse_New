@@ -1,10 +1,12 @@
 import Typography from "@mui/material/Typography";
 import { makeStyles } from "@mui/styles";
-import PopUpVariationLayoutServices from "../../popUpVariations/popUpVariationLayoutServices.jsx";
-import logo from "../../../images/stampLogo.png";
+import PropTypes from "prop-types";
+
 import originalSideImage from "../../../images/popUpVariations/CHEAPESTPRICE.png";
 import replaceImage from "../../../images/popUpVariations/replace/CHEAPESTPRICE.svg";
+import logo from "../../../images/stampLogo.png";
 import { WithTransLate } from "../../helpers/translating/index.jsx";
+import PopUpVariationLayoutServices from "../../popUpVariations/popUpVariationLayoutServices.jsx";
 
 const useStyles = makeStyles((theme) => ({
   intro: {
@@ -144,3 +146,7 @@ export default function CheapestPrice({ handleClose }) {
     />
   );
 }
+
+CheapestPrice.propTypes = {
+  handleClose: PropTypes.func,
+};

@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
-import useBreakpoints from "../../../Styles/useBreakpoints.js";
+import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { WithTransLate } from "../../helpers/translating";
+
+import s from "./PriceSummaryPart.module.scss";
 import {
   getAddParams,
   getPricePerNight,
@@ -10,12 +10,9 @@ import {
   getTotalAmountEuro,
   getTotalAmountCurrency,
 } from "../../../redux/dataSearch/dataSearch-selectors.js";
-import {
-  setCurrency,
-  setExchangeRate,
-} from "../../../redux/dataSearch/dataSearch-slice.js";
-
-import s from "./PriceSummaryPart.module.scss";
+import { setCurrency, setExchangeRate } from "../../../redux/dataSearch/dataSearch-slice.js";
+import useBreakpoints from "../../../Styles/useBreakpoints.js";
+import { WithTransLate } from "../../helpers/translating";
 
 const PriceSummaryPart = () => {
   const dispatch = useDispatch();
@@ -60,9 +57,7 @@ const PriceSummaryPart = () => {
   useEffect(() => {
     const fetchCurrencies = async (key) => {
       try {
-        const response = await fetch(
-          `https://v6.exchangerate-api.com/v6/${key}/latest/USD`
-        );
+        const response = await fetch(`https://v6.exchangerate-api.com/v6/${key}/latest/USD`);
 
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
@@ -70,7 +65,7 @@ const PriceSummaryPart = () => {
 
         const data = await response.json();
         const currencyList = popularCurrencies.filter((currency) =>
-          data.conversion_rates.hasOwnProperty(currency.code)
+          Object.prototype.hasOwnProperty.call(data.conversion_rates, currency.code)
         );
 
         setCurrencies(currencyList);
@@ -133,11 +128,7 @@ const PriceSummaryPart = () => {
             className={s.select}
           >
             {currencies.map((currency) => (
-              <option
-                key={currency.code}
-                value={currency.code}
-                className={s.option}
-              >
+              <option key={currency.code} value={currency.code} className={s.option}>
                 {`${currency.code}  ${currency.symbol}`}
               </option>
             ))}
@@ -155,16 +146,11 @@ const PriceSummaryPart = () => {
           </div>
         </div>
 
-        <div
-          className={s.priceWrapper}
-          style={{ backgroundColor: "rgba(217, 217, 217, 0.2)" }}
-        >
+        <div className={s.priceWrapper} style={{ backgroundColor: "rgba(217, 217, 217, 0.2)" }}>
           <p style={{ margin: "0", fontSize: isMobile ? "16px" : "18px" }}>
             <WithTransLate
               text={`${room} ${room === 1 ? "room" : "rooms"} x ${
-                dayDifference === 1
-                  ? `${dayDifference} night`
-                  : `${dayDifference} nights`
+                dayDifference === 1 ? `${dayDifference} night` : `${dayDifference} nights`
               }`}
             />
           </p>
@@ -177,17 +163,12 @@ const PriceSummaryPart = () => {
                 textAlign: "center",
               }}
             >
-              <WithTransLate
-                text={`€ ${!pricePerNight ? "0.00" : totalAmountEuro}`}
-              />
+              <WithTransLate text={`€ ${!pricePerNight ? "0.00" : totalAmountEuro}`} />
             </p>
           </div>
         </div>
 
-        <div
-          className={s.priceWrapper}
-          style={{ backgroundColor: "rgba(217, 217, 217, 0.2)" }}
-        >
+        <div className={s.priceWrapper} style={{ backgroundColor: "rgba(217, 217, 217, 0.2)" }}>
           <div>
             <p style={{ fontSize: isMobile ? "16px" : "18px", margin: "0" }}>
               <WithTransLate text="Property currency" />
@@ -203,9 +184,7 @@ const PriceSummaryPart = () => {
                 text={`(in ${getCurrencySymbol(selectedCurrency)} for ${adult} ${
                   adult === 1 ? "guest" : "guests"
                 } ${
-                  children === 0
-                    ? ""
-                    : `and ${children} ${children === 1 ? "child" : "children"}`
+                  children === 0 ? "" : `and ${children} ${children === 1 ? "child" : "children"}`
                 })`}
               />
             </p>
@@ -220,9 +199,7 @@ const PriceSummaryPart = () => {
               }}
             >
               <WithTransLate
-                text={`${getCurrencySymbol(
-                  selectedCurrency
-                )} ${totalAmountCurrency}`}
+                text={`${getCurrencySymbol(selectedCurrency)} ${totalAmountCurrency}`}
               />
             </p>
           </div>
@@ -252,9 +229,7 @@ const PriceSummaryPart = () => {
               }}
             >
               <WithTransLate
-                text={`${getCurrencySymbol(
-                  selectedCurrency
-                )} ${totalAmountCurrency}${
+                text={`${getCurrencySymbol(selectedCurrency)} ${totalAmountCurrency}${
                   selectedCurrency !== "EUR" ? "*" : ""
                 }`}
               />
@@ -286,7 +261,7 @@ const PriceSummaryPart = () => {
             color: "#1D3967",
           }}
         >
-          <WithTransLate  text="Your card issuer may charge a foreign transaction fee." />
+          <WithTransLate text="Your card issuer may charge a foreign transaction fee." />
         </p>
       </div>
 
@@ -298,7 +273,7 @@ const PriceSummaryPart = () => {
       >
         <p
           style={{
-            color:"#1D3967",
+            color: "#1D3967",
             margin: "0",
             paddingTop: "20px",
             paddingLeft: isMobile ? "20px" : "40px",
@@ -315,7 +290,7 @@ const PriceSummaryPart = () => {
               margin: "0",
               fontSize: isMobile ? "16px" : "20px",
               fontWeight: "500",
-              color: "#1D3967"
+              color: "#1D3967",
             }}
           >
             <WithTransLate text="If you cancel, you’ll pay:" />
@@ -327,7 +302,7 @@ const PriceSummaryPart = () => {
                 fontSize: isMobile ? "18px" : "20px",
                 fontWeight: "800",
                 color: "#1D3967",
-                textAlign: "center"
+                textAlign: "center",
               }}
             >
               <WithTransLate

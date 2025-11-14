@@ -1,27 +1,21 @@
-import React, { useState, useEffect, useRef } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useLanguage } from "../../components/helpers/translating/LanguageContext.jsx";
+import moment from "moment";
+import { useEffect, useRef, useState } from "react";
 import DatePicker from "react-datepicker";
-import {
-  WithTransLate,
-  translateMyText,
-} from "../../components/helpers/translating/index.jsx";
-import {
-  setCheckIn,
-  setCheckOut,
-  setAddParams,
-} from "../../redux/dataSearch/dataSearch-slice.js";
+import "react-datepicker/dist/react-datepicker.css";
+import { useDispatch, useSelector } from "react-redux";
+
+import { WithTransLate, translateMyText } from "../../components/helpers/translating/index.jsx";
+import { useLanguage } from "../../components/helpers/translating/LanguageContext.jsx";
+import arrowDown from "../../images/roombooking/ArrowDown.svg";
+import arrowUp from "../../images/roombooking/ArrowUp.svg";
+import minusIcon from "../../images/roombooking/minus.svg";
+import plusIcon from "../../images/roombooking/plus.svg";
 import {
   getCheckInDay,
   getCheckOutDay,
   getAddParams,
 } from "../../redux/dataSearch/dataSearch-selectors.js";
-import "react-datepicker/dist/react-datepicker.css";
-import minusIcon from "../../images/roombooking/minus.svg";
-import plusIcon from "../../images/roombooking/plus.svg";
-import arrowDown from "../../images/roombooking/ArrowDown.svg";
-import arrowUp from "../../images/roombooking/ArrowUp.svg";
-import moment from "moment";
+import { setCheckIn, setCheckOut, setAddParams } from "../../redux/dataSearch/dataSearch-slice.js";
 
 const SearchContainer = () => {
   let newDate = moment().format("YYYYMMDD");
@@ -34,9 +28,7 @@ const SearchContainer = () => {
   );
 
   const [endDate, setEndDate] = useState(
-    firstDay && secondDay && secondDay === newDate
-      ? null
-      : moment(secondDay, "YYYYMMDD").toDate()
+    firstDay && secondDay && secondDay === newDate ? null : moment(secondDay, "YYYYMMDD").toDate()
   );
   const addParams = useSelector(getAddParams);
   const [containerToggle, setContainerToggle] = useState(false);
@@ -78,10 +70,7 @@ const SearchContainer = () => {
     if (!containerToggle) return;
 
     const handleClickOutside = (event) => {
-      if (
-        quantityContainerRef.current &&
-        !quantityContainerRef.current.contains(event.target)
-      ) {
+      if (quantityContainerRef.current && !quantityContainerRef.current.contains(event.target)) {
         setContainerToggle(false);
       }
     };
@@ -168,11 +157,7 @@ const SearchContainer = () => {
             >
               <div
                 className="search-container-text"
-                style={
-                  searchContainerClicked
-                    ? { fontWeight: "500" }
-                    : { fontWeight: "300" }
-                }
+                style={searchContainerClicked ? { fontWeight: "500" } : { fontWeight: "300" }}
               >
                 <WithTransLate
                   text={`${adultsAmount} adults, ${
@@ -180,34 +165,25 @@ const SearchContainer = () => {
                   } ${roomsAmount} room(s)`}
                 />
               </div>
-              <button
-                className="quantity-container-toggle-btn"
-                onClick={toggleHandle}
-              >
+              <button className="quantity-container-toggle-btn" onClick={toggleHandle}>
                 <img src={containerToggle ? arrowUp : arrowDown} alt="Toggle" />
               </button>
-              {containerToggle && (
-                <div
-                  className="quantity-container"
-                >
+              {!!containerToggle && (
+                <div className="quantity-container">
                   <div className="quantity-element">
                     <span style={{ textTransform: "capitalize" }}>
                       <WithTransLate text="Adults" />
                     </span>
                     <div className="quantity-content">
                       <button
-                        onClick={() =>
-                          handleDecrement(setAdultsAmount, adultsAmount)
-                        }
+                        onClick={() => handleDecrement(setAdultsAmount, adultsAmount)}
                         className="count-person decrement-btn"
                       >
                         <img src={minusIcon} alt="Minus" />
                       </button>
                       <span className="amount-display">{adultsAmount}</span>
                       <button
-                        onClick={() =>
-                          handleIncrement(setAdultsAmount, adultsAmount)
-                        }
+                        onClick={() => handleIncrement(setAdultsAmount, adultsAmount)}
                         className="count-person increment-btn"
                       >
                         <img src={plusIcon} alt="Plus" />
@@ -220,18 +196,14 @@ const SearchContainer = () => {
                     </span>
                     <div className="quantity-content">
                       <button
-                        onClick={() =>
-                          handleDecrement(setChildrenAmount, childrenAmount)
-                        }
+                        onClick={() => handleDecrement(setChildrenAmount, childrenAmount)}
                         className="count-person decrement-btn"
                       >
                         <img src={minusIcon} alt="Minus" />
                       </button>
                       <span className="amount-display">{childrenAmount}</span>
                       <button
-                        onClick={() =>
-                          handleIncrement(setChildrenAmount, childrenAmount)
-                        }
+                        onClick={() => handleIncrement(setChildrenAmount, childrenAmount)}
                         className="count-person increment-btn"
                       >
                         <img src={plusIcon} alt="Plus" />
@@ -244,18 +216,14 @@ const SearchContainer = () => {
                     </span>
                     <div className="quantity-content">
                       <button
-                        onClick={() =>
-                          handleDecrement(setRoomsAmount, roomsAmount)
-                        }
+                        onClick={() => handleDecrement(setRoomsAmount, roomsAmount)}
                         className="count-person decrement-btn"
                       >
                         <img src={minusIcon} alt="Minus" />
                       </button>
                       <span className="amount-display">{roomsAmount}</span>
                       <button
-                        onClick={() =>
-                          handleIncrement(setRoomsAmount, roomsAmount)
-                        }
+                        onClick={() => handleIncrement(setRoomsAmount, roomsAmount)}
                         className="count-person increment-btn"
                       >
                         <img src={plusIcon} alt="Plus" />
@@ -288,12 +256,13 @@ const SearchContainer = () => {
                 <WithTransLate text="SEARCH" />
               </button>
             </div>
-            {(startDate && endDate && startDate >= endDate) && (<div className="search-container-error-message">
-              <p>
-                <WithTransLate text="The Check-in date must be prior to the Check-out date"/>
+            {!!startDate && !!endDate && startDate >= endDate && (
+              <div className="search-container-error-message">
+                <p>
+                  <WithTransLate text="The Check-in date must be prior to the Check-out date" />
                 </p>
-            </div>)}
-            
+              </div>
+            )}
           </div>
         </div>
       </div>

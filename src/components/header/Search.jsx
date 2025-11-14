@@ -1,10 +1,12 @@
-import { useState, useCallback, useMemo, useEffect, useRef } from "react";
 import InputBase from "@mui/material/InputBase";
-import useBreakpoints from "../../Styles/useBreakpointsNew.js";
-import SearchIcon from "../../images/SearchIcon_Header.svg";
-import CloseIcon from "../../images/close-white.svg";
+import PropTypes from "prop-types";
+import { useState, useCallback, useMemo, useEffect, useRef } from "react";
+
 import keywords from "./keywords.json";
 import s from "../../components/header/search.module.scss";
+import CloseIcon from "../../images/close-white.svg";
+import SearchIcon from "../../images/SearchIcon_Header.svg";
+import useBreakpoints from "../../Styles/useBreakpointsNew.js";
 
 export default function Search({ onSearchToggle }) {
   const [open, setOpen] = useState(false);
@@ -130,7 +132,7 @@ export default function Search({ onSearchToggle }) {
         )}
       </div>
 
-      {open && results.length > 0 && (
+      {!!open && results.length > 0 && (
         <div className={s.results} role="listbox">
           {results.map(({ key, links }, i) =>
             Array.isArray(links)
@@ -162,3 +164,7 @@ export default function Search({ onSearchToggle }) {
     </div>
   );
 }
+
+Search.propTypes = {
+  onSearchToggle: PropTypes.func,
+};

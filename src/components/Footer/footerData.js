@@ -14,7 +14,7 @@ const SOCIAL_LINKS = Object.freeze([
     icon: Instagram,
     type: "external",
     href: "https://www.instagram.com/bluehousebb/",
-    newTab: true
+    newTab: true,
   },
   {
     id: "facebook",
@@ -22,7 +22,7 @@ const SOCIAL_LINKS = Object.freeze([
     icon: Facebook,
     type: "external",
     href: "https://www.facebook.com/bluehouseiceland",
-    newTab: true
+    newTab: true,
   },
   {
     id: "x",
@@ -30,23 +30,22 @@ const SOCIAL_LINKS = Object.freeze([
     icon: XIcon,
     type: "external",
     href: "https://x.com/icelandbed",
-    newTab: true
+    newTab: true,
   },
   {
-    id:"youtube",
+    id: "youtube",
     name: "Youtube",
     icon: Youtube,
     type: "external",
     href: "https://www.youtube.com/channel/UCHwb5_DHT9B3iysOexwyH9A",
-    newTab: true
+    newTab: true,
   },
 ]);
-
 
 const BLUE_HOUSE_LINKS = Object.freeze([
   { id: "house-rules", name: "House Rules", type: "route", to: "/house-rules" },
   {
-    id: 'bluehouseblog',
+    id: "bluehouseblog",
     name: "Blue House Blog",
     type: "external",
     href: "https://blog.bluehouse.is/",
@@ -94,26 +93,30 @@ const BLUE_HOUSE_LINKS = Object.freeze([
   },
 ]);
 
-
 const CONTACT_LINKS = Object.freeze([
-  { id: "phone",
+  {
+    id: "phone",
     name: "+354 775 6480",
     type: "external",
     icon: Phone,
     href: "tel:+3547756480",
-    newTab: false },
-  { id: "e-mail",
+    newTab: false,
+  },
+  {
+    id: "e-mail",
     name: "info@bluehouse.is",
     type: "external",
-    icon: Mail, href: "mailto:info@bluehouse.is",
-    newTab: false },
+    icon: Mail,
+    href: "mailto:info@bluehouse.is",
+    newTab: false,
+  },
   {
     id: "whatsapp",
     name: "WhatsApp",
     type: "external",
     icon: Whatsapp,
     href: "https://api.whatsapp.com/send?phone=3547756480&text=&source=&data=",
-    newTab: true
+    newTab: true,
   },
   {
     id: "map",
@@ -121,10 +124,9 @@ const CONTACT_LINKS = Object.freeze([
     type: "external",
     icon: Map,
     href: "https://www.google.com/maps?cid=1655029609091171155",
-    newTab: true
+    newTab: true,
   },
 ]);
-
 
 export const footerSections = Object.freeze({
   social: SOCIAL_LINKS,

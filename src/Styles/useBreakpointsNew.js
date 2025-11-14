@@ -6,8 +6,7 @@ const BREAKPOINTS = [
   { name: "tablet", query: "(min-width: 600px)" },
 ];
 
-const getBreakpointName = (matches) =>
-  matches.find((match) => match.matches)?.name ?? "mobile";
+const getBreakpointName = (matches) => matches.find((match) => match.matches)?.name ?? "mobile";
 
 const useBreakpointsNew = () => {
   const isClient = typeof window !== "undefined";

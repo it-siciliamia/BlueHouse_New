@@ -1,12 +1,13 @@
+import PropTypes from "prop-types";
 import React from "react";
 import { createRoot } from "react-dom/client";
-import { BrowserRouter, HashRouter } from "react-router-dom";
-import App from "./App.jsx";
-import reportWebVitals from "./reportWebVitals.js";
-import { PersistGate } from "redux-persist/integration/react";
 import { Provider } from "react-redux";
+import { BrowserRouter, HashRouter } from "react-router-dom";
+import { PersistGate } from "redux-persist/integration/react";
+
+import App from "./App.jsx";
 import { store, persistor } from "./redux/store.js";
-import PropTypes from "prop-types";
+import reportWebVitals from "./reportWebVitals.js";
 
 // Initialize Firebase before rendering app
 import "./firebase/index.js";

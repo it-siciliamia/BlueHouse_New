@@ -1,8 +1,8 @@
-import React from "react";
 import PropTypes from "prop-types";
-import { WithTransLate } from "../../helpers/translating/index.jsx";
+import React from "react";
 
 import s from "./Button.module.scss";
+import { WithTransLate } from "../../helpers/translating/index.jsx";
 
 /**
  * @deprecated This Button component is deprecated.
@@ -24,18 +24,11 @@ const Button = ({
       onClick={handleClick}
       type={type}
       disabled={disabled}
-      style={{width:width }}
+      style={{ width: width }}
     >
-      <div
-        className={s.textWrapper}
-        style={{ textTransform: icon ? "capitalize" : "uppercase"}}
-      >
+      <div className={s.textWrapper} style={{ textTransform: icon ? "capitalize" : "uppercase" }}>
         <WithTransLate text={text} />
-        {icon && (
-          <span className={s.iconWrapper}>
-            {React.cloneElement(icon, { size })}
-          </span>
-        )}
+        {!!icon && <span className={s.iconWrapper}>{React.cloneElement(icon, { size })}</span>}
       </div>
     </button>
   );
@@ -49,6 +42,7 @@ Button.propTypes = {
   handleClick: PropTypes.func,
   disabled: PropTypes.bool,
   width: PropTypes.string,
+  size: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 };
 
 export default Button;

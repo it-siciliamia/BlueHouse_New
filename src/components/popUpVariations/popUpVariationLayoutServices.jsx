@@ -1,9 +1,9 @@
-import React from "react";
-import PropTypes from "prop-types";
+import CloseIcon from "@mui/icons-material/Close";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import { makeStyles } from "@mui/styles";
-import CloseIcon from "@mui/icons-material/Close";
+import PropTypes from "prop-types";
+
 import bleuHouseImage from "../../images/popUpVariations/bluehousepng.png";
 import { WithTransLate } from "../helpers/translating/index.jsx";
 
@@ -228,8 +228,7 @@ export default function PopUpVariationMainLayout({
   popUpSmallContetn,
 }) {
   const color = window.innerWidth < 600 ? "primary" : "secondary";
-  const popUpContent =
-    window.innerWidth >= 600 ? popUpLargeContetn : popUpSmallContetn;
+  const popUpContent = window.innerWidth >= 600 ? popUpLargeContetn : popUpSmallContetn;
   const {
     replaceImageStyle,
     bluredBackground,

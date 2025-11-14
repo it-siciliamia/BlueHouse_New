@@ -1,5 +1,6 @@
-import { Swiper, SwiperSlide } from "swiper/react";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
+import PropTypes from "prop-types";
+import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/scrollbar";
 
@@ -18,11 +19,7 @@ const SliderPreviewPhotoM = ({ photos }) => {
       >
         {photos.map((image, index) => (
           <SwiperSlide key={index} className={s.swiperSlide}>
-            <img
-              src={image}
-              alt={`Slide ${index}`}
-              className={s.swiperSlideImg}
-            />
+            <img src={image} alt={`Slide ${index}`} className={s.swiperSlideImg} />
           </SwiperSlide>
         ))}
       </Swiper>
@@ -59,3 +56,7 @@ const SliderPreviewPhotoM = ({ photos }) => {
 };
 
 export default SliderPreviewPhotoM;
+
+SliderPreviewPhotoM.propTypes = {
+  photos: PropTypes.arrayOf(PropTypes.string).isRequired,
+};

@@ -1,23 +1,22 @@
-import { useState, useEffect } from "react";
 import { makeStyles } from "@mui/styles";
+import PropTypes from "prop-types";
+import { useState, useEffect } from "react";
 
 const useStyles = makeStyles((theme) => ({
   modal: {
     backgroundColor: "#fff",
     marginTop: "10px !important",
     fontFamily: "Arial, sans-serif",
-
   },
   form: {
     display: "flex",
     marginBottom: "20px !important",
-    marginTop:"20px !important",
-    marginLeft:"-60px !important",
+    marginTop: "20px !important",
+    marginLeft: "-60px !important",
     [theme.breakpoints.down("sm")]: {
       display: "flex !important",
-      flexDirection:"row !important",
-      marginLeft:"-230px !important",
-      
+      flexDirection: "row !important",
+      marginLeft: "-230px !important",
     },
   },
   label: {
@@ -28,10 +27,10 @@ const useStyles = makeStyles((theme) => ({
   },
   buttonContainer: {
     display: "flex",
-    gap : "10px",
-    marginLeft:"10px !important",
+    gap: "10px",
+    marginLeft: "10px !important",
     [theme.breakpoints.down("sm")]: {
-      marginLeft:"-170px !important",
+      marginLeft: "-170px !important",
     },
   },
   button: {
@@ -85,7 +84,7 @@ const loadScripts = (consent) => {
   }
 };
 
-const CookieConsent = ({onClose}) => {
+const CookieConsent = ({ onClose }) => {
   const styles = useStyles();
   const [consent, setConsent] = useState({
     necessary: true,
@@ -108,7 +107,7 @@ const CookieConsent = ({onClose}) => {
   const savePreferences = () => {
     localStorage.setItem("cookieConsent", JSON.stringify(consent));
     loadScripts(consent);
-    
+
     if (onClose) {
       onClose();
     }
@@ -148,6 +147,10 @@ const CookieConsent = ({onClose}) => {
       </div>
     </div>
   );
+};
+
+CookieConsent.propTypes = {
+  onClose: PropTypes.func.isRequired,
 };
 
 export default CookieConsent;

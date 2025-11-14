@@ -9,34 +9,41 @@ https://it-siciliamia.github.io/BlueHouse_New/
 This repo pins Node `24.11.0` and npm `11.6.2` via Volta (see `package.json`). Volta guarantees everyone runs the same toolchain:
 
 1. **Install Volta once per machine**
-   
-   Linux/Mac 
+
+   Linux/Mac
+
    ```bash
    curl https://get.volta.sh | bash
-   ```  
+   ```
+
    Restart your shell so the `volta` binary is available.
-   
+
    Windows
+
    ```
    winget install Volta.Volta
-   ```  
+   ```
+
 2. **Let Volta auto-manage Node/npm**  
    Inside the repo you do not have to think about versions—running `npm install`, `npm run dev`, etc. will automatically download and use the pinned Node/npm if they are not already cached. If you ever need them globally you can run `volta install node@24.11.0 npm@11.6.2`, but that is optional.
 
 ## Fresh Clone Setup
 
 1. **Clone the repository**
+
    ```bash
    git clone https://github.com/it-siciliamia/BlueHouse_New.git
    cd BlueHouse_New
    ```
 
 2. **Install dependencies (with Volta active)**
+
    ```bash
    npm install
    ```
 
 3. **Create your task branch**
+
    ```bash
    git checkout -b feature/short-task-name
    ```
@@ -57,4 +64,4 @@ This repo pins Node `24.11.0` and npm `11.6.2` via Volta (see `package.json`). V
   ```
 - **Commit early and often** with descriptive messages so reviewers understand the intent of each change.
 
-Following these practices keeps the team on the same Node/npm versions, ensures Vite is the single source of truth for development, and keeps our Git/GitHub flow predictable.***
+Following these practices keeps the team on the same Node/npm versions, ensures Vite is the single source of truth for development, and keeps our Git/GitHub flow predictable.

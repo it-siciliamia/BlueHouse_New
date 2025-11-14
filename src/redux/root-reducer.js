@@ -1,22 +1,16 @@
 import { combineReducers } from "redux";
 import { persistReducer } from "redux-persist";
-import dataSearchReducer from "./dataSearch/dataSearch-slice";
+import storage from "redux-persist/lib/storage";
+
 import bookingReducer from "./booking/booking-slice";
+import dataSearchReducer from "./dataSearch/dataSearch-slice";
 import technicalReducer from "./technitial/technical-slice";
 import userInfoReducer from "./userInfo/userInfo-slice";
-import storage from "redux-persist/lib/storage";
 
 const persistConfig = {
   key: "root",
   storage,
-  whitelist: [
-    "checkIn",
-    "checkOut",
-    "clicked",
-    "dayDifference",
-    "userInfo",
-    "name",
-  ],
+  whitelist: ["checkIn", "checkOut", "clicked", "dayDifference", "userInfo", "name"],
 };
 
 const rootReducer = combineReducers({

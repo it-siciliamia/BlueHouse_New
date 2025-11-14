@@ -1,28 +1,27 @@
 import bluehouse from "../../images/map/icons_blue house darkblue.svg";
-import bonussupermarket from "../../images/map/icons_bonus supermarket darkblue.svg";
-import bus from "../../images/map/icons_bus stop darkblue.svg";
-import grotta from "../../images/map/icons_northern light appartment darkblue.svg";
-import hallgrimsk from "../../images/map/icons_hallgrimskirka darkblue.svg";
-import lighthouse from "../../images/map/icons_lighthouse darkblue.svg";
-import PublicSwimmingpool from "../../images/map/icons_geotermal darkblue.svg";
-import supermarket from "../../images/map/icons_minimal darkblue.svg";
-import viking from "../../images/map/icons_viking darkblue.svg";
-import puffin from "../../images/map/icons_puffin darkblue.svg";
-import whale from "../../images/map/icons_whalewatching darkblue.svg";
-import perlan from "../../images/map/icons_perlan darkblue.svg";
-
 import bluehouseb from "../../images/map/icons_blue house darkblueb.svg";
+import bonussupermarket from "../../images/map/icons_bonus supermarket darkblue.svg";
 import bonussupermarketb from "../../images/map/icons_bonus supermarket darkblueb.svg";
+import bus from "../../images/map/icons_bus stop darkblue.svg";
 import busb from "../../images/map/icons_bus stop darkblueb.svg";
-import grottab from "../../images/map/icons_northern light appartment darkblueb.svg";
-import hallgrimskb from "../../images/map/icons_hallgrimskirka darkblueb.svg";
-import lighthouseb from "../../images/map/icons_lighthouse darkblueb.svg";
+import PublicSwimmingpool from "../../images/map/icons_geotermal darkblue.svg";
 import PublicSwimmingpoolb from "../../images/map/icons_geotermal darkblueb.svg";
+import hallgrimsk from "../../images/map/icons_hallgrimskirka darkblue.svg";
+import hallgrimskb from "../../images/map/icons_hallgrimskirka darkblueb.svg";
+import lighthouse from "../../images/map/icons_lighthouse darkblue.svg";
+import lighthouseb from "../../images/map/icons_lighthouse darkblueb.svg";
+import supermarket from "../../images/map/icons_minimal darkblue.svg";
 import supermarketb from "../../images/map/icons_minimal darkblueb.svg";
-import vikingb from "../../images/map/icons_viking darkblueb.svg";
-import puffinb from "../../images/map/icons_puffin darkblueb.svg";
-import whaleb from "../../images/map/icons_whalewatching darkblueb.svg";
+import grotta from "../../images/map/icons_northern light appartment darkblue.svg";
+import grottab from "../../images/map/icons_northern light appartment darkblueb.svg";
+import perlan from "../../images/map/icons_perlan darkblue.svg";
 import perlanb from "../../images/map/icons_perlan darkblueb.svg";
+import puffin from "../../images/map/icons_puffin darkblue.svg";
+import puffinb from "../../images/map/icons_puffin darkblueb.svg";
+import viking from "../../images/map/icons_viking darkblue.svg";
+import vikingb from "../../images/map/icons_viking darkblueb.svg";
+import whale from "../../images/map/icons_whalewatching darkblue.svg";
+import whaleb from "../../images/map/icons_whalewatching darkblueb.svg";
 
 // const iconMarket =
 //     "https://firebasestorage.googleapis.com/v0/b/bluehouse-d9cc4.appspot.com/o/mapIcons%2Ficon_supermarket-e1619518193545.png?alt=media&token=1db0c970-2e37-4468-808c-779854b6f4a5";

@@ -3,58 +3,56 @@
 
 :root {
   /* Brand colors: CTA's active and focused states */
-  --color-primary-100: #EDF1F4;
-  --color-primary-200: #CDD7E2;
-  --color-primary-300: #3B5998;
-  --color-primary-400: #455C80;
-  --color-primary-500: #1D3967;
+  --color-primary-100: #edf1f4;
+  --color-primary-200: #cdd7e2;
+  --color-primary-300: #3b5998;
+  --color-primary-400: #455c80;
+  --color-primary-500: #1d3967;
 
   /* Neutral greys: text, backgrounds, surfaces, dividers */
-  --color-neutral-100: #FFFFFF;
-  --color-neutral-200: #F2F1EC;
-  --color-neutral-300: #D9D9D9;
+  --color-neutral-100: #ffffff;
+  --color-neutral-200: #f2f1ec;
+  --color-neutral-300: #d9d9d9;
   --color-neutral-400: #999999;
   --color-neutral-500: #212529;
 
   /* Feedback */
-  --color-success-100: #E9F4E8;
+  --color-success-100: #e9f4e8;
   --color-success-500: #458532;
 
-  --color-info-100: #ECF0FC;
-  --color-info-500: #3A5FDD;
+  --color-info-100: #ecf0fc;
+  --color-info-500: #3a5fdd;
 
-  --color-warning-100: #FCF9E8;
-  --color-warning-500: #EBC341;
+  --color-warning-100: #fcf9e8;
+  --color-warning-500: #ebc341;
 
-  --color-error-100: #F8E8E9;
-  --color-error-500: #C82026;
+  --color-error-100: #f8e8e9;
+  --color-error-500: #c82026;
 
   /*** Tokens ***/
 
   /* Text */
-  --text-heading:   var(--color-primary-500); /* Headings, titles, highlights */
-  --text-body:      var(--color-neutral-500); /* Main body text */
-  --text-inverse:   var(--color-neutral-100); /* Text on dark background */
-  --text-link:      var(--color-primary-300); /* Links */
-  --text-help:      var(--color-neutral-400); /* Help text labels */
+  --text-heading: var(--color-primary-500); /* Headings, titles, highlights */
+  --text-body: var(--color-neutral-500); /* Main body text */
+  --text-inverse: var(--color-neutral-100); /* Text on dark background */
+  --text-link: var(--color-primary-300); /* Links */
+  --text-help: var(--color-neutral-400); /* Help text labels */
 
   /* Background */
-  --bg-default:     var(--color-neutral-100); /* Page background */
-  --bg-surface:     var(--color-neutral-200); /* Cards/panel background */
-  --bg-primary:     var(--color-primary-500); /* Primary background */
-  --bg-disabled:    var(--color-neutral-200); /* Disabled background */
+  --bg-default: var(--color-neutral-100); /* Page background */
+  --bg-surface: var(--color-neutral-200); /* Cards/panel background */
+  --bg-primary: var(--color-primary-500); /* Primary background */
+  --bg-disabled: var(--color-neutral-200); /* Disabled background */
 
   /* Borders & Dividers */
   --border-default: var(--color-neutral-300); /* Inputs, separators, cards */
-  --border-strong:  var(--color-neutral-400); /* Emphasized borders and separators */
+  --border-strong: var(--color-neutral-400); /* Emphasized borders and separators */
 
-
-  /* Focus */ 
+  /* Focus */
   --focus-ring-color: var(--color-primary-500);
   --focus-ring-width: 2px;
   --focus-ring-offset: 3px;
 }
-
 
 @font-face {
   font-family: Oblik;
@@ -98,12 +96,7 @@ body {
 }
 
 .outLinedButton:hover {
-  background: linear-gradient(
-      180deg,
-      #04376f 99.99%,
-      rgba(255, 255, 255, 0) 100%
-    ),
-    #ffffff;
+  background: linear-gradient(180deg, #04376f 99.99%, rgba(255, 255, 255, 0) 100%), #ffffff;
   color: #ffffff;
   border-color: #04376f !important;
 }
@@ -150,13 +143,15 @@ a {
 }
 
 /* Show focus ring for keyboard users (accessibility) */
-:is(button,
+:is(
+  button,
   a[href],
   input:not([type="hidden"]),
   select,
   textarea,
   [role="button"],
-  [tabindex]:not([tabindex="-1"])):focus-visible {
+  [tabindex]:not([tabindex="-1"])
+):focus-visible {
   outline: var(--focus-ring-width) solid var(--focus-ring-color);
   outline-offset: var(--focus-ring-offset);
 }
@@ -165,7 +160,7 @@ a {
   @media (min-width: 320px) and (max-width: 599.99px) {
     padding-top: 75px;
     width: 100%;
-  } 
+  }
   @media (min-width: 600px) and (max-width: 959.99px) {
     padding-top: 82px;
     margin-left: auto;

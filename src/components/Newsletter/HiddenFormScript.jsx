@@ -1,9 +1,4 @@
-import {
-  forwardRef,
-  useEffect,
-  useImperativeHandle,
-  useRef,
-} from "react";
+import { forwardRef, useEffect, useImperativeHandle, useRef } from "react";
 
 const ZOHO_OPTIN_FORM_SELECTOR = "#zcampaignOptinForm";
 const ZOHO_FORM_ACTION = "https://oqix-zcmp.maillist-manage.eu/weboptin.zc";
@@ -215,10 +210,7 @@ const HiddenFormScript = forwardRef(function HiddenFormScript(_, ref) {
             }
 
             // Populate Zoho inputs so the outgoing payload mirrors the React form data.
-            fillZohoFields(
-              form,
-              toZohoFieldValues({ email, firstName, lastName })
-            );
+            fillZohoFields(form, toZohoFieldValues({ email, firstName, lastName }));
 
             // Set form to submit in a new tab
             form.setAttribute("action", ZOHO_FORM_ACTION);
