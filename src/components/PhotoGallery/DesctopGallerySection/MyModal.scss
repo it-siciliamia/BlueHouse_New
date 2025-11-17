@@ -290,13 +290,9 @@
 .bh-thumb:hover {
   opacity: 0.8;
 }
-.bh-thumb:focus,
-.bh-thumb:focus-visible {
-  outline: none;
-  box-shadow: #073762 0px 0px 0px 2px !important;
-}
+
 .bh-thumb.is-active {
-  box-shadow: #073762 0px 0px 0px 2px;
+  box-shadow: #073762 0px 0px 0px 2px !important;
 }
 .bh-thumb img {
   width: 100%;
