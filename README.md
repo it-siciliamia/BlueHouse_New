@@ -9,11 +9,13 @@ https://it-siciliamia.github.io/BlueHouse_New/
 This repo pins Node `24.11.0` and npm `11.6.2` via Volta (see `package.json`). Volta guarantees everyone runs the same toolchain:
 
 1. **Install Volta once per machine**
+   
    Linux/Mac 
    ```bash
    curl https://get.volta.sh | bash
    ```  
    Restart your shell so the `volta` binary is available.
+   
    Windows
    ```
    winget install Volta.Volta
