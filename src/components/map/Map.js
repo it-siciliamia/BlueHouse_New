@@ -53,7 +53,8 @@ const Home = () => {
   return (
     <Element name="Map" id="map">
       <div className="map-root">
-        {isLoaded ? (
+        <LazyLoad height={450} offset={100}>
+          {isLoaded ? (
           <GoogleMap
             mapContainerStyle={containerStyle}
             center={position}
@@ -81,9 +82,10 @@ const Home = () => {
               />
             ))}
           </GoogleMap>
-        ) : (
+          ) : (
           <div></div>
         )}
+        </LazyLoad>
         <section className="legend">
           {legend ? (
             <div className="legend-button" onClick={() => setLegend(false)}>

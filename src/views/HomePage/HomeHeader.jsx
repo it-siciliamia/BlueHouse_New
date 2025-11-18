@@ -10,6 +10,7 @@ import Tripadvisor from "../../images/Header_icons/headerSocialIcons/tripadvisor
 import Whatsapp from "../../images/Header_icons/headerSocialIcons/whats.svg";
 import { WithTransLate } from "../../components/helpers/translating/index";
 import CaruselSliderHome from "./CaruselSliderHome/CaruselSliderHome";
+import LazyLoad from 'react-lazyload'; 
 
 import s from "./HomePage.module.scss";
 
@@ -245,7 +246,8 @@ export default function Header({ title, titleMargins }) {
         </Typography>
       ) : (
         <div className={classes.socialIcons}>
-          <a
+          <LazyLoad height={48} offset={100}>
+             <a
             href="https://www.instagram.com/bluehousebb/"
             target="_blank"
             rel="noreferrer"
@@ -257,8 +259,10 @@ export default function Header({ title, titleMargins }) {
               alt="instagram"
               className={classes.iconImg}
             />
-          </a>
-          <a
+             </a>
+          </LazyLoad>
+           <LazyLoad height={48} offset={100}>
+             <a
             href="https://www.facebook.com/bluehouseiceland"
             target="_blank"
             rel="noreferrer"
@@ -270,8 +274,10 @@ export default function Header({ title, titleMargins }) {
               alt="facebook"
               className={classes.iconImg}
             />
-          </a>
-          <a
+             </a>
+           </LazyLoad>
+           <LazyLoad height={48} offset={100}>
+             <a
             href="https://api.whatsapp.com/send?phone=3547756480&text=&source=&data="
             target="_blank"
             rel="noreferrer"
@@ -283,9 +289,11 @@ export default function Header({ title, titleMargins }) {
               alt="whatsapp"
               className={classes.iconImg}
             />
-          </a>
+             </a>
+           </LazyLoad>
           {/* Added Tripadvisor icon */}
-          <a
+          <LazyLoad height={48} offset={100}>
+             <a
             href="https://www.tripadvisor.com/Hotel_Review-g189970-d1915669-Reviews-Blue_House_B_B-Reykjavik_Capital_Region.html"
             target="_blank"
             rel="noreferrer"
@@ -297,8 +305,10 @@ export default function Header({ title, titleMargins }) {
               alt="tripadvisor"
               className={classes.iconImg}
             />
-          </a>
-          <a
+             </a>
+          </LazyLoad>
+          <LazyLoad height={48} offset={100}>
+             <a
             href="https://bluehouseis.zohodesk.eu/portal/en/newticket?departmentId=135604000000205173&layoutId=135604000000214460"
             target="_blank"
             rel="noreferrer"
@@ -310,7 +320,8 @@ export default function Header({ title, titleMargins }) {
               alt="Email"
               className={classes.iconImg}
             />
-          </a>
+             </a>
+          </LazyLoad>
         </div>
       )}
       <CaruselSliderHome />

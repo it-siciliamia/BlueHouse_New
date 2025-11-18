@@ -3,6 +3,7 @@ import Link from "../Shared/ui/Link";
 import useBreakpoints from "../../Styles/useBreakpoints";
 import blogHero from "../../images/Blog/BlogSection.png";
 import { WithTransLate } from "../helpers/translating";
+import LazyLoad from 'react-lazyload'; 
 
 import s from "./BlogPart.module.scss";
 
@@ -16,7 +17,8 @@ function BlogPart() {
       data-bp={isDesktop ? "desktop" : "other"}
     >
       <div className={s.frame}>
-        <div
+        <LazyLoad height={522} offset={100}>
+          <div
           className={s.hero}
           style={{ backgroundImage: `url(${blogHero})` }}
           role="img"
@@ -43,7 +45,8 @@ function BlogPart() {
               </Link>
             </div>
           </div>
-        </div>
+          </div>
+        </LazyLoad>       
       </div>
     </section>
   );
