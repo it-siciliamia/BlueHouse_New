@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import { GoogleMap, useJsApiLoader, Marker } from "@react-google-maps/api";
 import { legandItemsData, features } from "./Elements";
 import upArrow from "../../images/map/upArrow.svg";
+import LazyLoad from 'react-lazyload'; // Import LazyLoad
 import "./Home.css";
 import "./Home.scssHome.scss";
 import { Element } from "react-scroll";
@@ -14,7 +15,6 @@ const containerStyle = {
 
 const Home = () => {
   const mapRef = useRef(null);
-  // eslint-disable-next-line no-unused-vars
   const [position, setPosition] = React.useState({
     lat: 64.15085669896943,
     lng: -21.965248737429826,
@@ -34,7 +34,6 @@ const Home = () => {
     libraries: [], // Specify empty libraries to avoid loading unnecessary ones
   });
 
-  // eslint-disable-next-line no-unused-vars
   const [map, setMap] = React.useState(null);
   const [legend, setLegend] = React.useState(true);
   const [weather, setWeather] = React.useState(undefined);
@@ -53,38 +52,36 @@ const Home = () => {
   return (
     <Element name="Map" id="map">
       <div className="map-root">
-        <LazyLoad height={450} offset={100}>
+        <LazyLoad height={450} offset={100} placeholder={<div>Loading Map...</div>}>
           {isLoaded ? (
-          <GoogleMap
-            mapContainerStyle={containerStyle}
-            center={position}
-            zoom={13}
-            onLoad={handleLoad}
-            onUnmount={onUnmount}
-            options={{
-              // ✅ FIX 3: Use advanced markers instead of deprecated ones
-              mapId: "DEMO_MAP_ID", // You can create a custom map ID in Google Cloud Console
-            }}
-          >
-            {features.map((feature, index) => (
-              <Marker
-                key={index}
-                icon={
+            <GoogleMap
+              mapContainerStyle={containerStyle}
+              center={position}
+              zoom={13}
+              onLoad={handleLoad}
+              onUnmount={onUnmount}
+              options={{
+                mapId: "DEMO_MAP_ID", // You can create a custom map ID in Google Cloud Console
+              }}
+            >
+              {features.map((feature, index) => (
+                <Marker
+                  key={index}
+                   icon={
                   position.lat === feature.position.lat
                     ? feature.iconb
                     : feature.icon
                 }
-                position={feature.position}
-                // ✅ FIX 4: Use new marker options to avoid deprecation warning
-                options={{
-                  optimized: true,
-                }}
-              />
-            ))}
-          </GoogleMap>
+                  position={feature.position}
+                  options={{
+                    optimized: true,
+                  }}
+                />
+              ))}
+            </GoogleMap>
           ) : (
-          <div></div>
-        )}
+            <div></div>
+          )}
         </LazyLoad>
         <section className="legend">
           {legend ? (

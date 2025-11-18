@@ -12,12 +12,15 @@ import rest from "../../images/RECOMMENDATIONS/Geysers.webp";
 
 import s from "./Recommendations.module.scss";
 import Button from "../Shared/Button/Button";
+import LazyLoad from 'react-lazyload'; // Import LazyLoad
 
 function Card({ title, imageSrc, description }) {
   return (
     <figure className={s.card}>
       <picture>
-        <img alt={title} src={imageSrc} />
+        <LazyLoad height={400} offset={100} placeholder={<div className={s.placeholder}>Loading...</div>}>
+          <img alt={title} src={imageSrc} />
+        </LazyLoad>
       </picture>
 
       <figcaption>
@@ -34,7 +37,7 @@ function Card({ title, imageSrc, description }) {
 
 const Recommendations = () => {
   const { isTablet, isDesktop } = useBreakpoints();
-  const prevSlide = ()=>{
+   const prevSlide = ()=>{
     const section = document.getElementById('imagesSection')
     section.scrollBy(-440,0)
   }
@@ -98,7 +101,7 @@ const Recommendations = () => {
               title={name}
               imageSrc={isDesktop ? imageD : image}
               description={description}
-                />
+            />
           ))}
         </div>
       </div>
