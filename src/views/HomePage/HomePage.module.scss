@@ -19,12 +19,11 @@ $desktop: 80em; // 1280px
     justify-content: center;
     padding-left: 2rem;
     gap: 3rem;
+    padding-left: 0;
   }
 
   @media (min-width: $desktop) {
-    padding-left: 1rem;
     gap: 3.125rem;
-    padding-left: 0;
   }
   
 }
