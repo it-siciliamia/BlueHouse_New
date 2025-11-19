@@ -1,4 +1,3 @@
-import React from "react";
 import PropTypes from "prop-types";
 import { IoClose } from "react-icons/io5";
 

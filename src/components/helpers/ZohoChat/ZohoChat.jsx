@@ -1,11 +1,11 @@
-import React, { useEffect } from "react";
-import iconChat from "../../../images/zoho_chat.svg";
+import { useEffect } from "react";
+
 import s from "./ZohoChat.module.scss";
+import iconChat from "../../../images/zoho_chat.svg";
 
 function ZohoChat() {
   useEffect(() => {
-    const widgetCode =
-      "siqaa731a3a595d02e3f97bec52294ab4c3a000b2363e8ae346cec7d551e3d959b6";
+    const widgetCode = "siqaa731a3a595d02e3f97bec52294ab4c3a000b2363e8ae346cec7d551e3d959b6";
     const url = "https://salesiq.zohopublic.eu/widget";
 
     window.$zoho = window.$zoho || {};

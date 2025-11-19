@@ -1,11 +1,9 @@
-import React from "react";
 import styles from "./FollowUs.module.scss";
-import Link from "../Shared/ui/Link.jsx";
-
 // images in required order: 20, 5, 11
 import insta05 from "../../images/instagramSVG/insta05.webp";
 import insta11 from "../../images/instagramSVG/insta11.webp";
 import insta20 from "../../images/instagramSVG/insta20.webp";
+import Link from "../Shared/ui/Link.jsx";
 
 const FollowUs = () => {
   return (

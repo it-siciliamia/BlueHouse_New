@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
-import arrowUpIcon from "../../../images/logo_small.png";
+import { useState, useEffect } from "react";
 
 import s from "./ScrollToTopButton.module.scss";
+import arrowUpIcon from "../../../images/logo_small.png";
 
 const ScrollToTopButton = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -34,9 +34,7 @@ const ScrollToTopButton = () => {
       onClick={scrollToTop}
       style={{ display: isVisible ? "block" : "none" }}
     >
-      {isVisible && (
-        <div className={`${s.arrowUp} ${isVisible ? s.blinking : ""}`}></div>
-      )}
+      {!!isVisible && <div className={`${s.arrowUp} ${isVisible ? s.blinking : ""}`}></div>}
       <div className={s.imgWrapper}>
         <img src={arrowUpIcon} alt="Scroll to top" className={s.arrowIcon} />
       </div>

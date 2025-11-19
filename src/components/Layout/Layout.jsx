@@ -1,14 +1,14 @@
 import { Outlet } from "react-router-dom";
-import Header from "../header/Header.jsx";
-import NewMap from "../map/NewMap.jsx";
-import CookiesBanner from "../CookiesBanner/CookiesBanner.jsx";
-import Footer from "../Footer/Footer.jsx";
 
 import s from "./Layout.module.scss";
 import useBreakpointsNew from "../../Styles/useBreakpointsNew.js";
+import CookiesBanner from "../CookiesBanner/CookiesBanner.jsx";
+import Footer from "../Footer/Footer.jsx";
+import Header from "../header/Header.jsx";
+import NewMap from "../map/NewMap.jsx";
 
 function Layout() {
-  const {isSmallScreen, isDesktop} = useBreakpointsNew();
+  const { isSmallScreen, isDesktop } = useBreakpointsNew();
 
   return (
     <div className={s.container}>
@@ -16,7 +16,11 @@ function Layout() {
       <div className={s.outlet}>
         <Outlet />
       </div>
-      {(isSmallScreen || isDesktop) && <div className={s.fullWidthSection}><NewMap /></div>}
+      {!!(isSmallScreen || isDesktop) && (
+        <div className={s.fullWidthSection}>
+          <NewMap />
+        </div>
+      )}
       <CookiesBanner />
       <Footer />
     </div>

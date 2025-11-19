@@ -90,8 +90,7 @@ const faqSchema = {
   "@type": "FAQPage",
   url: "https://bluehouseis.zohodesk.eu/portal/en/home",
   name: "Blue House FAQ",
-  description:
-    "Find answers to frequently asked questions about staying at Blue House.",
+  description: "Find answers to frequently asked questions about staying at Blue House.",
 };
 
 const forumSchema = {
@@ -99,8 +98,7 @@ const forumSchema = {
   "@type": "DiscussionForumPosting",
   url: "https://bluehouseis.zohodesk.eu/portal/en/community/guestforum",
   name: "Blue House Community Forum",
-  description:
-    "Join discussions and explore interesting topics with other guests.",
+  description: "Join discussions and explore interesting topics with other guests.",
 };
 
 const toursSchema = {
@@ -108,8 +106,7 @@ const toursSchema = {
   "@type": "Service",
   name: "Tours and Activities",
   url: "https://bluehouse.tourdesk.is/Tour?notfound=True",
-  description:
-    "Book unique tours and activities in Iceland through Blue House.",
+  description: "Book unique tours and activities in Iceland through Blue House.",
 };
 
 const combinedSchema = JSON.stringify([

@@ -1,7 +1,8 @@
-import React, { forwardRef } from "react";
 import PropTypes from "prop-types";
-import { WithTransLate } from "../../helpers/translating/index.jsx";
+import { forwardRef } from "react";
+
 import s from "./TextField.module.scss";
+import { WithTransLate } from "../../helpers/translating/index.jsx";
 
 const TextField = forwardRef(
   (
@@ -39,9 +40,7 @@ const TextField = forwardRef(
       if (formatExpiryDate) {
         return val
           .replace(/\D/g, "")
-          .replace(/^(\d{2})(\d{1,2})?/, (_, m1, m2) =>
-            m2 ? `${m1}/${m2}` : m1
-          )
+          .replace(/^(\d{2})(\d{1,2})?/, (_, m1, m2) => (m2 ? `${m1}/${m2}` : m1))
           .slice(0, 5);
       }
 
@@ -75,7 +74,7 @@ const TextField = forwardRef(
             <WithTransLate text={placeholder} />
           </span>
         )}
-        {error && (
+        {!!error && (
           <p className={s.error}>
             <WithTransLate text={error.message || "Error occurred"} />
           </p>

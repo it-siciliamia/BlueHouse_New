@@ -1,18 +1,18 @@
-import * as React from "react";
-import PropTypes from "prop-types";
-import useBreakpoints from "../../../Styles/useBreakpoints.js";
-import Tabs from "@mui/material/Tabs";
-import Tab from "@mui/material/Tab";
-import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
-import Button from "@mui/material/Button";
-import { Rooms, Houses, Surroundings } from "./Galary-information.js";
+import Tab from "@mui/material/Tab";
+import Tabs from "@mui/material/Tabs";
+import Typography from "@mui/material/Typography";
+import PropTypes from "prop-types";
+import * as React from "react";
 
-import { WithTransLate } from "../../helpers/translating";
+import { Rooms, Houses, Surroundings } from "./Galary-information.js";
 import ImageSlider from "./ImageSlider/ImageSlider.jsx";
+import useBreakpoints from "../../../Styles/useBreakpoints.js";
+import { WithTransLate } from "../../helpers/translating";
 
 function CustomTabPanel(props) {
   const { isMobile } = useBreakpoints();
@@ -32,9 +32,7 @@ function CustomTabPanel(props) {
           <Box
             sx={{
               display: "grid",
-              gridTemplateColumns: isTwoColumn
-                ? "repeat(1, 1fr)"
-                : "repeat(2, 1fr)",
+              gridTemplateColumns: isTwoColumn ? "repeat(1, 1fr)" : "repeat(2, 1fr)",
               width: "100%",
               gap: isTwoColumn ? "40px" : "18px",
               paddingX: "20px",
@@ -52,9 +50,7 @@ function CustomTabPanel(props) {
                 <div>
                   <ImageSlider category={room.title} />
                 </div>
-                <CardContent
-                  sx={{ maxWidth: "280px", height: "10px", padding: 0, my: 1 }}
-                >
+                <CardContent sx={{ maxWidth: "280px", height: "10px", padding: 0, my: 1 }}>
                   <Typography
                     gutterBottom
                     fontSize="16px"
@@ -219,16 +215,8 @@ const Gallery = () => {
           }}
           centered
         >
-          <Tab
-            label="Rooms"
-            sx={{ fontStyle: "inherit", width: "33%" }}
-            {...a11yProps(0)}
-          />
-          <Tab
-            label="Houses"
-            sx={{ fontStyle: "inherit", width: "33%" }}
-            {...a11yProps(1)}
-          />
+          <Tab label="Rooms" sx={{ fontStyle: "inherit", width: "33%" }} {...a11yProps(0)} />
+          <Tab label="Houses" sx={{ fontStyle: "inherit", width: "33%" }} {...a11yProps(1)} />
           <Tab
             label="Surroundings"
             sx={{ fontStyle: "inherit", width: "33.9%" }}

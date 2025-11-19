@@ -1,19 +1,19 @@
-import React, { useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
-import useBreakpoints from "../../Styles/useBreakpoints.js";
-import { useDispatch } from "react-redux";
-import { setPaymentStage } from "../../redux/technitial/technical-slice.js";
-import { items } from "../../components/ServicesRoom/ServicesRoomData.js";
-import { WithTransLate } from "../../components/helpers/translating/index.jsx";
-import PhotoSlider from "../../components/Shared/SliderSlick/SliderSlick.jsx";
-import PartDetails from "./PartDetails/PartDetails.jsx";
-import PartCalendar from "./PartCalendar/PartCalendar.jsx";
-import AdditionalServices from "../../components/AdditionalServices/AdditionalServices.jsx";
-import Support from "../../components/SuportComponent/support.jsx";
-import Button from "../../components/Shared/Button/Button.jsx";
+import { useEffect } from "react";
 import { IoIosArrowBack } from "react-icons/io";
+import { useDispatch } from "react-redux";
+import { useParams, useNavigate } from "react-router-dom";
 
+import PartCalendar from "./PartCalendar/PartCalendar.jsx";
+import PartDetails from "./PartDetails/PartDetails.jsx";
 import s from "./RoomDetails.module.scss";
+import AdditionalServices from "../../components/AdditionalServices/AdditionalServices.jsx";
+import { WithTransLate } from "../../components/helpers/translating/index.jsx";
+import { items } from "../../components/ServicesRoom/ServicesRoomData.js";
+import Button from "../../components/Shared/Button/Button.jsx";
+import PhotoSlider from "../../components/Shared/SliderSlick/SliderSlick.jsx";
+import Support from "../../components/SuportComponent/support.jsx";
+import { setPaymentStage } from "../../redux/technitial/technical-slice.js";
+import useBreakpoints from "../../Styles/useBreakpoints.js";
 
 const RoomDetails = () => {
   const { room } = useParams();
@@ -48,7 +48,7 @@ const RoomDetails = () => {
               handleClick={handleBackClick}
             />
           </div>
-          {(isDesktop || isLaptop) && (
+          {!!(isDesktop || isLaptop) && (
             <PhotoSlider
               photos={roomData.photos}
               width={calculatedWidth}

@@ -1,12 +1,11 @@
-import React from "react";
 import PropTypes from "prop-types";
-import { WithTransLate } from "../helpers/translating/index.jsx";
-import tripadvisor from "../../images/tipadvisor.png";
-import google from "../../images/google.png";
 
 import s from "./ReviewRoomBooking.module.scss";
+import google from "../../images/google.png";
+import tripadvisor from "../../images/tipadvisor.png";
+import { WithTransLate } from "../helpers/translating/index.jsx";
 
-const CircleRating = ({ rating, text, reviews }) => {
+const CircleRating = ({ rating, reviews }) => {
   const circles = Array.from({ length: 5 }, (_, index) => {
     const diff = rating - index;
     if (diff >= 1) return "full";
@@ -23,9 +22,7 @@ const CircleRating = ({ rating, text, reviews }) => {
             <span key={index} className={`${s.circle} ${s[type]}`}></span>
           ))}
         </div>
-        <p style={{ marginTop: "-5px", fontSize: "20px" }}>
-          {rating.toFixed(1)}
-        </p>
+        <p style={{ marginTop: "-5px", fontSize: "20px" }}>{rating.toFixed(1)}</p>
       </div>
       <div className={s.details}>
         <p>{reviews} reviews</p>
@@ -37,7 +34,12 @@ const CircleRating = ({ rating, text, reviews }) => {
   );
 };
 
-const StarRating = ({ rating, text, reviews }) => {
+CircleRating.propTypes = {
+  rating: PropTypes.number.isRequired,
+  reviews: PropTypes.number.isRequired,
+};
+
+const StarRating = ({ rating, reviews }) => {
   const stars = Array.from({ length: 5 }, (_, index) => {
     const diff = rating - index;
     if (diff >= 1) return "full";
@@ -54,9 +56,7 @@ const StarRating = ({ rating, text, reviews }) => {
             <span key={index} className={`${s.star} ${s[type]}`}></span>
           ))}
         </div>
-        <p style={{ marginTop: "-5px", fontSize: "20px" }}>
-          {rating.toFixed(1)}
-        </p>
+        <p style={{ marginTop: "-5px", fontSize: "20px" }}>{rating.toFixed(1)}</p>
       </div>
       <div className={s.details}>
         <p>{reviews} reviews</p>
@@ -68,15 +68,14 @@ const StarRating = ({ rating, text, reviews }) => {
   );
 };
 
+StarRating.propTypes = {
+  rating: PropTypes.number.isRequired,
+  reviews: PropTypes.number.isRequired,
+};
+
 const ReviewRoomBooking = ({ tripadvisor, googleRatings }) => {
-  const totalReviews = googleRatings.reduce(
-    (sum, { reviews }) => sum + reviews,
-    0
-  );
-  const totalRating = googleRatings.reduce(
-    (sum, { rating, reviews }) => sum + rating * reviews,
-    0
-  );
+  const totalReviews = googleRatings.reduce((sum, { reviews }) => sum + reviews, 0);
+  const totalRating = googleRatings.reduce((sum, { rating, reviews }) => sum + rating * reviews, 0);
   const googleAverageRating = totalReviews ? totalRating / totalReviews : 0;
 
   return (
@@ -90,19 +89,11 @@ const ReviewRoomBooking = ({ tripadvisor, googleRatings }) => {
 
         <div className={s.contentPart}>
           <div>
-            <CircleRating
-              rating={tripadvisor.rating}
-              text={tripadvisor.text}
-              reviews={tripadvisor.reviews}
-            />
+            <CircleRating rating={tripadvisor.rating} reviews={tripadvisor.reviews} />
           </div>
 
           <div>
-            <StarRating
-              rating={googleAverageRating}
-              text={googleRatings[0].text}
-              reviews={totalReviews}
-            />
+            <StarRating rating={googleAverageRating} reviews={totalReviews} />
           </div>
         </div>
       </div>

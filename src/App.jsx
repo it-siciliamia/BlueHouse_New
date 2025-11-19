@@ -1,38 +1,33 @@
-import React, { useState, createContext, lazy, Suspense, useMemo } from "react";
-import PropTypes from "prop-types";
-import { Route, Routes } from "react-router-dom";
-import { HelmetProvider, Helmet } from "react-helmet-async";
 import { ThemeProvider } from "@mui/material/styles";
-import ScrollToTopButton from "./components/Shared/ScrollToTopButton/ScrollToTopButton.jsx";
-import ZohoChat from "./components/helpers/ZohoChat/ZohoChat.jsx";
+import { lazy, Suspense, useMemo, useState } from "react";
+import { HelmetProvider, Helmet } from "react-helmet-async";
+import { Route, Routes } from "react-router-dom";
+
+import "./Styles/App.css";
+import EnquirePage from "./components/BookingPage/EnquirePage.jsx";
+import { RedirectBlog, RedirectTripAdv } from "./components/helpers/redirect/Redirect.jsx";
 import combinedSchema from "./components/helpers/SchemaOrg/schema.js";
+import ScrollToTop from "./components/helpers/ScrollToTop.js";
 import { LanguageProvider } from "./components/helpers/translating/LanguageContext.jsx";
-import HomePage from "./views/HomePage/HomePage.jsx";
+import ZohoChat from "./components/helpers/ZohoChat/ZohoChat.jsx";
+import HeaderOnlyLayout from "./components/Layout/HeaderOnlyLayout.jsx";
+import Layout from "./components/Layout/Layout.jsx";
+import ScrollToTopButton from "./components/Shared/ScrollToTopButton/ScrollToTopButton.jsx";
+import { UserContext } from "./context/UserContext.js";
+import theme from "./Styles/theme.js";
+import ThankYou from "./thankyou/index.jsx";
 import Aboutus from "./views/AboutUsPage/AboutUs.jsx";
+import HomePage from "./views/HomePage/HomePage.jsx";
 import HouseRules from "./views/HouseRulesPage/HouseRules.jsx";
+import Notfound from "./views/NotFoundPage/Notfound.jsx";
 import PaymentPage from "./views/PaymentPage/PaymentPage.jsx";
 import PrivacyandPolicyPage from "./views/PrivacyPolicyPage/PrivacyPolicyPage.jsx";
 import RoomBooking from "./views/roombooking/RoomBooking.jsx";
 import RoomDetails from "./views/RoomDetails/RoomDetails.jsx";
-import ScrollToTop from "./components/helpers/ScrollToTop.js";
-import Notfound from "./views/NotFoundPage/Notfound.jsx";
-import EnquirePage from "./components/BookingPage/EnquirePage.jsx";
-import ThankYou from "./thankyou/index.jsx";
-import {
-  RedirectBlog,
-  RedirectTripAdv,
-} from "./components/helpers/redirect/Redirect.jsx";
-import theme from "./Styles/theme.js";
-import "./Styles/App.css";
-import Layout from "./components/Layout/Layout.jsx";
-import HeaderOnlyLayout from "./components/Layout/HeaderOnlyLayout.jsx";
-const ThirdPartyScriptsLoader = lazy(() =>
-  import("./marketing/ThirdPartyScriptsLoader.jsx")
-);
 
-export const UserContext = createContext();
+const ThirdPartyScriptsLoader = lazy(() => import("./marketing/ThirdPartyScriptsLoader.jsx"));
 
-function App({ basename }) {
+function App() {
   const [modalState, setModal] = useState({
     state: false,
     index: 0,
@@ -41,10 +36,7 @@ function App({ basename }) {
 
   // Memoize UserContext value to prevent unnecessary re-renders of consumers
   // Only recreate when modalState or room actually change
-  const userContextValue = React.useMemo(
-    () => [modalState, setModal, room, setRoom],
-    [modalState, room]
-  );
+  const userContextValue = useMemo(() => [modalState, setModal, room, setRoom], [modalState, room]);
 
   return (
     <ThemeProvider theme={theme}>
@@ -66,10 +58,7 @@ function App({ basename }) {
                 <Route index element={<HomePage />} />
                 <Route path="house-rules" element={<HouseRules />} />
                 <Route path="about-us" element={<Aboutus />} />
-                <Route
-                  path="privacy-and-policy"
-                  element={<PrivacyandPolicyPage />}
-                />
+                <Route path="privacy-and-policy" element={<PrivacyandPolicyPage />} />
                 <Route path="book" element={<RoomBooking />} />
                 <Route path="beds24" element={<RoomBooking />} />
                 <Route path="beds24/:room" element={<RoomDetails />} />

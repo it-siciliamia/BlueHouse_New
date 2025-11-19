@@ -7,7 +7,6 @@ $desktop: 80em; // 1280px
   flex-direction: column;
   width: 100%; //changed to 100% from 80%
   justify-content: center;
-
 }
 
 .homeHeader {
@@ -24,6 +23,4 @@ $desktop: 80em; // 1280px
   @media (min-width: $desktop) {
     gap: 3.125rem;
   }
-  
 }
-

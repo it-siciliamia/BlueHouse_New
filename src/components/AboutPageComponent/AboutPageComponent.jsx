@@ -1,9 +1,7 @@
-import React from "react";
+import s from "./AboutPageComponent.module.scss";
+import signature from "../../images/aboutus/signature.png";
 import useBreakpoints from "../../Styles/useBreakpoints.js";
 import { WithTransLate } from "../helpers/translating/index.jsx";
-import signature from "../../images/aboutus/signature.png";
-
-import s from "./AboutPageComponent.module.scss";
 import NewMap from "../map/NewMap.jsx";
 
 function AboutPageComponent() {
@@ -42,7 +40,7 @@ function AboutPageComponent() {
             </div>
 
             <div className={s.sectionPart}>
-              {(isMobile || isTablet) && (
+              {!!(isMobile || isTablet) && (
                 <div className={s.partImage}>
                   <div className={s.imageSecond}></div>
                 </div>
@@ -62,7 +60,7 @@ function AboutPageComponent() {
                   </p>
                 </div>
               </div>
-              {(isDesktop || isLaptop) && (
+              {!!(isDesktop || isLaptop) && (
                 <div className={s.partImage}>
                   <div className={s.imageSecond}></div>
                 </div>
@@ -71,42 +69,27 @@ function AboutPageComponent() {
           </div>
         </div>
 
-        <div
-          className={s.secondSectionContent}
-          style={{ position: "relative" }}
-        >
+        <div className={s.secondSectionContent} style={{ position: "relative" }}>
           <div className={s.titleWrapperSecond}>
             <h2 className={s.titleSecond}>
               <WithTransLate text="MESSAGE FROM FOUNDER" />
             </h2>
           </div>
-          <div
-            className={s.sectionPart}
-            style={{ marginTop: isLaptop ? "40px" : "0" }}
-          >
-            {(isMobile || isTablet) && (
+          <div className={s.sectionPart} style={{ marginTop: isLaptop ? "40px" : "0" }}>
+            {!!(isMobile || isTablet) && (
               <div className={s.partImage}>
                 <div
                   style={{
-                    marginRight:
-                      isMobile || isTablet || isLaptop ? "0px" : "50px",
-                    marginLeft:
-                      isMobile || isTablet || isLaptop ? "0px" : "50px",
+                    marginRight: isMobile || isTablet || isLaptop ? "0px" : "50px",
+                    marginLeft: isMobile || isTablet || isLaptop ? "0px" : "50px",
                     width: "100%",
                     display: "flex",
                     flexDirection: "column",
-                    alignItems:
-                      isMobile || isTablet || isLaptop
-                        ? "center"
-                        : "flex-start",
+                    alignItems: isMobile || isTablet || isLaptop ? "center" : "flex-start",
                   }}
                 >
                   <div className={s.imageZeno}></div>
-                  <img
-                    src={signature}
-                    className={s.photoSignature}
-                    alt="foto signature"
-                  />
+                  <img src={signature} className={s.photoSignature} alt="foto signature" />
                 </div>
               </div>
             )}
@@ -143,32 +126,20 @@ function AboutPageComponent() {
                 </p>
               </div>
             </div>
-            {(isDesktop || isLaptop) && (
+            {!!(isDesktop || isLaptop) && (
               <div className={s.partImage}>
                 <div
                   style={{
-                    marginRight:
-                      isMobile || isTablet || isLaptop ? "0px" : "50px",
-                    marginLeft:
-                      isMobile || isTablet || isLaptop ? "0px" : "50px",
+                    marginRight: isMobile || isTablet || isLaptop ? "0px" : "50px",
+                    marginLeft: isMobile || isTablet || isLaptop ? "0px" : "50px",
                     width: "100%",
                     display: "flex",
                     flexDirection: "column",
-                    alignItems:
-                      isMobile || isTablet || isLaptop
-                        ? "center"
-                        : "flex-start",
+                    alignItems: isMobile || isTablet || isLaptop ? "center" : "flex-start",
                   }}
                 >
-                  <div
-                    className={s.imageZeno}
-                    style={{ marginBottom: "20px" }}
-                  ></div>
-                  <img
-                    src={signature}
-                    className={s.photoSignature}
-                    alt="foto signature"
-                  />
+                  <div className={s.imageZeno} style={{ marginBottom: "20px" }}></div>
+                  <img src={signature} className={s.photoSignature} alt="foto signature" />
                 </div>
               </div>
             )}

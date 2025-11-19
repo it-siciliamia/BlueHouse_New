@@ -39,7 +39,9 @@
     height: 46px;
     width: 0;
     overflow: hidden;
-    transition: width 0.4s ease-in-out, border 0.2s ease;
+    transition:
+      width 0.4s ease-in-out,
+      border 0.2s ease;
     position: absolute;
     right: 50px;
     top: 50%;
@@ -78,7 +80,9 @@
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
     padding: 8px 10px;
     z-index: 51;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
+    transition:
+      opacity 0.3s ease,
+      visibility 0.3s ease;
     opacity: 0;
     visibility: hidden;
 
@@ -156,7 +160,9 @@
   border-radius: 4px;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
   z-index: 100;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
   will-change: opacity;
 
   @media (max-width: 1279px) {

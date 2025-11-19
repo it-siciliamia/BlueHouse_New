@@ -1,12 +1,11 @@
-import React from "react";
 import { useNavigate } from "react-router-dom";
-import { WithTransLate } from "../../helpers/translating";
-import Facebook from "../../../images/Header_icons/headerSocialIcons/facebook.svg";
-import instaIcon from "../../../images/Header_icons/headerSocialIcons/insta.svg";
-import Email from "../../../images/Header_icons/headerSocialIcons/email.svg";
-import Whatsapp from "../../../images/Header_icons/headerSocialIcons/whats.svg";
 
 import s from "./FooterPayment.module.scss";
+import Email from "../../../images/Header_icons/headerSocialIcons/email.svg";
+import Facebook from "../../../images/Header_icons/headerSocialIcons/facebook.svg";
+import instaIcon from "../../../images/Header_icons/headerSocialIcons/insta.svg";
+import Whatsapp from "../../../images/Header_icons/headerSocialIcons/whats.svg";
+import { WithTransLate } from "../../helpers/translating";
 
 const FooterPayment = () => {
   const navigate = useNavigate();
@@ -21,11 +20,7 @@ const FooterPayment = () => {
         </button>
       </div>
       <div className={s.footerSocial}>
-        <a
-          href="https://www.instagram.com/bluehousebb/"
-          target="_blank"
-          rel="noreferrer"
-        >
+        <a href="https://www.instagram.com/bluehousebb/" target="_blank" rel="noreferrer">
           <img
             src={instaIcon}
             title="Instagram"
@@ -33,11 +28,7 @@ const FooterPayment = () => {
             style={{ width: "23px", height: "23px" }}
           />
         </a>
-        <a
-          href="https://www.facebook.com/bluehouseiceland"
-          target="_blank"
-          rel="noreferrer"
-        >
+        <a href="https://www.facebook.com/bluehouseiceland" target="_blank" rel="noreferrer">
           <img
             src={Facebook}
             title="facebook"
@@ -62,12 +53,7 @@ const FooterPayment = () => {
           target="_blank"
           rel="noreferrer"
         >
-          <img
-            src={Email}
-            title="Email"
-            alt="Email"
-            style={{ width: "23px", height: "23px" }}
-          />
+          <img src={Email} title="Email" alt="Email" style={{ width: "23px", height: "23px" }} />
         </a>
       </div>
     </div>

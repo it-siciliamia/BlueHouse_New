@@ -1,4 +1,3 @@
-import React from "react";
 import "./assets/bootstrap/css/bootstrap.min.css";
 import "./style.css";
 import fb from "./assets/images/facebook.png";
@@ -12,7 +11,7 @@ export default function ThankYou() {
   return (
     <div className="content h-100">
       <section className="h-100">
-        <div className="container h-100">
+        <div className="h-100 container">
           <div className="row h-100 justify-content-center align-items-center">
             <div className="col-12 text-center">
               <div className="logo text-left">
@@ -25,9 +24,7 @@ export default function ThankYou() {
                 <div className="img_blk">
                   <img className="img-fluid" src={ok} alt="ok" />
                 </div>
-                <p>
-                  Please, check your email inbox for your reservation details.
-                </p>
+                <p>Please, check your email inbox for your reservation details.</p>
                 <p>(If you can not find it check your spam folder)</p>
               </div>
               <div className="blk_btm">
@@ -51,10 +48,7 @@ export default function ThankYou() {
                         </a>
                       </li>
                       <li>
-                        <a
-                          className="button"
-                          href="https://bluehouse.tourdesk.is/Tour"
-                        >
+                        <a className="button" href="https://bluehouse.tourdesk.is/Tour">
                           DAYTOURS
                         </a>
                       </li>

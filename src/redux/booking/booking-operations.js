@@ -1,4 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
+
 import { axiosCreateNewBooking } from "../../api/api";
 
 export const createNewBooking = createAsyncThunk(

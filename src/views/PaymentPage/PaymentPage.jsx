@@ -1,12 +1,11 @@
-import React from "react";
 import { useSelector } from "react-redux";
-import PaymentComponent from "../../components/PaymentComponent/PaymentComponent.jsx";
-import FooterPayment from "../../components/PaymentComponent/FooterPayment/FooterPayment.jsx";
-import DayTours from "../../components/PaymentComponent/DayTours/DayTours.jsx";
-import Support from "../../components/SuportComponent/support.jsx";
-import { getBookingConfirmed } from "../../redux/technitial/technical-selectors.js";
 
 import s from "./PaymentPage.module.scss";
+import DayTours from "../../components/PaymentComponent/DayTours/DayTours.jsx";
+import FooterPayment from "../../components/PaymentComponent/FooterPayment/FooterPayment.jsx";
+import PaymentComponent from "../../components/PaymentComponent/PaymentComponent.jsx";
+import Support from "../../components/SuportComponent/support.jsx";
+import { getBookingConfirmed } from "../../redux/technitial/technical-selectors.js";
 
 const PaymentPage = () => {
   const bookingConfirmed = useSelector(getBookingConfirmed);
@@ -15,7 +14,7 @@ const PaymentPage = () => {
       <div className={s.container}>
         <PaymentComponent />
       </div>
-      {bookingConfirmed && (
+      {!!bookingConfirmed && (
         <div className={s.addParts}>
           <DayTours />
           <Support />

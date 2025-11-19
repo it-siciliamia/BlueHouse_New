@@ -1,7 +1,5 @@
-import React from "react";
-import Rule from "./Rule.jsx";
-
 import s from "./HouseRulesComponent.module.scss";
+import Rule from "./Rule.jsx";
 
 function Guidelines() {
   return (

@@ -1,14 +1,15 @@
-import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
+import Typography from "@mui/material/Typography";
 import { makeStyles } from "@mui/styles";
+import PropTypes from "prop-types";
+
 import PopUpVariationMainLayout from "./popUpVariationMainLayout.jsx";
-import originalSideImage from "../../images/popUpVariations/BOOKONOURSITE.jpg";
 import BHlogo from "../../images/popUpVariations/bluehouse.svg";
+import originalSideImage from "../../images/popUpVariations/BOOKONOURSITE.jpg";
 import replaceImage from "../../images/popUpVariations/replace/BOOKONOURSITE.svg";
 import { WithTransLate } from "../helpers/translating/index.jsx";
 
-
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   intro: {
     marginTop: "-13%",
     marginBottom: "-15%",
@@ -77,8 +78,7 @@ const useStyles = makeStyles((theme) => ({
     //   borderRadius: "0",
     // },
     "&:hover": {
-      background:
-        "linear-gradient( 180deg, #04376f 99.99%,rgba(255, 255, 255, 0) 100%),   #ffffff",
+      background: "linear-gradient( 180deg, #04376f 99.99%,rgba(255, 255, 255, 0) 100%),   #ffffff",
       color: "#ffffff",
       borderColor: "#04376f !important",
     },
@@ -86,8 +86,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function BookOnOurWebsite({ handleClose }) {
-  const { intro, infoList, smallSizeFont, ButtonPosition, sliderSecondButton } =
-    useStyles();
+  const { intro, infoList, smallSizeFont, ButtonPosition, sliderSecondButton } = useStyles();
 
   const largContent = (
     <>
@@ -158,3 +157,7 @@ export default function BookOnOurWebsite({ handleClose }) {
     />
   );
 }
+
+BookOnOurWebsite.propTypes = {
+  handleClose: PropTypes.func,
+};

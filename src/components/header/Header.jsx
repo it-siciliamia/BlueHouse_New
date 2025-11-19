@@ -1,13 +1,12 @@
-import { Link } from "react-router-dom";
 import { useState } from "react";
-
-import logo from "../../images/logo.svg";
-import Search from "./Search.jsx";
-import LinkButton from "../Shared/ui/Link.jsx";
-import MenuIcon from "../../images/MenuIcon_Header.svg";
-import { WithTransLate } from "../helpers/translating/index.jsx";
+import { Link } from "react-router-dom";
 
 import s from "./Header.module.scss";
+import Search from "./Search.jsx";
+import logo from "../../images/logo.svg";
+import MenuIcon from "../../images/MenuIcon_Header.svg";
+import { WithTransLate } from "../helpers/translating/index.jsx";
+import LinkButton from "../Shared/ui/Link.jsx";
 import SideNavbar from "../SideNavbar/SideNavbar.jsx";
 
 function Header() {
@@ -38,7 +37,7 @@ function Header() {
           variant="secondary"
           href="https://bluehouse.tourdesk.is/Tour"
           rel="noreferrer"
-          className={`${s.btnCorrection} ${isSearchOpen ? s['btnCorrection--hidden'] : ''}`}
+          className={`${s.btnCorrection} ${isSearchOpen ? s["btnCorrection--hidden"] : ""}`}
         >
           <WithTransLate text="book day tours" />
         </LinkButton>
@@ -46,22 +45,16 @@ function Header() {
 
       <div className={s.iconsWrapper}>
         <Search onSearchToggle={handleSearchToggle} />
-        
-          <button
-            className={`${s.menuBtn} ${isNavOpen ? s['menuBtn--hidden'] : ''}`}
-            type="button"
-            onClick={handleMenuOpen}
-            aria-label="Open navigation"
-            aria-hidden={isNavOpen ? "true" : "false"}
-          >
-            <img
-              src={MenuIcon}
-              alt="MenuIcon"
-              draggable="false"
-              className={s.menuImg}
-            />
-          </button>
-        
+
+        <button
+          className={`${s.menuBtn} ${isNavOpen ? s["menuBtn--hidden"] : ""}`}
+          type="button"
+          onClick={handleMenuOpen}
+          aria-label="Open navigation"
+          aria-hidden={isNavOpen ? "true" : "false"}
+        >
+          <img src={MenuIcon} alt="MenuIcon" draggable="false" className={s.menuImg} />
+        </button>
       </div>
 
       <SideNavbar isOpen={isNavOpen} onClose={handleMenuClose} />

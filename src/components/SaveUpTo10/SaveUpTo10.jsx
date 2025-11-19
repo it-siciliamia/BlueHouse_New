@@ -1,7 +1,6 @@
-import React from "react";
 import s from "./SaveUpTo10.module.scss";
-import Button from "../Shared/ui/Button.jsx";
 import stampLogo from "../../images/stampLogo.png";
+import Button from "../Shared/ui/Button.jsx";
 
 const BOOKING_URL =
   "https://beds24.com/booking2.php?propid=3578&layout=1&_gl=1*1u8i1zn*_ga*MTEwNjkxMDcyMS4xNzU2MTQ4MDgy*_ga_6QGX4YP9SF*czE3NTg2NjU2NDkkbzM4JGcxJHQxNzU4NjY3NDkzJGo1NCRsMCRoMA..";
@@ -25,9 +24,7 @@ export default function SaveUpTo10() {
           <div className={s.headingRow}>
             <div className={s.titleBlock}>
               <h2 className={s.title}>SAVE UP TO 10% ON YOUR STAY</h2>
-              <p className={s.subtitle}>
-                What you get if you book you directly on our website
-              </p>
+              <p className={s.subtitle}>What you get if you book you directly on our website</p>
             </div>
 
             <img
