@@ -1,6 +1,6 @@
 import React from "react";
 import PrivacyPolicyComponent from "../../components/PrivacyComponent/PrivacyComponent.jsx";
-import Support from "../../components/SuportComponent/support.js";
+import Support from "../../components/SuportComponent/support.jsx";
 
 function PrivacyPolicyPage() {
   return (

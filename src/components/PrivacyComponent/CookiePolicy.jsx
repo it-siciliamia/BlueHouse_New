@@ -1,6 +1,7 @@
 import React from "react";
-import { Box, makeStyles } from "@material-ui/core";
-import { WithTransLate } from "../helpers/translating/index";
+import { Box } from "@mui/material";
+import { makeStyles } from "@mui/styles";
+import { WithTransLate } from "../helpers/translating/index.jsx";
 
 const useStyles = makeStyles((theme) => ({
   root: {

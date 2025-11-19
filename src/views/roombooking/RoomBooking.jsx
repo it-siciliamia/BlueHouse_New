@@ -1,14 +1,14 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import useBreakpoints from "../../Styles/useBreakpoints";
-import Advantages from "./Advantages";
-import HeaderIcons from "./HeaderIcons";
-import ServicesRoom from "../../components/ServicesRoom/ServicesRoom";
-import ReviewRoomBooking from "../../components/ReviewRoomBooking/ReviewRoomBooking";
-import Support from "../../components/SuportComponent/support";
-import SearchContainer from "./SearchContainer";
-import SearchContainerMobile from "./SearchContainerMobile";
-import { getRoomsData } from "../../redux/technitial/technical-operations";
+import useBreakpoints from "../../Styles/useBreakpoints.js";
+import Advantages from "./Advantages.jsx";
+import HeaderIcons from "./HeaderIcons.jsx";
+import ServicesRoom from "../../components/ServicesRoom/ServicesRoom.jsx";
+import ReviewRoomBooking from "../../components/ReviewRoomBooking/ReviewRoomBooking.jsx";
+import Support from "../../components/SuportComponent/support.jsx";
+import SearchContainer from "./SearchContainer.jsx";
+import SearchContainerMobile from "./SearchContainerMobile.jsx";
+import { getRoomsData } from "../../redux/technitial/technical-operations.js";
 import "./index.css";
 
 export const googleRatings = [

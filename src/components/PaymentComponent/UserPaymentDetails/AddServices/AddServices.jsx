@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import {
   getAddParams,
   getPaymentType,
-} from "../../../../redux/dataSearch/dataSearch-selectors";
+} from "../../../../redux/dataSearch/dataSearch-selectors.js";
 import { WithTransLate } from "../../../helpers/translating";
 import tv from "../../../../images/services_room/netflix.svg";
 import peoples from "../../../../images/services_room/guest.svg";

@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { WithTransLate } from "../../components/helpers/translating/index";
+import { WithTransLate } from "../../components/helpers/translating/index.jsx";
 import s from "./HouseRulesComponent.module.scss";
 
 function Rule({ Icon, text }) {

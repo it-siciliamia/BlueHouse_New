@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useForm, Controller } from "react-hook-form";
-import TextField from "../../Shared/TextField/TextField";
-import Button from "../../Shared/Button/Button";
+import TextField from "../../Shared/TextField/TextField.jsx";
+import Button from "../../Shared/Button/Button.jsx";
 import { WithTransLate } from "../../helpers/translating";
-import { setBookingConfirmed } from "../../../redux/technitial/technical-slice";
+import { setBookingConfirmed } from "../../../redux/technitial/technical-slice.js";
 import card from "../../../images/payment/credit-card.svg";
 import paypal from "../../../images/payment/paypal.svg";
 import bank from "../../../images/payment/landmark.svg";
-import { resetDataSearch } from "../../../redux/dataSearch/dataSearch-slice";
-import { resetUserInfo } from "../../../redux/userInfo/userInfo-slice";
+import { resetDataSearch } from "../../../redux/dataSearch/dataSearch-slice.js";
+import { resetUserInfo } from "../../../redux/userInfo/userInfo-slice.js";
 
 import s from "./PaymentMethods.module.scss";
 

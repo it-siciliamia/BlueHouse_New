@@ -1,10 +1,12 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Navigation } from "swiper";
-import { WithTransLate } from "../helpers/translating/index";
+import { Autoplay, Navigation } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import { WithTransLate } from "../helpers/translating/index.jsx";
 
-import ReviewCard from "./ReviewCard";
-import Link from "../Shared/ui/Link";
-import IconButton from "../Shared/ui/IconButton";
+import ReviewCard from "./ReviewCard.jsx";
+import Link from "../Shared/ui/Link.jsx";
+import IconButton from "../Shared/ui/IconButton.jsx";
 
 import tripAdvisor from "../../images/findMore/TripadvisorLogo.png";
 

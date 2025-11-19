@@ -8,12 +8,12 @@ import {
   getAppartmentName,
   getTotalAmountCurrency,
   getCurrency,
-} from "../../../redux/dataSearch/dataSearch-selectors";
-import PartCalendar from "../../../views/RoomDetails/PartCalendar/PartCalendar";
-import AddServices from "../UserPaymentDetails/AddServices/AddServices";
-import { items } from "../../ServicesRoom/ServicesRoomData";
+} from "../../../redux/dataSearch/dataSearch-selectors.js";
+import PartCalendar from "../../../views/RoomDetails/PartCalendar/PartCalendar.jsx";
+import AddServices from "../UserPaymentDetails/AddServices/AddServices.jsx";
+import { items } from "../../ServicesRoom/ServicesRoomData.js";
 import placeholder from "../../../images/homePageSlider/placeholder.webp";
-import { googleRatings } from "../../../views/roombooking/RoomBooking";
+import { googleRatings } from "../../../views/roombooking/RoomBooking.jsx";
 import google from "../../../images/google.png";
 import moment from "moment";
 

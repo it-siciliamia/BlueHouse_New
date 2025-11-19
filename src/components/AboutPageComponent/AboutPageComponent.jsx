@@ -1,10 +1,10 @@
 import React from "react";
-import useBreakpoints from "../../Styles/useBreakpoints";
-import { WithTransLate } from "../helpers/translating/index";
+import useBreakpoints from "../../Styles/useBreakpoints.js";
+import { WithTransLate } from "../helpers/translating/index.jsx";
 import signature from "../../images/aboutus/signature.png";
 
 import s from "./AboutPageComponent.module.scss";
-import NewMap from "../map/NewMap";
+import NewMap from "../map/NewMap.jsx";
 
 function AboutPageComponent() {
   const { isMobile, isTablet, isLaptop, isDesktop } = useBreakpoints();

@@ -1,9 +1,9 @@
 import { useRef } from "react";
 import { WithTransLate } from "../helpers/translating";
 import { useForm } from "react-hook-form";
-import useTranslateString from "../helpers/translating/useTranslateString";
+import useTranslateString from "../helpers/translating/useTranslateString.js";
 import s from "./Newsletter.module.scss";
-import HiddenFormScript from "./HiddenFormScript";
+import HiddenFormScript from "./HiddenFormScript.jsx";
 import { HiOutlineExclamationCircle } from "react-icons/hi";
 
 function Newsletter() {

@@ -1,15 +1,15 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Typography } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
+import Typography from "@mui/material/Typography";
+import { makeStyles } from "@mui/styles";
 import Facebook from "../../images/Header_icons/headerSocialIcons/facebook.svg";
 import instaIcon from "../../images/Header_icons/headerSocialIcons/insta.svg";
 import houserules_mobile from "../../images/houserules_mobile.png";
 import Email from "../../images/Header_icons/headerSocialIcons/email.svg";
 import Tripadvisor from "../../images/Header_icons/headerSocialIcons/tripadvisor_icon2.svg";
 import Whatsapp from "../../images/Header_icons/headerSocialIcons/whats.svg";
-import { WithTransLate } from "../../components/helpers/translating/index";
-import CaruselSliderHome from "./CaruselSliderHome/CaruselSliderHome";
+import { WithTransLate } from "../../components/helpers/translating/index.jsx";
+import CaruselSliderHome from "./CaruselSliderHome/CaruselSliderHome.jsx";
 
 import s from "./HomePage.module.scss";
 

@@ -1,6 +1,6 @@
 import React from "react";
-import useBreakpoints from "../../../Styles/useBreakpoints";
-import { WithTransLate } from "../../helpers/translating/index";
+import useBreakpoints from "../../../Styles/useBreakpoints.js";
+import { WithTransLate } from "../../helpers/translating/index.jsx";
 import addservices01 from "../../../images/roombooking/add_services/add_services02.webp";
 import addservices02 from "../../../images/roombooking/add_services/Reykjavik_Daytours.webp";
 import addservices03 from "../../../images/roombooking/add_services/Countryside_tours.webp";

@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
-import IconButton from "../Shared/ui/IconButton";
+import IconButton from "../Shared/ui/IconButton.jsx";
 import logoBadge from "../../images/footer/logo-blue.svg";
 
 import s from "./Footer.module.scss";
-import { footerSections } from "./footerData";
+import { footerSections } from "./footerData.js";
 import { WithTransLate } from "../helpers/translating";
-import useBreakpoints from "../../Styles/useBreakpointsNew";
+import useBreakpoints from "../../Styles/useBreakpointsNew.js";
 
 function SiteMap({ title, data }) {
   const RenderLink = (metadata) => {

@@ -1,5 +1,5 @@
 import React from "react";
-import useBreakpoints from "../../Styles/useBreakpoints";
+import useBreakpoints from "../../Styles/useBreakpoints.js";
 import { WithTransLate } from "../../components/helpers/translating";
 import dollarSign from "../../images/roombooking/dollarsign.svg";
 import spotSign from "../../images/roombooking/spotSign.svg";

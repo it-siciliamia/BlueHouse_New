@@ -27,7 +27,7 @@ import { ReactComponent as SpaceShuttleIcon } from "../../images/icon-human/spac
 import { ReactComponent as CanoeIcon } from "../../images/icon-human/canoe.svg";
 import { ReactComponent as EscalatorIcon } from "../../images/icon-human/escalator.svg";
 import { ReactComponent as VeniceIcon } from "../../images/icon-human/venice.svg";
-import { WithTransLate } from "../helpers/translating/index";
+import { WithTransLate } from "../helpers/translating/index.jsx";
 import s from "./HumanVerification.module.scss";
 
 const icons = [

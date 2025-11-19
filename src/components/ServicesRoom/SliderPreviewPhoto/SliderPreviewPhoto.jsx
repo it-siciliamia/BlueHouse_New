@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { IoIosArrowDown } from "react-icons/io";
 import { IoIosArrowUp } from "react-icons/io";
-import PhotoSlider from "../../Shared/SliderSlick/SliderSlick";
-import Modal from "./Modal";
+import PhotoSlider from "../../Shared/SliderSlick/SliderSlick.jsx";
+import Modal from "./Modal.jsx";
 import { BsZoomIn } from "react-icons/bs";
 
 import s from "./SliderPreviewPhoto.module.scss";

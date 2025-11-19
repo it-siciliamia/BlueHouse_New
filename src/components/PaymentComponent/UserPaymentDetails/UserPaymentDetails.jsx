@@ -2,16 +2,16 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useForm, Controller } from "react-hook-form";
 import Select from "react-select";
-import { WithTransLate } from "../../helpers/translating/index";
-import { setPaymentStage } from "../../../redux/technitial/technical-slice";
-import { setUserInformation } from "../../../redux/userInfo/userInfo-slice";
-import { getUserInformation } from "../../../redux/userInfo/userInfo-selectors";
-import { fields } from "../../Shared/TextField/fields";
-import { countries } from "./countries";
-import { arrivalTimes } from "./arrivalTimes";
-import BookingDetailsPart2 from "../BookingDetailsPart2/BookingDetailsPart2";
-import TextField from "../../Shared/TextField/TextField";
-import Button from "../../Shared/Button/Button";
+import { WithTransLate } from "../../helpers/translating/index.jsx";
+import { setPaymentStage } from "../../../redux/technitial/technical-slice.js";
+import { setUserInformation } from "../../../redux/userInfo/userInfo-slice.js";
+import { getUserInformation } from "../../../redux/userInfo/userInfo-selectors.js";
+import { fields } from "../../Shared/TextField/fields.js";
+import { countries } from "./countries.js";
+import { arrivalTimes } from "./arrivalTimes.js";
+import BookingDetailsPart2 from "../BookingDetailsPart2/BookingDetailsPart2.jsx";
+import TextField from "../../Shared/TextField/TextField.jsx";
+import Button from "../../Shared/Button/Button.jsx";
 
 import s from "./UserPaymentDetails.module.scss";
 

@@ -1,27 +1,27 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useLanguage } from "../../components/helpers/translating/LanguageContext";
+import { useLanguage } from "../../components/helpers/translating/LanguageContext.jsx";
 import DatePicker from "react-datepicker";
 import {
   WithTransLate,
   translateMyText,
-} from "../../components/helpers/translating/index";
+} from "../../components/helpers/translating/index.jsx";
 import {
   setCheckIn,
   setCheckOut,
   setAddParams,
-} from "../../redux/dataSearch/dataSearch-slice";
+} from "../../redux/dataSearch/dataSearch-slice.js";
 import {
   getCheckInDay,
   getCheckOutDay,
   getAddParams,
-} from "../../redux/dataSearch/dataSearch-selectors";
+} from "../../redux/dataSearch/dataSearch-selectors.js";
 import "react-datepicker/dist/react-datepicker.css";
 import minusIcon from "../../images/roombooking/minus.svg";
 import plusIcon from "../../images/roombooking/plus.svg";
 import arrowDown from "../../images/roombooking/ArrowDown.svg";
 import arrowUp from "../../images/roombooking/ArrowUp.svg";
-import * as moment from "moment";
+import moment from "moment";
 
 const SearchContainer = () => {
   let newDate = moment().format("YYYYMMDD");

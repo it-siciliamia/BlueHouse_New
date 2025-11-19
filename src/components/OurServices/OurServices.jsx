@@ -1,9 +1,9 @@
 import React from "react";
-import { WithTransLate } from "../helpers/translating/index";
-import useBreakpoints from "../../Styles/useBreakpointsNew";
-//import DifferentLocations from "./ServicesType/DifferentLocations"; //! muted
-//import SelfCheckIn from "./ServicesType/selfCheckIn"; //! muted
-//import CheapestPrice from "./ServicesType/CheapestPrice"; //! muted
+import { WithTransLate } from "../helpers/translating/index.jsx";
+import useBreakpoints from "../../Styles/useBreakpointsNew.js";
+//import DifferentLocations from "./ServicesType/DifferentLocations.jsx"; //! muted
+//import SelfCheckIn from "./ServicesType/selfCheckIn.jsx"; //! muted
+//import CheapestPrice from "./ServicesType/CheapestPrice.jsx"; //! muted
 import money from "../../images/services/money.svg";
 import clock from "../../images/services/clock.svg";
 import house from "../../images/services/house.svg";

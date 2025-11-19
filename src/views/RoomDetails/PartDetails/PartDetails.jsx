@@ -1,28 +1,28 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Link as ScrollLink, scroller } from "react-scroll";
-import useBreakpoints from "../../../Styles/useBreakpoints";
-import Advantages from "../Advantages/Advantages";
-import PhotoSlider from "../../../components/Shared/SliderSlick/SliderSlick";
-import { WithTransLate } from "../../../components/helpers/translating/index";
+import useBreakpoints from "../../../Styles/useBreakpoints.js";
+import Advantages from "../Advantages/Advantages.jsx";
+import PhotoSlider from "../../../components/Shared/SliderSlick/SliderSlick.jsx";
+import { WithTransLate } from "../../../components/helpers/translating/index.jsx";
 import {
   setAppartmentName,
   setPricePerNight,
   setPaymentType,
-} from "../../../redux/dataSearch/dataSearch-slice";
-import Button from "../../../components/Shared/Button/Button";
+} from "../../../redux/dataSearch/dataSearch-slice.js";
+import Button from "../../../components/Shared/Button/Button.jsx";
 import locationIcon from "../../../images/services_room/location.svg";
-import { price } from "../../../components/ServicesRoom/ServicesRoomData";
+import { price } from "../../../components/ServicesRoom/ServicesRoomData.js";
 import {
   getDayDifference,
   getAddParams,
-} from "../../../redux/dataSearch/dataSearch-selectors";
+} from "../../../redux/dataSearch/dataSearch-selectors.js";
 import s from "./PartDetails.module.scss";
 
 const PartDetails = ({ data }) => {
   const dispatch = useDispatch();
-  const history = useHistory();
+  const navigate = useNavigate();
   const [copied, setCopied] = useState(false);
   const { isMobile, isTablet } = useBreakpoints();
   const { room: roomNumber } = useSelector(getAddParams);
@@ -207,7 +207,7 @@ const PartDetails = ({ data }) => {
               dispatch(setAppartmentName(data.title));
               dispatch(setPricePerNight(roomPrice.price1));
               dispatch(setPaymentType("Non-refundable"));
-              history.push("/payment");
+              navigate("/payment");
             }}
           />
         </div>
@@ -267,7 +267,7 @@ const PartDetails = ({ data }) => {
               dispatch(setAppartmentName(data.title));
               dispatch(setPricePerNight(roomPrice.price2));
               dispatch(setPaymentType("Refundable"));
-              history.push("/payment");
+              navigate("/payment");
             }}
           />
         </div>
