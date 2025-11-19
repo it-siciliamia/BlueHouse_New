@@ -1,12 +1,11 @@
-import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
-import { IoIosArrowDown } from "react-icons/io";
-import { IoIosArrowUp } from "react-icons/io";
-import PhotoSlider from "../../Shared/SliderSlick/SliderSlick.jsx";
-import Modal from "./Modal.jsx";
+import { useState, useEffect } from "react";
 import { BsZoomIn } from "react-icons/bs";
+import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 
+import Modal from "./Modal.jsx";
 import s from "./SliderPreviewPhoto.module.scss";
+import PhotoSlider from "../../Shared/SliderSlick/SliderSlick.jsx";
 
 const SliderPreviewPhoto = ({ photos }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -50,10 +49,7 @@ const SliderPreviewPhoto = ({ photos }) => {
     }
   };
 
-  const visiblePhotos = sliderPhotos.slice(
-    startIndex,
-    startIndex + MAX_VISIBLE_PHOTOS
-  );
+  const visiblePhotos = sliderPhotos.slice(startIndex, startIndex + MAX_VISIBLE_PHOTOS);
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -69,11 +65,7 @@ const SliderPreviewPhoto = ({ photos }) => {
     <>
       <div className={s.sliderPreviewPhoto}>
         <div className={s.mainPhoto}>
-          <img
-            src={selectedPhoto}
-            alt="Selected"
-            className={s.mainPhotoImage}
-          />
+          <img src={selectedPhoto} alt="Selected" className={s.mainPhotoImage} />
           <div className={s.mainPhotoZoom} onClick={openModal}>
             <BsZoomIn />
           </div>
@@ -81,20 +73,12 @@ const SliderPreviewPhoto = ({ photos }) => {
 
         {sliderPhotos.length > 0 && (
           <div className={s.photoSlider}>
-            <button
-              className={s.scrollButton}
-              onClick={handleScrollUp}
-              disabled={startIndex === 0}
-            >
+            <button className={s.scrollButton} onClick={handleScrollUp} disabled={startIndex === 0}>
               <IoIosArrowUp size="25px" />
             </button>
 
             {visiblePhotos.map((photo, index) => (
-              <div
-                key={index}
-                className={s.sliderPhoto}
-                onClick={() => handlePhotoClick(photo)}
-              >
+              <div key={index} className={s.sliderPhoto} onClick={() => handlePhotoClick(photo)}>
                 <img src={photo} alt={`Photo ${index}`} />
               </div>
             ))}
@@ -109,13 +93,9 @@ const SliderPreviewPhoto = ({ photos }) => {
           </div>
         )}
       </div>
-      {isModalOpen && (
+      {!!isModalOpen && (
         <Modal onClose={closeModal}>
-          <PhotoSlider
-            photos={photosForModal}
-            width="auto"
-            height={sliderHeight}
-          />
+          <PhotoSlider photos={photosForModal} width="auto" height={sliderHeight} />
         </Modal>
       )}
     </>

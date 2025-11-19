@@ -1,11 +1,11 @@
-import React from "react";
 import PropTypes from "prop-types";
-import supportIcon from "../../images/support/support.svg";
+
+import s from "./Support.module.scss";
 import faqIcon from "../../images/support/faq.svg";
 import forumIcon from "../../images/support/forum.svg";
+import supportIcon from "../../images/support/support.svg";
 import whatsapp from "../../images/support/whatsapp_new.svg";
 import { WithTransLate } from "../helpers/translating/index.jsx";
-import s from "./Support.module.scss";
 
 function SupportCard({ description, title, icon }) {
   return (
@@ -51,11 +51,7 @@ export default function Support() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <SupportCard
-            description={"Find the answers you need"}
-            title={"FAQ"}
-            icon={faqIcon}
-          />
+          <SupportCard description={"Find the answers you need"} title={"FAQ"} icon={faqIcon} />
         </a>
         <a
           className={s.description}

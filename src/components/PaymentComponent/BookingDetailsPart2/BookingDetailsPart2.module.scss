@@ -15,7 +15,9 @@
 
 .title {
   margin: 0;
-  font-family: Josefin Sans, sans-serif;
+  font-family:
+    Josefin Sans,
+    sans-serif;
   font-size: 24px;
   font-weight: bold;
   @media (min-width: 320px) and (max-width: 599.99px) {
@@ -46,7 +48,9 @@
 }
 
 .text {
-  font-family: Josefin Sans, sans-serif;
+  font-family:
+    Josefin Sans,
+    sans-serif;
   font-size: 18px;
   font-weight: 500;
   color: #1d3967 !important;
@@ -58,7 +62,9 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  font-family: Josefin Sans, sans-serif;
+  font-family:
+    Josefin Sans,
+    sans-serif;
   font-size: 18px;
   font-weight: 500;
   color: #1d3967;
@@ -135,9 +141,9 @@
   height: 85px;
   background-color: lightgray;
   @media (min-width: 320px) and (max-width: 599.99px) {
-      height: 100px;
-      background-color: #1d3967;
-      margin: auto !important;
+    height: 100px;
+    background-color: #1d3967;
+    margin: auto !important;
   }
 }
 

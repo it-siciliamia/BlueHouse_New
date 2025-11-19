@@ -1,24 +1,16 @@
-import React, { useState } from "react";
-import { connect } from "react-redux";
 import { makeStyles } from "@mui/styles";
-import { Link } from "react-router-dom";
 import moment from "moment";
+import PropTypes from "prop-types";
+import { useState } from "react";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+
 import Paypal from "./PayPal.jsx";
 import StripeCheckout from "../StripeCheckout/StripeCheckout.jsx";
 
 function Payment({ price, userInfo, checkIn, checkOut, name, quantity }) {
-  const {
-    firstName,
-    Surname,
-    Email,
-    Mobile,
-    Address,
-    Postcode,
-    City,
-    Country,
-    Arrival,
-    Comments,
-  } = userInfo;
+  const { firstName, Surname, Email, Mobile, Address, Postcode, City, Country, Arrival, Comments } =
+    userInfo;
   const [show1, setShow1] = useState(false);
   const [show2, setShow2] = useState(false);
   const [show3, setShow3] = useState(false);
@@ -243,8 +235,8 @@ function Payment({ price, userInfo, checkIn, checkOut, name, quantity }) {
   return (
     <div className={classes.container}>
       <p className={classes.notes}>
-        Depending on your type of booking you can leave your credit card details
-        as an deposit or you will be charged immediately (Non-refundable) .
+        Depending on your type of booking you can leave your credit card details as an deposit or
+        you will be charged immediately (Non-refundable) .
       </p>
       <button className={classes.link}>
         <Link to="/beds24"> Cancel Booking </Link>
@@ -256,14 +248,11 @@ function Payment({ price, userInfo, checkIn, checkOut, name, quantity }) {
           <p className={classes.notes}>
             Blue House B&B Iceland requires a payment of <b>EUR {price}</b>
           </p>
-          <div
-            className={classes.paymentType}
-            onClick={() => handleClick("show1")}
-          >
+          <div className={classes.paymentType} onClick={() => handleClick("show1")}>
             <p className={classes.paymentTitle}>Pay with your Credit Card</p>
             <p>{">"}</p>
           </div>
-          {show1 && (
+          {!!show1 && (
             <div className={classes.border} style={{ height: "200px" }}>
               <p className={classes.secondaryTitle}>
                 Press this link below to pay directly with your credit card.
@@ -271,23 +260,17 @@ function Payment({ price, userInfo, checkIn, checkOut, name, quantity }) {
               <StripeCheckout />
             </div>
           )}
-          <div
-            className={classes.paymentType}
-            onClick={() => handleClick("show2")}
-          >
+          <div className={classes.paymentType} onClick={() => handleClick("show2")}>
             <p className={classes.paymentTitle}>Pay through PayPal</p>
 
             <p>{">"}</p>
           </div>
-          {show2 && (
+          {!!show2 && (
             <div
               className={classes.border}
               style={{ display: "flex", justifyContent: "space-between" }}
             >
-              <p className={classes.secondaryTitle}>
-                {" "}
-                Pay your reservation through Paypal{" "}
-              </p>
+              <p className={classes.secondaryTitle}> Pay your reservation through Paypal </p>
               {checkout === true ? (
                 <div className="">
                   <Paypal price={price} />
@@ -306,37 +289,27 @@ function Payment({ price, userInfo, checkIn, checkOut, name, quantity }) {
               )}
             </div>
           )}
-          <div
-            className={classes.paymentType}
-            onClick={() => handleClick("show3")}
-          >
+          <div className={classes.paymentType} onClick={() => handleClick("show3")}>
             <p className={classes.paymentTitle}>Bitcoin Payment</p>
             <p>{">"}</p>
           </div>
-          {show3 && (
+          {!!show3 && (
             <div className={classes.border}>
-              <p className={classes.secondaryTitle}>
-                Pay your reservation through Bitcoin
-              </p>
+              <p className={classes.secondaryTitle}>Pay your reservation through Bitcoin</p>
               <button className={classes.button}>Pay Now</button>{" "}
             </div>
           )}
-          <div
-            className={classes.paymentType}
-            onClick={() => handleClick("show4")}
-          >
+          <div className={classes.paymentType} onClick={() => handleClick("show4")}>
             <p className={classes.paymentTitle}>Bank Transfer</p>
             <p>{">"}</p>
           </div>
-          {show4 && (
+          {!!show4 && (
             <div className={classes.border}>
               <p className={classes.secondaryTitle}>
                 Please pay your booking towards the following Account:
               </p>
               <div>
-                <p className={classes.bankStyle}>
-                  IBAN: DE32700519950010344612
-                </p>
+                <p className={classes.bankStyle}>IBAN: DE32700519950010344612</p>
                 <p className={classes.bankStyle}>Swift: BYLADEM1ERD</p>
                 <p className={classes.bankStyle}>Bank: Sparkasse Erding</p>
                 <p className={classes.bankStyle}>Name: Blue House</p>
@@ -424,6 +397,28 @@ function Payment({ price, userInfo, checkIn, checkOut, name, quantity }) {
     </div>
   );
 }
+
+Payment.propTypes = {
+  price: PropTypes.number.isRequired,
+  quantity: PropTypes.number.isRequired,
+  name: PropTypes.string.isRequired,
+  checkIn: PropTypes.oneOfType([PropTypes.string, PropTypes.instanceOf(Date), PropTypes.number])
+    .isRequired,
+  checkOut: PropTypes.oneOfType([PropTypes.string, PropTypes.instanceOf(Date), PropTypes.number])
+    .isRequired,
+  userInfo: PropTypes.shape({
+    firstName: PropTypes.string.isRequired,
+    Surname: PropTypes.string.isRequired,
+    Email: PropTypes.string.isRequired,
+    Mobile: PropTypes.string.isRequired,
+    Address: PropTypes.string.isRequired,
+    Postcode: PropTypes.string.isRequired,
+    City: PropTypes.string.isRequired,
+    Country: PropTypes.string.isRequired,
+    Arrival: PropTypes.string,
+    Comments: PropTypes.string,
+  }).isRequired,
+};
 
 const mapStateToProps = (state) => ({
   price: state.price.booking_price,

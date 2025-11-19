@@ -1,12 +1,5 @@
-import React, { useEffect, useState } from "react";
-import {
-  WiDaySunny,
-  WiCloud,
-  WiRain,
-  WiSnow,
-  WiThunderstorm,
-  WiFog,
-} from "react-icons/wi";
+import { useEffect, useState } from "react";
+import { WiDaySunny, WiCloud, WiRain, WiSnow, WiThunderstorm, WiFog } from "react-icons/wi";
 import "./WeatherMap.css";
 
 const WeatherCard = () => {

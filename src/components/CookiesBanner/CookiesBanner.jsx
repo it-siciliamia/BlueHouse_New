@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import { makeStyles } from "@mui/styles";
 import Cookies from "js-cookie";
+import { useState } from "react";
+
+import ManagePreferences from "./ManagePreferences.jsx";
 import useBreakpoints from "../../Styles/useBreakpoints.js";
 import { WithTransLate } from "../helpers/translating/index.jsx";
 import Button from "../Shared/Button/Button.jsx";
-import { makeStyles } from "@mui/styles";
-import ManagePreferences from "./ManagePreferences.jsx";
 
 const useStyles = makeStyles((theme) => ({
   "@keyframes showUp": {
@@ -73,13 +74,12 @@ function CookiesBanner() {
     Cookies.set("cookiesPermation", choice);
     setDisplay("none");
   };
-  const { root, cookiesDescription, coockieTitle, actions, moreInfo } =
-    useStyles({ display });
+  const { root, cookiesDescription, coockieTitle, actions, moreInfo } = useStyles({ display });
 
   if (display === "none") {
     return null;
   }
-  
+
   return (
     <div
       className={root}
@@ -97,7 +97,7 @@ function CookiesBanner() {
           <WithTransLate text="More Information" />
         </p>
       )}
-      {showCookies && (
+      {!!showCookies && (
         <div>
           <p className={coockieTitle}>
             {" "}
@@ -129,7 +129,7 @@ function CookiesBanner() {
           </p>
         </div>
       )}
-      
+
       <div className={actions}>
         <Button
           handleClick={() => handleAcceptingAndDeclineCookies(true)}

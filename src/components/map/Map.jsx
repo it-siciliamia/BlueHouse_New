@@ -1,10 +1,11 @@
-import React, { useRef } from "react";
 import { GoogleMap, useJsApiLoader, Marker } from "@react-google-maps/api";
-import { legandItemsData, features } from "./Elements.js";
-import upArrow from "../../images/map/upArrow.svg";
+import React, { useRef } from "react";
+import { Element } from "react-scroll";
+
 import "./Home.css";
 import "./Home.scss";
-import { Element } from "react-scroll";
+import { legandItemsData, features } from "./Elements.js";
+import upArrow from "../../images/map/upArrow.svg";
 import { WithTransLate } from "../helpers/translating/index.jsx";
 
 const containerStyle = {
@@ -14,10 +15,10 @@ const containerStyle = {
 
 const Home = () => {
   const mapRef = useRef(null);
-  // eslint-disable-next-line no-unused-vars
+
   const [position, setPosition] = React.useState({
-    lat: 64.15085669896943,
-    lng: -21.965248737429826,
+    lat: 64.1508567,
+    lng: -21.9652487,
   });
 
   function handleLoad(map) {
@@ -25,7 +26,7 @@ const Home = () => {
   }
 
   const apiKey = "AIzaSyA-LWuIlquldSBDqQWlgr3nJE8h3AMTDCE";
-  
+
   // ✅ FIX 2: Added loading: "async" and empty libraries array
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
@@ -34,8 +35,7 @@ const Home = () => {
     libraries: [], // Specify empty libraries to avoid loading unnecessary ones
   });
 
-  // eslint-disable-next-line no-unused-vars
-  const [map, setMap] = React.useState(null);
+  const [, setMap] = React.useState(null);
   const [legend, setLegend] = React.useState(true);
   const [weather, setWeather] = React.useState(undefined);
 
@@ -47,9 +47,9 @@ const Home = () => {
       .then((data) => setWeather(data))
       .catch((err) => alert(err.message));
   }, [setWeather]);
-  
-  const onUnmount = React.useCallback((map) => setMap(null), [setMap]);
-  
+
+  const onUnmount = React.useCallback(() => setMap(null), [setMap]);
+
   return (
     <Element name="Map" id="map">
       <div className="map-root">
@@ -68,11 +68,7 @@ const Home = () => {
             {features.map((feature, index) => (
               <Marker
                 key={index}
-                icon={
-                  position.lat === feature.position.lat
-                    ? feature.iconb
-                    : feature.icon
-                }
+                icon={position.lat === feature.position.lat ? feature.iconb : feature.icon}
                 position={feature.position}
                 // ✅ FIX 4: Use new marker options to avoid deprecation warning
                 options={{
@@ -106,17 +102,13 @@ const Home = () => {
                   </div>
                 ))}
               </div>
-              <div
-                className="clicked-legend-button"
-                onClick={() => setLegend(true)}
-              >
-                <WithTransLate text="Legend" />{" "}
-                <img src={upArrow} alt="arrow" />
+              <div className="clicked-legend-button" onClick={() => setLegend(true)}>
+                <WithTransLate text="Legend" /> <img src={upArrow} alt="arrow" />
               </div>
             </div>
           )}
         </section>
-        {weather && (
+        {!!weather && (
           <div className="weather center">
             <div className="center">
               <h2 className="temp">

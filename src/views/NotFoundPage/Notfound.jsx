@@ -1,9 +1,9 @@
-import React from "react";
 import { makeStyles } from "@mui/styles";
+import { Link } from "react-router-dom";
+
+import { WithTransLate } from "../../components/helpers/translating/index.jsx";
 import notFound from "../../images/notFound.webp";
 import logo from "../../images/notFoundBlueHouseLogo.svg";
-import { Link } from "react-router-dom";
-import { WithTransLate } from "../../components/helpers/translating/index.jsx";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -89,14 +89,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function Notfound() {
-  const {
-    root,
-    logoStyle,
-    font404,
-    smallFont,
-    largeFont,
-    absoluteBottomCenter,
-  } = useStyles();
+  const { root, logoStyle, font404, smallFont, largeFont, absoluteBottomCenter } = useStyles();
 
   return (
     <div style={{ width: "100%", height: "100%" }}>

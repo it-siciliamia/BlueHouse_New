@@ -1,5 +1,5 @@
-import React, { useEffect, useMemo, useCallback, useState } from "react";
 import PropTypes from "prop-types";
+import { useEffect, useMemo, useCallback, useState } from "react";
 import { createPortal } from "react-dom";
 import "./MyModal.scss";
 import customModalData from "../../Shared/CustomModal/customModalData";
@@ -17,9 +17,7 @@ const clampIndex = (i, n) => (i + n) % n;
 
 /* Global pinned set (owned by the grid; modal respects it) */
 const PIN =
-  typeof window !== "undefined"
-    ? (window.__BH_PIN = window.__BH_PIN || new Set())
-    : new Set();
+  typeof window !== "undefined" ? (window.__BH_PIN = window.__BH_PIN || new Set()) : new Set();
 
 /* ---------------------------------------------------------------------------
    In-module image cache + decode queue
@@ -31,11 +29,9 @@ const __cacheOrder = [];
 const MAX_CACHE_ITEMS = 80; // tight budget; active-tab heroes are pinned
 
 const rIC =
-  typeof window !== "undefined" &&
-  typeof window.requestIdleCallback === "function"
+  typeof window !== "undefined" && typeof window.requestIdleCallback === "function"
     ? window.requestIdleCallback
-    : (cb) =>
-        setTimeout(() => cb({ didTimeout: true, timeRemaining: () => 0 }), 120);
+    : (cb) => setTimeout(() => cb({ didTimeout: true, timeRemaining: () => 0 }), 120);
 
 const __q = [];
 let __running = false;
@@ -75,10 +71,7 @@ function enqueueDecode(src) {
 function trimCache() {
   // Evict oldest non-pinned, non-pending entries
   let guard = 0;
-  while (
-    __cacheOrder.length > MAX_CACHE_ITEMS &&
-    guard < __cacheOrder.length + 8
-  ) {
+  while (__cacheOrder.length > MAX_CACHE_ITEMS && guard < __cacheOrder.length + 8) {
     guard += 1;
     const victim = __cacheOrder.shift();
     if (!victim) break;
@@ -152,18 +145,17 @@ try {
   const raw = localStorage.getItem(STORE_KEY);
   if (raw) {
     const obj = JSON.parse(raw);
-    __stateMap = new Map(
-      Object.entries(obj).map(([k, v]) => [k, Number(v) || 0])
-    );
+    __stateMap = new Map(Object.entries(obj).map(([k, v]) => [k, Number(v) || 0]));
   }
-} catch {}
+} catch (error) {
+  console.warn("Failed to read lightbox state cache", error);
+}
 function persistState() {
   try {
-    localStorage.setItem(
-      STORE_KEY,
-      JSON.stringify(Object.fromEntries(__stateMap))
-    );
-  } catch {}
+    localStorage.setItem(STORE_KEY, JSON.stringify(Object.fromEntries(__stateMap)));
+  } catch (error) {
+    console.warn("Failed to persist lightbox state cache", error);
+  }
 }
 function makeKey(tabIndex, title) {
   return `${tabIndex}|${String(title || "")}`;
@@ -201,7 +193,6 @@ html.bh-modal-open .bh-backdrop *:active {
 
 `;
 
-
 /* ---------------------------------------------------------------------------
    Generic lightbox (Houses / Rooms / Surroundings)
 --------------------------------------------------------------------------- */
@@ -211,10 +202,7 @@ function GenericLightbox({ open, onClose, dataIndex, initialTitle }) {
 
   const [title] = useState(initialTitle || (data?.[0]?.title ?? ""));
   const entity = useMemo(
-    () =>
-      Array.isArray(data)
-        ? data.find((h) => h.title === title) || data[0]
-        : null,
+    () => (Array.isArray(data) ? data.find((h) => h.title === title) || data[0] : null),
     [data, title]
   );
 
@@ -223,10 +211,7 @@ function GenericLightbox({ open, onClose, dataIndex, initialTitle }) {
     return arr.slice(0, 6);
   }, [entity]);
 
-  const stateKey = useMemo(
-    () => makeKey(tabIndex, entity?.title || ""),
-    [tabIndex, entity?.title]
-  );
+  const stateKey = useMemo(() => makeKey(tabIndex, entity?.title || ""), [tabIndex, entity?.title]);
   const [idx, setIdx] = useState(0);
 
   useEffect(() => {
@@ -242,9 +227,7 @@ function GenericLightbox({ open, onClose, dataIndex, initialTitle }) {
     const cur = pictures[safe];
     if (cur && !isDecoded(cur)) enqueueDecode(cur);
 
-    const next = pictures.length
-      ? pictures[clampIndex(safe + 1, pictures.length)]
-      : undefined;
+    const next = pictures.length ? pictures[clampIndex(safe + 1, pictures.length)] : undefined;
     if (next && !isDecoded(next)) enqueueDecode(next);
   }, [stateKey, pictures]);
 
@@ -252,9 +235,7 @@ function GenericLightbox({ open, onClose, dataIndex, initialTitle }) {
   useEffect(() => {
     const cur = pictures[idx];
     if (cur && !isDecoded(cur)) enqueueDecode(cur);
-    const next = pictures.length
-      ? pictures[clampIndex(idx + 1, pictures.length)]
-      : undefined;
+    const next = pictures.length ? pictures[clampIndex(idx + 1, pictures.length)] : undefined;
     if (next && !isDecoded(next)) enqueueDecode(next);
   }, [idx, pictures]);
 
@@ -296,9 +277,7 @@ function GenericLightbox({ open, onClose, dataIndex, initialTitle }) {
     .filter(Boolean);
 
   const thumbsClass =
-    pictures.length === 6
-      ? "bh-thumbs bh-thumbs--six"
-      : "bh-thumbs bh-thumbs--auto";
+    pictures.length === 6 ? "bh-thumbs bh-thumbs--six" : "bh-thumbs bh-thumbs--auto";
 
   const modal = (
     <div className="bh-backdrop" onClick={onClose}>
@@ -310,28 +289,14 @@ function GenericLightbox({ open, onClose, dataIndex, initialTitle }) {
         onClick={(e) => e.stopPropagation()}
       >
         <div className="bh-header">
-          <button
-            type="button"
-            className="bh-closeX"
-            onClick={onClose}
-            aria-label="Close"
-          />
+          <button type="button" className="bh-closeX" onClick={onClose} aria-label="Close" />
         </div>
 
         <div className="bh-content">
-          <div
-            className="bh-layout"
-        
-          >
+          <div className="bh-layout">
             {/* Left: hero + thumbnails */}
-            <div
-              className="bh-col-left"
-   
-            >
-              <div
-                className="bh-hero"
-       
-              >
+            <div className="bh-col-left">
+              <div className="bh-hero">
                 {pictures[idx] ? (
                   <img
                     src={pictures[idx]}
@@ -341,7 +306,6 @@ function GenericLightbox({ open, onClose, dataIndex, initialTitle }) {
                     height={382}
                     decoding="async"
                     loading="eager"
-                    fetchpriority="high"
                     draggable="false"
                   />
                 ) : (
@@ -390,9 +354,7 @@ function GenericLightbox({ open, onClose, dataIndex, initialTitle }) {
                 )}
               </div>
 
-              <div className={thumbsClass}
-
-               >
+              <div className={thumbsClass}>
                 {pictures.map((src, i) => (
                   <button
                     key={`thumb-${i}`}
@@ -408,7 +370,6 @@ function GenericLightbox({ open, onClose, dataIndex, initialTitle }) {
                       height={72}
                       decoding="async"
                       loading="lazy"
-                      fetchpriority="low"
                       draggable="false"
                     />
                   </button>
@@ -417,9 +378,7 @@ function GenericLightbox({ open, onClose, dataIndex, initialTitle }) {
             </div>
 
             {/* Right: text + CTA */}
-            <div className="bh-col-right"
- 
-             >
+            <div className="bh-col-right">
               <h3 className="bh-title">
                 <WithTransLate text={entity.title || ""} />
               </h3>
@@ -432,10 +391,7 @@ function GenericLightbox({ open, onClose, dataIndex, initialTitle }) {
                 ))}
               </div>
 
-              <Link
-                href="https://beds24.com/booking2.php?propid=3578&layout=1"
-                className="bh-cta"
-              >
+              <Link href="https://beds24.com/booking2.php?propid=3578&layout=1" className="bh-cta">
                 <WithTransLate text="Book now" />
               </Link>
             </div>
@@ -456,13 +412,7 @@ GenericLightbox.propTypes = {
   initialTitle: PropTypes.string,
 };
 
-export default function MyModal({
-  index,
-  open,
-  setOpen,
-  setTabIndex,
-  initialTitle,
-}) {
+export default function MyModal({ index, open, setOpen, initialTitle }) {
   const handleClose = useCallback(() => setOpen(false), [setOpen]);
 
   useEffect(() => {
@@ -512,6 +462,5 @@ MyModal.propTypes = {
   index: PropTypes.number.isRequired,
   open: PropTypes.bool.isRequired,
   setOpen: PropTypes.func.isRequired,
-  setTabIndex: PropTypes.func,
   initialTitle: PropTypes.string,
 };

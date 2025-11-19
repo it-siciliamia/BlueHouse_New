@@ -1,35 +1,21 @@
-import { useEffect, useState } from "react";
-import PropTypes from "prop-types";
-import languagesAndCodes from "./languagesAndCodes.json";
-import {
-  Button,
-  Menu,
-  MenuItem,
-  IconButton,
-  TextField,
-  Typography,
-  Fade,
-} from "@mui/material";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
-import Select from "../../../images/select.svg";
+import { Button, Menu, MenuItem, IconButton, TextField, Typography, Fade } from "@mui/material";
+import PropTypes from "prop-types";
+import { useEffect, useState } from "react";
 import translate from "translate";
-import useStyles from "./translateStyles.js";
+
 import { useLanguage } from "./LanguageContext.jsx";
+import languagesAndCodes from "./languagesAndCodes.json";
+import useStyles from "./translateStyles.js";
+import Select from "../../../images/select.svg";
 
 translate.key = "AIzaSyA-LWuIlquldSBDqQWlgr3nJE8h3AMTDCE";
 
 export default function TranslateMe({ scroll }) {
-  const {
-    dropDownButton,
-    menu,
-    searchInput,
-    navButtons,
-    pageInfo,
-    searchRow,
-    closeIcon,
-  } = useStyles();
+  const { dropDownButton, menu, searchInput, navButtons, pageInfo, searchRow, closeIcon } =
+    useStyles();
 
   const { languageIndex, setLanguageIndex } = useLanguage();
   const [anchorEl, setAnchorEl] = useState(null);
@@ -57,10 +43,7 @@ export default function TranslateMe({ scroll }) {
   const filtered = languagesAndCodes.languages.filter((item) =>
     item.lang.toLowerCase().includes(search.toLowerCase())
   );
-  const currentLanguages = filtered.slice(
-    page * pageSize,
-    (page + 1) * pageSize
-  );
+  const currentLanguages = filtered.slice(page * pageSize, (page + 1) * pageSize);
   const pageCount = Math.ceil(filtered.length / pageSize);
 
   return (
@@ -71,9 +54,7 @@ export default function TranslateMe({ scroll }) {
         aria-haspopup="true"
         onClick={handleClick}
       >
-        {languageIndex === 0
-          ? "Select Language"
-          : languagesAndCodes.languages[languageIndex].lang}
+        {languageIndex === 0 ? "Select Language" : languagesAndCodes.languages[languageIndex].lang}
         <img alt="down arrow" src={Select} />
       </Button>
 
@@ -107,9 +88,7 @@ export default function TranslateMe({ scroll }) {
         {currentLanguages.map(({ lang }, index) => (
           <MenuItem
             key={index + page * pageSize}
-            onClick={() =>
-              handleChange(filtered.indexOf(currentLanguages[index]))
-            }
+            onClick={() => handleChange(filtered.indexOf(currentLanguages[index]))}
           >
             {lang}
           </MenuItem>
@@ -130,9 +109,7 @@ export default function TranslateMe({ scroll }) {
 
           <IconButton
             size="small"
-            onClick={() =>
-              setPage((p) => ((p + 1) * pageSize < filtered.length ? p + 1 : p))
-            }
+            onClick={() => setPage((p) => ((p + 1) * pageSize < filtered.length ? p + 1 : p))}
             disabled={(page + 1) * pageSize >= filtered.length}
           >
             <ArrowForwardIosIcon fontSize="small" />
@@ -195,8 +172,12 @@ export function WithTransLate({ text, returnRaw = false }) {
     };
   }, [text, languageIndex]); // Re-translate when text or language changes
 
-  // Return raw string if requested, otherwise wrap in fragment for JSX
-  return returnRaw ? translatedText : <>{translatedText}</>;
+  // Return either a raw string or plain text node (React handles string children)
+  if (returnRaw) {
+    return translatedText;
+  }
+
+  return translatedText;
 }
 
 WithTransLate.propTypes = {

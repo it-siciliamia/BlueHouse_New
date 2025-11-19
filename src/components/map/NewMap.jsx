@@ -1,7 +1,8 @@
-import React, { useState, useRef, useEffect } from "react";
-import useBreakpoints from "../../Styles/useBreakpointsNew.js";
-import WeatherCard from "./WeatherCard.jsx";
+import { useState, useRef, useEffect } from "react";
 import { FiMaximize, FiX } from "react-icons/fi";
+
+import WeatherCard from "./WeatherCard.jsx";
+import useBreakpoints from "../../Styles/useBreakpointsNew.js";
 import "./WeatherMap.css";
 
 const NewMap = () => {
@@ -14,18 +15,21 @@ const NewMap = () => {
   // ✅ FIX: Add error handling for async response errors
   useEffect(() => {
     const handleUnhandledRejection = (event) => {
-      if (event.reason && event.reason.message &&
-          event.reason.message.includes('message channel closed')) {
+      if (
+        event.reason &&
+        event.reason.message &&
+        event.reason.message.includes("message channel closed")
+      ) {
         // Suppress this specific error from browser extensions
         event.preventDefault();
-        console.warn('Suppressed message channel error (likely from browser extension)');
+        console.warn("Suppressed message channel error (likely from browser extension)");
       }
     };
 
-    window.addEventListener('unhandledrejection', handleUnhandledRejection);
+    window.addEventListener("unhandledrejection", handleUnhandledRejection);
 
     return () => {
-      window.removeEventListener('unhandledrejection', handleUnhandledRejection);
+      window.removeEventListener("unhandledrejection", handleUnhandledRejection);
     };
   }, []);
 
@@ -33,7 +37,7 @@ const NewMap = () => {
   useEffect(() => {
     const handleInteraction = (event) => {
       if (isMapActive) {
-        const mapContainer = document.getElementById('MAP');
+        const mapContainer = document.getElementById("MAP");
         if (mapContainer && !mapContainer.contains(event.target)) {
           setIsMapActive(false);
         }
@@ -46,12 +50,12 @@ const NewMap = () => {
       }
     };
 
-    document.addEventListener('click', handleInteraction);
-    window.addEventListener('scroll', handleScroll);
+    document.addEventListener("click", handleInteraction);
+    window.addEventListener("scroll", handleScroll);
 
     return () => {
-      document.removeEventListener('click', handleInteraction);
-      window.removeEventListener('scroll', handleScroll);
+      document.removeEventListener("click", handleInteraction);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, [isMapActive]);
 
@@ -64,10 +68,10 @@ const NewMap = () => {
     !isMobile && mapType === "roadmap"
       ? "https://www.google.com/maps/d/u/0/embed?mid=1rJb5xtEAOs1UJpXOanRKSOKsj1DWeaA&output=embed&ll=64.15066066039589%2C-21.95341584912111&z=13&loading=async"
       : isMobile && mapType === "roadmap"
-      ? "https://www.google.com/maps/d/u/0/embed?mid=1rJb5xtEAOs1UJpXOanRKSOKsj1DWeaA&output=embed&ll=64.14332483909587%2C-21.983799912841814&z=12&loading=async"
-      : !isMobile && mapType === "satellite"
-      ? "https://www.google.com/maps/d/u/0/embed?mid=15LpDDItfBNP1Bo9lK9bPlP8PYblE1nw&ehbc=2E312F&ll=64.15066066039589%2C-21.95341584912111&z=13&loading=async"
-      : "https://www.google.com/maps/d/u/0/embed?mid=15LpDDItfBNP1Bo9lK9bPlP8PYblE1nw&ehbc=2E312F&ll=64.14332483909587%2C-21.983799912841814&z=12&loading=async";
+        ? "https://www.google.com/maps/d/u/0/embed?mid=1rJb5xtEAOs1UJpXOanRKSOKsj1DWeaA&output=embed&ll=64.14332483909587%2C-21.983799912841814&z=12&loading=async"
+        : !isMobile && mapType === "satellite"
+          ? "https://www.google.com/maps/d/u/0/embed?mid=15LpDDItfBNP1Bo9lK9bPlP8PYblE1nw&ehbc=2E312F&ll=64.15066066039589%2C-21.95341584912111&z=13&loading=async"
+          : "https://www.google.com/maps/d/u/0/embed?mid=15LpDDItfBNP1Bo9lK9bPlP8PYblE1nw&ehbc=2E312F&ll=64.14332483909587%2C-21.983799912841814&z=12&loading=async";
 
   const handleFullScreen = () => {
     setIsFullScreen(true);
@@ -172,9 +176,7 @@ const NewMap = () => {
               cursor: "pointer",
             }}
           >
-            <FiMaximize
-              style={{ width: "22px", height: "22px", color: "#0c0c31ff" }}
-            />
+            <FiMaximize style={{ width: "22px", height: "22px", color: "#0c0c31ff" }} />
           </button>
 
           {/* Weather Card (keeping your positioning) */}
@@ -229,7 +231,7 @@ const NewMap = () => {
       )}
 
       {/* Fullscreen Mode */}
-      {isFullScreen && (
+      {!!isFullScreen && (
         <div
           style={{
             position: "fixed",
@@ -258,9 +260,7 @@ const NewMap = () => {
               cursor: "pointer",
             }}
           >
-            <FiX
-              style={{ width: "22px", height: "22px", color: "#202030ff" }}
-            />
+            <FiX style={{ width: "22px", height: "22px", color: "#202030ff" }} />
           </button>
 
           {/* Map Type Buttons */}

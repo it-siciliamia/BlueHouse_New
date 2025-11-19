@@ -1,13 +1,14 @@
-import React, { useState, useContext } from "react";
-import "../../../Styles/CustomModal.css";
-import Modal from "@mui/material/Modal";
-import { makeStyles } from "@mui/styles";
-import { UserContext } from "../../../App.jsx";
 import LinearProgress from "@mui/material/LinearProgress";
+import Modal from "@mui/material/Modal";
 import Typography from "@mui/material/Typography";
-import customModalData from "./customModalData.js";
-import { WithTransLate } from "../../helpers/translating/index.jsx";
+import { makeStyles } from "@mui/styles";
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
+
+import "../../../Styles/CustomModal.css";
+import customModalData from "./customModalData.js";
+import { UserContext } from "../../../context/UserContext.js";
+import { WithTransLate } from "../../helpers/translating/index.jsx";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -118,8 +119,7 @@ const useStyles = makeStyles((theme) => ({
       marginTop: "-50px",
     },
     "&:hover": {
-      background:
-        "linear-gradient( 180deg,#04376f 99.99%,rgba(255, 255, 255, 0) 100%),   #ffffff",
+      background: "linear-gradient( 180deg,#04376f 99.99%,rgba(255, 255, 255, 0) 100%),   #ffffff",
       color: "#ffffff",
       borderColor: "#04376f !important",
     },
@@ -185,8 +185,7 @@ function RecommendationCustomModal() {
 
   const handleNextAndPrev = (nextIndex) => {
     if (nextIndex < 0) return;
-    const lastIndex =
-      customModalData[modalState.index][subCategoryIndex].backgrounds.length;
+    const lastIndex = customModalData[modalState.index][subCategoryIndex].backgrounds.length;
     if (lastIndex <= nextIndex) {
       setProgress(progressInitialValue);
       return setImageIndex(0);
@@ -206,8 +205,7 @@ function RecommendationCustomModal() {
   };
 
   const handleChangeCategory = (categoryindex) => {
-    const progressNewInitialValue =
-      100 / customModalData[categoryindex][0].backgrounds.length;
+    const progressNewInitialValue = 100 / customModalData[categoryindex][0].backgrounds.length;
     setImageIndex(0);
     setSubCategoryIndex(0);
     setModal({
@@ -255,10 +253,7 @@ function RecommendationCustomModal() {
           </h2>
         </div>
         <div className="sec1-div3">
-          <span
-            onClick={() => setModal({ state: false, index: 0 })}
-            className="cross"
-          >
+          <span onClick={() => setModal({ state: false, index: 0 })} className="cross">
             X
           </span>
         </div>
@@ -273,11 +268,7 @@ function RecommendationCustomModal() {
           &lt;
         </button>
         <img
-          src={
-            customModalData[modalState.index][subCategoryIndex].backgrounds[
-              imageIndex
-            ]
-          }
+          src={customModalData[modalState.index][subCategoryIndex].backgrounds[imageIndex]}
           alt="Sub Category"
         />
         <button
@@ -295,11 +286,7 @@ function RecommendationCustomModal() {
             return (
               <h2
                 key={"title" + photoIndex}
-                style={
-                  photoIndex === subCategoryIndex
-                    ? activeStyle
-                    : deactivateStyle
-                }
+                style={photoIndex === subCategoryIndex ? activeStyle : deactivateStyle}
                 onClick={() => handleChangeSubCategory(photoIndex)}
               >
                 <WithTransLate text={title} />
@@ -323,22 +310,14 @@ function RecommendationCustomModal() {
           <Typography>
             {" "}
             <span className={numbers}>
-              0
-              {
-                customModalData[modalState.index][subCategoryIndex].backgrounds
-                  .length
-              }
+              0{customModalData[modalState.index][subCategoryIndex].backgrounds.length}
             </span>
           </Typography>
         </div>
       </section>
       <section className={descriptionStyle}>
         <p className={textOriginText}>
-          <WithTransLate
-            text={
-              customModalData[modalState.index][subCategoryIndex].description
-            }
-          />
+          <WithTransLate text={customModalData[modalState.index][subCategoryIndex].description} />
         </p>
       </section>
       <section className="modal-sec6">

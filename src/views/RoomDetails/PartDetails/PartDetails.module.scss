@@ -15,12 +15,12 @@
 
 .partDetailsTitle {
   margin: 0;
-  color:#1d3967
+  color: #1d3967;
 }
 
 .locationPart {
   margin-top: 15px;
-   color:#1d3967
+  color: #1d3967;
 }
 
 .locationWrapper {
@@ -113,8 +113,6 @@
   }
 }
 
-
-
 .serviceItem {
   display: flex;
   flex-direction: row;
@@ -123,8 +121,9 @@
   font-weight: 300;
   font-size: 17px;
   color: #1d3967;
-  >img {
-    filter: brightness(0) saturate(100%) invert(14%) sepia(41%) saturate(1203%) hue-rotate(194deg) brightness(91%) contrast(89%);
+  > img {
+    filter: brightness(0) saturate(100%) invert(14%) sepia(41%) saturate(1203%) hue-rotate(194deg)
+      brightness(91%) contrast(89%);
   }
 }
 
@@ -160,7 +159,8 @@
 }
 
 .priceWrapper {
-  > span, div {
+  > span,
+  div {
     color: #1d3967 !important;
   }
   > button > div {

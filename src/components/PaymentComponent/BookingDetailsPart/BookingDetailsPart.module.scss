@@ -33,7 +33,9 @@ button {
 .title {
   margin: 0 40px;
   margin-bottom: 20px;
-  font-family: Josefin Sans, sans-serif;
+  font-family:
+    Josefin Sans,
+    sans-serif;
   font-size: 24px;
   font-weight: bold;
   @media (min-width: 320px) and (max-width: 599.99px) {
@@ -66,7 +68,9 @@ button {
 }
 
 .text {
-  font-family: Josefin Sans, sans-serif;
+  font-family:
+    Josefin Sans,
+    sans-serif;
   font-size: 18px;
   font-weight: 500;
   @media (min-width: 320px) and (max-width: 599.99px) {
@@ -92,7 +96,9 @@ button {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  font-family: Josefin Sans, sans-serif;
+  font-family:
+    Josefin Sans,
+    sans-serif;
   font-size: 18px;
   font-weight: 500;
   color: #14202b;
@@ -228,7 +234,7 @@ button {
   gap: 10px;
   font-size: 18px;
   margin-bottom: 10px;
-  color: #1D3967 !important;
+  color: #1d3967 !important;
 }
 
 .ratingDetail {
@@ -260,7 +266,7 @@ button {
   gap: 10px;
   font-size: 18px;
   line-height: 24px;
-  color: #1D3967 !important;
+  color: #1d3967 !important;
 }
 
 .btnWrapper {
@@ -270,6 +276,6 @@ button {
   width: 100%;
 }
 
-.services>img{
-  color: #1D3967 !important;
+.services > img {
+  color: #1d3967 !important;
 }

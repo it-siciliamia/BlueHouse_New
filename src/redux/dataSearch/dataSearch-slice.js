@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import moment from "moment";
+
 import { getAvailableRooms } from "./dataSearch-operations";
 
 const newDate = moment().format("YYYYMMDD");
@@ -113,8 +114,7 @@ const dataSearch = createSlice({
       })
       .addCase(getAvailableRooms.rejected, (store, { payload }) => {
         store.loading = false;
-        store.error =
-          payload?.data?.message || "Oops, something went wrong, try again";
+        store.error = payload?.data?.message || "Oops, something went wrong, try again";
       });
   },
 });
@@ -125,9 +125,7 @@ const updateTotalAmounts = (store) => {
     store.pricePerNight *
     store.addParams.room
   ).toFixed(2);
-  store.totalAmountCurrency = (
-    store.totalAmountEuro * store.exchangeRate
-  ).toFixed(2);
+  store.totalAmountCurrency = (store.totalAmountEuro * store.exchangeRate).toFixed(2);
 };
 
 export default dataSearch.reducer;

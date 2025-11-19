@@ -1,6 +1,10 @@
-import React, { useState } from "react";
+import moment from "moment";
+import { useState } from "react";
 import { useSelector } from "react-redux";
-import { WithTransLate } from "../../helpers/translating";
+
+import s from "./BookingDetailsPart2.module.scss";
+import google from "../../../images/google.png";
+import placeholder from "../../../images/homePageSlider/placeholder.webp";
 import {
   getDayDifference,
   getCheckInDay,
@@ -9,15 +13,11 @@ import {
   getTotalAmountCurrency,
   getCurrency,
 } from "../../../redux/dataSearch/dataSearch-selectors.js";
-import PartCalendar from "../../../views/RoomDetails/PartCalendar/PartCalendar.jsx";
-import AddServices from "../UserPaymentDetails/AddServices/AddServices.jsx";
-import { items } from "../../ServicesRoom/ServicesRoomData.js";
-import placeholder from "../../../images/homePageSlider/placeholder.webp";
 import { googleRatings } from "../../../views/roombooking/RoomBooking.jsx";
-import google from "../../../images/google.png";
-import moment from "moment";
-
-import s from "./BookingDetailsPart2.module.scss";
+import PartCalendar from "../../../views/RoomDetails/PartCalendar/PartCalendar.jsx";
+import { WithTransLate } from "../../helpers/translating";
+import { items } from "../../ServicesRoom/ServicesRoomData.js";
+import AddServices from "../UserPaymentDetails/AddServices/AddServices.jsx";
 
 const BookingDetailsPart2 = () => {
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
@@ -28,13 +28,9 @@ const BookingDetailsPart2 = () => {
   const totalAmountCurrency = useSelector(getTotalAmountCurrency);
   const selectedCurrency = useSelector(getCurrency);
 
-  const totalReviews = googleRatings.reduce(
-    (sum, item) => sum + item.reviews,
-    0
-  );
+  const totalReviews = googleRatings.reduce((sum, item) => sum + item.reviews, 0);
   const averageRating =
-    googleRatings.reduce((sum, item) => sum + item.rating * item.reviews, 0) /
-    totalReviews;
+    googleRatings.reduce((sum, item) => sum + item.rating * item.reviews, 0) / totalReviews;
 
   const handleEditClick = () => {
     setIsCalendarOpen(false);
@@ -60,14 +56,11 @@ const BookingDetailsPart2 = () => {
             <WithTransLate text="Booking Summary" />
           </h2>
           <div className={s.leftPartWrapperTop}>
-            <button
-              className={s.button}
-              onClick={() => setIsCalendarOpen(!isCalendarOpen)}
-            >
+            <button className={s.button} onClick={() => setIsCalendarOpen(!isCalendarOpen)}>
               <WithTransLate text="Edit" />
             </button>
           </div>
-          {isCalendarOpen && (
+          {!!isCalendarOpen && (
             <div className={s.modalCalendar}>
               <PartCalendar onEditClick={handleEditClick} />
             </div>
@@ -78,19 +71,13 @@ const BookingDetailsPart2 = () => {
           <div
             className={s.photo}
             style={{
-              backgroundImage: apartmentPhoto
-                ? `url(${apartmentPhoto})`
-                : `url(${placeholder})`,
+              backgroundImage: apartmentPhoto ? `url(${apartmentPhoto})` : `url(${placeholder})`,
             }}
           ></div>
           <div className={s.detailWrapper}>
             <div className={s.ratingWrapper}>
               <div className={s.ratingTitle}>
-                <img
-                  src={google}
-                  alt="Google"
-                  style={{ width: "24px", height: "24px" }}
-                />
+                <img src={google} alt="Google" style={{ width: "24px", height: "24px" }} />
                 <WithTransLate text="Google rating" />
               </div>
               <div className={s.ratingDetail}>
@@ -101,9 +88,7 @@ const BookingDetailsPart2 = () => {
                   />
                 </p>
                 <p className={s.titleText}>
-                  <WithTransLate
-                    text={appartmentName ? appartmentName : "No name"}
-                  />
+                  <WithTransLate text={appartmentName ? appartmentName : "No name"} />
                 </p>
                 <p className={s.regularText}>
                   <WithTransLate text="Valhúsabraut 19, 170 Reykjavík, Iceland" />
@@ -118,11 +103,7 @@ const BookingDetailsPart2 = () => {
             <WithTransLate text="Total length of stay:" />
           </p>
           <p className={s.textRegular} style={{ margin: "0" }}>
-            <WithTransLate
-              text={`${dayDifference} ${
-                dayDifference === 1 ? "night" : "nights"
-              }`}
-            />
+            <WithTransLate text={`${dayDifference} ${dayDifference === 1 ? "night" : "nights"}`} />
           </p>
         </div>
 
@@ -179,9 +160,7 @@ const BookingDetailsPart2 = () => {
                 textAlign: "center",
               }}
             >
-              <WithTransLate
-                text={`${selectedCurrency} ${totalAmountCurrency}`}
-              />
+              <WithTransLate text={`${selectedCurrency} ${totalAmountCurrency}`} />
             </p>
           </div>
         </div>
