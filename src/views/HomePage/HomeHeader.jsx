@@ -172,7 +172,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     gap: "16px",
     paddingTop: "12px",
-    [theme.breakpoints.down("sm")]: {
+    "@media (max-width: 959px)": {
       display: "none",
     },
   },
