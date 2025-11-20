@@ -2,6 +2,12 @@ name: Build
 
 on:
   workflow_call:
+    inputs:
+      base_path:
+        description: "Base path for the deployment (e.g., /, /staging/, /pr-preview/pr-123/)"
+        required: false
+        type: string
+        default: "/"
     secrets:
       VITE_FIREBASE_API_KEY:
         required: true
@@ -22,6 +28,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
+      VITE_BASE_PATH: ${{ inputs.base_path }}
       VITE_FIREBASE_API_KEY: ${{ secrets.VITE_FIREBASE_API_KEY }}
       VITE_FIREBASE_AUTH_DOMAIN: ${{ secrets.VITE_FIREBASE_AUTH_DOMAIN }}
       VITE_FIREBASE_PROJECT_ID: ${{ secrets.VITE_FIREBASE_PROJECT_ID }}
@@ -45,7 +52,8 @@ jobs:
       - name: Build 🛠️
         run: npm run build
 
-      - name: Upload Pages artifact 📦
-        uses: actions/upload-pages-artifact@v3
+      - name: Upload build artifact 📦
+        uses: actions/upload-artifact@v4
         with:
+          name: build-dist
           path: dist

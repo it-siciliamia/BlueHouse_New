@@ -14,13 +14,15 @@ import "./firebase/index.js";
 
 const isGitHubPages = window.location.hostname.includes("github.io");
 
-const basename = "/";
+// BrowserRouter needs basename for subdirectories, but HashRouter doesn't
+// because it uses the hash portion of the URL which is already relative
+const basename = import.meta.env.BASE_URL || "/";
 
 const Router = ({ children }) =>
   isGitHubPages ? (
-    <HashRouter basename={basename}>{children}</HashRouter>
+    <HashRouter>{children}</HashRouter>
   ) : (
-    <BrowserRouter>{children}</BrowserRouter>
+    <BrowserRouter basename={basename}>{children}</BrowserRouter>
   );
 
 Router.propTypes = {

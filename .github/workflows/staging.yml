@@ -2,16 +2,16 @@ name: Staging
 
 on:
   push:
-    branches: [main]
+    branches: [main, Updates-Branch]
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write
 
 jobs:
   build:
     uses: ./.github/workflows/_build.yml
+    with:
+      base_path: "/BlueHouse_New/staging/"
     secrets:
       VITE_FIREBASE_API_KEY: ${{ secrets.VITE_FIREBASE_API_KEY }}
       VITE_FIREBASE_AUTH_DOMAIN: ${{ secrets.VITE_FIREBASE_AUTH_DOMAIN }}
@@ -26,10 +26,21 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: staging
-      url: ${{ steps.deploy.outputs.page_url }}
+      url: https://it-siciliamia.github.io/BlueHouse_New/staging/
     steps:
-      - name: Deploy staging 🚀
-        id: deploy
-        uses: actions/deploy-pages@v4
+      - name: Checkout 🛎️
+        uses: actions/checkout@v4
+
+      - name: Download artifact 📦
+        uses: actions/download-artifact@v4
         with:
-          preview: true
+          name: build-dist
+          path: dist
+
+      - name: Deploy staging 🚀
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.ACCESS_TOKEN_DEPLOYMENT }}
+          publish_dir: dist
+          destination_dir: staging
+          keep_files: true
