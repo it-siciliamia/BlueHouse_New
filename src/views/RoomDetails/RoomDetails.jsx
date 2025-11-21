@@ -1,23 +1,23 @@
-import React, { useEffect } from "react";
-import { useParams, useHistory } from "react-router-dom";
-import useBreakpoints from "../../Styles/useBreakpoints";
-import { useDispatch } from "react-redux";
-import { setPaymentStage } from "../../redux/technitial/technical-slice";
-import { items } from "../../components/ServicesRoom/ServicesRoomData";
-import { WithTransLate } from "../../components/helpers/translating/index";
-import PhotoSlider from "../../components/Shared/SliderSlick/SliderSlick";
-import PartDetails from "./PartDetails/PartDetails";
-import PartCalendar from "./PartCalendar/PartCalendar";
-import AdditionalServices from "../../components/AdditionalServices/AdditionalServices";
-import Support from "../../components/SuportComponent/support";
-import Button from "../../components/Shared/Button/Button";
+import { useEffect } from "react";
 import { IoIosArrowBack } from "react-icons/io";
+import { useDispatch } from "react-redux";
+import { useParams, useNavigate } from "react-router-dom";
 
+import PartCalendar from "./PartCalendar/PartCalendar.jsx";
+import PartDetails from "./PartDetails/PartDetails.jsx";
 import s from "./RoomDetails.module.scss";
+import AdditionalServices from "../../components/AdditionalServices/AdditionalServices.jsx";
+import { WithTransLate } from "../../components/helpers/translating/index.jsx";
+import { items } from "../../components/ServicesRoom/ServicesRoomData.js";
+import Button from "../../components/Shared/Button/Button.jsx";
+import PhotoSlider from "../../components/Shared/SliderSlick/SliderSlick.jsx";
+import Support from "../../components/SuportComponent/support.jsx";
+import { setPaymentStage } from "../../redux/technitial/technical-slice.js";
+import useBreakpoints from "../../Styles/useBreakpoints.js";
 
 const RoomDetails = () => {
   const { room } = useParams();
-  const history = useHistory();
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const { isLaptop, isDesktop } = useBreakpoints();
@@ -29,7 +29,7 @@ const RoomDetails = () => {
   }, [dispatch]);
 
   const handleBackClick = () => {
-    history.push("/beds24");
+    navigate("/beds24");
   };
 
   const calculatedWidth = isLaptop ? `calc(100% - 50px)` : `calc(100% - 70px)`;
@@ -48,7 +48,7 @@ const RoomDetails = () => {
               handleClick={handleBackClick}
             />
           </div>
-          {(isDesktop || isLaptop) && (
+          {!!(isDesktop || isLaptop) && (
             <PhotoSlider
               photos={roomData.photos}
               width={calculatedWidth}

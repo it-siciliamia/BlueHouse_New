@@ -1,24 +1,22 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { 
-  axiosGetRoomsData, 
-  axiosGetAvailableRooms, 
+
+import {
+  axiosGetRoomsData,
+  axiosGetAvailableRooms,
   axiosCreateNewBooking,
-  axiosCreateStripeSession 
+  axiosCreateStripeSession,
 } from "../../api/api";
 
 // Get all rooms data
-export const getRoomsData = createAsyncThunk(
-  "api/rooms",
-  async (_, { rejectWithValue }) => {
-    try {
-      const data = await axiosGetRoomsData();
-      return data;
-    } catch (error) {
-      const { data, status } = error.response;
-      return rejectWithValue({ data, status });
-    }
+export const getRoomsData = createAsyncThunk("api/rooms", async (_, { rejectWithValue }) => {
+  try {
+    const data = await axiosGetRoomsData();
+    return data;
+  } catch (error) {
+    const { data, status } = error.response;
+    return rejectWithValue({ data, status });
   }
-);
+});
 
 // Get available rooms
 export const getAvailableRooms = createAsyncThunk(

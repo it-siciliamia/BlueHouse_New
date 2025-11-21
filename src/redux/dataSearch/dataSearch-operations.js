@@ -1,4 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
+
 import { axiosGetAvailableRooms } from "../../api/api";
 
 export const getAvailableRooms = createAsyncThunk(

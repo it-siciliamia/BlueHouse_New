@@ -5,7 +5,7 @@ $tablet: 48em; // ~768px
 
 .review-card {
   background-color: var(--color-neutral-100);
-  
+
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -36,14 +36,12 @@ $tablet: 48em; // ~768px
       top: 2rem;
       left: 1rem;
     }
-      
   }
 
   &::after {
     background-image: url("../../images/ReviewSlider/quotes-close-icon.svg");
     bottom: 1.2rem;
     right: 2.5rem;
-
 
     @media (min-width: $smallScreen) {
       bottom: 1.6rem;
@@ -52,9 +50,8 @@ $tablet: 48em; // ~768px
   }
 }
 
-
 .review-card__quote {
-  margin-bottom: 0rem; // Workaround: overwrites bootstrap styling 
+  margin-bottom: 0rem; // Workaround: overwrites bootstrap styling
   padding-left: 2.5rem;
 
   font-size: 1rem;
@@ -88,7 +85,6 @@ $tablet: 48em; // ~768px
   text-transform: uppercase;
   padding-left: 7px;
 }
-
 
 @media (min-width: $smallScreen) {
   .review-card {

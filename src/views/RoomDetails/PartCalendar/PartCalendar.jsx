@@ -1,32 +1,30 @@
-import React, { useState, useEffect } from "react";
+import moment from "moment";
+import PropTypes from "prop-types";
+import { useEffect, useState } from "react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
-import { useLanguage } from "../../../components/helpers/translating/LanguageContext";
-import DatePicker from "react-datepicker";
-import {
-  WithTransLate,
-  translateMyText,
-} from "../../../components/helpers/translating/index";
-import {
-  setCheckIn,
-  setCheckOut,
-  setAddParams,
-} from "../../../redux/dataSearch/dataSearch-slice";
+
+import s from "./PartCalendar.module.scss";
+import { WithTransLate, translateMyText } from "../../../components/helpers/translating/index.jsx";
+import { useLanguage } from "../../../components/helpers/translating/LanguageContext.jsx";
+import Button from "../../../components/Shared/Button/Button.jsx";
+import alert from "../../../images/roombooking/alert.svg";
+import arrowDown from "../../../images/roombooking/ArrowDown.svg";
+import arrowUp from "../../../images/roombooking/ArrowUp.svg";
+import minusIcon from "../../../images/roombooking/minus.svg";
+import plusIcon from "../../../images/roombooking/plus.svg";
 import {
   getCheckInDay,
   getCheckOutDay,
   getAddParams,
-} from "../../../redux/dataSearch/dataSearch-selectors";
-import Button from "../../../components/Shared/Button/Button";
-import "react-datepicker/dist/react-datepicker.css";
-import minusIcon from "../../../images/roombooking/minus.svg";
-import plusIcon from "../../../images/roombooking/plus.svg";
-import arrowDown from "../../../images/roombooking/ArrowDown.svg";
-import arrowUp from "../../../images/roombooking/ArrowUp.svg";
-import alert from "../../../images/roombooking/alert.svg";
-import * as moment from "moment";
-
-import s from "./PartCalendar.module.scss";
+} from "../../../redux/dataSearch/dataSearch-selectors.js";
+import {
+  setCheckIn,
+  setCheckOut,
+  setAddParams,
+} from "../../../redux/dataSearch/dataSearch-slice.js";
 
 const PartCalendar = ({ onEditClick }) => {
   const location = useLocation();
@@ -42,9 +40,7 @@ const PartCalendar = ({ onEditClick }) => {
   );
 
   const [endDate, setEndDate] = useState(
-    firstDay && secondDay && secondDay === newDate
-      ? null
-      : moment(secondDay, "YYYYMMDD").toDate()
+    firstDay && secondDay && secondDay === newDate ? null : moment(secondDay, "YYYYMMDD").toDate()
   );
   const addParams = useSelector(getAddParams);
   const [containerToggle, setContainerToggle] = useState(false);
@@ -91,7 +87,7 @@ const PartCalendar = ({ onEditClick }) => {
         <WithTransLate text={"Your stay"} />
       </h3>
       <div className={s.warningContainer}>
-        {isShowWarning && (
+        {!!isShowWarning && (
           <div className={s.warning}>
             <img src={alert} alt="Alert" />
             <span>
@@ -136,19 +132,14 @@ const PartCalendar = ({ onEditClick }) => {
       <div className={s.searchContainer}>
         <div className={s.searchContainerText}>
           <WithTransLate
-            text={`${adultsAmount} adults, ${
-              childrenAmount || "no"
-            } child, ${roomsAmount} room(s)`}
+            text={`${adultsAmount} adults, ${childrenAmount || "no"} child, ${roomsAmount} room(s)`}
           />
         </div>
         <button className={s.toggleBtn} onClick={toggleHandle}>
           <img src={containerToggle ? arrowUp : arrowDown} alt="Toggle" />
         </button>
-        {containerToggle && (
-          <div
-            className={s.quantityContainer}
-            style={{ zIndex: "2", marginTop: "8px" }}
-          >
+        {!!containerToggle && (
+          <div className={s.quantityContainer} style={{ zIndex: "2", marginTop: "8px" }}>
             <div className={s.quantityElement} style={{ borderTop: "none" }}>
               <span style={{ textTransform: "capitalize" }}>
                 <WithTransLate text="Adults" />
@@ -175,18 +166,14 @@ const PartCalendar = ({ onEditClick }) => {
               </span>
               <div className={s.quantityContent}>
                 <button
-                  onClick={() =>
-                    handleDecrement(setChildrenAmount, childrenAmount)
-                  }
+                  onClick={() => handleDecrement(setChildrenAmount, childrenAmount)}
                   className={s.countPerson}
                 >
                   <img src={minusIcon} alt="Minus" />
                 </button>
                 <span>{childrenAmount}</span>
                 <button
-                  onClick={() =>
-                    handleIncrement(setChildrenAmount, childrenAmount)
-                  }
+                  onClick={() => handleIncrement(setChildrenAmount, childrenAmount)}
                   className={s.countPerson}
                 >
                   <img src={plusIcon} alt="Plus" />
@@ -262,3 +249,7 @@ const PartCalendar = ({ onEditClick }) => {
 };
 
 export default PartCalendar;
+
+PartCalendar.propTypes = {
+  onEditClick: PropTypes.func,
+};

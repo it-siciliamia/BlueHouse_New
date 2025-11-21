@@ -1,9 +1,7 @@
-import React from "react";
-import Privacy from "./Privacy.jsx";
-import { WithTransLate } from "../helpers/translating/index";
 import CookiePolicy from "./CookiePolicy.jsx";
-
+import Privacy from "./Privacy.jsx";
 import s from "./PrivacyComponent.module.scss";
+import { WithTransLate } from "../helpers/translating/index.jsx";
 
 function PrivacyPolicyComponent() {
   return (

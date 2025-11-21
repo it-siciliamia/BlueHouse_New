@@ -1,10 +1,11 @@
 import { useRef } from "react";
-import { WithTransLate } from "../helpers/translating";
 import { useForm } from "react-hook-form";
-import useTranslateString from "../helpers/translating/useTranslateString";
-import s from "./Newsletter.module.scss";
-import HiddenFormScript from "./HiddenFormScript";
 import { HiOutlineExclamationCircle } from "react-icons/hi";
+
+import HiddenFormScript from "./HiddenFormScript.jsx";
+import s from "./Newsletter.module.scss";
+import { WithTransLate } from "../helpers/translating";
+import useTranslateString from "../helpers/translating/useTranslateString.js";
 
 function Newsletter() {
   const hiddenFormRef = useRef(null);
@@ -15,12 +16,8 @@ function Newsletter() {
   const lastNameRequiredMessage = useTranslateString("Last name is required");
   const emailRequiredMessage = useTranslateString("Email is required");
   const emailInvalidMessage = useTranslateString("Enter a valid email");
-  const firstNameTooShortMessage = useTranslateString(
-    "First name: min 2 characters"
-  );
-  const lastNameTooShortMessage = useTranslateString(
-    "Last name: min 2 characters"
-  );
+  const firstNameTooShortMessage = useTranslateString("First name: min 2 characters");
+  const lastNameTooShortMessage = useTranslateString("Last name: min 2 characters");
 
   const {
     register,
@@ -48,11 +45,7 @@ function Newsletter() {
   return (
     <>
       <HiddenFormScript ref={hiddenFormRef} />
-      <form
-        className={s.container}
-        onSubmit={handleSubmit(onSubmit)}
-        noValidate
-      >
+      <form className={s.container} onSubmit={handleSubmit(onSubmit)} noValidate>
         <h2 className={s.title}>
           <WithTransLate text="Sign up to the BH newsletter to get our updates from Iceland" />
         </h2>
@@ -67,28 +60,23 @@ function Newsletter() {
               placeholder={firstNamePlaceholder}
               autoComplete="given-name"
               aria-invalid={!!errors.firstName || undefined}
-              aria-describedby={
-                errors.firstName ? "firstName-error" : undefined
-              }
+              aria-describedby={errors.firstName ? "firstName-error" : undefined}
               {...register("firstName", {
                 required: firstNameRequiredMessage,
                 validate: {
-                  notBlank: (value) =>
-                    value.trim() !== "" || firstNameRequiredMessage,
-                  minLength: (value) =>
-                    value.trim().length >= 2 || firstNameTooShortMessage,
+                  notBlank: (value) => value.trim() !== "" || firstNameRequiredMessage,
+                  minLength: (value) => value.trim().length >= 2 || firstNameTooShortMessage,
                 },
               })}
-              className={
-                errors.firstName ? `${s.input} ${s.inputError}` : s.input
-              }
+              className={errors.firstName ? `${s.input} ${s.inputError}` : s.input}
             />
             <p
               id="firstName-error"
               role={errors.firstName ? "alert" : undefined}
               className={errors.firstName ? s.errorMessage : s.errorSpace}
             >
-               <HiOutlineExclamationCircle size={20}/> {errors.firstName ? errors.firstName.message : "\u00a0"}
+              <HiOutlineExclamationCircle size={20} />{" "}
+              {errors.firstName ? errors.firstName.message : "\u00a0"}
             </p>
           </div>
 
@@ -105,22 +93,19 @@ function Newsletter() {
               {...register("lastName", {
                 required: lastNameRequiredMessage,
                 validate: {
-                  notBlank: (value) =>
-                    value.trim() !== "" || lastNameRequiredMessage,
-                  minLength: (value) =>
-                    value.trim().length >= 2 || lastNameTooShortMessage,
+                  notBlank: (value) => value.trim() !== "" || lastNameRequiredMessage,
+                  minLength: (value) => value.trim().length >= 2 || lastNameTooShortMessage,
                 },
               })}
-              className={
-                errors.lastName ? `${s.input} ${s.inputError}` : s.input
-              }
+              className={errors.lastName ? `${s.input} ${s.inputError}` : s.input}
             />
             <p
               id="lastName-error"
               role={errors.lastName ? "alert" : undefined}
               className={errors.lastName ? s.errorMessage : s.errorSpace}
             >
-              <HiOutlineExclamationCircle size={20}/> {errors.lastName ? errors.lastName.message : "\u00a0"}
+              <HiOutlineExclamationCircle size={20} />{" "}
+              {errors.lastName ? errors.lastName.message : "\u00a0"}
             </p>
           </div>
 
@@ -150,7 +135,8 @@ function Newsletter() {
               role={errors.email ? "alert" : undefined}
               className={errors.email ? s.errorMessage : s.errorSpace}
             >
-              <HiOutlineExclamationCircle size={20} /> {errors.email ? errors.email.message : "\u00a0"}
+              <HiOutlineExclamationCircle size={20} />{" "}
+              {errors.email ? errors.email.message : "\u00a0"}
             </p>
           </div>
 

@@ -1,14 +1,15 @@
+import PropTypes from "prop-types";
+import { Autoplay, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Navigation } from "swiper";
-import { WithTransLate } from "../helpers/translating/index";
 
-import ReviewCard from "./ReviewCard";
-import Link from "../Shared/ui/Link";
-import IconButton from "../Shared/ui/IconButton";
-
-import tripAdvisor from "../../images/findMore/TripadvisorLogo.png";
-
+import "swiper/css";
+import "swiper/css/navigation";
+import ReviewCard from "./ReviewCard.jsx";
 import s from "./ReviewSection.module.scss";
+import tripAdvisor from "../../images/findMore/TripadvisorLogo.png";
+import { WithTransLate } from "../helpers/translating/index.jsx";
+import IconButton from "../Shared/ui/IconButton.jsx";
+import Link from "../Shared/ui/Link.jsx";
 
 const quotes = [
   {
@@ -46,12 +47,19 @@ function ReviewSponsor({ sponsorImage }) {
         </p>
         <img src={sponsorImage} alt="sponsor-logo" />
       </div>
-      <Link href="https://www.tripadvisor.com/Hotel_Review-g189970-d1915669-Reviews-Blue_House_B_B-Reykjavik_Capital_Region.html" target="_blank">
+      <Link
+        href="https://www.tripadvisor.com/Hotel_Review-g189970-d1915669-Reviews-Blue_House_B_B-Reykjavik_Capital_Region.html"
+        target="_blank"
+      >
         <WithTransLate text="read more reviews" />
       </Link>
     </div>
   );
 }
+
+ReviewSponsor.propTypes = {
+  sponsorImage: PropTypes.string.isRequired,
+};
 
 function ReviewSection() {
   return (

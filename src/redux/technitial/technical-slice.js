@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+
 import { getRoomsData, createStripeSession } from "./technical-operations";
 
 const initialState = {
@@ -46,13 +47,12 @@ const technical = createSlice({
         store.error = null;
         store.message = null;
       })
-      .addCase(getRoomsData.fulfilled, (store, { payload }) => {
+      .addCase(getRoomsData.fulfilled, (store) => {
         store.loading = false;
       })
       .addCase(getRoomsData.rejected, (store, { payload }) => {
         store.loading = false;
-        store.error =
-          payload?.data?.message || "Oops, something went wrong, try again";
+        store.error = payload?.data?.message || "Oops, something went wrong, try again";
       })
       // * CREATE STRIPE SESSION
       .addCase(createStripeSession.pending, (store) => {
@@ -60,13 +60,12 @@ const technical = createSlice({
         store.error = null;
         store.message = null;
       })
-      .addCase(createStripeSession.fulfilled, (store, { payload }) => {
+      .addCase(createStripeSession.fulfilled, (store) => {
         store.loading = false;
       })
       .addCase(createStripeSession.rejected, (store, { payload }) => {
         store.loading = false;
-        store.error =
-          payload?.data?.message || "Oops, something went wrong, try again";
+        store.error = payload?.data?.message || "Oops, something went wrong, try again";
       });
   },
 });

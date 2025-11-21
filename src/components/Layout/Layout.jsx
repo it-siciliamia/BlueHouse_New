@@ -1,19 +1,26 @@
-import Header from "../header/Header.jsx";
-import NewMap from "../map/NewMap";
-import CookiesBanner from "../CookiesBanner/CookiesBanner.js";
-import Footer from "../Footer/Footer.jsx";
+import { Outlet } from "react-router-dom";
 
 import s from "./Layout.module.scss";
 import useBreakpointsNew from "../../Styles/useBreakpointsNew.js";
+import CookiesBanner from "../CookiesBanner/CookiesBanner.jsx";
+import Footer from "../Footer/Footer.jsx";
+import Header from "../header/Header.jsx";
+import NewMap from "../map/NewMap.jsx";
 
-function Layout({children}) {
-  const {isSmallScreen, isDesktop} = useBreakpointsNew();
+function Layout() {
+  const { isSmallScreen, isDesktop } = useBreakpointsNew();
 
   return (
     <div className={s.container}>
       <Header />
-      <div className={s.childrenWrap}>{children}</div>
-      {(isSmallScreen || isDesktop) && <div className={s.fullWidthSection}><NewMap /></div>}
+      <div className={s.outlet}>
+        <Outlet />
+      </div>
+      {!!(isSmallScreen || isDesktop) && (
+        <div className={s.fullWidthSection}>
+          <NewMap />
+        </div>
+      )}
       <CookiesBanner />
       <Footer />
     </div>

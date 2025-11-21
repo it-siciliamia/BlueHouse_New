@@ -55,5 +55,4 @@ const userInfo = createSlice({
 });
 
 export default userInfo.reducer;
-export const { clearError, clearMessage, setUserInformation, resetUserInfo } =
-  userInfo.actions;
+export const { clearError, clearMessage, setUserInformation, resetUserInfo } = userInfo.actions;

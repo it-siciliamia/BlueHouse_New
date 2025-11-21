@@ -54,7 +54,6 @@ $tablet: 48em; // ~768px
   }
 }
 
-
 //** SiteMap **//
 
 .siteMap {
@@ -113,8 +112,8 @@ $tablet: 48em; // ~768px
 //** RenderLink **//
 .image {
   color: var(--color-primary-400);
-  width: 1.1rem;
-  height: 1.1rem;
+  width: 1.25rem;
+  height: 1.25rem;
   flex-shrink: 0;
 }
 
@@ -135,7 +134,9 @@ $tablet: 48em; // ~768px
   border: none;
   padding: 0;
   cursor: pointer;
-  transition: color 0.2s ease, text-decoration-color 0.2s ease;
+  transition:
+    color 0.2s ease,
+    text-decoration-color 0.2s ease;
 
   @media (min-width: $laptop) {
     flex-direction: row;

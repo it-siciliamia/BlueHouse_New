@@ -1,17 +1,17 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useState } from "react";
 import { useForm, Controller } from "react-hook-form";
-import TextField from "../../Shared/TextField/TextField";
-import Button from "../../Shared/Button/Button";
-import { WithTransLate } from "../../helpers/translating";
-import { setBookingConfirmed } from "../../../redux/technitial/technical-slice";
-import card from "../../../images/payment/credit-card.svg";
-import paypal from "../../../images/payment/paypal.svg";
-import bank from "../../../images/payment/landmark.svg";
-import { resetDataSearch } from "../../../redux/dataSearch/dataSearch-slice";
-import { resetUserInfo } from "../../../redux/userInfo/userInfo-slice";
+import { useDispatch } from "react-redux";
 
 import s from "./PaymentMethods.module.scss";
+import card from "../../../images/payment/credit-card.svg";
+import bank from "../../../images/payment/landmark.svg";
+import paypal from "../../../images/payment/paypal.svg";
+import { resetDataSearch } from "../../../redux/dataSearch/dataSearch-slice.js";
+import { setBookingConfirmed } from "../../../redux/technitial/technical-slice.js";
+import { resetUserInfo } from "../../../redux/userInfo/userInfo-slice.js";
+import { WithTransLate } from "../../helpers/translating";
+import Button from "../../Shared/Button/Button.jsx";
+import TextField from "../../Shared/TextField/TextField.jsx";
 
 const PaymentMethods = () => {
   const dispatch = useDispatch();
@@ -167,8 +167,7 @@ const PaymentMethods = () => {
               rules={{
                 required: "IBAN is required",
                 pattern: {
-                  value:
-                    /^[A-Z]{2}[0-9]{2}[A-Z0-9]{4}[0-9]{7}([A-Z0-9]?){0,16}$/,
+                  value: /^[A-Z]{2}[0-9]{2}[A-Z0-9]{4}[0-9]{7}([A-Z0-9]?){0,16}$/,
                   message: "Invalid IBAN",
                 },
               }}
@@ -224,52 +223,43 @@ const PaymentMethods = () => {
     <div className={s.container}>
       <div className={s.partMethods}>
         <form onSubmit={handleSubmit(onSubmit)} className={s.form}>
-          {["Credit / Debit Card*", "PayPal Express*", "Bank Transfer*"].map(
-            (method) => (
-              <div key={method} className={s.methodContainer}>
-                <button
-                  type="button"
-                  style={{
-                    marginBottom: selectedMethod === method ? "30px" : "0px",
-                  }}
-                  className={`${s.methodButton} ${
-                    selectedMethod === method ? s.active : ""
-                  }`}
-                  onClick={() =>
-                    setSelectedMethod((prev) =>
-                      prev === method ? null : method
-                    )
-                  }
-                >
-                  <div className={s.methodSelection}>
-                    <div
-                      className={s.selectionCenter}
-                      style={{
-                        backgroundColor:
-                          selectedMethod === method ? "#073762" : "white",
-                      }}
-                    ></div>
-                  </div>
-                  <div className={s.methodTitle}>
-                    <WithTransLate text={method} />
-                  </div>
-                  <img
-                    src={
-                      method === "Credit / Debit Card*"
-                        ? card
-                        : method === "PayPal Express*"
+          {["Credit / Debit Card*", "PayPal Express*", "Bank Transfer*"].map((method) => (
+            <div key={method} className={s.methodContainer}>
+              <button
+                type="button"
+                style={{
+                  marginBottom: selectedMethod === method ? "30px" : "0px",
+                }}
+                className={`${s.methodButton} ${selectedMethod === method ? s.active : ""}`}
+                onClick={() => setSelectedMethod((prev) => (prev === method ? null : method))}
+              >
+                <div className={s.methodSelection}>
+                  <div
+                    className={s.selectionCenter}
+                    style={{
+                      backgroundColor: selectedMethod === method ? "#073762" : "white",
+                    }}
+                  ></div>
+                </div>
+                <div className={s.methodTitle}>
+                  <WithTransLate text={method} />
+                </div>
+                <img
+                  src={
+                    method === "Credit / Debit Card*"
+                      ? card
+                      : method === "PayPal Express*"
                         ? paypal
                         : bank
-                    }
-                    alt={method}
-                    width={28}
-                    height={28}
-                  />
-                </button>
-                {selectedMethod === method && renderFields(method)}
-              </div>
-            )
-          )}
+                  }
+                  alt={method}
+                  width={28}
+                  height={28}
+                />
+              </button>
+              {selectedMethod === method && renderFields(method)}
+            </div>
+          ))}
 
           <div className={s.dateilsPart}>
             <Controller
@@ -297,7 +287,7 @@ const PaymentMethods = () => {
                         borderColor: fieldState.error ? "white" : "white",
                       }}
                     />
-                    {fieldState.error && (
+                    {!!fieldState.error && (
                       <p className={s.errorTextArea}>
                         <WithTransLate text={`*${fieldState.error.message}`} />
                       </p>

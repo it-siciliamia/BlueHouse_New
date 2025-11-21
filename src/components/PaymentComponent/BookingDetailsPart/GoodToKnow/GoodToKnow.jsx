@@ -1,7 +1,7 @@
-import React from "react";
-import { goodToKnowData } from "../goodToKnowData";
-import { WithTransLate } from "../../../helpers/translating";
+import PropTypes from "prop-types";
 
+import { WithTransLate } from "../../../helpers/translating";
+import { goodToKnowData } from "../goodToKnowData.js";
 import s from "./GoodToKnow.module.scss";
 
 const GoodToKnow = ({ title }) => {
@@ -12,9 +12,7 @@ const GoodToKnow = ({ title }) => {
 
   const currentData = goodToKnowData.find((item) => item.title === title);
 
-  const randomGoodToKnow = currentData
-    ? getRandomItems(currentData.goodToKnow, 2)
-    : [];
+  const randomGoodToKnow = currentData ? getRandomItems(currentData.goodToKnow, 2) : [];
 
   return (
     <div className={s.goodToKnowWrapper}>
@@ -33,3 +31,7 @@ const GoodToKnow = ({ title }) => {
 };
 
 export default GoodToKnow;
+
+GoodToKnow.propTypes = {
+  title: PropTypes.string.isRequired,
+};
