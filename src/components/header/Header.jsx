@@ -5,6 +5,7 @@ import s from "./Header.module.scss";
 import Search from "./Search.jsx";
 import logo from "../../images/logo.svg";
 import MenuIcon from "../../images/MenuIcon_Header.svg";
+import useBreakpoints from "../../Styles/useBreakpointsNew.js";
 import { WithTransLate } from "../helpers/translating/index.jsx";
 import LinkButton from "../Shared/ui/Link.jsx";
 import SideNavbar from "../SideNavbar/SideNavbar.jsx";
@@ -12,6 +13,7 @@ import SideNavbar from "../SideNavbar/SideNavbar.jsx";
 function Header() {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isNavOpen, setIsNavOpen] = useState(false);
+  const { isSmallScreen, isDesktop } = useBreakpoints();
 
   const handleSearchToggle = (searchOpen) => setIsSearchOpen(searchOpen);
   const handleMenuOpen = () => setIsNavOpen(true);
@@ -23,25 +25,27 @@ function Header() {
         <img src={logo} alt="logo" className={s.logoImage} />
       </Link>
 
-      <div className={s.btnsWrapper}>
-        <LinkButton
-          variant="primary"
-          href="https://beds24.com/booking2.php?propid=3578&layout=1&_gl=1*1m5j7wv*_ga*MTkzNDM4MTM5NS4xNzMxNjYzNTQ2*_ga_6QGX4YP9SF*czE3NTUwMzA0NDAkbzExMCRnMSR0MTc1NTAzMjQ5MCRqNTIkbDAkaDA"
-          rel="noreferrer"
-          className={s.btnCorrection}
-        >
-          <WithTransLate text="book your room" />
-        </LinkButton>
+      {isSmallScreen || isDesktop ? (
+        <div className={s.btnsWrapper}>
+          <LinkButton
+            variant="primary"
+            href="https://beds24.com/booking2.php?propid=3578&layout=1&_gl=1*1m5j7wv*_ga*MTkzNDM4MTM5NS4xNzMxNjYzNTQ2*_ga_6QGX4YP9SF*czE3NTUwMzA0NDAkbzExMCRnMSR0MTc1NTAzMjQ5MCRqNTIkbDAkaDA"
+            rel="noreferrer"
+            className={s.btnCorrection}
+          >
+            <WithTransLate text="book your room" />
+          </LinkButton>
 
-        <LinkButton
-          variant="secondary"
-          href="https://bluehouse.tourdesk.is/Tour"
-          rel="noreferrer"
-          className={`${s.btnCorrection} ${isSearchOpen ? s["btnCorrection--hidden"] : ""}`}
-        >
-          <WithTransLate text="book day tours" />
-        </LinkButton>
-      </div>
+          <LinkButton
+            variant="secondary"
+            href="https://bluehouse.tourdesk.is/Tour"
+            rel="noreferrer"
+            className={`${s.btnCorrection} ${isSearchOpen ? s["btnCorrection--hidden"] : ""}`}
+          >
+            <WithTransLate text="book day tours" />
+          </LinkButton>
+        </div>
+      ) : null}
 
       <div className={s.iconsWrapper}>
         <Search onSearchToggle={handleSearchToggle} />
