@@ -69,8 +69,13 @@ $desktop: 80em;
   gap: 0.5rem;
   align-self: stretch;
 
-  @media (min-width: $smallScreen) {
-    flex: 1 1 0;
+    @media (min-width: $smallScreen) {
+    flex: 1 1 0;                   
+  }
+
+  @media (min-width: $desktop) {
+    flex: 0 0 auto;              
+    width: 16.875rem;           
   }
 }
 
@@ -131,8 +136,14 @@ $desktop: 80em;
   width: 100%;
 
   @media (min-width: $smallScreen) {
-    flex: 1 1 0;
-    max-inline-size: 13.62rem;
+    flex: 1 1 0;             
+    width: 11rem;              
+    margin-left: 2rem; 
+  }
+    @media (min-width: $desktop) {
+    flex: 0 0 auto;             
+    width: 13.625rem;            
+    margin-left: 3.25rem; 
   }
 }
 
@@ -161,8 +172,8 @@ $desktop: 80em;
   color: var(--color-neutral-100);
 
   @media (min-width: $smallScreen) {
-    flex: 1 1 0;
-    max-inline-size: 13.62rem;
+    flex: 0 0 auto;
+    max-inline-size: none;
   }
 
   &:focus-visible {
