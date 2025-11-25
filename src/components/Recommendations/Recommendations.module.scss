@@ -105,17 +105,6 @@
     @media (min-width: 37.5em) {
       aspect-ratio: var(--card-aspect-ratio);
     }
-
-    @media (min-width: 60em) {
-      &:hover {
-        transform: scale(1.02);
-        box-shadow:
-          0 4px 16px rgba(29, 57, 103, 0.2),
-          inset 0 0 40px rgba(0, 0, 0, 0.3);
-        filter: brightness(0.95);
-        transition: all 0.3s ease;
-      }
-    }
   }
 
   img {
