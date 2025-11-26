@@ -3,7 +3,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 const BREAKPOINTS = [
   { name: "desktop", query: "(min-width: 1280px)" },
   { name: "smallScreen", query: "(min-width: 960px)" },
-  { name: "tablet", query: "(min-width: 600px)" },
+  { name: "tablet", query: "(min-width: 768px)" },
 ];
 
 const getBreakpointName = (matches) => matches.find((match) => match.matches)?.name ?? "mobile";
