@@ -58,14 +58,10 @@ $desktop: 80em;
 }
 
 .btnCorrection {
-  display: none !important; // Workaround: it should be fix asap.
-
-  @media (min-width: 43.75em) {
-    display: flex !important; // Workaround: it should be fix asap.
-    font-size: 0.8rem;
-    min-inline-size: 11.25rem;
-    inline-size: auto;
-  }
+  display: flex;
+  font-size: 0.8rem;
+  min-inline-size: 11.25rem;
+  inline-size: auto;
 
   @media (min-width: 62.5em) {
     font-size: 1rem;

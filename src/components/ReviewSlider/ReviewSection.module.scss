@@ -52,6 +52,7 @@ $tablet: 48em; // ~768px
   .sectionWrapper {
     position: relative;
     background-color: var(--color-neutral-200);
+    padding-bottom: 0.5rem;
     width: 100%;
     height: 100%;
 
@@ -135,7 +136,6 @@ $tablet: 48em; // ~768px
 .sliderNavigation {
   z-index: 2;
   position: absolute;
-  padding: 0 1rem;
 
   top: 50%;
   right: 0;

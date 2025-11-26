@@ -58,14 +58,6 @@
     box-shadow 0.3s ease,
     filter 0.3s ease;
   cursor: pointer;
-
-  &:hover {
-    transform: scale(1.02);
-    box-shadow:
-      0 4px 16px rgba(29, 57, 103, 0.2),
-      inset 0 0 40px rgba(0, 0, 0, 0.3);
-    filter: brightness(0.95);
-  }
 }
 
 .bottom {
