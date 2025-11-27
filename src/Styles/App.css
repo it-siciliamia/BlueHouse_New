@@ -2,6 +2,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;500;600;700;800;900&display=swap");
 
 :root {
+  /*Breakpoints values*/
+  --tablet: 768px;
+  --laptop: 960px;
+  --desktop: 1280px;
+
   /* Brand colors: CTA's active and focused states */
   --color-primary-100: #edf1f4;
   --color-primary-200: #cdd7e2;
