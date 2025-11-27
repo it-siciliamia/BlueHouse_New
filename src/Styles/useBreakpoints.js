@@ -13,8 +13,8 @@ const useBreakpoints = () => {
     const updateBreakpoints = () => {
       const width = window.innerWidth;
 
-      setIsMobile(width < 600);
-      setIsTablet(width >= 600 && width < 960);
+      setIsMobile(width < 768);
+      setIsTablet(width >= 768 && width < 960);
       setIsLaptop(width >= 960 && width < 1280);
       setIsDesktop(width >= 1280 && width <= 2200);
     };
