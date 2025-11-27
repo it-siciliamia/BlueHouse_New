@@ -24,7 +24,7 @@ This repo pins Node `24.11.0` and npm `11.6.2` via Volta (see `package.json`). V
    winget install Volta.Volta
    ```
 
-2. **Let Volta auto-manage Node/npm**  
+2. **Let Volta auto-manage Node/npm**
    Inside the repo you do not have to think about versions—running `npm install`, `npm run dev`, etc. will automatically download and use the pinned Node/npm if they are not already cached. If you ever need them globally you can run `volta install node@24.11.0 npm@11.6.2`, but that is optional.
 
 ## Fresh Clone Setup
