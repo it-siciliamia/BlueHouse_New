@@ -30,7 +30,7 @@ const SOCIAL_LINKS = Object.freeze([
     icon: XIcon,
     type: "external",
     //removed twitter link since the account is not active and changed newTab to false so it wont open a new tab when clicked
-    href: "#",
+    to: "/",
     newTab: false,
   },
   {
