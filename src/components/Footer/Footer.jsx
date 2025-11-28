@@ -124,7 +124,7 @@ function Footer() {
           <img src={logoBadge} alt="Blue House Home" />
         </Link>
 
-        {isMobile || isTablet ? (
+        {isMobile ? (
           <>
             <SiteMap title="blue house" data={footerSections.blueHouse} />
             <SiteMap title="contact us" data={footerSections.contact} />
