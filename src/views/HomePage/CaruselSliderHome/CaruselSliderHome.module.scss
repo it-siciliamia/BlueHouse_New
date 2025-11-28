@@ -1,5 +1,5 @@
-$tablet: 37.5em; // 600px
-$laptop: 60em; // 960px
+$tablet: 48em; // 768px
+$small-screen: 60em; // 960px
 $desktop: 80em; // 1280px
 
 /* --- Base hero layout --- */
@@ -9,11 +9,19 @@ $desktop: 80em; // 1280px
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  width: 100%;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
   aspect-ratio: 375 / 300; // Figma's aspect ratio for mobile
 
   @media (min-width: $tablet) {
     aspect-ratio: 1054 / 556; // Figma's aspect ratio standard
+  }
+
+  @media (min-width: $small-screen) {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
   }
 }
 
@@ -39,11 +47,11 @@ $desktop: 80em; // 1280px
   bottom: 12px;
   margin-bottom: 0;
 
-  @media (min-width: 600px) {
+  @media (min-width: var(--tablet)) {
     bottom: 14px;
   }
 
-  @media (min-width: 960px) {
+  @media (min-width: var(--small-screen)) {
     bottom: 16px;
   }
 }

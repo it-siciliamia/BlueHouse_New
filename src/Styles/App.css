@@ -4,7 +4,7 @@
 :root {
   /*Breakpoints values*/
   --tablet: 768px;
-  --laptop: 960px;
+  --small-screen: 960px;
   --desktop: 1280px;
 
   /* Brand colors: CTA's active and focused states */
