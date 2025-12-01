@@ -93,18 +93,24 @@ $desktop: 80em; // 1280px
 }
 
 /* Desktop/tablet: image has left:1%, width:92% => right gap is 7% */
-@media (min-width: 960px) {
-  .arrowButtonLeft,
-  .arrowButtonRight {
-    position: absolute;
-    top: 50%;
-    z-index: 99;
+.arrowButtonLeft,
+.arrowButtonRight {
+  position: absolute;
+  top: 50%;
+  z-index: 99;
+}
+.arrowButtonLeft {
+  left: 1rem;
+
+  @media (min-width: $small-screen) {
+    left: 1.5rem;
   }
-  .arrowButtonLeft {
-    left: calc(1% + 20px); /* 20px from image's left edge */
-  }
-  .arrowButtonRight {
-    right: calc(1% + 20px); /* 20px from image's right edge */
+}
+.arrowButtonRight {
+  right: 1rem;
+
+  @media (min-width: $small-screen) {
+    right: 1.5rem;
   }
 }
 
