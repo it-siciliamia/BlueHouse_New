@@ -1,0 +1,22 @@
+// Media Queries variables
+$tablet: 48em; // ~768px
+$smallScreen: 60em; // ~960px
+$desktop: 80em; // ~1280px
+
+.btnContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding-bottom: 3.4rem;
+
+  @media (min-width: $tablet) {
+    flex-direction: row;
+    justify-content: center;
+    gap: 1.9rem;
+    padding-bottom: 4.4rem;
+  }
+}
+
+.btnCorrection {
+  min-inline-size: 13.62rem;
+}
