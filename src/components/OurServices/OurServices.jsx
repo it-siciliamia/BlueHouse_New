@@ -4,9 +4,6 @@ import house from "../../images/services/house.svg";
 import money from "../../images/services/money.svg";
 import useBreakpoints from "../../Styles/useBreakpointsNew.js";
 import { WithTransLate } from "../helpers/translating/index.jsx";
-//import DifferentLocations from "./ServicesType/DifferentLocations.jsx"; //! muted
-//import SelfCheckIn from "./ServicesType/selfCheckIn.jsx"; //! muted
-//import CheapestPrice from "./ServicesType/CheapestPrice.jsx"; //! muted
 
 // Titles + subtitles exactly as in the design
 const servicesData = [
@@ -39,7 +36,6 @@ const OurServices = () => {
             className={s.serviceCard}
             // Cards are non-interactive: no onClick, no modal
             style={{
-              // paddingTop: "20px", // same padding for all cards
               gap: isDesktop ? "14.84px" : isMobile ? "15px" : "14.84px", // unified spacing logic
             }}
           >
@@ -58,31 +54,6 @@ const OurServices = () => {
             </div>
           </div>
         ))}
-
-        {/* Modal logic removed by request */}
-        {/*
-        {activeModal && (
-          <div className={s.modal}>
-            <div className={s.modalContent}>
-              {activeModal === money && (
-                <div className={s.textContent}>
-                  <CheapestPrice handleClose={handleClose} />
-                </div>
-              )}
-              {activeModal === clock && (
-                <div>
-                  <SelfCheckIn handleClose={handleClose} />
-                </div>
-              )}
-              {activeModal === house && (
-                <div>
-                  <DifferentLocations handleClose={handleClose} />
-                </div>
-              )}
-            </div>
-          </div>
-        )}
-        */}
       </div>
     </div>
   );
