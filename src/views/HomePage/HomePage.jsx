@@ -1,7 +1,6 @@
 import HomeHeader from "./HomeHeader.jsx";
 import s from "./HomePage.module.scss";
 import BlogPart from "../../components/BlogComponent/Blog.jsx";
-import BookingWrapper from "../../components/BookingWrapper/BookingWrapper.jsx";
 import FollowUs from "../../components/FollowUs/FollowUs.jsx";
 import Newsletter from "../../components/Newsletter/Newsletter.jsx";
 import OurServices from "../../components/OurServices/OurServices.jsx";
@@ -30,7 +29,6 @@ export default function HomePage() {
   return (
     <div className={s.home} style={{ color: "#1D3967" }}>
       <HomeHeader />
-      <BookingWrapper />
       <OurServices />
 
       {/* Accommodation Options (ex-Gallery) */}
