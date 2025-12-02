@@ -52,10 +52,14 @@ $desktop: 80em;
     display: flex;
     flex-direction: row;
     align-items: stretch;
-    gap: 2.6rem;
+    gap: 1rem;
 
     inline-size: 100%;
     margin-inline: auto;
+  }
+
+  @media (min-width: $desktop) {
+    gap: 2.6rem;
   }
 }
 
@@ -147,13 +151,13 @@ $desktop: 80em;
     flex-direction: row;
     flex: 1 1 0;
     width: 11rem;
-    margin-left: 2rem;
+    margin-left: 1.5rem;
     align-items: stretch;
   }
   @media (min-width: $desktop) {
     flex: 0 0 auto;
     width: 13.625rem;
-    margin-left: 3.25rem;
+    margin-left: 2.15rem;
   }
 }
 
