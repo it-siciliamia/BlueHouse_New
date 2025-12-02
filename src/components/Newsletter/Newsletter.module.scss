@@ -1,4 +1,4 @@
-$tablet: 37.5em;
+$tablet: 48em;
 $smallScreen: 60em;
 $desktop: 80em;
 
@@ -27,7 +27,7 @@ $desktop: 80em;
     margin: 0 auto;
   }
 
-  @media (min-width: $smallScreen) {
+  @media (min-width: $tablet) {
     h2 {
       font-size: 1.5rem;
       line-height: 2rem;
@@ -42,17 +42,14 @@ $desktop: 80em;
   align-items: center;
   align-self: stretch;
 
-  inline-size: 90%;
-  margin-inline: auto;
-
-  padding: 0 1rem;
-
   @media (min-width: $tablet) {
-    inline-size: 70%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0 1.4rem;
   }
 
   @media (min-width: $smallScreen) {
-    padding: 0;
+    display: flex;
     flex-direction: row;
     align-items: stretch;
     gap: 2.6rem;
@@ -69,13 +66,13 @@ $desktop: 80em;
   gap: 0.5rem;
   align-self: stretch;
 
-    @media (min-width: $smallScreen) {
-    flex: 1 1 0;                   
+  @media (min-width: $smallScreen) {
+    flex: 1 1 0;
   }
 
   @media (min-width: $desktop) {
-    flex: 0 0 auto;              
-    width: 16.875rem;           
+    flex: 0 0 auto;
+    width: 16.875rem;
   }
 }
 
@@ -135,15 +132,28 @@ $desktop: 80em;
 .submitWrapper {
   width: 100%;
 
-  @media (min-width: $smallScreen) {
-    flex: 1 1 0;             
-    width: 11rem;              
-    margin-left: 2rem; 
+  @media (min-width: $tablet) {
+    grid-column: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    padding-bottom: 1.5rem;
   }
-    @media (min-width: $desktop) {
-    flex: 0 0 auto;             
-    width: 13.625rem;            
-    margin-left: 3.25rem; 
+
+  @media (min-width: $smallScreen) {
+    display: flex;
+    flex-direction: row;
+    flex: 1 1 0;
+    width: 11rem;
+    margin-left: 2rem;
+    align-items: stretch;
+  }
+  @media (min-width: $desktop) {
+    flex: 0 0 auto;
+    width: 13.625rem;
+    margin-left: 3.25rem;
   }
 }
 
@@ -222,4 +232,8 @@ $desktop: 80em;
   clip: rect(0 0 0 0);
   white-space: nowrap;
   border: 0;
+}
+
+p {
+  margin-bottom: 0.5rem; // Workaround: overwrites default p margin-bottom
 }
