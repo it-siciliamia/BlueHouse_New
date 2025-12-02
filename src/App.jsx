@@ -3,7 +3,7 @@ import { lazy, Suspense, useMemo, useState } from "react";
 import { HelmetProvider, Helmet } from "react-helmet-async";
 import { Route, Routes } from "react-router-dom";
 
-import "./Styles/App.css";
+import "./Styles/App.scss";
 import EnquirePage from "./components/BookingPage/EnquirePage.jsx";
 import { RedirectBlog, RedirectTripAdv } from "./components/helpers/redirect/Redirect.jsx";
 import combinedSchema from "./components/helpers/SchemaOrg/schema.js";
