@@ -22,8 +22,36 @@
   width: 100%;
   @media (min-width: app.$tablet) {
     flex-direction: row;
+    justify-content: space-evenly;
+    align-items: stretch;
+    gap: 1.25rem;
+    width: 704px;
+  }
+  @media (min-width: app.$smallScreen) {
+    width: 100%;
+    max-width: none;
+    gap: 10vw; //use vw isntead of rem for better scaling between breakpoints designs
+  }
+  @media (min-width: app.$desktop) {
+    gap: 8.75rem;
+  }
+}
+.siteMapContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  width: 100%;
+  @media (min-width: app.$tablet) {
+    flex-direction: row;
     justify-content: space-between;
     align-items: stretch;
+    padding-right: 1rem;
+  }
+  @media (min-width: app.$smallScreen) {
+    flex: 1;
+    padding: 0;
+    justify-content: space-between;
   }
 }
 
@@ -53,7 +81,6 @@
   align-items: center;
   text-align: center;
   gap: 1.25rem;
-  border: 1px solid red;
   @media (min-width: app.$tablet) {
     align-items: flex-start;
   }
@@ -93,7 +120,10 @@
       margin: 0;
       padding: 0;
       gap: 0.75rem;
-      max-width: 24vw; //limit the width in tablet so text doesn't stretch too much
+      max-width: 180px;
+    }
+    @media (min-width: app.$smallScreen) {
+      max-width: none;
     }
   }
 }

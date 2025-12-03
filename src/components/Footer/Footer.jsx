@@ -131,11 +131,11 @@ function Footer() {
             <SiteMapMinimal title="social media" data={footerSections.social} />
           </>
         ) : (
-          <>
+          <div className={s.siteMapContainer}>
             <SiteMap title="social media" data={footerSections.social} />
             <SiteMap title="blue house" data={footerSections.blueHouse} />
             <SiteMap title="contact us" data={footerSections.contact} />
-          </>
+          </div>
         )}
       </div>
 
