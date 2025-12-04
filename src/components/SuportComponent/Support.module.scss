@@ -1,3 +1,4 @@
+@use "../../Styles/App.scss" as app;
 .support {
   margin-bottom: 2.5rem;
   width: 100%;
@@ -5,11 +6,11 @@
   align-content: center;
   background-color: var(--color-neutral-100);
 
-  @media (min-width: 960px) {
+  @media (min-width: app.$smallScreen) {
     padding: 0 20px;
     margin: 0 0 7.37rem 0;
   }
-  @media (min-width: 1280px) {
+  @media (min-width: app.$desktop) {
     padding: 0;
   }
 }
@@ -21,13 +22,13 @@
   width: 100%;
   gap: 20px;
 
-  @media (min-width: 600px) {
+  @media (min-width: app.$tablet) {
     width: 100%;
     gap: 10px;
     flex-direction: row;
     flex-wrap: wrap;
   }
-  @media (min-width: 960px) {
+  @media (min-width: app.$smallScreen) {
     justify-content: space-between;
     align-items: stretch;
     gap: 24px;
@@ -50,16 +51,15 @@
     font-weight: 500;
   }
 
-  @media (min-width: 320px) and (max-width: 599.99px) {
-    width: 80%;
-  }
-  @media (min-width: 600px) and (max-width: 959.99px) {
+  width: 80%;
+
+  @media (min-width: app.$tablet) {
     width: 48%;
   }
-  @media (min-width: 960px) and (max-width: 1279.99px) {
+  @media (min-width: app.$smallScreen) {
     width: calc(25% - 18px);
   }
-  @media (min-width: 1280px) and (max-width: 2200px) {
+  @media (min-width: app.$desktop) {
     width: 270px;
   }
 }
@@ -68,22 +68,21 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
   flex: 1;
+  margin: 0 auto;
   cursor: pointer;
   transition: all 0.4s ease;
   border: 1px solid transparent;
-
-  @media (min-width: 320px) and (max-width: 599.99px) {
+  box-shadow: 0px 4px 12px rgba(29, 57, 103, 0.15);
+  padding: 24px 0px;
+  max-width: 260px;
+  @media (min-width: app.$tablet) {
     padding: 20px 10px;
   }
-  @media (min-width: 600px) and (max-width: 959.99px) {
-    padding: 20px 10px;
-  }
-  @media (min-width: 960px) and (max-width: 1279.99px) {
+  @media (min-width: app.$smallScreen) {
     padding: 24px 16px;
   }
-  @media (min-width: 1280px) and (max-width: 2200px) {
+  @media (min-width: app.$desktop) {
     padding: 24px 16px;
   }
 
@@ -97,6 +96,7 @@
   width: 48px;
   height: 48px;
   object-fit: contain;
+  margin-bottom: 24px;
 }
 
 .cardTitle {
@@ -105,13 +105,13 @@
   font-size: 18px;
   line-height: 24px;
   text-transform: uppercase;
-  margin: 12px 0;
+  margin-bottom: 4px;
   color: #1d3967;
 
-  @media (min-width: 600px) and (max-width: 959.99px) {
+  @media (min-width: app.$tablet) {
     margin-bottom: 0;
   }
-  @media (min-width: 960px) and (max-width: 1280px) {
+  @media (min-width: app.$smallScreen) {
     margin-bottom: 5px;
   }
 }
