@@ -63,5 +63,10 @@ This repo pins Node `24.11.0` and npm `11.6.2` via Volta (see `package.json`). V
   git merge main   # or git rebase main
   ```
 - **Commit early and often** with descriptive messages so reviewers understand the intent of each change.
+- **Write clear PR descriptions** explain what changed and why. Screenshots or GIFs for UI changes are a big plus.
+- **Address review comments openly** if you disagree, discuss. Don’t silently overwrite.
+- **Don’t disable linting or prettier** fix the issue or discuss with the team.
+- **Discuss new dependencies before adding them** always check whether the package is actively maintained, has no major security issues, and aligns with our stack. Share it with the team before installation to avoid bloat, duplicated libraries, or conflicting tooling.
+- **Prefer built-in browser/React APIs** before reaching for an external library.
 
 Following these practices keeps the team on the same Node/npm versions, ensures Vite is the single source of truth for development, and keeps our Git/GitHub flow predictable.
