@@ -21,13 +21,14 @@
   align-items: center;
   width: 100%;
   gap: 20px;
-
   @media (min-width: app.$tablet) {
     width: 100%;
     flex-direction: row;
     flex-wrap: wrap;
     gap: 28px;
     justify-content: center;
+    max-width: 800px;
+    margin: 0 auto;
   }
   @media (min-width: app.$smallScreen) {
     justify-content: space-between;
@@ -74,9 +75,11 @@
   cursor: pointer;
   transition: all 0.4s ease;
   border: 1px solid transparent;
+
   box-shadow: 0px 4px 12px rgba(29, 57, 103, 0.15);
   padding: 24px 0px;
   max-width: 260px;
+
   @media (min-width: app.$tablet) {
     max-width: 262px;
   }
