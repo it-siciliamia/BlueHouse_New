@@ -82,6 +82,7 @@
 
   @media (min-width: app.$tablet) {
     max-width: 262px;
+    box-shadow: none;
   }
   @media (min-width: app.$smallScreen) {
     padding: 24px 16px;
