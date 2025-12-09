@@ -12,13 +12,11 @@ import slide05 from "../../../images/homePageSlider/slide5.webp";
 import slide06 from "../../../images/homePageSlider/slide6.webp";
 import { getIsPlaceholderShown } from "../../../redux/technitial/technical-selectors.js";
 import { setPlaceholderShown } from "../../../redux/technitial/technical-slice.js";
-import useBreakpoints from "../../../Styles/useBreakpointsNew.js";
 import videoSrc from "../../../videos/intro.mp4";
 
 const images = [videoSrc, slide01, slide02, slide03, slide04, slide05, slide06];
 
 export default function CaruselSliderHome() {
-  const { isSmallScreen, isDesktop } = useBreakpoints();
   const isPlaceholderShown = useSelector(getIsPlaceholderShown);
   const dispatch = useDispatch();
 
@@ -112,14 +110,12 @@ export default function CaruselSliderHome() {
 
   return (
     <div className={s.imageBox}>
-      {!!(isSmallScreen || isDesktop) && (
-        <IconButton
-          icon="chevronLeft"
-          size="lg"
-          onClick={goToPreviousSlide}
-          className={s.arrowButtonLeft}
-        />
-      )}
+      <IconButton
+        icon="chevronLeft"
+        size="lg"
+        onClick={goToPreviousSlide}
+        className={s.arrowButtonLeft}
+      />
       {!!showPlaceholder && !isPlaceholderShown && (
         <img
           src={placeholder}
@@ -147,14 +143,12 @@ export default function CaruselSliderHome() {
           />
         )
       )}
-      {!!(isSmallScreen || isDesktop) && (
-        <IconButton
-          icon="chevronRight"
-          size="lg"
-          onClick={goToNextSlide}
-          className={s.arrowButtonRight}
-        />
-      )}
+      <IconButton
+        icon="chevronRight"
+        size="lg"
+        onClick={goToNextSlide}
+        className={s.arrowButtonRight}
+      />
       {renderPagination()}
     </div>
   );
