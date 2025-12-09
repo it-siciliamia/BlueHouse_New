@@ -100,8 +100,8 @@ function ReviewSection() {
           </Swiper>
 
           <div className={s.sliderNavigation}>
-            <IconButton id="swiper-prev" icon="chevronLeft" />
-            <IconButton id="swiper-next" icon="chevronRight" />
+            <IconButton id="swiper-prev" icon="chevronLeft" size="lg" />
+            <IconButton id="swiper-next" icon="chevronRight" size="lg" />
           </div>
         </div>
       </div>

@@ -30,7 +30,7 @@ const SOCIAL_LINKS = Object.freeze([
     icon: XIcon,
     type: "external",
     //removed twitter link since the account is not active and changed newTab to false so it wont open a new tab when clicked
-    href: "#",
+    to: "/",
     newTab: false,
   },
   {
@@ -70,7 +70,7 @@ const BLUE_HOUSE_LINKS = Object.freeze([
     id: "support",
     name: "Support",
     type: "external",
-    href: "https://gnl.ladesk.com/219394-Feedback",
+    href: "https://bluehouseis.zohodesk.eu/portal/en/newticket?departmentId=135604000000205173&layoutId=135604000000214460",
     newTab: true,
   },
   {

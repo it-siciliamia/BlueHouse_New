@@ -1,25 +1,25 @@
+$tablet: 48em;
+$smallScreen: 60em;
+$desktop: 80em;
+
 .recommendations {
-  width: 100%;
-  margin: auto;
+  width: calc(100% + 1rem);
+  margin: auto auto 2.5rem auto;
   --card-max-width: 16.875rem;
   --card-aspect-ratio: 270 / 382;
+  --card-aspect-ratio-tablet: 213 / 240;
+  --card-aspect-ratio-mobile: 252 / 252;
 
-  @media (min-width: 320px) {
-    padding: 0 2rem;
-    margin-bottom: 2.5rem;
+  @media (min-width: $tablet) {
+    width: 100%;
   }
 
-  @media (min-width: 600px) {
-    padding: 1.6rem 1rem;
-  }
-
-  @media (min-width: 960px) {
+  @media (min-width: $smallScreen) {
     margin-top: 30px;
-    padding: 1.6rem 0;
     margin-bottom: 6.5rem;
   }
 
-  @media (min-width: 1280px) {
+  @media (min-width: $desktop) {
     padding: 0;
   }
 }
@@ -29,10 +29,7 @@
   flex-direction: column;
   gap: 1rem;
 
-  @media (min-width: 960px) {
-  }
-
-  @media (min-width: 1280px) {
+  @media (min-width: $desktop) {
     gap: 6rem;
     flex-direction: row;
     align-items: flex-start;
@@ -49,26 +46,35 @@
   scroll-snap-type: x mandatory;
   scroll-padding-inline: max(1rem, calc((100% - var(--card-max-width)) / 2));
   -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
 
   &::-webkit-scrollbar {
     display: none;
   }
 
-  /* ≥ 600px */
-  @media (min-width: 37.5em) {
+  @media (min-width: $tablet) {
     display: grid;
     overflow: hidden;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
     scroll-snap-type: none;
-    gap: 1.25rem;
-    grid-template-columns: 1fr 1fr;
-    justify-items: center;
+    scroll-padding-inline: 0;
+    -webkit-overflow-scrolling: auto;
+
+    &::-webkit-scrollbar {
+      display: initial;
+    }
   }
 
-  /* ≥ 960px */
-  @media (min-width: 60em) {
+  @media (min-width: $smallScreen) {
+    scroll-snap-type: none;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 8.2rem;
+    gap: 7.2rem;
     justify-items: start;
+  }
+
+  @media (min-width: $desktop) {
+    gap: 8.2rem;
   }
 }
 
@@ -82,16 +88,18 @@
   margin-inline: 0;
   flex: 0 0 clamp(0rem, 100%, var(--card-max-width));
 
-  @media (min-width: 37.5em) {
-    flex: none;
+  @media (min-width: $tablet) {
+    flex: 1;
     width: 100%;
-  }
-
-  @media (min-width: 60em) {
     max-width: none;
   }
 
-  @media (min-width: 80em) {
+  @media (min-width: $smallScreen) {
+    max-width: none;
+  }
+
+  @media (min-width: $desktop) {
+    flex: none;
     max-width: var(--card-max-width);
   }
 
@@ -99,10 +107,14 @@
     display: block;
     width: 100%;
 
-    aspect-ratio: 1 / 1;
+    aspect-ratio: var(--card-aspect-ratio-mobile);
     overflow: hidden;
 
-    @media (min-width: 37.5em) {
+    @media (min-width: $tablet) {
+      aspect-ratio: var(--card-aspect-ratio-tablet);
+    }
+
+    @media (min-width: $smallScreen) {
       aspect-ratio: var(--card-aspect-ratio);
     }
   }
@@ -127,7 +139,7 @@
       padding-bottom: 0.5rem;
       border-bottom: 1px solid var(--color-primary-100);
 
-      @media (min-width: 80em) {
+      @media (min-width: $desktop) {
         font-size: 1.5rem;
       }
     }
@@ -138,7 +150,7 @@
       color: var(--text-body);
       margin-bottom: 0rem; // Workaround: overwrites bootstrap styling
 
-      @media (min-width: 80em) {
+      @media (min-width: $desktop) {
         font-size: 1.12rem;
       }
     }
@@ -146,7 +158,7 @@
 }
 
 .titleWrapper {
-  @media (min-width: 1280px) {
+  @media (min-width: $desktop) {
     position: relative;
   }
 }
@@ -157,25 +169,20 @@
     font-family: "Oblik", Arial, sans-serif;
     font-size: 20px;
     font-weight: 900;
-    letter-spacing: 0.1em;
   }
-  @media (min-width: 1280px) {
+  @media (min-width: $desktop) {
     position: absolute;
-    white-space: nowrap;
-    top: 124px;
-    left: -120px;
+    top: 106px;
+    left: -110px;
     height: fit-content;
-    font-family: "Oblik", Arial, sans-serif;
     font-size: 24px;
-    font-weight: 900;
-    letter-spacing: 0.1em;
     transform: rotate(-90deg);
   }
 }
 
 .sliderBtnWrapper {
   display: none;
-  @media (max-width: 960px) {
+  @media (max-width: $smallScreen) {
     display: flex;
     position: absolute;
     margin-bottom: -40px;
@@ -187,7 +194,7 @@
 }
 .navigation {
   display: none;
-  @media (max-width: 600px) {
+  @media (max-width: $tablet) {
     display: flex;
     position: absolute;
   }
