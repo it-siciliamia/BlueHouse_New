@@ -9,7 +9,7 @@ import gc from "../../images/RECOMMENDATIONS/Glacier-Caves.webp";
 import gcd from "../../images/RECOMMENDATIONS/Glacier-Caves01.webp";
 import nl from "../../images/RECOMMENDATIONS/Northernlights.webp";
 import nld from "../../images/RECOMMENDATIONS/Northernlights01.webp";
-import useBreakpoints from "../../Styles/useBreakpoints.js";
+import useBreakpoints from "../../Styles/useBreakpointsNew.js";
 import { WithTransLate } from "../helpers/translating/index.jsx";
 
 function Card({ title, imageSrc, description }) {
@@ -38,7 +38,7 @@ Card.propTypes = {
 };
 
 const Recommendations = () => {
-  const { isTablet, isDesktop } = useBreakpoints();
+  const { isDesktop } = useBreakpoints();
   const recommendationsData = [
     {
       name: "Northern Lights",
@@ -73,12 +73,7 @@ const Recommendations = () => {
     },
   ];
 
-  let displayedCards = [];
-  if (isTablet) {
-    displayedCards = recommendationsData.slice(0, 4);
-  } else {
-    displayedCards = recommendationsData.slice(0, 3);
-  }
+  let displayedCards = recommendationsData.slice(0, 3);
 
   return (
     <div id="RECOMMENDATIONS" className={s.recommendations}>
