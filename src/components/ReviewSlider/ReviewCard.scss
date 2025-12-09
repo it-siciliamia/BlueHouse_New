@@ -43,7 +43,7 @@ $tablet: 48em; // ~768px
     bottom: 1.2rem;
     right: 2.5rem;
 
-    @media (min-width: $smallScreen) {
+    @media (min-width: $tablet) {
       bottom: 1.6rem;
       right: 1rem;
     }
