@@ -3,7 +3,7 @@ import addservices01 from "../../images/roombooking/add_services/add_services01.
 import addservices02 from "../../images/roombooking/add_services/add_services02.webp";
 import addservices03 from "../../images/roombooking/add_services/add_services03.webp";
 import addservices04 from "../../images/roombooking/add_services/add_services04.webp";
-import useBreakpoints from "../../Styles/useBreakpoints.js";
+import useBreakpoints from "../../Styles/useBreakpointsNew.js";
 import { WithTransLate } from "../helpers/translating/index.jsx";
 
 const AdditionalServices = () => {

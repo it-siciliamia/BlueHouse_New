@@ -13,7 +13,7 @@ import {
   getBookingConfirmed,
 } from "../../redux/technitial/technical-selectors.js";
 import { setPaymentStage } from "../../redux/technitial/technical-slice.js";
-import useBreakpoints from "../../Styles/useBreakpoints.js";
+import useBreakpoints from "../../Styles/useBreakpointsNew.js";
 import { WithTransLate } from "../helpers/translating";
 import Button from "../Shared/Button/Button.jsx";
 
@@ -21,7 +21,7 @@ const PaymentComponent = () => {
   const dispatch = useDispatch();
   const paymentStage = useSelector(getPaymentStage);
   const bookingConfirmed = useSelector(getBookingConfirmed);
-  const { isMobile, isTablet, isLaptop } = useBreakpoints();
+  const { isMobile, isTablet, isSmallScreen } = useBreakpoints();
 
   useEffect(() => {
     window.scrollTo({
@@ -65,7 +65,7 @@ const PaymentComponent = () => {
               text="Back"
               icon={<IoIosArrowBack />}
               size="24px"
-              width={isLaptop ? "95px" : "115px"}
+              width={isSmallScreen ? "95px" : "115px"}
               btnClass="btnLightWithOut"
               handleClick={handleBackClick}
             />
@@ -88,7 +88,7 @@ const PaymentComponent = () => {
               text="Back"
               icon={<IoIosArrowBack />}
               size="24px"
-              width={isLaptop ? "95px" : "115px"}
+              width={isSmallScreen ? "95px" : "115px"}
               btnClass="btnLightWithOut"
               handleClick={handleBackClick}
             />

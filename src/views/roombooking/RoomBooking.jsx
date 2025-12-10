@@ -9,7 +9,7 @@ import ReviewRoomBooking from "../../components/ReviewRoomBooking/ReviewRoomBook
 import ServicesRoom from "../../components/ServicesRoom/ServicesRoom.jsx";
 import Support from "../../components/SuportComponent/support.jsx";
 import { getRoomsData } from "../../redux/technitial/technical-operations.js";
-import useBreakpoints from "../../Styles/useBreakpoints.js";
+import useBreakpoints from "../../Styles/useBreakpointsNew.js";
 import "./index.css";
 
 export const googleRatings = [
@@ -25,7 +25,7 @@ export const tripadvisorRating = {
 
 const RoomBooking = () => {
   const dispatch = useDispatch();
-  const { isMobile, isTablet, isLaptop, isDesktop } = useBreakpoints();
+  const { isMobile, isTablet, isSmallScreen, isDesktop } = useBreakpoints();
 
   useEffect(() => {
     dispatch(getRoomsData());
@@ -34,7 +34,7 @@ const RoomBooking = () => {
   return (
     <div className="roomBooking">
       {!!(isMobile || isTablet) && <SearchContainerMobile />}
-      {!!(isDesktop || isLaptop) && (
+      {!!(isDesktop || isSmallScreen) && (
         <div className="hero">
           <HeaderIcons />
           <SearchContainer />
@@ -42,7 +42,7 @@ const RoomBooking = () => {
       )}
       {!!isDesktop && <Advantages />}
       <ServicesRoom />
-      {!!(isDesktop || isLaptop) && (
+      {!!(isDesktop || isSmallScreen) && (
         <ReviewRoomBooking tripadvisor={tripadvisorRating} googleRatings={googleRatings} />
       )}
       {!!isMobile && <Advantages />}

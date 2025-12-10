@@ -13,14 +13,14 @@ import Button from "../../components/Shared/Button/Button.jsx";
 import PhotoSlider from "../../components/Shared/SliderSlick/SliderSlick.jsx";
 import Support from "../../components/SuportComponent/support.jsx";
 import { setPaymentStage } from "../../redux/technitial/technical-slice.js";
-import useBreakpoints from "../../Styles/useBreakpoints.js";
+import useBreakpoints from "../../Styles/useBreakpointsNew.js";
 
 const RoomDetails = () => {
   const { room } = useParams();
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const { isLaptop, isDesktop } = useBreakpoints();
+  const { isSmallScreen, isDesktop } = useBreakpoints();
 
   const roomData = items.find((item) => item.links.href.includes(room));
 
@@ -32,7 +32,7 @@ const RoomDetails = () => {
     navigate("/beds24");
   };
 
-  const calculatedWidth = isLaptop ? `calc(100% - 50px)` : `calc(100% - 70px)`;
+  const calculatedWidth = isSmallScreen ? `calc(100% - 50px)` : `calc(100% - 70px)`;
 
   return (
     <div className={s.roomdetails}>
@@ -43,16 +43,16 @@ const RoomDetails = () => {
               text="Back"
               icon={<IoIosArrowBack />}
               size="24px"
-              width={isLaptop ? "95px" : "115px"}
+              width={isSmallScreen ? "95px" : "115px"}
               btnClass="btnLightWithOut"
               handleClick={handleBackClick}
             />
           </div>
-          {!!(isDesktop || isLaptop) && (
+          {!!(isDesktop || isSmallScreen) && (
             <PhotoSlider
               photos={roomData.photos}
               width={calculatedWidth}
-              height={isLaptop ? "400px" : "510px"}
+              height={isSmallScreen ? "400px" : "510px"}
             />
           )}
         </div>

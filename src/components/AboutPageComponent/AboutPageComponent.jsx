@@ -1,11 +1,11 @@
 import s from "./AboutPageComponent.module.scss";
 import signature from "../../images/aboutus/signature.png";
-import useBreakpoints from "../../Styles/useBreakpoints.js";
+import useBreakpoints from "../../Styles/useBreakpointsNew.js";
 import { WithTransLate } from "../helpers/translating/index.jsx";
 import NewMap from "../map/NewMap.jsx";
 
 function AboutPageComponent() {
-  const { isMobile, isTablet, isLaptop, isDesktop } = useBreakpoints();
+  const { isMobile, isTablet, isSmallScreen, isDesktop } = useBreakpoints();
 
   return (
     <section className={s.about}>
@@ -21,7 +21,7 @@ function AboutPageComponent() {
               <div
                 className={s.partImage}
                 style={{
-                  marginBottom: !isDesktop || !isLaptop ? "65px" : "0px",
+                  marginBottom: !isDesktop || !isSmallScreen ? "65px" : "0px",
                 }}
               >
                 <div className={s.imageFirst}></div>
@@ -60,7 +60,7 @@ function AboutPageComponent() {
                   </p>
                 </div>
               </div>
-              {!!(isDesktop || isLaptop) && (
+              {!!(isDesktop || isSmallScreen) && (
                 <div className={s.partImage}>
                   <div className={s.imageSecond}></div>
                 </div>
@@ -75,17 +75,17 @@ function AboutPageComponent() {
               <WithTransLate text="MESSAGE FROM FOUNDER" />
             </h2>
           </div>
-          <div className={s.sectionPart} style={{ marginTop: isLaptop ? "40px" : "0" }}>
+          <div className={s.sectionPart} style={{ marginTop: isSmallScreen ? "40px" : "0" }}>
             {!!(isMobile || isTablet) && (
               <div className={s.partImage}>
                 <div
                   style={{
-                    marginRight: isMobile || isTablet || isLaptop ? "0px" : "50px",
-                    marginLeft: isMobile || isTablet || isLaptop ? "0px" : "50px",
+                    marginRight: isMobile || isTablet || isSmallScreen ? "0px" : "50px",
+                    marginLeft: isMobile || isTablet || isSmallScreen ? "0px" : "50px",
                     width: "100%",
                     display: "flex",
                     flexDirection: "column",
-                    alignItems: isMobile || isTablet || isLaptop ? "center" : "flex-start",
+                    alignItems: isMobile || isTablet || isSmallScreen ? "center" : "flex-start",
                   }}
                 >
                   <div className={s.imageZeno}></div>
@@ -126,16 +126,16 @@ function AboutPageComponent() {
                 </p>
               </div>
             </div>
-            {!!(isDesktop || isLaptop) && (
+            {!!(isDesktop || isSmallScreen) && (
               <div className={s.partImage}>
                 <div
                   style={{
-                    marginRight: isMobile || isTablet || isLaptop ? "0px" : "50px",
-                    marginLeft: isMobile || isTablet || isLaptop ? "0px" : "50px",
+                    marginRight: isMobile || isTablet || isSmallScreen ? "0px" : "50px",
+                    marginLeft: isMobile || isTablet || isSmallScreen ? "0px" : "50px",
                     width: "100%",
                     display: "flex",
                     flexDirection: "column",
-                    alignItems: isMobile || isTablet || isLaptop ? "center" : "flex-start",
+                    alignItems: isMobile || isTablet || isSmallScreen ? "center" : "flex-start",
                   }}
                 >
                   <div className={s.imageZeno} style={{ marginBottom: "20px" }}></div>
