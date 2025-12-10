@@ -124,11 +124,12 @@
   border: none;
   outline: none;
   padding: 10px;
-  font-weight: 400;
+  font-weight: 200;
   color: #1d3967;
   @media (min-width: 320px) and (max-width: 599.99px) {
-    margin-top: 3px;
-    margin-bottom: -3px;
+    margin: 3px 0 0;
+    box-sizing: border-box;
+
     font-size: 13.45px;
   }
 
@@ -576,6 +577,7 @@
   background-color: white;
   border: 1px solid lightgrey;
   z-index: 2;
+
 }
 .booking-text-mobile {
   color: #1d3967;
