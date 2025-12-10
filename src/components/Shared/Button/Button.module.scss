@@ -60,6 +60,33 @@
   justify-content: center;
 }
 
+/* decline btn based on the figma design*/
+.btnDecline{
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0%;
+  border: 1px solid #1d3967;
+  text-align: center;
+  text-transform: uppercase;
+  color: #1d3967;
+  background-color: transparent;
+  padding: 16px 64px;
+  cursor: pointer;
+  width: 163px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+
+
+
+
+}
+
 .btnLight {
   display: flex;
   flex-direction: row;

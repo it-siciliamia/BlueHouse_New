@@ -140,7 +140,7 @@ function CookiesBanner() {
         <Button
           handleClick={() => handleAcceptingAndDeclineCookies(false)}
           text="DECLINE "
-          btnClass="btnDark"
+          btnClass="btnDecline"
           width={isMobile ? "100px" : "200px"}
 
         />
