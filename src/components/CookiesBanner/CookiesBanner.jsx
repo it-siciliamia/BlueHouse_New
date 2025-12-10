@@ -143,7 +143,6 @@ function CookiesBanner() {
           btnClass="btnDark"
           width={isMobile ? "100px" : "200px"}
         />
-        <ManagePreferences />
       </div>
     </div>
   );
