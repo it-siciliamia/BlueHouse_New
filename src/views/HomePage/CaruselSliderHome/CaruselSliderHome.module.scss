@@ -1,6 +1,4 @@
-$tablet: 48em; // 768px
-$small-screen: 60em; // 960px
-$desktop: 80em; // 1280px
+@use "../../../Styles/App.scss" as app;
 
 /* --- Base hero layout --- */
 .imageBox {
@@ -14,11 +12,11 @@ $desktop: 80em; // 1280px
   margin-right: calc(50% - 50vw);
   aspect-ratio: 375 / 300; // Figma's aspect ratio for mobile
 
-  @media (min-width: $tablet) {
+  @media (min-width: app.$tablet) {
     aspect-ratio: 1054 / 556; // Figma's aspect ratio standard
   }
 
-  @media (min-width: $small-screen) {
+  @media (min-width: app.$smallScreen) {
     width: 100%;
     margin-left: 0;
     margin-right: 0;
@@ -77,7 +75,7 @@ $desktop: 80em; // 1280px
     padding: 0 2rem;
   }
 
-  @media (min-width: $tablet) {
+  @media (min-width: app.$tablet) {
     font-size: 4.4rem;
     bottom: 40%;
     width: 80%;
@@ -85,7 +83,7 @@ $desktop: 80em; // 1280px
     padding: 0 2rem;
   }
 
-  @media (min-width: $desktop) {
+  @media (min-width: app.$desktop) {
     font-size: 5.6rem;
     width: 70%;
     max-width: 56.3rem;
@@ -158,14 +156,14 @@ $desktop: 80em; // 1280px
 .arrowButtonLeft {
   left: 1rem;
 
-  @media (min-width: $small-screen) {
+  @media (min-width: app.$smallScreen) {
     left: 1.5rem;
   }
 }
 .arrowButtonRight {
   right: 1rem;
 
-  @media (min-width: $small-screen) {
+  @media (min-width: app.$smallScreen) {
     right: 1.5rem;
   }
 }

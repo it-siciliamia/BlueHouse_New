@@ -1,6 +1,4 @@
-$tablet: 37.5em; // 600px
-$laptop: 60em; // 960px
-$desktop: 80em; // 1280px
+@use "../../Styles/App.scss" as app;
 
 .home {
   display: flex;
@@ -13,14 +11,14 @@ $desktop: 80em; // 1280px
   display: flex;
   flex-direction: column;
 
-  @media (min-width: $laptop) {
+  @media (min-width: app.$smallScreen) {
     flex-direction: row;
     justify-content: center;
     gap: 3rem;
     padding-left: 0;
   }
 
-  @media (min-width: $desktop) {
+  @media (min-width: app.$desktop) {
     gap: 3.125rem;
   }
 }
