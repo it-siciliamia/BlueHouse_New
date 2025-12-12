@@ -125,15 +125,15 @@
   outline: none;
   padding: 10px;
   font-weight: 400;
-  width: 200px;
+  width:200px;
   height: 40px;
   color: #1d3967;
+
   @media (min-width: 320px) and (max-width: 599.99px) {
   margin: 3px 0 0;
 
-    box-sizing: border-box;
     height: 40px;
-    width: 100%;
+    width: calc(100% - 2px); /* remove 1 border px from each side*/
 
     font-size: 13.45px;
   }
@@ -573,6 +573,7 @@
 }
 .search-container-mobile {
   padding-top: 1px;
+  padding-left: 2px;
   padding-bottom: 1px;
   position: relative;
   display: flex;
