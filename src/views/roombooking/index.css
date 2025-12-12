@@ -124,12 +124,16 @@
   border: none;
   outline: none;
   padding: 10px;
-  font-weight: 200;
+  font-weight: 400;
+  width: 200px;
+  height: 40px;
   color: #1d3967;
   @media (min-width: 320px) and (max-width: 599.99px) {
-    margin: 3px 0 0;
+  margin: 3px 0 0;
 
     box-sizing: border-box;
+    height: 40px;
+    width: 100%;
 
     font-size: 13.45px;
   }
