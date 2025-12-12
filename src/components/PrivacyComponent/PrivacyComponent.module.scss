@@ -29,6 +29,7 @@
     // margin-left: 35px;
     // width: 70px;
     position: relative;
+    margin-bottom: 20px;
   }
 }
 
@@ -53,6 +54,7 @@
     font-weight: 900;
     letter-spacing: 0.1em;
     transform: rotate(-90deg);
+    margin-top: 20px;
   }
 }
 
@@ -86,11 +88,13 @@
   background-position: center;
   background-repeat: no-repeat;
   width: 100%;
+  transform: translateX(90px);
   @media (min-width: 320px) and (max-width: 959.99px) {
-    height: 200px;
+   height: 200px;
   }
   @media (min-width: 960px) and (max-width: 2200px) {
-    height: 500px;
+    height: 527px;
+    width: 1054px;
   }
 }
 
@@ -108,3 +112,66 @@
     height: 500px;
   }
 }
+
+.buttonSection {
+    display: inline-flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 15px;
+    margin-top: 40px;
+    margin-bottom: 56px;
+    border-bottom: 2px solid #e0e0e0;
+    width: fit-content;
+
+   @media (max-width: 768px) {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 40px
+}}
+
+.buttonLink {
+    background-color: transparent;
+    border: 0px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-block;
+    text-align: center;
+    position: relative;
+}
+
+.buttonLink a {
+    color: grey;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: normal;
+    padding-bottom: 4px;
+    display: inline-block;
+}
+
+.buttonLink:hover a {
+    color: #1d3967;
+    font-weight: bold;
+}
+
+.buttonLink:active a {
+    font-weight: bold;
+}
+
+.buttonLink::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 40px;
+    width: 30%;
+    height: 2px;
+    background-color: transparent;
+    transition: all 0.3s ease;
+}
+
+.buttonLink:hover::after {
+    background-color: #1d3967;
+}
+
+

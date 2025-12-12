@@ -81,10 +81,16 @@ const BLUE_HOUSE_LINKS = Object.freeze([
     newTab: true,
   },
   {
-    id: "privacy-policy",
-    name: "Imprint & Privacy Policy",
+    id: "cookie-policy",
+    name: "Cookie-Policy",
     type: "route",
-    to: "/privacy-and-policy",
+    to: "/cookie-policy",
+  },
+   {
+    id: "privacy",
+    name: "Privacy",
+    type: "route",
+    to: "/privacy",
   },
   {
     id: "cancellation-policy",

@@ -21,7 +21,9 @@ import HomePage from "./views/HomePage/HomePage.jsx";
 import HouseRules from "./views/HouseRulesPage/HouseRules.jsx";
 import Notfound from "./views/NotFoundPage/Notfound.jsx";
 import PaymentPage from "./views/PaymentPage/PaymentPage.jsx";
-import PrivacyandPolicyPage from "./views/PrivacyPolicyPage/PrivacyPolicyPage.jsx";
+import Privacy from "./components/PrivacyComponent/Privacy.jsx";
+import CookiePolicy from "./components/PrivacyComponent/CookiePolicy.jsx";
+// import PrivacyandPolicyPage from "./views/PrivacyPolicyPage/PrivacyPolicyPage.jsx";
 import RoomBooking from "./views/roombooking/RoomBooking.jsx";
 import RoomDetails from "./views/RoomDetails/RoomDetails.jsx";
 
@@ -58,7 +60,9 @@ function App() {
                 <Route index element={<HomePage />} />
                 <Route path="house-rules" element={<HouseRules />} />
                 <Route path="about-us" element={<Aboutus />} />
-                <Route path="privacy-and-policy" element={<PrivacyandPolicyPage />} />
+                <Route path="privacy" element={<Privacy />} />
+                <Route path="cookie-policy" element={<CookiePolicy />} />
+                {/* <Route path="privacy-and-policy" element={<PrivacyandPolicyPage />} /> */}
                 <Route path="book" element={<RoomBooking />} />
                 <Route path="beds24" element={<RoomBooking />} />
                 <Route path="beds24/:room" element={<RoomDetails />} />
