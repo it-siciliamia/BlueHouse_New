@@ -17,12 +17,31 @@ $desktop: 80em;
 }
 
 .logoImage {
-  width: 176px;
+  width: 176px; // mobile (< 600px)
   height: 64px;
   object-fit: cover;
   cursor: pointer;
   user-select: none;
+
+ @media (min-width: $tablet) and (max-width: calc(#{$desktop} - 0.0625em)) { // tablet stops at 1279px
+    width: 10.375rem; // tablet range, 166px
+    height: auto;
+    max-height: 4.411rem; // 70.59px
+    margin-left: 2rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  @media(min-width: $desktop){
+    width: 176px;
+    height: 64px;
+    margin: 0;
+  }
 }
+
+
+
+
 
 .btnsWrapper {
   display: flex;
@@ -67,6 +86,8 @@ $desktop: 80em;
     font-size: 1rem;
     min-inline-size: 13.62rem;
   }
+
+
 
   /* Only hide on desktop when isSearchOpern state is true */
   @media (min-width: $desktop) {
