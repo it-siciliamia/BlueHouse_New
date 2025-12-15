@@ -16,7 +16,7 @@ import ScrollToTopButton from "./components/Shared/ScrollToTopButton/ScrollToTop
 import { UserContext } from "./context/UserContext.js";
 import theme from "./Styles/theme.js";
 import ThankYou from "./thankyou/index.jsx";
-import AboutUsNew from "./views/AboutUsPage/AboutUsNew.jsx";
+import AboutUs from "./views/AboutUsPage/AboutUs.jsx";
 import HomePage from "./views/HomePage/HomePage.jsx";
 import HouseRules from "./views/HouseRulesPage/HouseRules.jsx";
 import Notfound from "./views/NotFoundPage/Notfound.jsx";
@@ -57,7 +57,7 @@ function App() {
               <Route path="/" element={<Layout />}>
                 <Route index element={<HomePage />} />
                 <Route path="house-rules" element={<HouseRules />} />
-                <Route path="about-us" element={<AboutUsNew />} />
+                <Route path="about-us" element={<AboutUs />} />
                 <Route path="privacy-and-policy" element={<PrivacyandPolicyPage />} />
                 <Route path="book" element={<RoomBooking />} />
                 <Route path="beds24" element={<RoomBooking />} />
