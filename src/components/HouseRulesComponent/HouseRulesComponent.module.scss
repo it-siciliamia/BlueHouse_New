@@ -1,46 +1,45 @@
+@use "../../Styles/App.scss" as app;
+
 .houseRules {
-  @media (min-width: 320px) and (max-width: 599.99px) {
-    width: 100%;
-  }
-  @media (min-width: 600px) and (max-width: 1279.99px) {
-  }
-  @media (min-width: 1280px) and (max-width: 2200px) {
-    margin: auto !important;
+  width: 100%;
+  @media (min-width: app.$desktop) {
+    margin: auto;
     max-width: 978px;
   }
 }
 
-.titleWrapper {
-  @media (min-width: 1280px) and (max-width: 2200px) {
+.titleWrapper,
+.titleWrapperMobile {
+  @media (min-width: app.$desktop) {
     padding: 0;
     width: 50px;
     position: relative;
   }
 }
 
+.titleWrapperMobile {
+  @media (min-width: app.$desktop) {
+    display: none;
+  }
+}
+
 .title {
   color: #00366e;
-  @media (min-width: 320px) and (max-width: 1279px) {
-    white-space: nowrap;
-    font-family: "Oblik", Arial, sans-serif;
-    font-size: 20px;
-    font-weight: 900;
-    letter-spacing: 0.1em;
-    position: relative;
-    top: 1.5rem !important;
-    left: 20px !important;
-    width: 329px;
-  }
-  @media (min-width: 1280px) and (max-width: 2200px) {
+  white-space: nowrap;
+  font-family: "Oblik", Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  position: relative;
+  top: 1.5rem;
+  left: 20px;
+  width: 329px;
+  @media (min-width: app.$desktop) {
     position: absolute;
-    white-space: nowrap;
     top: 80px;
     left: -160px;
     height: fit-content;
-    font-family: "Oblik", Arial, sans-serif;
     font-size: 24px;
-    font-weight: 900;
-    letter-spacing: 0.1em;
     transform: rotate(-90deg);
   }
 }
@@ -49,8 +48,8 @@
   display: flex;
   flex-direction: column;
   gap: 40px;
-  @media (min-width: 1280px) and (max-width: 2200px) {
-    margin-left: 20px !important;
+  @media (min-width: app.$desktop) {
+    margin-left: 20px;
     gap: 50px;
     width: 978px;
   }
@@ -61,10 +60,12 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  @media (min-width: 320px) and (max-width: 1279.99px) {
-    height: 250px;
+  height: 250px;
+  width: 100%;
+  @media (min-width: app.$tablet) {
+    height: 350px;
   }
-  @media (min-width: 1280px) and (max-width: 2200px) {
+  @media (min-width: app.$desktop) {
     height: 500px;
     width: 946px;
   }
@@ -74,12 +75,10 @@
   display: flex;
   flex-direction: column;
   gap: 40px;
-  @media (min-width: 320px) and (max-width: 599.99px) {
-    margin: 30px auto;
-    gap: 40px;
-  }
-  @media (min-width: 1280px) and (max-width: 2200px) {
+  margin: 30px auto;
+  @media (min-width: app.$desktop) {
     gap: 50px;
+    margin: 0;
   }
 }
 
@@ -87,49 +86,41 @@
   display: flex;
   flex-direction: row;
   text-align: left;
-  @media (min-width: 320px) and (max-width: 599.99px) {
-    gap: 16px;
-    padding: 0 30px;
+  gap: 16px;
+  padding: 0 30px;
+  @media (min-width: app.$tablet) {
+    padding: 0;
   }
-  @media (min-width: 1280px) and (max-width: 2200px) {
+  @media (min-width: app.$desktop) {
     align-items: center;
   }
 }
 
 .iconStyle {
   max-width: 60px;
-  @media (min-width: 320px) and (max-width: 599.99px) {
-    margin-bottom: 20px;
-    width: 30px;
-    height: 30px;
-  }
-  @media (min-width: 600px) and (max-width: 959.99px) {
+  width: 30px;
+  height: 30px;
+  margin-bottom: 20px;
+  @media (min-width: app.$tablet) {
     margin-bottom: 0;
   }
 }
 
 .ruleText {
-  margin-left: 50px;
+  margin: 0;
   font-style: normal;
   font-weight: 300;
-  font-size: 22px;
+  font-size: 16px;
   line-height: 25px;
-  @media (min-width: 320px) and (max-width: 599.99px) {
-    margin: 0;
-    font-size: 16px;
-    text-align: left;
-    margin-left: 0;
+  text-align: left;
+  @media (min-width: app.$tablet) {
+    margin-left: 30px;
   }
-  @media (min-width: 600px) and (max-width: 959.99px) {
-    margin: 0 0 0 30px;
-    font-size: 16px;
+  @media (min-width: app.$smallScreen) {
+    margin-left: 40px;
   }
-  @media (min-width: 960px) and (max-width: 1279.99px) {
-    margin: 0 0 0 40px;
-    font-size: 16px;
-  }
-  @media (min-width: 1280px) and (max-width: 2200px) {
-    margin: 0 0 0 40px;
+  @media (min-width: app.$desktop) {
+    margin-left: 40px;
     width: 850px;
     font-size: 20px;
   }
