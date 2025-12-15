@@ -12,6 +12,8 @@
 
   @media (min-width: app.$tablet) {
     align-items: center;
+    gap: 5.75rem;
+    padding-bottom: 8rem;
   }
 
   @media (min-width: app.$desktop) {
@@ -28,7 +30,6 @@
   @media (min-width: app.$tablet) {
     align-items: center;
     gap: 2.5rem;
-    padding: 0 2.4rem;
   }
 
   @media (min-width: app.$desktop) {
@@ -39,11 +40,16 @@
 
   h3 {
     font-family: Oblik;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     font-weight: 600;
     text-transform: uppercase;
     white-space: nowrap;
     color: var(--color-primary-500);
+
+    @media (min-width: app.$tablet) {
+      font-size: 1.4rem;
+      margin-bottom: 0; // Workaround to override default margin-bottom
+    }
 
     @media (min-width: app.$desktop) {
       writing-mode: vertical-rl;
@@ -73,21 +79,25 @@
   flex-direction: column;
   gap: 1.5rem;
   align-items: center;
+
+  @media (min-width: app.$desktop) {
+    align-items: flex-start;
+  }
 }
 
 .image {
   width: 100vw;
   max-width: 100vw;
-  aspect-ratio: 343 / 338;
+  aspect-ratio: 375 / 338;
   object-fit: cover;
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
 
   @media (min-width: app.$tablet) {
-    width: auto;
+    width: 23.43rem;
     margin-left: 0;
     margin-right: 0;
-    aspect-ratio: 341 / 405;
+    aspect-ratio: auto;
     object-fit: initial;
     max-height: 34.5rem;
     max-width: 29.12rem;
@@ -96,6 +106,12 @@
 
 .imgSignature {
   width: 13.2rem;
+}
+
+.textBox {
+  @media (min-width: app.$tablet) {
+    width: 34.5rem;
+  }
 }
 
 .btnWhatsapp {
@@ -108,4 +124,17 @@
   @media (min-width: app.$desktop) {
     justify-self: auto;
   }
+}
+
+.gap {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.marginBottomSm {
+  margin-bottom: 1rem;
+}
+
+.marginBottom {
+  margin-bottom: 2rem;
 }

@@ -28,7 +28,7 @@ function AboutUsNew() {
             <WithTransLate text="colour your experience" />
           </h3>
           <img src={aboutus1} alt="Blue house room" className={s.image} />
-          <div>
+          <div className={s.textBox}>
             <p>
               <WithTransLate text="Blue House Bed and Breakfast welcomes you to your home away from home in Reykjavik, Iceland. Simply put, we are a small team of globetrotters, passionate about unforgettable travel experiences. It’s an old, traditional, warm, charming Icelandic house" />
             </p>
@@ -50,9 +50,13 @@ function AboutUsNew() {
           </h3>
           <div className={s.imgBox}>
             <img src={message} alt="Portrait of Zeno" className={s.image} />
-            <img src={signature} alt="Zeno's signature" className={s.imgSignature} />
+            <img
+              src={signature}
+              alt="Zeno's signature"
+              className={` ${s.imgSignature} ${s.marginBottomSm}`}
+            />
           </div>
-          <div>
+          <div className={s.textBox}>
             <p>
               <WithTransLate text="For over 11 years I have been lucky to welcome guests from all over the globe." />
             </p>
@@ -74,7 +78,7 @@ function AboutUsNew() {
           </h3>
           <img src={aboutus2} alt="Zeno's team" className={s.image} />
           <div>
-            <div>
+            <div className={`${s.textBox} ${s.marginBottom}`}>
               <p>
                 <WithTransLate text="We’re passionate travellers, we love to welcome guests from all over the world and to share the beauty of Iceland." />
               </p>
