@@ -21,7 +21,7 @@ function Header() {
 
   return (
     <header className={s.headerContainer}>
-      <Link to="/">
+      <Link to="/" className={s.logoLink}>
         <img src={logo} alt="logo" className={s.logoImage} />
       </Link>
 

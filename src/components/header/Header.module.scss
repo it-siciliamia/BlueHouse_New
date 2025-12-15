@@ -16,26 +16,39 @@ $desktop: 80em;
   z-index: 3;
 }
 
+.logoLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem; // 8px top/bottom/left/right to match Figma padding
+  box-sizing: border-box;
+
+  @media (min-width: $tablet) and (max-width: calc(#{$desktop} - 0.0625em)) {
+    margin-left: 2rem; // 32px offset as per Figma spacing on tablet
+  }
+
+  @media (min-width: $desktop) {
+    margin-left: 0;
+  }
+}
+
 .logoImage {
-  width: 176px; // mobile (< 600px)
-  height: 64px;
-  object-fit: cover;
+  width: 9.375rem; // 150px (fits inside 166px frame with 8px padding)
+  height: auto;
+  max-height: 3.4125rem; // 54.6px
+  object-fit: contain;
   cursor: pointer;
   user-select: none;
 
- @media (min-width: $tablet) and (max-width: calc(#{$desktop} - 0.0625em)) { // tablet stops at 1279px
-    width: 10.375rem; // tablet range, 166px
-    height: auto;
-    max-height: 4.411rem; // 70.59px
-    margin-left: 2rem;
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
+  @media (min-width: $tablet) and (max-width: calc(#{$desktop} - 0.0625em)) {
+    width: 9.375rem;
+    max-height: 3.4125rem;
+    margin: 0;
   }
 
-  @media(min-width: $desktop){
-    width: 176px;
-    height: 64px;
-    margin: 0;
+  @media (min-width: $desktop) {
+    width: 11rem; // 176px desktop target
+    max-height: 4rem; // 64px
   }
 }
 
