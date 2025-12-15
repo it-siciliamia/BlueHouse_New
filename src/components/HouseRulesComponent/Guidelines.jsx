@@ -6,6 +6,7 @@ function Guidelines() {
     <div className={s.guidelines}>
       <Rule
         Icon={"./src/images/nosmoking.svg"}
+        header="No Smoking"
 
         text="Do not smoke neither in the room nor the rest of the house.
         It is not allowed by the Icelandic law and there is a penalty for people who don’t adhere to the these rules."
