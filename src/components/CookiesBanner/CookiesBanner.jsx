@@ -74,7 +74,9 @@ function CookiesBanner() {
     Cookies.set("cookiesPermation", choice);
     setDisplay("none");
   };
-  const { root, cookiesDescription, coockieTitle, actions, moreInfo } = useStyles({ display });
+  const { root, cookiesDescription, coockieTitle, actions, moreInfo, declineBtn } = useStyles({
+    display,
+  });
 
   if (display === "none") {
     return null;
@@ -140,7 +142,7 @@ function CookiesBanner() {
         <Button
           handleClick={() => handleAcceptingAndDeclineCookies(false)}
           text="DECLINE COOKIES"
-          btnClass="btnDark"
+          btnClass="btnLight"
           width={isMobile ? "100px" : "200px"}
         />
       </div>
