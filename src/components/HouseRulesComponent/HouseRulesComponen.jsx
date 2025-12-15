@@ -3,41 +3,22 @@ import { useEffect, useState } from "react";
 import Guidelines from "./Guidelines.jsx";
 import s from "./HouseRulesComponent.module.scss";
 import { WithTransLate } from "../../components/helpers/translating/index.jsx";
+import useBreakpoints from "../../Styles/useBreakpointsNew.js";
 
 function HouseRulesComponents() {
-  const [isMobileOrTablet, setIsMobileOrTablet] = useState(false);
-
-  useEffect(() => {
-    const mediaQuery = window.matchMedia("(max-width: 1280px)");
-
-    const handleResize = (e) => {
-      setIsMobileOrTablet(e.matches);
-    };
-
-    handleResize(mediaQuery); // Initial check
-    mediaQuery.addEventListener("change", handleResize);
-
-    return () => mediaQuery.removeEventListener("change", handleResize);
-  }, []);
+  const { isDesktop } = useBreakpoints();
 
   return (
     <section className={s.houseRules}>
       <div className={s.houseRulesContent}>
-        {isMobileOrTablet ? (
-          <div className={s.titleWrapperMobile}>
-            <div className={s.imageMain}></div>
-            <h2 className={s.title}>
-              <WithTransLate text="HOUSE RULES" />
-            </h2>
-          </div>
-        ) : (
-          <div className={s.titleWrapper}>
-            <h2 className={s.title}>
-              <WithTransLate text="HOUSE RULES" />
-            </h2>
-            <div className={s.imageMain}></div>
-          </div>
-        )}
+        <div className={isDesktop ? s.titleWrapper : s.titleWrapperMobile}>
+          {!isDesktop && <div className={s.imageMain}></div>}
+          <h2 className={s.title}>
+
+          </h2>
+          {isDesktop && <div className={s.imageMain}></div>}
+        </div>
+          <WithTransLate text="HOUSE RULES" />
         <Guidelines />
       </div>
     </section>
