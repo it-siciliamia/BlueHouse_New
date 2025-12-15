@@ -1,7 +1,4 @@
-// Media Queries variables
-$desktop: 80em; // ~1280px
-$smallScreen: 60em; // ~960px
-$tablet: 48em; // ~768px
+@use "../../Styles/App.scss" as app;
 
 .section {
   margin-bottom: 2.5rem;
@@ -13,11 +10,11 @@ $tablet: 48em; // ~768px
 
   overflow: hidden;
 
-  @media (min-width: $smallScreen) {
+  @media (min-width: app.$smallScreen) {
     margin-bottom: 6.5rem;
   }
 
-  @media (min-width: $desktop) {
+  @media (min-width: app.$desktop) {
     padding: 0;
     height: 22.75rem;
     width: 100%;
@@ -33,7 +30,7 @@ $tablet: 48em; // ~768px
     text-transform: uppercase;
     white-space: nowrap;
 
-    @media (min-width: $desktop) {
+    @media (min-width: app.$desktop) {
       font-size: 1.5rem;
 
       writing-mode: vertical-rl;
@@ -55,7 +52,7 @@ $tablet: 48em; // ~768px
     justify-content: center;
     gap: 1rem;
 
-    @media (min-width: $tablet) {
+    @media (min-width: app.$tablet) {
       overflow: hidden;
       height: 20rem;
 
@@ -65,7 +62,7 @@ $tablet: 48em; // ~768px
       gap: 3rem;
     }
 
-    @media (min-width: $desktop) {
+    @media (min-width: app.$desktop) {
       overflow: hidden;
       height: 22.8rem;
 
@@ -83,11 +80,11 @@ $tablet: 48em; // ~768px
   align-items: center;
   gap: 1rem;
 
-  @media (min-width: $tablet) {
+  @media (min-width: app.$tablet) {
     min-width: 14rem;
   }
 
-  @media (min-width: $desktop) {
+  @media (min-width: app.$desktop) {
     min-width: 20rem;
   }
 
@@ -129,12 +126,12 @@ $tablet: 48em; // ~768px
   align-items: center;
   width: 100%;
 
-  @media (min-width: $tablet) {
+  @media (min-width: app.$tablet) {
     width: auto;
     flex-direction: column;
   }
 
-  @media (min-width: $desktop) {
+  @media (min-width: app.$desktop) {
     width: 100%;
   }
 }
@@ -153,7 +150,7 @@ $tablet: 48em; // ~768px
   justify-content: space-between;
   pointer-events: none;
 
-  @media (min-width: $tablet) {
+  @media (min-width: app.$tablet) {
     top: 116%;
     right: 4%;
     bottom: -3rem;
@@ -167,11 +164,11 @@ $tablet: 48em; // ~768px
     gap: 1.2rem;
   }
 
-  @media (min-width: $smallScreen) {
+  @media (min-width: app.$smallScreen) {
     right: 0;
   }
 
-  @media (min-width: $desktop) {
+  @media (min-width: app.$desktop) {
     right: 2%;
   }
 }
@@ -183,7 +180,7 @@ $tablet: 48em; // ~768px
 
   width: 100%;
 
-  @media (min-width: $desktop) {
+  @media (min-width: app.$desktop) {
     margin-left: 0;
   }
 

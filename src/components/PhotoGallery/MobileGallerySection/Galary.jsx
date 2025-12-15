@@ -11,7 +11,7 @@ import * as React from "react";
 
 import { Rooms, Houses, Surroundings } from "./Galary-information.js";
 import ImageSlider from "./ImageSlider/ImageSlider.jsx";
-import useBreakpoints from "../../../Styles/useBreakpoints.js";
+import useBreakpoints from "../../../Styles/useBreakpointsNew.js";
 import { WithTransLate } from "../../helpers/translating";
 
 function CustomTabPanel(props) {
