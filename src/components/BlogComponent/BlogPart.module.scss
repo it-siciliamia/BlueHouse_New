@@ -1,32 +1,36 @@
+@use "../../Styles/App.scss" as app;
+
 .section {
-  width: 100%;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  width: 100vw;
   display: flex;
   justify-content: center;
-  margin-top: 40px; // UX-UI: Reduced for mobile
+  margin-top: 40px;
   margin-bottom: 2.5rem;
 
-  // Tablet
-  @media (min-width: 768px) {
+  @media (min-width: app.$tablet) {
     margin-top: 60px;
   }
 
-  // Desktop
-  @media (min-width: 1280px) {
+  @media (min-width: app.$desktop) {
     margin-top: 80px;
     margin-bottom: 4.5rem;
   }
 }
 
 .frame {
-  width: 100%; // UX-UI: Full width container
-  max-width: 1152px; // UX-UI: Maximum width for desktop
-  margin: 0 auto;
+  width: 100%;
+  max-width: 1152px;
   box-sizing: border-box;
 }
 
 .hero {
-  width: 100%; // UX-UI: Image spans full width
-  height: 400px; // UX-UI: Smaller height for mobile
+  width: 100%;
+  height: 475px;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -36,17 +40,17 @@
     box-shadow 0.6s ease;
 
   // Tablet
-  @media (min-width: 768px) {
-    height: 450px;
+  @media (min-width: app.$tablet) {
+    height: 400px;
   }
 
   // Small screens
-  @media (min-width: 960px) {
+  @media (min-width: app.$smallScreen) {
     height: 500px;
   }
 
   // Desktop
-  @media (min-width: 1280px) {
+  @media (min-width: app.$desktop) {
     height: 522px;
   }
 }
@@ -76,24 +80,21 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  padding: 0 20px; // UX-UI: Mobile padding - text has breathing room
+  padding: 0 20px; // Mobile padding from mockup
   box-sizing: border-box;
-  gap: 40px; // UX-UI: Smaller gap for mobile
+  gap: 40px;
 
-  // Tablet
-  @media (min-width: 768px) {
+  @media (min-width: app.$tablet) {
     padding: 0 40px;
     gap: 50px;
   }
 
-  // Small screens
-  @media (min-width: 960px) {
+  @media (min-width: app.$smallScreen) {
     padding: 0 60px;
     gap: 60px;
   }
 
-  // Desktop
-  @media (min-width: 1280px) {
+  @media (min-width: app.$desktop) {
     padding: 0 98px;
     gap: 80px;
   }
@@ -108,35 +109,46 @@
   font-family: "Oblik", Arial, sans-serif;
   font-weight: 700;
   font-size: 24px;
-  line-height: 29px;
-  letter-spacing: -1px;
+  line-height: 30px;
+  letter-spacing: -0.5px;
   text-transform: uppercase;
   color: #ffffff;
 
-  // Tablet
-  @media (min-width: 768px) {
+  @media (min-width: app.$tablet) {
+    font-size: 32px;
+    line-height: 38px;
+    letter-spacing: -0.8px;
+  }
+
+  @media (min-width: app.$smallScreen) {
+    font-size: 40px;
+    line-height: 42px;
+  }
+
+  @media (min-width: app.$desktop) {
     font-size: 40px;
     line-height: 48px;
+    letter-spacing: -1px;
   }
 }
 
 .paragraph {
-  margin: 20px 0 0 0; // UX-UI: Smaller margin for mobile
+  margin: 20px 0 0 0;
   max-width: 656px;
   font-family: "Josefin Sans", Arial, sans-serif;
   font-weight: 300;
-  font-size: 24px; // UX-UI: Smaller for mobile
-  line-height: 32px;
+  font-size: 16px;
+  line-height: 24px;
   color: #ffffff;
   text-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
 
-  // Tablet
-  @media (min-width: 768px) {
+  @media (min-width: app.$tablet) {
     margin: 30px 0 0 0;
+    font-size: 20px;
+    line-height: 28px;
   }
 
-  // Desktop
-  @media (min-width: 1280px) {
+  @media (min-width: app.$desktop) {
     margin: 40px 0 0 0;
     font-size: 24px;
     line-height: 32px;
@@ -155,15 +167,15 @@
 }
 
 .cta {
-  width: 100% !important; // UX-UI: Smaller button for mobile
-  height: 44px !important;
-  padding: 10px 24px !important;
+  width: 100% !important; // Fixed width across all breakpoints
+  height: 50px !important;
+  padding: 12px 36px !important;
   box-sizing: border-box !important;
   border-width: 1px !important;
   border-style: solid !important;
   font-family: "Josefin Sans", Arial, sans-serif !important;
-  font-size: 14px !important;
-  line-height: 22px !important;
+  font-size: 16px !important;
+  line-height: 24px !important;
   font-weight: 400 !important;
   letter-spacing: 0 !important;
   text-transform: uppercase !important;
@@ -172,13 +184,11 @@
   align-items: center !important;
   justify-content: center !important;
 
-  /* Colors — Secondary (white default) */
   background-color: #ffffff !important;
   color: #1d3967 !important;
   border-color: #1d3967 !important;
 
-  // Tablet
-  @media (min-width: 768px) {
+  @media (min-width: app.$tablet) {
     width: 218px !important;
     height: 50px !important;
     padding: 12px 36px !important;
