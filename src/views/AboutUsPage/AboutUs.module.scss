@@ -117,12 +117,12 @@
 .btnWhatsapp {
   display: flex;
   align-items: center;
-  justify-self: center;
+  margin: 0 auto;
   gap: 0.5rem;
   width: 17.2rem;
 
   @media (min-width: app.$desktop) {
-    justify-self: auto;
+    margin: 0;
   }
 }
 
