@@ -6,7 +6,7 @@ import keywords from "./keywords.json";
 import s from "../../components/header/search.module.scss";
 import CloseIcon from "../../images/close-white.svg";
 import SearchIcon from "../../images/SearchIcon_Header.svg";
-import useBreakpoints from "../../Styles/useBreakpointsNew.js";
+import useBreakpoints from "../../Styles/useBreakpoints.js";
 
 export default function Search({ onSearchToggle }) {
   const [open, setOpen] = useState(false);

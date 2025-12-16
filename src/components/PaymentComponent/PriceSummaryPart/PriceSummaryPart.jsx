@@ -11,7 +11,7 @@ import {
   getTotalAmountCurrency,
 } from "../../../redux/dataSearch/dataSearch-selectors.js";
 import { setCurrency, setExchangeRate } from "../../../redux/dataSearch/dataSearch-slice.js";
-import useBreakpoints from "../../../Styles/useBreakpointsNew.js";
+import useBreakpoints from "../../../Styles/useBreakpoints.js";
 import { WithTransLate } from "../../helpers/translating";
 
 const PriceSummaryPart = () => {

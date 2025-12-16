@@ -5,7 +5,7 @@ import s from "./Header.module.scss";
 import Search from "./Search.jsx";
 import logo from "../../images/logo.svg";
 import MenuIcon from "../../images/MenuIcon_Header.svg";
-import useBreakpoints from "../../Styles/useBreakpointsNew.js";
+import useBreakpoints from "../../Styles/useBreakpoints.js";
 import { WithTransLate } from "../helpers/translating/index.jsx";
 import LinkButton from "../Shared/ui/Link.jsx";
 import SideNavbar from "../SideNavbar/SideNavbar.jsx";

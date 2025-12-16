@@ -1,6 +1,6 @@
 import s from "./AboutPageComponent.module.scss";
 import signature from "../../images/aboutus/signature.png";
-import useBreakpoints from "../../Styles/useBreakpointsNew.js";
+import useBreakpoints from "../../Styles/useBreakpoints.js";
 import { WithTransLate } from "../helpers/translating/index.jsx";
 import NewMap from "../map/NewMap.jsx";
 

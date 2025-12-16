@@ -3,7 +3,7 @@ import Cookies from "js-cookie";
 import { useState } from "react";
 
 import ManagePreferences from "./ManagePreferences.jsx";
-import useBreakpoints from "../../Styles/useBreakpointsNew.js";
+import useBreakpoints from "../../Styles/useBreakpoints.js";
 import { WithTransLate } from "../helpers/translating/index.jsx";
 import Button from "../Shared/Button/Button.jsx";
 

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import s from "./Footer.module.scss";
 import { footerSections } from "./footerData.js";
 import logoBadge from "../../images/footer/logo-blue.svg";
-import useBreakpoints from "../../Styles/useBreakpointsNew.js";
+import useBreakpoints from "../../Styles/useBreakpoints.js";
 import { WithTransLate } from "../helpers/translating";
 import IconButton from "../Shared/ui/IconButton.jsx";
 

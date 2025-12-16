@@ -6,7 +6,7 @@ import planeSign from "../../images/roombooking/planeSign.svg";
 import spotSign from "../../images/roombooking/spotSign.svg";
 import timeSign from "../../images/roombooking/timeSign.svg";
 import wifiSign from "../../images/roombooking/wifiSign.svg";
-import useBreakpoints from "../../Styles/useBreakpointsNew.js";
+import useBreakpoints from "../../Styles/useBreakpoints.js";
 
 const Advantages = () => {
   const { isMobile } = useBreakpoints();

@@ -9,7 +9,7 @@ import ReviewRoomBooking from "../../components/ReviewRoomBooking/ReviewRoomBook
 import ServicesRoom from "../../components/ServicesRoom/ServicesRoom.jsx";
 import Support from "../../components/SuportComponent/support.jsx";
 import { getRoomsData } from "../../redux/technitial/technical-operations.js";
-import useBreakpoints from "../../Styles/useBreakpointsNew.js";
+import useBreakpoints from "../../Styles/useBreakpoints.js";
 import "./index.css";
 
 export const googleRatings = [

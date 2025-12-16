@@ -16,7 +16,7 @@ import {
   setPricePerNight,
   setPaymentType,
 } from "../../../redux/dataSearch/dataSearch-slice.js";
-import useBreakpoints from "../../../Styles/useBreakpointsNew.js";
+import useBreakpoints from "../../../Styles/useBreakpoints.js";
 import Advantages from "../Advantages/Advantages.jsx";
 
 const PartDetails = ({ data }) => {

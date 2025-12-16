@@ -2,7 +2,7 @@ import s from "./OurServices.module.scss";
 import clock from "../../images/services/clock.svg";
 import house from "../../images/services/house.svg";
 import money from "../../images/services/money.svg";
-import useBreakpoints from "../../Styles/useBreakpointsNew.js";
+import useBreakpoints from "../../Styles/useBreakpoints.js";
 import { WithTransLate } from "../helpers/translating/index.jsx";
 
 // Titles + subtitles exactly as in the design
