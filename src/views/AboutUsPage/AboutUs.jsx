@@ -10,7 +10,7 @@ import aboutus1 from "../../images/aboutus/aboutus1.png";
 import aboutus2 from "../../images/aboutus/aboutus2.png";
 import message from "../../images/aboutus/message.webp";
 import signature from "../../images/aboutus/signature.png";
-import useBreakpoints from "../../Styles/useBreakpointsNew";
+import useBreakpoints from "../../Styles/useBreakpoints.js";
 
 function AboutUsNew() {
   const { isMobile, isTablet } = useBreakpoints();
