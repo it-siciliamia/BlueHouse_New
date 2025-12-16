@@ -13,7 +13,7 @@ import Button from "../../components/Shared/Button/Button.jsx";
 import PhotoSlider from "../../components/Shared/SliderSlick/SliderSlick.jsx";
 import Support from "../../components/SuportComponent/support.jsx";
 import { setPaymentStage } from "../../redux/technitial/technical-slice.js";
-import useBreakpoints from "../../Styles/useBreakpointsNew.js";
+import useBreakpoints from "../../Styles/useBreakpoints.js";
 
 const RoomDetails = () => {
   const { room } = useParams();

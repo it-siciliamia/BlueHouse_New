@@ -8,7 +8,7 @@ const BREAKPOINTS = [
 
 const getBreakpointName = (matches) => matches.find((match) => match.matches)?.name ?? "mobile";
 
-const useBreakpointsNew = () => {
+const useBreakpoints = () => {
   const isClient = typeof window !== "undefined";
   const mediaList = useRef([]);
   const listeners = useRef(new Map());
@@ -66,4 +66,4 @@ const useBreakpointsNew = () => {
   );
 };
 
-export default useBreakpointsNew;
+export default useBreakpoints;

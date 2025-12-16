@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { FiMaximize, FiX } from "react-icons/fi";
 
 import WeatherCard from "./WeatherCard.jsx";
-import useBreakpoints from "../../Styles/useBreakpointsNew.js";
+import useBreakpoints from "../../Styles/useBreakpoints.js";
 import "./WeatherMap.css";
 
 const NewMap = () => {

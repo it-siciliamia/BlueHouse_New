@@ -7,7 +7,7 @@ import SliderPreviewPhoto from "./SliderPreviewPhoto/SliderPreviewPhoto.jsx";
 import SliderPreviewPhotoM from "./SliderPreviewPhotoM/SliderPreviewPhotoM.jsx";
 import { WithTransLate } from "..//helpers/translating/index.jsx";
 import { getDayDifference, getAddParams } from "../../redux/dataSearch/dataSearch-selectors.js";
-import useBreakpoints from "../../Styles/useBreakpointsNew.js";
+import useBreakpoints from "../../Styles/useBreakpoints.js";
 import Button from "../Shared/Button/Button.jsx";
 
 const ServicesRoom = () => {

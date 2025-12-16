@@ -5,7 +5,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 import s from "./SliderSlick.module.scss";
-import useBreakpoints from "../../../Styles/useBreakpointsNew.js";
+import useBreakpoints from "../../../Styles/useBreakpoints.js";
 
 const PhotoSlider = ({ photos, width = "100%", height = "auto" }) => {
   const { isSmallScreen, isDesktop } = useBreakpoints();

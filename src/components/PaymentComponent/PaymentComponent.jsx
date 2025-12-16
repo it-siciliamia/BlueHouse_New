@@ -13,7 +13,7 @@ import {
   getBookingConfirmed,
 } from "../../redux/technitial/technical-selectors.js";
 import { setPaymentStage } from "../../redux/technitial/technical-slice.js";
-import useBreakpoints from "../../Styles/useBreakpointsNew.js";
+import useBreakpoints from "../../Styles/useBreakpoints.js";
 import { WithTransLate } from "../helpers/translating";
 import Button from "../Shared/Button/Button.jsx";
 
