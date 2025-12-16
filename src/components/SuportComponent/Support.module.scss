@@ -7,7 +7,6 @@
   background-color: var(--color-neutral-100);
 
   @media (min-width: app.$smallScreen) {
-    padding: 0 20px;
     margin: 0 0 7.37rem 0;
   }
   @media (min-width: app.$desktop) {
@@ -22,10 +21,8 @@
   width: 100%;
   gap: 20px;
   @media (min-width: app.$tablet) {
-    width: 100%;
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 28px;
     justify-content: center;
     max-width: 800px;
     margin: 0 auto;
@@ -33,7 +30,8 @@
   @media (min-width: app.$smallScreen) {
     justify-content: space-between;
     align-items: stretch;
-    gap: 24px;
+    gap: 0px;
+    max-width: none;
   }
 }
 
@@ -47,22 +45,18 @@
   transition: all 0.3s ease-in-out;
   cursor: pointer;
   text-decoration: none;
+  text-wrap: nowrap;
 
   &:hover {
     color: #243864;
     font-weight: 500;
   }
 
-  width: 80%;
+  width: 270px;
 
-  @media (min-width: app.$tablet) {
-    width: 270px;
-  }
   @media (min-width: app.$smallScreen) {
     width: calc(25% - 18px);
-  }
-  @media (min-width: app.$desktop) {
-    width: 270px;
+    min-width: 215px;
   }
 }
 
@@ -73,22 +67,17 @@
   flex: 1;
   margin: 0 auto;
   cursor: pointer;
-  transition: all 0.4s ease;
   border: 1px solid transparent;
 
   box-shadow: 0px 4px 12px rgba(29, 57, 103, 0.15);
-  padding: 24px 0px;
+  padding: 23px 0px;
   max-width: 260px;
 
   @media (min-width: app.$tablet) {
     max-width: 262px;
-    box-shadow: none;
-  }
-  @media (min-width: app.$smallScreen) {
-    padding: 24px 16px;
   }
   @media (min-width: app.$desktop) {
-    padding: 24px 16px;
+    max-width: none;
   }
 
   &:hover {
@@ -114,10 +103,10 @@
   color: #1d3967;
 
   @media (min-width: app.$tablet) {
-    margin-bottom: 0;
+    margin-bottom: 2px;
   }
   @media (min-width: app.$smallScreen) {
-    margin-bottom: 5px;
+    margin-bottom: 4px;
   }
 }
 
