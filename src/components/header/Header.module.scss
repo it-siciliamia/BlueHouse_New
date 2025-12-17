@@ -2,64 +2,90 @@
 
 .headerContainer {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-
-  padding: 0;
+  justify-content: space-between;
+  padding: 24px 0 24px 16px; // top, right, bottom, left as figma design
+  height: 75.67px;
   width: 100%;
-  height: 6.25rem;
-
+  max-width: 375px;
+  margin: 0 auto;
   background-color: transparent;
   z-index: 3;
+
+
+  @media (min-width: app.$tablet) {
+    max-width: 100%;
+    padding: 8px 32px;
+    justify-content: flex-start;
+    gap: 32px;
+    height: auto;
+  }
+
+
+  @media (min-width: app.$desktop) {
+
+  }
 }
 
 .logoLink {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.5rem; // 8px top/bottom/left/right to match Figma padding
+  padding: 8px;
+  width: 136px;
+  height: 59.67px;
   box-sizing: border-box;
+  margin-left: 0;
 
-  @media (min-width: app.$tablet) and (max-width: calc(#{app.$desktop} - 0.0625em)) {
-    margin-left: 2rem; // 32px offset as per Figma spacing on tablet
+  @media (min-width: app.$tablet) {
+    width: 166px;
+    height: 70.59px;
+    padding: 0;
+    margin-right: auto;
+    margin-left: 0;
   }
 
+
   @media (min-width: app.$desktop) {
-    margin-left: 0;
+    margin-left: 0; // Your existing
+    // Your other desktop styles remain
   }
 }
 
 .logoImage {
-  width: 9.375rem; // 150px (fits inside 166px frame with 8px padding)
-  height: auto;
-  max-height: 3.4125rem; // 54.6px
-  object-fit: contain;
-  cursor: pointer;
-  user-select: none;
 
-  @media (min-width: app.$tablet) and (max-width: calc(#{app.$desktop} - 0.0625em)) {
-    width: 9.375rem;
-    max-height: 3.4125rem;
-    margin: 0;
+  width: 136px;
+  height: 59.67px;
+  object-fit: contain;
+
+
+  @media (min-width: app.$tablet) {
+    width: 166px;
+    height: 70.59px;
+    object-fit: contain;
   }
+
 
   @media (min-width: app.$desktop) {
-    width: 11rem; // 176px desktop target
-    max-height: 4rem; // 64px
+    width: 11rem;
+    max-height: 4rem;
   }
 }
-
-
-
-
 
 .btnsWrapper {
   display: flex;
   gap: 1rem;
 
-  @media (min-width: 62.5em) {
+
+  @media (min-width: app.$tablet) {
+    margin-left: auto; // buttons pushed to the right as in figma design
+  }
+
+  // SMALL SCREENS: 960px and up
+  @media (min-width: app.$smallScreen) {
     gap: 2rem;
   }
+
 }
 
 .iconsWrapper {
@@ -67,6 +93,11 @@
   gap: 1rem;
   align-items: center;
   justify-self: center;
+
+
+  @media (min-width: app.$tablet) {
+
+  }
 }
 
 .menuBtn {
@@ -92,12 +123,10 @@
   min-inline-size: 11.25rem;
   inline-size: auto;
 
-  @media (min-width: 62.5em) {
+  @media (min-width: app.$smallScreen) {
     font-size: 1rem;
     min-inline-size: 13.62rem;
   }
-
-
 
   /* Only hide on desktop when isSearchOpern state is true */
   @media (min-width: app.$desktop) {
