@@ -20,11 +20,11 @@
   padding: 0.5rem; // 8px top/bottom/left/right to match Figma padding
   box-sizing: border-box;
 
-  @media (min-width: $tablet) and (max-width: calc(#{$desktop} - 0.0625em)) {
+  @media (min-width: app.$tablet) and (max-width: calc(#{app.$desktop} - 0.0625em)) {
     margin-left: 2rem; // 32px offset as per Figma spacing on tablet
   }
 
-  @media (min-width: $desktop) {
+  @media (min-width: app.$desktop) {
     margin-left: 0;
   }
 }
@@ -37,13 +37,13 @@
   cursor: pointer;
   user-select: none;
 
-  @media (min-width: $tablet) and (max-width: calc(#{$desktop} - 0.0625em)) {
+  @media (min-width: app.$tablet) and (max-width: calc(#{app.$desktop} - 0.0625em)) {
     width: 9.375rem;
     max-height: 3.4125rem;
     margin: 0;
   }
 
-  @media (min-width: $desktop) {
+  @media (min-width: app.$desktop) {
     width: 11rem; // 176px desktop target
     max-height: 4rem; // 64px
   }
