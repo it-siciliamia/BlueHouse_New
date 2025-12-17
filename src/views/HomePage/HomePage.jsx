@@ -13,7 +13,7 @@ import Support from "../../components/SuportComponent/support.jsx";
 import housesImage from "../../images/gallery/houseBB2.svg";
 import roomsImage from "../../images/gallery/rooms.svg";
 import surroundingsImage from "../../images/gallery/surroundings.svg";
-import useBreakpoints from "../../Styles/useBreakpointsNew.js";
+import useBreakpoints from "../../Styles/useBreakpoints.js";
 
 const GALLERY_BACKGROUND_IMAGES_AND_TITLES = [
   { background: roomsImage, title: "Rooms" },

@@ -11,7 +11,7 @@ import useBreakpoints from "../../Styles/useBreakpoints.js";
 import Button from "../Shared/Button/Button.jsx";
 
 const ServicesRoom = () => {
-  const { isMobile, isTablet, isLaptop, isDesktop } = useBreakpoints();
+  const { isMobile, isTablet, isSmallScreen, isDesktop } = useBreakpoints();
   const { room: roomNumber } = useSelector(getAddParams);
   const days = useSelector(getDayDifference);
 
@@ -53,7 +53,7 @@ const ServicesRoom = () => {
                   {!!isDesktop && (
                     <SliderPreviewPhoto mainImage={room.mainImage} photos={room.photos} />
                   )}
-                  {!!(isMobile || isTablet || isLaptop) && (
+                  {!!(isMobile || isTablet || isSmallScreen) && (
                     <SliderPreviewPhotoM mainImage={room.mainImage} photos={room.photos} />
                   )}
                 </div>
@@ -96,7 +96,7 @@ const ServicesRoom = () => {
                 </div>
                 <div className={s.pricePart}>
                   <div className={s.priceWrapperPlus}>
-                    {!!(isMobile || isTablet || isLaptop) && (
+                    {!!(isMobile || isTablet || isSmallScreen) && (
                       <div className={s.priceWrapper}>
                         <strong>
                           <WithTransLate
@@ -210,7 +210,7 @@ const ServicesRoom = () => {
                   {!!isDesktop && (
                     <SliderPreviewPhoto mainImage={room.mainImage} photos={room.photos} />
                   )}
-                  {!!(isMobile || isTablet || isLaptop) && (
+                  {!!(isMobile || isTablet || isSmallScreen) && (
                     <SliderPreviewPhotoM mainImage={room.mainImage} photos={room.photos} />
                   )}
                 </div>

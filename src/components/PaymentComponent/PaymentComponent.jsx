@@ -21,7 +21,7 @@ const PaymentComponent = () => {
   const dispatch = useDispatch();
   const paymentStage = useSelector(getPaymentStage);
   const bookingConfirmed = useSelector(getBookingConfirmed);
-  const { isMobile, isTablet, isLaptop } = useBreakpoints();
+  const { isMobile, isTablet, isSmallScreen } = useBreakpoints();
 
   useEffect(() => {
     window.scrollTo({
@@ -65,7 +65,7 @@ const PaymentComponent = () => {
               text="Back"
               icon={<IoIosArrowBack />}
               size="24px"
-              width={isLaptop ? "95px" : "115px"}
+              width={isSmallScreen ? "95px" : "115px"}
               btnClass="btnLightWithOut"
               handleClick={handleBackClick}
             />
@@ -88,7 +88,7 @@ const PaymentComponent = () => {
               text="Back"
               icon={<IoIosArrowBack />}
               size="24px"
-              width={isLaptop ? "95px" : "115px"}
+              width={isSmallScreen ? "95px" : "115px"}
               btnClass="btnLightWithOut"
               handleClick={handleBackClick}
             />

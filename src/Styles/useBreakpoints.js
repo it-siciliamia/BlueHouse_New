@@ -1,34 +1,69 @@
-import { useState, useEffect } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
-/**
- * @deprecated Use useBreakpointsNew hook instead
- */
+const BREAKPOINTS = [
+  { name: "desktop", query: "(min-width: 1280px)" },
+  { name: "smallScreen", query: "(min-width: 960px)" },
+  { name: "tablet", query: "(min-width: 768px)" },
+];
+
+const getBreakpointName = (matches) => matches.find((match) => match.matches)?.name ?? "mobile";
+
 const useBreakpoints = () => {
-  const [isMobile, setIsMobile] = useState(false);
-  const [isTablet, setIsTablet] = useState(false);
-  const [isLaptop, setIsLaptop] = useState(false);
-  const [isDesktop, setIsDesktop] = useState(false);
+  const isClient = typeof window !== "undefined";
+  const mediaList = useRef([]);
+  const listeners = useRef(new Map());
+  const [breakpoint, setBreakpoint] = useState("mobile");
 
   useEffect(() => {
-    const updateBreakpoints = () => {
-      const width = window.innerWidth;
+    if (!isClient) {
+      return undefined;
+    }
 
-      setIsMobile(width < 768);
-      setIsTablet(width >= 768 && width < 960);
-      setIsLaptop(width >= 960 && width < 1280);
-      setIsDesktop(width >= 1280 && width <= 2200);
+    mediaList.current = BREAKPOINTS.map(({ name, query }) => {
+      const mediaQueryList = window.matchMedia(query);
+      return { name, mediaQueryList };
+    });
+
+    // Derive the current breakpoint whenever a media query toggles.
+    const updateBreakpoint = () => {
+      const matches = mediaList.current.map(({ name, mediaQueryList }) => ({
+        name,
+        matches: mediaQueryList.matches,
+      }));
+      const nextBreakpoint = getBreakpointName(matches);
+      setBreakpoint((prev) => (prev === nextBreakpoint ? prev : nextBreakpoint));
     };
 
-    updateBreakpoints();
+    updateBreakpoint();
 
-    window.addEventListener("resize", updateBreakpoints);
+    mediaList.current.forEach(({ mediaQueryList }) => {
+      const listener = () => updateBreakpoint();
+      listeners.current.set(mediaQueryList, listener);
+      mediaQueryList.addEventListener("change", listener);
+      if (mediaQueryList.matches) {
+        updateBreakpoint();
+      }
+    });
 
+    // Clean up listeners so the hook behaves well across mounts.
     return () => {
-      window.removeEventListener("resize", updateBreakpoints);
+      listeners.current.forEach((listener, mediaQueryList) => {
+        mediaQueryList.removeEventListener("change", listener);
+      });
+      listeners.current.clear();
     };
-  }, []);
+  }, [isClient]);
 
-  return { isMobile, isTablet, isLaptop, isDesktop };
+  return useMemo(
+    () => ({
+      breakpoint,
+      isMobile: breakpoint === "mobile",
+      isTablet: breakpoint === "tablet",
+      isSmallScreen: breakpoint === "smallScreen",
+      isDesktop: breakpoint === "desktop",
+    }),
+    [breakpoint]
+  );
 };
 
 export default useBreakpoints;

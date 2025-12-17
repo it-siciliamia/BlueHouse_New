@@ -1,7 +1,4 @@
-// Media Queries variables
-$tablet: 37.5em;
-$laptop: 60em;
-$desktop: 80em;
+@use "../../Styles/App.scss" as app;
 
 .headerContainer {
   display: flex;
@@ -103,7 +100,7 @@ $desktop: 80em;
 
 
   /* Only hide on desktop when isSearchOpern state is true */
-  @media (min-width: $desktop) {
+  @media (min-width: app.$desktop) {
     transition: all 0.3s ease-in-out;
     &--hidden {
       opacity: 0;

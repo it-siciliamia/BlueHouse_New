@@ -4,17 +4,25 @@ import { useSelector, useDispatch } from "react-redux";
 import s from "./CaruselSliderHome.module.scss";
 import IconButton from "../../../components/Shared/ui/IconButton.jsx";
 import placeholder from "../../../images/homePageSlider/placeholder.webp";
-import slide01 from "../../../images/homePageSlider/slide1.webp";
-import slide02 from "../../../images/homePageSlider/slide2.webp";
-import slide03 from "../../../images/homePageSlider/slide3.webp";
-import slide04 from "../../../images/homePageSlider/slide4.webp";
-import slide05 from "../../../images/homePageSlider/slide5.webp";
-import slide06 from "../../../images/homePageSlider/slide6.webp";
+import slide01 from "../../../images/homePageSlider/slide1.png";
+import slide02 from "../../../images/homePageSlider/slide2.png";
+import slide03 from "../../../images/homePageSlider/slide3.png";
+import slide04 from "../../../images/homePageSlider/slide4.png";
+import slide05 from "../../../images/homePageSlider/slide5.png";
+import slide06 from "../../../images/homePageSlider/slide6.png";
 import { getIsPlaceholderShown } from "../../../redux/technitial/technical-selectors.js";
 import { setPlaceholderShown } from "../../../redux/technitial/technical-slice.js";
 import videoSrc from "../../../videos/intro.mp4";
 
 const images = [videoSrc, slide01, slide02, slide03, slide04, slide05, slide06];
+const texts = [
+  "a home away from home",
+  "located in a beautiful peninsulae",
+  "close to all natural atractions",
+  "only 5 minutes from downtown Reykyavik",
+  "Amazing spot for northern lights",
+  "3 locations on the same street",
+];
 
 export default function CaruselSliderHome() {
   const isPlaceholderShown = useSelector(getIsPlaceholderShown);
@@ -124,24 +132,29 @@ export default function CaruselSliderHome() {
         />
       )}
       {images.map((image, index) =>
-        index === 0 ? (
-          <video
-            key={index}
-            ref={videoRef}
-            className={`${s.image} ${index === currentIndex ? s.currentImage : ""}`}
-            style={{ display: index === currentIndex ? "block" : "none" }}
-            src={image}
-            muted
-          />
-        ) : (
-          <img
-            key={index}
-            className={`${s.image} ${index === currentIndex ? s.currentImage : ""}`}
-            src={image}
-            alt="Carousel"
-            style={{ zIndex: index === currentIndex ? 1 : 0 }}
-          />
-        )
+        <div key={index} className={s.slideContainer}>
+          {index === 0 ? (
+            <video
+              ref={videoRef}
+              className={`${s.image} ${index === currentIndex ? s.currentImage : ""}`}
+              style={{ display: index === currentIndex ? "block" : "none" }}
+              src={image}
+              muted
+            />
+          ) : (
+            <>
+              <img
+                className={`${s.image} ${index === currentIndex ? s.currentImage : ""}`}
+                src={image}
+                alt="Carousel"
+                style={{ zIndex: index === currentIndex ? 1 : 0 }}
+              />
+              <h3 className={`${s.slideText} ${index === currentIndex ? s.slideTextVisible : ""}`}>
+                {texts[index - 1]}
+              </h3>
+            </>
+          )}
+        </div>
       )}
       <IconButton
         icon="chevronRight"
