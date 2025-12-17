@@ -4,14 +4,13 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 24px 0 24px 16px; // top, right, bottom, left as figma design
+  padding: 24px 0 24px 16px;
   height: 75.67px;
   width: 100%;
   max-width: 375px;
   margin: 0 auto;
   background-color: transparent;
   z-index: 3;
-
 
   @media (min-width: app.$tablet) {
     max-width: 100%;
@@ -21,17 +20,21 @@
     height: auto;
   }
 
-
   @media (min-width: app.$desktop) {
-
+    height: 100px;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 32px;
+    position: relative;
+    box-sizing: border-box;
   }
 }
 
 .logoLink {
   display: inline-flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  padding: 8px;
+  padding: 0;
   width: 136px;
   height: 59.67px;
   box-sizing: border-box;
@@ -45,19 +48,21 @@
     margin-left: 0;
   }
 
-
   @media (min-width: app.$desktop) {
-    margin-left: 0; // Your existing
-    // Your other desktop styles remain
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 176.07px;
+    height: 100px;
+    margin: 0;
+    padding: 0;
   }
 }
 
 .logoImage {
-
   width: 136px;
   height: 59.67px;
   object-fit: contain;
-
 
   @media (min-width: app.$tablet) {
     width: 166px;
@@ -65,10 +70,10 @@
     object-fit: contain;
   }
 
-
   @media (min-width: app.$desktop) {
-    width: 11rem;
-    max-height: 4rem;
+    width: 176.07px;
+    height: 100px;
+    object-fit: contain;
   }
 }
 
@@ -76,16 +81,17 @@
   display: flex;
   gap: 1rem;
 
-
   @media (min-width: app.$tablet) {
-    margin-left: auto; // buttons pushed to the right as in figma design
+    margin-left: auto;
   }
 
-  // SMALL SCREENS: 960px and up
-  @media (min-width: app.$smallScreen) {
+  @media (min-width: app.$desktop) {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     gap: 2rem;
   }
-
 }
 
 .iconsWrapper {
@@ -94,9 +100,11 @@
   align-items: center;
   justify-self: center;
 
-
-  @media (min-width: app.$tablet) {
-
+  @media (min-width: app.$desktop) {
+    position: absolute;
+    right: 32px;
+    top: 50%;
+    transform: translateY(-50%);
   }
 }
 
@@ -108,6 +116,7 @@
   width: 48px;
   height: 48px;
 }
+
 .menuBtn--hidden {
   visibility: hidden;
 }
@@ -128,14 +137,14 @@
     min-inline-size: 13.62rem;
   }
 
-  /* Only hide on desktop when isSearchOpern state is true */
   @media (min-width: app.$desktop) {
     transition: all 0.3s ease-in-out;
     &--hidden {
       opacity: 0;
       transform: translateX(-1rem) scale(0.98);
-      max-width: 0;
-      padding-left: 0;
+      width: 176.07px;
+      height: 100px;
+      padding-left: 144px;
       padding-right: 0;
       margin-left: 0;
       margin-right: 0;
