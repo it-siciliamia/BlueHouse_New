@@ -1,13 +1,15 @@
 @use "../../Styles/App.scss" as app;
 .support {
-  margin-bottom: 2.5rem;
+  margin-bottom: 4rem;
   width: 100%;
   height: auto;
   align-content: center;
   background-color: var(--color-neutral-100);
-
+  @media (min-width: app.$tablet) {
+    margin-bottom: 6.25rem;
+  }
   @media (min-width: app.$smallScreen) {
-    margin: 0 0 7.37rem 0;
+    margin-bottom: 8.875rem;
   }
   @media (min-width: app.$desktop) {
     padding: 0;
