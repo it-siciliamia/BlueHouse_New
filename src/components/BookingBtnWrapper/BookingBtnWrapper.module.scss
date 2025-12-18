@@ -9,12 +9,19 @@ $desktop: 80em; // ~1280px
   gap: 1.5rem;
   padding-bottom: 3.4rem;
 
+   @media (max-width: $tablet) {
+   margin-top: 2.5rem;
+   padding-bottom: 2.5rem;
+  }
+
   @media (min-width: $tablet) {
     flex-direction: row;
     justify-content: center;
     gap: 1.9rem;
-    padding-bottom: 4.4rem;
+    padding-bottom: 4.0625rem;
+    padding-top: 1.875rem;
   }
+
 }
 
 .btnCorrection {

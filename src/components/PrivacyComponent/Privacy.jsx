@@ -6,6 +6,8 @@ import { WithTransLate } from "../helpers/translating/index.jsx";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Newsletter from "../Newsletter/Newsletter.jsx";
 import Header from "../header/Header.jsx";
+import BookingBtnWrapper from "../BookingBtnWrapper/BookingBtnWrapper.jsx";
+import useBreakpoints from "../../Styles/useBreakpointsNew.js";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -30,12 +32,12 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   titleInfo: {
-    margin: "20px 0 20px 0",
+    margin: "0 0 20px 0",
     [theme.breakpoints.down("md")]: {
-      margin: "20px 0 44px 0",
+      margin: "0 0 44px 0",
     },
     [theme.breakpoints.between(768, 1024)]: {
-      margin: "144px 0 32px 0",
+      margin: "0px 0 32px 0",
       fontWeight: "800",
     },
   },
@@ -43,7 +45,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "20px",
     fontWeight: 600,
     lineHeight: "5px",
-    margin: "0px 0px 20px 0px",
+    margin: "0px 0px 8px 0px",
     letterSpacing: "0em",
     [theme.breakpoints.down("md")]: {
       fontSize: "18px",
@@ -60,10 +62,9 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     textAlign: "left",
     justifyContent: "space-between",
-    marginTop: "20px",
   },
   textClass: {
-    marginTop: "5px",
+    marginBottom: "32px",
     fontSize: "18px",
     lineHeight: "24px",
     fontWeight: 300,
@@ -100,7 +101,7 @@ const useStyles = makeStyles((theme) => ({
   articleTitle: {
     fontSize: "20px",
     color:"#1d3967",
-    marginBottom: "20px",
+    marginBottom: "16px",
     fontWeight: "bold",
     lineHeight: "30px",
     [theme.breakpoints.down("md")]: {
@@ -154,6 +155,7 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: "8px",
     paddingLeft: "35px",
     paddingBottom: "8px",
+    listStyleType: "none"
   },
   collectingAndUsingItem: {},
   typesOfDataItem: {},
@@ -217,8 +219,14 @@ export default function Privacy() {
     functionalityCookiesList,
     marginBottom,
   } = useStyles();
+
+  const { isMobile, isTablet } = useBreakpoints();
+
   return (
     <Box className={root}>
+      <div>
+        {!!(isMobile || isTablet) && <BookingBtnWrapper />}
+      </div>
       <div className={s.titleWrapper}>
         <h2 className={s.titleFirst}>
           <WithTransLate text="IMPRINT AND PRIVACY POLICY" />
@@ -243,7 +251,7 @@ export default function Privacy() {
              <b><WithTransLate text="Last updated: June 06, 2022" /></b>
         </div>
 
-        <p className={textClass} style={{ marginBottom: "32px" }}>
+        <p className={textClass} style={{ marginBottom: "32px"}}>
           <WithTransLate text="This Privacy Policy describes Our policies and procedures on the collection, use and disclosure" />
           <br />
           <WithTransLate text="of Your information when You use the Service and tells You about Your privacy rights and" />
@@ -527,7 +535,7 @@ export default function Privacy() {
 
          <p className={textClass}>
             <b style={{textDecoration:"underline"}}><WithTransLate text="The Company may use Personal Data for the following purposes:" /></b>
-            <ul style={{marginTop:"16px"}} className={paddingList}>
+            <ul style={{marginTop:"16px", listStyleType: "none" }} className={paddingList}>
               <li>
                 <WithTransLate text="1. To provide and maintain our Service, including to monitor the usage of our Service." />
               </li><br />
@@ -570,7 +578,7 @@ export default function Privacy() {
                 <WithTransLate text="your experience." />
               </li><br />
               <li>
-                <b><WithTransLate text="We may share Your personal information in the following situations:" /></b>
+                <b style={{textDecoration:"underline"}} ><WithTransLate text="We may share Your personal information in the following situations:" /></b>
               </li><br />
               <li>
                 <WithTransLate text="1. With Service Providers: We may share Your personal information with Service Providers to" />
@@ -816,7 +824,7 @@ export default function Privacy() {
             </div>
           </div>
         </div>
-
+        <br />
         <div style={{marginBottom:"0px"}} className={articleWrapper}>
           <h2 className={articleTitle}>
             <WithTransLate text="5. CONTACT US" />
