@@ -1,15 +1,17 @@
+@use "../../Styles/App.scss" as app;
 .support {
-  margin-bottom: 2.5rem;
+  margin-bottom: 4rem;
   width: 100%;
   height: auto;
   align-content: center;
   background-color: var(--color-neutral-100);
-
-  @media (min-width: 960px) {
-    padding: 0 20px;
-    margin: 0 0 7.37rem 0;
+  @media (min-width: app.$tablet) {
+    margin-bottom: 6.25rem;
   }
-  @media (min-width: 1280px) {
+  @media (min-width: app.$smallScreen) {
+    margin-bottom: 8.875rem;
+  }
+  @media (min-width: app.$desktop) {
     padding: 0;
   }
 }
@@ -19,48 +21,47 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
-  gap: 20px;
-
-  @media (min-width: 600px) {
-    width: 100%;
-    gap: 10px;
-    flex-direction: row;
-    flex-wrap: wrap;
+  gap: 1.5rem;
+  @media (min-width: app.$tablet) {
+    display: grid;
+    grid-template-columns: repeat(2, 16.375rem);
+    justify-content: center;
+    max-width: 50rem;
+    margin: 0 auto;
+    gap: 1.9375rem;
   }
-  @media (min-width: 960px) {
+  @media (min-width: app.$smallScreen) {
+    display: flex;
+    flex-direction: row;
     justify-content: space-between;
     align-items: stretch;
-    gap: 24px;
+    gap: 0;
+    max-width: none;
   }
 }
 
 .description {
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 300;
-  line-height: 24px;
+  line-height: 1.5rem;
   text-align: center;
   color: #1d3967;
   font-family: "Josefin Sans", Arial, sans-serif;
   transition: all 0.3s ease-in-out;
   cursor: pointer;
   text-decoration: none;
+  text-wrap: nowrap;
 
   &:hover {
     color: #243864;
     font-weight: 500;
   }
 
-  @media (min-width: 320px) and (max-width: 599.99px) {
-    width: 80%;
-  }
-  @media (min-width: 600px) and (max-width: 959.99px) {
-    width: 48%;
-  }
-  @media (min-width: 960px) and (max-width: 1279.99px) {
+  width: 16.875rem;
+
+  @media (min-width: app.$smallScreen) {
     width: calc(25% - 18px);
-  }
-  @media (min-width: 1280px) and (max-width: 2200px) {
-    width: 270px;
+    min-width: 13.4375rem;
   }
 }
 
@@ -68,68 +69,70 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
   flex: 1;
+  margin: 0 auto;
   cursor: pointer;
-  transition: all 0.4s ease;
   border: 1px solid transparent;
 
-  @media (min-width: 320px) and (max-width: 599.99px) {
-    padding: 20px 10px;
+  box-shadow: 0px 4px 12px rgba(29, 57, 103, 0.15);
+  padding: 1.4375rem 0;
+  max-width: 16.25rem;
+  transition: all 0.3s ease-in-out;
+  @media (min-width: app.$tablet) {
+    max-width: 16.375rem;
+    margin: 0;
   }
-  @media (min-width: 600px) and (max-width: 959.99px) {
-    padding: 20px 10px;
+  @media (min-width: app.$smallScreen) {
+    box-shadow: none;
   }
-  @media (min-width: 960px) and (max-width: 1279.99px) {
-    padding: 24px 16px;
-  }
-  @media (min-width: 1280px) and (max-width: 2200px) {
-    padding: 24px 16px;
+  @media (min-width: app.$desktop) {
+    max-width: none;
   }
 
   &:hover {
-    box-shadow: 0px 4px 12px rgba(29, 57, 103, 0.15);
+    box-shadow: 0 8px 16px rgba(29, 57, 103, 0.15);
     transform: translateY(-2px);
   }
 }
 
 .icon {
-  width: 48px;
-  height: 48px;
+  width: 3rem;
+  height: 3rem;
   object-fit: contain;
+  margin-bottom: 1.5rem;
 }
 
 .cardTitle {
   font-family: "Josefin Sans", Arial, sans-serif;
   font-weight: 700;
-  font-size: 18px;
-  line-height: 24px;
+  font-size: 1.125rem;
+  line-height: 1.5rem;
   text-transform: uppercase;
-  margin: 12px 0;
+  margin-bottom: 0.25rem;
   color: #1d3967;
 
-  @media (min-width: 600px) and (max-width: 959.99px) {
-    margin-bottom: 0;
+  @media (min-width: app.$tablet) {
+    margin-bottom: 0.125rem;
   }
-  @media (min-width: 960px) and (max-width: 1280px) {
-    margin-bottom: 5px;
+  @media (min-width: app.$smallScreen) {
+    margin-bottom: 0.25rem;
   }
 }
 
 .cardText {
   font-family: "Josefin Sans", Arial, sans-serif;
   font-weight: 300;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   margin: 0;
   color: #1d3967;
 }
 
 .phoneNumber {
   font-weight: 400;
-  font-size: 16px;
+  font-size: 1rem;
   color: #1d3967;
-  margin: 8px 0 0 0;
+  margin: 0.5rem 0 0 0;
 }
 
 .mobileSupport {
@@ -152,7 +155,7 @@
 }
 
 .contactLink p:nth-child(2) {
-  margin-top: 10px !important;
+  margin-top: 0.625rem !important;
 }
 
 .contactLink p:nth-child(3) {
