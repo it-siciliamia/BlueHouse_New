@@ -3,42 +3,33 @@
 .headerContainer {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 0 16px;
   height: 75.67px;
   width: 100%;
+  padding: 0 16px;
   margin: 0 auto;
   background-color: transparent;
   z-index: 3;
+  position: relative;
 
   @media (min-width: app.$tablet) {
-    padding: 0 32px;
-    height: 75.67px;
-    max-width: 100%;
-  }
-
-  @media (min-width: app.$desktop) {
     height: 100px;
-    max-width: 1440px;
-    margin: 0 auto;
-    padding: 0 32px;
-    box-sizing: border-box;
+    padding: 0;
+  }
+}
+
+.logoContainer {
+  padding-left: 16px;
+
+  @media (min-width: app.$tablet) {
+    padding-left: 144px;
   }
 }
 
 .logoLink {
-  display: flex;
-  align-items: center;
-  margin: 0;
   width: 136px;
   height: 59.67px;
 
   @media (min-width: app.$tablet) {
-    width: 166px;
-    height: 70.59px;
-  }
-
-  @media (min-width: app.$desktop) {
     width: 176.07px;
     height: 100px;
   }
@@ -51,18 +42,23 @@
 }
 
 .btnsWrapper {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   gap: 1rem;
 
-  @media (min-width: app.$desktop) {
+  @media (min-width: app.$tablet) {
     gap: 2rem;
   }
 }
 
 .iconsWrapper {
+  margin-left: auto;
   display: flex;
   gap: 1rem;
   align-items: center;
+  padding-right: 16px;
 }
 
 .menuBtn {
@@ -72,10 +68,6 @@
   background: none;
   width: 48px;
   height: 48px;
-}
-
-.menuBtn--hidden {
-  visibility: hidden;
 }
 
 .menuImg {
@@ -88,25 +80,11 @@
   font-size: 0.8rem;
   min-inline-size: 11.25rem;
   inline-size: auto;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
 
-  @media (min-width: app.$smallScreen) {
+  @media (min-width: app.$tablet) {
     font-size: 1rem;
-    min-inline-size: 13.62rem;
-  }
-
-  @media (min-width: app.$desktop) {
-    transition: all 0.3s ease-in-out;
-    &--hidden {
-      opacity: 0;
-      transform: translateX(-1rem) scale(0.98);
-      width: 176.07px;
-      height: 100px;
-      padding-left: 144px;
-      padding-right: 0;
-      margin-left: 0;
-      margin-right: 0;
-      visibility: hidden;
-      pointer-events: none;
-    }
   }
 }
