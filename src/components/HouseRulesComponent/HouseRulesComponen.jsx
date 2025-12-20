@@ -18,7 +18,6 @@ function HouseRulesComponents() {
           </h2>
           {isDesktop && <div className={s.imageMain}></div>}
         </div>
-          <WithTransLate text="HOUSE RULES" />
         <Guidelines />
       </div>
     </section>

@@ -7,63 +7,66 @@
     padding: 0;
   }
 }
-
-.titleWrapper,
-.titleWrapperMobile {
-  margin-bottom: 2rem;
-  @media (min-width: 1280px) {
-    margin-bottom: 4rem;
-  }
-}
-
-.titleWrapperMobile {
-  @media (min-width: 1280px) {
-    display: none;
-  }
-}
-
-.title {
-  color: #00366e;
-  font-family: "Oblik", Arial, sans-serif;
-  font-size: 1.5rem;
-  font-weight: 900;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  margin: 0;
-  @media (min-width: 600px) {
-    font-size: 1.75rem;
-  }
-  @media (min-width: 1280px) {
-    font-size: 2rem;
-  }
-}
-
 .houseRulesContent {
   display: flex;
   flex-direction: column;
   font-weight: 700;
   gap: 3rem;
   width: 100%;
+  position: relative;
   @media (min-width: 1280px) {
     gap: 4rem;
   }
 }
-
 .imageMain {
   background-image: url("../../images/houserules.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  border-radius: 0.5rem;
   height: 550px;
-  width: 1054px;
-  padding-right:144px;
-  padding-left:144px;
-  padding-bottom:48px;
-  gap: 66px;
+  width: 1054;
 
   @media (min-width: 1280px) {
-    height: 500px;
+    height: 550px;
+    width: 1054px;
+    padding-right: 144px;
+    padding-bottom: 48px;
+    padding-left: 144px;
+  }
+}
+.houseRulesHeader {
+  color: #00366e;
+  font-family: "Oblik", Arial, sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 32px;
+  width: 152px;
+  letter-spacing: -1px;
+  text-transform: uppercase;
+  margin: 0;
+  text-align: left;
+}
+.houseRulesHeader2 {
+  display: none;
+
+  @media (min-width: 1280px) {
+    display: block;
+    color: #00366e;
+    font-family: "Oblik", Arial, sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 32px;
+    width: 152px;
+    height: 32px;
+    letter-spacing: -1px;
+    text-transform: uppercase;
+    margin: 0;
+    text-align: left;
+    position: absolute;
+    top: -550px;
+    left: -224px;
+    transform: rotate(-90deg);
+
   }
 }
 
@@ -72,6 +75,7 @@
   grid-template-columns: 1fr;
   gap: 3rem;
   width: 100%;
+
   @media (min-width: 1280px) {
     grid-template-columns: 1fr 1fr;
     gap: 4rem;

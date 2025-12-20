@@ -1,6 +1,5 @@
 import s from "./HouseRulesComponent.module.scss";
 import Rule from "./Rule.jsx";
-{/* Icons are in the images folder */}
 import checkInIcon from "../../images/check-in-out.svg";
 import noSmokingIcon from "../../images/nosmoking.svg";
 import bathroomIcon from "../../images/bathroom.svg";
@@ -10,8 +9,7 @@ import quietIcon from "../../images/quiet.svg";
 import toiletpaperIcon from "../../images/toiletpaper.svg";
 import lightIcon from "../../images/light.svg";
 
-function Guidelines(){
-
+function HouseRulesComponent() {
   const leftColumnRules = [
     {
       Icon: checkInIcon,
@@ -21,7 +19,7 @@ function Guidelines(){
     {
       Icon: noSmokingIcon,
       header: "No smoking",
-      text: `Do not smoke neither in the room nor the rest of the house. It is not allowed by the Icelandic law and there is a penalty for people who don't adhere to the these rules.`
+      text: `Do not smoke neither in the room nor the rest of the house. It is not allowed by the Icelandic law and there is a penalty for people who don't adhere to these rules.`
     },
     {
       Icon: bathroomIcon,
@@ -49,7 +47,7 @@ function Guidelines(){
     {
       Icon: toiletpaperIcon,
       header: "Avoid clogs",
-      text: `Please throw only toilet paper in the toilet. Use rubbish bins for other type of rubbish to avoid clogs.`
+      text: `Please throw only toilet paper in the toilet. Use rubbish bins for other types of rubbish to avoid clogs.`
     },
     {
       Icon: lightIcon,
@@ -59,19 +57,27 @@ function Guidelines(){
   ];
 
   return (
-    <div className={s.guidelines}>
-      <div className={s.rulesColumn}>
-        {leftColumnRules.map((rule, index) => (
-          <Rule key={index} Icon={rule.Icon} header={rule.header} text={rule.text} />
-        ))}
-      </div>
-      <div className={s.rulesColumn}>
-        {rightColumnRules.map((rule, index) => (
-          <Rule key={index} Icon={rule.Icon} header={rule.header} text={rule.text} />
-        ))}
+    <div className={s.houseRules}>
+      <div className={s.houseRulesContent}>
+        <div className={s.imageContainer}>
+        </div>
+        <div className={s.houseRulesHeader}>House Rules</div>
+                <div className={s.houseRulesHeader2}>House Rules</div>
+        <div className={s.guidelines}>
+          <div className={s.rulesColumn}>
+            {leftColumnRules.map((rule, index) => (
+              <Rule key={index} Icon={rule.Icon} header={rule.header} text={rule.text} />
+            ))}
+          </div>
+          <div className={s.rulesColumn}>
+            {rightColumnRules.map((rule, index) => (
+              <Rule key={index} Icon={rule.Icon} header={rule.header} text={rule.text} />
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );
 }
 
-export default Guidelines;
+export default HouseRulesComponent;
