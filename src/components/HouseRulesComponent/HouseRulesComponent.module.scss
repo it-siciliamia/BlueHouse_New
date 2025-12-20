@@ -41,6 +41,7 @@
 .houseRulesContent {
   display: flex;
   flex-direction: column;
+  font-weight: 700;
   gap: 3rem;
   width: 100%;
   @media (min-width: 1280px) {
@@ -54,8 +55,13 @@
   background-position: center;
   background-repeat: no-repeat;
   border-radius: 0.5rem;
-  height: 250px;
-  width: 100%;
+  height: 550px;
+  width: 1054px;
+  padding-right:144px;
+  padding-left:144px;
+  padding-bottom:48px;
+  gap: 66px;
+
   @media (min-width: 1280px) {
     height: 500px;
   }

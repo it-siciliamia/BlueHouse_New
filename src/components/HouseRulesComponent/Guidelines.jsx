@@ -11,7 +11,7 @@ import toiletpaperIcon from "../../images/toiletpaper.svg";
 import lightIcon from "../../images/light.svg";
 
 function Guidelines(){
-  // Order matches the design: Left column (0-3), Right column (4-7)
+
   const leftColumnRules = [
     {
       Icon: checkInIcon,
