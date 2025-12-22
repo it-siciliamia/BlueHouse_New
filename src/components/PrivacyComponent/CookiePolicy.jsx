@@ -1,7 +1,12 @@
-import { Box } from "@mui/material";
+import { Accordion, AccordionDetails, AccordionSummary, Box } from "@mui/material";
 import { makeStyles } from "@mui/styles";
-
+import useBreakpoints from "../../Styles/useBreakpointsNew.js";
+import s from "./PrivacyComponent.module.scss";
 import { WithTransLate } from "../helpers/translating/index.jsx";
+import BookingBtnWrapper from "../BookingBtnWrapper/BookingBtnWrapper.jsx";
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import Newsletter from "../Newsletter/Newsletter.jsx";
+import NewMap from "../map/NewMap.jsx";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -42,9 +47,22 @@ const useStyles = makeStyles((theme) => ({
     marginTop: "20px",
   },
 
+  collectingAndUsingItem: {},
+  typesOfDataItem: {},
+  paddingList: {
+    paddingLeft: "35px",
+  },
+
+   headerPolicy: {
+    fontSize: "30px",
+    color:"#1d3967",
+    fontWeight: "700",
+    marginBottom: "64px",
+  },
+
   textClass: {
-    marginTop: "5px",
-    fontSize: "23px",
+    marginBottom: "32px",
+    fontSize: "18px",
     lineHeight: "24px",
     fontWeight: 300,
     letterSpacing: "0em",
@@ -109,10 +127,27 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 
-  typesOfDataItem: {
-    display: "flex",
-    flexDirection: "column",
-    gap: "10px",
+  subtitle2: {
+    marginBottom: "25px",
+    marginTop: "25px",
+    fontSize: "22.5px",
+  },
+
+  additionSubtitle: {
+    marginTop: "30px",
+    marginBottom: "20px",
+    fontSize: "19px",
+    lineHeight: "24px",
+    fontWeight: 600,
+    letterSpacing: "0em",
+    [theme.breakpoints.down("md")]: {
+      fontSize: "16px",
+      lineHeight: "22px",
+    },
+    [theme.breakpoints.between(768, 1024)]: {
+      fontSize: "17px",
+      lineHeight: "23px",
+    },
   },
 }));
 
@@ -150,183 +185,238 @@ export default function CookiePolicy() {
     root,
     textClass,
     titleInfo,
+    headerPolicy,
     definitionList,
     definition,
     articleWrapper,
     link,
     linkWrapper,
     subtitle,
+    subtitle2,
+    additionSubtitle,
+    collectingAndUsingItem,
     typesOfDataItem,
   } = useStyles();
+
+  const { isMobile, isTablet } = useBreakpoints();
+
   return (
     <Box className={root}>
-      <div className={titleInfo}>
+       <div>
+        {!!(isMobile || isTablet) && <BookingBtnWrapper />}
+       </div>
+       <div className={s.titleWrapper}>
+          <h2 style={{left: "-100px"}} className={s.titleFirst}>
+            <WithTransLate text="COOKIE POLICY" />
+          </h2>
+       </div>
+       <div className={s.imagePrivacy}></div>
+       <div className={s.buttonSection}>
+            <button className={s.buttonLink}>
+                <a href="/privacy" className={s.linkText}>
+                    Privacy Policy
+                </a>
+            </button>
+            <button className={s.buttonLink}>
+                <a href="/cookie-policy" className={s.linkText}>
+                    Cookie Policy
+                </a>
+            </button>
+        </div>
+       <div className={titleInfo}>
+        <div>
+           <h1 className={headerPolicy}>COOKIE POLICY</h1>
+           <b><WithTransLate text="Last updated: June 06, 2022" /></b>
+        </div>
         <p className={textClass}>
           <WithTransLate text="In order to provide you with a more personalized and responsive service we need to" />
-          <br />
           <WithTransLate text="remember and store information about how you use this website. This is done using small text" />
-          <br />
           <WithTransLate text="files called cookies. Cookies contain small amounts of information and are downloaded to" />
-          <br />
           <WithTransLate text="your computer or other device by a server for this website. Your web browser then sends" />
-          <br />
           <WithTransLate text="these cookies back to this Website on each subsequent visit so that it can recognise you and" />
-          <br />
           <WithTransLate text="remember things like your user preferences. A cookie is a small file of letters and numbers" />
-          <br />
           <WithTransLate text="that we store on your browser and hard drive of your computer. Cookies contain information" />
-          <br />
           <WithTransLate text="that is transferred to your computer’s hard drive. By browsing our sites you are accepting our" />
-          <br />
           <WithTransLate text="use of cookies. You can close the cookie notification by clicking “OK” button." />
         </p>
 
-        <div className={textClass}>
-          <ul className={definitionList}>
-            <li>
-              <span className={definition}>
-                <WithTransLate text="Necessary cookies: " />
-              </span>
-
-              <span>
-                <WithTransLate text="These are cookies that are required for the operation of our website." />
+        <div className={collectingAndUsingItem}>
+          <h3 style={{fontSize:"19px"}} className={`${subtitle} ${subtitle2}`}>
+            <WithTransLate text="Type of Cookies used on the Website" />
+          </h3>
+        </div>
+        <div style={{marginBottom:"48px"}}>
+          <Accordion>
+             <AccordionSummary className={typesOfDataItem}expandIcon={<ExpandMoreIcon />}>
+              <h4 className={additionSubtitle}>
+                <WithTransLate text="Necessary cookies" />
+              </h4>
+            </AccordionSummary>
+            <AccordionDetails>
+              <div className={textClass}>
+                 <WithTransLate text="These are cookies that are required for the operation of our website." />
                 <br />
                 <WithTransLate text="They include cookies that enable you to log into secure areas of our website as well as" />
                 <br />
                 <WithTransLate text="placing products in your cart." />
-              </span>
-            </li>
+              </div>
+            </AccordionDetails>
+          </Accordion>
 
-            <li>
-              <span className={definition}>
-                <WithTransLate text="Preference settings cookies: " />
-              </span>
-              <WithTransLate text="These are cookies that are required for the operation of" />
+          <Accordion>
+            <AccordionSummary className={typesOfDataItem} expandIcon={<ExpandMoreIcon />}>
+              <h4 className={additionSubtitle}>
+                <WithTransLate text="Preference settings cookies" />
+              </h4>
+            </AccordionSummary>
+            <AccordionDetails>
+              <p className={textClass}>
+                <WithTransLate text="These are cookies that are required for the operation of" />
               <br />
               <WithTransLate text="some features our website. They include cookies that enable changes of some settings on" />
               <br />
               <WithTransLate text="our websites." />
-            </li>
+              </p>
+            </AccordionDetails>
+          </Accordion>
 
-            <li>
-              <span className={definition}>
-                <WithTransLate text="Statistics, analytical and performance cookies: " />
-              </span>
-              <WithTransLate text="They allow us to recognise and count" />
+          <Accordion>
+            <AccordionSummary className={typesOfDataItem} expandIcon={<ExpandMoreIcon />}>
+              <h4 className={additionSubtitle}>
+                <WithTransLate text="Statistics, analytical and performance cookies" />
+              </h4>
+            </AccordionSummary>
+            <AccordionDetails>
+              <p className={textClass}>
+               <WithTransLate text="They allow us to recognise and count" />
               <br />
               <WithTransLate text="the number of visitors and to see how visitors move around our website when they are" />
               <br />
               <WithTransLate text="using it." />
-            </li>
+               </p>
+            </AccordionDetails>
+          </Accordion>
 
-            <li>
-              <span className={definition}>
-                <WithTransLate text="Marketing cookies: " />
-              </span>
-              <WithTransLate text="These cookies can be connected to your social accounts to display" />
+          <Accordion>
+            <AccordionSummary className={typesOfDataItem} expandIcon={<ExpandMoreIcon />}>
+              <h4 className={additionSubtitle}>
+                <WithTransLate text="Marketing cookies" />
+              </h4>
+            </AccordionSummary>
+            <AccordionDetails>
+              <p className={textClass}>
+                 <WithTransLate text="These cookies can be connected to your social accounts to display" />
               <br />
               <WithTransLate text="advertisements to your social accounts." />
-            </li>
-          </ul>
+              </p>
+            </AccordionDetails>
+          </Accordion>
         </div>
 
         <p className={textClass}>
-          <WithTransLate text="Most browsers will allow you to see what cookies you have and delete them on an individual" />
-          <br />
-          <WithTransLate text="basis or block cookies from particular or all websites. Be aware that any preference you have" />
-          <br />
-          <WithTransLate text="set will be lost if you delete all cookies, including your preference to close the cookie" />
-          <br />
-          <WithTransLate text="notification." />
-        </p>
-
-        <p className={textClass}>
-          <span className={definition}>
+          <h3 style={{fontSize:"19px"}} className={`${subtitle} ${subtitle2}`}>
             <WithTransLate text="Our cookies and 3rd party cookies used on our sites" />
-          </span>
+          </h3>
         </p>
       </div>
 
-      <div className={articleWrapper}>
-        <div className={typesOfDataItem}>
-          <p className={`${textClass} ${subtitle}`}>
-            <br />
-            <WithTransLate text="Advertisement" />
-          </p>
-          <hr />
-
-          {COOKIES_ADVERTISEMENT.map((data) => (
-            <p key={data.id} className={`${textClass} ${linkWrapper}`}>
-              <WithTransLate text={data.text} />
-
-              <a href={data.link} className={link}>
-                {data.link}
-              </a>
-            </p>
-          ))}
-        </div>
-
-        <div className={typesOfDataItem}>
-          <p className={`${textClass} ${subtitle}`}>
-            <br />
-            <br />
-            <WithTransLate text="Analytics" />
-          </p>
-          <hr />
-
-          {COOKIES_ANALITICS.map((data) => (
-            <p key={data.id} className={`${textClass} ${linkWrapper}`}>
-              <WithTransLate text={data.text} />
-
-              <a href={data.link} className={link}>
-                {data.link}
-              </a>
-            </p>
-          ))}
-        </div>
-
-        <div className={typesOfDataItem}>
-          <p className={`${textClass} ${subtitle}`}>
-            <br />
-            <br />
-            <WithTransLate text="Functional" />
-          </p>
-          <hr />
-
-          {COOKIES_FUNCTIONAL.map((data) => (
-            <p key={data.id} className={`${textClass} ${linkWrapper}`}>
-              <WithTransLate text={data.text} />
-
-              <a href={data.link} className={link}>
-                {data.link}
-              </a>
-            </p>
-          ))}
-        </div>
-
-        <div className={typesOfDataItem}>
-          <p className={`${textClass} ${subtitle}`}>
-            <br />
-            <br />
-            <WithTransLate text="Necessary" />
-          </p>
-          <hr />
-
-          {COOKIES_NECESSARY.map((data) => (
-            <p key={data.id} className={`${textClass} ${linkWrapper}`}>
-              <WithTransLate text={data.text} />
-
-              <a href={data.link} className={link}>
-                {data.link}
-              </a>
-            </p>
-          ))}
-        </div>
-
-        <p style={{ fontSize: "25.4px", marginTop: "20px", fontWeight: "300" }}>
-          <WithTransLate text="For further information on how we handle your data please read our privacy policy." />
-        </p>
+      <div className={textClass} style={{marginBottom:"48px"}}>
+          <table style={{ width: '100%', borderCollapse: 'collapse', fontFamily: 'Arial, sans-serif' }}>
+              <thead>
+                <tr style={{ backgroundColor: '#1E4A71', color: 'white', textAlign: 'left' }}>
+                  <th style={{ padding: '10px', border: '1px solid #ddd', fontSize: "14px", fontWeight: "400"  }}>ADVERTISEMENT</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style={{ padding: '10px', border: '1px solid #ddd', fontSize: "16px"}}>TAUnique</td>
+                </tr>
+                <tr>
+                  <td style={{ padding: '10px', border: '1px solid #ddd', fontSize: "16px"}}>TACds</td>
+                </tr>
+                <tr>
+                  <td style={{ padding: '10px', border: '1px solid #ddd', fontSize: "16px"}}>b3e783bb62</td>
+                </tr>
+              </tbody>
+          </table>
       </div>
+       <div className={textClass} style={{marginBottom:"48px"}}>
+          <table style={{ width: '100%', borderCollapse: 'collapse', fontFamily: 'Arial, sans-serif' }}>
+              <thead>
+                <tr style={{ backgroundColor: '#1E4A71', color: 'white', textAlign: 'left' }}>
+                  <th style={{ padding: '10px', border: '1px solid #ddd', fontSize: "14px", fontWeight: "400"  }}>ANALYTICS</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style={{ padding: '10px', border: '1px solid #ddd', fontSize: "16px"}}>_ga</td>
+                </tr>
+                <tr>
+                  <td style={{ padding: '10px', border: '1px solid #ddd', fontSize: "16px"}}>_gid</td>
+                </tr>
+                <tr>
+                  <td style={{ padding: '10px', border: '1px solid #ddd', fontSize: "16px"}}>_gat_UA-223879896-1</td>
+                </tr>
+                <tr>
+                  <td style={{ padding: '10px', border: '1px solid #ddd', fontSize: "16px"}}>_ga_6QGX4YP9SF</td>
+                </tr>
+                <tr>
+                  <td style={{ padding: '10px', border: '1px solid #ddd', fontSize: "16px"}}>LaVisitorNew</td>
+                </tr>
+                <tr>
+                  <td style={{ padding: '10px', border: '1px solid #ddd', fontSize: "16px"}}>LaSID</td>
+                </tr>
+                <tr>
+                  <td style={{ padding: '10px', border: '1px solid #ddd', fontSize: "16px"}}>_ga_WYRZ6Q7MDE</td>
+                </tr>
+                <tr>
+                  <td style={{ padding: '10px', border: '1px solid #ddd', fontSize: "16px"}}>TADCID</td>
+                </tr>
+              </tbody>
+          </table>
+      </div>
+      <div className={textClass} style={{marginBottom:"48px"}}>
+          <table style={{ width: '100%', borderCollapse: 'collapse', fontFamily: 'Arial, sans-serif' }}>
+              <thead>
+                <tr style={{ backgroundColor: '#1E4A71', color: 'white', textAlign: 'left' }}>
+                  <th style={{ padding: '10px', border: '1px solid #ddd', fontSize: "14px", fontWeight: "400"  }}>FUNCTIONAL</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style={{ padding: '10px', border: '1px solid #ddd', fontSize: "16px"}}>TASession</td>
+                </tr>
+                <tr>
+                  <td style={{ padding: '10px', border: '1px solid #ddd', fontSize: "16px"}}>ServerPool</td>
+                </tr>
+                <tr>
+                  <td style={{ padding: '10px', border: '1px solid #ddd', fontSize: "16px"}}>_zcsr_tmp</td>
+                </tr>
+              </tbody>
+          </table>
+      </div>
+      <div className={textClass} style={{marginBottom:"48px"}}>
+          <table style={{ width: '100%', borderCollapse: 'collapse', fontFamily: 'Arial, sans-serif' }}>
+              <thead>
+                <tr style={{ backgroundColor: '#1E4A71', color: 'white', textAlign: 'left' }}>
+                  <th style={{ padding: '10px', border: '1px solid #ddd', fontSize: "14px", fontWeight: "400"  }}>NECESSARY</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style={{ padding: '10px', border: '1px solid #ddd', fontSize: "16px"}}>LS_CSRF_TOKEN</td>
+                </tr>
+                <tr>
+                  <td style={{ padding: '10px', border: '1px solid #ddd', fontSize: "16px"}}>zfccn</td>
+                </tr>
+                <tr>
+                  <td style={{ padding: '10px', border: '1px solid #ddd', fontSize: "16px"}}>JSESSIONID</td>
+                </tr>
+              </tbody>
+          </table>
+      </div>
+        <br /><br /><br /><br />
+        <Newsletter/>
     </Box>
   );
 }
