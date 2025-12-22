@@ -9,15 +9,15 @@
   width: 100vw;
   display: flex;
   justify-content: center;
-  margin-top: 40px;
+  margin-top: 2.5rem;
   margin-bottom: 2.5rem;
 
   @media (min-width: app.$tablet) {
-    margin-top: 60px;
+    margin-top: 3.75rem;
   }
 
   @media (min-width: app.$desktop) {
-    margin-top: 80px;
+    margin-top: 5rem;
     margin-bottom: 4.5rem;
   }
 }
@@ -80,23 +80,23 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  padding: 0 20px; // Mobile padding from mockup
+  padding: 0 1.25rem; // Mobile padding from mockup
   box-sizing: border-box;
-  gap: 40px;
+  gap: 2.5rem;
 
   @media (min-width: app.$tablet) {
-    padding: 0 40px;
-    gap: 50px;
+    padding: 0 2.5rem;
+    gap: 3.125rem;
   }
 
   @media (min-width: app.$smallScreen) {
-    padding: 0 60px;
-    gap: 60px;
+    padding: 0 3.75rem;
+    gap: 3.75rem;
   }
 
   @media (min-width: app.$desktop) {
-    padding: 0 98px;
-    gap: 80px;
+    padding: 0 6.125rem;
+    gap: 5rem;
   }
 }
 
@@ -108,50 +108,46 @@
   margin: 0;
   font-family: "Oblik", Arial, sans-serif;
   font-weight: 700;
-  font-size: 24px;
-  line-height: 30px;
-  letter-spacing: -0.5px;
+  font-size: 1.5rem;
+  line-height: 1.875rem;
+  letter-spacing: -1px;
   text-transform: uppercase;
   color: #ffffff;
 
   @media (min-width: app.$tablet) {
-    font-size: 32px;
-    line-height: 38px;
-    letter-spacing: -0.8px;
+    font-size: 2rem;
+    line-height: 3rem;
+    letter-spacing: -1px;
   }
 
   @media (min-width: app.$smallScreen) {
-    font-size: 40px;
-    line-height: 42px;
+    font-size: 2.5rem;
+    line-height: 2.625rem;
   }
 
   @media (min-width: app.$desktop) {
-    font-size: 40px;
-    line-height: 48px;
+    font-size: 2.5rem;
+    line-height: 3rem;
     letter-spacing: -1px;
   }
 }
 
 .paragraph {
-  margin: 20px 0 0 0;
+  margin: 1.25rem 0 0 0;
   max-width: 656px;
   font-family: "Josefin Sans", Arial, sans-serif;
   font-weight: 300;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1.5rem;
+  line-height: 2rem;
   color: #ffffff;
   text-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
 
   @media (min-width: app.$tablet) {
-    margin: 30px 0 0 0;
-    font-size: 20px;
-    line-height: 28px;
+    margin: 1.875rem 0 0 0;
   }
 
   @media (min-width: app.$desktop) {
-    margin: 40px 0 0 0;
-    font-size: 24px;
-    line-height: 32px;
+    margin: 2.5rem 0 0 0;
   }
 }
 
@@ -167,15 +163,16 @@
 }
 
 .cta {
-  width: 100% !important; // Fixed width across all breakpoints
-  height: 50px !important;
-  padding: 12px 36px !important;
+  width: 100% !important;
+  min-width: 13.625rem !important;
+  height: 3.125rem !important;
+  padding: 0.75rem 2.25rem !important;
   box-sizing: border-box !important;
   border-width: 1px !important;
   border-style: solid !important;
   font-family: "Josefin Sans", Arial, sans-serif !important;
-  font-size: 16px !important;
-  line-height: 24px !important;
+  font-size: 1rem !important;
+  line-height: 1.5rem !important;
   font-weight: 400 !important;
   letter-spacing: 0 !important;
   text-transform: uppercase !important;
@@ -183,7 +180,7 @@
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
-
+  white-space: nowrap !important;
   background-color: #ffffff !important;
   color: #1d3967 !important;
   border-color: #1d3967 !important;
@@ -191,9 +188,9 @@
   @media (min-width: app.$tablet) {
     width: 218px !important;
     height: 50px !important;
-    padding: 12px 36px !important;
-    font-size: 16px !important;
-    line-height: 24px !important;
+    padding: 0.75rem 2.25rem !important; // 12px 36px
+    font-size: 1rem !important; // 16px
+    line-height: 1.5rem !important; // 24px
   }
 }
 
