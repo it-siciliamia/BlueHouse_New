@@ -1,3 +1,5 @@
+@use "../../Styles/App.scss" as app;
+
 .section {
   width: 100%;
   box-sizing: border-box;
@@ -18,26 +20,54 @@
 /* Header row: title + stamp */
 .headingRow {
   display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
+  flex-direction: column-reverse;
   gap: 24px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  @media (min-width: app.$tablet) {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    text-align: left;
+  }
 }
 
 .titleBlock {
   display: flex;
   flex-direction: column;
   min-width: 0;
+  width: 343px;
+
+  @media (min-width: app.$tablet) {
+    width: 440px;
+  }
+
+  @media (min-width: app.$desktop) {
+    width: 592px;
+  }
 }
 
 .title {
   margin: 0;
   font-family: "Oblik", Arial, sans-serif;
   font-weight: 700;
-  font-size: 40px;
-  line-height: 48px;
+  font-size: 24px;
+  line-height: 29px;
   letter-spacing: -1px;
   text-transform: uppercase;
   color: #1d3967;
+
+  @media (min-width: app.$tablet) {
+    font-size: 40px;
+    line-height: 48px;
+    width: 318px;
+  }
+
+  @media (min-width: app.$desktop) {
+    width: 592px;
+  }
 }
 
 .subtitle {
@@ -71,8 +101,26 @@
 /* Three bullet points */
 .list {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   gap: 24px;
+  // width: 100%; // added
+  margin: auto;
+
+  @media (min-width: app.$tablet) {
+    grid-template-columns: repeat(2, 1fr);
+    .listItem:last-child:nth-child(odd) {
+      grid-column: 1 / -1;
+      justify-self: center;
+    }
+  }
+
+  @media (min-width: app.$desktop) {
+    grid-template-columns: repeat(3, 1fr);
+    .listItem:last-child:nth-child(odd) {
+      grid-column: 3 / -1;
+      justify-self: center;
+    }
+  }
 }
 
 .listItem {
@@ -94,23 +142,46 @@
   margin: 0;
   font-family: "Josefin Sans", Arial, sans-serif;
   font-weight: 300;
-  font-size: 16px;
+  font-size: 18px;
   line-height: 24px;
   color: #212529;
+  width: 323px;
+
+  @media (min-width: app.$tablet) {
+    width: 336px;
+  }
+
+  @media (min-width: app.$desktop) {
+    width: 346px;
+  }
 }
 
 /* Button row */
 .buttonRow {
   display: flex;
   align-items: center;
+  justify-content: center;
+  min-width: 343px;
+  margin: auto;
+
+
+  @media (min-width: app.$desktop) {
+    justify-content: left;
+    margin: 0;
+  }
 }
 
 /* Button override - because of Figma sizes */
 .btnOverride {
+  width: 100% !important;
   font-family: "Josefin Sans", Arial, sans-serif !important;
   font-size: 16px !important;
   line-height: 24px !important;
   font-weight: 400 !important;
   text-transform: uppercase !important;
   text-align: center !important;
+
+  @media (min-width: app.$tablet) {
+    width: 336px !important;
+  }
 }
