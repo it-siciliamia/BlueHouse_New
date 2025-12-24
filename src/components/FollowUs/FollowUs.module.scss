@@ -1,19 +1,27 @@
+@import "../../Styles/App.scss";
+
 .section {
   width: 100%;
   display: flex;
   justify-content: center;
   margin-bottom: 2.5rem;
 
-  @media (min-width: 60em) {
+  @media (min-width: $smallScreen) {
     margin-bottom: 5.5rem;
   }
 }
 
 .container {
-  width: 1152px;
+  width: 1150px;
   display: flex;
   align-items: flex-start;
   gap: 32px;
+
+  @media (max-width: $tablet) {
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 
 .title {
@@ -25,8 +33,23 @@
   line-height: 32px;
   letter-spacing: -1px;
   text-transform: uppercase;
-  color: #1d3967;
+  color: var(--color-primary-500);
   margin: 0;
+
+  @media (max-width: $tablet) {
+    writing-mode: horizontal-tb;
+    transform: none;
+    text-align: left;
+  }
+}
+
+.gridWrapper {
+  position: relative;
+  width: 100%;
+
+  @media (min-width: $desktop) {
+    margin-left: 20px;
+  }
 }
 
 .grid {
@@ -35,37 +58,57 @@
   display: flex;
   justify-content: space-between;
   gap: 32px;
+
+  @media (max-width: $tablet) {
+    flex: unset;
+    width: 100%;
+    margin-left: 0;
+    display: grid;
+    gap: 24px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: $tablet) and (max-width: $smallScreen) {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 .card {
   width: 270px;
   display: flex;
   flex-direction: column;
-}
+  align-items: center;
 
-.imageBox {
-  width: 270px;
-  height: 382px;
-  flex-shrink: 0;
+  @media (max-width: $tablet) {
+    width: 100%;
+  }
 }
 
 .image {
   width: 270px;
   height: 382px;
   object-fit: cover;
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease,
-    filter 0.3s ease;
-  cursor: pointer;
+
+  @media (max-width: $tablet) {
+    width: 100%;
+    height: 252px;
+  }
+
+  @media (min-width: $tablet) and (max-width: $smallScreen) {
+    width: 220px;
+    height: 312px;
+  }
 }
 
-.bottom {
-  width: 270px;
-  height: 104px;
+.followWrapper {
+  width: 100%;
   display: flex;
-  align-items: flex-end;
   justify-content: center;
+  margin-top: 2.5rem;
+
+  @media (min-width: $smallScreen) {
+    margin-top: 3.5rem;
+  }
 }
 
 .button {
@@ -74,23 +117,39 @@
   align-items: center;
   width: 218px;
   height: 50px;
-  padding: 0;
   font-family: "Josefin Sans", Arial, sans-serif;
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
   text-transform: uppercase;
-  color: #1d3967;
-  background: #ffffff;
-  border: 1px solid #1d3967;
+  color: var(--color-primary-500);
+  background: var(--bg-default);
+  border: 1px solid var(--color-primary-500);
   text-decoration: none;
   cursor: pointer;
-  transition:
-    background 0.2s ease,
-    color 0.2s ease;
+  transition: background 0.2s ease, color 0.2s ease;
 
   &:hover {
-    background: #1d3967;
-    color: #ffffff;
+    background: var(--color-primary-500);
+    color: var(--text-inverse);
+  }
+}
+
+.chevron {
+  display: none;
+
+  @media (max-width: $tablet) {
+    display: flex;
+    position: absolute;
+    top: 32%;
+    z-index: 3;
+
+    &.left {
+      left: 10px;
+    }
+
+    &.right {
+      right: 10px;
+    }
   }
 }
