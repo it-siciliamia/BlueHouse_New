@@ -14,16 +14,41 @@
 }
 
 
-@media(min-width: #{app.$smallScreen}){
+
   .logoImage {
-  width: 8.5rem;
-  height: 3.729rem;
+  width: 136px;
+  height: auto;
+    margin-bottom: 8px;
+
+
   object-fit: cover;
   cursor: pointer;
   user-select: none;
 }
 
+@media(min-width: app.$tablet){
+.logoImage{
+  width: 166px;
+  height: auto;
+  margin-bottom: 8px;
+
+  cursor: pointer;
+  user-select: none;
+
 }
+.menuImg{
+  width: 42px;
+  height: 42px;
+
+}
+.menuBtn{
+   width: 42px;
+  height: 43px;
+
+}
+}
+
+
 
 
 
@@ -73,6 +98,10 @@
 
   /* Only hide on desktop when isSearchOpern state is true */
   @media (min-width: app.$desktop) {
+    .logoImage{
+      width: 176.07px;
+      height: 100px;
+    }
     transition: all 0.3s ease-in-out;
     &--hidden {
       opacity: 0;
