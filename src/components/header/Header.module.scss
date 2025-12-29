@@ -86,8 +86,8 @@
 
   @media (min-width: app.$tablet) {
     font-size: 1rem;
-<<<<<<< HEAD
-=======
+
+
     min-inline-size: 13.62rem;
   }
 
@@ -107,6 +107,7 @@
       visibility: hidden;
       pointer-events: none;
     }
->>>>>>> 445341a (chore: replace breakpoints variables with general breakpoints variables)
+
   }
+
 }
