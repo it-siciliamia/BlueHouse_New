@@ -51,11 +51,6 @@
   @media (min-width: app.$tablet) {
     gap: 2rem;
   }
-
-  @media(min-width: app.$desktop){
-        transition: all 0.3s ease-in-out;
-
-  }
 }
 
 .iconsWrapper {
@@ -91,20 +86,7 @@
 
   @media (min-width: app.$tablet) {
     font-size: 1rem;
-
-
     min-inline-size: 13.62rem;
-  }
-
-
-
-  /* Only hide on desktop when isSearchOpern state is true */
-  @media (min-width: app.$desktop) {
-    transition: all 0.3s ease-in-out;
-    // &--hidden {
-
-    // }
-
   }
 
 }

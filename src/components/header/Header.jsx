@@ -36,12 +36,12 @@ function Header() {
             <WithTransLate text="book your room" />
           </LinkButton>
 
-          <LinkButton
+         <LinkButton
             variant="secondary"
-            href="https://bluehouse.tourdesk.is/Tour"
-            rel="noreferrer"
-            className={`${s.btnCorrection} ${isSearchOpen ? s["btnCorrection--hidden"] : ""}`}
-          >
+             href="https://bluehouse.tourdesk.is/Tour"
+               rel="noreferrer"
+              className={s.btnCorrection}
+>
             <WithTransLate text="book day tours" />
           </LinkButton>
         </div>
@@ -50,13 +50,12 @@ function Header() {
       <div className={s.iconsWrapper}>
         <Search onSearchToggle={handleSearchToggle} />
 
-        <button
-          className={`${s.menuBtn} ${isNavOpen ? s["menuBtn--hidden"] : ""}`}
-          type="button"
-          onClick={handleMenuOpen}
-          aria-label="Open navigation"
-          aria-hidden={isNavOpen ? "true" : "false"}
-        >
+       <button
+        className={s.menuBtn}
+        type="button"
+        onClick={handleMenuOpen}
+       aria-label="Open navigation"
+>
           <img src={MenuIcon} alt="MenuIcon" draggable="false" className={s.menuImg} />
         </button>
       </div>
