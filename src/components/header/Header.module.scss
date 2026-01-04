@@ -13,13 +13,10 @@
   z-index: 3;
 }
 
-
-
-  .logoImage {
+.logoImage {
   width: 136px;
   height: auto;
-    margin-bottom: 8px;
-
+  margin-bottom: 8px;
 
   object-fit: cover;
   cursor: pointer;
@@ -27,30 +24,24 @@
 }
 
 @media(min-width: app.$tablet){
-.logoImage{
-  width: 166px;
-  height: auto;
-  margin-bottom: 8px;
+  .logoImage{
+    width: 166px;
+    height: auto;
+    margin-bottom: 8px;
+    cursor: pointer;
+    user-select: none;
+  }
 
-  cursor: pointer;
-  user-select: none;
+  .menuImg{
+    width: 42px;
+    height: 42px;
+  }
 
+  .menuBtn{
+    width: 42px;
+    height: 43px;
+  }
 }
-.menuImg{
-  width: 42px;
-  height: 42px;
-
-}
-.menuBtn{
-   width: 42px;
-  height: 43px;
-
-}
-}
-
-
-
-
 
 .btnsWrapper {
   display: flex;
@@ -76,6 +67,7 @@
   width: 42px;
   height: 42px;
 }
+
 .menuBtn--hidden {
   visibility: hidden;
 }
@@ -96,22 +88,16 @@
     min-inline-size: 13.62rem;
   }
 
-  /* Only hide on desktop when isSearchOpern state is true */
+    /* Only hide on desktop when isSearchOpern state is true */
   @media (min-width: app.$desktop) {
     .logoImage{
       width: 176.07px;
       height: 100px;
     }
-    transition: all 0.3s ease-in-out;
+    transition: opacity 1s ease-in-out;
+
     &--hidden {
       opacity: 0;
-      transform: translateX(-1rem) scale(0.98);
-      max-width: 0;
-      padding-left: 0;
-      padding-right: 0;
-      margin-left: 0;
-      margin-right: 0;
-      visibility: hidden;
       pointer-events: none;
     }
   }
