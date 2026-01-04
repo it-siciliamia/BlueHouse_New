@@ -37,10 +37,14 @@
     height: 42px;
   }
 
-  .menuBtn{
-    width: 42px;
-    height: 43px;
-  }
+  .menuBtn {
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: none;
+  width: 42px;
+  height: 43px;
+}
 }
 
 .btnsWrapper {
