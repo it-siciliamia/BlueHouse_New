@@ -37,7 +37,7 @@ function BlogPart() {
                 rel="noopener"
                 className={s.cta}
               >
-                READ BLOG
+                <WithTransLate text="READ BLOG" />
               </Link>
             </div>
           </div>
