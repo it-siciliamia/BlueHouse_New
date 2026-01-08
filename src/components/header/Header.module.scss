@@ -14,37 +14,23 @@
 }
 
 .logoImage {
-  width: 136px;
+  width: 8.5rem;
   height: auto;
-  margin-bottom: 8px;
+  margin-bottom: 0.5rem;
 
   object-fit: cover;
   cursor: pointer;
   user-select: none;
-}
+  transition: opacity 1s ease-in-out;
 
-@media(min-width: app.$tablet){
-  .logoImage{
-    width: 166px;
-    height: auto;
-    margin-bottom: 8px;
-    cursor: pointer;
-    user-select: none;
+  @media(min-width: app.$tablet) {
+    width: 10.375rem;
   }
 
-  .menuImg{
-    width: 42px;
-    height: 42px;
-  }
+  @media(min-width: app.$desktop) {
+    width: 11.004rem;
 
-  .menuBtn {
-  padding: 0;
-  margin: 0;
-  border: none;
-  background: none;
-  width: 42px;
-  height: 43px;
-}
+  }
 }
 
 .btnsWrapper {
@@ -68,8 +54,9 @@
   margin: 0;
   border: none;
   background: none;
-  width: 42px;
-  height: 42px;
+  width: 2.625rem;
+  height: 2.625rem;
+  cursor: pointer;
 }
 
 .menuBtn--hidden {
@@ -77,8 +64,8 @@
 }
 
 .menuImg {
-  width: 42px;
-  height: 42px;
+  width: 2.625rem;
+  height: 2.625rem;
 }
 
 .btnCorrection {
@@ -92,12 +79,8 @@
     min-inline-size: 13.62rem;
   }
 
-    /* Only hide on desktop when isSearchOpern state is true */
+  /* Only hide on desktop when isSearchOpen state is true */
   @media (min-width: app.$desktop) {
-    .logoImage{
-      width: 176.07px;
-      height: 100px;
-    }
     transition: opacity 1s ease-in-out;
 
     &--hidden {
