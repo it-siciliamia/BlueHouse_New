@@ -26,6 +26,7 @@ import CookiePolicy from "./components/PrivacyComponent/CookiePolicy.jsx";
 // import PrivacyandPolicyPage from "./views/PrivacyPolicyPage/PrivacyPolicyPage.jsx";
 import RoomBooking from "./views/roombooking/RoomBooking.jsx";
 import RoomDetails from "./views/RoomDetails/RoomDetails.jsx";
+import PrivacyAndCookies from "./components/PrivacyComponent/PrivacyCookie.jsx";
 
 const ThirdPartyScriptsLoader = lazy(() => import("./marketing/ThirdPartyScriptsLoader.jsx"));
 
@@ -60,8 +61,9 @@ function App() {
                 <Route index element={<HomePage />} />
                 <Route path="house-rules" element={<HouseRules />} />
                 <Route path="about-us" element={<Aboutus />} />
-                <Route path="privacy" element={<Privacy />} />
-                <Route path="cookie-policy" element={<CookiePolicy />} />
+                <Route path="privacy-and-cookies" element={<PrivacyAndCookies />} />
+                {/* <Route path="privacy" element={<Privacy />} />
+                <Route path="cookie-policy" element={<CookiePolicy />} /> */}
                 {/* <Route path="privacy-and-policy" element={<PrivacyandPolicyPage />} /> */}
                 <Route path="book" element={<RoomBooking />} />
                 <Route path="beds24" element={<RoomBooking />} />

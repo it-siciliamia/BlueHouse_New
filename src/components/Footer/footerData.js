@@ -80,17 +80,23 @@ const BLUE_HOUSE_LINKS = Object.freeze([
     href: "https://bluehouseis.zohodesk.eu/portal/en/kb/iceland",
     newTab: true,
   },
+  // {
+  //   id: "cookie-policy",
+  //   name: "Cookie-Policy",
+  //   type: "route",
+  //   to: "/cookie-policy",
+  // },
+  //  {
+  //   id: "privacy",
+  //   name: "Privacy",
+  //   type: "route",
+  //   to: "/privacy",
+  // },
   {
-    id: "cookie-policy",
-    name: "Cookie-Policy",
+    id: "PrivacyAndCookies",
+    name: "PrivacyAndCookies",
     type: "route",
-    to: "/cookie-policy",
-  },
-   {
-    id: "privacy",
-    name: "Privacy",
-    type: "route",
-    to: "/privacy",
+    to: "/privacy-and-cookies",
   },
   {
     id: "cancellation-policy",
