@@ -5,7 +5,7 @@
 
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   gap: 1.2rem;
 
   overflow: hidden;
@@ -29,6 +29,7 @@
     font-weight: 600;
     text-transform: uppercase;
     white-space: nowrap;
+    text-align: center;
 
     @media (min-width: app.$desktop) {
       font-size: 1.5rem;

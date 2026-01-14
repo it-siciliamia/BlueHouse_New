@@ -1,73 +1,66 @@
+@use "../../Styles/App.scss" as *;
+
 .houseRules {
   width: 100%;
   margin: 0 auto;
-  padding: 0 1.25rem;
-  @media (min-width: 1280px) {
-    max-width: 1008px;
-    padding: 0;
+  padding: 0 1.5rem 3rem;
+
+  @media (min-width: $smallScreen) {
+    max-width: 60rem;
+  }
+
+  @media (min-width: $desktop) {
+    max-width: 63rem;
+    padding-inline: 0;
   }
 }
 .houseRulesContent {
   display: flex;
   flex-direction: column;
-  font-weight: 700;
   gap: 3rem;
   width: 100%;
   position: relative;
-  @media (min-width: 1280px) {
+  font-weight: 700;
+
+  @media (min-width: $desktop) {
     gap: 4rem;
   }
 }
-.imageMain {
+
+.titleWrapperMobile {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.titleWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.heroImage {
+  inline-size: 100%;
+  max-inline-size: 23.5rem;
+  block-size: 34.3rem;
   background-image: url("../../images/houserules.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: 550px;
-  width: 1054;
-
-  @media (min-width: 1280px) {
-    height: 550px;
-    width: 1054px;
-    padding-right: 144px;
-    padding-bottom: 48px;
-    padding-left: 144px;
-  }
+  margin-inline: auto;
 }
-.houseRulesHeader {
-  color: #00366e;
-  font-family: "Oblik", Arial, sans-serif;
-  font-size: 24px;
-  font-weight: 700;
-  line-height: 32px;
-  width: 152px;
-  letter-spacing: -1px;
-  text-transform: uppercase;
+
+.title {
   margin: 0;
-  text-align: left;
-}
-.houseRulesHeader2 {
-  display: none;
-
-  @media (min-width: 1280px) {
-    display: block;
-    color: #00366e;
-    font-family: "Oblik", Arial, sans-serif;
-    font-size: 24px;
-    font-weight: 700;
-    line-height: 32px;
-    width: 152px;
-    height: 32px;
-    letter-spacing: -1px;
-    text-transform: uppercase;
-    margin: 0;
-    text-align: left;
-    position: absolute;
-    top: -550px;
-    left: -224px;
-    transform: rotate(-90deg);
-
-  }
+  font-family: "Oblik", Arial, sans-serif;
+  font-size: 1.75rem;
+  line-height: 2.25rem;
+  letter-spacing: -0.04em;
+  text-align: center;
+  text-transform: uppercase;
+  color: #00366e;
 }
 
 .guidelines {
@@ -76,7 +69,7 @@
   gap: 3rem;
   width: 100%;
 
-  @media (min-width: 1280px) {
+  @media (min-width: $desktop) {
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
   }
@@ -87,7 +80,8 @@
   flex-direction: column;
   gap: 3rem;
   width: 100%;
-  @media (min-width: 1280px) {
+
+  @media (min-width: $desktop) {
     gap: 3.5rem;
   }
 }
@@ -95,9 +89,12 @@
 .rule {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   gap: 1rem;
   width: 100%;
+  max-inline-size: 21.5rem;
+  min-inline-size: 10rem;
+  margin-inline: auto;
 }
 
 .iconWrapper {
@@ -108,11 +105,11 @@
   width: 48px;
   height: 48px;
   object-fit: contain;
-  @media (min-width: 600px) {
+  @media (min-width: $tablet) {
     width: 52px;
     height: 52px;
   }
-  @media (min-width: 1280px) {
+  @media (min-width: $desktop) {
     width: 56px;
     height: 56px;
   }
@@ -121,39 +118,45 @@
 .ruleContent {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 1rem;
   width: 100%;
+  text-align: center;
 }
 
 .ruleHeader {
   font-family: "Josefin Sans", sans-serif;
-  font-size: 1.125rem;
+  font-size: 1.12rem;
   font-weight: 600;
   color: #00366e;
   margin: 0;
   letter-spacing: 0.02em;
   line-height: 1.4;
-  @media (min-width: 600px) {
+
+  @media (min-width: $tablet) {
     font-size: 1.25rem;
   }
-  @media (min-width: 1280px) {
-    font-size: 1.375rem;
+
+  @media (min-width: $desktop) {
+    font-size: 1.3rem;
   }
 }
 
 .ruleText {
   font-family: "Josefin Sans", sans-serif;
-  font-size: 0.9375rem;
+  font-size: 1.12rem;
   font-weight: 300;
   color: #666666;
-  line-height: 1.6;
+  line-height: 1.5rem;
   margin: 0;
-  @media (min-width: 600px) {
+  letter-spacing: 0;
+
+  @media (min-width: $tablet) {
     font-size: 1rem;
     line-height: 1.65;
   }
-  @media (min-width: 1280px) {
-    font-size: 1.0625rem;
+
+  @media (min-width: $desktop) {
+    font-size: 1rem;
     line-height: 1.7;
   }
 }

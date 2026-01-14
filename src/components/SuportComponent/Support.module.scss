@@ -57,9 +57,20 @@
     font-weight: 500;
   }
 
+
   width: 16.875rem;
 
   @media (min-width: app.$smallScreen) {
+
+  @media (min-width: 320px) and (max-width: 599.99px) {
+    width: 100%;
+    max-width: 16.875rem;
+  }
+  @media (min-width: 600px) and (max-width: 959.99px) {
+    width: 48%;
+  }
+  @media (min-width: 960px) and (max-width: 1279.99px) {
+
     width: calc(25% - 18px);
     min-width: 13.4375rem;
   }
@@ -69,10 +80,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+
+
+  gap: 1.5rem;
+
   flex: 1;
   margin: 0 auto;
   cursor: pointer;
   border: 1px solid transparent;
+
 
   box-shadow: 0px 4px 12px rgba(29, 57, 103, 0.15);
   padding: 1.4375rem 0;
@@ -91,6 +107,18 @@
 
   &:hover {
     box-shadow: 0 8px 16px rgba(29, 57, 103, 0.15);
+
+  padding: 1.5rem 1rem;
+  background-color: #ffffff;
+  box-shadow:
+    0 4px 6px rgba(0, 0, 0, 0.04),
+    0 12px 16px rgba(0, 0, 0, 0.04);
+
+  &:hover {
+    box-shadow:
+      0 4px 10px rgba(0, 0, 0, 0.08),
+      0 16px 24px rgba(0, 0, 0, 0.06);
+
     transform: translateY(-2px);
   }
 }
@@ -160,4 +188,6 @@
 
 .contactLink p:nth-child(3) {
   font-weight: 300;
+}
+}
 }

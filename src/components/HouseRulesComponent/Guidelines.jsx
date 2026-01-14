@@ -9,7 +9,7 @@ import quietIcon from "../../images/quiet.svg";
 import toiletpaperIcon from "../../images/toiletpaper.svg";
 import lightIcon from "../../images/light.svg";
 
-function HouseRulesComponent() {
+function Guidelines() {
   const leftColumnRules = [
     {
       Icon: checkInIcon,
@@ -57,27 +57,19 @@ function HouseRulesComponent() {
   ];
 
   return (
-    <div className={s.houseRules}>
-      <div className={s.houseRulesContent}>
-        <div className={s.imageContainer}>
-        </div>
-        <div className={s.houseRulesHeader}>House Rules</div>
-                <div className={s.houseRulesHeader2}>House Rules</div>
-        <div className={s.guidelines}>
-          <div className={s.rulesColumn}>
-            {leftColumnRules.map((rule, index) => (
-              <Rule key={index} Icon={rule.Icon} header={rule.header} text={rule.text} />
-            ))}
-          </div>
-          <div className={s.rulesColumn}>
-            {rightColumnRules.map((rule, index) => (
-              <Rule key={index} Icon={rule.Icon} header={rule.header} text={rule.text} />
-            ))}
-          </div>
-        </div>
+    <div className={s.guidelines}>
+      <div className={s.rulesColumn}>
+        {leftColumnRules.map((rule, index) => (
+          <Rule key={index} Icon={rule.Icon} header={rule.header} text={rule.text} />
+        ))}
+      </div>
+      <div className={s.rulesColumn}>
+        {rightColumnRules.map((rule, index) => (
+          <Rule key={index} Icon={rule.Icon} header={rule.header} text={rule.text} />
+        ))}
       </div>
     </div>
   );
 }
 
-export default HouseRulesComponent;
+export default Guidelines;

@@ -1,9 +1,8 @@
-import { useEffect, useState } from "react";
-
 import Guidelines from "./Guidelines.jsx";
 import s from "./HouseRulesComponent.module.scss";
 import { WithTransLate } from "../../components/helpers/translating/index.jsx";
 import useBreakpoints from "../../Styles/useBreakpointsNew.js";
+import BookingBtnWrapper from "../BookingBtnWrapper/BookingBtnWrapper.jsx";
 
 function HouseRulesComponents() {
   const { isDesktop } = useBreakpoints();
@@ -11,12 +10,12 @@ function HouseRulesComponents() {
   return (
     <section className={s.houseRules}>
       <div className={s.houseRulesContent}>
+        <BookingBtnWrapper />
         <div className={isDesktop ? s.titleWrapper : s.titleWrapperMobile}>
-          {!isDesktop && <div className={s.imageMain}></div>}
-          <h2 className={s.title}>
-
-          </h2>
-          {isDesktop && <div className={s.imageMain}></div>}
+          <div className={s.heroImage}></div>
+          <h1 className={s.title}>
+            <WithTransLate text="House rules" />
+          </h1>
         </div>
         <Guidelines />
       </div>
