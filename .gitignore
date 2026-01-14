@@ -128,4 +128,9 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
-package.json
+
+# Security - Never commit these files
+authTokens.json
+refreshToken.json
+*.key
+*.pem

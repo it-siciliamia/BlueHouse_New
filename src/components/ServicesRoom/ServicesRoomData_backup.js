@@ -26,6 +26,13 @@ import privatebathroom from "../../images/services_room/private bathroom.svg";
 import privatedinning from "../../images/services_room/private dining.svg";
 import kitchen from "../../images/services_room/kitchen.svg";
 import uptoseex from "../../images/services_room/up_to_6.svg";
+// import main01 from "../../images/services_room/card room house__image01.webp";
+// import main02 from "../../images/services_room/card room house__image02.webp";
+// import main03 from "../../images/services_room/card room house__image03.webp";
+// import main04 from "../../images/services_room/card room house__image04.webp";
+// import main05 from "../../images/services_room/card room house__image05.webp";
+// import main06 from "../../images/services_room/card room house__image06.webp";
+// import main07 from "../../images/services_room/card room house__image07.webp";
 
 import ecdr01 from "../../images/services_room/Economy_Double_Room/01.webp";
 import ecdr02 from "../../images/services_room/Economy_Double_Room/02.webp";
@@ -36,15 +43,20 @@ import dtr03 from "../../images/services_room/Double_Twin_Room/03.webp";
 import dtr04 from "../../images/services_room/Double_Twin_Room/04.webp";
 import dtr05 from "../../images/services_room/Double_Twin_Room/05.webp";
 
+// import tr01 from "../../images/services_room/Triple_Room/01.webp";
+// import tr02 from "../../images/services_room/Triple_Room/02.webp";
 import tr03 from "../../images/services_room/Triple_Room/03.webp";
 import tr04 from "../../images/services_room/Triple_Room/04.webp";
 import tr05 from "../../images/services_room/Triple_Room/05.webp";
 
+// import qr01 from "../../images/services_room/Quadruple_Room/01.webp";
+// import qr02 from "../../images/services_room/Quadruple_Room/02.webp";
 import qr03 from "../../images/services_room/Quadruple_Room/03.webp";
 import qr04 from "../../images/services_room/Quadruple_Room/04.webp";
 import qr05 from "../../images/services_room/Quadruple_Room/05.webp";
 
 import fr01 from "../../images/services_room/Family_Room/01.webp";
+// import fr02 from "../../images/services_room/Family_Room/02.webp";
 import fr03 from "../../images/services_room/Family_Room/03.webp";
 import fr04 from "../../images/services_room/Family_Room/04.webp";
 import fr05 from "../../images/services_room/Family_Room/05.webp";
@@ -173,6 +185,7 @@ export const items = [
       icon: sharedlink,
       href: `${BASE_URL}/beds24/economy_double_room`,
     },
+    // mainImage: main01,
     mainImage: ecdr02,
     services: [
       {
@@ -257,7 +270,7 @@ export const items = [
         nameOne: "Non-refundable:",
         valueOne: "124.48",
         nameTwo: "Refundable:",
-        valueTwo: "134.48",
+        valueOne: "134.48",
         icon: info,
       },
     ],
@@ -271,6 +284,7 @@ export const items = [
       icon: sharedlink,
       href: `${BASE_URL}/beds24/double_twin_room`,
     },
+    // mainImage: main02,
     mainImage: dtr03,
     services: [
       {
@@ -347,7 +361,7 @@ export const items = [
         nameOne: "Non-refundable:",
         valueOne: "124.48",
         nameTwo: "Refundable:",
-        valueTwo: "134.48",
+        valueOne: "134.48",
         icon: info,
       },
     ],
@@ -361,6 +375,7 @@ export const items = [
       icon: sharedlink,
       href: `${BASE_URL}/beds24/triple_room`,
     },
+    // mainImage: main03,
     mainImage: tr03,
     services: [
       {
@@ -433,7 +448,7 @@ export const items = [
         nameOne: "Non-refundable:",
         valueOne: "124.48",
         nameTwo: "Refundable:",
-        valueTwo: "134.48",
+        valueOne: "134.48",
         icon: info,
       },
     ],
@@ -447,6 +462,7 @@ export const items = [
       icon: sharedlink,
       href: `${BASE_URL}/beds24/Quadruple_room`,
     },
+    // mainImage: main04,
     mainImage: qr03,
     services: [
       {
@@ -520,6 +536,7 @@ export const items = [
       icon: sharedlink,
       href: `${BASE_URL}/beds24/family_room`,
     },
+    // mainImage: main05,
     mainImage: fr05,
     services: [
       {
@@ -623,6 +640,7 @@ export const items = [
       icon: sharedlink,
       href: `${BASE_URL}/beds24/two_bedroom_apartment`,
     },
+    // mainImage: main06,
     mainImage: tba03,
     services: [
       {
@@ -718,6 +736,7 @@ export const items = [
       icon: sharedlink,
       href: `${BASE_URL}/beds24/Three_bedroom_apartment`,
     },
+    // mainImage: main07,
     mainImage: trba01,
     services: [
       {

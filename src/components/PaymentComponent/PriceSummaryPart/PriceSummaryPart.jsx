@@ -70,7 +70,7 @@ const PriceSummaryPart = () => {
 
         const data = await response.json();
         const currencyList = popularCurrencies.filter((currency) =>
-          data.conversion_rates.hasOwnProperty(currency.code)
+          Object.prototype.hasOwnProperty.call(data.conversion_rates, currency.code)
         );
 
         setCurrencies(currencyList);

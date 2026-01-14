@@ -1,40 +1,29 @@
 const axios = require("axios");
-const fs = require("fs");
-const path = require("path");
-
-const tokenFilePath = path.resolve("./authTokens.json");
+const secureStorage = require("./secureStorage");
 
 class AxiosClient {
   constructor() {
     this.baseURL = "https://beds24.com/api/v2";
     this.inviteCode = process.env.BEDS24_INVITE_CODE;
+    this.propertyId = process.env.BEDS24_PROPERTY_ID;
     this.refreshToken = null;
     this.authToken = null;
   }
 
-  // Save tokens to file
+  // Save tokens securely
   saveTokens(data) {
-    try {
-      fs.writeFileSync(tokenFilePath, JSON.stringify(data), "utf8");
-      console.log("Tokens saved successfully.");
-    } catch (error) {
-      console.error("Failed to save tokens:", error.message);
-    }
+    secureStorage.saveTokens(data);
+    console.log("Tokens saved securely.");
   }
 
-  // Load tokens from file
+  // Load tokens securely
   loadTokens() {
-    try {
-      if (fs.existsSync(tokenFilePath)) {
-        const data = JSON.parse(fs.readFileSync(tokenFilePath, "utf8"));
-        this.refreshToken = data.refreshToken || null;
-        this.authToken = data.token || null;
-        return data;
-      }
-    } catch (error) {
-      console.error("Failed to load tokens:", error.message);
+    const data = secureStorage.loadTokens();
+    if (data) {
+      this.refreshToken = data.refreshToken || null;
+      this.authToken = data.token || null;
     }
-    return null;
+    return data;
   }
 
   // Get refresh token using invite code
@@ -93,8 +82,19 @@ class AxiosClient {
     return { token: this.authToken };
   }
 
+  // Validate environment variables
+  validateConfig() {
+    if (!this.inviteCode) {
+      throw new Error("BEDS24_INVITE_CODE environment variable is required");
+    }
+    if (!process.env.ENCRYPTION_KEY) {
+      console.warn("ENCRYPTION_KEY not set, using random key (tokens won't persist between restarts)");
+    }
+  }
+
   // Create Axios client with auth token
   async createClient() {
+    this.validateConfig();
     if (!this.authToken) await this.initializeAuth();
 
     return axios.create({
