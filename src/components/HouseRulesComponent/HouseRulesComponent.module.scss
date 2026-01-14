@@ -39,6 +39,10 @@
   flex-direction: column;
   gap: 2.5rem;
   align-items: center;
+
+  @media (min-width: $tablet) {
+    gap: 0.6rem;
+  }
 }
 
 .heroImage {
@@ -50,6 +54,11 @@
   background-position: center;
   background-repeat: no-repeat;
   margin-inline: auto;
+
+  @media (min-width: $tablet) {
+    max-inline-size: 48rem;
+    block-size: 24rem;
+  }
 }
 
 .title {
@@ -61,6 +70,19 @@
   text-align: center;
   text-transform: uppercase;
   color: #00366e;
+}
+
+.sectionTitle {
+  margin: 0;
+  margin-top: 2.5rem;
+  font-family: "Oblik", Arial, sans-serif;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: #00366e;
+  text-align: left;
+
 }
 
 .guidelines {
@@ -95,6 +117,13 @@
   max-inline-size: 21.5rem;
   min-inline-size: 10rem;
   margin-inline: auto;
+
+  @media (min-width: $tablet) {
+    align-items: flex-start;
+    max-inline-size: none;
+    min-inline-size: 0;
+    margin-inline: 0;
+  }
 }
 
 .iconWrapper {
@@ -121,6 +150,10 @@
   gap: 1rem;
   width: 100%;
   text-align: center;
+
+  @media (min-width: $tablet) {
+    text-align: left;
+  }
 }
 
 .ruleHeader {
@@ -147,16 +180,6 @@
   font-weight: 300;
   color: #666666;
   line-height: 1.5rem;
-  margin: 0;
+  margin: 0 0 0.5rem;
   letter-spacing: 0;
-
-  @media (min-width: $tablet) {
-    font-size: 1rem;
-    line-height: 1.65;
-  }
-
-  @media (min-width: $desktop) {
-    font-size: 1rem;
-    line-height: 1.7;
-  }
 }

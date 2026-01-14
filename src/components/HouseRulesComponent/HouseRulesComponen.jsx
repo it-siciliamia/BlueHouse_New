@@ -17,6 +17,9 @@ function HouseRulesComponents() {
             <WithTransLate text="House rules" />
           </h1>
         </div>
+        <h2 className={s.sectionTitle}>
+          <WithTransLate text="House rules" />
+        </h2>
         <Guidelines />
       </div>
     </section>
