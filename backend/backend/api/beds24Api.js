@@ -30,19 +30,18 @@ async function ensureAuthentication() {
         console.log('Authentication successful. Token expires in:', auth.expiresIn, 'seconds');
         tokenExpirationTime = now + (auth.expiresIn * 1000);
         authInitialized = true;
-        return auth; // ✅ Return auth object
+        return auth; 
       } catch (error) {
         console.error('Failed to initialize Beds24 authentication:', error.message);
         throw error;
       }
     }
-    return { token: axiosClient.token }; // ✅ Ensure a token is always returned
+    return { token: axiosClient.token }; 
   }
   
 
-// Get Descriptions for rooms
 
-// Get Rooms with Pictures
+// Get Rooms 
 router.get("/properties", async (req, res) => {
     try {
         const auth = await ensureAuthentication();
@@ -82,7 +81,7 @@ router.get("/inventory", async (req, res) => {
         const response = await axiosClient.get("/inventory/rooms/availability", {
             headers: { token: auth.token },
             params: {
-                roomId: Array.isArray(roomId) ? roomId : [roomId], // Ensure array format
+                roomId: Array.isArray(roomId) ? roomId : [roomId], 
                 propertyId: propertyId ? (Array.isArray(propertyId) ? propertyId : [propertyId]) : undefined,
                 startDate,
                 endDate,
@@ -123,6 +122,55 @@ router.get("/prices", async (req, res) => {
     }
 });
 
+// Get Booking Statistics/Metrics
+router.get("/statistics", async (req, res) => {
+    try {
+        const auth = await ensureAuthentication();
+        const { startDate, endDate, roomId } = req.query;
+
+        const response = await axiosClient.get("/bookings", {
+            headers: { token: auth.token },
+            params: {
+                startDate: startDate || new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
+                endDate: endDate || new Date().toISOString().split('T')[0],
+                roomId: roomId ? (Array.isArray(roomId) ? roomId : [roomId]) : undefined,
+                status: "confirmed"
+            }
+        });
+
+        
+        const bookings = response.data || [];
+        const roomStats = {};
+        
+        bookings.forEach(booking => {
+            const roomId = booking.roomId;
+            if (!roomStats[roomId]) {
+                roomStats[roomId] = {
+                    roomId,
+                    roomName: booking.roomName || `Room ${roomId}`,
+                    totalBookings: 0,
+                    totalRevenue: 0,
+                    averageStay: 0
+                };
+            }
+            roomStats[roomId].totalBookings++;
+            roomStats[roomId].totalRevenue += booking.price || 0;
+        });
+
+        // Sorting
+        const sortedStats = Object.values(roomStats).sort((a, b) => b.totalBookings - a.totalBookings);
+
+        res.json({
+            mostBookedRooms: sortedStats,
+            totalBookings: bookings.length,
+            dateRange: { startDate, endDate }
+        });
+    } catch (error) {
+        console.error("Error fetching booking statistics:", error.response?.data || error.message);
+        res.status(500).send("Error fetching statistics");
+    }
+});
+
 
 // Create a new booking
 router.post("/bookings", async (req, res) => {
@@ -131,11 +179,11 @@ router.post("/bookings", async (req, res) => {
         const bookingid = crypto.randomUUID();
         const {
             roomId,
-            status = "confirmed", // Default to "confirmed"
+            status = "confirmed", 
             arrival,
             departure,
             numAdult,
-            numChild = 0, // Default to 0 if not provided
+            numChild = 0, 
             firstName,
             lastName,
             email,
@@ -160,7 +208,7 @@ router.post("/bookings", async (req, res) => {
             departure,
             numAdult,
             numChild,
-            title: "Mr", // Can be dynamic if needed
+            title: "Mr", 
             firstName,
             lastName,
             email,
@@ -196,7 +244,7 @@ router.post("/create-stripe-session", async (req, res) => {
                 price_data: {
                     currency,
                     product_data: { name: "Accommodation" },
-                    unit_amount: price * 100 // Convert to cents
+                    unit_amount: price * 100 //to cents
                 },
                 quantity: 1
             }],
