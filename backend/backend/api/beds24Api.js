@@ -97,6 +97,32 @@ router.get("/inventory", async (req, res) => {
     }
 });
 
+// Get Room Prices
+router.get("/prices", async (req, res) => {
+    try {
+        const auth = await ensureAuthentication();
+        const { roomId, startDate, endDate } = req.query;
+
+        if (!roomId || !startDate || !endDate) {
+            return res.status(400).json({ error: "roomId, startDate, and endDate are required" });
+        }
+
+        const response = await axiosClient.get("/inventory/rooms/prices", {
+            headers: { token: auth.token },
+            params: {
+                roomId: Array.isArray(roomId) ? roomId : [roomId],
+                startDate,
+                endDate
+            }
+        });
+
+        res.json(response.data);
+    } catch (error) {
+        console.error("Error fetching room prices:", error.response?.data || error.message);
+        res.status(500).send("Error fetching room prices");
+    }
+});
+
 
 // Create a new booking
 router.post("/bookings", async (req, res) => {

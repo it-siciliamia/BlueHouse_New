@@ -1,4 +1,5 @@
 import axiosClient from './axiosClient';
+import beds24RoomService from './beds24RoomService';
 
 // Export the main API functions
 export const axiosCreateNewBooking = async (bookingData) => {
@@ -37,6 +38,47 @@ export const axiosGetRoomsData = async () => {
     return response;
   } catch (error) {
     console.error('Rooms data fetch failed:', error);
+    throw error;
+  }
+};
+
+// New comprehensive room data functions
+export const axiosGetRoomDetails = async () => {
+  try {
+    const response = await beds24RoomService.getRoomsWithDetails();
+    return response;
+  } catch (error) {
+    console.error('Room details fetch failed:', error);
+    throw error;
+  }
+};
+
+export const axiosGetRoomAvailability = async (roomId, startDate, endDate) => {
+  try {
+    const response = await beds24RoomService.getRoomAvailability(roomId, startDate, endDate);
+    return response;
+  } catch (error) {
+    console.error('Room availability fetch failed:', error);
+    throw error;
+  }
+};
+
+export const axiosGetRoomPrices = async (roomId, startDate, endDate) => {
+  try {
+    const response = await beds24RoomService.getRoomPrices(roomId, startDate, endDate);
+    return response;
+  } catch (error) {
+    console.error('Room prices fetch failed:', error);
+    throw error;
+  }
+};
+
+export const axiosGetComprehensiveRoomData = async (startDate, endDate) => {
+  try {
+    const response = await beds24RoomService.getComprehensiveRoomData(startDate, endDate);
+    return response;
+  } catch (error) {
+    console.error('Comprehensive room data fetch failed:', error);
     throw error;
   }
 };
