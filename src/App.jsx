@@ -54,16 +54,23 @@ function App() {
             </Suspense>
 
             <Routes>
+              {/* Routes with map visible */}
               <Route path="/" element={<Layout />}>
                 <Route index element={<HomePage />} />
                 <Route path="house-rules" element={<HouseRules />} />
                 <Route path="about-us" element={<AboutUs />} />
                 <Route path="privacy-and-policy" element={<PrivacyandPolicyPage />} />
+              </Route>
+
+              {/* Routes with map hidden */}
+              <Route path="/" element={<Layout hideMap />}>
                 <Route path="book" element={<RoomBooking />} />
                 <Route path="beds24" element={<RoomBooking />} />
                 <Route path="beds24/:room" element={<RoomDetails />} />
                 <Route path="payment" element={<PaymentPage />} />
               </Route>
+
+              {/* Standalone routes */}
               <Route path="/enquire" element={<EnquirePage />} />
               <Route path="/thankyou" element={<ThankYou />} />
               <Route path="/blog" element={<RedirectBlog />} />
