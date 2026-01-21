@@ -1,3 +1,4 @@
+// In HouseRulesComponen.jsx
 import Guidelines from "./Guidelines.jsx";
 import s from "./HouseRulesComponent.module.scss";
 import { WithTransLate } from "../../components/helpers/translating/index.jsx";
@@ -5,21 +6,29 @@ import useBreakpoints from "../../Styles/useBreakpointsNew.js";
 import BookingBtnWrapper from "../BookingBtnWrapper/BookingBtnWrapper.jsx";
 
 function HouseRulesComponents() {
-  const { isDesktop } = useBreakpoints();
+  const { isDesktop, isMobile } = useBreakpoints();
+  const isTabletLayout = !isMobile && !isDesktop;
 
   return (
     <section className={s.houseRules}>
       <div className={s.houseRulesContent}>
         <BookingBtnWrapper />
-        <div className={isDesktop ? s.titleWrapper : s.titleWrapperMobile}>
-          <div className={s.heroImage}></div>
+        <div className={isMobile ? s.titleWrapperMobile : s.titleWrapper}>
           <h1 className={s.title}>
             <WithTransLate text="House rules" />
           </h1>
+          <div className={s.heroImage}></div>
         </div>
-        <h2 className={s.sectionTitle}>
-          <WithTransLate text="House rules" />
-        </h2>
+        {isTabletLayout && (
+          <h2 className={s.tabletTitle}>
+            <WithTransLate text="House rules" />
+          </h2>
+        )}
+        {isDesktop && (
+          <h2 className={s.sectionTitle}>
+            <WithTransLate text="House rules" />
+          </h2>
+        )}
         <Guidelines />
       </div>
     </section>

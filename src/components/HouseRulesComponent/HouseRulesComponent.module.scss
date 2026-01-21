@@ -22,6 +22,12 @@
   position: relative;
   font-weight: 700;
 
+  @media (min-width: $tablet) and (max-width: ($desktop - 1px)) {
+    gap: 2rem;
+    max-inline-size: 43.9rem;
+    margin-inline: auto;
+  }
+
   @media (min-width: $desktop) {
     gap: 4rem;
   }
@@ -72,6 +78,17 @@
   color: #00366e;
 }
 
+.tabletTitle {
+  margin: 0;
+  font-family: "Oblik", Arial, sans-serif;
+  font-size: 1.75rem;
+  line-height: 2.25rem;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: #00366e;
+  text-align: left;
+}
+
 .sectionTitle {
   margin: 0;
   margin-top: 2.5rem;
@@ -82,7 +99,6 @@
   text-transform: uppercase;
   color: #00366e;
   text-align: left;
-
 }
 
 .guidelines {
@@ -90,6 +106,12 @@
   grid-template-columns: 1fr;
   gap: 3rem;
   width: 100%;
+
+  @media (min-width: $tablet) and (max-width: ($desktop - 1px)) {
+    gap: 2rem;
+    max-inline-size: 43.9rem;
+    margin-inline: auto;
+  }
 
   @media (min-width: $desktop) {
     grid-template-columns: 1fr 1fr;
@@ -102,6 +124,10 @@
   flex-direction: column;
   gap: 3rem;
   width: 100%;
+
+  @media (min-width: $tablet) and (max-width: ($desktop - 1px)) {
+    gap: 4rem;
+  }
 
   @media (min-width: $desktop) {
     gap: 3.5rem;
@@ -118,7 +144,14 @@
   min-inline-size: 10rem;
   margin-inline: auto;
 
-  @media (min-width: $tablet) {
+  @media (min-width: $tablet) and (max-width: ($desktop - 1px)) {
+    align-items: flex-start;
+    max-inline-size: 30rem;
+    min-inline-size: 0;
+    margin-inline: auto;
+  }
+
+  @media (min-width: $desktop) {
     align-items: flex-start;
     max-inline-size: none;
     min-inline-size: 0;
@@ -128,19 +161,23 @@
 
 .iconWrapper {
   margin-bottom: 0.25rem;
+
+  @media (min-width: $tablet) and (max-width: ($desktop - 1px)) {
+    margin-bottom: 0;
+  }
 }
 
 .iconStyle {
-  width: 48px;
-  height: 48px;
+  width: 3rem;
+  height: 3rem;
   object-fit: contain;
   @media (min-width: $tablet) {
-    width: 52px;
-    height: 52px;
+    width: 3.25rem;
+    height: 3.25rem;
   }
   @media (min-width: $desktop) {
-    width: 56px;
-    height: 56px;
+    width: 3.5rem;
+    height: 3.5rem;
   }
 }
 
@@ -151,8 +188,14 @@
   width: 100%;
   text-align: center;
 
-  @media (min-width: $tablet) {
+  @media (min-width: $tablet) and (max-width: ($desktop - 1px)) {
     text-align: left;
+    max-inline-size: 30rem;
+  }
+
+  @media (min-width: $desktop) {
+    text-align: left;
+    max-inline-size: none;
   }
 }
 
@@ -182,4 +225,11 @@
   line-height: 1.5rem;
   margin: 0 0 0.5rem;
   letter-spacing: 0;
+
+  @media (min-width: $tablet) and (max-width: ($desktop - 1px)) {
+    font-size: 1.12rem;
+    line-height: 1.5rem;
+    opacity: 0.9;
+    margin: 0;
+  }
 }
