@@ -7,7 +7,7 @@ import { WithTransLate, translateMyText } from "../../components/helpers/transla
 import { useLanguage } from "../../components/helpers/translating/LanguageContext.jsx";
 import arrowDown from "../../images/roombooking/ArrowDown.svg";
 import arrowUp from "../../images/roombooking/ArrowUp.svg";
-import hero from "../../images/roombooking/image2.webp";
+import hero from "../../images/roombooking/image1.webp";
 import minusIcon from "../../images/roombooking/minus.svg";
 import plusIcon from "../../images/roombooking/plus.svg";
 import {
@@ -17,7 +17,7 @@ import {
 } from "../../redux/dataSearch/dataSearch-selectors.js";
 import { setCheckIn, setCheckOut, setAddParams } from "../../redux/dataSearch/dataSearch-slice.js";
 
-const SearchContainerMobile = () => {
+export const SearchContainerMobile = () => {
   let newDate = moment().format("YYYYMMDD");
   const dispatch = useDispatch();
   const firstDay = useSelector(getCheckInDay);
@@ -84,72 +84,64 @@ const SearchContainerMobile = () => {
 
   return (
     <div className="search-component-mobile">
-      <div className="search-hero-mobile">
-        <img src={hero} alt="House B&B" className="search-hero-photo-mobile" />
-      </div>
       <h2 className="booking-title-mobile">
-        <WithTransLate text="Book your stay with BH" />
+        <WithTransLate text="Book your stay with Blue house" />
       </h2>
-      <p className="booking-text-mobile">
-        <WithTransLate text="We are located 5 min from Reykjavik, with amazing spot for Northern lights and best price for rooms & houses." />
-      </p>
 
       <div className="content-mobile">
-        <div className="datePart-mobile">
-          <div className="search-container-mobile checkin-mobile">
-            <DatePicker
-              selected={startDate}
-              onChange={(date) => {
-                setStartDate(date);
-                dispatch(setCheckIn(date));
-              }}
-              selectsStart
-              startDate={startDate}
-              endDate={endDate}
-              placeholderText={placeholderText1}
-              className="date-range__input"
-              minDate={new Date()}
-              dateFormat="dd MMM, yyyy"
-              calendarStartDay={1}
-              showDisabledMonthNavigation
-              formatWeekDay={(nameOfDay) => nameOfDay.substring(0, 3)}
-              popperModifiers={[
-                {
-                  /*prevents the calendar from flipping*/ name: "flip",
-                  enabled: false,
-                },
-              ]}
-            />
-            <span className="calendar-icon"></span>
-          </div>
-          <div className="search-container-mobile checkout-mobile">
-            <DatePicker
-              selected={endDate}
-              onChange={(date) => {
-                setEndDate(date);
-                dispatch(setCheckOut(date));
-              }}
-              selectsEnd
-              startDate={startDate}
-              endDate={endDate}
-              placeholderText={placeholderText2}
-              className="date-range__input"
-              minDate={startDate || new Date()}
-              dateFormat="dd MMM, yyyy"
-              calendarStartDay={1}
-              showDisabledMonthNavigation
-              formatWeekDay={(nameOfDay) => nameOfDay.substring(0, 3)}
-              /*positions the calendar aligned to the input`s end*/
-              popperPlacement="bottom-end"
-              popperModifiers={[
-                {
-                  /*prevents the calendar from flipping*/ name: "flip",
-                  enabled: false,
-                },
-              ]}
-            />
-            <span className="calendar-icon"></span>
-          </div>
+        <div className="search-container-mobile checkin-mobile">
+          <DatePicker
+            selected={startDate}
+            onChange={(date) => {
+              setStartDate(date);
+              dispatch(setCheckIn(date));
+            }}
+            selectsStart
+            startDate={startDate}
+            endDate={endDate}
+            placeholderText={placeholderText1}
+            className="date-range__input"
+            minDate={new Date()}
+            dateFormat="dd MMM, yyyy"
+            calendarStartDay={1}
+            showDisabledMonthNavigation
+            formatWeekDay={(nameOfDay) => nameOfDay.substring(0, 3)}
+            popperModifiers={[
+              {
+                /*prevents the calendar from flipping*/ name: "flip",
+                enabled: false,
+              },
+            ]}
+          />
+          <span className="calendar-icon"></span>
+        </div>
+        <div className="search-container-mobile checkout-mobile">
+          <DatePicker
+            selected={endDate}
+            onChange={(date) => {
+              setEndDate(date);
+              dispatch(setCheckOut(date));
+            }}
+            selectsEnd
+            startDate={startDate}
+            endDate={endDate}
+            placeholderText={placeholderText2}
+            className="date-range__input"
+            minDate={startDate || new Date()}
+            dateFormat="dd MMM, yyyy"
+            calendarStartDay={1}
+            showDisabledMonthNavigation
+            formatWeekDay={(nameOfDay) => nameOfDay.substring(0, 3)}
+            /*positions the calendar aligned to the input`s end*/
+            popperPlacement="bottom-end"
+            popperModifiers={[
+              {
+                /*prevents the calendar from flipping*/ name: "flip",
+                enabled: false,
+              },
+            ]}
+          />
+          <span className="calendar-icon"></span>
         </div>
         <div
           className="search-container quantity"

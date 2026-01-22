@@ -40,12 +40,13 @@ const RoomBooking = () => {
           <SearchContainer />
         </div>
       )}
-      {!!isDesktop && <Advantages />}
+      {/* {!!isDesktop && <Advantages />} */}
+      <Advantages />
       <ServicesRoom />
       {!!(isDesktop || isSmallScreen) && (
         <ReviewRoomBooking tripadvisor={tripadvisorRating} googleRatings={googleRatings} />
       )}
-      {!!isMobile && <Advantages />}
+      {/* {!!isMobile && <Advantages />} */}
       <Support />
     </div>
   );

@@ -119,13 +119,21 @@
   padding: 0;
   border: none;
 }
-
+.react-datepicker__navigation--previous {
+  left: 80px;
+  top: 16px;
+}
+.react-datepicker__navigation--next {
+  right: 80px;
+  top: 16px;
+}
 .date-range__input {
   border: none;
   outline: none;
   padding: 10px;
-  font-weight: 400;
-  color: #1d3967;
+  font-weight: 300;
+  font-size: 1rem;
+  color: #999999;
   @media (min-width: 320px) and (max-width: 599.99px) {
     margin-top: 3px;
     margin-bottom: -3px;
@@ -143,16 +151,19 @@
 }
 
 .react-datepicker {
-  border: 1px solid #ccc;
+  border: 1px solid #212529;
   background-color: white;
   border-radius: 0px;
-  padding: 10px;
+  padding: 21px;
+  width: 100%;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 /* makes the calendar popper stick to the input */
 .react-datepicker-popper[data-placement^="bottom"] {
   padding-top: 1px;
-
-  z-index: 2000 !important; /* or any value you need */
 }
 /* all 4 of this make the calendar popper align properly with the design*/
 .checkin-mobile .react-datepicker-popper[data-placement^="bottom"] {
@@ -304,24 +315,31 @@
 .quantity {
   position: relative;
 }
+
 .quantity-container {
   position: absolute;
-  z-index: 2000;
+  z-index: 2000; /* Reduced from 2000 */
   padding: 6px 5px;
   top: 47px;
   width: 130%;
   right: -1px;
   background-color: white;
+  border: 1px solid #212529;
   @media screen and (min-width: 320px) and (max-width: 959.99px) {
     left: 50%;
     transform: translateX(-50%);
-    width: 82%;
-    padding-top: 0;
+    width: 100%;
+    margin-top: 8px;
+    padding: 5px 20px;
   }
+}
+.react-datepicker-popper {
+  z-index: 9999 !important; /* Much higher than other elements */
+  width: 100%;
 }
 .quantity-element {
   padding: 16px 0;
-  border-top: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -334,15 +352,17 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  width: 110px;
-  border: 1px solid lightgray;
+  width: 160px;
+  height: 40px;
+  border: 1px solid #212529;
 }
 .count-person {
-  padding: 2px 5px;
+  /* padding: 2px 5px; */
   font-size: 18px;
   font-weight: 500;
   color: #14202b;
   margin: 0;
+  text-align: center;
 }
 .submit-amount-wrapper {
   width: 100%;
@@ -368,8 +388,8 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  width: 30px;
-  height: 30px;
+  width: 54px;
+  height: 100%;
   cursor: pointer;
   transition: all ease-in-out 0.1s;
   border: none;
@@ -386,6 +406,14 @@
 .amount-display {
   font-weight: 500;
   color: #1d3967;
+  border-left: 1px solid #212529;
+  border-right: 1px solid #212529;
+  width: 54px;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 .quantity-container-toggle-btn {
   border: none;
@@ -413,95 +441,100 @@
     margin-top: 50px;
     margin-bottom: -20px;
   }
-  @media (min-width: 1280px) and (max-width: 2200px) {
-    padding: 63px 0px 63px 70px;
-  }
-}
-.bh_advantages-list {
-  @media (min-width: 320px) and (max-width: 599.99px) {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: left;
-    list-style: none;
-    gap: 15px;
-    width: 100%;
+  @media (min-width: 600px) and (max-width: 1279.99px) {
+    padding: 5rem 2rem;
   }
   @media (min-width: 1280px) and (max-width: 2200px) {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    list-style: none;
-    justify-content: space-between;
-    align-items: flex-end;
-    gap: 60px;
-  }
-}
-.bh_advantages-item {
-  @media (min-width: 320px) and (max-width: 599.99px) {
-    padding-top: 15px;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 15px;
-    border-top: 1px solid #cdd7e2;
-  }
-  @media (min-width: 1280px) and (max-width: 2200px) {
-    text-align: center;
-    width: 140px;
-  }
-  &:nth-child(3) {
-    height: 121px;
-  }
-}
-.bh_advantages-item:last-child {
-  @media (min-width: 320px) and (max-width: 599.99px) {
-    padding-bottom: 15px;
-    border-bottom: 1px solid #cdd7e2;
+    padding: 64px 70px;
   }
 }
 
-.bh_advantages-item:nth-child(3) {
+.bh_advantages-title {
   @media (min-width: 320px) and (max-width: 599.99px) {
-    padding-top: 30px;
-    padding-bottom: 15px;
-    height: 24px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #1d3967;
+    text-transform: uppercase;
   }
 }
+
+.bh_advantages-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+
+  /* Mobile: Single column (1 item per row) */
+  @media (min-width: 320px) and (max-width: 599.99px) {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  /* Tablet: 3 items per row (2 rows total) */
+  @media (min-width: 600px) and (max-width: 1279.99px) {
+    gap: 40px 20px;
+  }
+
+  /* Desktop: 6 items in one row */
+  @media (min-width: 1280px) and (max-width: 2200px) {
+    gap: 40px;
+    justify-content: space-between;
+  }
+}
+
+.bh_advantages-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  /* Mobile: Full width, vertical layout */
+  @media (min-width: 320px) and (max-width: 599.99px) {
+    width: 100%;
+  }
+
+  /* Tablet: 3 items per row */
+  @media (min-width: 600px) and (max-width: 1279.99px) {
+    width: calc(33.333% - 20px);
+    min-width: 150px;
+  }
+
+  /* Desktop: 6 items in one row */
+  @media (min-width: 1280px) and (max-width: 2200px) {
+    width: calc(16.666% - 35px);
+    min-width: 140px;
+    flex: 1;
+    max-width: 180px;
+  }
+}
+
 .bh_advantages-icons {
+  width: 40px;
+  height: 40px;
+  margin: 1rem 0;
   filter: brightness(0) saturate(100%) invert(14%) sepia(41%) saturate(1203%) hue-rotate(194deg)
     brightness(91%) contrast(89%);
-  @media (min-width: 320px) and (max-width: 599.99px) {
-    width: 23px;
-    height: auto;
-  }
+
   @media (min-width: 1280px) and (max-width: 2200px) {
     width: 56px;
-    height: auto;
-  }
-  &:nth-child(1) {
-    filter: none;
-  }
-  &:nth-child(2) {
-    filter: brightness(0) saturate(100%) invert(14%) sepia(41%) saturate(1203%) hue-rotate(194deg)
-      brightness(91%) contrast(89%);
+    height: 56px;
   }
 }
 
 .bh_advantages-text {
   color: #1d3967;
-  @media (min-width: 320px) and (max-width: 599.99px) {
-    margin: 0;
-    margin-top: 5px;
-    font-size: 16px;
-    font-weight: 500;
-  }
+  font-size: 16px;
+  font-weight: 300;
+  text-align: center;
+  margin: 0;
+  width: 124px;
+
   @media (min-width: 1280px) and (max-width: 2200px) {
-    margin-top: 15px;
-    margin-bottom: 0;
+    max-width: 140px;
   }
 }
 .bh_advantages-title {
@@ -539,25 +572,43 @@
 
 .search-component-mobile {
   width: 100%;
-}
-.search-hero-mobile {
-  width: 100%;
-}
-.booking-title-mobile {
-  margin-top: 25px;
-  text-align: start;
-  margin-bottom: 20px;
-  font-size: 22px;
-  font-weight: bold;
-  text-transform: uppercase;
-  color: #1d3967;
-}
-.content-mobile {
-  width: 100%;
+  background-image: url("../../../public/assets/images/image1.jpg");
+  height: 556px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+.booking-title-mobile {
+  font-family: Oblik;
+  text-align: center;
+  font-size: 24px;
+  margin-top: 8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #fff;
+  text-decoration: uppercase;
+  width: 215px;
+}
+.content-mobile {
+  padding: 24px 16px;
+  margin-top: 3rem;
+  width: 100%;
+  max-width: 482px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
   position: relative;
+  background-color: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(32px);
+  z-index: 0;
+  @media (min-width: 600px) {
+    padding: 22px 11px;
+  }
 }
 .datePart-mobile {
   width: 100%;
@@ -571,11 +622,17 @@
   position: relative;
   display: flex;
   justify-content: space-between;
-  width: 49%;
   height: 50px;
   background-color: white;
   border: 1px solid lightgrey;
+  z-index: 1; /* Changed from 2 to 1 */
+}
+.checkin-mobile {
   z-index: 2;
+}
+
+.checkout-mobile {
+  z-index: 1;
 }
 .booking-text-mobile {
   color: #1d3967;
