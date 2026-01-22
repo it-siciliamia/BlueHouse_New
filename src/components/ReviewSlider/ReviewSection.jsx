@@ -6,7 +6,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import ReviewCard from "./ReviewCard.jsx";
 import s from "./ReviewSection.module.scss";
-import tripAdvisor from "../../images/findMore/TripadvisorLogo.png";
+import tripAdvisor from "../../images/findMore/tripadvisor_logo.svg";
 import { WithTransLate } from "../helpers/translating/index.jsx";
 import IconButton from "../Shared/ui/IconButton.jsx";
 import Link from "../Shared/ui/Link.jsx";

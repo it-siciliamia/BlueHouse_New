@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 
 import s from "./ReviewRoomBooking.module.scss";
-import google from "../../images/google.png";
+import google from "../../images/google_logo.svg";
 import tripadvisor from "../../images/tipadvisor.png";
 import { WithTransLate } from "../helpers/translating/index.jsx";
 
