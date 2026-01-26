@@ -1,0 +1,149 @@
+@use "../../Styles/App.scss" as app;
+
+$circles-color: #458532;
+
+.section {
+  margin-bottom: 6.2rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+
+  @media (min-width: app.$desktop) {
+    margin-bottom: 6.5rem;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 4.1rem;
+  }
+
+  h3 {
+    font-family: Oblik;
+    font-size: 1.25rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    white-space: nowrap;
+    letter-spacing: -1px;
+    color: var(--color-primary-500);
+
+    @media (min-width: app.$smallScreen) {
+      font-size: 1.5rem;
+    }
+
+    @media (min-width: app.$desktop) {
+      writing-mode: vertical-rl;
+      text-orientation: sideways;
+      transform: rotate(180deg);
+    }
+  }
+}
+
+.sectionWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 3.4rem;
+  width: 100%;
+
+  @media (min-width: app.$smallScreen) {
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 7.6rem;
+  }
+}
+
+// *** Review *** //
+
+.reviewWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 0 1 auto;
+  min-width: 0;
+  max-width: 100%;
+  padding: 0 1rem;
+
+  @media (min-width: app.$smallScreen) {
+    padding: 2rem 4rem;
+    max-width: 29.1rem;
+  }
+}
+
+.reviewTitle {
+  font-size: 1.25rem;
+  font-family: "Josefin Sans";
+  font-weight: 600;
+  color: var(--color-primary-500);
+  margin-bottom: 0.75rem;
+}
+
+.ratingSummary {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+
+  span {
+    font-size: 1.37rem;
+    font-weight: 500;
+    color: var(--color-neutral-400);
+  }
+
+  a {
+    font-size: 1.12rem;
+    font-weight: 600;
+    color: var(--color-primary-300);
+    text-decoration: underline;
+  }
+}
+
+.logoWrapper {
+  margin-top: 1rem;
+}
+
+.logoLg {
+  width: 12.5rem;
+  height: auto;
+
+  @media (min-width: app.$smallScreen) {
+    width: 16rem;
+  }
+}
+
+.logoSm {
+  width: 3.5rem;
+  height: auto;
+}
+
+.circles {
+  display: flex;
+  gap: 0.25rem;
+  justify-content: center;
+}
+
+.circle {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: var(--color-neutral-100);
+  border: 1px solid $circles-color;
+}
+
+.stars {
+  display: flex;
+  gap: 0.25rem;
+  justify-content: center;
+}
+
+.circle.full {
+  background-color: $circles-color;
+}
+
+.circle.partial {
+  background: linear-gradient(to right, $circles-color 50%, var(--color-neutral-100) 50%);
+}
+
+.circle.empty {
+  border: 1px solid $circles-color;
+  background-color: var(--color-neutral-100);
+}
