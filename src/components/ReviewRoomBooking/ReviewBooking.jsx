@@ -24,7 +24,7 @@ const vendors = [
     logo: googleLogo,
     classLogo: s.logoSm,
     ratingSyle: "star",
-    url: "",
+    url: "https://maps.app.goo.gl/6ga1bwwbSWNJM2ws8",
   },
 ];
 
