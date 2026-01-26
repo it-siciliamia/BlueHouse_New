@@ -1,3 +1,4 @@
+@use "../../Styles/App.scss" as app;
 @font-face {
   font-family: Oblik;
   font-weight: bold;
@@ -120,11 +121,11 @@
   border: none;
 }
 .react-datepicker__navigation--previous {
-  left: 80px;
+  /* left: 60px; */
   top: 16px;
 }
 .react-datepicker__navigation--next {
-  right: 80px;
+  /* right: 80px; */
   top: 16px;
 }
 .date-range__input {
@@ -147,19 +148,25 @@
 }
 .date-range__input::placeholder {
   font-weight: 300;
+  color: #999999;
+}
+.date-range__input.input-filled {
+  font-weight: 400;
   color: #1d3967;
 }
-
 .react-datepicker {
-  border: 1px solid #212529;
+  border: 1px solid #D9D9D9;
   background-color: white;
   border-radius: 0px;
-  padding: 21px;
+  padding: 21px 0;
   width: 100%;
   z-index: 9999;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.react-datepicker__month-container{
+  width: inherit;
 }
 /* makes the calendar popper stick to the input */
 .react-datepicker-popper[data-placement^="bottom"] {
@@ -182,7 +189,7 @@
 .react-datepicker__header {
   background-color: white;
   border-bottom: 1px solid #ccc;
-  padding: 10px;
+  /* padding: 10px; */
   text-align: center;
 }
 
@@ -203,9 +210,9 @@
   text-align: center;
   margin: 2px;
   cursor: pointer;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 400;
-  color: #1d3967;
+  color: #212529;
   @media (min-width: 960px) and (max-width: 1279.99px) {
     width: 28px;
     height: 28px;
@@ -238,20 +245,33 @@
 /*this here is for removing the default styling in the days range*/
 .react-datepicker__day--in-range {
   border-radius: 0;
-  color: white;
-  background-color: #1d3967;
+  background-color: #f2f1ec;
+  color: #1d3967;
 }
 /*"today" style*/
 .react-datepicker__day--today {
   font-weight: 500;
-  background-color: #bad9f1;
-  color: black;
+  color: var(--color-info-500);
   border-radius: 0;
+  background-color: transparent !important;
+}
+.react-datepicker__day--in-selecting-range {
+  border-radius: 0;
+  background-color: #f2f1ec;
+  color: #1d3967;
+}
+
+.react-datepicker__day--selected,
+.react-datepicker__day--range-start,
+.react-datepicker__day--range-end,
+.react-datepicker__day--selecting-range-start {
+  border-radius: 0rem;
+  background-color: #1d3967 !important;
+  color: white !important;
+  font-weight: 700;
+  font-size: 14px
 }
 /*style the days range after choosing firts date but before choosing last date*/
-.react-datepicker__day--selected,
-.react-datepicker__day--in-selecting-range,
-.react-datepicker__day--in-range,
 .react-datepicker__month-text--selected,
 .react-datepicker__month-text--in-selecting-range,
 .react-datepicker__month-text--in-range,
@@ -260,8 +280,11 @@
 .react-datepicker__quarter-text--in-range,
 .react-datepicker__year-text--selected,
 .react-datepicker__year-text--in-selecting-range,
+.react-datepicker__day--selecting-range-start,
 .react-datepicker__year-text--in-range {
   border-radius: 0rem;
+  background-color: #1d3967;
+  color: white;
 }
 
 /* Hides the default triangle that separates the calendar from the input */
@@ -437,6 +460,8 @@
 }
 
 .bh_advantages-wrapper {
+  position: relative;
+  z-index: -1;
   @media (min-width: 320px) and (max-width: 599.99px) {
     margin-top: 50px;
     margin-bottom: -20px;
@@ -569,14 +594,30 @@
 .bh_advantages-link:hover {
   font-weight: 600;
 }
-
+.p {
+}
 .search-component-mobile {
+  padding: 0 1rem;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+.hero-image {
   width: 100%;
-  background-image: url("../../../public/assets/images/image1.jpg");
   height: 556px;
+  position: absolute;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  z-index: -1;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -591,12 +632,11 @@
   font-weight: 700;
   text-transform: uppercase;
   color: #fff;
-  text-decoration: uppercase;
   width: 215px;
 }
 .content-mobile {
   padding: 24px 16px;
-  margin-top: 3rem;
+  margin-top: 7rem;
   width: 100%;
   max-width: 482px;
   display: flex;
