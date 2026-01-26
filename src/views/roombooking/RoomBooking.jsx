@@ -5,7 +5,7 @@ import Advantages from "./Advantages.jsx";
 import HeaderIcons from "./HeaderIcons.jsx";
 import SearchContainer from "./SearchContainer.jsx";
 import SearchContainerMobile from "./SearchContainerMobile.jsx";
-import ReviewRoomBooking from "../../components/ReviewRoomBooking/ReviewRoomBooking.jsx";
+import ReviewBooking from "../../components/ReviewRoomBooking/ReviewBooking.jsx";
 import ServicesRoom from "../../components/ServicesRoom/ServicesRoom.jsx";
 import Support from "../../components/SuportComponent/support.jsx";
 import { getRoomsData } from "../../redux/technitial/technical-operations.js";
@@ -42,9 +42,7 @@ const RoomBooking = () => {
       )}
       {!!isDesktop && <Advantages />}
       <ServicesRoom />
-      {!!(isDesktop || isSmallScreen) && (
-        <ReviewRoomBooking tripadvisor={tripadvisorRating} googleRatings={googleRatings} />
-      )}
+      <ReviewBooking tripadvisor={tripadvisorRating} googleRatings={googleRatings} />
       {!!isMobile && <Advantages />}
       <Support />
     </div>

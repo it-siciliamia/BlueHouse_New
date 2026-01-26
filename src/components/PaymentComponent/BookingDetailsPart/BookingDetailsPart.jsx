@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 import s from "./BookingDetailsPart.module.scss";
 import GoodToKnow from "./GoodToKnow/GoodToKnow.jsx";
-import google from "../../../images/google.png";
+import google from "../../../images/google_logo.svg";
 import placeholder from "../../../images/homePageSlider/placeholder.webp";
 import parking from "../../../images/parking.svg";
 import {

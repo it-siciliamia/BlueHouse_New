@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 
 import s from "./BookingDetailsPart2.module.scss";
-import google from "../../../images/google.png";
+import google from "../../../images/google_logo.svg";
 import placeholder from "../../../images/homePageSlider/placeholder.webp";
 import {
   getDayDifference,

@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { Outlet } from "react-router-dom";
 
 import s from "./Layout.module.scss";
@@ -7,7 +8,7 @@ import Footer from "../Footer/Footer.jsx";
 import Header from "../header/Header.jsx";
 import NewMap from "../map/NewMap.jsx";
 
-function Layout() {
+function Layout({ hideMap }) {
   const { isSmallScreen, isDesktop } = useBreakpoints();
 
   return (
@@ -16,7 +17,7 @@ function Layout() {
       <div className={s.outlet}>
         <Outlet />
       </div>
-      {!!(isSmallScreen || isDesktop) && (
+      {!hideMap && !!(isSmallScreen || isDesktop) && (
         <div className={s.fullWidthSection}>
           <NewMap />
         </div>
@@ -26,5 +27,9 @@ function Layout() {
     </div>
   );
 }
+
+Layout.propTypes = {
+  hideMap: PropTypes.bool,
+};
 
 export default Layout;
