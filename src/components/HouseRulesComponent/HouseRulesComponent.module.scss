@@ -12,6 +12,7 @@
   @media (min-width: $desktop) {
     max-width: 63rem;
     padding-inline: 0;
+    overflow: visible;
   }
 }
 .houseRulesContent {
@@ -49,6 +50,11 @@
   @media (min-width: $tablet) {
     gap: 0.6rem;
   }
+
+  @media (min-width: $desktop) {
+    position: relative;
+    gap: 0;
+  }
 }
 
 .heroImage {
@@ -65,6 +71,14 @@
     max-inline-size: 48rem;
     block-size: 24rem;
   }
+
+  @media (min-width: $desktop) {
+    position: relative;
+    margin-inline: 0;
+    width: 76rem;
+    height: 34.4rem;
+    background-size: 100%;
+  }
 }
 
 .title {
@@ -76,6 +90,17 @@
   text-align: center;
   text-transform: uppercase;
   color: #00366e;
+
+  @media (min-width: $desktop) {
+    position: absolute;
+    left: -5.0rem;
+    top: 50%;
+    transform: rotate(-90deg) translateX(-50%);
+    transform-origin: left center;
+    white-space: nowrap;
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
 }
 
 .tabletTitle {

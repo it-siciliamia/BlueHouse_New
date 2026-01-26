@@ -6,13 +6,13 @@ import useBreakpoints from "../../Styles/useBreakpointsNew.js";
 import BookingBtnWrapper from "../BookingBtnWrapper/BookingBtnWrapper.jsx";
 
 function HouseRulesComponents() {
-  const { isDesktop, isMobile } = useBreakpoints();
+  const { isDesktop, isMobile, isTablet } = useBreakpoints();
   const isTabletLayout = !isMobile && !isDesktop;
 
   return (
     <section className={s.houseRules}>
       <div className={s.houseRulesContent}>
-        <BookingBtnWrapper />
+        {(isMobile || isTablet) && <BookingBtnWrapper />}
         <div className={isMobile ? s.titleWrapperMobile : s.titleWrapper}>
           <h1 className={s.title}>
             <WithTransLate text="House rules" />
