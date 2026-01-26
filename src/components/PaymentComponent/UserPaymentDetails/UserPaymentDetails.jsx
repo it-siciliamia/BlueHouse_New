@@ -1,34 +1,23 @@
-import React from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { useForm, Controller } from "react-hook-form";
+import { useDispatch, useSelector } from "react-redux";
 import Select from "react-select";
-import { WithTransLate } from "../../helpers/translating/index";
-import { setPaymentStage } from "../../../redux/technitial/technical-slice";
-import { setUserInformation } from "../../../redux/userInfo/userInfo-slice";
-import { getUserInformation } from "../../../redux/userInfo/userInfo-selectors";
-import { fields } from "../../Shared/TextField/fields";
-import { countries } from "./countries";
-import { arrivalTimes } from "./arrivalTimes";
-import BookingDetailsPart2 from "../BookingDetailsPart2/BookingDetailsPart2";
-import TextField from "../../Shared/TextField/TextField";
-import Button from "../../Shared/Button/Button";
 
+import { arrivalTimes } from "./arrivalTimes.js";
+import { countries } from "./countries.js";
 import s from "./UserPaymentDetails.module.scss";
+import { setPaymentStage } from "../../../redux/technitial/technical-slice.js";
+import { getUserInformation } from "../../../redux/userInfo/userInfo-selectors.js";
+import { setUserInformation } from "../../../redux/userInfo/userInfo-slice.js";
+import { WithTransLate } from "../../helpers/translating/index.jsx";
+import Button from "../../Shared/Button/Button.jsx";
+import { fields } from "../../Shared/TextField/fields.js";
+import TextField from "../../Shared/TextField/TextField.jsx";
+import BookingDetailsPart2 from "../BookingDetailsPart2/BookingDetailsPart2.jsx";
 
 const UserPaymentDetails = () => {
   const dispatch = useDispatch();
-  const {
-    firstName,
-    surname,
-    email,
-    mobile,
-    address,
-    postcode,
-    city,
-    country,
-    arrival,
-    comments,
-  } = useSelector(getUserInformation);
+  const { firstName, surname, email, mobile, address, postcode, city, country, arrival, comments } =
+    useSelector(getUserInformation);
 
   const { control, handleSubmit, reset } = useForm({
     defaultValues: {
@@ -64,11 +53,7 @@ const UserPaymentDetails = () => {
   };
 
   return (
-    <form
-      className={s.container}
-      onSubmit={handleSubmit(onSubmit)}
-      autoComplete="off"
-    >
+    <form className={s.container} onSubmit={handleSubmit(onSubmit)} autoComplete="off">
       <div className={s.partUser}>
         <div className={s.partWrapper}>
           <h3 className={s.titlePart}>
@@ -92,7 +77,6 @@ const UserPaymentDetails = () => {
               }}
               render={({ field: { onChange, value }, fieldState }) => (
                 <TextField
-                
                   value={value}
                   handleChange={onChange}
                   error={fieldState.error}
@@ -118,7 +102,7 @@ const UserPaymentDetails = () => {
               }}
               render={({ field: { onChange, value }, fieldState }) => (
                 <TextField
-                  color={'#1D3967'}
+                  color={"#1D3967"}
                   value={value}
                   handleChange={onChange}
                   error={fieldState.error}
@@ -274,11 +258,7 @@ const UserPaymentDetails = () => {
                   styles={{
                     control: (provided, state) => ({
                       ...provided,
-                      borderColor: state.isFocused
-                        ? fieldState.error
-                          ? "red"
-                          : "white"
-                        : "white",
+                      borderColor: state.isFocused ? (fieldState.error ? "red" : "white") : "white",
                       boxShadow: "none",
                       border: "1px solid white",
                       backgroundColor: "white",
@@ -317,7 +297,7 @@ const UserPaymentDetails = () => {
                     }),
                   }}
                 />
-                {fieldState.error && (
+                {!!fieldState.error && (
                   <p className={s.error}>
                     <WithTransLate text={`*${fieldState.error.message}`} />
                   </p>
@@ -359,7 +339,7 @@ const UserPaymentDetails = () => {
                       borderColor: fieldState.error ? "white" : "white",
                     }}
                   />
-                  {fieldState.error && (
+                  {!!fieldState.error && (
                     <p className={s.errorTextArea}>
                       <WithTransLate text={`*${fieldState.error.message}`} />
                     </p>
@@ -395,12 +375,8 @@ const UserPaymentDetails = () => {
                   <Select
                     className={s.select}
                     options={arrivalTimes}
-                    onChange={(selectedOption) =>
-                      onChange(selectedOption?.value)
-                    }
-                    value={
-                      arrivalTimes.find((time) => time.value === value) || null
-                    }
+                    onChange={(selectedOption) => onChange(selectedOption?.value)}
+                    value={arrivalTimes.find((time) => time.value === value) || null}
                     placeholder={<WithTransLate text="Select time" />}
                     isSearchable
                     styles={{
@@ -444,14 +420,12 @@ const UserPaymentDetails = () => {
                       }),
                       option: (provided, state) => ({
                         ...provided,
-                        backgroundColor: state.isFocused
-                          ? "lightgray"
-                          : "white",
+                        backgroundColor: state.isFocused ? "lightgray" : "white",
                         color: "#1D3967",
                       }),
                     }}
                   />
-                  {fieldState.error && (
+                  {!!fieldState.error && (
                     <p className={s.error}>
                       <WithTransLate text={`*${fieldState.error.message}`} />
                     </p>
@@ -462,7 +436,7 @@ const UserPaymentDetails = () => {
           />
         </div>
         <div className={s.wrapper}>
-          <Button text="Proceed to payment" btnClass="customBtn" className="payment-part-2-btn"/>
+          <Button text="Proceed to payment" btnClass="customBtn" className="payment-part-2-btn" />
         </div>
       </div>
     </form>

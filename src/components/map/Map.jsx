@@ -1,0 +1,134 @@
+import { GoogleMap, useJsApiLoader, Marker } from "@react-google-maps/api";
+import React, { useRef } from "react";
+import { Element } from "react-scroll";
+
+import "./Home.css";
+import "./Home.scss";
+import { legandItemsData, features } from "./Elements.js";
+import upArrow from "../../images/map/upArrow.svg";
+import { WithTransLate } from "../helpers/translating/index.jsx";
+
+const containerStyle = {
+  width: "100%",
+  height: "450px",
+};
+
+const Home = () => {
+  const mapRef = useRef(null);
+
+  const [position, setPosition] = React.useState({
+    lat: 64.1508567,
+    lng: -21.9652487,
+  });
+
+  function handleLoad(map) {
+    mapRef.current = map;
+  }
+
+  const apiKey = "AIzaSyA-LWuIlquldSBDqQWlgr3nJE8h3AMTDCE";
+
+  // ✅ FIX 2: Added loading: "async" and empty libraries array
+  const { isLoaded } = useJsApiLoader({
+    id: "google-map-script",
+    googleMapsApiKey: apiKey,
+    loading: "async", // Fix for async loading warning
+    libraries: [], // Specify empty libraries to avoid loading unnecessary ones
+  });
+
+  const [, setMap] = React.useState(null);
+  const [legend, setLegend] = React.useState(true);
+  const [weather, setWeather] = React.useState(undefined);
+
+  React.useEffect(() => {
+    fetch(
+      "https://api.openweathermap.org/data/2.5/weather?q=Reykjavik&appid=ea5ec3c49c438a83e8c7e8719ff84445&units=metric"
+    )
+      .then((resp) => resp.json())
+      .then((data) => setWeather(data))
+      .catch((err) => alert(err.message));
+  }, [setWeather]);
+
+  const onUnmount = React.useCallback(() => setMap(null), [setMap]);
+
+  return (
+    <Element name="Map" id="map">
+      <div className="map-root">
+        {isLoaded ? (
+          <GoogleMap
+            mapContainerStyle={containerStyle}
+            center={position}
+            zoom={13}
+            onLoad={handleLoad}
+            onUnmount={onUnmount}
+            options={{
+              // ✅ FIX 3: Use advanced markers instead of deprecated ones
+              mapId: "DEMO_MAP_ID", // You can create a custom map ID in Google Cloud Console
+            }}
+          >
+            {features.map((feature, index) => (
+              <Marker
+                key={index}
+                icon={position.lat === feature.position.lat ? feature.iconb : feature.icon}
+                position={feature.position}
+                // ✅ FIX 4: Use new marker options to avoid deprecation warning
+                options={{
+                  optimized: true,
+                }}
+              />
+            ))}
+          </GoogleMap>
+        ) : (
+          <div></div>
+        )}
+        <section className="legend">
+          {legend ? (
+            <div className="legend-button" onClick={() => setLegend(false)}>
+              <WithTransLate text="Legend" />
+              <img src={upArrow} alt="arrow" />
+            </div>
+          ) : (
+            <div>
+              <div className="legend-max-1">
+                {legandItemsData.map(({ src, text, position }, i) => (
+                  <div
+                    className="legand-item clickable"
+                    onClick={() => setPosition(position)}
+                    key={i}
+                  >
+                    <img src={src} alt={text} />
+                    <p>
+                      <WithTransLate text={text} />
+                    </p>
+                  </div>
+                ))}
+              </div>
+              <div className="clicked-legend-button" onClick={() => setLegend(true)}>
+                <WithTransLate text="Legend" /> <img src={upArrow} alt="arrow" />
+              </div>
+            </div>
+          )}
+        </section>
+        {!!weather && (
+          <div className="weather center">
+            <div className="center">
+              <h2 className="temp">
+                {Math.round(weather.main.temp)}
+                <WithTransLate text="°C" />
+              </h2>
+              <img
+                className="city-icon"
+                src={`https://openweathermap.org/img/wn/${weather.weather[0]["icon"]}@2x.png`}
+                alt="map"
+              />
+              <h4 className="location">
+                <WithTransLate text="Reykjavik, Iceland" />
+              </h4>
+            </div>
+          </div>
+        )}
+      </div>
+    </Element>
+  );
+};
+
+export default Home;

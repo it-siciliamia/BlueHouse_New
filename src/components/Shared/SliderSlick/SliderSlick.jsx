@@ -1,11 +1,11 @@
-import React from "react";
+import PropTypes from "prop-types";
+import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import Slider from "react-slick";
-import useBreakpoints from "../../../Styles/useBreakpointsNew";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
 import s from "./SliderSlick.module.scss";
+import useBreakpoints from "../../../Styles/useBreakpoints.js";
 
 const PhotoSlider = ({ photos, width = "100%", height = "auto" }) => {
   const { isSmallScreen, isDesktop } = useBreakpoints();
@@ -13,27 +13,29 @@ const PhotoSlider = ({ photos, width = "100%", height = "auto" }) => {
   const CustomPrevArrow = (props) => {
     const { className, style, onClick } = props;
     return (
-      <button
-        className={`${className} ${s.slickPrev}`}
-        style={{ ...style }}
-        onClick={onClick}
-      >
+      <button className={`${className} ${s.slickPrev}`} style={{ ...style }} onClick={onClick}>
         <FiChevronLeft className={s.btnIconLeft} />
       </button>
     );
+  };
+  CustomPrevArrow.propTypes = {
+    className: PropTypes.string,
+    style: PropTypes.object,
+    onClick: PropTypes.func,
   };
 
   const CustomNextArrow = (props) => {
     const { className, style, onClick } = props;
     return (
-      <button
-        className={`${className} ${s.slickNext}`}
-        style={{ ...style }}
-        onClick={onClick}
-      >
+      <button className={`${className} ${s.slickNext}`} style={{ ...style }} onClick={onClick}>
         <FiChevronRight className={s.btnIconRight} />
       </button>
     );
+  };
+  CustomNextArrow.propTypes = {
+    className: PropTypes.string,
+    style: PropTypes.object,
+    onClick: PropTypes.func,
   };
 
   const settings = {
@@ -53,16 +55,12 @@ const PhotoSlider = ({ photos, width = "100%", height = "auto" }) => {
     <div className={s.sliderContainer} style={{ width, height }}>
       <Slider {...settings}>
         {photos.map((photo, index) => (
-          <div
-            key={index}
-            className={s.sliderItem}
-            style={{ border: "1px solid green" }}
-          >
+          <div key={index} className={s.sliderItem} style={{ border: "1px solid green" }}>
             <img
               src={photo}
               alt={`Photo ${index + 1}`}
               className={s.sliderImage}
-              style={{ width: "100%", height, objectFit: "cover"}}
+              style={{ width: "100%", height, objectFit: "cover" }}
             />
           </div>
         ))}
@@ -72,3 +70,9 @@ const PhotoSlider = ({ photos, width = "100%", height = "auto" }) => {
 };
 
 export default PhotoSlider;
+
+PhotoSlider.propTypes = {
+  photos: PropTypes.arrayOf(PropTypes.string).isRequired,
+  width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+};

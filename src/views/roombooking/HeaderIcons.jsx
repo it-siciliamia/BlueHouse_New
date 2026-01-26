@@ -1,25 +1,15 @@
-import React from "react";
-import instaIcon from "../../images/Header_icons/headerSocialIcons/insta.svg";
-import facebookIcon from "../../images/Header_icons/headerSocialIcons/facebook.svg";
-import whatsappIcon from "../../images/Header_icons/headerSocialIcons/whats.svg";
-import tripIcon from "../../images/Header_icons/headerSocialIcons/tripadvisor_icon2.svg";
 import emailIcon from "../../images/Header_icons/headerSocialIcons/email.svg";
+import facebookIcon from "../../images/Header_icons/headerSocialIcons/facebook.svg";
+import instaIcon from "../../images/Header_icons/headerSocialIcons/insta.svg";
+import whatsappIcon from "../../images/Header_icons/headerSocialIcons/whats.svg";
 
 const HeaderIcons = () => {
   return (
     <aside className="social-app-icons">
-      <a
-        href="https://www.instagram.com/bluehousebb/"
-        target="_blank"
-        rel="noreferrer"
-      >
+      <a href="https://www.instagram.com/bluehousebb/" target="_blank" rel="noreferrer">
         <img src={instaIcon} alt="instagram" className="app-links" />
       </a>
-      <a
-        href="https://www.facebook.com/bluehouseiceland"
-        target="_blank"
-        rel="noreferrer"
-      >
+      <a href="https://www.facebook.com/bluehouseiceland" target="_blank" rel="noreferrer">
         <img src={facebookIcon} alt="facebook" className="app-links" />
       </a>
       <a

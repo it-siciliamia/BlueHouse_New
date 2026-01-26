@@ -1,17 +1,16 @@
-import React from "react";
+import Typography from "@mui/material/Typography";
+import { makeStyles } from "@mui/styles";
 import PropTypes from "prop-types";
-import { Typography } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
+
+import CaruselSliderHome from "./CaruselSliderHome/CaruselSliderHome.jsx";
+import s from "./HomePage.module.scss";
+import { WithTransLate } from "../../components/helpers/translating/index.jsx";
+import Email from "../../images/Header_icons/headerSocialIcons/email.svg";
 import Facebook from "../../images/Header_icons/headerSocialIcons/facebook.svg";
 import instaIcon from "../../images/Header_icons/headerSocialIcons/insta.svg";
-import houserules_mobile from "../../images/houserules_mobile.png";
-import Email from "../../images/Header_icons/headerSocialIcons/email.svg";
 import Tripadvisor from "../../images/Header_icons/headerSocialIcons/tripadvisor_icon2.svg";
 import Whatsapp from "../../images/Header_icons/headerSocialIcons/whats.svg";
-import { WithTransLate } from "../../components/helpers/translating/index";
-import CaruselSliderHome from "./CaruselSliderHome/CaruselSliderHome";
-
-import s from "./HomePage.module.scss";
+import houserules_mobile from "../../images/houserules_mobile.png";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -172,8 +171,8 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     alignItems: "center",
     gap: "16px",
-    paddingTop : "12px" ,
-    [theme.breakpoints.down("sm")]: {
+    paddingTop: "12px",
+    "@media (max-width: 959px)": {
       display: "none",
     },
   },
@@ -251,12 +250,7 @@ export default function Header({ title, titleMargins }) {
             rel="noreferrer"
             className={classes.iconBox}
           >
-            <img
-              src={instaIcon}
-              title="Instagram"
-              alt="instagram"
-              className={classes.iconImg}
-            />
+            <img src={instaIcon} title="Instagram" alt="instagram" className={classes.iconImg} />
           </a>
           <a
             href="https://www.facebook.com/bluehouseiceland"
@@ -264,12 +258,7 @@ export default function Header({ title, titleMargins }) {
             rel="noreferrer"
             className={classes.iconBox}
           >
-            <img
-              src={Facebook}
-              title="facebook"
-              alt="facebook"
-              className={classes.iconImg}
-            />
+            <img src={Facebook} title="facebook" alt="facebook" className={classes.iconImg} />
           </a>
           <a
             href="https://api.whatsapp.com/send?phone=3547756480&text=&source=&data="
@@ -277,12 +266,7 @@ export default function Header({ title, titleMargins }) {
             rel="noreferrer"
             className={classes.iconBox}
           >
-            <img
-              src={Whatsapp}
-              title="Whatsapp"
-              alt="whatsapp"
-              className={classes.iconImg}
-            />
+            <img src={Whatsapp} title="Whatsapp" alt="whatsapp" className={classes.iconImg} />
           </a>
           {/* Added Tripadvisor icon */}
           <a
@@ -304,12 +288,7 @@ export default function Header({ title, titleMargins }) {
             rel="noreferrer"
             className={classes.iconBox}
           >
-            <img
-              src={Email}
-              title="Email"
-              alt="Email"
-              className={classes.iconImg}
-            />
+            <img src={Email} title="Email" alt="Email" className={classes.iconImg} />
           </a>
         </div>
       )}

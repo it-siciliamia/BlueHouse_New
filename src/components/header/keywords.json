@@ -32,12 +32,8 @@
     "https://bluehouse.is/blog2/national-museum-iceland-history/",
     "https://bluehouse.is/blog2/volcano-museum-iceland/"
   ],
-  "Covid safety/protocols": [
-    "https://bluehouse.is/blog2/updated-covid-19-precautions/"
-  ],
-  "Airport pickup/taxi/shuttle": [
-    "https://bluehouse.tourdesk.is/Transportation"
-  ],
+  "Covid safety/protocols": ["https://bluehouse.is/blog2/updated-covid-19-precautions/"],
+  "Airport pickup/taxi/shuttle": ["https://bluehouse.tourdesk.is/Transportation"],
   "Custom tours/packages": "",
   "Shuttle service": "",
   "Private/Shared bathroom": "",
@@ -46,9 +42,7 @@
   "Extra beds": "",
   "family room": ["https://www.beds24.com/booking2.php?propid=3578"],
   "Lighthouse/seaside room": "",
-  "Private terrace/kitchen": [
-    "https://www.beds24.com/booking2.php?propid=3578"
-  ],
+  "Private terrace/kitchen": ["https://www.beds24.com/booking2.php?propid=3578"],
   "Family/twin room": ["https://www.beds24.com/booking2.php?propid=3578"],
   "Homecooked meal": ["https://bluehouse.is/blog2/our-breakfast/"],
   "Zoo trip": [
@@ -75,6 +69,6 @@
   "Surroundings": ["https://bluehouse.is/blog2/activities/"],
   "Activities": "",
   "Tours": ["https://bluehouse.tourdesk.is/Tour/Index/0"],
-  "Help":"/#footer",
+  "Help": "/#footer",
   "Booking": ["https://beds24.com/booking2.php?propid=3578&layout=1"]
 }

@@ -1,19 +1,15 @@
-import React from "react";
 import { useSelector } from "react-redux";
-import {
-  getAddParams,
-  getPaymentType,
-} from "../../../../redux/dataSearch/dataSearch-selectors";
-import { WithTransLate } from "../../../helpers/translating";
-import tv from "../../../../images/services_room/netflix.svg";
-import peoples from "../../../../images/services_room/guest.svg";
-import spot from "../../../../images/services_room/camera.svg";
-import parking from "../../../../images/services_room/parking.svg";
-import nosmoking from "../../../../images/services_room/no-smoking.svg";
-import nonref from "../../../../images/services_room/stop.svg";
-import ref from "../../../../images/services_room/refundable.svg";
 
 import s from "./AddServices.module.scss";
+import spot from "../../../../images/services_room/camera.svg";
+import peoples from "../../../../images/services_room/guest.svg";
+import tv from "../../../../images/services_room/netflix.svg";
+import nosmoking from "../../../../images/services_room/no-smoking.svg";
+import parking from "../../../../images/services_room/parking.svg";
+import ref from "../../../../images/services_room/refundable.svg";
+import nonref from "../../../../images/services_room/stop.svg";
+import { getAddParams, getPaymentType } from "../../../../redux/dataSearch/dataSearch-selectors.js";
+import { WithTransLate } from "../../../helpers/translating";
 
 const AddServices = () => {
   const paymentType = useSelector(getPaymentType);
@@ -24,8 +20,7 @@ const AddServices = () => {
     { icon: nosmoking, description: "No smoking" },
     {
       icon: paymentType === "refundable" ? ref : nonref,
-      description:
-        paymentType === "refundable" ? "Refundable" : "Non-refundable ",
+      description: paymentType === "refundable" ? "Refundable" : "Non-refundable ",
     },
   ];
   const secondColumn = [
@@ -34,9 +29,7 @@ const AddServices = () => {
     {
       icon: peoples,
       description: `${adult} ${adult === 1 ? "adult" : "adults"}${
-        children > 0
-          ? `, ${children} ${children === 1 ? "child" : "children"}`
-          : ""
+        children > 0 ? `, ${children} ${children === 1 ? "child" : "children"}` : ""
       }`,
     },
   ];

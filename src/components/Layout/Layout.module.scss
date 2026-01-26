@@ -1,6 +1,4 @@
-$tablet: 37.5em;
-$laptop: 60em;
-$desktop: 90em;
+@use "../../Styles/App.scss" as app;
 
 .container {
   display: flex;
@@ -8,9 +6,18 @@ $desktop: 90em;
   align-items: center;
   max-width: 72rem; // 1152px
   margin: auto;
+  padding: 0 1rem;
+
+  @media (min-width: app.$tablet) {
+    padding: 0 2rem;
+  }
+
+  @media (min-width: app.$desktop) {
+    padding: 0;
+  }
 }
 
-.childrenWrap {
+.outlet {
   width: 100%;
 }
 

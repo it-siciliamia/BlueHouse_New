@@ -7,19 +7,12 @@
   flex-direction: row;
   align-items: flex-end;
   width: 100%;
-  margin-top: 5%;
-  margin-left: auto;
-  margin-right: auto;
-  padding-top: 0;
-  padding-bottom: 0;
-  margin-bottom: 5%;
+  margin: 5% auto 2.5rem auto;
 
-  @media (min-width: 1280px) and (max-width: 2200px) {
+  @media (min-width: 1280px) {
     margin-top: 50px;
     padding-top: 20px;
-    /* keep original desktop rule; overridden below in the 1280+ block */
     padding-right: 0px;
-    width: 946px !important;
   }
 }
 
@@ -29,7 +22,7 @@
   font-weight: 300;
   line-height: 1.2;
   text-align: center;
-  color: #1D3967;
+  color: #1d3967;
   font-family: "Josefin Sans";
   text-transform: uppercase !important;
   /* non-interactive */
@@ -59,7 +52,7 @@
     line-height: 1.5;
     text-align: center;
   }
-  @media (min-width: 1280px) and (max-width: 2200px) {
+  @media (min-width: 1280px) {
     text-align: center;
     font-weight: 300;
     line-height: 1.5;
@@ -93,7 +86,7 @@
     align-items: flex-start;
     gap: 10px;
   }
-  @media (min-width: 1280px) and (max-width: 2200px) {
+  @media (min-width: 1280px) {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -135,8 +128,7 @@
     flex: 1;
   }
 
-  @media (min-width: 1280px) and (max-width: 2200px) {
-    // padding: 0 20px 0 20px;
+  @media (min-width: 1280px) {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -160,10 +152,10 @@
   width: 40px;
   overflow: hidden;
 
-    @media (min-width: 960px){
-      height: 48px;
-      width: 48px;
-    }
+  @media (min-width: 960px) {
+    height: 48px;
+    width: 48px;
+  }
 
   .icon {
     width: 100%;
@@ -192,7 +184,7 @@
   text-transform: uppercase;
   font-size: 18px;
   line-height: 24px;
-  color: #1D3967;
+  color: #1d3967;
 }
 
 .cardSubtitle {
@@ -201,7 +193,7 @@
   font-weight: 300;
   font-size: 16px;
   line-height: 24px;
-  color: #1D3967;
+  color: #1d3967;
   word-break: break-word;
   text-wrap: balance;
 }
@@ -242,13 +234,12 @@
     width: 100% !important;
     margin-left: auto;
     margin-right: auto;
-    
   }
 
   .sectionContent {
-    max-width: 1152px;               /* 3*368 + 2*24 */
+    max-width: 1152px; /* 3*368 + 2*24 */
     margin: 0 auto;
-    column-gap: 24px;                /* smaller gap between cards */
+    column-gap: 24px; /* smaller gap between cards */
     row-gap: 0;
     justify-content: space-between;
     flex-wrap: nowrap;
@@ -258,7 +249,14 @@
     // margin-right: calc((100% - 1152px) / 2 + 70px);
   }
 
-  .serviceCard { flex: 0 0 368px; }  /* fixed card width equals Figma */
-  .textBlock   { width: 368px; max-width: 368px; }
-  .cardTitle   { white-space: nowrap; } /* keep titles on a single line */
+  .serviceCard {
+    flex: 0 0 368px;
+  } /* fixed card width equals Figma */
+  .textBlock {
+    width: 368px;
+    max-width: 368px;
+  }
+  .cardTitle {
+    white-space: nowrap;
+  } /* keep titles on a single line */
 }

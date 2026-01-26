@@ -1,19 +1,19 @@
 import HomeHeader from "./HomeHeader.jsx";
-import PhotoGallery from "../../components/PhotoGallery/DesctopGallerySection/photoGallery.js";
-import OurServices from "../../components/OurServices/OurServices.jsx";
-import BookingWrapper from "../../components/BookingWrapper/BookingWrapper.jsx";
-import roomsImage from "../../images/gallery/rooms.svg";
-import housesImage from "../../images/gallery/houseBB2.svg";
-import surroundingsImage from "../../images/gallery/surroundings.svg";
-import Support from "../../components/SuportComponent/support.js";
-import Recommendations from "../../components/Recommendations/Recommendations.jsx";
-import SaveUpTo10 from "../../components/SaveUpTo10/SaveUpTo10.jsx";
-import BlogPart from "../../components/BlogComponent/Blog.js";
-import FollowUs from "../../components/FollowUs/FollowUs.jsx";
-
 import s from "./HomePage.module.scss";
-import ReviewSection from "../../components/ReviewSlider/ReviewSection.jsx";
+import BlogPart from "../../components/BlogComponent/Blog.jsx";
+import BookingBtnWrapper from "../../components/BookingBtnWrapper/BookingBtnWrapper.jsx";
+import FollowUs from "../../components/FollowUs/FollowUs.jsx";
 import Newsletter from "../../components/Newsletter/Newsletter.jsx";
+import OurServices from "../../components/OurServices/OurServices.jsx";
+import PhotoGallery from "../../components/PhotoGallery/DesctopGallerySection/photoGallery.jsx";
+import Recommendations from "../../components/Recommendations/Recommendations.jsx";
+import ReviewSection from "../../components/ReviewSlider/ReviewSection.jsx";
+import SaveUpTo10 from "../../components/SaveUpTo10/SaveUpTo10.jsx";
+import Support from "../../components/SuportComponent/support.jsx";
+import housesImage from "../../images/gallery/houseBB2.svg";
+import roomsImage from "../../images/gallery/rooms.svg";
+import surroundingsImage from "../../images/gallery/surroundings.svg";
+import useBreakpoints from "../../Styles/useBreakpoints.js";
 
 const GALLERY_BACKGROUND_IMAGES_AND_TITLES = [
   { background: roomsImage, title: "Rooms" },
@@ -22,7 +22,7 @@ const GALLERY_BACKGROUND_IMAGES_AND_TITLES = [
 ];
 
 export default function HomePage() {
-
+  const { isMobile, isTablet } = useBreakpoints();
   const descrip1 = [
     ["DOUBLE / TWIN", "TRIPLE / QUADRUPLE", "FAMILY ROOM", "APARTMENTS"],
     ["Blue House", "Green House", "Grótta Northern Lights"],
@@ -32,8 +32,8 @@ export default function HomePage() {
   return (
     <div className={s.home} style={{ color: "#1D3967" }}>
       <HomeHeader />
-      <BookingWrapper />
       <OurServices />
+      {!!(isMobile || isTablet) && <BookingBtnWrapper />}
 
       {/* Accommodation Options (ex-Gallery) */}
       <PhotoGallery

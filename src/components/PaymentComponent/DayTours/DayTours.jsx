@@ -1,12 +1,10 @@
-import React from "react";
-import useBreakpoints from "../../../Styles/useBreakpoints";
-import { WithTransLate } from "../../helpers/translating/index";
-import addservices01 from "../../../images/roombooking/add_services/add_services02.webp";
-import addservices02 from "../../../images/roombooking/add_services/Reykjavik_Daytours.webp";
-import addservices03 from "../../../images/roombooking/add_services/Countryside_tours.webp";
-import addservices04 from "../../../images/roombooking/add_services/add_services04.webp";
-
 import s from "./DayTours.module.scss";
+import addservices01 from "../../../images/roombooking/add_services/add_services02.webp";
+import addservices04 from "../../../images/roombooking/add_services/add_services04.webp";
+import addservices03 from "../../../images/roombooking/add_services/Countryside_tours.webp";
+import addservices02 from "../../../images/roombooking/add_services/Reykjavik_Daytours.webp";
+import useBreakpoints from "../../../Styles/useBreakpoints.js";
+import { WithTransLate } from "../../helpers/translating/index.jsx";
 
 const DayTours = () => {
   const { isTablet, isDesktop } = useBreakpoints();
@@ -57,17 +55,8 @@ const DayTours = () => {
         <div className={s.sectionContent}>
           {displayedCards.map(({ image, imageD, name, link }) => (
             <div key={name} className={s.addServicesItem}>
-              <a
-                href={link}
-                rel="noreferrer"
-                target="_blank"
-                style={{ width: "100%" }}
-              >
-                <img
-                  alt={name}
-                  src={isDesktop ? imageD : image}
-                  className={s.image}
-                />
+              <a href={link} rel="noreferrer" target="_blank" style={{ width: "100%" }}>
+                <img alt={name} src={isDesktop ? imageD : image} className={s.image} />
               </a>
               <span className={s.text}>
                 <WithTransLate text={name} />

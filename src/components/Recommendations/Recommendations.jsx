@@ -1,17 +1,16 @@
-import React from "react";
-import useBreakpoints from "../../Styles/useBreakpoints";
-import { WithTransLate } from "../helpers/translating/index";
-import nl from "../../images/RECOMMENDATIONS/Northernlights.webp";
-import bl from "../../images/RECOMMENDATIONS/Blue-lagoon.webp";
-import gc from "../../images/RECOMMENDATIONS/Glacier-Caves.webp";
-import nld from "../../images/RECOMMENDATIONS/Northernlights01.webp";
-import bld from "../../images/RECOMMENDATIONS/Blue-lagoon01.webp";
-import gcd from "../../images/RECOMMENDATIONS/Glacier-Caves01.webp";
-import restd from "../../images/RECOMMENDATIONS/Geysers01.webp";
-import rest from "../../images/RECOMMENDATIONS/Geysers.webp";
+import PropTypes from "prop-types";
 
 import s from "./Recommendations.module.scss";
-import Button from "../Shared/Button/Button";
+import bl from "../../images/RECOMMENDATIONS/Blue-lagoon.webp";
+import bld from "../../images/RECOMMENDATIONS/Blue-lagoon01.webp";
+import rest from "../../images/RECOMMENDATIONS/Geysers.webp";
+import restd from "../../images/RECOMMENDATIONS/Geysers01.webp";
+import gc from "../../images/RECOMMENDATIONS/Glacier-Caves.webp";
+import gcd from "../../images/RECOMMENDATIONS/Glacier-Caves01.webp";
+import nl from "../../images/RECOMMENDATIONS/Northernlights.webp";
+import nld from "../../images/RECOMMENDATIONS/Northernlights01.webp";
+import useBreakpoints from "../../Styles/useBreakpoints.js";
+import { WithTransLate } from "../helpers/translating/index.jsx";
 
 function Card({ title, imageSrc, description }) {
   return (
@@ -32,16 +31,14 @@ function Card({ title, imageSrc, description }) {
   );
 }
 
+Card.propTypes = {
+  title: PropTypes.string.isRequired,
+  imageSrc: PropTypes.string.isRequired,
+  description: PropTypes.string,
+};
+
 const Recommendations = () => {
-  const { isTablet, isDesktop } = useBreakpoints();
-  const prevSlide = ()=>{
-    const section = document.getElementById('imagesSection')
-    section.scrollBy(-440,0)
-  }
-  const nextSlide = (e)=>{
-    const section = document.getElementById('imagesSection')
-    section.scrollBy(440,0)
-  }
+  const { isDesktop } = useBreakpoints();
   const recommendationsData = [
     {
       name: "Northern Lights",
@@ -70,18 +67,13 @@ const Recommendations = () => {
     {
       name: "Valley of Geysers",
       link: "https://blog.bluehouse.is/?s=Valley+of+Geysers",
-      description: '',
+      description: "",
       image: rest,
       imageD: restd,
     },
   ];
 
-  let displayedCards = [];
-  if (isTablet) {
-    displayedCards = recommendationsData.slice(0, 4);
-  } else {
-    displayedCards = recommendationsData.slice(0, 3);
-  }
+  let displayedCards = recommendationsData.slice(0, 3);
 
   return (
     <div id="RECOMMENDATIONS" className={s.recommendations}>
@@ -98,7 +90,7 @@ const Recommendations = () => {
               title={name}
               imageSrc={isDesktop ? imageD : image}
               description={description}
-                />
+            />
           ))}
         </div>
       </div>

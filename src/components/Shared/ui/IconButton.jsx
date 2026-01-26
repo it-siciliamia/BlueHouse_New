@@ -34,12 +34,7 @@ function IconButton({
   ...props
 }) {
   const Icon = icons[icon];
-  const classes = [
-    s.iconButton,
-    s[`iconButton--${variant}`],
-    s[`iconButton--${size}`],
-    className,
-  ]
+  const classes = [s.iconButton, s[`iconButton--${variant}`], s[`iconButton--${size}`], className]
     .filter(Boolean)
     .join(" ");
 
@@ -58,6 +53,7 @@ function IconButton({
 }
 
 IconButton.propTypes = {
+  id: PropTypes.string,
   icon: PropTypes.oneOf([
     "chevronLeft",
     "chevronRight",

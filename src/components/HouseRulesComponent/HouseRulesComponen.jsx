@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { WithTransLate } from "../../components/helpers/translating/index";
-import Guidelines from "./Guidelines.jsx";
+import { useEffect, useState } from "react";
 
+import Guidelines from "./Guidelines.jsx";
 import s from "./HouseRulesComponent.module.scss";
+import { WithTransLate } from "../../components/helpers/translating/index.jsx";
 
 function HouseRulesComponents() {
   const [isMobileOrTablet, setIsMobileOrTablet] = useState(false);
@@ -23,7 +23,6 @@ function HouseRulesComponents() {
   return (
     <section className={s.houseRules}>
       <div className={s.houseRulesContent}>
-        
         {isMobileOrTablet ? (
           <div className={s.titleWrapperMobile}>
             <div className={s.imageMain}></div>

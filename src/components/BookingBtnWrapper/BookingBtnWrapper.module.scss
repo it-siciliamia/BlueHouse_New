@@ -1,0 +1,34 @@
+@use "../../Styles/App.scss" as app;
+
+.btnContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding-bottom: 3.4rem;
+
+  @media (min-width: 35em) {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    margin: 0 auto;
+    min-width: 20rem;
+    width: max-content;
+    max-width: 100%;
+  }
+
+  @media (min-width: app.$tablet) {
+    flex-direction: row;
+    justify-content: center;
+    gap: 1.9rem;
+    padding-bottom: 4.4rem;
+    margin: 0;
+    align-items: initial;
+    width: auto;
+    max-width: none;
+    min-width: 0;
+  }
+}
+
+.btnCorrection {
+  min-inline-size: 13.62rem;
+}

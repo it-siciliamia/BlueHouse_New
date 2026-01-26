@@ -1,14 +1,15 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import useBreakpoints from "../../Styles/useBreakpoints";
-import Advantages from "./Advantages";
-import HeaderIcons from "./HeaderIcons";
-import ServicesRoom from "../../components/ServicesRoom/ServicesRoom";
-import ReviewRoomBooking from "../../components/ReviewRoomBooking/ReviewRoomBooking";
-import Support from "../../components/SuportComponent/support";
-import SearchContainer from "./SearchContainer";
-import SearchContainerMobile from "./SearchContainerMobile";
-import { getRoomsData } from "../../redux/technitial/technical-operations";
+
+import Advantages from "./Advantages.jsx";
+import HeaderIcons from "./HeaderIcons.jsx";
+import SearchContainer from "./SearchContainer.jsx";
+import SearchContainerMobile from "./SearchContainerMobile.jsx";
+import ReviewRoomBooking from "../../components/ReviewRoomBooking/ReviewRoomBooking.jsx";
+import ServicesRoom from "../../components/ServicesRoom/ServicesRoom.jsx";
+import Support from "../../components/SuportComponent/support.jsx";
+import { getRoomsData } from "../../redux/technitial/technical-operations.js";
+import useBreakpoints from "../../Styles/useBreakpoints.js";
 import "./index.css";
 
 export const googleRatings = [
@@ -24,7 +25,7 @@ export const tripadvisorRating = {
 
 const RoomBooking = () => {
   const dispatch = useDispatch();
-  const { isMobile, isTablet, isLaptop, isDesktop } = useBreakpoints();
+  const { isMobile, isTablet, isSmallScreen, isDesktop } = useBreakpoints();
 
   useEffect(() => {
     dispatch(getRoomsData());
@@ -32,22 +33,19 @@ const RoomBooking = () => {
 
   return (
     <div className="roomBooking">
-      {(isMobile || isTablet) && <SearchContainerMobile />}
-      {(isDesktop || isLaptop) && (
+      {!!(isMobile || isTablet) && <SearchContainerMobile />}
+      {!!(isDesktop || isSmallScreen) && (
         <div className="hero">
           <HeaderIcons />
           <SearchContainer />
         </div>
       )}
-      {isDesktop && <Advantages />}
+      {!!isDesktop && <Advantages />}
       <ServicesRoom />
-      {(isDesktop || isLaptop) && (
-        <ReviewRoomBooking
-          tripadvisor={tripadvisorRating}
-          googleRatings={googleRatings}
-        />
+      {!!(isDesktop || isSmallScreen) && (
+        <ReviewRoomBooking tripadvisor={tripadvisorRating} googleRatings={googleRatings} />
       )}
-      {isMobile && <Advantages />}
+      {!!isMobile && <Advantages />}
       <Support />
     </div>
   );

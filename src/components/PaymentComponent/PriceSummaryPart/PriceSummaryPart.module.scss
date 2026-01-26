@@ -65,16 +65,18 @@
 }
 
 .currency-selector h3 {
-  color: #1D3967;
+  color: #1d3967;
   text-align: center;
   margin-bottom: 10px;
 }
 
 label {
   display: block;
-  color: #1D3967;
+  color: #1d3967;
   margin-bottom: 5px;
-  font-family: Josefin Sans, sans-serif;
+  font-family:
+    Josefin Sans,
+    sans-serif;
   font-weight: bold;
   @media (min-width: 320px) and (max-width: 599.99px) {
     margin: 0;
@@ -172,7 +174,7 @@ select:disabled {
   }
 }
 
-.priceWrapper1{
+.priceWrapper1 {
   padding-left: 40px;
   height: 70px;
   display: flex;
@@ -189,7 +191,7 @@ select:disabled {
 }
 
 .priceTitle {
-  color: #1D3967;
+  color: #1d3967;
   margin: 0;
   font-size: 18px;
   font-weight: bold;

@@ -1,15 +1,4 @@
-/* ===== CaruselSliderHome.module.scss =====
-   Full stylesheet (ready to paste).
-   - Keeps your original layout (sizes/positions).
-   - Arrows: 40×40, white fill, blue stroke, slight darken on press.
-   - Dots: inactive blue, active white with blue ring; pinned slightly above bottom.
-   - Symmetric arrow offsets relative to visible image (left:1%, width:92%).
-   - Safe z-index: controls above media, behind side drawer when it’s open.
-*/
-
-$tablet: 37.5em; // 600px
-$laptop: 60em; // 960px
-$desktop: 80em; // 1280px
+@use "../../../Styles/App.scss" as app;
 
 /* --- Base hero layout --- */
 .imageBox {
@@ -18,12 +7,28 @@ $desktop: 80em; // 1280px
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  width: 100%;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
   aspect-ratio: 375 / 300; // Figma's aspect ratio for mobile
 
-  @media (min-width: $tablet) {
+  @media (min-width: app.$tablet) {
     aspect-ratio: 1054 / 556; // Figma's aspect ratio standard
   }
+
+  @media (min-width: app.$smallScreen) {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+.slideContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .image {
@@ -41,18 +46,67 @@ $desktop: 80em; // 1280px
   opacity: 1;
 }
 
+.slideText {
+  position: absolute;
+  bottom: 35%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--color-neutral-100);
+  text-align: center;
+  text-wrap: balance;
+  font-family: "Apalu", sans-serif;
+  font-size: 2.5rem;
+  font-weight: 400;
+  margin: 0;
+  padding: 0 3rem;
+  opacity: 0;
+  z-index: 2;
+  width: 90%;
+  max-width: 20rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  @media (min-width: 28.75em) {
+    font-size: 2.8rem;
+  }
+
+  @media (min-width: 35em) {
+    font-size: 3.2rem;
+    bottom: 38%;
+    padding: 0 2rem;
+  }
+
+  @media (min-width: app.$tablet) {
+    font-size: 4.4rem;
+    bottom: 40%;
+    width: 80%;
+    max-width: 43.8rem;
+    padding: 0 2rem;
+  }
+
+  @media (min-width: app.$desktop) {
+    font-size: 5.6rem;
+    width: 70%;
+    max-width: 56.3rem;
+  }
+}
+
+.slideTextVisible {
+  opacity: 1;
+}
+
 /* --- Pagination (layout kept; pinned a bit higher) --- */
 .pagination {
   position: absolute;
   z-index: 3; /* above media, below global overlays */
-  bottom: 12px; 
+  bottom: 12px;
   margin-bottom: 0;
 
-  @media (min-width: 600px){
+  @media (min-width: var(--tablet)) {
     bottom: 14px;
   }
 
-  @media (min-width: 960px) {
+  @media (min-width: var(--small-screen)) {
     bottom: 16px;
   }
 }
@@ -63,7 +117,6 @@ $desktop: 80em; // 1280px
   justify-content: space-between;
   width: 100%;
   margin-right: 120px;
-
 }
 
 /* Dots: inactive = blue, active = white with blue ring */
@@ -74,7 +127,9 @@ $desktop: 80em; // 1280px
   width: 10px;
   height: 10px;
   border: 0;
-  transition: background-color 0.3s ease, border-color 0.3s ease,
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease,
     transform 0.12s ease;
 
   &:hover {
@@ -88,23 +143,29 @@ $desktop: 80em; // 1280px
 }
 
 .paginationDotActive {
-  background-color: #ffffff; /* white (active) */
-  border: 2px solid #153a5b; /* blue ring */
+  background-color: var(--color-neutral-100);
+  border: 2px solid var(--color-primary-500);
 }
 
 /* Desktop/tablet: image has left:1%, width:92% => right gap is 7% */
-@media (min-width: 960px) {
-  .arrowButtonLeft,
-  .arrowButtonRight {
-    position: absolute;
-    top: 50%;
-    z-index: 99;
+.arrowButtonLeft,
+.arrowButtonRight {
+  position: absolute;
+  top: calc(50% - 1.25rem);
+  z-index: 99;
+}
+.arrowButtonLeft {
+  left: 1rem;
+
+  @media (min-width: app.$smallScreen) {
+    left: 1.5rem;
   }
-  .arrowButtonLeft {
-    left: calc(1% + 20px); /* 20px from image's left edge */
-  }
-  .arrowButtonRight {
-    right: calc(1% + 20px); /* 20px from image's right edge */
+}
+.arrowButtonRight {
+  right: 1rem;
+
+  @media (min-width: app.$smallScreen) {
+    right: 1.5rem;
   }
 }
 

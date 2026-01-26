@@ -1,28 +1,27 @@
-import React, { useState } from "react";
+import PropTypes from "prop-types";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
-import { Link as ScrollLink, scroller } from "react-scroll";
-import useBreakpoints from "../../../Styles/useBreakpoints";
-import Advantages from "../Advantages/Advantages";
-import PhotoSlider from "../../../components/Shared/SliderSlick/SliderSlick";
-import { WithTransLate } from "../../../components/helpers/translating/index";
+import { useNavigate } from "react-router-dom";
+import { scroller } from "react-scroll";
+
+import s from "./PartDetails.module.scss";
+import { WithTransLate } from "../../../components/helpers/translating/index.jsx";
+import { price } from "../../../components/ServicesRoom/ServicesRoomData.js";
+import Button from "../../../components/Shared/Button/Button.jsx";
+import PhotoSlider from "../../../components/Shared/SliderSlick/SliderSlick.jsx";
+import locationIcon from "../../../images/services_room/location.svg";
+import { getDayDifference, getAddParams } from "../../../redux/dataSearch/dataSearch-selectors.js";
 import {
   setAppartmentName,
   setPricePerNight,
   setPaymentType,
-} from "../../../redux/dataSearch/dataSearch-slice";
-import Button from "../../../components/Shared/Button/Button";
-import locationIcon from "../../../images/services_room/location.svg";
-import { price } from "../../../components/ServicesRoom/ServicesRoomData";
-import {
-  getDayDifference,
-  getAddParams,
-} from "../../../redux/dataSearch/dataSearch-selectors";
-import s from "./PartDetails.module.scss";
+} from "../../../redux/dataSearch/dataSearch-slice.js";
+import useBreakpoints from "../../../Styles/useBreakpoints.js";
+import Advantages from "../Advantages/Advantages.jsx";
 
 const PartDetails = ({ data }) => {
   const dispatch = useDispatch();
-  const history = useHistory();
+  const navigate = useNavigate();
   const [copied, setCopied] = useState(false);
   const { isMobile, isTablet } = useBreakpoints();
   const { room: roomNumber } = useSelector(getAddParams);
@@ -68,31 +67,22 @@ const PartDetails = ({ data }) => {
           <WithTransLate text={data.title} />
         </h3>
         <div onClick={handleCopyLink} style={{ cursor: "pointer" }}>
-          <img
-            src={data.links.icon}
-            alt="Shared link"
-            style={{ width: "30px", height: "auto" }}
-          />
+          <img src={data.links.icon} alt="Shared link" style={{ width: "30px", height: "auto" }} />
         </div>
-        {copied && (
+        {!!copied && (
           <div className={s.copiedMessage}>
             <WithTransLate text="Link copied to clipboard!" />
           </div>
         )}
       </div>
-      {(isMobile || isTablet) && (
-        <PhotoSlider photos={data.photos} height="250px" />
-      )}
+      {!!(isMobile || isTablet) && <PhotoSlider photos={data.photos} height="250px" />}
 
       <div className={s.locationPart}>
         <h4>
           <WithTransLate text="Location" />
         </h4>
         <div className={s.locationWrapper}>
-          <div
-            className={s.addressWrapper}
-            onClick={() => navigateAndScroll("MAP")}
-          >
+          <div className={s.addressWrapper} onClick={() => navigateAndScroll("MAP")}>
             <img
               src={locationIcon}
               alt="Go to Location"
@@ -105,18 +95,15 @@ const PartDetails = ({ data }) => {
               <WithTransLate text="Address" />
             </span>
           </div>
-          {(isMobile || isTablet) && (
-            <span
-              className={s.textWrapperNavigate}
-              onClick={() => navigateAndScroll("MAP")}
-            >
+          {!!(isMobile || isTablet) && (
+            <span className={s.textWrapperNavigate} onClick={() => navigateAndScroll("MAP")}>
               <WithTransLate text="Show on map" />
             </span>
           )}
         </div>
       </div>
 
-      {(isMobile || isTablet) && (
+      {!!(isMobile || isTablet) && (
         <div>
           <Advantages />
         </div>
@@ -131,7 +118,7 @@ const PartDetails = ({ data }) => {
         </p>
       </div>
       <div>
-        <h4 style={{color: "#1d3967"}}>
+        <h4 style={{ color: "#1d3967" }}>
           <WithTransLate text="Amenities" />
         </h4>
       </div>
@@ -166,7 +153,7 @@ const PartDetails = ({ data }) => {
         </div>
       </div>
       <div style={{ marginTop: "20px" }}>
-        <h4 style={{color: "#1d3967"}}>
+        <h4 style={{ color: "#1d3967" }}>
           <WithTransLate text="Price" />
         </h4>
       </div>
@@ -207,14 +194,11 @@ const PartDetails = ({ data }) => {
               dispatch(setAppartmentName(data.title));
               dispatch(setPricePerNight(roomPrice.price1));
               dispatch(setPaymentType("Non-refundable"));
-              history.push("/payment");
+              navigate("/payment");
             }}
           />
         </div>
-        <div
-          className={s.priceWrapper}
-          style={{ borderBottom: "1px solid #1d39675d" }}
-        >
+        <div className={s.priceWrapper} style={{ borderBottom: "1px solid #1d39675d" }}>
           <span
             style={{
               color: "green",
@@ -267,7 +251,7 @@ const PartDetails = ({ data }) => {
               dispatch(setAppartmentName(data.title));
               dispatch(setPricePerNight(roomPrice.price2));
               dispatch(setPaymentType("Refundable"));
-              history.push("/payment");
+              navigate("/payment");
             }}
           />
         </div>
@@ -277,3 +261,21 @@ const PartDetails = ({ data }) => {
 };
 
 export default PartDetails;
+
+const amenityShape = PropTypes.shape({
+  icon: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+});
+
+PartDetails.propTypes = {
+  data: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    photos: PropTypes.arrayOf(PropTypes.string).isRequired,
+    amenities: PropTypes.arrayOf(amenityShape).isRequired,
+    links: PropTypes.shape({
+      href: PropTypes.string.isRequired,
+      icon: PropTypes.string.isRequired,
+    }).isRequired,
+  }).isRequired,
+};

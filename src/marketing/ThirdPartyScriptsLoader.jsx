@@ -87,8 +87,7 @@ const injectDescriptor = (descriptor) => {
     return () => {};
   }
 
-  const parent =
-    descriptor.target === "body" ? document.body : document.head || document.body;
+  const parent = descriptor.target === "body" ? document.body : document.head || document.body;
   if (!parent) {
     return () => {};
   }

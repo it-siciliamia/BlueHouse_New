@@ -1,26 +1,20 @@
-import double1 from "../../../images/Rooms/DoubleTwin/dt1.webp";
-import double2 from "../../../images/Rooms/DoubleTwin/dt2.webp";
-import double3 from "../../../images/Rooms/DoubleTwin/dt3.webp";
-import double4 from "../../../images/Rooms/DoubleTwin/dt4.webp";
-import double5 from "../../../images/Rooms/DoubleTwin/dt5.webp";
-
-import triple1 from "../../../images/Rooms/TripleQuadruple/t1.webp";
-import triple2 from "../../../images/Rooms/TripleQuadruple/t2.webp";
-
-import family1 from "../../../images/Rooms/FamilyRoom/fr1.webp";
-import family2 from "../../../images/Rooms/FamilyRoom/fr2.webp";
-import family3 from "../../../images/Rooms/FamilyRoom/fr3.webp";
-import family4 from "../../../images/Rooms/FamilyRoom/fr4.webp";
-import family5 from "../../../images/Rooms/FamilyRoom/fr5.webp";
-import family6 from "../../../images/Rooms/FamilyRoom/fr6.webp";
-
-import apartments1 from "../../../images/Rooms/Apartment/a3.webp";
-import apartments2 from "../../../images/Rooms/Apartment/a4.webp";
-import apartments3 from "../../../images/Rooms/Apartment/a5.webp";
-import apartments4 from "../../../images/Rooms/Apartment/a6.webp";
-import apartments5 from "../../../images/Rooms/Apartment/a7.webp";
-import apartments6 from "../../../images/Rooms/Apartment/a8.webp";
-import apartments7 from "../../../images/Rooms/Apartment/a9.webp";
+import blue_house4 from "../../../images/Houses/BlueHouse/bh2.webp";
+import blue_house3 from "../../../images/Houses/BlueHouse/bh4.webp";
+import blue_house from "../../../images/Houses/BlueHouse/bh6.webp";
+import blue_house7 from "../../../images/Houses/BlueHouse/bh7.webp";
+import blue_house2 from "../../../images/Houses/BlueHouse/new/bh.webp";
+import blue_house8 from "../../../images/Houses/BlueHouse/new/bh2.webp";
+import blue_house5 from "../../../images/Houses/BlueHouse/new/bh4.webp";
+import grotta_northern_lights from "../../../images/Houses/GNL/gnl1.webp";
+import grotta_northern_lights9 from "../../../images/Houses/GNL/gnl10.webp";
+import grotta_northern_lights3 from "../../../images/Houses/GNL/gnl3.webp";
+import grotta_northern_lights4 from "../../../images/Houses/GNL/gnl4.webp";
+import grotta_northern_lights5 from "../../../images/Houses/GNL/gnl5.webp";
+import grotta_northern_lights6 from "../../../images/Houses/GNL/gnl6.webp";
+import grotta_northern_lights7 from "../../../images/Houses/GNL/gnl7.webp";
+import grotta_northern_lights8 from "../../../images/Houses/GNL/gnl8.webp";
+import grotta_northern_lights10 from "../../../images/Houses/GNL/gnl9.webp";
+import green_house from "../../../images/Houses/Greenhouse Outside.webp";
 import apartments8 from "../../../images/Rooms/Apartment/a10.webp";
 import apartments9 from "../../../images/Rooms/Apartment/a11.webp";
 import apartments10 from "../../../images/Rooms/Apartment/a12.webp";
@@ -33,44 +27,41 @@ import apartments16 from "../../../images/Rooms/Apartment/a18.webp";
 import apartments17 from "../../../images/Rooms/Apartment/a19.webp";
 import apartments18 from "../../../images/Rooms/Apartment/a21.webp";
 import apartments19 from "../../../images/Rooms/Apartment/a22.webp";
-
-import blue_house4 from "../../../images/Houses/BlueHouse/bh2.webp";
-import blue_house8 from "../../../images/Houses/BlueHouse/new/bh2.webp";
-import blue_house5 from "../../../images/Houses/BlueHouse/new/bh4.webp";
-import blue_house2 from "../../../images/Houses/BlueHouse/new/bh.webp";
-import blue_house3 from "../../../images/Houses/BlueHouse/bh4.webp";
-import blue_house from "../../../images/Houses/BlueHouse/bh6.webp";
-import blue_house7 from "../../../images/Houses/BlueHouse/bh7.webp";
-
-import green_house from "../../../images/Houses/Greenhouse Outside.webp";
-import green_house2 from "../../../images/view-gallery/houses/GreenHouse/gh1.webp";
-import green_house3 from "../../../images/view-gallery/houses/GreenHouse/GH_kitchen.webp";
-import green_house4 from "../../../images/view-gallery/houses/GreenHouse/GreenHouse1.webp";
-import green_house5 from "../../../images/view-gallery/houses/GreenHouse/Livingroom2.webp";
-import green_house7 from "../../../images/view-gallery/houses/GreenHouse/GH_bathroom.webp";
-
-import grotta_northern_lights from "../../../images/Houses/GNL/gnl1.webp";
-import grotta_northern_lights3 from "../../../images/Houses/GNL/gnl3.webp";
-import grotta_northern_lights4 from "../../../images/Houses/GNL/gnl4.webp";
-import grotta_northern_lights5 from "../../../images/Houses/GNL/gnl5.webp";
-import grotta_northern_lights6 from "../../../images/Houses/GNL/gnl6.webp";
-import grotta_northern_lights7 from "../../../images/Houses/GNL/gnl7.webp";
-import grotta_northern_lights8 from "../../../images/Houses/GNL/gnl8.webp";
-import grotta_northern_lights9 from "../../../images/Houses/GNL/gnl10.webp";
-import grotta_northern_lights10 from "../../../images/Houses/GNL/gnl9.webp";
-
+import apartments1 from "../../../images/Rooms/Apartment/a3.webp";
+import apartments2 from "../../../images/Rooms/Apartment/a4.webp";
+import apartments3 from "../../../images/Rooms/Apartment/a5.webp";
+import apartments4 from "../../../images/Rooms/Apartment/a6.webp";
+import apartments5 from "../../../images/Rooms/Apartment/a7.webp";
+import apartments6 from "../../../images/Rooms/Apartment/a8.webp";
+import apartments7 from "../../../images/Rooms/Apartment/a9.webp";
+import double1 from "../../../images/Rooms/DoubleTwin/dt1.webp";
+import double2 from "../../../images/Rooms/DoubleTwin/dt2.webp";
+import double3 from "../../../images/Rooms/DoubleTwin/dt3.webp";
+import double4 from "../../../images/Rooms/DoubleTwin/dt4.webp";
+import double5 from "../../../images/Rooms/DoubleTwin/dt5.webp";
+import family1 from "../../../images/Rooms/FamilyRoom/fr1.webp";
+import family2 from "../../../images/Rooms/FamilyRoom/fr2.webp";
+import family3 from "../../../images/Rooms/FamilyRoom/fr3.webp";
+import family4 from "../../../images/Rooms/FamilyRoom/fr4.webp";
+import family5 from "../../../images/Rooms/FamilyRoom/fr5.webp";
+import family6 from "../../../images/Rooms/FamilyRoom/fr6.webp";
+import triple1 from "../../../images/Rooms/TripleQuadruple/t1.webp";
+import triple2 from "../../../images/Rooms/TripleQuadruple/t2.webp";
 import NorthernLights from "../../../images/Surroundings/surrounding3.webp";
-import NorthernLights2 from "../../../images/view-gallery/northern_lights2.webp";
-import NorthernLights3 from "../../../images/view-gallery/northern_lights3.webp";
-
-import Neighborhood from "../../../images/view-gallery/neighborhood.webp";
-import Neighborhood2 from "../../../images/view-gallery/neighborhood2.webp";
-import Neighborhood3 from "../../../images/view-gallery/neighborhood3.webp";
-
-import Activities from "../../../images/view-gallery/Activities/4.webp";
 import Activities2 from "../../../images/view-gallery/Activities/1.webp";
 import Activities3 from "../../../images/view-gallery/Activities/2.webp";
 import Activities4 from "../../../images/view-gallery/Activities/3.webp";
+import Activities from "../../../images/view-gallery/Activities/4.webp";
+import green_house2 from "../../../images/view-gallery/houses/GreenHouse/gh1.webp";
+import green_house7 from "../../../images/view-gallery/houses/GreenHouse/GH_bathroom.webp";
+import green_house3 from "../../../images/view-gallery/houses/GreenHouse/GH_kitchen.webp";
+import green_house4 from "../../../images/view-gallery/houses/GreenHouse/GreenHouse1.webp";
+import green_house5 from "../../../images/view-gallery/houses/GreenHouse/Livingroom2.webp";
+import Neighborhood from "../../../images/view-gallery/neighborhood.webp";
+import Neighborhood2 from "../../../images/view-gallery/neighborhood2.webp";
+import Neighborhood3 from "../../../images/view-gallery/neighborhood3.webp";
+import NorthernLights2 from "../../../images/view-gallery/northern_lights2.webp";
+import NorthernLights3 from "../../../images/view-gallery/northern_lights3.webp";
 
 //! HOUSES (tab index = 0)
 const HousesData = [
@@ -142,8 +133,7 @@ const RoomsData = [
     title: "Triple/Quadruple room",
     cover: triple2,
     backgrounds: [triple2, triple1],
-    description:
-      "The Triple/Quadruple Rooms are available in two of the three houses.",
+    description: "The Triple/Quadruple Rooms are available in two of the three houses.",
     fullDescription:
       "The Triple/Quadruple Rooms are located in two of the three buildings. They feature a sofa bed and flat screen TVs with Netflix. Twin beds can be requested depending on availability. Bathroom and kitchen facilities are shared.",
   },
@@ -151,8 +141,7 @@ const RoomsData = [
     title: "Family Room",
     cover: family1,
     backgrounds: [family1, family2, family3, family4, family5, family6],
-    description:
-      "The Family Room with a terrace is in the Grótta Northern Lights Apartment.",
+    description: "The Family Room with a terrace is in the Grótta Northern Lights Apartment.",
     fullDescription:
       "The Family Room with a terrace overlooking the ocean and the lighthouse is located in the Grótta Northern Lights Apartment in Valhúsabraut 35. It includes a TV with Netflix, as well as a private bathroom and dining area. Kitchen facilities are shared.",
   },

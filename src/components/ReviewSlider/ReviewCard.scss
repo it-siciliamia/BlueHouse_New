@@ -1,11 +1,8 @@
-// Media Queries variables
-$desktop: 80em; // ~1280px
-$smallScreen: 60em; // ~960px
-$tablet: 48em; // ~768px
+@use "../../Styles/App.scss" as app;
 
 .review-card {
   background-color: var(--color-neutral-100);
-  
+
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -32,11 +29,10 @@ $tablet: 48em; // ~768px
     top: 1rem;
     left: 1rem;
 
-    @media (min-width: $smallScreen) {
+    @media (min-width: app.$smallScreen) {
       top: 2rem;
       left: 1rem;
     }
-      
   }
 
   &::after {
@@ -44,17 +40,15 @@ $tablet: 48em; // ~768px
     bottom: 1.2rem;
     right: 2.5rem;
 
-
-    @media (min-width: $smallScreen) {
+    @media (min-width: app.$tablet) {
       bottom: 1.6rem;
       right: 1rem;
     }
   }
 }
 
-
 .review-card__quote {
-  margin-bottom: 0rem; // Workaround: overwrites bootstrap styling 
+  margin-bottom: 0rem; // Workaround: overwrites bootstrap styling
   padding-left: 2.5rem;
 
   font-size: 1rem;
@@ -69,7 +63,7 @@ $tablet: 48em; // ~768px
   justify-content: flex-end;
   align-items: flex-end;
 
-  @media (min-width: $smallScreen) {
+  @media (min-width: app.$smallScreen) {
     padding-right: 2rem;
   }
 }
@@ -89,8 +83,7 @@ $tablet: 48em; // ~768px
   padding-left: 7px;
 }
 
-
-@media (min-width: $smallScreen) {
+@media (min-width: app.$smallScreen) {
   .review-card {
     width: 25rem;
   }

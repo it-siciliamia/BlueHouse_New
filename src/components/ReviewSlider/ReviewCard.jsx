@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
-import { WithTransLate } from "../helpers/translating/index";
+
+import { WithTransLate } from "../helpers/translating/index.jsx";
 import "./ReviewCard.scss";
 
 const ReviewCard = ({ quote }) => {

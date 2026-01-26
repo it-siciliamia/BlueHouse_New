@@ -1,29 +1,28 @@
-import React, { useCallback, useEffect, useMemo } from "react";
 import PropTypes from "prop-types";
-import { Link as RouterLink, useHistory, useLocation } from "react-router-dom";
+import { useCallback, useEffect, useMemo } from "react";
+import { Link as RouterLink, useLocation, useNavigate } from "react-router-dom";
 import { scroller } from "react-scroll";
 
-import TranslateMe, { WithTransLate } from "../helpers/translating";
 import styles from "./SideNavbar.module.scss";
-
-import Logo from "../../images/Bluehouse.svg";
-import Bus from "../../images/shuttle.svg";
-import Escape from "../../images/escape.svg";
 import Aboutus from "../../images/aboutus.svg";
-import Door from "../../images/door.svg";
-import Tour from "../../images/tour.svg";
-import Accommodation from "../../images/gallery.svg";
-import Car from "../../images/car.svg";
 import Bag from "../../images/bag.svg";
-import Info from "../../images/info.svg";
-import LocationIcon from "../../images/location.svg";
-import Instagram from "../../images/instagram.svg";
-import Facebook from "../../images/facebook.svg";
-import Whatsapp from "../../images/whatsApp.svg";
+import Logo from "../../images/Bluehouse.svg";
+import Car from "../../images/car.svg";
+import Door from "../../images/door.svg";
 import Email from "../../images/email.svg";
-import supportImage from "../../images/support/whiteBackground_support.svg";
-import forumImage from "../../images/support/whiteBackground_forum.svg";
+import Escape from "../../images/escape.svg";
+import Facebook from "../../images/facebook.svg";
+import Accommodation from "../../images/gallery.svg";
+import Info from "../../images/info.svg";
+import Instagram from "../../images/instagram.svg";
+import LocationIcon from "../../images/location.svg";
+import Bus from "../../images/shuttle.svg";
 import feedbackImage from "../../images/support/whiteBackground_feedback.svg";
+import forumImage from "../../images/support/whiteBackground_forum.svg";
+import supportImage from "../../images/support/whiteBackground_support.svg";
+import Tour from "../../images/tour.svg";
+import Whatsapp from "../../images/whatsApp.svg";
+import TranslateMe, { WithTransLate } from "../helpers/translating";
 
 const SCROLL_OPTIONS = Object.freeze({
   duration: 200,
@@ -189,9 +188,9 @@ const CONTACT_LINES = Object.freeze([
   },
 ]);
 
-function SideNavbar({ isOpen, onClose }) {
+function SideNavbar({ isOpen = false, onClose }) {
   const location = useLocation();
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const closeNav = useCallback(() => {
     if (typeof onClose === "function") {
@@ -243,31 +242,27 @@ function SideNavbar({ isOpen, onClose }) {
         return;
       }
 
-      history.push("/");
+      navigate("/");
       window.setTimeout(() => {
         scrollToTarget();
         closeNav();
       }, 400);
     },
-    [closeNav, history, isHomePage]
+    [closeNav, isHomePage, navigate]
   );
 
   const overlayClasses = useMemo(
-    () =>
-      [styles.overlay, isOpen ? styles["overlay--active"] : ""].filter(Boolean).join(" "),
+    () => [styles.overlay, isOpen ? styles["overlay--active"] : ""].filter(Boolean).join(" "),
     [isOpen]
   );
 
   const navClasses = useMemo(
-    () =>
-      [styles.sideNav, isOpen ? styles["sideNav--open"] : ""].filter(Boolean).join(" "),
+    () => [styles.sideNav, isOpen ? styles["sideNav--open"] : ""].filter(Boolean).join(" "),
     [isOpen]
   );
 
   const RenderLink = (link) => {
-    const icon = (
-        <img src={link.icon} alt="" className={styles.iconImage} />
-    );
+    const icon = <img src={link.icon} alt="" className={styles.iconImage} />;
 
     const label = (
       <span>
@@ -326,7 +321,6 @@ function SideNavbar({ isOpen, onClose }) {
       <div className={overlayClasses} onClick={closeNav} aria-hidden={!isOpen} />
 
       <aside className={navClasses} aria-hidden={!isOpen} aria-label="Site navigation">
-
         <div className={styles.sideNavHeader}>
           <button
             type="button"
@@ -404,11 +398,6 @@ function SideNavbar({ isOpen, onClose }) {
 SideNavbar.propTypes = {
   isOpen: PropTypes.bool,
   onClose: PropTypes.func,
-};
-
-SideNavbar.defaultProps = {
-  isOpen: false,
-  onClose: undefined,
 };
 
 export default SideNavbar;

@@ -1,29 +1,25 @@
-import React from "react";
-import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
-import useBreakpoints from "../../Styles/useBreakpoints";
-import { WithTransLate } from "..//helpers/translating/index";
-import SliderPreviewPhoto from "./SliderPreviewPhoto/SliderPreviewPhoto";
-import SliderPreviewPhotoM from "./SliderPreviewPhotoM/SliderPreviewPhotoM";
-import Button from "../Shared/Button/Button";
-import { items, price } from "./ServicesRoomData";
-import {
-  getDayDifference,
-  getAddParams,
-} from "../../redux/dataSearch/dataSearch-selectors";
+import { useNavigate } from "react-router-dom";
 
 import s from "./ServicesRoom.module.scss";
+import { items, price } from "./ServicesRoomData.js";
+import SliderPreviewPhoto from "./SliderPreviewPhoto/SliderPreviewPhoto.jsx";
+import SliderPreviewPhotoM from "./SliderPreviewPhotoM/SliderPreviewPhotoM.jsx";
+import { WithTransLate } from "..//helpers/translating/index.jsx";
+import { getDayDifference, getAddParams } from "../../redux/dataSearch/dataSearch-selectors.js";
+import useBreakpoints from "../../Styles/useBreakpoints.js";
+import Button from "../Shared/Button/Button.jsx";
 
 const ServicesRoom = () => {
-  const { isMobile, isTablet, isLaptop, isDesktop } = useBreakpoints();
+  const { isMobile, isTablet, isSmallScreen, isDesktop } = useBreakpoints();
   const { room: roomNumber } = useSelector(getAddParams);
   const days = useSelector(getDayDifference);
 
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const handleNavigation = (href) => {
     const relativePath = href.replace(`${window.location.origin}`, "");
-    history.push(relativePath);
+    navigate(relativePath);
   };
 
   const roomItems = items.filter((item) => item.type === "room");
@@ -54,17 +50,11 @@ const ServicesRoom = () => {
             return (
               <li key={index} className={s.roomItem}>
                 <div className={s.roomImage}>
-                  {isDesktop && (
-                    <SliderPreviewPhoto
-                      mainImage={room.mainImage}
-                      photos={room.photos}
-                    />
+                  {!!isDesktop && (
+                    <SliderPreviewPhoto mainImage={room.mainImage} photos={room.photos} />
                   )}
-                  {(isMobile || isTablet || isLaptop) && (
-                    <SliderPreviewPhotoM
-                      mainImage={room.mainImage}
-                      photos={room.photos}
-                    />
+                  {!!(isMobile || isTablet || isSmallScreen) && (
+                    <SliderPreviewPhotoM mainImage={room.mainImage} photos={room.photos} />
                   )}
                 </div>
                 <div className={s.roomInfo}>
@@ -106,7 +96,7 @@ const ServicesRoom = () => {
                 </div>
                 <div className={s.pricePart}>
                   <div className={s.priceWrapperPlus}>
-                    {(isMobile || isTablet || isLaptop) && (
+                    {!!(isMobile || isTablet || isSmallScreen) && (
                       <div className={s.priceWrapper}>
                         <strong>
                           <WithTransLate
@@ -120,15 +110,13 @@ const ServicesRoom = () => {
                         <span style={{ fontWeight: "300" }}>
                           <WithTransLate
                             text={`${
-                              roomNumber === 1
-                                ? "1 room"
-                                : `${roomNumber} rooms`
+                              roomNumber === 1 ? "1 room" : `${roomNumber} rooms`
                             } for ${days <= 1 ? "a night" : `${days} nights`}`}
                           />
                         </span>
                       </div>
                     )}
-                    {isDesktop && (
+                    {!!isDesktop && (
                       <div className={s.priceWrapper}>
                         <div className={s.pricePartWrapper}>
                           <span>
@@ -145,11 +133,7 @@ const ServicesRoom = () => {
                           </strong>
                           <span style={{ fontWeight: "300" }}>
                             <WithTransLate
-                              text={`${
-                                roomNumber === 1
-                                  ? "1 room"
-                                  : `${roomNumber} rooms`
-                              } for ${
+                              text={`${roomNumber === 1 ? "1 room" : `${roomNumber} rooms`} for ${
                                 days <= 1 ? "a night" : `${days} nights`
                               }`}
                             />
@@ -187,11 +171,7 @@ const ServicesRoom = () => {
                           </strong>
                           <span style={{ fontWeight: "300" }}>
                             <WithTransLate
-                              text={`${
-                                roomNumber === 1
-                                  ? "1 room"
-                                  : `${roomNumber} rooms`
-                              } for ${
+                              text={`${roomNumber === 1 ? "1 room" : `${roomNumber} rooms`} for ${
                                 days <= 1 ? "a night" : `${days} nights`
                               }`}
                             />
@@ -227,17 +207,11 @@ const ServicesRoom = () => {
             return (
               <li key={index} className={s.roomItem}>
                 <div className={s.roomImage}>
-                  {isDesktop && (
-                    <SliderPreviewPhoto
-                      mainImage={room.mainImage}
-                      photos={room.photos}
-                    />
+                  {!!isDesktop && (
+                    <SliderPreviewPhoto mainImage={room.mainImage} photos={room.photos} />
                   )}
-                  {(isMobile || isTablet || isLaptop) && (
-                    <SliderPreviewPhotoM
-                      mainImage={room.mainImage}
-                      photos={room.photos}
-                    />
+                  {!!(isMobile || isTablet || isSmallScreen) && (
+                    <SliderPreviewPhotoM mainImage={room.mainImage} photos={room.photos} />
                   )}
                 </div>
                 <div className={s.roomInfo}>
@@ -293,15 +267,13 @@ const ServicesRoom = () => {
                         <span style={{ fontWeight: "300" }}>
                           <WithTransLate
                             text={`${
-                              roomNumber === 1
-                                ? "1 room"
-                                : `${roomNumber} rooms`
+                              roomNumber === 1 ? "1 room" : `${roomNumber} rooms`
                             } for ${days <= 1 ? "a night" : `${days} nights`}`}
                           />
                         </span>
                       </div>
                     )}
-                    {isDesktop && (
+                    {!!isDesktop && (
                       <div className={s.priceWrapper}>
                         <div className={s.pricePartWrapper}>
                           <span>
@@ -318,11 +290,7 @@ const ServicesRoom = () => {
                           </strong>
                           <span style={{ fontWeight: "300" }}>
                             <WithTransLate
-                              text={`${
-                                roomNumber === 1
-                                  ? "1 room"
-                                  : `${roomNumber} rooms`
-                              } for ${
+                              text={`${roomNumber === 1 ? "1 room" : `${roomNumber} rooms`} for ${
                                 days <= 1 ? "a night" : `${days} nights`
                               }`}
                             />
@@ -360,11 +328,7 @@ const ServicesRoom = () => {
                           </strong>
                           <span style={{ fontWeight: "300" }}>
                             <WithTransLate
-                              text={`${
-                                roomNumber === 1
-                                  ? "1 room"
-                                  : `${roomNumber} rooms`
-                              } for ${
+                              text={`${roomNumber === 1 ? "1 room" : `${roomNumber} rooms`} for ${
                                 days <= 1 ? "a night" : `${days} nights`
                               }`}
                             />

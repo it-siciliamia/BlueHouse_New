@@ -1,10 +1,6 @@
-// Media Queries variables
-$desktop: 80em; // ~1280px
-$smallScreen: 60em; // ~960px
-$tablet: 48em; // ~768px
+@use "../../Styles/App.scss" as app;
 
 .section {
-  padding: 1rem 2rem;
   margin-bottom: 2.5rem;
 
   display: flex;
@@ -14,16 +10,11 @@ $tablet: 48em; // ~768px
 
   overflow: hidden;
 
-  @media (min-width: $tablet) {
-    padding: 1rem 2rem;
-  }
-
-  @media (min-width: $smallScreen) {
-    padding: 1rem 0;
+  @media (min-width: app.$smallScreen) {
     margin-bottom: 6.5rem;
   }
 
-  @media (min-width: $desktop) {
+  @media (min-width: app.$desktop) {
     padding: 0;
     height: 22.75rem;
     width: 100%;
@@ -36,11 +27,10 @@ $tablet: 48em; // ~768px
     font-family: Oblik;
     font-size: 1.25rem;
     font-weight: 600;
-    letter-spacing: 0.1rem;
     text-transform: uppercase;
     white-space: nowrap;
 
-    @media (min-width: $desktop) {
+    @media (min-width: app.$desktop) {
       font-size: 1.5rem;
 
       writing-mode: vertical-rl;
@@ -52,6 +42,7 @@ $tablet: 48em; // ~768px
   .sectionWrapper {
     position: relative;
     background-color: var(--color-neutral-200);
+    padding-bottom: 1rem;
     width: 100%;
     height: 100%;
 
@@ -59,22 +50,27 @@ $tablet: 48em; // ~768px
     flex-direction: column-reverse;
     align-items: center;
     justify-content: center;
-    gap: 2rem;
+    gap: 1rem;
 
-    @media (min-width: $smallScreen) {
-      padding-top: 2rem;
+    @media (min-width: app.$tablet) {
+      overflow: hidden;
+      height: 20rem;
+
+      flex-direction: row;
+      justify-content: space-around;
+      padding: 2rem 0rem 2rem 2rem;
+      gap: 3rem;
     }
 
-    @media (min-width: $desktop) {
+    @media (min-width: app.$desktop) {
       overflow: hidden;
+      height: 22.8rem;
 
       flex-direction: row;
       padding: 4rem 0rem 4rem 3rem;
       gap: 4rem;
     }
-
   }
-
 }
 
 .reviewSponsor {
@@ -84,10 +80,11 @@ $tablet: 48em; // ~768px
   align-items: center;
   gap: 1rem;
 
-  padding: 1rem 1rem 0rem 1rem;
+  @media (min-width: app.$tablet) {
+    min-width: 14rem;
+  }
 
-  @media (min-width: $desktop) {
-    padding: 0;
+  @media (min-width: app.$desktop) {
     min-width: 20rem;
   }
 
@@ -109,7 +106,6 @@ $tablet: 48em; // ~768px
       display: flex;
       flex-direction: column;
       gap: 0.2rem;
-
     }
 
     span {
@@ -130,15 +126,19 @@ $tablet: 48em; // ~768px
   align-items: center;
   width: 100%;
 
-  @media (min-width: $desktop) {
+  @media (min-width: app.$tablet) {
+    width: auto;
     flex-direction: column;
+  }
+
+  @media (min-width: app.$desktop) {
+    width: 100%;
   }
 }
 
 .sliderNavigation {
   z-index: 2;
   position: absolute;
-  padding: 0 1rem;
 
   top: 50%;
   right: 0;
@@ -150,13 +150,9 @@ $tablet: 48em; // ~768px
   justify-content: space-between;
   pointer-events: none;
 
-  @media (min-width: $tablet) {
-    padding: 0 1.25rem;
-  }
-
-  @media (min-width: $desktop) {
-    top: auto;
-    right: 2%;
+  @media (min-width: app.$tablet) {
+    top: 116%;
+    right: 4%;
     bottom: -3rem;
     left: auto;
     transform: none;
@@ -167,6 +163,14 @@ $tablet: 48em; // ~768px
     justify-content: flex-end;
     gap: 1.2rem;
   }
+
+  @media (min-width: app.$smallScreen) {
+    right: 0;
+  }
+
+  @media (min-width: app.$desktop) {
+    right: 2%;
+  }
 }
 
 .slider {
@@ -176,7 +180,7 @@ $tablet: 48em; // ~768px
 
   width: 100%;
 
-  @media (min-width: $desktop) {
+  @media (min-width: app.$desktop) {
     margin-left: 0;
   }
 

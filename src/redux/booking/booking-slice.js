@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+
 import { createNewBooking } from "./booking-operations";
 
 const initialState = {
@@ -32,8 +33,7 @@ const booking = createSlice({
       })
       .addCase(createNewBooking.rejected, (store, { payload }) => {
         store.loading = false;
-        store.error =
-          payload?.data?.message || "Oops, something went wrong, try again";
+        store.error = payload?.data?.message || "Oops, something went wrong, try again";
       });
   },
 });

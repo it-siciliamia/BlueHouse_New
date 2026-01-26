@@ -1,43 +1,38 @@
-import React, { useState, useEffect, useRef } from "react";
-import useBreakpoints from "../../../Styles/useBreakpointsNew.js";
+import { useState, useEffect, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getIsPlaceholderShown } from "../../../redux/technitial/technical-selectors.js";
-import { setPlaceholderShown } from "../../../redux/technitial/technical-slice.js";
-import slide01 from "../../../images/homePageSlider/slide1.webp";
-import slide02 from "../../../images/homePageSlider/slide2.webp";
-import slide03 from "../../../images/homePageSlider/slide3.webp";
-import slide04 from "../../../images/homePageSlider/slide4.webp";
-import slide05 from "../../../images/homePageSlider/slide5.webp";
-import slide06 from "../../../images/homePageSlider/slide6.webp";
-import placeholder from "../../../images/homePageSlider/placeholder.webp";
-import videoSrc from "../../../videos/intro.mp4";
-import { useHeaderSize } from "../../../components/helpers/HeaderContext/HeaderContext.js";
 
 import s from "./CaruselSliderHome.module.scss";
 import IconButton from "../../../components/Shared/ui/IconButton.jsx";
+import placeholder from "../../../images/homePageSlider/placeholder.webp";
+import slide01 from "../../../images/homePageSlider/slide1.png";
+import slide02 from "../../../images/homePageSlider/slide2.png";
+import slide03 from "../../../images/homePageSlider/slide3.png";
+import slide04 from "../../../images/homePageSlider/slide4.png";
+import slide05 from "../../../images/homePageSlider/slide5.png";
+import slide06 from "../../../images/homePageSlider/slide6.png";
+import { getIsPlaceholderShown } from "../../../redux/technitial/technical-selectors.js";
+import { setPlaceholderShown } from "../../../redux/technitial/technical-slice.js";
+import videoSrc from "../../../videos/intro.mp4";
 
 const images = [videoSrc, slide01, slide02, slide03, slide04, slide05, slide06];
+const texts = [
+  "a home away from home",
+  "located in a beautiful peninsulae",
+  "close to all natural atractions",
+  "only 5 minutes from downtown Reykyavik",
+  "Amazing spot for northern lights",
+  "3 locations on the same street",
+];
 
-const CaruselSliderHome = () => {
-  const { isMobile, isTablet, isSmallScreen, isDesktop } = useBreakpoints();
-
+export default function CaruselSliderHome() {
   const isPlaceholderShown = useSelector(getIsPlaceholderShown);
   const dispatch = useDispatch();
-  const { width } = useHeaderSize();
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [showPlaceholder, setShowPlaceholder] = useState(true);
   const [fadeOutPlaceholder, setFadeOutPlaceholder] = useState(false);
   const videoRef = useRef(null);
   const intervalRef = useRef(null);
-
-  const dynamicWidth = isDesktop
-    ? Math.round(width )
-    : isSmallScreen
-      ? Math.round(width - 70)
-      : width;
-
-  const dynamicHeigth = Math.round(dynamicWidth * 0.66);
 
   useEffect(() => {
     if (currentIndex === 0 && videoRef.current) {
@@ -82,18 +77,13 @@ const CaruselSliderHome = () => {
 
     return () => {
       if (videoRef.current) {
-        videoRef.current.removeEventListener(
-          "canplaythrough",
-          handleCanPlayThrough
-        );
+        videoRef.current.removeEventListener("canplaythrough", handleCanPlayThrough);
       }
     };
   }, [dispatch]);
 
   const goToPreviousSlide = () => {
-    setCurrentIndex(
-      (prevIndex) => (prevIndex - 1 + images.length) % images.length
-    );
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
   };
 
   const goToNextSlide = () => {
@@ -127,46 +117,52 @@ const CaruselSliderHome = () => {
   };
 
   return (
-      <div
-        className={s.imageBox}>
-        {(isSmallScreen || isDesktop) && (
-          <IconButton icon="chevronLeft" size="lg" onClick={goToPreviousSlide} className={s.arrowButtonLeft} />
-        )}
-        {showPlaceholder && !isPlaceholderShown && (
-          <img
-            src={placeholder}
-            alt="Placeholder"
-            className={`${s.placeholder} ${fadeOutPlaceholder ? s.fadeOut : ""
-              }`}
-          />
-        )}
-        {images.map((image, index) =>
-          index === 0 ? (
+    <div className={s.imageBox}>
+      <IconButton
+        icon="chevronLeft"
+        size="lg"
+        onClick={goToPreviousSlide}
+        className={s.arrowButtonLeft}
+      />
+      {!!showPlaceholder && !isPlaceholderShown && (
+        <img
+          src={placeholder}
+          alt="Placeholder"
+          className={`${s.placeholder} ${fadeOutPlaceholder ? s.fadeOut : ""}`}
+        />
+      )}
+      {images.map((image, index) =>
+        <div key={index} className={s.slideContainer}>
+          {index === 0 ? (
             <video
-              key={index}
               ref={videoRef}
-              className={`${s.image} ${index === currentIndex ? s.currentImage : ""
-                }`}
+              className={`${s.image} ${index === currentIndex ? s.currentImage : ""}`}
               style={{ display: index === currentIndex ? "block" : "none" }}
               src={image}
               muted
             />
           ) : (
-            <img
-              key={index}
-              className={`${s.image} ${index === currentIndex ? s.currentImage : ""
-                }`}
-              src={image}
-              alt="Carousel"
-              style={{ zIndex: index === currentIndex ? 1 : 0 }}
-            />
-          )
-        )}
-        {(isSmallScreen || isDesktop) && (<IconButton icon="chevronRight" size="lg" onClick={goToNextSlide} className={s.arrowButtonRight} />
-        )}
-        {renderPagination()}
-      </div>
+            <>
+              <img
+                className={`${s.image} ${index === currentIndex ? s.currentImage : ""}`}
+                src={image}
+                alt="Carousel"
+                style={{ zIndex: index === currentIndex ? 1 : 0 }}
+              />
+              <h3 className={`${s.slideText} ${index === currentIndex ? s.slideTextVisible : ""}`}>
+                {texts[index - 1]}
+              </h3>
+            </>
+          )}
+        </div>
+      )}
+      <IconButton
+        icon="chevronRight"
+        size="lg"
+        onClick={goToNextSlide}
+        className={s.arrowButtonRight}
+      />
+      {renderPagination()}
+    </div>
   );
-};
-
-export default CaruselSliderHome;
+}

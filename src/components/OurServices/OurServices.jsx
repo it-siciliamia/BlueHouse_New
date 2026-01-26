@@ -1,13 +1,9 @@
-import React from "react";
-import { WithTransLate } from "../helpers/translating/index";
-import useBreakpoints from "../../Styles/useBreakpointsNew";
-//import DifferentLocations from "./ServicesType/DifferentLocations"; //! muted
-//import SelfCheckIn from "./ServicesType/selfCheckIn"; //! muted
-//import CheapestPrice from "./ServicesType/CheapestPrice"; //! muted
-import money from "../../images/services/money.svg";
+import s from "./OurServices.module.scss";
 import clock from "../../images/services/clock.svg";
 import house from "../../images/services/house.svg";
-import s from "./OurServices.module.scss";
+import money from "../../images/services/money.svg";
+import useBreakpoints from "../../Styles/useBreakpoints.js";
+import { WithTransLate } from "../helpers/translating/index.jsx";
 
 // Titles + subtitles exactly as in the design
 const servicesData = [
@@ -40,13 +36,10 @@ const OurServices = () => {
             className={s.serviceCard}
             // Cards are non-interactive: no onClick, no modal
             style={{
-              // paddingTop: "20px", // same padding for all cards
               gap: isDesktop ? "14.84px" : isMobile ? "15px" : "14.84px", // unified spacing logic
             }}
           >
-            <div
-              className={s.imageContainer}
-            >
+            <div className={s.imageContainer}>
               <img src={icon} alt="Service Icon" className={s.icon} />
             </div>
 
@@ -61,31 +54,6 @@ const OurServices = () => {
             </div>
           </div>
         ))}
-
-        {/* Modal logic removed by request */}
-        {/*
-        {activeModal && (
-          <div className={s.modal}>
-            <div className={s.modalContent}>
-              {activeModal === money && (
-                <div className={s.textContent}>
-                  <CheapestPrice handleClose={handleClose} />
-                </div>
-              )}
-              {activeModal === clock && (
-                <div>
-                  <SelfCheckIn handleClose={handleClose} />
-                </div>
-              )}
-              {activeModal === house && (
-                <div>
-                  <DifferentLocations handleClose={handleClose} />
-                </div>
-              )}
-            </div>
-          </div>
-        )}
-        */}
       </div>
     </div>
   );

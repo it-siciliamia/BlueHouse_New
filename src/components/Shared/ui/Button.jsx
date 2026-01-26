@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+
 import s from "./LinkButton.module.scss";
 
 function Button({
@@ -9,23 +10,12 @@ function Button({
   children,
   ...props
 }) {
-  const classes = [
-    s.btn,
-    s[`btn--${variant}`],
-    disabled ? s["is-disabled"] : "",
-    className,
-  ]
+  const classes = [s.btn, s[`btn--${variant}`], disabled ? s["is-disabled"] : "", className]
     .filter(Boolean)
     .join(" ");
 
   return (
-    <button
-      type="button"
-      className={classes}
-      disabled={disabled}
-      onClick={onClick}
-      {...props}
-    >
+    <button type="button" className={classes} disabled={disabled} onClick={onClick} {...props}>
       {children}
     </button>
   );

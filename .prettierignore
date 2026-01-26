@@ -1,0 +1,11 @@
+node_modules
+dist
+build
+coverage
+.next
+.turbo
+public
+*.log
+*.lock
+package-lock.json
+payment/**/*.pdf

@@ -1,12 +1,10 @@
+@use "../../Styles/App.scss" as app;
+
 $sidebar-bg: var(--color-primary-500);
 $sidebar-text: var(--color-neutral-100);
 $divider-color: var(--color-primary-400);
 $sidebar-width: min(22vw, 360px);
 $sidebar-width-mobile: 100vw;
-
-$tablet: 37.5em; // 600px
-$laptop: 60em; // 960px
-$desktop: 90em; // 1280px
 
 :global(html) {
   scrollbar-gutter: stable;
@@ -69,7 +67,10 @@ $desktop: 90em; // 1280px
   z-index: 1001;
   visibility: hidden;
   pointer-events: none;
-  transition: transform 0.35s ease, box-shadow 0.35s ease, visibility 0s linear 0.35s;
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    visibility 0s linear 0.35s;
   will-change: transform;
 
   &--open {
@@ -77,10 +78,13 @@ $desktop: 90em; // 1280px
     box-shadow: 0 1.25rem 2.5rem rgba(0, 0, 0, 0.35);
     visibility: visible;
     pointer-events: auto;
-    transition: transform 0.35s ease, box-shadow 0.35s ease, visibility 0s linear 0s;
+    transition:
+      transform 0.35s ease,
+      box-shadow 0.35s ease,
+      visibility 0s linear 0s;
   }
 
-  @media (min-width: $tablet) {
+  @media (min-width: app.$tablet) {
     left: auto;
     right: 0;
     width: min(48.9%, 420px);
@@ -96,12 +100,11 @@ $desktop: 90em; // 1280px
     }
   }
 
-  @media (min-width: $desktop) {
+  @media (min-width: app.$desktop) {
     width: $sidebar-width;
     max-width: $sidebar-width;
   }
 }
-
 
 .closeButton {
   align-self: flex-start;
@@ -178,7 +181,9 @@ $desktop: 90em; // 1280px
   border: none;
   padding: 0;
   cursor: pointer;
-  transition: color 0.2s ease, text-decoration-color 0.2s ease;
+  transition:
+    color 0.2s ease,
+    text-decoration-color 0.2s ease;
 }
 
 .link:hover,

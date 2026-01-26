@@ -1,24 +1,24 @@
-import React, { useState } from "react";
+import moment from "moment";
+import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { WithTransLate } from "../../helpers/translating";
+
+import s from "./BookingDetailsPart.module.scss";
+import GoodToKnow from "./GoodToKnow/GoodToKnow.jsx";
+import google from "../../../images/google.png";
+import placeholder from "../../../images/homePageSlider/placeholder.webp";
+import parking from "../../../images/parking.svg";
 import {
   getDayDifference,
   getCheckInDay,
   getCheckOutDay,
   getAppartmentName,
-} from "../../../redux/dataSearch/dataSearch-selectors";
-import { setPaymentStage } from "../../../redux/technitial/technical-slice";
-import PartCalendar from "../../../views/RoomDetails/PartCalendar/PartCalendar";
-import GoodToKnow from "./GoodToKnow/GoodToKnow";
-import Button from "../../Shared/Button/Button";
-import { items } from "../../ServicesRoom/ServicesRoomData";
-import placeholder from "../../../images/homePageSlider/placeholder.webp";
-import { googleRatings } from "../../../views/roombooking/RoomBooking";
-import google from "../../../images/google.png";
-import parking from "../../../images/parking.svg";
-import moment from "moment";
-
-import s from "./BookingDetailsPart.module.scss";
+} from "../../../redux/dataSearch/dataSearch-selectors.js";
+import { setPaymentStage } from "../../../redux/technitial/technical-slice.js";
+import { googleRatings } from "../../../views/roombooking/RoomBooking.jsx";
+import PartCalendar from "../../../views/RoomDetails/PartCalendar/PartCalendar.jsx";
+import { WithTransLate } from "../../helpers/translating";
+import { items } from "../../ServicesRoom/ServicesRoomData.js";
+import Button from "../../Shared/Button/Button.jsx";
 
 const BookingDetailsPart = () => {
   const dispatch = useDispatch();
@@ -28,13 +28,9 @@ const BookingDetailsPart = () => {
   const secondDay = useSelector(getCheckOutDay);
   const appartmentName = useSelector(getAppartmentName);
 
-  const totalReviews = googleRatings.reduce(
-    (sum, item) => sum + item.reviews,
-    0
-  );
+  const totalReviews = googleRatings.reduce((sum, item) => sum + item.reviews, 0);
   const averageRating =
-    googleRatings.reduce((sum, item) => sum + item.rating * item.reviews, 0) /
-    totalReviews;
+    googleRatings.reduce((sum, item) => sum + item.rating * item.reviews, 0) / totalReviews;
 
   const handleEditClick = () => {
     setIsCalendarOpen(false);
@@ -94,14 +90,11 @@ const BookingDetailsPart = () => {
             />
           </p>
           <div className={s.leftPartWrapper}>
-            <button
-              className={s.button}
-              onClick={() => setIsCalendarOpen(!isCalendarOpen)}
-            >
+            <button className={s.button} onClick={() => setIsCalendarOpen(!isCalendarOpen)}>
               <WithTransLate text="Edit" />
             </button>
           </div>
-          {isCalendarOpen && (
+          {!!isCalendarOpen && (
             <div className={s.modalCalendar}>
               <PartCalendar onEditClick={handleEditClick} />
             </div>
@@ -116,18 +109,12 @@ const BookingDetailsPart = () => {
           <div
             className={s.photo}
             style={{
-              backgroundImage: apartmentPhoto
-                ? `url(${apartmentPhoto})`
-                : `url(${placeholder})`,
+              backgroundImage: apartmentPhoto ? `url(${apartmentPhoto})` : `url(${placeholder})`,
             }}
           ></div>
           <div>
             <div className={s.ratingTitle}>
-              <img
-                src={google}
-                alt="Google"
-                style={{ width: "24px", height: "24px" }}
-              />
+              <img src={google} alt="Google" style={{ width: "24px", height: "24px" }} />
               <WithTransLate text="Google rating" />
             </div>
             <div className={s.ratingDetail}>
@@ -138,19 +125,13 @@ const BookingDetailsPart = () => {
                 />
               </p>
               <p className={s.titleText}>
-                <WithTransLate
-                  text={appartmentName ? appartmentName : "No name"}
-                />
+                <WithTransLate text={appartmentName ? appartmentName : "No name"} />
               </p>
               <p className={s.regularText}>
                 <WithTransLate text="Valhúsabraut 19, 170 Reykjavík, Iceland" />
               </p>
               <div className={s.services}>
-                <img
-                  src={parking}
-                  alt="Parking"
-                  style={{ width: "24px", height: "24px" }}
-                />
+                <img src={parking} alt="Parking" style={{ width: "24px", height: "24px" }} />
                 <WithTransLate text="Free parking" />
               </div>
             </div>
@@ -158,11 +139,9 @@ const BookingDetailsPart = () => {
         </div>
       </div>
       <div className={s.partContent}>
-        <GoodToKnow
-          title={appartmentName ? appartmentName : "Economy Double Room"}
-        />
+        <GoodToKnow title={appartmentName ? appartmentName : "Economy Double Room"} />
       </div>
-      <div className={s.btnWrapper} >
+      <div className={s.btnWrapper}>
         <Button
           text="Proceed to payment details"
           btnClass="customBtn"

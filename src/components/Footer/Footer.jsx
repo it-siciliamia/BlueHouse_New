@@ -1,18 +1,27 @@
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import IconButton from "../Shared/ui/IconButton";
-import logoBadge from "../../images/footer/logo-blue.svg";
 
 import s from "./Footer.module.scss";
-import { footerSections } from "./footerData";
+import { footerSections } from "./footerData.js";
+import logoBadge from "../../images/footer/logo-blue.svg";
+import useBreakpoints from "../../Styles/useBreakpoints.js";
 import { WithTransLate } from "../helpers/translating";
-import useBreakpoints from "../../Styles/useBreakpointsNew";
+import IconButton from "../Shared/ui/IconButton.jsx";
+
+const footerLinkShape = PropTypes.shape({
+  id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  name: PropTypes.string,
+  href: PropTypes.string,
+  to: PropTypes.string,
+  type: PropTypes.string,
+  icon: PropTypes.string,
+  newTab: PropTypes.bool,
+});
 
 function SiteMap({ title, data }) {
   const RenderLink = (metadata) => {
     const isMapLink = metadata?.id === "map";
-    const icon = metadata?.icon ? (
-      <img src={metadata.icon} alt="" className={s.image} />
-    ) : null;
+    const icon = metadata?.icon ? <img src={metadata.icon} alt="" className={s.image} /> : null;
 
     const label = (
       <span className={isMapLink ? s.addressText : undefined}>
@@ -60,11 +69,14 @@ function SiteMap({ title, data }) {
   );
 }
 
+SiteMap.propTypes = {
+  title: PropTypes.string.isRequired,
+  data: PropTypes.arrayOf(footerLinkShape).isRequired,
+};
+
 function SiteMapMinimal({ title, data }) {
   const RenderLink = (metadata) => {
-    const icon = metadata?.icon ? (
-      <img src={metadata.icon} alt="" className={s.image} />
-    ) : null;
+    const icon = metadata?.icon ? <img src={metadata.icon} alt="" className={s.image} /> : null;
 
     return (
       <li key={metadata.id}>
@@ -89,6 +101,11 @@ function SiteMapMinimal({ title, data }) {
   );
 }
 
+SiteMapMinimal.propTypes = {
+  title: PropTypes.string.isRequired,
+  data: PropTypes.arrayOf(footerLinkShape).isRequired,
+};
+
 function Footer() {
   const { isMobile, isTablet } = useBreakpoints();
   const currentYear = new Date().getFullYear();
@@ -107,18 +124,18 @@ function Footer() {
           <img src={logoBadge} alt="Blue House Home" />
         </Link>
 
-        {isMobile || isTablet ? (
+        {isMobile ? (
           <>
             <SiteMap title="blue house" data={footerSections.blueHouse} />
             <SiteMap title="contact us" data={footerSections.contact} />
             <SiteMapMinimal title="social media" data={footerSections.social} />
           </>
         ) : (
-          <>
+          <div className={s.siteMapContainer}>
             <SiteMap title="social media" data={footerSections.social} />
             <SiteMap title="blue house" data={footerSections.blueHouse} />
             <SiteMap title="contact us" data={footerSections.contact} />
-          </>
+          </div>
         )}
       </div>
 
@@ -131,12 +148,7 @@ function Footer() {
           <span>
             <WithTransLate text="Back to Top" />
           </span>
-          <IconButton
-            icon="arrowUp"
-            variant="inverse"
-            size="sm"
-            onClick={handleHomeClick}
-          />
+          <IconButton icon="arrowUp" variant="inverse" size="sm" onClick={handleHomeClick} />
         </div>
       </div>
     </footer>

@@ -1,27 +1,27 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
+import { IoIosArrowBack } from "react-icons/io";
 import { useSelector, useDispatch } from "react-redux";
-import { WithTransLate } from "../helpers/translating";
-import useBreakpoints from "../../Styles/useBreakpoints";
+
+import BookingDetailsPart from "./BookingDetailsPart/BookingDetailsPart.jsx";
+import s from "./PaymentComponent.module.scss";
+import PaymentMethods from "./PaymentMethods/PaymentMethods.jsx";
+import PriceSummaryPart from "./PriceSummaryPart/PriceSummaryPart.jsx";
+import ProcessPaymentPanel from "./ProcessPaymentPanel/ProcessPaymentPanel.jsx";
+import UserPaymentDetails from "./UserPaymentDetails/UserPaymentDetails.jsx";
 import {
   getPaymentStage,
   getBookingConfirmed,
-} from "../../redux/technitial/technical-selectors";
-import { setPaymentStage } from "../../redux/technitial/technical-slice";
-import PriceSummaryPart from "./PriceSummaryPart/PriceSummaryPart";
-import BookingDetailsPart from "./BookingDetailsPart/BookingDetailsPart";
-import UserPaymentDetails from "./UserPaymentDetails/UserPaymentDetails";
-import PaymentMethods from "./PaymentMethods/PaymentMethods";
-import ProcessPaymentPanel from "./ProcessPaymentPanel/ProcessPaymentPanel";
-import Button from "../Shared/Button/Button";
-import { IoIosArrowBack } from "react-icons/io";
-
-import s from "./PaymentComponent.module.scss";
+} from "../../redux/technitial/technical-selectors.js";
+import { setPaymentStage } from "../../redux/technitial/technical-slice.js";
+import useBreakpoints from "../../Styles/useBreakpoints.js";
+import { WithTransLate } from "../helpers/translating";
+import Button from "../Shared/Button/Button.jsx";
 
 const PaymentComponent = () => {
   const dispatch = useDispatch();
   const paymentStage = useSelector(getPaymentStage);
   const bookingConfirmed = useSelector(getBookingConfirmed);
-  const { isMobile, isTablet, isLaptop } = useBreakpoints();
+  const { isMobile, isTablet, isSmallScreen } = useBreakpoints();
 
   useEffect(() => {
     window.scrollTo({
@@ -38,7 +38,7 @@ const PaymentComponent = () => {
     <>
       {paymentStage === 1 && (
         <div className={s.paymentComponent}>
-          {(isMobile || isTablet) && <ProcessPaymentPanel />}
+          {!!(isMobile || isTablet) && <ProcessPaymentPanel />}
           <div className={s.titleWrapper}>
             <h2 className={s.title}>
               <WithTransLate text="Your selection" />
@@ -56,7 +56,7 @@ const PaymentComponent = () => {
       )}
       {paymentStage === 2 && (
         <div className={s.paymentComponent}>
-          {(isMobile || isTablet) && <ProcessPaymentPanel />}
+          {!!(isMobile || isTablet) && <ProcessPaymentPanel />}
           <div className={s.titleWrapper}>
             <h2 className={s.title}>
               <WithTransLate text="Payment Details" />
@@ -65,7 +65,7 @@ const PaymentComponent = () => {
               text="Back"
               icon={<IoIosArrowBack />}
               size="24px"
-              width={isLaptop ? "95px" : "115px"}
+              width={isSmallScreen ? "95px" : "115px"}
               btnClass="btnLightWithOut"
               handleClick={handleBackClick}
             />
@@ -79,7 +79,7 @@ const PaymentComponent = () => {
       )}
       {paymentStage === 3 && !bookingConfirmed && (
         <div className={s.paymentComponent}>
-          {(isMobile || isTablet) && <ProcessPaymentPanel />}
+          {!!(isMobile || isTablet) && <ProcessPaymentPanel />}
           <div className={s.titleWrapper}>
             <h2 className={s.title}>
               <WithTransLate text="Payment Method" />
@@ -88,7 +88,7 @@ const PaymentComponent = () => {
               text="Back"
               icon={<IoIosArrowBack />}
               size="24px"
-              width={isLaptop ? "95px" : "115px"}
+              width={isSmallScreen ? "95px" : "115px"}
               btnClass="btnLightWithOut"
               handleClick={handleBackClick}
             />
@@ -100,7 +100,7 @@ const PaymentComponent = () => {
           </div>
         </div>
       )}
-      {paymentStage === 3 && bookingConfirmed && (
+      {paymentStage === 3 && !!bookingConfirmed && (
         <div className={s.paymentComponent}>
           <div className={s.paymentCopmleted}>
             <h2 className={s.title} style={{ textAlign: "center" }}>

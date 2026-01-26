@@ -54,11 +54,13 @@
 
 .title {
   margin: 0;
-  font-family: Josefin Sans, sans-serif;
+  font-family:
+    Josefin Sans,
+    sans-serif;
   font-size: 36px;
   font-weight: bold;
   line-height: 1;
-  color: #1D3967;
+  color: #1d3967;
   @media (min-width: 320px) and (max-width: 599.99px) {
     margin-top: 4px;
     width: 100%;
@@ -170,7 +172,9 @@
 
 .generalText {
   margin: 0;
-  font-family: Josefin Sans, sans-serif;
+  font-family:
+    Josefin Sans,
+    sans-serif;
   font-size: 24px;
   font-weight: 500;
   line-height: 1.1;
@@ -185,7 +189,9 @@
 .text {
   margin: 0;
   width: 394px;
-  font-family: Josefin Sans, sans-serif;
+  font-family:
+    Josefin Sans,
+    sans-serif;
   font-size: 16px;
   font-weight: 300;
   line-height: 1.42;
