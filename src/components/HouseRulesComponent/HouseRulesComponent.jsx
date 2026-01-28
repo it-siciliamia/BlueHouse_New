@@ -1,8 +1,8 @@
-// In HouseRulesComponen.jsx
+// In HouseRulesComponent.jsx
 import Guidelines from "./Guidelines.jsx";
 import s from "./HouseRulesComponent.module.scss";
 import { WithTransLate } from "../../components/helpers/translating/index.jsx";
-import useBreakpoints from "../../Styles/useBreakpointsNew.js";
+import useBreakpoints from "../../Styles/useBreakpoints.js";
 import BookingBtnWrapper from "../BookingBtnWrapper/BookingBtnWrapper.jsx";
 
 function HouseRulesComponents() {
