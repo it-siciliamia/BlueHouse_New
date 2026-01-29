@@ -12,7 +12,7 @@
 }
 
 .container {
-  width: 1150px;
+  width: 100%;
   display: flex;
   align-items: flex-start;
   gap: 32px;
@@ -20,7 +20,6 @@
   @media (max-width: $tablet) {
     width: 100%;
     flex-direction: column;
-    align-items: flex-start;
   }
 }
 
@@ -29,8 +28,8 @@
   transform: rotate(180deg);
   font-family: "Oblik", Arial, sans-serif;
   font-weight: 700;
-  font-size: 24px;
-  line-height: 32px;
+  font-size: 1.5rem;
+  line-height: 2rem;
   letter-spacing: -1px;
   text-transform: uppercase;
   color: var(--color-primary-500);
@@ -40,6 +39,8 @@
     writing-mode: horizontal-tb;
     transform: none;
     text-align: left;
+    font-size: 1.25rem;
+    line-height: 1.625rem;
   }
 }
 
@@ -111,28 +112,8 @@
   }
 }
 
-.button {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  width: 218px;
-  height: 50px;
-  font-family: "Josefin Sans", Arial, sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 24px;
-  text-transform: uppercase;
-  color: var(--color-primary-500);
-  background: var(--bg-default);
-  border: 1px solid var(--color-primary-500);
-  text-decoration: none;
-  cursor: pointer;
-  transition: background 0.2s ease, color 0.2s ease;
-
-  &:hover {
-    background: var(--color-primary-500);
-    color: var(--text-inverse);
-  }
+.followButton {
+  width: 13.625rem;
 }
 
 .chevron {

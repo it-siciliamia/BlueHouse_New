@@ -5,6 +5,7 @@ import insta05 from "../../images/instagramSVG/insta05.webp";
 import insta11 from "../../images/instagramSVG/insta11.webp";
 import insta20 from "../../images/instagramSVG/insta20.webp";
 import useBreakpoints from "../../Styles/useBreakpoints.js";
+import Button from "../Shared/ui/Button.jsx";
 import IconButton from "../Shared/ui/IconButton.jsx";
 import Link from "../Shared/ui/Link.jsx";
 
@@ -52,14 +53,16 @@ const FollowUs = () => {
             />
           )}
           <div className={styles.followWrapper}>
-            <Link
+            <Button
+              as={Link}
               href="https://www.instagram.com/bluehousebb/"
               target="_blank"
               rel="noopener noreferrer"
-              className={styles.button}
+              variant="secondary"
+              className={styles.followButton}
             >
-              FOLLOW US
-            </Link>
+              Follow us
+            </Button>
           </div>
         </div>
       </div>
