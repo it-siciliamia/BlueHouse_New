@@ -33,7 +33,12 @@ const RoomBooking = () => {
 
   return (
     <div className="roomBooking">
-      {!!(isMobile || isTablet) && <SearchContainerMobile />}
+      {!!(isMobile || isTablet) && (
+        <>
+          <SearchContainerMobile />
+          <div className="search-component-mobile-spacer"></div>
+        </>
+      )}
       {!!(isDesktop || isSmallScreen) && (
         <div className="hero">
           <HeaderIcons />
