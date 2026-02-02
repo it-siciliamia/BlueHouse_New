@@ -1,4 +1,4 @@
-// In HouseRulesComponent.jsx
+// In HouseRulesComponen.jsx
 import Guidelines from "./Guidelines.jsx";
 import s from "./HouseRulesComponent.module.scss";
 import { WithTransLate } from "../../components/helpers/translating/index.jsx";

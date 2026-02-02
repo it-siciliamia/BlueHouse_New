@@ -7,8 +7,8 @@ function HouseRules() {
   return (
     <div>
       <HouseRulesComponents />
-      <ReviewSection />
-      <Support />
+      <ReviewSection isHouseRulesPage={true} />
+      <Support isHouseRulesPage={true} />
       <Newsletter />
     </div>
   );

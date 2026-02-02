@@ -27,9 +27,13 @@ SupportCard.propTypes = {
   icon: PropTypes.string.isRequired,
 };
 
-export default function Support() {
+Support.propTypes = {
+  isHouseRulesPage: PropTypes.bool,
+};
+
+export default function Support({ isHouseRulesPage = false }) {
   return (
-    <div id="SUPPORT" className={s.support}>
+    <div id="SUPPORT" className={`${s.support} ${isHouseRulesPage ? s.houseRulesPage : ''}`}>
       <div className={s.sectionContent}>
         {/* SUPPORT link updated */}
         <a

@@ -14,10 +14,6 @@
     margin-bottom: 6.5rem;
   }
 
-  @media (min-width: app.$tablet) {
-    align-items: flex-start;
-  }
-
   @media (min-width: app.$desktop) {
     padding: 0;
     height: 22.75rem;
@@ -25,6 +21,12 @@
 
     flex-direction: row;
     gap: 4rem;
+  }
+
+  &.houseRulesPage {
+    @media (min-width: app.$tablet) {
+      align-items: flex-start;
+    }
   }
 
   h3 {
@@ -35,16 +37,24 @@
     white-space: nowrap;
     text-align: center;
 
-    @media (min-width: app.$tablet) {
-      text-align: left;
-    }
-
     @media (min-width: app.$desktop) {
       font-size: 1.5rem;
 
       writing-mode: vertical-rl;
       text-orientation: sideways;
       transform: rotate(180deg);
+    }
+  }
+
+  &.houseRulesPage {
+    @media (min-width: app.$tablet) {
+      align-items: flex-start;
+    }
+
+    h3 {
+      @media (min-width: app.$tablet) {
+        text-align: left;
+      }
     }
   }
 
