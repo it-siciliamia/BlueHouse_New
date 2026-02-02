@@ -1,52 +1,73 @@
 import s from "./HouseRulesComponent.module.scss";
 import Rule from "./Rule.jsx";
+import checkInIcon from "../../images/check-in-out.svg";
+import noSmokingIcon from "../../images/nosmoking.svg";
+import bathroomIcon from "../../images/bathroom.svg";
+import kitchenIcon from "../../images/kitchen.svg";
+import breakfastIcon from "../../images/breakfast.svg";
+import quietIcon from "../../images/quiet.svg";
+import toiletpaperIcon from "../../images/toiletpaper.svg";
+import lightIcon from "../../images/light.svg";
 
 function Guidelines() {
+  const leftColumnRules = [
+    {
+      Icon: checkInIcon,
+      header: "Check in & check out",
+      text: `Two days before your arrival, you will receive an email with the information to check in from 4 pm. Check-out is until 11am. Please leave the key on your door before leaving. Contact info@bluehouse.is for late check-out. You can stay a few more hours in our common areas after checking out.`
+    },
+    {
+      Icon: noSmokingIcon,
+      header: "No smoking",
+      text: `Do not smoke neither in the room nor the rest of the house. It is not allowed by the Icelandic law and there is a penalty for people who don't adhere to these rules.`
+    },
+    {
+      Icon: bathroomIcon,
+      header: "Clean after yourself",
+      text: `Please leave the bathroom clean after using it. By doing so, we all contribute to a more pleasant environment that feels more like home for everyone.`
+    },
+    {
+      Icon: kitchenIcon,
+      header: "Keep the kitchen tidy",
+      text: `Please keep the kitchen tidy when using it. Remember how you want to find it when you enter. We kindly ask you to leave it the same way.`
+    },
+  ];
+
+  const rightColumnRules = [
+    {
+      Icon: breakfastIcon,
+      header: "Book your breakfast",
+      text: `Have breakfast included before taking it from the kitchen. Breakfast is from 8 to 10:30 am. Direct bookers get free continental breakfast. Channel bookers will have to pay 10€ per person per night for their breakfast. Let us know if you want to add it to your booking.`
+    },
+    {
+      Icon: quietIcon,
+      header: "Keep noise to a minimum",
+      text: `We ask you to respect that some guests go to bed early as they wake up early. Please try to keep it down between 10pm and 7am to respect our guests' sleep.`
+    },
+    {
+      Icon: toiletpaperIcon,
+      header: "Avoid clogs",
+      text: `Please throw only toilet paper in the toilet. Use rubbish bins for other types of rubbish to avoid clogs.`
+    },
+    {
+      Icon: lightIcon,
+      header: "Use electricity responsibly",
+      text: `Please do not leave the lights and the heater on when it is not necessary - we are an eco-friendly house.`
+    },
+  ];
+
   return (
     <div className={s.guidelines}>
-      <Rule
-        Icon={"./1.svg"}
-        text="Do not smoke inside the room and the house. 
-        It is not allowed by the icelandic law and there is a penalty for people who do not adhere to the these rules."
-      />
-      <Rule
-        Icon={"./2.svg"}
-        text="Respect the quiet house. 
-        As we have a lot of guests of different age groups, we ask you to respect that some people are going to bed early as they are waking up early. 
-        Please try to keep it down between 10pm and 7am."
-      />
-      <Rule
-        Icon={"./3.svg"}
-        text="Do not leave the bathroom dirty after using it. 
-        Please keep the toilet in the way you found it. We all benefit from it and it will feel more like home when we all play our role in it."
-      />
-      <Rule
-        Icon={"./4.svg"}
-        text="Do not throw anything into the toilet other than toilet paper. 
-        We do not want the toilet to clog. In all bathrooms we provide rubbish bins where you can throw in all other kinds of trash."
-      />
-      <Rule
-        Icon={"./5.svg"}
-        text="Be sure to have breakfast included before taking it from the kitchen or the fridge.
-                                                Breakfast time is between 8 and 10:30 am. For direct bookers we offer breakfast for free.
-                                                Depending on the room you book, you will receive self-service cereal or continental
-                                                breakfast. For all channel bookers breakfast is 15€ per person per night. Just tell us that
-                                                you wish to add it to your booking and we will send you the pay link."
-      />
-      <Rule
-        Icon={"./6.svg"}
-        text="Do not make a big mess in the kitchen when you use it since you are not alone in the house. Always keep in mind how you would like to find the kitchen when entering the room. This is how we would like you to leave it too."
-      />
-      <Rule
-        Icon={"./8.svg"}
-        text="Please do not leave the lights and the heater on when it is not necessary - we are an eco-friendly house."
-      />
-      <Rule
-        Icon={"./9.svg"}
-        text="Check-out is until 11am and please leave the key on the door of your room before you depart. 
-        If you wish to check out later, please contact info@bluehouse.is as we can help you further. 
-        You are also always welcome to stay a couple of more hours in our common areas if needed."
-      />
+      <div className={s.rulesColumn}>
+        {leftColumnRules.map((rule, index) => (
+          <Rule key={index} Icon={rule.Icon} header={rule.header} text={rule.text} />
+        ))}
+      </div>
+      <div className={s.rulesColumn}>
+        {rightColumnRules.map((rule, index) => (
+          <Rule key={index} Icon={rule.Icon} header={rule.header} text={rule.text} />
+        ))}
+      </div>
     </div>
   );
 }

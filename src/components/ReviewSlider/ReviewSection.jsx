@@ -61,9 +61,9 @@ ReviewSponsor.propTypes = {
   sponsorImage: PropTypes.string.isRequired,
 };
 
-function ReviewSection() {
+function ReviewSection({ isHouseRulesPage = false }) {
   return (
-    <section id="REVIEWS" className={s.section}>
+    <section id="REVIEWS" className={`${s.section} ${isHouseRulesPage ? s.houseRulesPage : ''}`}>
       <h3>
         <WithTransLate text="Reviews" />
       </h3>
@@ -108,5 +108,9 @@ function ReviewSection() {
     </section>
   );
 }
+
+ReviewSection.propTypes = {
+  isHouseRulesPage: PropTypes.bool,
+};
 
 export default ReviewSection;

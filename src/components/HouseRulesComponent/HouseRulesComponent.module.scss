@@ -1,136 +1,260 @@
+@use "../../Styles/App.scss" as *;
+
 .houseRules {
-  @media (min-width: 320px) and (max-width: 599.99px) {
-    width: 100%;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 1.5rem 3rem;
+
+  @media (min-width: $smallScreen) {
+    max-width: 60rem;
   }
-  @media (min-width: 600px) and (max-width: 1279.99px) {
-  }
-  @media (min-width: 1280px) and (max-width: 2200px) {
-    margin: auto !important;
-    max-width: 978px;
+
+  @media (min-width: $desktop) {
+    max-width: 63rem;
+    padding-inline: 0;
+    overflow: visible;
   }
 }
-
-.titleWrapper {
-  @media (min-width: 1280px) and (max-width: 2200px) {
-    padding: 0;
-    width: 50px;
-    position: relative;
-  }
-}
-
-.title {
-  color: #00366e;
-  @media (min-width: 320px) and (max-width: 1279px) {
-    white-space: nowrap;
-    font-family: "Oblik", Arial, sans-serif;
-    font-size: 20px;
-    font-weight: 900;
-    letter-spacing: 0.1em;
-    position: relative;
-    top: 1.5rem !important;
-    left: 20px !important;
-    width: 329px;
-  }
-  @media (min-width: 1280px) and (max-width: 2200px) {
-    position: absolute;
-    white-space: nowrap;
-    top: 80px;
-    left: -160px;
-    height: fit-content;
-    font-family: "Oblik", Arial, sans-serif;
-    font-size: 24px;
-    font-weight: 900;
-    letter-spacing: 0.1em;
-    transform: rotate(-90deg);
-  }
-}
-
 .houseRulesContent {
   display: flex;
   flex-direction: column;
-  gap: 40px;
-  @media (min-width: 1280px) and (max-width: 2200px) {
-    margin-left: 20px !important;
-    gap: 50px;
-    width: 978px;
+  gap: 3rem;
+  width: 100%;
+  position: relative;
+  font-weight: 700;
+
+  @media (min-width: $tablet) and (max-width: ($desktop - 1px)) {
+    gap: 2rem;
+    max-inline-size: 43.9rem;
+    margin-inline: auto;
+  }
+
+  @media (min-width: $desktop) {
+    gap: 4rem;
   }
 }
 
-.imageMain {
+.titleWrapperMobile {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.titleWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  align-items: center;
+
+  @media (min-width: $tablet) {
+    gap: 0.6rem;
+  }
+
+  @media (min-width: $desktop) {
+    position: relative;
+    gap: 0;
+  }
+}
+
+.heroImage {
+  inline-size: 100%;
+  max-inline-size: 23.5rem;
+  block-size: 34.3rem;
   background-image: url("../../images/houserules.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  @media (min-width: 320px) and (max-width: 1279.99px) {
-    height: 250px;
+  margin-inline: auto;
+
+  @media (min-width: $tablet) {
+    max-inline-size: 48rem;
+    block-size: 24rem;
   }
-  @media (min-width: 1280px) and (max-width: 2200px) {
-    height: 500px;
-    width: 946px;
+
+  @media (min-width: $desktop) {
+    position: relative;
+    margin-inline: 0;
+    width: 76rem;
+    height: 34.4rem;
+    background-size: 100%;
   }
 }
 
+.title {
+  margin: 0;
+  font-family: "Oblik", Arial, sans-serif;
+  font-size: 1.75rem;
+  line-height: 2.25rem;
+  letter-spacing: -0.04em;
+  text-align: center;
+  text-transform: uppercase;
+  color: #00366e;
+
+  @media (min-width: $desktop) {
+    position: absolute;
+    left: -5.0rem;
+    top: 50%;
+    transform: rotate(-90deg) translateX(-50%);
+    transform-origin: left center;
+    white-space: nowrap;
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+}
+
+.tabletTitle {
+  margin: 0;
+  font-family: "Oblik", Arial, sans-serif;
+  font-size: 1.75rem;
+  line-height: 2.25rem;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: #00366e;
+  text-align: left;
+}
+
+.sectionTitle {
+  margin: 0;
+  margin-top: 2.5rem;
+  font-family: "Oblik", Arial, sans-serif;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: #00366e;
+  text-align: left;
+}
+
 .guidelines {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  width: 100%;
+
+  @media (min-width: $tablet) and (max-width: ($desktop - 1px)) {
+    gap: 2rem;
+    max-inline-size: 43.9rem;
+    margin-inline: auto;
+  }
+
+  @media (min-width: $desktop) {
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+  }
+}
+
+.rulesColumn {
   display: flex;
   flex-direction: column;
-  gap: 40px;
-  @media (min-width: 320px) and (max-width: 599.99px) {
-    margin: 30px auto;
-    gap: 40px;
+  gap: 3rem;
+  width: 100%;
+
+  @media (min-width: $tablet) and (max-width: ($desktop - 1px)) {
+    gap: 4rem;
   }
-  @media (min-width: 1280px) and (max-width: 2200px) {
-    gap: 50px;
+
+  @media (min-width: $desktop) {
+    gap: 3.5rem;
   }
 }
 
 .rule {
   display: flex;
-  flex-direction: row;
-  text-align: left;
-  @media (min-width: 320px) and (max-width: 599.99px) {
-    gap: 16px;
-    padding: 0 30px;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  max-inline-size: 21.5rem;
+  min-inline-size: 10rem;
+  margin-inline: auto;
+
+  @media (min-width: $tablet) and (max-width: ($desktop - 1px)) {
+    align-items: flex-start;
+    max-inline-size: 30rem;
+    min-inline-size: 0;
+    margin-inline: auto;
   }
-  @media (min-width: 1280px) and (max-width: 2200px) {
-    align-items: center;
+
+  @media (min-width: $desktop) {
+    align-items: flex-start;
+    max-inline-size: none;
+    min-inline-size: 0;
+    margin-inline: 0;
   }
 }
 
-.iconStyle {
-  max-width: 60px;
-  @media (min-width: 320px) and (max-width: 599.99px) {
-    margin-bottom: 20px;
-    width: 30px;
-    height: 30px;
-  }
-  @media (min-width: 600px) and (max-width: 959.99px) {
+.iconWrapper {
+  margin-bottom: 0.25rem;
+
+  @media (min-width: $tablet) and (max-width: ($desktop - 1px)) {
     margin-bottom: 0;
   }
 }
 
-.ruleText {
-  margin-left: 50px;
-  font-style: normal;
-  font-weight: 300;
-  font-size: 22px;
-  line-height: 25px;
-  @media (min-width: 320px) and (max-width: 599.99px) {
-    margin: 0;
-    font-size: 16px;
+.iconStyle {
+  width: 3rem;
+  height: 3rem;
+  object-fit: contain;
+  @media (min-width: $tablet) {
+    width: 3.25rem;
+    height: 3.25rem;
+  }
+  @media (min-width: $desktop) {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+}
+
+.ruleContent {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  text-align: center;
+
+  @media (min-width: $tablet) and (max-width: ($desktop - 1px)) {
     text-align: left;
-    margin-left: 0;
+    max-inline-size: 30rem;
   }
-  @media (min-width: 600px) and (max-width: 959.99px) {
-    margin: 0 0 0 30px;
-    font-size: 16px;
+
+  @media (min-width: $desktop) {
+    text-align: left;
+    max-inline-size: none;
   }
-  @media (min-width: 960px) and (max-width: 1279.99px) {
-    margin: 0 0 0 40px;
-    font-size: 16px;
+}
+
+.ruleHeader {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 1.12rem;
+  font-weight: 600;
+  color: #00366e;
+  margin: 0;
+  letter-spacing: 0.02em;
+  line-height: 1.4;
+
+  @media (min-width: $tablet) {
+    font-size: 1.25rem;
   }
-  @media (min-width: 1280px) and (max-width: 2200px) {
-    margin: 0 0 0 40px;
-    width: 850px;
-    font-size: 20px;
+
+  @media (min-width: $desktop) {
+    font-size: 1.3rem;
+  }
+}
+
+.ruleText {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 1.12rem;
+  font-weight: 300;
+  color: #666666;
+  line-height: 1.5rem;
+  margin: 0 0 0.5rem;
+  letter-spacing: 0;
+
+  @media (min-width: $tablet) and (max-width: ($desktop - 1px)) {
+    font-size: 1.12rem;
+    line-height: 1.5rem;
+    opacity: 0.9;
+    margin: 0;
   }
 }
