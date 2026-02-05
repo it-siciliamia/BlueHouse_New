@@ -41,7 +41,7 @@ const RoomBooking = () => {
       )}
       {!!(isDesktop || isSmallScreen) && (
         <div className="hero">
-          <HeaderIcons />
+          {/* <HeaderIcons /> */}
           <SearchContainer />
         </div>
       )}
