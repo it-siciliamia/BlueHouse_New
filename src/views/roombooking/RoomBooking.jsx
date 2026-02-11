@@ -33,19 +33,23 @@ const RoomBooking = () => {
 
   return (
     <div className="roomBooking">
-      {!!(isMobile || isTablet) && <SearchContainerMobile />}
+      {!!(isMobile || isTablet) && (
+        <>
+          <SearchContainerMobile />
+          <div className="search-component-mobile-spacer"></div>
+        </>
+      )}
       {!!(isDesktop || isSmallScreen) && (
         <div className="hero">
-          <HeaderIcons />
+          {/* <HeaderIcons /> */}
           <SearchContainer />
         </div>
       )}
-      {!!isDesktop && <Advantages />}
+      <Advantages />
       <ServicesRoom />
       {!!(isDesktop || isSmallScreen) && (
         <ReviewRoomBooking tripadvisor={tripadvisorRating} googleRatings={googleRatings} />
       )}
-      {!!isMobile && <Advantages />}
       <Support />
     </div>
   );
