@@ -486,13 +486,13 @@
 .bh_advantages-wrapper {
   position: relative;
   z-index: -100;
-  @media (min-width: 20rem) and (max-width: 37.49rem) {
-    margin-top: 4rem;
-  }
-  @media (min-width: 37.5rem) and (max-width: 79.99rem) {
+  margin-top: 6rem;
+
+  @media (min-width: 768px) {
     padding: 4rem 2rem;
+    margin-top: 0;
   }
-  @media (min-width: 80rem) and (max-width: 137.5rem) {
+  @media (min-width: 1280px) {
     padding: 3rem 0;
   }
 }
