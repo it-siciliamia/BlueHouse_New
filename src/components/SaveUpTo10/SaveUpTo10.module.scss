@@ -4,22 +4,17 @@
   width: 100%;
   box-sizing: border-box;
   margin-top: 1.125rem;
-  margin-bottom: 2.5rem;
-
-  @media (min-width: app.$tablet) {
-    margin-bottom: 6.625rem;
-  }
 }
 
 .wrapper {
-  display: flex;
-  justify-content: center;
   width: 100%;
 }
 
 .container {
-  width: 72rem;
-  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2rem;
 }
 
 /* Header row: title + stamp */
@@ -43,7 +38,7 @@
   display: flex;
   flex-direction: column;
   min-width: 0;
-  width: 21.4375rem;
+  max-width: 21.4375rem;
 
   @media (min-width: app.$tablet) {
     width: 27.5rem;
@@ -80,7 +75,7 @@
   font-family: "Josefin Sans", Arial, sans-serif;
   font-weight: 600;
   font-size: 1.125rem;
-  line-height:  1.5rem;
+  line-height: 1.5rem;
   color: #212529;
 }
 
@@ -101,9 +96,12 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: 2rem;
-
+  max-widtH: 470px;
+  width: fit-content;
+  margin: auto;
   @media (min-width: app.$tablet) {
     gap: 2.1875rem;
+    max-width: fit-content;
   }
 }
 
@@ -122,7 +120,8 @@
     }
   }
 
-  @media (min-width: app.$desktop) {
+  // Small screens behave like desktop (3 columns)
+  @media (min-width: app.$smallScreen) {
     grid-template-columns: repeat(3, 1fr);
     .listItem:last-child:nth-child(odd) {
       grid-column: 3 / -1;
@@ -136,6 +135,13 @@
   grid-template-columns: auto 1fr;
   gap: 0.5rem;
   align-items: start;
+
+  @media (min-width: app.$tablet) {
+    &:nth-child(2) .desc{
+      max-width: 21rem;
+    }
+  }
+
 }
 
 .num {
@@ -153,14 +159,13 @@
   font-size: 1.125rem;
   line-height: 1.5rem;
   color: #212529;
-  width: 20.1875rem;
 
   @media (min-width: app.$tablet) {
-    width: 21rem;
+    max-width:19.75rem;
   }
 
   @media (min-width: app.$desktop) {
-    width: 21.625rem;
+    max-width: 21.625rem;
   }
 }
 
@@ -169,11 +174,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  min-width: 21.4375rem;
+  width: 100%;
   margin: auto;
 
-
-  @media (min-width: app.$desktop) {
+  // Small screens behave like desktop
+  @media (min-width: app.$smallScreen) {
     justify-content: left;
     margin: 0;
   }
@@ -183,18 +188,13 @@
 .btnOverride {
   width: 100% !important;
   height: 3.125rem !important;
-  font-family: "Josefin Sans", Arial, sans-serif !important;
-  font-size: 1rem !important;
-  line-height: 1.5rem !important;
-  font-weight: 400 !important;
-  text-transform: uppercase !important;
-  text-align: center !important;
 
   @media (min-width: app.$tablet) {
-    width: 21rem !important;
+    width: 21.125rem !important;
   }
 
-  @media (min-width: app.$desktop) {
+  // Small screens and desktop get same width
+  @media (min-width: app.$smallScreen) {
     width: 13.625rem !important;
   }
 }
