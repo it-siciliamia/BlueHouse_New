@@ -44,6 +44,10 @@
     width: 27.5rem;
   }
 
+  @media (min-width: app.$smallScreen) {
+    width: 37rem;
+  }
+
   @media (min-width: app.$desktop) {
     width: 37rem;
   }
@@ -96,7 +100,7 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: 2rem;
-  max-widtH: 470px;
+  max-width: 29.375rem;
   width: fit-content;
   margin: auto;
   @media (min-width: app.$tablet) {
