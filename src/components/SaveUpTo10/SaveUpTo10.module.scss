@@ -41,15 +41,11 @@
   max-width: 21.4375rem;
 
   @media (min-width: app.$tablet) {
-    width: 27.5rem;
+    min-width: 27.5rem;
   }
 
   @media (min-width: app.$smallScreen) {
-    width: 37rem;
-  }
-
-  @media (min-width: app.$desktop) {
-    width: 37rem;
+    min-width: 37rem;
   }
 }
 
@@ -69,8 +65,8 @@
     width: 19.875rem;
   }
 
-  @media (min-width: app.$desktop) {
-    width: 37rem;
+  @media (min-width: app.$smallScreen) {
+    min-width: 37rem;
   }
 }
 
