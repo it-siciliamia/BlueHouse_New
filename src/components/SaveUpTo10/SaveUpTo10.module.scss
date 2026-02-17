@@ -1,51 +1,81 @@
+@use "../../Styles/App.scss" as app;
+
 .section {
   width: 100%;
   box-sizing: border-box;
-  margin-top: 18px;
+  margin-top: 1.125rem;
 }
 
 .wrapper {
-  display: flex;
-  justify-content: center;
   width: 100%;
 }
 
 .container {
-  width: 1152px;
-  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2rem;
 }
 
 /* Header row: title + stamp */
 .headingRow {
   display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 24px;
+  flex-direction: column-reverse;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  @media (min-width: app.$tablet) {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    text-align: left;
+  }
 }
 
 .titleBlock {
   display: flex;
   flex-direction: column;
   min-width: 0;
+  max-width: 21.4375rem;
+
+  @media (min-width: app.$tablet) {
+    min-width: 27.5rem;
+  }
+
+  @media (min-width: app.$smallScreen) {
+    min-width: 37rem;
+  }
 }
 
 .title {
   margin: 0;
   font-family: "Oblik", Arial, sans-serif;
   font-weight: 700;
-  font-size: 40px;
-  line-height: 48px;
+  font-size: 1.5rem;
+  line-height: 1.8125rem;
   letter-spacing: -1px;
   text-transform: uppercase;
   color: #1d3967;
+
+  @media (min-width: app.$tablet) {
+    font-size: 2.5rem;
+    line-height: 3rem;
+    width: 19.875rem;
+  }
+
+  @media (min-width: app.$smallScreen) {
+    min-width: 37rem;
+  }
 }
 
 .subtitle {
-  margin: 24px 0 0 0;
+  margin: 1.5rem 0 0 0;
   font-family: "Josefin Sans", Arial, sans-serif;
   font-weight: 600;
-  font-size: 18px;
-  line-height: 24px;
+  font-size: 1.125rem;
+  line-height: 1.5rem;
   color: #212529;
 }
 
@@ -55,38 +85,70 @@
 
 /* Divider line under subtitle */
 .topRule {
-  margin-top: 16px;
+  margin-top: 1rem;
   height: 1px;
   background: rgba(0, 0, 0, 0.08);
 }
 
 /* List + button row wrapper */
 .textWrapper {
-  margin-top: 16px;
+  margin-top: 1rem;
   display: grid;
   grid-template-columns: 1fr;
-  gap: 24px;
+  gap: 2rem;
+  max-width: 29.375rem;
+  width: fit-content;
+  margin: auto;
+  @media (min-width: app.$tablet) {
+    gap: 2.1875rem;
+    max-width: fit-content;
+  }
 }
 
 /* Three bullet points */
 .list {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1.5rem;
+  margin: auto;
+
+  @media (min-width: app.$tablet) {
+    grid-template-columns: repeat(2, 1fr);
+    .listItem:last-child:nth-child(odd) {
+      grid-column: 1 / -1;
+      justify-self: center;
+    }
+  }
+
+  // Small screens behave like desktop (3 columns)
+  @media (min-width: app.$smallScreen) {
+    grid-template-columns: repeat(3, 1fr);
+    .listItem:last-child:nth-child(odd) {
+      grid-column: 3 / -1;
+      justify-self: center;
+    }
+  }
 }
 
 .listItem {
   display: grid;
   grid-template-columns: auto 1fr;
-  gap: 8px;
+  gap: 0.5rem;
   align-items: start;
+
+  @media (min-width: app.$tablet) {
+    &:nth-child(2) .desc{
+      max-width: 21rem;
+    }
+  }
+
 }
 
 .num {
   font-family: "Josefin Sans", Arial, sans-serif;
   font-weight: 600;
-  font-size: 18px;
-  line-height: 24px;
+  font-size: 1.125rem;
+  line-height: 1.5rem;
   color: #1d3967;
 }
 
@@ -94,23 +156,45 @@
   margin: 0;
   font-family: "Josefin Sans", Arial, sans-serif;
   font-weight: 300;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1.125rem;
+  line-height: 1.5rem;
   color: #212529;
+
+  @media (min-width: app.$tablet) {
+    max-width:19.75rem;
+  }
+
+  @media (min-width: app.$desktop) {
+    max-width: 21.625rem;
+  }
 }
 
 /* Button row */
 .buttonRow {
   display: flex;
   align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: auto;
+
+  // Small screens behave like desktop
+  @media (min-width: app.$smallScreen) {
+    justify-content: left;
+    margin: 0;
+  }
 }
 
 /* Button override - because of Figma sizes */
 .btnOverride {
-  font-family: "Josefin Sans", Arial, sans-serif !important;
-  font-size: 16px !important;
-  line-height: 24px !important;
-  font-weight: 400 !important;
-  text-transform: uppercase !important;
-  text-align: center !important;
+  width: 100% !important;
+  height: 3.125rem !important;
+
+  @media (min-width: app.$tablet) {
+    width: 21.125rem !important;
+  }
+
+  // Small screens and desktop get same width
+  @media (min-width: app.$smallScreen) {
+    width: 13.625rem !important;
+  }
 }
